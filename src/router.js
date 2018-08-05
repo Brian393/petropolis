@@ -12,7 +12,7 @@ export default new Router({
       redirect: '/watershed/introduction'
     },
     {
-      path: '/watershed/:subitem',
+      path: '/watershed/introduction',
       name: 'watershed',
       components: {
         default: WatershedIntroduction,
@@ -30,6 +30,15 @@ export default new Router({
         default: () => import('./views/watershed/WatershedTerminals.vue'),
         map: Map,
         props: { subitem: 'terminals' }
+      }
+    },
+    {
+      path: '/watershed/dams',
+      name: 'watershed',
+      components: {
+        default: () => import('./views/watershed/WatershedDams.vue'),
+        map: Map,
+        props: { subitem: 'dams' }
       }
     },
     {

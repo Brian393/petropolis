@@ -14,6 +14,7 @@
           <md-menu-content>
             <md-menu-item to="/watershed/introduction">Introduction</md-menu-item>
             <md-menu-item to="/watershed/terminals">Terminals</md-menu-item>
+            <md-menu-item to="/watershed/dams">Dams</md-menu-item>
           </md-menu-content>
         </md-menu>
 
@@ -170,7 +171,7 @@ export default {
       this.asideHidden = !this.asideHidden
     },
     scrollToAside () {
-      this.$refs.asideContent.scrollIntoView();
+      this.$refs.asideContent.scrollIntoView()
     }
   }
 }
