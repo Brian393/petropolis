@@ -2,9 +2,28 @@
   <div id="app">
     <main>
       <nav>
-        <router-link to="/megaregion">Megaregion</router-link>
-        <router-link to="/watershed">Watershed</router-link>
-        <router-link to="/bioregion">Bioregion</router-link>
+        <md-menu md-direction="bottom-start">
+          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'megaregion' }">Megaregion</md-button>
+          <md-menu-content>
+            <md-menu-item to="/megaregion/introduction">Introduction</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+        <md-menu md-direction="bottom-start">
+          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'watershed' }">Watershed</md-button>
+          <md-menu-content>
+            <md-menu-item to="/watershed/introduction">Introduction</md-menu-item>
+            <md-menu-item to="/watershed/terminals">Terminals</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+        <md-menu md-direction="bottom-start">
+          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'bioregion' }">Bioregion</md-button>
+          <md-menu-content>
+            <md-menu-item to="/bioregion/introduction">Introduction</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
       </nav>
       <router-view name="map" id="map" />
     </main>
@@ -40,24 +59,8 @@
 nav {
   height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-}
-
-nav a {
-  font-weight: bold;
-  color: #0E8817;
-  text-decoration: none;
-  max-height: 50px;
-  display: flex;
-  align-items: center;
-  font-size: 1.5em;
-  padding: 5px 50px;
-}
-
-nav a:hover, nav a.router-link-exact-active {
-  background-color: #0E8817;
-  color: white;
 }
 
 #map {
@@ -92,7 +95,7 @@ aside h1 {
 #aside-toggle {
   padding-top: 12px;
   text-align: center;
-  height: 40px;
+  height: 50px;
   width: 100%;
   max-width: 50px;
   float: right;
@@ -124,20 +127,10 @@ aside h1 {
   padding: 0 1em;
 }
 
-@media (max-width: 1075px) {
-  nav a {
-    font-size: 1.25em;
-    padding: 5px 10px;
-  }
-}
-
 @media (min-width: 850px) {
   #app {
     flex-direction: row;
     height: 100vh;
-  }
-  nav {
-    justify-content: space-around;
   }
   main {
     flex: 1;

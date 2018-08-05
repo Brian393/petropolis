@@ -38,6 +38,6 @@
 
 <script>
 export default {
-  name: 'Watershed'
+  name: 'WatershedIntroduction'
 }
 </script>

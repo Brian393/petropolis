@@ -1,20 +1,35 @@
 <template>
-  <div>
-    <h1>Map {{ $route.name }}</h1>
+  <div id="map">
   </div>
 </template>
 
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-</style>
-
 <script>
+import 'ol/ol.css'
+import {Map, View} from 'ol'
+import TileLayer from 'ol/layer/Tile'
+import OSM from 'ol/source/OSM'
+
 export default {
   name: 'Map',
-  props: {
-    name: String
+  data: function () {
+    return {
+      olmap: undefined
+    }
+  },
+  mounted: function () {
+    console.log('$route.name:', this.$route.name, ' $route.params.subitem:', this.$route.params.subitem)
+    this.olmap = new Map({
+      target: 'map',
+      layers: [
+        new TileLayer({
+          source: new OSM()
+        })
+      ],
+      view: new View({
+        center: [0, 0],
+        zoom: 0
+      })
+    })
   }
 }
 </script>

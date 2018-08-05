@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Watershed from './views/Watershed.vue'
+import WatershedIntroduction from './views/watershed/WatershedIntroduction.vue'
 import Map from './components/Map.vue'
 
 Vue.use(Router)
@@ -9,34 +9,46 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/watershed'
+      redirect: '/watershed/introduction'
     },
     {
-      path: '/watershed',
+      path: '/watershed/:subitem',
       name: 'watershed',
       components: {
-        default: Watershed,
-        map: Map
+        default: WatershedIntroduction,
+        map: Map,
+        props: { subitem: 'introduction' }
       }
     },
     {
-      path: '/megaregion',
-      name: 'megaregion',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: '/watershed/terminals',
+      name: 'watershed',
       components: {
-        default: () => import('./views/Megaregion.vue'),
-        map: Map
-      } 
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        default: () => import('./views/watershed/WatershedTerminals.vue'),
+        map: Map,
+        props: { subitem: 'terminals' }
+      }
     },
     {
-      path: '/bioregion',
+      path: '/megaregion/introduction',
+      name: 'megaregion',
+      components: {
+        default: () => import('./views/megaregion/MegaregionIntroduction.vue'),
+        map: Map,
+        props: { subitem: 'introduction' }
+      }
+    },
+    {
+      path: '/bioregion/:subitem',
       name: 'bioregion',
       components: {
-        default: () => import('./views/Bioregion.vue'),
-        map: Map
-      } 
+        default: () => import('./views/bioregion/BioregionIntroduction.vue'),
+        map: Map,
+        props: { subitem: 'introduction' }
+      }
     }
   ]
 })

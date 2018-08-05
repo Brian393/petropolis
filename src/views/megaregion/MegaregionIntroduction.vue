@@ -5,12 +5,7 @@
 </template>
 
 <script>
-import Map from '@/components/Map.vue'
-
 export default {
-  name: 'Megaregion',
-  components: {
-    Map
-  }
+  name: 'MegaregionIntroduction'
 }
 </script>
