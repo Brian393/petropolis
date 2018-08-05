@@ -27,19 +27,15 @@
       </nav>
       <router-view name="map" id="map" />
     </main>
-    <aside>
+    <aside v-bind:class="{ 'no-flex': this.asideHidden}">
       <div id="aside-wraper">
         <div v-on:click="toggleAside" id="aside-toggle">
-          <i v-if="asideHidden" class="material-icons">
-          menu
-          </i>
-          <i v-else class="material-icons">
-          close
-          </i>
+          <i v-if="asideHidden" class="material-icons">menu</i>
+          <i v-else class="material-icons">close</i>
         </div>
-        <h1 id="aside-heading">Learning From Cascadia</h1>
+        <h1 id="aside-heading" v-bind:class="{hidden: this.asideHidden}">Learning From Cascadia</h1>
       </div>
-      <div id="content">
+      <div id="content" v-bind:class="{hidden: this.asideHidden}">
         <router-view/>
       </div>
     </aside>
@@ -156,17 +152,7 @@ export default {
   },
   methods: {
     toggleAside () {
-      if (this.asideHidden) {
-        document.getElementById('content').classList.remove('hidden')
-        document.getElementById('aside-heading').classList.remove('hidden')
-        document.getElementsByTagName('aside')[0].classList.remove('no-flex')
-        this.asideHidden = false
-      } else {
-        document.getElementById('content').classList.add('hidden')
-        document.getElementById('aside-heading').classList.add('hidden')
-        document.getElementsByTagName('aside')[0].classList.add('no-flex')
-        this.asideHidden = true
-      }
+      this.asideHidden = !this.asideHidden
     }
   }
 }
