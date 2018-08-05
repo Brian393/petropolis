@@ -24,18 +24,22 @@
           </md-menu-content>
         </md-menu>
 
+        <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
+          <i class="material-icons">keyboard_arrow_down</i>
+        </div>
+
       </nav>
       <router-view name="map" id="map" />
     </main>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">
       <div id="aside-wraper">
-        <div v-on:click="toggleAside" id="aside-toggle">
+        <div v-on:click="toggleAside" id="aside-toggle" title="Toggle Content">
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
         <h1 id="aside-heading" v-bind:class="{hidden: this.asideHidden}">Learning From Cascadia</h1>
       </div>
-      <div id="content" v-bind:class="{hidden: this.asideHidden}">
+      <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
       </div>
     </aside>
@@ -84,7 +88,7 @@ aside {
   height: 51px;
 }
 
-#aside-toggle {
+#aside-toggle, #aside-scroll-to {
   padding-top: 12px;
   text-align: center;
   height: 50px;
@@ -93,10 +97,14 @@ aside {
   float: right;
   display: none;
 }
-#aside-toggle:hover{
+#aside-toggle:hover, #aside-scroll-to:hover {
   color: #0E8817;
   background-color: white;
   cursor: hand;
+}
+
+#aside-scroll-to {
+  display: block;
 }
 
 .no-flex{
@@ -142,6 +150,9 @@ aside {
   #aside-toggle {
     display: block;
   }
+  #aside-scroll-to {
+    display: none;
+  }
 }
 
 </style>
@@ -157,6 +168,9 @@ export default {
   methods: {
     toggleAside () {
       this.asideHidden = !this.asideHidden
+    },
+    scrollToAside () {
+      this.$refs.asideContent.scrollIntoView();
     }
   }
 }
