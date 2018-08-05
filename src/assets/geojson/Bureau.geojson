@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "key2": "Minidoka Dam, Snake River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1905", "NID_HEIGHT": 86.000000 }, "geometry": { "type": "Point", "coordinates": [ -113.48311, 42.66985 ] } },
+
+{ "type": "Feature", "properties": { "key2": "American Falls Dam, Snake River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1977", "NID_HEIGHT": 103.500000 }, "geometry": { "type": "Point", "coordinates": [ -112.87655, 42.7785 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Palisades Dam, Snake River<br><img src='cascadia/images/Dams/PalisadesDam.jpg'><br>Bureau of Reclamation, constructed 1956", "NID_HEIGHT": 270.000000 }, "geometry": { "type": "Point", "coordinates": [ -111.20266, 43.33307 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Anderson Ranch Dam, South Fork Boise River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1946", "NID_HEIGHT": 456.000000 }, "geometry": { "type": "Point", "coordinates": [ -115.44908, 43.35759 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Arrowrock Dam, Boise River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1914", "NID_HEIGHT": 350.000000 }, "geometry": { "type": "Point", "coordinates": [ -115.92267, 43.59558 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Jackson Lake Dam, Snake River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1911", "NID_HEIGHT": 68.000000 }, "geometry": { "type": "Point", "coordinates": [ -110.58982, 43.85753 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Deadwood Dam, Deadwood River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1930", "NID_HEIGHT": 165.000000 }, "geometry": { "type": "Point", "coordinates": [ -115.64597, 44.2937 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Cascade Dam, North Fork Payette River<br><img src='cascadia/images/Dams/.jpg'><br>Bureau of Reclamation, constructed 1947", "NID_HEIGHT": 107.000000 }, "geometry": { "type": "Point", "coordinates": [ -116.05, 44.525 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Grand Coulee Dam, Columbia River<br><img src='cascadia/images/Dams/GrandCouleeDam.jpg'><br>Bureau of Reclamation, constructed 1941", "NID_HEIGHT": 550.000000 }, "geometry": { "type": "Point", "coordinates": [ -118.98124, 47.95612 ] } },
+
+{ "type": "Feature", "properties": { "key2": "Hungry Horse Dam, South Fork Flathead River<br><img src='cascadia/images/Dams/HungryHorseDam.jpg'><br>Bureau of Reclamation, constructed 1952", "NID_HEIGHT": 564.000000 }, "geometry": { "type": "Point", "coordinates": [ -114.01274, 48.3413 ] } }
+]
+}
