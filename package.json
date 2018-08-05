@@ -12,6 +12,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "material-design-icons": "^3.0.1",
     "vue": "^2.5.16",
     "vue-material": "^1.0.0-beta-10.2",
     "vue-router": "^3.0.1"
