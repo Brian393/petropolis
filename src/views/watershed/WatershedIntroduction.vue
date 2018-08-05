@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="aside-content">
     <h1>Watershed Heading</h1>
     <div id="lipsum">
       <p>

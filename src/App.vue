@@ -75,10 +75,6 @@ aside {
   overflow: scroll;
 }
 
-aside h1 {
-  margin: 0.25em;
-}
-
 #aside-wraper {
   position: sticky;
   top: 0;
@@ -119,8 +115,16 @@ aside h1 {
   overflow-y: scroll;
 }
 
+#aside-heading {
+  margin-top: 0.5em;
+}
+
 #content, #aside-heading {
   padding: 0 1em;
+}
+
+.aside-content h1{
+  margin-top: 0.75em;
 }
 
 @media (min-width: 850px) {
