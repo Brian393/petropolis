@@ -3,14 +3,14 @@
     <main>
       <nav>
         <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'megaregion' }">Megaregion</md-button>
+          <md-button md-menu-trigger class="md-raised" v-bind:class="{ 'md-accent': $route.name === 'megaregion' }">Megaregion</md-button>
           <md-menu-content>
             <md-menu-item to="/megaregion/introduction">Introduction</md-menu-item>
           </md-menu-content>
         </md-menu>
 
         <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'watershed' }">Watershed</md-button>
+          <md-button md-menu-trigger class="md-raised" v-bind:class="{ 'md-accent': $route.name === 'watershed' }">Watershed</md-button>
           <md-menu-content>
             <md-menu-item to="/watershed/introduction">Introduction</md-menu-item>
             <md-menu-item to="/watershed/terminals">Terminals</md-menu-item>
@@ -19,7 +19,7 @@
         </md-menu>
 
         <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger v-bind:class="{ 'md-primary': $route.name === 'bioregion' }">Bioregion</md-button>
+          <md-button md-menu-trigger class="md-raised"  v-bind:class="{ 'md-accent': $route.name === 'bioregion' }">Bioregion</md-button>
           <md-menu-content>
             <md-menu-item to="/bioregion/introduction">Introduction</md-menu-item>
           </md-menu-content>
