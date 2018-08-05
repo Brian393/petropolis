@@ -61,15 +61,19 @@ nav a:hover, nav a.router-link-exact-active {
 }
 
 #map {
-  background-color: rgba(147, 128, 108, 0.1);
+  background-color: #f4f2f0;
   height: calc(100vh - 50px);
+  border-top: thin solid #0E8817;
+  box-sizing: border-box;
 }
 
 aside {
+  background-color: #f4f2f0;
+  border-left: thin solid #0E8817;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  padding-left: 1em;
 }
 
 aside h1 {
@@ -79,20 +83,24 @@ aside h1 {
 #aside-wraper {
   position: sticky;
   top: 0;
-  background-color: white;
+  color: white;
+  background-color: #0E8817;
   z-index: 1;
+  height: 51px;
 }
 
 #aside-toggle {
   padding-top: 12px;
   text-align: center;
   height: 40px;
-  width: 40px;
+  width: 100%;
+  max-width: 50px;
   float: right;
+  display: none;
 }
 #aside-toggle:hover{
-  color: white;
-  background-color: #0E8817;
+  color: #0E8817;
+  background-color: white;
   cursor: hand;
 }
 
@@ -108,7 +116,12 @@ aside h1 {
 }
 
 #content {
-  padding-right: 1em;
+  max-height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+
+#content, #aside-heading {
+  padding: 0 1em;
 }
 
 @media (max-width: 1075px) {
@@ -132,6 +145,9 @@ aside h1 {
   }
   aside {
     flex: 0 0 400px;
+  }
+  #aside-toggle {
+    display: block;
   }
 }
 
