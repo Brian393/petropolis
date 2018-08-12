@@ -6,12 +6,11 @@
 <script>
 import 'ol/ol.css'
 import {Map, View} from 'ol'
-import {Tile, Vector as VectorLayer} from 'ol/layer' // TileLayer Group
+import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
 import {XYZ, Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
-import {bbox as LoadingStrategy} from 'ol/loadingstrategy'
 
 export default {
   name: 'Map',
@@ -87,7 +86,6 @@ export default {
   watch: {
     '$route' (to, from) {
       // react to route changes...
-      // console.log('$route watch to:', to, 'from:', from)
       this.initMap()
     }
   },
@@ -101,6 +99,21 @@ export default {
         case 'watershedTerminals':
           this.initWatershedTerminals()
           break
+        case 'watershedDams':
+          this.initWatershedDams()
+          break
+        case 'watershedHanford':
+          this.initWatershedHanford()
+          break
+        case 'watershedHanfordLegacy':
+          this.initWatershedHanfordLegacy()
+          break
+        case 'watershedHanfordPlumes':
+          this.initWatershedHanfordPlumes()
+          break
+        case 'watershedHanfordFloods':
+          this.initWatershedHanfordFloods()
+          break
         default:
           this.initWatershedIntro()
       }
@@ -109,8 +122,7 @@ export default {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
-          format: new GeoJSON(),
-          strategy: LoadingStrategy
+          format: new GeoJSON()
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
@@ -163,255 +175,218 @@ export default {
         fillColor: fillColor
       })
     },
-    initWatershedIntro: function () {
-      this.olmap = new Map({
-        target: 'map',
-        layers: [
-          // tiles[4]
-          new Tile({
-            source: new XYZ({
-              url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
-            }),
-            opacity: 0.9,
-            minResolution: 2,
-            maxResolution: 16000,
-            label: 'Introduction',
-            initialViewKey: 'introductionwater'
+    watershedBaseLayers: function () {
+      return [
+        // tiles[4]
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
           }),
-          // tiles[3]
-          new Tile({
-            preload: Infinity,
-            source: new XYZ({
-              url: 'http://ecotopia.today/cascadia/Tiles/Columbia/{z}/{x}/{y}.png'
-            }),
-            opacity: 1,
-            minResolution: 2,
-            maxResolution: 16000,
-            label: 'CustomTiles'
+          opacity: 0.9,
+          minResolution: 2,
+          maxResolution: 16000,
+          label: 'Introduction',
+          initialViewKey: 'introductionwater'
+        }),
+        // tiles[3]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Columbia/{z}/{x}/{y}.png'
           }),
-          // tiles[16]
-          new Tile({
-            source: new XYZ({
-              url: 'https://basemap.nationalmap.gov/arcgis/rest/services/' +
-                  'USGSTopo/MapServer/tile/{z}/{y}/{x}'
-            }),
-            opacity: 0.9,
-            minResolution: 1,
-            maxResolution: 8
-          })
-          // ,
-          // Terminals
-          // new Tile({
-          //   layers: [
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/stopped.geojson', '../../assets/icons/stop.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/planned.geojson', '../../assets/icons/stopit.png', null, 2, 32000)
-          //   ],
-          //   label: 'Terminals',
-          //   initialViewKey: 'terminals'
-          // }),
-          // Terminals.setVisible(false);
-          // Dams
-          // new Tile({
-          //   layers: [
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/Rapids.geojson', '../../assets/icons/waterfall.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/MajorHydroCRB.geojson', '../../assets/icons/damOther.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/Bureau.geojson', '../../assets/icons/damBR.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/ArmyCorps.geojson', '../../assets/icons/damAC.png', null, 2, 32000)
-          //   ],
-          //   label: 'Dams',
-          //   initialViewKey: 'dams'
-          // }),
-          // Dams.setVisible(false);
-          // tiles[8]
-          // new Tile({
-          //   preload: Infinity,
-          //   source: new XYZ({
-          //     url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
-          //   }),
-          //   opacity: 1,
-          //   minResolution: 1,
-          //   maxResolution: 160,
-          //   label: 'Hanford',
-          //   initialViewKey: 'hanford1'
-          // }),
-          // tiles[8].setVisible(false);
-          //  Plumes
-          // new Tile({
-          //   layers: [
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     }),
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     }),
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     })
-          //   ],
-          //   label: 'Plumes',
-          //   initialViewKey: 'plumes'
-          // }),
-          // Plumes.setVisible(false);
-          //  tiles[2]
-          // new Tile({
-          //   preload: Infinity,
-          //   source: new XYZ({
-          //     url: 'http://ecotopia.today/cascadia/Tiles/Floods/{z}/{x}/{y}.png'
-          //   }),
-          //   opacity: 0.7,
-          //   minResolution: 2,
-          //   maxResolution: 16000,
-          //   label: 'Missoula floods',
-          //   initialViewKey: 'floods'
-          // })
-          // tiles[2].setVisible(false);
-        ],
-        view: new View({
-          center: fromLonLat(this.centerPoints.introductionwater.center),
-          resolution: this.centerPoints.introductionwater.resolution,
-          zoom: 0
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000,
+          label: 'CustomTiles'
+        }),
+        // tiles[16]
+        new Tile({
+          source: new XYZ({
+            url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}'
+          }),
+          opacity: 0.9,
+          minResolution: 1,
+          maxResolution: 8
         })
-      })
-    }, // end initWatershedIntro()
+      ]
+    },
+    initBaseWatershedMap: function () {
+      if (!this.olmap) {
+        this.olmap = new Map({
+          target: 'map',
+          layers: this.watershedBaseLayers()
+        })
+      }
+    },
+    initWatershedIntro: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers()
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.introductionwater.center),
+        resolution: this.centerPoints.introductionwater.resolution,
+        zoom: 0
+      }))
+    },
     initWatershedTerminals: function () {
-      this.olmap = new Map({
-        target: 'map',
-        layers: [
-          // tiles[4]
-          new Tile({
-            source: new XYZ({
-              url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
-            }),
-            opacity: 0.9,
-            minResolution: 2,
-            maxResolution: 16000,
-            label: 'Introduction',
-            initialViewKey: 'introductionwater'
-          }),
-          // tiles[3]
-          new Tile({
-            preload: Infinity,
-            source: new XYZ({
-              url: 'http://ecotopia.today/cascadia/Tiles/Columbia/{z}/{x}/{y}.png'
-            }),
-            opacity: 1,
-            minResolution: 2,
-            maxResolution: 16000,
-            label: 'CustomTiles'
-          }),
-          // tiles[16]
-          new Tile({
-            source: new XYZ({
-              url: 'https://basemap.nationalmap.gov/arcgis/rest/services/' +
-                  'USGSTopo/MapServer/tile/{z}/{y}/{x}'
-            }),
-            opacity: 0.9,
-            minResolution: 1,
-            maxResolution: 8
-          }),
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
           this.makeGeoJSONPointVectorLayer('/geojson/stopped.geojson', '/icons/stop.png', undefined, 2, 32000),
           this.makeGeoJSONPointVectorLayer('/geojson/planned.geojson', '/icons/stopit.png', undefined, 2, 32000)
-
-          // Dams
-          // new Tile({
-          //   layers: [
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/Rapids.geojson', '../../assets/icons/waterfall.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/MajorHydroCRB.geojson', '../../assets/icons/damOther.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/Bureau.geojson', '../../assets/icons/damBR.png', null, 2, 32000),
-          //     this.makeGeoJSONPointVectorLayer('../../assets/geojson/ArmyCorps.geojson', '../../assets/icons/damAC.png', null, 2, 32000)
-          //   ],
-          //   label: 'Dams',
-          //   initialViewKey: 'dams'
-          // }),
-          // Dams.setVisible(false);
-          // tiles[8]
-          // new Tile({
-          //   preload: Infinity,
-          //   source: new XYZ({
-          //     url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
-          //   }),
-          //   opacity: 1,
-          //   minResolution: 1,
-          //   maxResolution: 160,
-          //   label: 'Hanford',
-          //   initialViewKey: 'hanford1'
-          // }),
-          // tiles[8].setVisible(false);
-          //  Plumes
-          // new Tile({
-          //   layers: [
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     }),
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     }),
-          //     new Tile({
-          //       preload: Infinity,
-          //       source: new XYZ({
-          //         url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
-          //       }),
-          //       opacity: 1,
-          //       minResolution: 2,
-          //       maxResolution: 80
-          //     })
-          //   ],
-          //   label: 'Plumes',
-          //   initialViewKey: 'plumes'
-          // }),
-          // Plumes.setVisible(false);
-          //  tiles[2]
-          // new Tile({
-          //   preload: Infinity,
-          //   source: new XYZ({
-          //     url: 'http://ecotopia.today/cascadia/Tiles/Floods/{z}/{x}/{y}.png'
-          //   }),
-          //   opacity: 0.7,
-          //   minResolution: 2,
-          //   maxResolution: 16000,
-          //   label: 'Missoula floods',
-          //   initialViewKey: 'floods'
-          // })
-          // tiles[2].setVisible(false);
-        ],
-        view: new View({
+        ])
+      }))
+      this.olmap.setView(
+        new View({
           center: fromLonLat(this.centerPoints.terminals.center),
           resolution: this.centerPoints.terminals.resolution,
           zoom: 0
         })
-      })
+      )
+    },
+    initWatershedDams: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
+          this.makeGeoJSONPointVectorLayer('/geojson/Rapids.geojson', '/icons/waterfall.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/MajorHydroCRB.geojson', '/icons/damOther.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/Bureau.geojson', '/icons/damBR.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/ArmyCorps.geojson', '/icons/damAC.png', null, 2, 32000)
+        ])
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.dams.center),
+          resolution: this.centerPoints.dams.resolution,
+          zoom: 0
+        })
+      )
+    },
+    initWatershedHanford: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 1,
+            maxResolution: 160,
+            label: 'Hanford',
+            initialViewKey: 'hanford1'
+          })
+        ])
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.hanford1.center),
+          resolution: this.centerPoints.hanford1.resolution,
+          zoom: 0
+        })
+      )
+    },
+    initWatershedHanfordLegacy: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 2,
+            maxResolution: 80
+          }),
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 2,
+            maxResolution: 80
+          }),
+          this.makeGeoJSONFillVectorLayer('/geojsons/HanfordLabels.geojson', 'null', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
+        ])
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.legacy.center),
+          resolution: this.centerPoints.legacy.resolution,
+          zoom: 0
+        })
+      )
+    },
+    initWatershedHanfordPlumes: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 2,
+            maxResolution: 80
+          }),
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 2,
+            maxResolution: 80
+          }),
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 2,
+            maxResolution: 80
+          })
+        ])
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.plumes.center),
+          resolution: this.centerPoints.plumes.resolution,
+          zoom: 0
+        })
+      )
+    },
+    initWatershedHanfordFloods: function () {
+      this.initBaseWatershedMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedBaseLayers().concat([
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Floods/{z}/{x}/{y}.png'
+            }),
+            opacity: 0.7,
+            minResolution: 2,
+            maxResolution: 16000,
+            label: 'Missoula floods',
+            initialViewKey: 'floods'
+          })
+        ])
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.floods.center),
+          resolution: this.centerPoints.floods.resolution,
+          zoom: 0
+        })
+      )
     }
-
   }
 }
 </script>

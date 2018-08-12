@@ -39,6 +39,38 @@ export default new Router({
       }
     },
     {
+      path: '/watershed/hanford',
+      name: 'watershedHanford',
+      components: {
+        default: () => import('./views/watershed/WatershedHanford.vue'),
+        map: Map
+      }
+    },
+    {
+      path: '/watershed/hanford/legacy',
+      name: 'watershedHanfordLegacy',
+      components: {
+        default: () => import('./views/watershed/WatershedHanfordLegacy.vue'),
+        map: Map
+      }
+    },
+    {
+      path: '/watershed/hanford/plumes',
+      name: 'watershedHanfordPlumes',
+      components: {
+        default: () => import('./views/watershed/WatershedHanfordPlumes.vue'),
+        map: Map
+      }
+    },
+    {
+      path: '/watershed/hanford/floods',
+      name: 'watershedHanfordFloods',
+      components: {
+        default: () => import('./views/watershed/WatershedHanfordFloods.vue'),
+        map: Map
+      }
+    },
+    {
       path: '/megaregion/introduction',
       name: 'megaregion',
       components: {

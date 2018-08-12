@@ -15,6 +15,10 @@
             <md-menu-item to="/watershed/introduction">Introduction</md-menu-item>
             <md-menu-item to="/watershed/terminals">Terminals</md-menu-item>
             <md-menu-item to="/watershed/dams">Dams</md-menu-item>
+            <md-menu-item to="/watershed/hanford">Hanford</md-menu-item>
+            <md-menu-item to="/watershed/hanford/legacy">Hanford Legacy</md-menu-item>
+            <md-menu-item to="/watershed/hanford/plumes">Hanford Plumes</md-menu-item>
+            <md-menu-item to="/watershed/hanford/floods">Hanford Floods</md-menu-item>
           </md-menu-content>
         </md-menu>
 
