@@ -19,9 +19,7 @@ export default {
       olmap: undefined,
       baseUrl: '', // use '/ecotopia-today' for gh-pages
       centerPoints: {
-        bioregion: [-121.2, 51.0],
-        watershed: [-118.8, 46.1],
-        metropolis: [-122.112002, 45.564222],
+        // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionwater: {
           center: [-118.8, 46.1],
           resolution: 700
@@ -92,7 +90,6 @@ export default {
   },
   methods: {
     initMap: function () {
-      console.log('initMap $route.name:', this.$route.name)
       switch (this.$route.name) {
         case 'watershedIntroduction':
           this.initWatershedIntro()
@@ -119,7 +116,7 @@ export default {
           this.initWatershedIntro()
       }
     },
-    makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {
+    makeGeoJSONPointVectorLayer: function (url, iconPath, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
           url: `${this.baseUrl}${url}`,
@@ -131,12 +128,10 @@ export default {
           image: new Icon({
             src: `${this.baseUrl}${iconPath}`
           })
-        }),
-        label: label,
-        legendImgSrc: iconPath
+        })
       })
     },
-    makeGeoJSONLineVectorLayer: function (url, label, minResolution, maxResolution, strokeColor, width) {
+    makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
@@ -150,11 +145,10 @@ export default {
             width: width
           })
         }),
-        label: label,
         strokeColor: strokeColor
       })
     },
-    makeGeoJSONFillVectorLayer: function (url, label, minResolution, maxResolution, strokeColor, width, fillColor) {
+    makeGeoJSONFillVectorLayer: function (url, minResolution, maxResolution, strokeColor, width, fillColor) {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
@@ -172,24 +166,20 @@ export default {
           })
         }),
         fill: fillColor,
-        label: label,
         fillColor: fillColor
       })
     },
     watershedBaseLayers: function () {
+      // #TODO: this could be a computed property.
       return [
-        // tiles[4]
         new Tile({
           source: new XYZ({
             url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
           }),
           opacity: 0.9,
           minResolution: 2,
-          maxResolution: 16000,
-          label: 'Introduction',
-          initialViewKey: 'introductionwater'
+          maxResolution: 16000
         }),
-        // tiles[3]
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -197,10 +187,8 @@ export default {
           }),
           opacity: 1,
           minResolution: 2,
-          maxResolution: 16000,
-          label: 'CustomTiles'
+          maxResolution: 16000
         }),
-        // tiles[16]
         new Tile({
           source: new XYZ({
             url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}'
@@ -234,8 +222,8 @@ export default {
       this.initBaseWatershedMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('/geojson/stopped.geojson', '/icons/stop.png', undefined, 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/planned.geojson', '/icons/stopit.png', undefined, 2, 32000)
+          this.makeGeoJSONPointVectorLayer('/geojson/stopped.geojson', '/icons/stop.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/planned.geojson', '/icons/stopit.png', 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -250,10 +238,10 @@ export default {
       this.initBaseWatershedMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('/geojson/Rapids.geojson', '/icons/waterfall.png', null, 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/MajorHydroCRB.geojson', '/icons/damOther.png', null, 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/Bureau.geojson', '/icons/damBR.png', null, 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/ArmyCorps.geojson', '/icons/damAC.png', null, 2, 32000)
+          this.makeGeoJSONPointVectorLayer('/geojson/Rapids.geojson', '/icons/waterfall.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/MajorHydroCRB.geojson', '/icons/damOther.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/Bureau.geojson', '/icons/damBR.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('/geojson/ArmyCorps.geojson', '/icons/damAC.png', 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -275,9 +263,7 @@ export default {
             }),
             opacity: 1,
             minResolution: 1,
-            maxResolution: 160,
-            label: 'Hanford',
-            initialViewKey: 'hanford1'
+            maxResolution: 160
           })
         ])
       }))
@@ -311,7 +297,7 @@ export default {
             minResolution: 2,
             maxResolution: 80
           }),
-          this.makeGeoJSONFillVectorLayer('/geojsons/HanfordLabels.geojson', 'null', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
+          this.makeGeoJSONFillVectorLayer('/geojsons/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
         ])
       }))
       this.olmap.setView(
@@ -374,9 +360,7 @@ export default {
             }),
             opacity: 0.7,
             minResolution: 2,
-            maxResolution: 16000,
-            label: 'Missoula floods',
-            initialViewKey: 'floods'
+            maxResolution: 16000
           })
         ])
       }))
