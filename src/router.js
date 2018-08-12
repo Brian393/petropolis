@@ -13,32 +13,29 @@ export default new Router({
     },
     {
       path: '/watershed/introduction',
-      name: 'watershed',
+      name: 'watershedIntroduction',
       components: {
         default: WatershedIntroduction,
-        map: Map,
-        props: { subitem: 'introduction' }
+        map: Map
       }
     },
     {
       path: '/watershed/terminals',
-      name: 'watershed',
+      name: 'watershedTerminals',
       components: {
         // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
+        // this generates a separate chunk (watershed.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         default: () => import('./views/watershed/WatershedTerminals.vue'),
-        map: Map,
-        props: { subitem: 'terminals' }
+        map: Map
       }
     },
     {
       path: '/watershed/dams',
-      name: 'watershed',
+      name: 'watershedDams',
       components: {
         default: () => import('./views/watershed/WatershedDams.vue'),
-        map: Map,
-        props: { subitem: 'dams' }
+        map: Map
       }
     },
     {
@@ -46,17 +43,15 @@ export default new Router({
       name: 'megaregion',
       components: {
         default: () => import('./views/megaregion/MegaregionIntroduction.vue'),
-        map: Map,
-        props: { subitem: 'introduction' }
+        map: Map
       }
     },
     {
-      path: '/bioregion/:subitem',
+      path: '/bioregion/introduction',
       name: 'bioregion',
       components: {
         default: () => import('./views/bioregion/BioregionIntroduction.vue'),
-        map: Map,
-        props: { subitem: 'introduction' }
+        map: Map
       }
     }
   ]
