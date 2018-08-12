@@ -4,6 +4,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import 'ol/ol.css'
 import {Map, View} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
@@ -14,6 +16,12 @@ import {fromLonLat} from 'ol/proj'
 
 export default {
   name: 'Map',
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'asideHidden'
+    ])
+  },
   data: function () {
     return {
       olmap: undefined,
@@ -86,6 +94,9 @@ export default {
     '$route' (to, from) {
       // react to route changes...
       this.initMap()
+    },
+    'asideHidden' () {
+      this.olmap.updateSize()
     }
   },
   methods: {

@@ -163,16 +163,19 @@ aside {
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'App',
-  data: function () {
-    return {
-      asideHidden: false
-    }
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      'asideHidden'
+    ])
   },
   methods: {
     toggleAside () {
-      this.asideHidden = !this.asideHidden
+      this.$store.dispatch('toggle')
     },
     scrollToAside () {
       this.$refs.asideContent.scrollIntoView()
