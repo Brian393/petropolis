@@ -17,6 +17,7 @@ export default {
   data: function () {
     return {
       olmap: undefined,
+      baseUrl: '', // use '/ecotopia-today' for gh-pages
       centerPoints: {
         bioregion: [-121.2, 51.0],
         watershed: [-118.8, 46.1],
@@ -121,14 +122,14 @@ export default {
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
-          url: url,
+          url: `${this.baseUrl}${url}`,
           format: new GeoJSON()
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
         style: new Style({
           image: new Icon({
-            src: iconPath
+            src: `${this.baseUrl}${iconPath}`
           })
         }),
         label: label,
@@ -139,7 +140,7 @@ export default {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
-          url: url
+          url: `${this.baseUrl}${url}`
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
@@ -157,7 +158,7 @@ export default {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
-          url: url
+          url: `${this.baseUrl}${url}`
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
