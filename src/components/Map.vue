@@ -1,5 +1,5 @@
 <template>
-  <div id="map">
+  <div id="map" ref="map">
     <div ref="popup" class="ol-popup">
       <a href="#" ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></a>
       <div ref="popupContent"></div>
@@ -304,6 +304,16 @@ export default {
         //     popup.show(map.getCoordinateFromPixel(evt.pixel), info)
         //   }
         // })
+
+        this.olmap.on('pointermove', (e) => {
+          if (e.dragging) {
+            this.closePopup()
+            return
+          }
+          var pixel = this.olmap.getEventPixel(e.originalEvent)
+          var hit = this.olmap.hasFeatureAtPixel(pixel)
+          this.$refs.map.style.cursor = hit ? 'pointer' : ''
+        });
       }
     },
     initWatershedIntro: function () {
