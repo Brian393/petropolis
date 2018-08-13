@@ -2,7 +2,7 @@
   <div id="map" ref="map">
     <div ref="popup" class="ol-popup">
       <a href="#" ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></a>
-      <div ref="popupContent"></div>
+      <div class="ol-popup-content" ref="popupContent"></div>
     </div>
   </div>
 </template>
@@ -12,12 +12,13 @@
   background-color: white;
   -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  padding: 15px;
   border-radius: 10px;
   border: 1px solid #cccccc;
   bottom: 12px;
   left: -50px;
   min-width: 280px;
+  height: 280px;
+  overflow: scroll;
 }
 .ol-popup:after, .ol-popup:before {
   top: 100%;
@@ -42,9 +43,12 @@
 }
 .ol-popup-closer {
   text-decoration: none;
-  position: absolute;
-  top: 2px;
-  right: 8px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  float: right;
+  font-size: 1.5em;
 }
 .ol-popup-closer:after {
   content: "✖";
@@ -58,8 +62,10 @@ import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
 import {XYZ, Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
-import {fromLonLat, toLonLat} from 'ol/proj'
-import {toStringHDMS} from 'ol/coordinate'
+import {fromLonLat} from 'ol/proj'
+
+import Vue from 'vue'
+import Timeline from 'vue-tweet-embed/timeline'
 
 export default {
   name: 'Map',
@@ -69,7 +75,6 @@ export default {
       'asideHidden'
     ]),
     popup: function () {
-      console.log('popup elem:', this.$refs.popup)
       return new Overlay({
         element: this.$refs.popup,
         autoPan: true,
@@ -276,13 +281,29 @@ export default {
         })
         // #TODO: improve this popup logic...
         this.olmap.on('singleclick', (e) => {
-          console.log('singleclick e:', e)
-          const coordinate = e.coordinate
-          const hdms = toStringHDMS(toLonLat(coordinate))
-          this.$refs.popupContent.innerHTML = '<p>You clicked here:</p><code>' + hdms +
-              '</code>'
-          this.popup.setPosition(coordinate)
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            console.log('has feature! props:', props)
+            if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
+              const TimelineCtor = Vue.extend(Timeline)
+              new TimelineCtor({
+                propsData: {
+                  id: 'NoMethanol', // #TODO: use this.props.timeline,
+                  sourceType: 'profile'
+                }
+              }).$mount(this.$refs.popupContent)
+              this.popup.setPosition(e.coordinate)
+            }
+          }
         })
+        window.addEventListener('keydown', (e) => {
+          // close popup if esc key pressed
+          if (e.keyCode === 27) {
+            this.closePopup()
+          }
+        })
+
         // const popup = new Overlay.Popup()
         // this.olmap.addOverlay(popup)
         // // Event handler for the map "singleclick" event
@@ -306,14 +327,14 @@ export default {
         // })
 
         this.olmap.on('pointermove', (e) => {
-          if (e.dragging) {
-            this.closePopup()
-            return
-          }
+          // if (e.dragging) {
+          //   this.closePopup()
+          //   return
+          // }
           var pixel = this.olmap.getEventPixel(e.originalEvent)
           var hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
-        });
+        })
       }
     },
     initWatershedIntro: function () {
