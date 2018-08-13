@@ -59,7 +59,9 @@
 }
 </style>
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
+import Vue from 'vue'
+import Timeline from 'vue-tweet-embed/timeline'
 import 'ol/ol.css'
 import {Map, View, Overlay} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
@@ -68,26 +70,8 @@ import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
-import Vue from 'vue'
-import Timeline from 'vue-tweet-embed/timeline'
-
 export default {
   name: 'Map',
-  computed: {
-    // mix the getters into computed with object spread operator
-    ...mapGetters([
-      'asideHidden'
-    ]),
-    popup: function () {
-      return new Overlay({
-        element: this.$refs.popup,
-        autoPan: true,
-        autoPanAnimation: {
-          duration: 250
-        }
-      })
-    }
-  },
   data: function () {
     return {
       olmap: undefined,
@@ -153,17 +137,34 @@ export default {
       } // end centerPoints
     }
   },
-  mounted: function () {
-    this.initMap()
+  computed: {
+    // mix the getters from vuex store into computed with object spread operator
+    ...mapGetters([
+      'asideHidden'
+    ]),
+    popup: function () {
+      return new Overlay({
+        element: this.$refs.popup,
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250
+        }
+      })
+    }
   },
   watch: {
     '$route' (to, from) {
       // react to route changes...
+      this.closePopup()
       this.initMap()
     },
     'asideHidden' () {
+      // update map size when aside content is toggled
       this.olmap.updateSize()
     }
+  },
+  mounted: function () {
+    this.initMap()
   },
   methods: {
     initMap: function () {
@@ -299,7 +300,7 @@ export default {
               }).$mount(this.$refs.popupContent)
               this.popup.setPosition(e.coordinate)
             }
-          }
+          } // #NOTE: use `else { this.closePopup() }` to close popup when clicking somewhere else on the map.
         })
         window.addEventListener('keydown', (e) => {
           // close popup if esc key pressed
@@ -307,28 +308,6 @@ export default {
             this.closePopup()
           }
         })
-
-        // const popup = new Overlay.Popup()
-        // this.olmap.addOverlay(popup)
-        // // Event handler for the map "singleclick" event
-        // this.olmap.on('singleclick', function(evt) {
-        //   popup.hide()
-        //   popup.setOffset([0, 0])
-        //   // Attempt to find a feature in one of the visible vector layers (exclude layers from this attempt by using 'if (layer != nameoflayer) return feature'
-        //   const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-        //     return feature
-        //   });
-        //   if (feature) {
-        //     const props = feature.getProperties()
-        //     let info
-        //     info = "<h4>" + props.title + "</h4>"
-        //     info += props.image
-        //     info += props.text1 + '<br>'
-        //     info += props.text2 + '<br>'
-        //     info += props.text3 + '<br>'
-        //     popup.show(map.getCoordinateFromPixel(evt.pixel), info)
-        //   }
-        // })
 
         this.olmap.on('pointermove', (e) => {
           // if (e.dragging) {
