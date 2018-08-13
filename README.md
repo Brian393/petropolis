@@ -32,4 +32,4 @@ npm run lint
 npm run deploy
 ```
 
-made with <3 in NYC
+made with 🖤 in NYC
