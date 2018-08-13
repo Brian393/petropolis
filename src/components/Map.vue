@@ -1,18 +1,65 @@
 <template>
   <div id="map">
+    <div ref="popup" class="ol-popup">
+      <a href="#" ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></a>
+      <div ref="popupContent"></div>
+    </div>
   </div>
 </template>
-
+<style>
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
+</style>
 <script>
 import { mapGetters } from 'vuex'
-
 import 'ol/ol.css'
-import {Map, View} from 'ol'
+import {Map, View, Overlay} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
 import {XYZ, Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
-import {fromLonLat} from 'ol/proj'
+import {fromLonLat, toLonLat} from 'ol/proj'
+import {toStringHDMS} from 'ol/coordinate'
 
 export default {
   name: 'Map',
@@ -20,7 +67,17 @@ export default {
     // mix the getters into computed with object spread operator
     ...mapGetters([
       'asideHidden'
-    ])
+    ]),
+    popup: function () {
+      console.log('popup elem:', this.$refs.popup)
+      return new Overlay({
+        element: this.$refs.popup,
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250
+        }
+      })
+    }
   },
   data: function () {
     return {
@@ -214,8 +271,39 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          layers: this.watershedBaseLayers()
+          layers: this.watershedBaseLayers(),
+          overlays: [this.popup]
         })
+        // #TODO: improve this popup logic...
+        this.olmap.on('singleclick', (e) => {
+          console.log('singleclick e:', e)
+          const coordinate = e.coordinate
+          const hdms = toStringHDMS(toLonLat(coordinate))
+          this.$refs.popupContent.innerHTML = '<p>You clicked here:</p><code>' + hdms +
+              '</code>'
+          this.popup.setPosition(coordinate)
+        })
+        // const popup = new Overlay.Popup()
+        // this.olmap.addOverlay(popup)
+        // // Event handler for the map "singleclick" event
+        // this.olmap.on('singleclick', function(evt) {
+        //   popup.hide()
+        //   popup.setOffset([0, 0])
+        //   // Attempt to find a feature in one of the visible vector layers (exclude layers from this attempt by using 'if (layer != nameoflayer) return feature'
+        //   const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+        //     return feature
+        //   });
+        //   if (feature) {
+        //     const props = feature.getProperties()
+        //     let info
+        //     info = "<h4>" + props.title + "</h4>"
+        //     info += props.image
+        //     info += props.text1 + '<br>'
+        //     info += props.text2 + '<br>'
+        //     info += props.text3 + '<br>'
+        //     popup.show(map.getCoordinateFromPixel(evt.pixel), info)
+        //   }
+        // })
       }
     },
     initWatershedIntro: function () {
@@ -382,6 +470,11 @@ export default {
           zoom: 0
         })
       )
+    },
+    closePopup: function () {
+      this.popup.setPosition(undefined)
+      this.$refs.popupCloser.blur()
+      return false
     }
   }
 }
