@@ -31,3 +31,5 @@ npm run lint
 ```sh
 npm run deploy
 ```
+
+made with <3 in NYC
