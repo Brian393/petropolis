@@ -1,7 +1,7 @@
 <template>
   <div id="map" ref="map">
     <div ref="popup" class="ol-popup">
-      <a href="#" ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></a>
+      <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
     </div>
   </div>
@@ -49,6 +49,10 @@
   padding: 0 10px;
   float: right;
   font-size: 1.5em;
+}
+.ol-popup-closer:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .ol-popup-closer:after {
   content: "✖";
