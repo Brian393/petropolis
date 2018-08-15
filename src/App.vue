@@ -2,32 +2,9 @@
   <div id="app">
     <main>
       <nav>
-        <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger class="md-raised" v-bind:class="{ 'md-accent': $route.name === 'megaregion' }">Megaregion</md-button>
-          <md-menu-content>
-            <md-menu-item to="/megaregion/introduction">Introduction</md-menu-item>
-          </md-menu-content>
-        </md-menu>
-
-        <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger class="md-raised" v-bind:class="{ 'md-accent': $route.name === 'watershed' }">Watershed</md-button>
-          <md-menu-content>
-            <md-menu-item to="/watershed/introduction">Introduction</md-menu-item>
-            <md-menu-item to="/watershed/terminals">Terminals</md-menu-item>
-            <md-menu-item to="/watershed/dams">Dams</md-menu-item>
-            <md-menu-item to="/watershed/hanford">Hanford</md-menu-item>
-            <md-menu-item to="/watershed/hanford/legacy">Hanford Legacy</md-menu-item>
-            <md-menu-item to="/watershed/hanford/plumes">Hanford Plumes</md-menu-item>
-            <md-menu-item to="/watershed/hanford/floods">Hanford Floods</md-menu-item>
-          </md-menu-content>
-        </md-menu>
-
-        <md-menu md-direction="bottom-start">
-          <md-button md-menu-trigger class="md-raised"  v-bind:class="{ 'md-accent': $route.name === 'bioregion' }">Bioregion</md-button>
-          <md-menu-content>
-            <md-menu-item to="/bioregion/introduction">Introduction</md-menu-item>
-          </md-menu-content>
-        </md-menu>
+        <router-link to="/megaregion/introduction" v-bind:class="{active: this.$route.name.match('megaregion')}">Megaregion</router-link>
+        <router-link to="/watershed/introduction" v-bind:class="{active: this.$route.name.match('watershed')}">Watershed</router-link>
+        <router-link to="/bioregion/introduction" v-bind:class="{active: this.$route.name.match('bioregion')}">Bioregion</router-link>
 
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
@@ -64,8 +41,22 @@
 nav {
   height: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+nav a {
+  font-weight: bold;
+  color: #0E8817;
+  text-decoration: none;
+  max-height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 5px 50px;
+}
+nav a:hover, nav a.active, nav a.router-link-exact-active {
+  background-color: #0E8817;
+  color: white;
 }
 
 #map {
@@ -140,6 +131,13 @@ aside {
   margin-top: 0.75em;
 }
 
+@media (max-width: 1075px) {
+  nav a {
+    font-size: 1.25em;
+    padding: 5px 10px;
+  }
+}
+
 @media (min-width: 850px) {
   #app {
     flex-direction: row;
@@ -148,6 +146,9 @@ aside {
   main {
     flex: 1;
     margin: 0;
+  }
+  nav {
+    justify-content: space-around;
   }
   aside {
     flex: 0 0 400px;
