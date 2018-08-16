@@ -173,6 +173,12 @@ export default {
   components: {
     AppNav
   },
+  watch: {
+    '$route' (to, from) {
+      // react to route changes...
+      document.querySelector('aside > #content').scrollTop = 0
+    }
+  },
   computed: {
     // mix the getters into computed with object spread operator
     ...mapGetters([

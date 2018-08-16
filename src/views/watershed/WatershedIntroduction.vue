@@ -2,8 +2,12 @@
   <div class="aside-content">
     <h1>Watershed Intoduction</h1>
     <div id="lipsum">
+      <Accordion :open="true">
+        <h2 slot="header">Accordion</h2>
+        Nullam lacus purus, porttitor ut pellentesque eu, hendrerit in neque. Praesent eu suscipit orci. Etiam quis tincidunt nibh. Ut porttitor mi nulla, et tempor dolor varius quis. 
+      </Accordion>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
+      <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
       </p>
       <p>
       Nullam vel dui sit amet sapien suscipit auctor in vitae dolor. Morbi laoreet bibendum enim eget pellentesque. Pellentesque vitae dignissim turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vel neque neque. Maecenas nec nunc id sapien vehicula luctus. In ut felis eu dolor egestas convallis at ut erat. Fusce et auctor lacus. Sed vehicula ipsum vitae laoreet laoreet. Nulla facilisi. Sed sed pharetra enim, ac aliquet nisi. Suspendisse id luctus orci. Praesent a purus pretium, faucibus erat in, sagittis massa. Maecenas massa nunc, congue vel orci sed, dignissim condimentum ante. Sed vel augue sodales, posuere ipsum quis, facilisis nisl.
@@ -32,12 +36,22 @@
       <p>
       Morbi vitae ultricies risus. Morbi dapibus nibh eget ultricies venenatis. Nulla libero velit, porttitor id turpis non, luctus fringilla risus. Integer a nulla ut neque lacinia pellentesque. Aenean laoreet massa vel augue sollicitudin, non tristique sem porttitor. Vestibulum vitae nisi nunc. Sed in est luctus, posuere nisi aliquam, accumsan massa. Integer in ullamcorper felis. Nunc consequat diam eget sodales consequat. Nulla facilisi. Nunc aliquam quam ac nisl faucibus, in imperdiet magna volutpat. Vestibulum tristique enim magna. Aliquam erat volutpat. Maecenas consectetur augue a quam pharetra, in iaculis diam egestas. Proin non interdum massa.
       </p>
+
+      <Accordion>
+        <h2 slot="header">Footer Accordion</h2>
+        Morbi vitae ultricies risus. Morbi dapibus nibh eget ultricies venenatis. Nulla libero velit, porttitor id turpis non, luctus fringilla risus. Integer a nulla ut neque lacinia pellentesque.
+      </Accordion>
     </div>
   </div>
 </template>
 
 <script>
+import Accordion from '../../components/Accordion.vue'
+
 export default {
-  name: 'WatershedIntroduction'
+  name: 'WatershedIntroduction',
+  components: {
+    Accordion
+  }
 }
 </script>

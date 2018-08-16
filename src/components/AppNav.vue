@@ -115,7 +115,6 @@ export default {
       } else {
         this.nav = []
       }
-
       if (/watershedHanford/.test(this.$route.name)) {
         this.navSubItems = this.subItems.hanford
       } else {
