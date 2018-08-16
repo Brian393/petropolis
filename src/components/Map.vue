@@ -75,7 +75,6 @@ export default {
   data: function () {
     return {
       olmap: undefined,
-      baseUrl: '', // use '/ecotopia-today' for gh-pages
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionwater: {
@@ -197,14 +196,14 @@ export default {
     makeGeoJSONPointVectorLayer: function (url, iconPath, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
-          url: `${this.baseUrl}${url}`,
+          url: url,
           format: new GeoJSON()
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
         style: new Style({
           image: new Icon({
-            src: `${this.baseUrl}${iconPath}`
+            src: iconPath
           })
         })
       })
@@ -213,7 +212,7 @@ export default {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
-          url: `${this.baseUrl}${url}`
+          url: url
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
@@ -230,7 +229,7 @@ export default {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
-          url: `${this.baseUrl}${url}`
+          url: url
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
@@ -335,8 +334,8 @@ export default {
       this.initBaseWatershedMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('/geojson/stopped.geojson', '/icons/stop.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/planned.geojson', '/icons/stopit.png', 2, 32000)
+          this.makeGeoJSONPointVectorLayer('geojson/stopped.geojson', 'icons/stop.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/planned.geojson', 'icons/stopit.png', 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -351,10 +350,10 @@ export default {
       this.initBaseWatershedMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('/geojson/Rapids.geojson', '/icons/waterfall.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/MajorHydroCRB.geojson', '/icons/damOther.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/Bureau.geojson', '/icons/damBR.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('/geojson/ArmyCorps.geojson', '/icons/damAC.png', 2, 32000)
+          this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/waterfall.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/MajorHydroCRB.geojson', 'icons/damOther.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/Bureau.geojson', 'icons/damBR.png', 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps.geojson', 'icons/damAC.png', 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -410,7 +409,7 @@ export default {
             minResolution: 2,
             maxResolution: 80
           }),
-          this.makeGeoJSONFillVectorLayer('/geojsons/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
+          this.makeGeoJSONFillVectorLayer('geojsons/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
         ])
       }))
       this.olmap.setView(
