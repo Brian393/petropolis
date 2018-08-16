@@ -11,9 +11,9 @@
         </div>
 
       </nav>
-
       <router-view name="map" id="map" />
     </main>
+    <AppNav></AppNav>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">
       <div id="aside-wraper">
         <div v-on:click="toggleAside" id="aside-toggle" title="Toggle Content">
@@ -166,9 +166,13 @@ aside {
 
 <script>
 import { mapGetters } from 'vuex'
+import AppNav from './components/AppNav.vue'
 
 export default {
   name: 'App',
+  components: {
+    AppNav
+  },
   computed: {
     // mix the getters into computed with object spread operator
     ...mapGetters([
