@@ -73,7 +73,7 @@ aside {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: visible;
 }
 
 #aside-wraper {
@@ -117,7 +117,7 @@ aside {
 }
 
 #content {
-  max-height: calc(100vh - 50px);
+  max-height: 100%;
   overflow-y: visible;
 }
 
@@ -161,8 +161,10 @@ aside {
   #aside-scroll-to {
     display: none;
   }
-  #content {
+  #content, aside {
+    overflow: scroll;
     overflow-y: scroll;
+    max-height: 100vh;
   }
 }
 
