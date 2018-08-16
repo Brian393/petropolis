@@ -24,6 +24,7 @@
 }
 .body   {
   padding: 0;
+  max-height: 100vh;
   overflow: hidden;
   transition: 0.5s ease all;
 }
