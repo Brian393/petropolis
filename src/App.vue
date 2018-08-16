@@ -123,9 +123,12 @@ aside {
 
 #aside-heading {
   margin-top: 0.5em;
+  padding: 0;
+  text-align: center;
+  font-size: 1.25em;
 }
 
-#content, #aside-heading {
+#content {
   padding: 0 1em;
 }
 
@@ -154,6 +157,9 @@ aside {
   }
   aside {
     flex: 0 0 400px;
+  }
+  #aside-heading {
+    padding: 0 1em;
   }
   #aside-toggle {
     display: block;
