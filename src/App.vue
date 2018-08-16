@@ -86,6 +86,7 @@ aside {
 }
 
 #aside-toggle, #aside-scroll-to {
+  cursor: pointer;
   padding-top: 12px;
   text-align: center;
   height: 38px;
@@ -117,7 +118,7 @@ aside {
 
 #content {
   max-height: calc(100vh - 50px);
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
 #aside-heading {
@@ -159,6 +160,9 @@ aside {
   }
   #aside-scroll-to {
     display: none;
+  }
+  #content {
+    overflow-y: scroll;
   }
 }
 

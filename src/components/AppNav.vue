@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!asideHidden">
     <div id="items" v-if="nav.items">
       <router-link v-for="item in nav.items" :key="item.name" :to="item.href" class="btn">{{item.name}}</router-link>
     </div>
@@ -53,8 +53,23 @@
   width: 100px;
 }
 
+@media (max-width: 850px) {
+  #items, #subItems {
+    position: static;
+  }
+  #items, .subItem {
+    width: 100%;
+  }
+  #subItems {
+    margin-top: 1em;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
 </style>
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: 'AppNav',
   data: function () {
@@ -98,6 +113,12 @@ export default {
         ]
       }
     }
+  },
+  computed: {
+    // mix the getters from vuex store into computed with object spread operator
+    ...mapGetters([
+      'asideHidden'
+    ])
   },
   watch: {
     '$route' (to, from) {
