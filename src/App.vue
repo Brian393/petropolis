@@ -134,8 +134,8 @@ aside {
 
 @media (max-width: 1075px) {
   nav a {
-    font-size: 1.25em;
-    padding: 5px 10px;
+    font-size: 1em;
+    padding: 5px 5px;
   }
 }
 
