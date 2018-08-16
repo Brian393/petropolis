@@ -85,23 +85,23 @@ export default {
     return {
       images: [
         {
-          thumb: '/images/Dams/ArrowLakesDam.jpg',
-          src: '/images/Dams/ArrowLakesDam.jpg',
+          thumb: 'images/Dams/ArrowLakesDam.jpg',
+          src: 'images/Dams/ArrowLakesDam.jpg',
           caption: 'ArrowLakesDam'
         },
         {
-          thumb: '/images/Dams/BonnevilleDam.jpg',
-          src: '/images/Dams/BonnevilleDam.jpg',
+          thumb: 'images/Dams/BonnevilleDam.jpg',
+          src: 'images/Dams/BonnevilleDam.jpg',
           caption: 'BonnevilleDam'
         },
         {
-          thumb: '/images/Dams/BoundaryDam.jpg',
-          src: '/images/Dams/BoundaryDam.jpg',
+          thumb: 'images/Dams/BoundaryDam.jpg',
+          src: 'images/Dams/BoundaryDam.jpg',
           caption: 'BoundaryDam'
         },
         {
-          thumb: '/images/Dams/BridgeRiverDam.jpg',
-          src: '/images/Dams/BridgeRiverDam.jpg',
+          thumb: 'images/Dams/BridgeRiverDam.jpg',
+          src: 'images/Dams/BridgeRiverDam.jpg',
           caption: 'BridgeRiverDam'
         }
       ]
