@@ -1,5 +1,5 @@
 <template>
-  <article :class="accordionClasses">
+  <article :class="accordionClasses" ref="accordion">
     <div @click="toggleAccordion" class="heading">
       <i class="material-icons" v-if="isOpen">keyboard_arrow_up</i>
       <i class="material-icons" v-else>keyboard_arrow_down</i>
@@ -24,7 +24,6 @@
 }
 .body   {
   padding: 0;
-  max-height: 10em;
   overflow: hidden;
   transition: 0.5s ease all;
 }
@@ -56,6 +55,11 @@ export default {
   methods: {
     toggleAccordion: function () {
       this.isOpen = !this.isOpen
+      if (this.isOpen && this.$refs.accordion.offsetTop > window.innerHeight) {
+        setTimeout( () => {
+          this.$refs.accordion.scrollIntoView()
+        }, 500)
+      }
     }
   }
 }
