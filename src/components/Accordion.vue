@@ -46,9 +46,7 @@ export default {
   computed: {
     accordionClasses: function () {
       return {
-        'is-closed': !this.isOpen,
-        'is-primary': this.isOpen,
-        'is-dark': !this.isOpen
+        'is-closed': !this.isOpen
       }
     }
   },
