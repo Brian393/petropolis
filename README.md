@@ -2,7 +2,7 @@
 
 A Vue.js app based on a prototype by Brian Holmes (@Brian393). 
 
-🗣 [OpenLayers](https://openlayers.org/)
+🗣 [OpenLayers](https://openlayers.org/)  
 🗣 [vue-image-lightbox](https://www.npmjs.com/package/vue-image-lightbox)  
 🗣 [vue-tweet-embed](https://github.com/tonickkozlov/vue-tweet-embed)
 
@@ -52,7 +52,7 @@ npm run deploy
 
 ## Components
 
-### <Accordion/>
+### `<Accordion/>`
 
 Import the `Accordion.vue` component (note: relative path for import) & declare this in the `components` object, like so:
 
@@ -77,7 +77,7 @@ Then in your `<template>` use like so:
 </Accordion>
 ```
 
-### <AppLightBox/>
+### `<AppLightBox/>`
 
 Import the `AppLightBox.vue` component (note: relative path for import), declare AppLightBox in the `components` object, & setup an array property with images, like so:
 
@@ -115,7 +115,7 @@ Then in your `<template>` use like so:
 <AppLightBox :images="damImages">A Dam Light Box</AppLightBox> 
 ```
 
-### <Map/>
+### `<Map/>`
 
 The map component is a wrapper for working with the openlayers library. Different map views are managed via the [Vue Router](https://router.vuejs.org/) (see: `router.js`) so `<router-link>` elements can be used to navigate to different map views. Each different map view has a corresponding method to setup (init) the OpenLayers map details. Generally there's some set of layers that will be used on every map view so those are stored in a common method that returns those layers (see: `watershedBaseLayers()`). Then each particular view can `.concat()` any additional layers needed. 
 
