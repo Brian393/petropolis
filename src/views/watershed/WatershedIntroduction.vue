@@ -20,7 +20,7 @@
         </div>
       </Accordion>
       <p>
-      <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
+      A Link: <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Images: <AppLightBox :images="images">Dam Light Box</AppLightBox> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
       </p>
       <p>
       Nullam vel dui sit amet sapien suscipit auctor in vitae dolor. Morbi laoreet bibendum enim eget pellentesque. Pellentesque vitae dignissim turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vel neque neque. Maecenas nec nunc id sapien vehicula luctus. In ut felis eu dolor egestas convallis at ut erat. Fusce et auctor lacus. Sed vehicula ipsum vitae laoreet laoreet. Nulla facilisi. Sed sed pharetra enim, ac aliquet nisi. Suspendisse id luctus orci. Praesent a purus pretium, faucibus erat in, sagittis massa. Maecenas massa nunc, congue vel orci sed, dignissim condimentum ante. Sed vel augue sodales, posuere ipsum quis, facilisis nisl.
@@ -72,12 +72,40 @@
 }
 </style>
 <script>
+import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
   name: 'WatershedIntroduction',
   components: {
-    Accordion
+    Accordion,
+    AppLightBox
+  },
+  data: function () {
+    return {
+      images: [
+        {
+          thumb: '/images/Dams/ArrowLakesDam.jpg',
+          src: '/images/Dams/ArrowLakesDam.jpg',
+          caption: 'ArrowLakesDam'
+        },
+        {
+          thumb: '/images/Dams/BonnevilleDam.jpg',
+          src: '/images/Dams/BonnevilleDam.jpg',
+          caption: 'BonnevilleDam'
+        },
+        {
+          thumb: '/images/Dams/BoundaryDam.jpg',
+          src: '/images/Dams/BoundaryDam.jpg',
+          caption: 'BoundaryDam'
+        },
+        {
+          thumb: '/images/Dams/BridgeRiverDam.jpg',
+          src: '/images/Dams/BridgeRiverDam.jpg',
+          caption: 'BridgeRiverDam'
+        }
+      ]
+    }
   }
 }
 </script>

@@ -1,7 +1,12 @@
-aside a {
+aside a, .link {
 	color: #337ab7;
+	text-decoration: underline;
 }
 
-aside a:visited {
+.link:hover {
+	cursor: pointer;
+}
+
+aside a:visited, .link {
 	color: #63a0d4;
 }
