@@ -2,15 +2,16 @@
   <div id="app">
     <main>
       <nav>
-        <router-link to="/megaregion/introduction" v-bind:class="{active: this.$route.name.match('megaregion')}">Megaregion</router-link>
-        <router-link to="/watershed/introduction" v-bind:class="{active: this.$route.name.match('watershed')}">Watershed</router-link>
-        <router-link to="/bioregion/introduction" v-bind:class="{active: this.$route.name.match('bioregion')}">Bioregion</router-link>
+        <router-link to="/megaregion/introduction" v-bind:class="{active: $route.name && $route.name.match('megaregion')}">Megaregion</router-link>
+        <router-link to="/watershed/introduction" v-bind:class="{active: $route.name && $route.name.match('watershed')}">Watershed</router-link>
+        <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}">Bioregion</router-link>
 
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
         </div>
 
       </nav>
+
       <router-view name="map" id="map" />
     </main>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">
@@ -87,7 +88,7 @@ aside {
 #aside-toggle, #aside-scroll-to {
   padding-top: 12px;
   text-align: center;
-  height: 50px;
+  height: 38px;
   width: 100%;
   max-width: 50px;
   float: right;
