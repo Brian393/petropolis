@@ -3,7 +3,7 @@
     <div @click="toggleAccordion" class="heading">
       <i class="material-icons" v-if="isOpen">keyboard_arrow_up</i>
       <i class="material-icons" v-else>keyboard_arrow_down</i>
-      <slot name="header"></slot>
+      <span class="headingText"><slot name="header"></slot></span>
     </div>
     <div class="body">
       <div class="content">
@@ -18,6 +18,9 @@
   display: flex;
   align-items: center;
   color: #88170e;
+}
+.headingText:hover {
+  text-decoration: underline;
 }
 .body   {
   padding: 0;
