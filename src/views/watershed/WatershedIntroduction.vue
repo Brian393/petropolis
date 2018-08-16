@@ -4,7 +4,7 @@
     <div id="lipsum">
       <Accordion :open="true">
         <h2 slot="header">Accordion</h2>
-        Nullam lacus purus, porttitor ut pellentesque eu, hendrerit in neque. Praesent eu suscipit orci. Etiam quis tincidunt nibh. Ut porttitor mi nulla, et tempor dolor varius quis. 
+        Nullam lacus purus, porttitor ut pellentesque eu, hendrerit in neque. Praesent eu suscipit orci. Etiam quis tincidunt nibh. Ut porttitor mi nulla, et tempor dolor varius quis.
       </Accordion>
       <p>
       <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
