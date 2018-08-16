@@ -17,6 +17,7 @@
   border-radius: 6px;
   background-color: rgba(255,255,255, 0.5);
   display: flex;
+  font-size: 1.25em;
 }
 
 #items {
@@ -52,10 +53,18 @@
 .subItem {
   width: 100px;
 }
-
+@media (max-width: 1075px) {
+  #items, #subItems {
+    font-size: 1em;
+  }
+  .subItem {
+    width: auto;
+  }
+}
 @media (max-width: 850px) {
   #items, #subItems {
     position: static;
+    font-size: 1.25em;
   }
   #items, .subItem {
     width: 100%;
