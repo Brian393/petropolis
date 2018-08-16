@@ -2,6 +2,13 @@
 
 https://edwardsharp.github.io/ecotopia-today/
 
+http://ecotopia.today/
+
+A Vue.js app based on a prototype by Brian Holmes (@Brian393). 
+
+🗣 [vue-image-lightbox](https://www.npmjs.com/package/vue-image-lightbox) 
+🗣 [vue-tweet-embed](https://github.com/tonickkozlov/vue-tweet-embed)
+
 ## Project setup
 
 ```sh
