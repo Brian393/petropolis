@@ -3,8 +3,21 @@
     <h1>Watershed Intoduction</h1>
     <div id="lipsum">
       <Accordion :open="true">
-        <h2 slot="header">Accordion</h2>
-        Nullam lacus purus, porttitor ut pellentesque eu, hendrerit in neque. Praesent eu suscipit orci. Etiam quis tincidunt nibh. Ut porttitor mi nulla, et tempor dolor varius quis.
+        <h2 slot="header">map legend</h2>
+        <div class="flex">
+          <div>
+            <img src="icons/nukes.gif">
+            Nukes
+          </div>
+          <div>
+            <img src="icons/natgas.png">
+            Nat Gas
+          </div>
+          <div>
+            <img src="icons/dam.png">
+            Dam
+          </div>
+        </div>
       </Accordion>
       <p>
       <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
@@ -38,13 +51,26 @@
       </p>
 
       <Accordion>
-        <h2 slot="header">Footer Accordion</h2>
+        <h2 slot="header">sources</h2>
         Morbi vitae ultricies risus. Morbi dapibus nibh eget ultricies venenatis. Nulla libero velit, porttitor id turpis non, luctus fringilla risus. Integer a nulla ut neque lacinia pellentesque.
       </Accordion>
     </div>
   </div>
 </template>
-
+<style scoped>
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.flex img {
+  margin-right: 0.5em;
+}
+</style>
 <script>
 import Accordion from '../../components/Accordion.vue'
 
