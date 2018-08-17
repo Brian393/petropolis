@@ -52,8 +52,9 @@ nav a {
   max-height: 50px;
   display: flex;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1em;
   padding: 5px 50px;
+  line-height: 40px;
 }
 nav a:hover, nav a.active, nav a.router-link-exact-active {
   background-color: #0E8817;
@@ -136,10 +137,10 @@ aside {
   margin-top: 0.75em;
 }
 
-@media (max-width: 1075px) {
+@media (min-width: 1075px) {
   nav a {
-    font-size: 1em;
-    padding: 5px 5px;
+    font-size: 1.5em;
+    padding: 5px 50px;
   }
 }
 
@@ -172,6 +173,18 @@ aside {
     overflow: scroll;
     overflow-y: scroll;
     max-height: 100vh;
+  }
+}
+
+@media (max-width: 850px) {
+  nav a {
+    font-size: 1.25em;
+  }
+}
+@media (max-width: 500px) {
+  nav a {
+    font-size: 1em;
+    padding: 5px 5px;
   }
 }
 
