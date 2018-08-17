@@ -191,7 +191,6 @@ export default {
     },
     cropsLayers: function () {
       return [
-        ...this.baseLayers,
         // tiles[13]
         new Tile({
           preload: Infinity,
