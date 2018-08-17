@@ -170,7 +170,7 @@ export default {
     initNav: function () {
       if (/watershed/.test(this.$route.name)) {
         this.nav = this.watershed
-      } else if (/megaregion/.test(this.$route.name)) {              // add one more for Bioregion
+      } else if (/megaregion/.test(this.$route.name)) { // add one more for Bioregion
         this.nav = this.megaregion
       } else {
         this.nav = []
