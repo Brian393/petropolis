@@ -120,6 +120,7 @@ aside {
 #content {
   max-height: 100%;
   overflow-y: visible;
+  text-align: justify;
 }
 
 #aside-heading {
@@ -127,6 +128,7 @@ aside {
   padding: 0;
   text-align: center;
   font-size: 1.25em;
+
 }
 
 #content {
@@ -135,6 +137,15 @@ aside {
 
 .aside-content h1{
   margin-top: 0.75em;
+  color: #88170e;
+}
+
+.caption {
+text-align: center; font-style: italic; margin-top:5px;
+}
+
+.quote {
+font-weight: bold; font-style: italic; color: #333333;
 }
 
 @media (min-width: 1075px) {
