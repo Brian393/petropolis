@@ -160,6 +160,7 @@ aside {
   }
   #aside-heading {
     padding: 0 1em;
+    text-align: left;
   }
   #aside-toggle {
     display: block;
