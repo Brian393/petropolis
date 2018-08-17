@@ -16,7 +16,7 @@ import {Map, View, Overlay} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer'
 import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
-import {Style, Stroke, Fill} from 'ol/style' // Icon
+import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
 export default {
@@ -148,7 +148,7 @@ export default {
         new VectorLayer({
           source: new VectorSource({
             format: new GeoJSON(),
-            url: 'geojsons/USmegaregions2.geojson'
+            url: 'geojson/USmegaregions2.geojson'
           }),
           minResolution: 1600,
           maxResolution: 8000,
@@ -175,22 +175,123 @@ export default {
     },
     energyLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+        // mega[6]
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaHydro2.geojson', 'icons/dam.png', 'Hydro power', 2, 2000),
+        // mega[7]
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNuclear.geojson', 'icons/nukes.gif', 'Nuclear power', 2, 2000),
+        // mega[9]
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaWind.geojson', 'icons/wind.png', 'Wind Power', 2, 2000),
+        // mega[10]
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNatGas.geojson', 'icons/natgas.png', 'Natural Gas', 2, 2000),
+        // mega[8]
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaCoal.geojson', 'icons/coal.png', 'Coal Power', 2, 2000)
       ]
     },
     cropsLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+        // tiles[13]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }),
+        // tiles[12]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        })
       ]
     },
     grandCouleeLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+        // tiles[19]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        // tiles[18]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        // bingMapsAerial2
+        new Tile({
+          source: new BingMaps({
+            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+            imagerySet: 'Aerial'
+          }),
+          minResolution: 2,
+          maxResolution: 10
+        })
       ]
     },
     basinProjectLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+        // tiles[20]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'}),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        // tiles[22]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+          }),
+          opacity: 0.6,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        // tiles[21]
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CBP/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        // mega[11]
+        this.makeGeoJSONFillVectorLayer('geojson/CBP-Crops.geojson', 2, 80, 'rgba(189, 7, 97, 0)', 0, 'rgba(189, 7, 97, 0)'),
+        // bingMapsAerial3
+        new Tile({
+          source: new BingMaps({
+            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+            imagerySet: 'Aerial'
+          }),
+          minResolution: 2,
+          maxResolution: 10
+        })
       ]
     }
 
@@ -347,6 +448,43 @@ export default {
         quadKeyDigits.push(digit)
       }
       return quadKeyDigits.join('')
+    },
+    makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: new Style({
+          image: new Icon({
+            src: iconPath
+          })
+        }),
+        label: label
+      })
+    },
+    makeGeoJSONFillVectorLayer: function (url, minResolution, maxResolution, strokeColor, width, fillColor) {
+      return new VectorLayer({
+        source: new VectorSource({
+          format: new GeoJSON(),
+          url: url
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: new Style({
+          stroke: new Stroke({
+            color: strokeColor,
+            width: width
+          }),
+          fill: new Fill({
+            color: fillColor
+          })
+        }),
+        fill: fillColor,
+        fillColor: fillColor
+      })
     }
   }
 }
