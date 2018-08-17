@@ -341,7 +341,6 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          layers: this.baseLayers,
           overlays: [this.popup],
           controls: defaultControls({
             attributionOptions: {
