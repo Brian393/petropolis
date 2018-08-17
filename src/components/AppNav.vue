@@ -120,14 +120,6 @@ export default {
           {
             name: 'Crops',
             href: '/megaregion/crops'
-          },
-          {
-            name: 'Grand Coulee',
-            href: '/megaregion/grandcoulee'
-          },
-          {
-            name: 'Basin Project',
-            href: '/megaregion/basinproject'
           }
         ]
       },
@@ -144,6 +136,16 @@ export default {
           {
             name: 'Floods',
             href: '/watershed/hanford/floods'
+          }
+        ],
+        crops: [
+          {
+            name: 'Grand Coulee',
+            href: '/megaregion/crops/grandcoulee'
+          },
+          {
+            name: 'Basin Project',
+            href: '/megaregion/crops/basinproject'
           }
         ]
       }
@@ -168,13 +170,15 @@ export default {
     initNav: function () {
       if (/watershed/.test(this.$route.name)) {
         this.nav = this.watershed
-      } else if (/megaregion/.test(this.$route.name)) {
+      } else if (/megaregion/.test(this.$route.name)) {              // add one more for Bioregion
         this.nav = this.megaregion
       } else {
         this.nav = []
       }
       if (/watershedHanford/.test(this.$route.name)) {
         this.navSubItems = this.subItems.hanford
+      } else if (/megaregionCrops/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.crops
       } else {
         this.navSubItems = []
       }

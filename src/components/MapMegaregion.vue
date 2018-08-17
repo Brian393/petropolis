@@ -151,7 +151,7 @@ export default {
     },
     energyLayers: function () {
       return [
-        ...this.baseLayers,
+        ...this.baseLayers,   // three dots = "spread operator" does the same as "concat"
         // mega[6]
         this.makeGeoJSONPointVectorLayer('geojson/CascadiaHydro2.geojson', 'icons/dam.png', 'Hydro power', 2, 2000),
         // mega[7]
@@ -192,7 +192,6 @@ export default {
     },
     grandCouleeLayers: function () {
       return [
-        ...this.baseLayers,
         // tiles[19]
         new Tile({
           preload: Infinity,
@@ -226,7 +225,6 @@ export default {
     },
     basinProjectLayers: function () {
       return [
-        ...this.baseLayers,
         // tiles[20]
         new Tile({
           preload: Infinity,
@@ -286,11 +284,11 @@ export default {
         case 'megaregionCrops':
           this.initMegaregionCrops()
           break
-        case 'megaregionGrandCoulee':
-          this.initMegaregionGrandCoulee()
+        case 'megaregionCropsGrandCoulee':
+          this.initmegaregionCropsGrandCoulee()
           break
-        case 'megaregionBasinProject':
-          this.initMegaregionBasinProject()
+        case 'megaregionCropsBasinProject':
+          this.initmegaregionCropsBasinProject()
           break
         default:
       }
@@ -328,7 +326,7 @@ export default {
         zoom: 0
       }))
     },
-    initMegaregionGrandCoulee: function () {
+    initmegaregionCropsGrandCoulee: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.grandCouleeLayers
@@ -339,7 +337,7 @@ export default {
         zoom: 0
       }))
     },
-    initMegaregionBasinProject: function () {
+    initmegaregionCropsBasinProject: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.basinProjectLayers

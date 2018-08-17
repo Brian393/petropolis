@@ -97,16 +97,16 @@ export default new Router({
       }
     },
     {
-      path: '/megaregion/grandcoulee',
-      name: 'megaregionGrandCoulee',
+      path: '/megaregion/crops/grandcoulee',
+      name: 'megaregionCropsGrandCoulee',
       components: {
         default: () => import('./views/megaregion/MegaregionGrandCoulee.vue'),
         map: MapMegaregion
       }
     },
     {
-      path: '/megaregion/basinproject',
-      name: 'megaregionBasinProject',
+      path: '/megaregion/crops/basinproject',
+      name: 'megaregionCropsBasinProject',
       components: {
         default: () => import('./views/megaregion/MegaregionBasinProject.vue'),
         map: MapMegaregion
