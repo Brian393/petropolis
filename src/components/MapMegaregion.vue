@@ -3,7 +3,7 @@ import Map from './Map.vue'
 
 import {View} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer'
-import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source' // OSM
+import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
