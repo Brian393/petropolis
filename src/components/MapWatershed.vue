@@ -18,6 +18,7 @@ import {XYZ, Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
+import {ScaleLine} from 'ol/control'
 
 export default {
   name: 'Map',
@@ -210,7 +211,13 @@ export default {
         this.olmap = new Map({
           target: 'map',
           layers: this.watershedBaseLayers(),
-          overlays: [this.popup]
+          overlays: [this.popup],
+          controls: [
+            new ScaleLine({
+              units: "us",
+              minWidth: 150
+            })
+          ]
         })
         // #TODO: improve this popup logic...
         this.olmap.on('singleclick', (e) => {

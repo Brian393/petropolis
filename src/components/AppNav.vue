@@ -12,7 +12,7 @@
 <style scoped>
 #items, #subItems {
   position: absolute;
-  bottom: 20px;
+  bottom: 35px;
   z-index: 1;
   border-radius: 6px;
   background-color: rgba(255,255,255, 0.5);
