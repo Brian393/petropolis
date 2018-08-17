@@ -8,6 +8,11 @@
 </template>
 
 <script>
+/* Map base component
+ * common logic shared by other Map components
+ * do not use this component directly
+*/
+
 import {mapGetters} from 'vuex'
 import Vue from 'vue'
 import Timeline from 'vue-tweet-embed/timeline'
@@ -53,6 +58,9 @@ export default {
     }
   },
   methods: {
+    initMap: function () {
+      // NOTE: the extended class needs to implement initMap()
+    },
     initBaseMap: function () {
       if (!this.olmap) {
         this.olmap = new Map({
