@@ -1,11 +1,11 @@
 <template>
   <div class="aside-content">
-    <h1>Megaregion Introduction</h1>
+    <h1>Megaregion Energy</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MegaregionIntroduction'
+  name: 'MegaregionEnergy'
 }
 </script>

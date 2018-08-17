@@ -6,58 +6,7 @@
     </div>
   </div>
 </template>
-<style>
-.ol-popup {
-  position: absolute;
-  background-color: white;
-  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  border-radius: 10px;
-  border: 1px solid #cccccc;
-  bottom: 12px;
-  left: -50px;
-  min-width: 280px;
-  height: 280px;
-  overflow: scroll;
-}
-.ol-popup:after, .ol-popup:before {
-  top: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.ol-popup:after {
-  border-top-color: white;
-  border-width: 10px;
-  left: 48px;
-  margin-left: -10px;
-}
-.ol-popup:before {
-  border-top-color: #cccccc;
-  border-width: 11px;
-  left: 48px;
-  margin-left: -11px;
-}
-.ol-popup-closer {
-  text-decoration: none;
-  position: sticky;
-  top: 0;
-  right: 0;
-  padding: 0 10px;
-  float: right;
-  font-size: 1.5em;
-}
-.ol-popup-closer:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.ol-popup-closer:after {
-  content: "✖";
-}
-</style>
+
 <script>
 import {mapGetters} from 'vuex'
 import Vue from 'vue'
@@ -85,14 +34,6 @@ export default {
           center: [-121.2, 51.0],
           resolution: 4500
         },
-        introductionmetro: {
-          center: [-122.112002, 45.564222],
-          resolution: 180
-        },
-        energy: {
-          center: [-119.023311, 46.864322],
-          resolution: 798
-        },
         terminals: {
           center: [-122.68, 45.84],
           resolution: 220
@@ -113,10 +54,6 @@ export default {
           center: [-119.46, 46.607574],
           resolution: 50
         },
-        crops: {
-          center: [-117.6, 46.5],
-          resolution: 900
-        },
         stopit: {
           center: [-122.68, 45.84],
           resolution: 220
@@ -124,14 +61,6 @@ export default {
         dams: {
           center: [-117.9, 46.9],
           resolution: 700
-        },
-        coulee: {
-          center: [-118.989, 47.948],
-          resolution: 6
-        },
-        basin: {
-          center: [-118.989, 46.9],
-          resolution: 300
         }
       } // end centerPoints
     }

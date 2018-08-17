@@ -105,6 +105,30 @@ export default {
           }
         ]
       },
+      megaregion: {
+        items: [
+          {
+            name: 'Introduction',
+            href: '/megaregion/introduction'
+          },
+          {
+            name: 'Energy',
+            href: '/megaregion/energy'
+          },
+          {
+            name: 'Crops',
+            href: '/megaregion/crops'
+          },
+          {
+            name: 'Grand Coulee',
+            href: '/megaregion/grandcoulee'
+          },
+          {
+            name: 'Basin Project',
+            href: '/megaregion/basinproject'
+          }
+        ]
+      },
       subItems: {
         hanford: [
           {
@@ -142,6 +166,8 @@ export default {
     initNav: function () {
       if (/watershed/.test(this.$route.name)) {
         this.nav = this.watershed
+      } else if (/megaregion/.test(this.$route.name)) {
+        this.nav = this.megaregion
       } else {
         this.nav = []
       }

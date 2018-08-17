@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import WatershedIntroduction from './views/watershed/WatershedIntroduction.vue'
-import Map from './components/Map.vue'
+import MapWatershed from './components/MapWatershed.vue'
+import MapMegaregion from './components/MapMegaregion.vue'
+import MapBioregion from './components/MapBioregion.vue'
 
 Vue.use(Router)
 
@@ -16,7 +18,7 @@ export default new Router({
       name: 'watershedIntroduction',
       components: {
         default: WatershedIntroduction,
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -27,7 +29,7 @@ export default new Router({
         // this generates a separate chunk (watershed.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         default: () => import('./views/watershed/WatershedTerminals.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -35,7 +37,7 @@ export default new Router({
       name: 'watershedDams',
       components: {
         default: () => import('./views/watershed/WatershedDams.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -43,7 +45,7 @@ export default new Router({
       name: 'watershedHanford',
       components: {
         default: () => import('./views/watershed/WatershedHanford.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -51,7 +53,7 @@ export default new Router({
       name: 'watershedHanfordLegacy',
       components: {
         default: () => import('./views/watershed/WatershedHanfordLegacy.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -59,7 +61,7 @@ export default new Router({
       name: 'watershedHanfordPlumes',
       components: {
         default: () => import('./views/watershed/WatershedHanfordPlumes.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
@@ -67,15 +69,47 @@ export default new Router({
       name: 'watershedHanfordFloods',
       components: {
         default: () => import('./views/watershed/WatershedHanfordFloods.vue'),
-        map: Map
+        map: MapWatershed
       }
     },
     {
       path: '/megaregion/introduction',
-      name: 'megaregion',
+      name: 'megaregionIntroduction',
       components: {
         default: () => import('./views/megaregion/MegaregionIntroduction.vue'),
-        map: Map
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/energy',
+      name: 'megaregionEnergy',
+      components: {
+        default: () => import('./views/megaregion/MegaregionEnergy.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/crops',
+      name: 'megaregionCrops',
+      components: {
+        default: () => import('./views/megaregion/MegaregionCrops.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/grandcoulee',
+      name: 'megaregionGrandCoulee',
+      components: {
+        default: () => import('./views/megaregion/MegaregionGrandCoulee.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/basinproject',
+      name: 'megaregionBasinProject',
+      components: {
+        default: () => import('./views/megaregion/MegaregionBasinProject.vue'),
+        map: MapMegaregion
       }
     },
     {
@@ -83,7 +117,7 @@ export default new Router({
       name: 'bioregion',
       components: {
         default: () => import('./views/bioregion/BioregionIntroduction.vue'),
-        map: Map
+        map: MapBioregion
       }
     }
   ]
