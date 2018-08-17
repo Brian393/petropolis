@@ -1,30 +1,16 @@
-<template>
-  <div id="map" ref="map">
-    <div ref="popup" class="ol-popup">
-      <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
-      <div class="ol-popup-content" ref="popupContent"></div>
-    </div>
-  </div>
-</template>
-
 <script>
-import {mapGetters} from 'vuex'
-import Vue from 'vue'
-import Timeline from 'vue-tweet-embed/timeline'
-import 'ol/ol.css'
-import {Map, View, Overlay} from 'ol'
-import {Tile, Vector as VectorLayer, Group} from 'ol/layer' // TileLayer Group
-import {XYZ, Vector as VectorSource} from 'ol/source' // OSM
-import {GeoJSON} from 'ol/format'
-import {Style, Stroke, Fill, Icon} from 'ol/style'
+import Map from './Map.vue'
+
+import {View} from 'ol'
+import {Tile, Group} from 'ol/layer'
+import {XYZ} from 'ol/source'
 import {fromLonLat} from 'ol/proj'
-import {ScaleLine, defaults as defaultControls} from 'ol/control'
 
 export default {
-  name: 'Map',
+  name: 'MapWatershed',
+  extends: Map,
   data: function () {
     return {
-      olmap: undefined,
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionwater: {
@@ -66,32 +52,6 @@ export default {
       } // end centerPoints
     }
   },
-  computed: {
-    // mix the getters from vuex store into computed with object spread operator
-    ...mapGetters([
-      'asideHidden'
-    ]),
-    popup: function () {
-      return new Overlay({
-        element: this.$refs.popup,
-        autoPan: true,
-        autoPanAnimation: {
-          duration: 250
-        }
-      })
-    }
-  },
-  watch: {
-    '$route' (to, from) {
-      // react to route changes...
-      this.closePopup()
-      this.initMap()
-    },
-    'asideHidden' () {
-      // update map size when aside content is toggled
-      this.olmap.updateSize()
-    }
-  },
   mounted: function () {
     this.initMap()
   },
@@ -123,59 +83,6 @@ export default {
           this.initWatershedIntro()
       }
     },
-    makeGeoJSONPointVectorLayer: function (url, iconPath, minResolution, maxResolution) {
-      return new VectorLayer({
-        source: new VectorSource({
-          url: url,
-          format: new GeoJSON()
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: new Style({
-          image: new Icon({
-            src: iconPath
-          })
-        })
-      })
-    },
-    makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
-      return new VectorLayer({
-        source: new VectorSource({
-          format: new GeoJSON(),
-          url: url
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: new Style({
-          stroke: new Stroke({
-            color: strokeColor,
-            width: width
-          })
-        }),
-        strokeColor: strokeColor
-      })
-    },
-    makeGeoJSONFillVectorLayer: function (url, minResolution, maxResolution, strokeColor, width, fillColor) {
-      return new VectorLayer({
-        source: new VectorSource({
-          format: new GeoJSON(),
-          url: url
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: new Style({
-          stroke: new Stroke({
-            color: strokeColor,
-            width: width
-          }),
-          fill: new Fill({
-            color: fillColor
-          })
-        }),
-        fill: fillColor,
-        fillColor: fillColor
-      })
-    },
     watershedBaseLayers: function () {
       // #TODO: this could be a computed property.
       return [
@@ -206,61 +113,8 @@ export default {
         })
       ]
     },
-    initBaseWatershedMap: function () {
-      if (!this.olmap) {
-        this.olmap = new Map({
-          target: 'map',
-          layers: this.watershedBaseLayers(),
-          overlays: [this.popup],
-          controls: defaultControls({
-            attributionOptions: {
-              collapsible: true
-            }
-          }).extend([
-            new ScaleLine({
-              units: 'us',
-              minWidth: 150
-            })
-          ])
-        })
-        // #TODO: improve this popup logic...
-        this.olmap.on('singleclick', (e) => {
-          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-          if (feature) {
-            const props = feature.getProperties()
-            console.log('has feature! props:', props)
-            if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
-              const TimelineCtor = Vue.extend(Timeline)
-              new TimelineCtor({
-                propsData: {
-                  id: 'NoMethanol', // #TODO: use this.props.timeline,
-                  sourceType: 'profile'
-                }
-              }).$mount(this.$refs.popupContent)
-              this.popup.setPosition(e.coordinate)
-            }
-          } // #NOTE: use `else { this.closePopup() }` to close popup when clicking somewhere else on the map.
-        })
-        window.addEventListener('keydown', (e) => {
-          // close popup if esc key pressed
-          if (e.keyCode === 27) {
-            this.closePopup()
-          }
-        })
-
-        this.olmap.on('pointermove', (e) => {
-          // if (e.dragging) {
-          //   this.closePopup()
-          //   return
-          // }
-          var pixel = this.olmap.getEventPixel(e.originalEvent)
-          var hit = this.olmap.hasFeatureAtPixel(pixel)
-          this.$refs.map.style.cursor = hit ? 'pointer' : ''
-        })
-      }
-    },
     initWatershedIntro: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers()
       }))
@@ -271,11 +125,11 @@ export default {
       }))
     },
     initWatershedTerminals: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('geojson/stopped.geojson', 'icons/stop.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('geojson/planned.geojson', 'icons/stopit.png', 2, 32000)
+          this.makeGeoJSONPointVectorLayer('geojson/stopped.geojson', 'icons/stop.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/planned.geojson', 'icons/stopit.png', null, 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -287,13 +141,13 @@ export default {
       )
     },
     initWatershedDams: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
-          this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/waterfall.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('geojson/MajorHydroCRB.geojson', 'icons/damOther.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('geojson/Bureau.geojson', 'icons/damBR.png', 2, 32000),
-          this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps.geojson', 'icons/damAC.png', 2, 32000)
+          this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/waterfall.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/MajorHydroCRB.geojson', 'icons/damOther.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/Bureau.geojson', 'icons/damBR.png', null, 2, 32000),
+          this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps.geojson', 'icons/damAC.png', null, 2, 32000)
         ])
       }))
       this.olmap.setView(
@@ -305,7 +159,7 @@ export default {
       )
     },
     initWatershedHanford: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
           new Tile({
@@ -328,7 +182,7 @@ export default {
       )
     },
     initWatershedHanfordLegacy: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
           new Tile({
@@ -361,7 +215,7 @@ export default {
       )
     },
     initWatershedHanfordPlumes: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
           new Tile({
@@ -402,7 +256,7 @@ export default {
       )
     },
     initWatershedHanfordFloods: function () {
-      this.initBaseWatershedMap()
+      this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers().concat([
           new Tile({
@@ -423,11 +277,6 @@ export default {
           zoom: 0
         })
       )
-    },
-    closePopup: function () {
-      this.popup.setPosition(undefined)
-      this.$refs.popupCloser.blur()
-      return false
     }
   }
 }
