@@ -1,15 +1,4 @@
 <style scoped>
-.title {
-  color: #88170e;
-}
-
-.caption {
-text-align: center; font-style: italic; margin-top:5px;
-}
-
-.justify {
-text-align: justify;
-}
 
 .quote {
 font-weight: bold; font-style: italic; color: #333333; text-align: center;
@@ -27,10 +16,10 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
 <template>
   <div class="aside-content">
-    <p><div class="title"><h1>Coal, Oil, Gas: None Shall Pass</h1></div></p>
-    <img src="../../assets/images/OilGas.jpg"><br><div class="caption">Portland City Hall, Nov. 4, 2015</div><br>
+    <div class="title"><p><h1>Coal, Oil, Gas: None Shall Pass</h1></p></div>
+    <img src="../../../public/images/OilGas.jpg"><br><div class="caption">Portland City Hall, Nov. 4, 2015</div><br>
 
-<p><div class="justify"><p>One thing Cascadia has to teach is activism&mdash;successful activism. Success takes organized groups and spontaneous grassroots movements. The following sections of the map have been developed with a major advocacy group, <a href="https://columbiariverkeeper.org" target="_blank">Columbia Riverkeeper</a>, and in solidarity with dozens of regional organizations and initiatives.</p>
+<div class="justify"><p>One thing Cascadia has to teach is activism&mdash;successful activism. Success takes organized groups and spontaneous grassroots movements. The following sections of the map have been developed with an advocacy group, <a href="https://columbiariverkeeper.org" target="_blank">Columbia Riverkeeper</a>, in solidarity with dozens of regional organizations and initiatives.</p>
 
 <p>From the 2000s onward North America has witnessed a surge in oil and gas extraction, driven by the spread of unconventional techniques like hydraulic fracking as well as deliberate government policies. Wild schemes, improvised crews, ramshackle equipment: nothing was too quick or too dirty for the energy tycoons of North Dakota's Bakken and Canada's Tar Sands. Even the coal kingpins of Wyoming's Powder River Basin wanted a piece of the action. But all that dinosaur blood needed deepwater ports on the Pacific Ocean in order to reach the world's thirstiest markets in Asia. Between the devil and the deep blue sea stood the environmentalists of Oregon, Washington and British Columbia.</p>
 
@@ -40,7 +29,9 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
 <p> Click on the markers to see how an unprecedented spectrum of grassroots activists, teachers, students, faith-based groups, health professionals, unions, social-justice movements, tribes, environmentalists, NGOs and principled public officials have held the <a href="https://www.sightline.org/research/thin-green-line" target="_blank">Thin Green Line</a>, blocking the implementation of some of the world's most devastating energy plans. Each click shows a Twitter feed next to the site of an abandoned terminal project. An extraordinary range of people tell the story in their own words and images, with links to important press accounts and to the websites of those who are directly defending the river itself and the health of everyone on its shores.</p>
 
-<p>This story is hardly over. The orange markers show two proposed sites for a methanol plant that would turn a flood of fracked natural gas into useless plastic, polluting the air, the water and the quality of all our lives. So it's time to take action again: <div class="quote">No methanol on the Columbia!</div></p><br>
+<p>This story is hardly over. The orange markers show two proposed sites for a methanol plant that would turn a flood of fracked natural gas into useless plastic, polluting the air, the water and the quality of all our lives. So it's time to take action again:</p>
+
+<div class="quote"><p>No methanol on the Columbia!</p><br></div>
 
 <div class="video"><iframe width="375" height="211" src="https://www.youtube.com/embed/rNCb-1cDxUE?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>></iframe></div><br>
     </div>
