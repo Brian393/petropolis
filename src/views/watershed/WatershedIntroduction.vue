@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div class="title"><p><h1>Outside in</h1></p></div>
-    <img src="../../../public/images/waterbody.png"><br><div class="caption">Does the territory inhabit you?</div><br>
+    <img src="images/waterbody.png"><br><div class="caption">Does the territory inhabit you?</div><br>
 
       <Accordion :open="false">
         <h2 slot="header">map legend</h2>
