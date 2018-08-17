@@ -57,7 +57,7 @@ export default {
     toggleAccordion: function () {
       this.isOpen = !this.isOpen
       if (this.isOpen && this.$refs.accordion.offsetTop > window.innerHeight) {
-        setTimeout( () => {
+        setTimeout(() => {
           this.$refs.accordion.scrollIntoView()
         }, 500)
       }
