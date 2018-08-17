@@ -34,7 +34,9 @@ export default {
           center: [-118.989, 46.9],
           resolution: 300
         }
-      } // end centerPoints
+      }, // end centerPoints
+      radius: 300,
+      mousePosition: undefined
     }
   },
   computed: {
@@ -151,7 +153,7 @@ export default {
     },
     energyLayers: function () {
       return [
-        ...this.baseLayers,   // three dots = "spread operator" does the same as "concat"
+        ...this.baseLayers, // three dots = "spread operator" does the same as "concat"
         // mega[6]
         this.makeGeoJSONPointVectorLayer('geojson/CascadiaHydro2.geojson', 'icons/dam.png', 'Hydro power', 2, 2000),
         // mega[7]
@@ -191,6 +193,33 @@ export default {
       ]
     },
     grandCouleeLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 2,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        let ctx = e.context
+        const pixelRatio = e.frameState.pixelRatio
+        ctx.save()
+        ctx.beginPath()
+        if (this.mousePosition) {
+          // Only show a circle around the mouse --
+          ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+            this.radius * pixelRatio, 0, 2 * Math.PI)
+          ctx.lineWidth = 5 * pixelRatio
+          ctx.strokeStyle = 'rgba(0,0,0,0.5)'
+          ctx.stroke()
+        }
+        ctx.clip()
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         // tiles[19]
         new Tile({
@@ -213,14 +242,7 @@ export default {
           maxResolution: 16000
         }),
         // bingMapsAerial2
-        new Tile({
-          source: new BingMaps({
-            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-            imagerySet: 'Aerial'
-          }),
-          minResolution: 2,
-          maxResolution: 10
-        })
+        bingMapTile
       ]
     },
     basinProjectLayers: function () {
@@ -271,6 +293,15 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    window.addEventListener('keydown', (e) => {
+      if (e.keyCode === 38) { // up arrow key
+        this.radius = Math.min(this.radius + 5, 800)
+        this.olmap.render()
+      } else if (e.keyCode === 40) { // down arrow key
+        this.radius = Math.max(this.radius - 5, 0)
+        this.olmap.render()
+      }
+    })
   },
   methods: {
     initMap: function () {
@@ -328,6 +359,10 @@ export default {
     },
     initmegaregionCropsGrandCoulee: function () {
       this.initBaseMap()
+      this.olmap.on('pointermove', (e) => {
+        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+        this.olmap.render()
+      })
       this.olmap.setLayerGroup(new Group({
         layers: this.grandCouleeLayers
       }))
