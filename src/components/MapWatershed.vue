@@ -218,7 +218,7 @@ export default {
             }
           }).extend([
             new ScaleLine({
-              units: "us",
+              units: 'us',
               minWidth: 150
             })
           ])
