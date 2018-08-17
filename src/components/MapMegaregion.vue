@@ -18,7 +18,7 @@ import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
-import {ScaleLine} from 'ol/control'
+import {ScaleLine, defaults as defaultControls} from 'ol/control'
 
 export default {
   name: 'MapMegaregion',
@@ -343,12 +343,16 @@ export default {
           target: 'map',
           layers: this.baseLayers,
           overlays: [this.popup],
-          controls: [
+          controls: defaultControls({
+            attributionOptions: {
+              collapsible: false
+            }
+          }).extend([
             new ScaleLine({
               units: "us",
               minWidth: 150
             })
-          ]
+          ])
         })
         // #TODO: improve this popup logic...
         this.olmap.on('singleclick', (e) => {
