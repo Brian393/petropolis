@@ -214,7 +214,7 @@ export default {
           overlays: [this.popup],
           controls: defaultControls({
             attributionOptions: {
-              collapsible: false
+              collapsible: true
             }
           }).extend([
             new ScaleLine({
