@@ -14,7 +14,7 @@ export default {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionwater: {
-          center: [-118.8, 46.1],
+          center: [-120.4, 46.1],
           resolution: 700
         },
         introductionbio: {
@@ -22,23 +22,23 @@ export default {
           resolution: 4500
         },
         terminals: {
-          center: [-122.68, 45.84],
+          center: [-122.9, 45.8],
           resolution: 220
         },
         hanford1: {
-          center: [-119.46, 46.637574],
-          resolution: 70
+          center: [-119.54, 46.692],
+          resolution: 4
         },
         legacy: {
-          center: [-119.5199, 46.555],
+          center: [-119.529, 46.555],
           resolution: 6
         },
         floods: {
-          center: [-119.46, 46.607574],
+          center: [-119.51, 46.607574],
           resolution: 50
         },
         plumes: {
-          center: [-119.46, 46.607574],
+          center: [-119.51, 46.607574],
           resolution: 50
         },
         stopit: {
@@ -46,7 +46,7 @@ export default {
           resolution: 220
         },
         dams: {
-          center: [-117.9, 46.9],
+          center: [-119.9, 46.9],
           resolution: 700
         }
       } // end centerPoints

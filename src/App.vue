@@ -20,7 +20,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <h1 id="aside-heading" v-bind:class="{hidden: this.asideHidden}">Learning From Cascadia</h1>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">LEARNING FROM CASCADIA</p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -44,33 +44,36 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: teal;      /*navbar background color */
 }
 nav a {
   font-weight: bold;
-  color: #0E8817;
+  color: #003232;              /*navbar text color */
   text-decoration: none;
   max-height: 50px;
   display: flex;
   align-items: center;
-  font-size: 1em;
+  font-size: 1em;            /*no idea what this does */
   padding: 5px 50px;
   line-height: 40px;
 }
-nav a:hover, nav a.active, nav a.router-link-exact-active {
-  background-color: #0E8817;
-  color: white;
+nav a.active, nav a.router-link-exact-active {
+  background-color: #008000;       /*background color when active */
+  color: white;                    /*text color when active */
 }
-
+nav a:hover {
+  color: #dcdcdc;
+}
 #map {
   background-color: #f4f2f0;
   height: calc(100vh - 50px);
-  border-top: thin solid #0E8817;
+  border-top: thin solid #008000;
   box-sizing: border-box;
 }
 
 aside {
   background-color: #f4f2f0;
-  border-left: thin solid #0E8817;
+  border-left: thin solid #008000;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -81,7 +84,7 @@ aside {
   position: sticky;
   top: 0;
   color: white;
-  background-color: #0E8817;
+  background-color: #008000;
   z-index: 1;
   height: 51px;
 }
@@ -97,7 +100,7 @@ aside {
   display: none;
 }
 #aside-toggle:hover, #aside-scroll-to:hover {
-  color: #0E8817;
+  color: #008000;
   background-color: white;
   cursor: hand;
 }
@@ -124,10 +127,11 @@ aside {
 }
 
 #aside-heading {
-  margin-top: 0.5em;
+  margin-top: 0.7em;
   padding: 0;
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.2em;             /* sidebar title, "Learning" */
+  color: #dcdcdc;
 
 }
 
@@ -137,7 +141,8 @@ aside {
 
 .aside-content h1{
   margin-top: 0.75em;
-  color: #88170e;
+  margin-bottom: 0.75em;
+  color: #800000;
 }
 
 .caption {
@@ -171,7 +176,7 @@ font-weight: bold; font-style: italic; color: #333333;
     flex: 0 0 400px;
   }
   #aside-heading {
-    padding: 0 1em;
+    padding: 0 0.6em;
     text-align: left;
   }
   #aside-toggle {
@@ -181,8 +186,8 @@ font-weight: bold; font-style: italic; color: #333333;
     display: none;
   }
   #content, aside {
-    overflow: scroll;
-    overflow-y: scroll;
+    overflow: scroll;           /*these scrolls affect hamburger button at upper right! */
+    overflow-y: scroll;        /*they create all kinds of weird micro arrows, very strange */
     max-height: 100vh;
   }
 }

@@ -15,15 +15,15 @@ export default {
     return {
       centerPoints: {
         introductionmetro: {
-          center: [-122.112002, 45.564222],
-          resolution: 180
+          center: [-122.4, 45.564222],
+          resolution: 200
         },
         energy: {
-          center: [-119.023311, 46.864322],
+          center: [-120.1, 47.1],
           resolution: 798
         },
         crops: {
-          center: [-117.6, 46.5],
+          center: [-119.3, 46.5],
           resolution: 900
         },
         coulee: {
@@ -31,7 +31,7 @@ export default {
           resolution: 6
         },
         basin: {
-          center: [-118.989, 46.9],
+          center: [-119.4, 46.9],
           resolution: 300
         }
       }, // end centerPoints
