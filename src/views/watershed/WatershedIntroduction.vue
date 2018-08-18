@@ -9,24 +9,28 @@
     <br>
 
     <Accordion :open="false">
-      <h2 slot="header">map legend</h2>
+      <h3 slot="header">legend</h3>
       <div class="flex">
         <div>
-          <img src="icons/nukes.gif">
-          Nukes
+          <img src="icons/legends/woody.png">
+          Woody wetlands
         </div>
         <div>
-          <img src="icons/natgas.png">
-          Nat Gas
+          <img src="icons/legends/herbaceous.png">
+          Herbaceous wetlands
         </div>
         <div>
-          <img src="icons/dam.png">
-          Dam
+          <img src="icons/legends/peaks.png">
+          Crazy beautiful mountains
+        </div>
+        <div>
+          <img src="icons/legends/watery.png">
+          We love water
         </div>
       </div>
     </Accordion>
 
-    <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is a lot more than a beautiful view.</p>
+    <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is more than a beautiful view.</p>
 
     <p>The Columbia River watershed is a far-flung territory including parts of six US states and one Canadian province. Its border is traced, not by governments or treaties, but by every drop of liquid that finds a common path to the ocean.</p>
 
@@ -40,11 +44,24 @@
 
     <p>Watershed is a scientific category that provides the frame for citizen activism and advocacy. Two riskier and more speculative headings also appear: Megaregion and Bioregion. They're like the red and the blue pill. Which one will you choose? Which one is which?</p>
 
-    <p>This project has been made using public research and open-source software, with generous contributions from a growing list of local organizations and inhabitants. A legend for each map can be found at the top of the text column. Sources and collaborators are identified at the end. Pages will be added as new possibilities emerge. The whole thing has been coordinated by a Portland-based artist and curator, Mack McFarland, and by an inquisitive stranger, Brian Holmes, who came to the Pacific Northwest with the quixotic hope of "Learning from Cascadia."</p>
+    <p>This project has been made using public research and open-source software, with generous contributions from a growing list of local organizations and inhabitants. A legend for each map can be found at the top of the text column. Sources and collaborators are identified at the end. Pages will be added as new possibilities emerge. The whole thing has been coordinated by a Portland-based artist and curator, Mack McFarland, and by an inquisitive stranger, Brian Holmes, who came to the Pacific Northwest with the quixotic hope of "Learning from Cascadia."</p><br>
 
     <Accordion>
-      <h2 slot="header">sources</h2>
-            A Link: <a href="http://ecotopia.today/" target="_blank" title="ecotopia.today">Link to ecotopia.today.</a> Images: <AppLightBox :images="images">Dam Light Box</AppLightBox>
+      <h3 slot="header">sources</h3>
+    <p>This work is made with public data and free software. Code repository <a href="https://github.com/Brian393/ecotopia-today" target="blank">here</a>.</p>
+    <p>Major sources for this page include:</p>
+    <p>-- <a href="https://nhd.usgs.gov/NHDPlus_HR.html" target="_blank">National Hydrology Dataset</a></p>
+    <p>-- <a href="https://www.arcgis.com/home/item.html?id=1b243539f4514b6ba35e7d995890db1d" target="_blank">Esri World Hillshade Layer</a></p>
+    <p>-- <a href="https://www.fws.gov/wetlands/Data/Mapper.html" target="_blank">National Wetlands Inventory</a></p>
+    <p>-- <a href="http://www.cec.org/tools-and-resources/map-files/land-cover-2010-landsat-30m" target="_blank">North American Land Cover Monitoring System</a></p>
+    <p>-- <a href="https://www.openstreetmap.org" target="__blank">OpenStreetMap</a></p>
+    <p>-- <a href="https://www.bing.com/maps/aerial" target="_blank">Bing Maps Aerial</a></p>
+    <p>-- <a href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" target="_blank">National Geographic World Map</a></p>
+    <p>-- <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer" target="_blank">USGS Topo Map</a></p>
+    <p>These sources have been combined and put online using two amazing tools: <a href="https://www.qgis.org/en/site/" target="_blank">QGIS</a> and <a href="https://openlayers.org/" target="_blank">OpenLayers</a>.</p>
+    <p>Thanks to all the creators of this fabulous stuff!</p>
+
+
     </Accordion>
 
   </div>
