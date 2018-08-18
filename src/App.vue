@@ -20,7 +20,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <h1 id="aside-heading" v-bind:class="{hidden: this.asideHidden}">Learning From Cascadia</h1>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">LEARNING FROM CASCADIA</p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -127,10 +127,10 @@ aside {
 }
 
 #aside-heading {
-  margin-top: 0.5em;
+  margin-top: 0.7em;
   padding: 0;
   text-align: center;
-  font-size: 1.5em;             /* sidebar title, "Learning" */
+  font-size: 1.2em;             /* sidebar title, "Learning" */
   color: #dcdcdc;
 
 }
