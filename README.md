@@ -114,6 +114,37 @@ Then in your `<template>` use like so:
 <AppLightBox :images="damImages">A Dam Light Box</AppLightBox> 
 ```
 
+Further customization of `<LightBox/>`. See: https://www.npmjs.com/package/vue-image-lightbox#properties for all configuration options provided by this module. To extend more options (for example the `showThumbs` property) from this module do something like: 
+
+Add the `showThumbs` property to `AppLightBox.vue`:
+
+```
+<LightBox v-if="isOpen" :images="images" :showCaption="true" @onOpened="onOpenChange" :showThumbs="false"></LightBox>
+```
+
+This will make every instance of `<AppLightBox/>` not show thumbnails. If we want to extend & proxy these properties via `<AppLightBox/>` then we just need to setup this property in `AppLightBox.vue` like so:
+
+add a new key & type value in the `props` object:
+
+```js
+props: {
+  images: Array,
+  showThumbs: Boolean
+}
+```
+
+set the `<LightBox/>` element to use this property: 
+
+```
+<LightBox :showThumbs="showThumbs"></LightBox>
+```
+
+then you can customize this per `<AppLightBox/>` instance like so:
+
+```
+<AppLightBox :showThumbs="true">A Dam Light Box</AppLightBox> 
+```
+
 ### `<Map/>`
 
 The map component is a wrapper for working with the openlayers library. Different map views are managed via the [Vue Router](https://router.vuejs.org/) (see: `router.js`) so `<router-link>` elements can be used to navigate to different map views. Each different map view has a corresponding method to setup (init) the OpenLayers map details. Generally there's some set of layers that will be used on every map view so those are stored in a common method that returns those layers (see: `watershedBaseLayers()`). Then each particular view can `.concat()` any additional layers needed. 
