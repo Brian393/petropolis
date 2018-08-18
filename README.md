@@ -4,7 +4,6 @@ A Vue.js app based on a prototype by Brian Holmes (@Brian393).
 
 🗣 [OpenLayers](https://openlayers.org/)  
 🗣 [vue-image-lightbox](https://www.npmjs.com/package/vue-image-lightbox)  
-🗣 [vue-tweet-embed](https://github.com/tonickkozlov/vue-tweet-embed)
 
 https://edwardsharp.github.io/ecotopia-today/
 

@@ -20,7 +20,6 @@
     "vue-image-lightbox": "^6.0.0",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1",
-    "vue-tweet-embed": "^2.1.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

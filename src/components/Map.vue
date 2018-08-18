@@ -3,7 +3,7 @@
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
-      <div class="ol-popup-twitter-content"><div ref="twitterContent"></div></div>
+      <div class="ol-popup-twitter-content"><div ref="loadingTweets">Loading Tweets...</div><div ref="twitterContent"></div></div>
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
@@ -20,8 +20,6 @@
 */
 
 import {mapGetters} from 'vuex'
-import Vue from 'vue'
-import Timeline from 'vue-tweet-embed/timeline'
 import 'ol/ol.css'
 import {Map, Overlay} from 'ol'
 import {Vector as VectorLayer} from 'ol/layer'
@@ -123,17 +121,23 @@ export default {
               this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.title
               this.popup.setPosition(e.coordinate)
-            } else if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
-              this.$refs.popupContent.classList.add('hidden')
-              this.$refs.twitterContent.classList.remove('hidden')
-              const TimelineCtor = Vue.extend(Timeline)
-              new TimelineCtor({
-                propsData: {
-                  id: 'NoMethanol', // #TODO: use this.props.timeline,
-                  sourceType: 'profile'
-                }
-              }).$mount(this.$refs.twitterContent)
-              this.popup.setPosition(e.coordinate)
+            } else if (props.timeline) {
+              if (window.twttr) {
+                this.$refs.popupContent.classList.add('hidden')
+                this.$refs.twitterContent.classList.remove('hidden')
+                this.$refs.loadingTweets.classList.remove('hidden')
+                this.$refs.twitterContent.innerHTML = ''
+                window.twttr.widgets.createTimeline(
+                  {
+                    sourceType: 'url',
+                    url: props.timeline
+                  },
+                  this.$refs.twitterContent
+                ).then(() => {
+                  this.$refs.loadingTweets.classList.add('hidden')
+                })
+                this.popup.setPosition(e.coordinate)
+              }
             }
           } else {
             this.closePopup()
