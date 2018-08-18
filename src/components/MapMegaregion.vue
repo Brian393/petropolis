@@ -192,7 +192,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'https://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 2,
