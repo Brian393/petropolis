@@ -31,7 +31,7 @@ font-size: 20px;
 }
 .body   {
   padding: 0;
-  max-height: 100vh;
+  max-height: 100%;
   overflow: hidden;
   transition: 0.5s ease all;
 }
