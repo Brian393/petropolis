@@ -97,7 +97,6 @@ export default {
             })
           ])
         })
-        // #TODO: improve this popup logic...
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
           if (feature) {
@@ -114,6 +113,16 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+            } else if (props.key2) {
+              this.$refs.popupContent.classList.remove('hidden')
+              this.$refs.twitterContent.classList.add('hidden')
+              this.$refs.popupContent.innerHTML = props.key2.replace('cascadia/', '')
+              this.popup.setPosition(e.coordinate)
+            } else if (props.title) {
+              this.$refs.popupContent.classList.remove('hidden')
+              this.$refs.twitterContent.classList.add('hidden')
+              this.$refs.popupContent.innerHTML = props.title
+              this.popup.setPosition(e.coordinate)
             } else if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
               this.$refs.popupContent.classList.add('hidden')
               this.$refs.twitterContent.classList.remove('hidden')
@@ -126,7 +135,9 @@ export default {
               }).$mount(this.$refs.twitterContent)
               this.popup.setPosition(e.coordinate)
             }
-          } // #NOTE: use `else { this.closePopup() }` to close popup when clicking somewhere else on the map.
+          } else {
+            this.closePopup()
+          }
         })
         window.addEventListener('keydown', (e) => {
           // close popup if esc key pressed
@@ -134,18 +145,11 @@ export default {
             this.closePopup()
           }
         })
-
         this.olmap.on('pointermove', (e) => {
-          // if (e.dragging) {
-          //   this.closePopup()
-          //   return
-          // }
           var pixel = this.olmap.getEventPixel(e.originalEvent)
           var hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
-
-        // #TODO: setup other map features: additional overlays for photo/text, overlays for watershedHanfordLegacy, (mouseover/mouseout for position tracking?)
       }
     },
     closePopup: function () {

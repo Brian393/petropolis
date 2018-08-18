@@ -76,7 +76,7 @@ aside a:visited, .link {
   top: -30px;
   overflow: scroll;
   max-height: 260px;
-  width: 100%;
+  width: calc(100% - 1em);
   padding: 0.5em;
 }
 .ol-popup-content img {
