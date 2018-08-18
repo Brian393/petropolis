@@ -20,7 +20,7 @@
   color: #800080;
   margin-top:10px;
   margin-bottom:10px;
-  margin-left: 110px;          /* This VERY POOR SUBSTITUTE for real centering */
+  justify-content: center;
 
 }
 .headingText:hover {
