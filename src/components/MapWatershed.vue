@@ -114,7 +114,7 @@ export default {
     },
     watershedHandfordLegacyLayers: function () {
       return [
-        ...this.watershedBaseLayers,
+        // ...this.watershedBaseLayers,
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -133,7 +133,7 @@ export default {
           minResolution: 2,
           maxResolution: 80
         }),
-        this.makeGeoJSONFillVectorLayer('geojsons/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
+        this.makeGeoJSONFillVectorLayer('geojson/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
       ]
     },
     watershedHanfordPlumesLayers: function () {
@@ -213,6 +213,19 @@ export default {
         default:
           this.initWatershedIntro()
       }
+      this.olmap.on('pointermove', (e) => {
+        const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+        if (feature) {
+          const props = feature.getProperties()
+          if (props.key) {
+            this.$refs.titletipContent.innerHTML = props.key
+            this.titletip.setPosition(e.coordinate)
+          }
+        } else {
+          this.closeTitletip()
+          this.closeTooltip()
+        }
+      })
     },
     initWatershedIntro: function () {
       this.initBaseMap()

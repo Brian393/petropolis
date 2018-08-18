@@ -3,7 +3,7 @@
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
-      <div class="ol-popup-twitter-content"><div ref="loadingTweets">Loading Tweets...</div><div ref="twitterContent"></div></div>
+      <div class="ol-popup-twitter-content"><div ref="loadingTweets" class="hidden">Loading Tweets...</div><div ref="twitterContent"></div></div>
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
@@ -121,6 +121,11 @@ export default {
               this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.title
               this.popup.setPosition(e.coordinate)
+            } else if (props.key) {
+              this.$refs.popupContent.classList.remove('hidden')
+              this.$refs.twitterContent.classList.add('hidden')
+              this.$refs.popupContent.innerHTML = props.key
+              this.popup.setPosition(e.coordinate)
             } else if (props.timeline) {
               if (window.twttr) {
                 this.$refs.popupContent.classList.add('hidden')
@@ -150,8 +155,8 @@ export default {
           }
         })
         this.olmap.on('pointermove', (e) => {
-          var pixel = this.olmap.getEventPixel(e.originalEvent)
-          var hit = this.olmap.hasFeatureAtPixel(pixel)
+          const pixel = this.olmap.getEventPixel(e.originalEvent)
+          const hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
       }
