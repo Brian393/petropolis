@@ -3,7 +3,7 @@
     <div class="title">
       <h1>Outside in</h1>
     </div>
-    <img src="images/waterbody.png">
+    <img src="images/waterbody.png" class="fullwidth">
     <br>
     <div class="caption">Does the territory inhabit you?</div>
     <br>

@@ -109,7 +109,7 @@ aside {
   display: block;
 }
 
-aside img {
+aside .fullwidth {
   width: 100%;
 }
 
