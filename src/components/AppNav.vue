@@ -53,7 +53,7 @@
 }
 
 .subItem {
-  width: 100px;
+  min-width: 100px;
 }
 @media (max-width: 1075px) {
   #items, #subItems {
