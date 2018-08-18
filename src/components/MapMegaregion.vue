@@ -306,6 +306,25 @@ export default {
         this.olmap.render()
       }
     })
+    this.olmap.on('pointermove', (e) => {
+      const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+      if (feature) {
+        const props = feature.getProperties()
+        if (props.CropGroup && props.key) {
+          this.$refs.titletipContent.innerHTML = props.key
+          this.titletip.setPosition(e.coordinate)
+        } else if (props.title && props.image) {
+          this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
+          this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
+          this.tooltip.setPosition(e.coordinate)
+        }
+      } else {
+        this.closeTitletip()
+        this.closeTooltip()
+      }
+      this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+      this.olmap.render()
+    })
   },
   methods: {
     initMap: function () {
@@ -363,10 +382,10 @@ export default {
     },
     initmegaregionCropsGrandCoulee: function () {
       this.initBaseMap()
-      this.olmap.on('pointermove', (e) => {
-        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
-        this.olmap.render()
-      })
+      // this.olmap.on('pointermove', (e) => {
+      //   this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+      //   this.olmap.render()
+      // })
       this.olmap.setLayerGroup(new Group({
         layers: this.grandCouleeLayers
       }))
@@ -378,20 +397,6 @@ export default {
     },
     initmegaregionCropsBasinProject: function () {
       this.initBaseMap()
-      this.olmap.on('pointermove', (e) => {
-        const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-        if (feature) {
-          const props = feature.getProperties()
-          if (props.CropGroup && props.key) {
-            this.$refs.titletipContent.innerHTML = props.key
-            this.titletip.setPosition(e.coordinate)
-          }
-        } else {
-          this.closeTitletip()
-        }
-        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
-        this.olmap.render()
-      })
       this.olmap.setLayerGroup(new Group({
         layers: this.basinProjectLayers
       }))

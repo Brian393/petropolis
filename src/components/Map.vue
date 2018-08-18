@@ -3,9 +3,12 @@
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
+      <div class="ol-popup-twitter-content"><div ref="twitterContent"></div></div>
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
+    </div>
+    <div ref="tooltip" class="ol-tooltip">
     </div>
   </div>
 </template>
@@ -54,6 +57,13 @@ export default {
         offset: [10, 0],
         positioning: 'center-left'
       })
+    },
+    tooltip: function () {
+      return new Overlay({
+        element: this.$refs.tooltip,
+        offset: [10, 0],
+        positioning: 'center-left'
+      })
     }
   },
   watch: {
@@ -75,7 +85,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.popup, this.titletip],
+          overlays: [this.popup, this.titletip, this.tooltip],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -93,14 +103,27 @@ export default {
           if (feature) {
             const props = feature.getProperties()
             console.log('has feature! props:', props)
-            if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
+            // #TODO: use better property names in .geojson files for if/else logic
+            if (props.title && props.image && props.text1) {
+              this.$refs.popupContent.classList.remove('hidden')
+              this.$refs.twitterContent.classList.add('hidden')
+              this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
+              this.$refs.popupContent.innerHTML += props.image ? props.image.replace('cascadia/', '') : ''
+              this.$refs.popupContent.innerHTML += props.text1 + '<br>'
+              this.$refs.popupContent.innerHTML += props.text2 ? props.text2 + '<br>' : ''
+              this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
+              this.popup.setPosition(e.coordinate)
+              this.closeTooltip()
+            } else if (props) { // #TODO: fix geoJSON properties, use props.timeline key instead of props.title  for iframe & html file
+              this.$refs.popupContent.classList.add('hidden')
+              this.$refs.twitterContent.classList.remove('hidden')
               const TimelineCtor = Vue.extend(Timeline)
               new TimelineCtor({
                 propsData: {
                   id: 'NoMethanol', // #TODO: use this.props.timeline,
                   sourceType: 'profile'
                 }
-              }).$mount(this.$refs.popupContent)
+              }).$mount(this.$refs.twitterContent)
               this.popup.setPosition(e.coordinate)
             }
           } // #NOTE: use `else { this.closePopup() }` to close popup when clicking somewhere else on the map.
@@ -132,6 +155,10 @@ export default {
     },
     closeTitletip: function () {
       this.titletip.setPosition(undefined)
+      return false
+    },
+    closeTooltip: function () {
+      this.tooltip.setPosition(undefined)
       return false
     },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {
