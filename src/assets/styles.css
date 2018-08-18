@@ -1,5 +1,5 @@
 aside a, .link {
-	color: #337ab7;
+	color: #008080;
 	text-decoration: none;
 }
 
@@ -8,7 +8,7 @@ aside a, .link {
 }
 
 aside a:visited, .link {
-	color: #63a0d4;
+	color: #004d4d;
 }
 
 

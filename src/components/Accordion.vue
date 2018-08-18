@@ -17,10 +17,17 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: #88170e;
+  color: #800080;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left: 110px;          /* This VERY POOR SUBSTITUTE for real centering */
+
 }
 .headingText:hover {
   text-decoration: underline;
+}
+.material-icons {
+font-size: 20px;
 }
 .body   {
   padding: 0;
@@ -32,7 +39,13 @@
   max-height: 0;
 }
 .content {
+  border-radius: 10px;
+  border: 2px solid #800080;
   padding: 20px;
+}
+.legendtext {
+  margin-top: 15px;            /* THIS IS EXPERIMENTAL */
+  margin-bottom: 5px;          /* idea is to control line space only here */
 }
 </style>
 <script>

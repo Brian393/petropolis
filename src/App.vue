@@ -127,10 +127,10 @@ aside {
 }
 
 #aside-heading {
-  margin-top: 0.7em;
+  margin-top: 0.8em;
   padding: 0;
   text-align: center;
-  font-size: 1.2em;             /* sidebar title, "Learning" */
+  font-size: 1.2em;             /* sidebar header title, "Learning" */
   color: #dcdcdc;
 
 }
@@ -139,7 +139,7 @@ aside {
   padding: 0 1em;
 }
 
-.aside-content h1{
+.aside-content h1{             /* sidebar item title settings */
   margin-top: 0.75em;
   margin-bottom: 0.75em;
   color: #800000;
