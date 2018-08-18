@@ -23,8 +23,8 @@ aside a:visited, .link {
   border: 1px solid #cccccc;
   bottom: 12px;
   left: -50px;
-  min-width: 280px;
-  height: 280px;
+  min-width: 200px;
+  max-height: 280px;
   overflow: scroll;
 }
 .ol-popup:after, .ol-popup:before {
@@ -63,4 +63,19 @@ aside a:visited, .link {
 }
 .ol-popup-closer:after {
   content: "✖";
+}
+.ol-popup-content {
+  padding: 0.5em;
+}
+
+.titletip {
+  position: relative;
+  left: 18px;
+  padding: 3px;
+  background: rgba(102, 0, 0, 0.9);
+  width: 220px;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  font-size: 12pt;
 }

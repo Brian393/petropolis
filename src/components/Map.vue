@@ -4,6 +4,9 @@
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
     </div>
+    <div ref="titletip" class="titletip">
+      <div class="titletip-content" ref="titletipContent"></div>
+    </div>
   </div>
 </template>
 
@@ -44,6 +47,13 @@ export default {
           duration: 250
         }
       })
+    },
+    titletip: function () {
+      return new Overlay({
+        element: this.$refs.titletip,
+        offset: [10, 0],
+        positioning: 'center-left'
+      })
     }
   },
   watch: {
@@ -65,7 +75,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.popup],
+          overlays: [this.popup, this.titletip],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -111,11 +121,17 @@ export default {
           var hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
+
+        // #TODO: setup other map features: additional overlays for photo/text, overlays for watershedHanfordLegacy, (mouseover/mouseout for position tracking?)
       }
     },
     closePopup: function () {
       this.popup.setPosition(undefined)
       this.$refs.popupCloser.blur()
+      return false
+    },
+    closeTitletip: function () {
+      this.titletip.setPosition(undefined)
       return false
     },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {

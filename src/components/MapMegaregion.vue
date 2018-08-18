@@ -374,6 +374,18 @@ export default {
     },
     initmegaregionCropsBasinProject: function () {
       this.initBaseMap()
+      this.olmap.on('pointermove', (e) => {
+        const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+        if (feature) {
+          const props = feature.getProperties()
+          if (props.CropGroup && props.key) {
+            this.$refs.titletipContent.innerHTML = props.key
+            this.titletip.setPosition(e.coordinate)
+          }
+        } else {
+          this.closeTitletip()
+        }
+      })
       this.olmap.setLayerGroup(new Group({
         layers: this.basinProjectLayers
       }))
