@@ -69,7 +69,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 2,
@@ -81,7 +81,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 20,
@@ -113,7 +113,7 @@ export default {
           minResolution: 40,
           opacity: 1,
           source: new XYZ({
-            url: 'http://{a-c}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png',
+            url: 'https://{a-c}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png',
             crossOrigin: null, // make it work inside canvas
             tilePixelRatio: 2, // server returns 512px img for 256 tiles
             maxZoom: 19, // XYZ's default is 18
@@ -131,7 +131,7 @@ export default {
               const z = tileCoord[0]
               const x = tileCoord[1]
               const y = -tileCoord[2] - 1
-              return 'http://t0.tiles.virtualearth.net/tiles/t' + this.computeQuadKey(x, y, z) + '.jpg'
+              return 'https://t0.tiles.virtualearth.net/tiles/t' + this.computeQuadKey(x, y, z) + '.jpg'
             }
           }),
           loadTilesWhileAnimating: true,
@@ -180,7 +180,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 2,
@@ -192,7 +192,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+            url: 'https://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 2,
@@ -221,7 +221,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 2,
@@ -262,7 +262,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'}),
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'}),
           opacity: 1,
           minResolution: 2,
           maxResolution: 16000
