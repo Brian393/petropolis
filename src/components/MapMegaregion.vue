@@ -352,10 +352,6 @@ export default {
     },
     initMegaregionCrops: function () {
       this.initBaseMap()
-      this.olmap.on('pointermove', (e) => {
-        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
-        this.olmap.render()
-      })
       this.olmap.setLayerGroup(new Group({
         layers: this.cropsLayers
       }))
@@ -393,6 +389,8 @@ export default {
         } else {
           this.closeTitletip()
         }
+        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+        this.olmap.render()
       })
       this.olmap.setLayerGroup(new Group({
         layers: this.basinProjectLayers
