@@ -12,12 +12,12 @@
 <style scoped>
 #items, #subItems {
   position: absolute;
-  bottom: 35px;
+  bottom: 50px;                /*this is height of submenu panel */
   z-index: 1;
   border-radius: 6px;
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255,255,255, 0.9);
   display: flex;
-  font-size: 1.25em;
+  font-size: 1.15em;
 }
 
 #items {
@@ -25,7 +25,7 @@
   flex-direction: column;
   width: 150px;
   max-height: calc(100vh - 170px);
-  overflow-y: scroll;
+  overflow-y: none;
 }
 
 #subItems {
@@ -34,6 +34,7 @@
   max-width: calc(100vw - 400px - 150px - 3em);
   flex-direction: row;
   flex-wrap: wrap;
+
 }
 
 .btn {
@@ -42,18 +43,17 @@
   border: thin solid darkgray;
   border-radius: 6px;
   margin: 0.1em;
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255,255,255, 0.95);
   color: black;
   text-decoration: none;
 }
 
 .btn:hover, .router-link-active {
-  background-color: #0E8817;
-  color: white;
+  color: #008000;
 }
 
 .subItem {
-  width: 100px;
+  width: 150px;
 }
 @media (max-width: 1075px) {
   #items, #subItems {
@@ -66,7 +66,7 @@
 @media (max-width: 850px) {
   #items, #subItems {
     position: static;
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
   #items, .subItem {
     width: 100%;
