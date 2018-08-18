@@ -41,6 +41,21 @@ export default {
   },
   computed: {
     baseLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 2,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         // layer
         new Tile({
@@ -141,14 +156,7 @@ export default {
           })
         }),
         // bingMapsAerial
-        new Tile({
-          source: new BingMaps({
-            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-            imagerySet: 'Aerial'
-          }),
-          minResolution: 2,
-          maxResolution: 10
-        })
+        bingMapTile
       ]
     },
     energyLayers: function () {
@@ -202,19 +210,7 @@ export default {
         maxResolution: 10
       })
       bingMapTile.on('precompose', (e) => {
-        let ctx = e.context
-        const pixelRatio = e.frameState.pixelRatio
-        ctx.save()
-        ctx.beginPath()
-        if (this.mousePosition) {
-          // Only show a circle around the mouse --
-          ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
-            this.radius * pixelRatio, 0, 2 * Math.PI)
-          ctx.lineWidth = 5 * pixelRatio
-          ctx.strokeStyle = 'rgba(0,0,0,0.5)'
-          ctx.stroke()
-        }
-        ctx.clip()
+        this.spyglass(e)
       })
       bingMapTile.on('postcompose', function (e) {
         e.context.restore()
@@ -246,6 +242,21 @@ export default {
       ]
     },
     basinProjectLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 2,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         // tiles[20]
         new Tile({
@@ -279,14 +290,7 @@ export default {
         // mega[11]
         this.makeGeoJSONFillVectorLayer('geojson/CBP-Crops.geojson', 2, 80, 'rgba(189, 7, 97, 0)', 0, 'rgba(189, 7, 97, 0)'),
         // bingMapsAerial3
-        new Tile({
-          source: new BingMaps({
-            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-            imagerySet: 'Aerial'
-          }),
-          minResolution: 2,
-          maxResolution: 10
-        })
+        bingMapTile
       ]
     }
 
@@ -409,6 +413,21 @@ export default {
         quadKeyDigits.push(digit)
       }
       return quadKeyDigits.join('')
+    },
+    spyglass: function (e) {
+      let ctx = e.context
+      const pixelRatio = e.frameState.pixelRatio
+      ctx.save()
+      ctx.beginPath()
+      if (this.mousePosition) {
+        // Only show a circle around the mouse --
+        ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+          this.radius * pixelRatio, 0, 2 * Math.PI)
+        ctx.lineWidth = 5 * pixelRatio
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)'
+        ctx.stroke()
+      }
+      ctx.clip()
     }
   }
 }
