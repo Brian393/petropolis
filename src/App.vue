@@ -109,6 +109,10 @@ aside {
   display: block;
 }
 
+aside img {
+  width: 100%;
+}
+
 .no-flex{
   position: absolute;
   top: 0;
