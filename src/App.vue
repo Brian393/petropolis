@@ -187,7 +187,7 @@ font-weight: bold; font-style: italic; color: #333333;
   }
   #content, aside {
     overflow: scroll;           /*these scrolls affect hamburger button at upper right! */
-    overflow-y: scroll;
+    overflow-y: scroll;        /*they create all kinds of weird micro arrows, very strange */
     max-height: 100vh;
   }
 }
