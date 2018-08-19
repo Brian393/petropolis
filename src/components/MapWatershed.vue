@@ -76,8 +76,8 @@ export default {
           source: new XYZ({
             url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}'
           }),
-          opacity: 0.9,
-          minResolution: 1,
+          opacity: 0.7,
+          minResolution: 2,
           maxResolution: 8
         })
       ]
@@ -121,7 +121,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 80
         }),
         new Tile({
@@ -130,7 +130,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 80
         }),
         this.makeGeoJSONFillVectorLayer('geojson/HanfordLabels.geojson', 1, 80, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
@@ -145,7 +145,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 80
         }),
         new Tile({
@@ -154,7 +154,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 80
         }),
         new Tile({
@@ -163,7 +163,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 80
         })
       ]
@@ -235,7 +235,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.introductionwater.center),
         resolution: this.centerPoints.introductionwater.resolution,
-        zoom: 0
+        minResolution: 2
       }))
     },
     initWatershedTerminals: function () {
@@ -247,7 +247,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.terminals.center),
           resolution: this.centerPoints.terminals.resolution,
-          zoom: 0
+          minResolution: 2
         })
       )
     },
@@ -260,7 +260,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.dams.center),
           resolution: this.centerPoints.dams.resolution,
-          zoom: 0
+          minResolution: 2
         })
       )
     },
@@ -273,7 +273,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.hanford1.center),
           resolution: this.centerPoints.hanford1.resolution,
-          zoom: 0
+          minResolution: 1
         })
       )
     },
@@ -286,7 +286,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.legacy.center),
           resolution: this.centerPoints.legacy.resolution,
-          zoom: 0
+          minResolution: 1
         })
       )
     },
@@ -299,7 +299,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.plumes.center),
           resolution: this.centerPoints.plumes.resolution,
-          zoom: 0
+          minResolution: 1
         })
       )
     },
@@ -312,7 +312,7 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.floods.center),
           resolution: this.centerPoints.floods.resolution,
-          zoom: 0
+          minResolution: 2
         })
       )
     }
