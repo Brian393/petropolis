@@ -1,44 +1,95 @@
+<style scoped>
+.video {
+position: relative; padding-bottom: 74.88%; height: 0;
+}
+.video iframe {
+position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+</style>
+
 <template>
   <div class="aside-content">
-    <h1>Watershed Dams</h1>
-    <iframe width="400" height="225" src="https://www.youtube-nocookie.com/embed/oWdxY_5DHq0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <div id="lipsum">
-      <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros tellus. Sed euismod vel sem vitae ornare. Nullam aliquet quam lectus, sed placerat mi accumsan at. Nullam malesuada arcu eros, nec suscipit tortor molestie quis. Integer tristique nulla vel ex porttitor, et pellentesque augue tincidunt. Quisque placerat aliquet suscipit. Integer nec aliquam libero. Proin vel odio id orci elementum varius. Donec et libero eget quam eleifend tristique cursus ut ante. Quisque auctor, risus ac facilisis maximus, ante sem efficitur leo, sed elementum sapien nisi vel leo. Nullam euismod sapien at velit condimentum dignissim.
-      </p>
-      <p>
-      Nullam vel dui sit amet sapien suscipit auctor in vitae dolor. Morbi laoreet bibendum enim eget pellentesque. Pellentesque vitae dignissim turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vel neque neque. Maecenas nec nunc id sapien vehicula luctus. In ut felis eu dolor egestas convallis at ut erat. Fusce et auctor lacus. Sed vehicula ipsum vitae laoreet laoreet. Nulla facilisi. Sed sed pharetra enim, ac aliquet nisi. Suspendisse id luctus orci. Praesent a purus pretium, faucibus erat in, sagittis massa. Maecenas massa nunc, congue vel orci sed, dignissim condimentum ante. Sed vel augue sodales, posuere ipsum quis, facilisis nisl.
-      </p>
-      <p>
-      Suspendisse consequat justo ligula. Nunc pharetra libero ac lacus ornare, id tempus leo maximus. Mauris a venenatis sapien, in eleifend odio. Maecenas porttitor metus mi, at sodales enim luctus vitae. Proin quis ultrices lorem. Quisque feugiat blandit magna, vitae porttitor turpis lacinia vulputate. In porttitor tincidunt tristique. Nulla ac lectus aliquam, rhoncus nisl et, dictum tortor. Curabitur elementum, velit sed viverra bibendum, dolor risus facilisis velit, sed consequat mi diam eget diam. Aenean pellentesque sem sed mauris suscipit, sit amet placerat nulla hendrerit. Praesent venenatis nisi eu augue ultricies semper. Phasellus accumsan finibus ligula et mattis. In ullamcorper, lorem at aliquam sodales, magna neque luctus quam, in auctor justo sapien sed risus. Sed augue quam, eleifend quis viverra ac, sodales vel ligula. Phasellus nisi est, suscipit in fringilla in, malesuada et enim.
-      </p>
-      <p>
-      Praesent vel tempus neque, in lacinia libero. Nunc eleifend risus risus, at aliquam enim finibus ut. Sed a dapibus eros, vel tempus enim. Phasellus et mi faucibus, placerat arcu vitae, finibus est. Donec a elementum leo, sed sollicitudin tortor. Vestibulum eleifend pulvinar arcu vel mollis. Quisque iaculis lacinia libero, mattis pulvinar dolor luctus at. Nunc eu orci in ligula auctor condimentum eu rutrum eros. Sed sed lorem feugiat, aliquet arcu semper, efficitur leo.
-      </p>
-      <p>
-      Praesent et elit non leo pellentesque sollicitudin. Aliquam lobortis diam in felis aliquam, sed porta libero egestas. Phasellus libero mi, consequat eget consequat non, suscipit sit amet sem. Nulla a efficitur enim. Morbi nunc mauris, scelerisque at volutpat consectetur, luctus vel enim. Suspendisse ac arcu et diam elementum condimentum. Duis tempus metus sed dolor auctor, non tincidunt ante vehicula. Fusce tristique turpis non commodo ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      </p>
-      <p>
-      Nullam lacus purus, porttitor ut pellentesque eu, hendrerit in neque. Praesent eu suscipit orci. Etiam quis tincidunt nibh. Ut porttitor mi nulla, et tempor dolor varius quis. Phasellus viverra eget ante sit amet malesuada. Curabitur auctor sapien a dui volutpat congue. Duis tempus pharetra viverra. Aliquam malesuada, sapien id eleifend commodo, turpis magna consequat urna, in aliquet turpis ex eget nisi. Proin eu sodales tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec diam lorem, rhoncus eget velit sit amet, consectetur luctus metus. Pellentesque rhoncus metus a sapien lacinia, sit amet tempus nisl placerat.
-      </p>
-      <p>
-      Duis tempor vestibulum dolor, non ullamcorper ipsum condimentum a. Maecenas in ex ligula. Aenean fringilla cursus tincidunt. Vivamus consectetur nunc justo, eu porttitor diam egestas ac. Pellentesque eu tincidunt est. Mauris a faucibus mauris. Proin augue neque, posuere posuere metus vel, scelerisque luctus mi. Vivamus vel lacinia nibh. Maecenas eu ipsum eget nisi aliquam eleifend a ut libero. Suspendisse blandit lacus nibh, ut malesuada nunc lobortis sit amet.
-      </p>
-      <p>
-      Proin mauris mauris, porttitor ac iaculis id, tristique vestibulum tortor. Sed placerat ac eros vestibulum pretium. Ut quis pharetra quam. Phasellus posuere, dolor ac convallis laoreet, mauris dui lobortis nisl, vel dictum est magna sit amet arcu. Ut ac egestas dui. Integer pulvinar nisi a nulla imperdiet rutrum id et est. Aliquam eget ultricies nisi. Nulla condimentum sollicitudin elit, a vehicula turpis consequat vel. Duis pharetra scelerisque dapibus. Maecenas bibendum volutpat arcu nec malesuada. Integer convallis auctor velit a facilisis. Cras sed molestie elit. Proin dui nibh, scelerisque at dui eget, feugiat consectetur risus. Etiam vel risus a elit tincidunt pulvinar. Maecenas et facilisis eros.
-      </p>
-      <p>
-      Donec varius elit lobortis ullamcorper tincidunt. Vestibulum lectus dolor, mattis vitae viverra at, auctor at lacus. Praesent maximus libero eget facilisis aliquam. Proin ac augue bibendum dolor ornare sagittis. Morbi ac lorem nunc. Donec malesuada id mi nec blandit. Aenean maximus molestie libero, non porta metus bibendum a. Aliquam rhoncus gravida aliquam. Mauris vitae dolor at nisi iaculis condimentum. Mauris non dolor nulla. Nunc euismod semper nisi. Maecenas vitae erat at lectus vehicula aliquet quis eget dolor. Nam molestie est in turpis efficitur tempus.
-      </p>
-      <p>
-      Morbi vitae ultricies risus. Morbi dapibus nibh eget ultricies venenatis. Nulla libero velit, porttitor id turpis non, luctus fringilla risus. Integer a nulla ut neque lacinia pellentesque. Aenean laoreet massa vel augue sollicitudin, non tristique sem porttitor. Vestibulum vitae nisi nunc. Sed in est luctus, posuere nisi aliquam, accumsan massa. Integer in ullamcorper felis. Nunc consequat diam eget sodales consequat. Nulla facilisi. Nunc aliquam quam ac nisl faucibus, in imperdiet magna volutpat. Vestibulum tristique enim magna. Aliquam erat volutpat. Maecenas consectetur augue a quam pharetra, in iaculis diam egestas. Proin non interdum massa.
-      </p>
+    <div class="title">
+      <h1>The Falls are sleeping</h1>
     </div>
-  </div>
-</template>
+    <div class="video">
+      <iframe width="350" height="197" src="https://www.youtube.com/embed/oWdxY_5DHq0?rel=0&amp;start=26;autoplay=1&mute=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="caption">Echo of Water Against Rocks
+      <br>Ian McCluskey &amp; Steve Mital</div>
+    <br>
 
+        <Accordion :open="false">
+          <h3 slot="header">legends</h3>
+          <div class="flex">
+            <div>
+              <h3>"The US Arny Corps of Engineers, Sunday at 10 am will drop the gates in the powerhouse section of the Dalles Dam through which the Columbia River flows, and within hours historic features of the reservoir area, created centuries ago in geologic eras, will be obliterated."</h3>
+            </div></div>
+        </Accordion>
+
+      <p>The image to your left shows the Portland metro area, with streets in dark blue, railways in orange and automobile traffic in bright green (it'll shift to yellow and red at rush hour). Underneath the traffic, a dendritic tangle of crimson filaments represents the regional electric grid&mdash;just one of the ways the metropolis reaches out to the countryside for resources.</p>
+
+      <p>Where does the city stop? By itself, Portland is immense. Yet it's only a nighttime gleam in a much larger constellation of interconnected urban systems stretching along the coastline of the Pacific Northwest. Taken together, these urbanized areas constitute what geographer <a href="http://www.hypergeo.eu/spip.php?article629" target="_blank">Jean Gottman</a> termed a <a href="http://www.esperdy.net/wp-content/uploads/2009/09/Gottman-Introduction.pdf" target="_blank">megalopolis</a>, or what's now called a <a href="http://www.america2050.org/content/megaregions.html" target="_blank">megaregion</a>.</p>
+
+      <p>Linked by Interstate 5&mdash;and maybe someday by high-speed rail&mdash;Eugene, Salem, Portland, Tacoma, Seattle, Everett, Bellingham, Vancouver and half a dozen smaller conurbations make up the Cascadian megaregion (see <AppLightBox :images="megaImages">promotional map</AppLightBox>). In its turn, Cascadia is but one of eleven US megaregions, which themselves take their place among some forty global urban clusters, including such giants as Hong Kong-Shenhzen-Guangzhou and Rio de Janeiro-Sao Paulo. The megaregion has recently been defined as <a href="https://books.google.com/books?id=jIEZBgAAQBAJ&lpg=PP1&dq=Megaregions&pg=PP1#v=onepage&q&f=false" target="_blank">globalization's urban form</a>.</p>
+
+      <p>Zoom out to see Cascadia's place in the network of US megaregions. Zoom further out for the entire global network.</p>
+
+      <p>Represented in this way, Cascadia is at antipodes from the bioregion celebrated by Peter Berg and Raymond Dasmann. The Cascadian megaregion emerges not from poetry, but from the raw violence of domination. Its political economy, currrently measured in dollars and cents, should rather be measured by the gigatons of carbon dioxide that it adds to the earth's atmosphere every year, contributing to the melt of the polar icecaps and the onrushing chaos of climate change.</p>
+
+      <p>Yet just as humans are an animal population, so Cascadia is part of the earth system. Its consumption of fossil fuels, its thirst for channeled water and its dependence on industrial agriculture together constitute a <a href="https://www.anthropocene-curriculum.org/pages/root/campus-2016/techno-metabolism/" target= "_blank">techno-metabolism</a>, whose organic structure and temporal pulse remain obscure for the majority of its inhabitants. Taking a cue from artists Lynda Wysong and Pamela Chipman, we could all start exploring the ground beneath our feet.</p>
+
+      <p>This section of <strong>Learning from Cascadia</strong> maps out what may be called "the Anthropocene city"&mdash;its spatial contours, its historical legacies of colonialism and racism, its energy technologies and its resource use, in short its capacity to reshape the surrounding environment and outselves at the same time. The idea is to lay bare the challenges of the climate-change era. Can we name the social matrix that all this emerged from? Can we represent and quantify a regional metabolism? Can we own it and take responsibility for it? Can we discover new sources of species-level agency within the current dynamics of unchecked growth and carrying-capacity overshoot? These are just a few of the unanswered questions of political ecology.</p>
+      <br>
+      <Accordion>
+        <h3 slot="header">sources</h3>
+      <p>For a full-spectrum investigation of the civilizational transformations leading up to and beyond climate change, see <a href="https://www.anthropocene-curriculum.org" target="blank">The Anthropocene Curriculum</a>, with which "Learning from Cascadia" is affiliated.</p>
+      <p>Data sources for this page include:</p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="__blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank"></a></p>
+      <br>
+      </Accordion>
+
+  </div>
+  </template>
+  <style scoped>
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  .flex img {
+    margin-right: 0.5em;
+  }
+  </style>
 <script>
+import AppLightBox from '../../components/AppLightBox.vue'
+import Accordion from '../../components/Accordion.vue'
+
 export default {
-  name: 'WatershedTerminals'
+  name: 'WatershedDams',
+  components: {
+    Accordion,
+    AppLightBox
+  },
+  data: function () {
+    return {
+      megaImages: [
+        {
+          src: 'images/CascadiaMegaregionFullsize.jpg'
+        }
+      ]
+    }
+  }
 }
 </script>

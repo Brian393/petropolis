@@ -46,7 +46,7 @@ export default {
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
           imagerySet: 'Aerial'
         }),
-        minResolution: 2,
+        minResolution: 1,
         maxResolution: 10
       })
       bingMapTile.on('precompose', (e) => {
@@ -72,7 +72,7 @@ export default {
             url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 40,
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
@@ -103,7 +103,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/PDX-new/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 1600
         }),
         // openrailwaymap
@@ -206,7 +206,7 @@ export default {
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
           imagerySet: 'Aerial'
         }),
-        minResolution: 2,
+        minResolution: 1,
         maxResolution: 10
       })
       bingMapTile.on('precompose', (e) => {
@@ -224,7 +224,7 @@ export default {
             url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 16000
         }),
         // tiles[18]
@@ -247,7 +247,7 @@ export default {
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
           imagerySet: 'Aerial'
         }),
-        minResolution: 2,
+        minResolution: 1,
         maxResolution: 10
       })
       bingMapTile.on('precompose', (e) => {
@@ -264,7 +264,7 @@ export default {
           source: new XYZ({
             url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'}),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 1,
           maxResolution: 16000
         }),
         // tiles[22]
@@ -355,7 +355,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.introductionmetro.center),
         resolution: this.centerPoints.introductionmetro.resolution,
-        zoom: 0
+        minResolution: 1,
+        maxResolution: 16000
       }))
     },
     initMegaregionEnergy: function () {
@@ -366,7 +367,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.energy.center),
         resolution: this.centerPoints.energy.resolution,
-        zoom: 0
+        minResolution: 1,
+        maxResolution: 8000
       }))
     },
     initMegaregionCrops: function () {
@@ -377,7 +379,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.crops.center),
         resolution: this.centerPoints.crops.resolution,
-        zoom: 0
+        minResolution: 2,
+        maxResolution: 2000
       }))
     },
     initmegaregionCropsGrandCoulee: function () {
@@ -392,7 +395,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.coulee.center),
         resolution: this.centerPoints.coulee.resolution,
-        zoom: 0
+        minResolution: 1,
+        maxResolution: 2000
       }))
     },
     initmegaregionCropsBasinProject: function () {
@@ -403,7 +407,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.basin.center),
         resolution: this.centerPoints.basin.resolution,
-        zoom: 0
+        minResolution: 2,
+        maxResolution: 2000
       }))
     },
     computeQuadKey: function (x, y, z) {

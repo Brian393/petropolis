@@ -9,7 +9,7 @@
     <br>
 
     <Accordion :open="false">
-      <h3 slot="header">legend</h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
         <div>
           <img src="icons/legends/woody.png">
@@ -44,7 +44,7 @@
 
     <p>Watershed is a scientific category that provides the frame for citizen activism and advocacy. Two riskier and more speculative headings also appear: Megaregion and Bioregion. They're like the red and the blue pill. Which one will you choose? Which one is which?</p>
 
-    <p>This project has been made using public research and open-source software, with generous contributions from a growing list of local organizations and inhabitants. A legend for each map can be found at the top of the text column. Sources and collaborators are identified at the end. Pages will be added as new possibilities emerge. The whole thing has been coordinated by a Portland-based artist and curator, Mack McFarland, and by an inquisitive stranger, Brian Holmes, who came to the Pacific Northwest with the quixotic hope of "Learning from Cascadia."</p><br>
+    <p>This project has been made using public research and open-source software, with generous contributions from a growing list of local organizations and inhabitants. Legends for each map can be found at the top of the text column. Sources and collaborators are identified at the end. Pages will be added as new possibilities emerge. The whole thing has been coordinated by a Portland-based artist and curator, Mack McFarland, and by an inquisitive stranger, Brian Holmes, who came to the Pacific Northwest with the quixotic hope of "Learning from Cascadia."</p><br>
 
     <Accordion>
       <h3 slot="header">sources</h3>
@@ -60,8 +60,6 @@
     <p>-- <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer" target="_blank">USGS Topo Map</a></p>
     <p>These sources have been combined and put online using two amazing tools: <a href="https://www.qgis.org/en/site/" target="_blank">QGIS</a> and <a href="https://openlayers.org/" target="_blank">OpenLayers</a>.</p>
     <p>Thanks to all the creators of this fabulous stuff!</p>
-
-
     </Accordion>
 
   </div>
