@@ -48,6 +48,10 @@ export default {
         dams: {
           center: [-119.9, 46.9],
           resolution: 700
+        },
+        transformation: {
+          center: [-119.9, 46.9],
+          resolution: 700
         }
       } // end centerPoints
     }
@@ -92,7 +96,12 @@ export default {
     watershedDamsLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/waterfall.png', null, 2, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/Tsagaglalal.png', null, 2, 32000)
+      ]
+    },
+    watershedDamsTransformationLayers: function () {
+      return [
+        ...this.watershedBaseLayers,
         this.makeGeoJSONPointVectorLayer('geojson/MajorHydroCRB.geojson', 'icons/damOther.png', null, 2, 32000),
         this.makeGeoJSONPointVectorLayer('geojson/Bureau.geojson', 'icons/damBR.png', null, 2, 32000),
         this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps.geojson', 'icons/damAC.png', null, 2, 32000)
@@ -198,6 +207,9 @@ export default {
         case 'watershedDams':
           this.initWatershedDams()
           break
+        case 'watershedDamsTransformation':
+          this.initWatershedDamsTransformation()
+          break
         case 'watershedHanford':
           this.initWatershedHanford()
           break
@@ -260,6 +272,19 @@ export default {
         new View({
           center: fromLonLat(this.centerPoints.dams.center),
           resolution: this.centerPoints.dams.resolution,
+          minResolution: 2
+        })
+      )
+    },
+    initWatershedDamsTransformation: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedDamsTransformationLayers
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.transformation.center),
+          resolution: this.centerPoints.transformation.resolution,
           minResolution: 2
         })
       )
