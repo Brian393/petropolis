@@ -1,11 +1,11 @@
 <template>
   <div v-if="!asideHidden">
     <div id="items" v-if="nav.items">
-      <router-link v-for="item in nav.items" :key="item.name" :to="item.href" class="btn">{{item.name}}</router-link>
+      <router-link v-for="item in nav.items" :key="item.name" :to="item.href" @click.native="routeClick(item.href)" class="btn">{{item.name}}</router-link>
     </div>
 
     <div id="subItems" v-if="navSubItems">
-      <router-link v-for="subItem in navSubItems" :key="subItem.name" :to="subItem.href" class="btn subItem">{{subItem.name}}</router-link>
+      <router-link v-for="subItem in navSubItems" :key="subItem.name" :to="subItem.href" @click.native="routeClick(subItem.href)" class="btn subItem">{{subItem.name}}</router-link>
     </div>
   </div>
 </template>
@@ -80,6 +80,7 @@
 </style>
 <script>
 import {mapGetters} from 'vuex'
+import {eventBus} from '../main'
 
 export default {
   name: 'AppNav',
@@ -181,6 +182,11 @@ export default {
         this.navSubItems = this.subItems.crops
       } else {
         this.navSubItems = []
+      }
+    },
+    routeClick: function (to) {
+      if (to === this.$route.path) {
+        eventBus.$emit('route-click')
       }
     }
   }

@@ -8,12 +8,21 @@ import 'ol/ol.css'
 import {Map, View} from 'ol'
 import TileLayer from 'ol/layer/Tile'
 import OSM from 'ol/source/OSM'
+
+import {eventBus} from '../main'
+
 export default {
   name: 'MapBioregion',
   data: function () {
     return {
       olmap: undefined
     }
+  },
+  created: function () {
+    eventBus.$on('route-click', this.initMap)
+  },
+  beforeDestroy: function () {
+    eventBus.$off('route-click', this.initMap)
   },
   mounted: function () {
     console.log('$route.name:', this.$route.name, ' $route.params.subitem:', this.$route.params.subitem)

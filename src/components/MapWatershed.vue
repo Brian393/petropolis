@@ -6,6 +6,8 @@ import {Tile, Group} from 'ol/layer'
 import {XYZ} from 'ol/source'
 import {fromLonLat} from 'ol/proj'
 
+import {eventBus} from '../main'
+
 export default {
   name: 'MapWatershed',
   extends: Map,
@@ -182,6 +184,12 @@ export default {
         })
       ]
     }
+  },
+  created: function () {
+    eventBus.$on('route-click', this.initMap)
+  },
+  beforeDestroy: function () {
+    eventBus.$off('route-click', this.initMap)
   },
   mounted: function () {
     this.initMap()

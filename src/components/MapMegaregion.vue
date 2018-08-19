@@ -8,6 +8,8 @@ import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
+import {eventBus} from '../main'
+
 export default {
   name: 'MapMegaregion',
   extends: Map,
@@ -294,6 +296,12 @@ export default {
       ]
     }
 
+  },
+  created: function () {
+    eventBus.$on('route-click', this.initMap)
+  },
+  beforeDestroy: function () {
+    eventBus.$off('route-click', this.initMap)
   },
   mounted: function () {
     this.initMap()
