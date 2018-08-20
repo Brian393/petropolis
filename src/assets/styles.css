@@ -54,15 +54,16 @@ aside a:visited, .link {
   right: 0;
   padding: 0 10px;
   float: right;
-  font-size: 1.5em;
+  font-size: 1em;
   z-index: 1;
+  line-height: 2em;
 }
 .ol-popup-closer:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 .ol-popup-closer:after {
-  content: "✖";
+  content: "x";
 }
 .ol-popup-twitter-content {
   position: relative;
