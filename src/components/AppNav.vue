@@ -29,12 +29,15 @@
 }
 
 #subItems {
+  font-size: 1em;
   left: calc(150px + 0.5em);
+  width: 100%;
   min-width: calc(100px - 0.2em);
-  max-width: calc(100vw - 400px - 150px - 3em);
+  max-width: calc(100vw - 400px - 150px);
   flex-direction: row;
   flex-wrap: wrap;
-
+  justify-content: center;
+  background-color: transparent;
 }
 
 .btn {
