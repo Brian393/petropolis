@@ -7,7 +7,6 @@
         <router-link to="/watershed/introduction" v-bind:class="{active: $route.name && $route.name.match('watershed')}">Watershed</router-link>
         <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}">Bioregion</router-link>
         <span>&nbsp;</span>
-        
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
         </div>
