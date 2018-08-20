@@ -12,7 +12,7 @@
 <style scoped>
 #items, #subItems {
   position: absolute;
-  bottom: 50px;              /*this is height of submenu panel */
+  bottom: 25px;
   z-index: 1;
   border-radius: 6px;
   background-color: rgba(255,255,255, 0.9);

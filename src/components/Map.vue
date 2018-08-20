@@ -73,6 +73,7 @@ export default {
     'asideHidden' () {
       // update map size when aside content is toggled
       this.olmap.updateSize()
+      this.toggleScaleLine()
     }
   },
   methods: {
@@ -95,6 +96,7 @@ export default {
             })
           ])
         })
+        this.toggleScaleLine()
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
           if (feature) {
@@ -153,6 +155,9 @@ export default {
           if (e.keyCode === 27) {
             this.closePopup()
           }
+        })
+        window.addEventListener('resize', (e) => {
+          this.toggleScaleLine()
         })
         this.olmap.on('pointermove', (e) => {
           const pixel = this.olmap.getEventPixel(e.originalEvent)
@@ -227,6 +232,13 @@ export default {
         }),
         strokeColor: strokeColor
       })
+    },
+    toggleScaleLine: function () {
+      if (this.asideHidden || window.innerWidth < 850) {
+        document.querySelector('.ol-scale-line').classList.remove('hidden')
+      } else {
+        document.querySelector('.ol-scale-line').classList.add('hidden')
+      }
     }
   }
 }
