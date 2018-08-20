@@ -10,7 +10,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>The Falls are sleeping</h1>
+      <h1>The rivers didn't suit them</h1>
     </div>
     <div class="video">
       <iframe width="350" height="197" src="https://www.youtube.com/embed/oWdxY_5DHq0?rel=0&amp;start=26;autoplay=1&mute=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -27,9 +27,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             </div>
         </Accordion>
 
-      <p>On May 10, 1957, in the name of progress and for the needs of the Cold War aluminum industry, the gates of The Dalles Dam were closed and in the space of just a few hours, the rapids that had roared through The Long Narrows since time immemorial were covered by the rising waters. An era was brought to a close. Anyone who possibly can should go one day to the place that used to be called Celilo Falls, and listen to the silence that hangs over what is now a reservoir.</p>
-
-      <p>Celilo Falls was the oldest continuously inhabited place in North America. Held sacred by the tribes of the Lower Columbia, and frequented by Native Americans from throughout the Basin. It was an epicenter of culture and trade, the site of the First Salmon ceremony.....</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis lacus purus, nec sollicitudin lorem vulputate vitae. Nullam rutrum convallis nisi, eu pretium nisi pulvinar at. Quisque dolor risus, tempus at sem sed, venenatis semper eros. Aenean vel imperdiet quam. Duis eu mattis sem. Suspendisse bibendum vulputate magna eget malesuada. Morbi in commodo dui. Integer luctus ac ex in fermentum. Suspendisse finibus nulla at est gravida, et ultrices tellus varius.<br><br>Nunc ut lorem neque. Nullam lobortis eleifend faucibus. Ut posuere massa faucibus convallis fringilla. Phasellus ultrices laoreet est eu blandit. Sed congue ex quis ultrices pharetra. Proin urna velit, feugiat et convallis dapibus, gravida a libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque luctus ultrices sapien ut molestie. Maecenas pulvinar vulputate sodales. Phasellus ut dui sit amet eros malesuada ultricies vitae vel lectus. Fusce purus purus, pellentesque ut faucibus feugiat, egestas ut nunc. Maecenas rutrum mauris id sem venenatis eleifend. Suspendisse id tempor arcu, vitae fringilla ex. Nam a ultrices tortor. Duis at tincidunt sem. Quisque mollis magna at mattis vestibulum.<br><br>Praesent gravida nisl mauris, sed fringilla eros fermentum eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent quis dolor non ante gravida rutrum ac vitae enim. Pellentesque tristique mauris tristique nunc vehicula, id porta urna laoreet. Phasellus tempus, ex at volutpat varius, quam dui molestie ligula, ac pretium tellus mi at neque. Aenean vestibulum est blandit nisl eleifend placerat. Nunc et feugiat metus, at aliquet nisl. Donec commodo, turpis at fermentum efficitur, velit quam tristique nunc, eu pretium dui eros sit amet risus..</p>
 
       <br>
       <Accordion>
@@ -68,7 +66,7 @@ import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
-  name: 'WatershedDams',
+  name: 'WatershedDamsTransformation',
   components: {
     Accordion,
     AppLightBox

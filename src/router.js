@@ -41,6 +41,14 @@ export default new Router({
       }
     },
     {
+      path: '/watershed/dams/transformation',
+      name: 'watershedDamsTransformation',
+      components: {
+        default: () => import('./views/watershed/WatershedDamsTransformation.vue'),
+        map: MapWatershed
+      }
+    },
+    {
       path: '/watershed/hanford',
       name: 'watershedHanford',
       components: {
