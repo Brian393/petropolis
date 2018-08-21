@@ -12,7 +12,6 @@
 <style scoped>
 #items, #subItems {
   position: absolute;
-  bottom: 25px;
   z-index: 1;
   border-radius: 6px;
   background-color: rgba(255,255,255, 0.9);
@@ -21,6 +20,7 @@
 }
 
 #items {
+  bottom: 5px;
   left: 0.25em;
   flex-direction: column;
   width: 150px;
@@ -38,6 +38,8 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: transparent;
+  height: 0;
+  bottom: 35px;
 }
 
 .btn {
@@ -57,6 +59,7 @@
 
 .subItem {
   min-width: 100px;
+  height: 1.25em;
 }
 @media (max-width: 1075px) {
   #items, #subItems {
