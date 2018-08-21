@@ -25,7 +25,7 @@
   flex-direction: column;
   width: 150px;
   max-height: calc(100vh - 170px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #subItems {

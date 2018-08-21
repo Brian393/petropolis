@@ -68,14 +68,16 @@ aside a:visited, .link {
 .ol-popup-twitter-content {
   position: relative;
   top: -30px;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   max-height: 260px;
   width: 350px;
 }
 .ol-popup-content {
   position: relative;
   top: -30px;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   max-height: 260px;
   width: calc(100% - 1em);
   padding: 0.5em;
