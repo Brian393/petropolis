@@ -1,16 +1,38 @@
+<style scoped>
+.title {
+  color: #88170e;
+}
+.caption {
+text-align: center; font-style: italic; margin-top:5px;
+}
+.quote {
+font-weight: bold; font-style: italic; color: #333333;
+}
+.justify {
+text-align: justify;
+}
+</style>
+
 <template>
   <div class="aside-content">
-    <h1>Heading</h1>
-    <img src="../../assets/logo.png"><br><br>
-    <p><em>"Living-in-place means following the necessities and pleasures of life as they are uniquely presented by a particular site.... Reinhabitation means learning to live-in-place in an area that has been disrupted and injured through past exploitation."</em></p>
+    <p><div class="title"><h1>Bioregional turn</h1></div></p>
+    <img src="images/Cascade.jpg"><br><div class="caption">Falling water, Olympic Peninsula</div><br>
 
-<p>With these words, Peter Berg and Raymond Dasmann launched bioregionalism. They conceived it not as starting fresh but as returning to things forgotten, with awareness of past mistakes and particular respect for the earliest inhabitants of North America, whose relation to the land they strove to understand and emulate. The time was forty years ago. The inspiration was poetic, scientific, deeply personal and intensely political.</p>
+    <p><div class="justify"><div class="quote">"Living-in-place means following the necessities and pleasures of life as they are uniquely presented by a particular site.... Reinhabitation means learning to live-in-place in an area that has been disrupted and injured through past exploitation."</div></p>
 
-<p>Today, the Cascadia bioregion is a vast and diffuse idea that calls attention to the entangled destinies of environments and human beings. Thanks largely to the path-breaking cartography of <a href="http://cascadia-institute.org" target="_blank">David McCloskey</a>, the outline of Cascadia is recognized across national boundaries. Some movements have called for its independence, and still do; others make interdependence into the primary theme.</p>
+<p>With these words, Peter Berg and Raymond Dasmann launched bioregionalism. They conceived it not as starting fresh but as returning to things forgotten, with an awareness of past mistakes and a particular respect for the earliest inhabitants of North America. The time was forty years ago. The inspiration was poetic, scientific and intensely political.</p>
 
-<p>It\'s clear that the most effective contributions to the continuing existence of Cascadia, not as a line on a beautiful map but as a living entity, have come from the Indigenous peoples. Their reassertions of traditional beliefs and practices has often had the effect of bringing both themselves and other species to the negotiating tables where land and water use is decided. Among so many others one could recall the words of the tireless Native American activist <a href="http://billyfrankjr.org" target="_blank">Billy Frank Jr.</a>, who lived along the banks of the Nisqually River: <em>\"I believe in the sun and the stars, the water, the tides, the floods, the owls, the hawks flying, the river running, the wind talking. They’re measurements. They tell us how healthy things are. How healthy we are. Because we and they are the same.\"</em></p>
+<p>Today, the Cascadia bioregion is a vast and diffuse idea that calls attention to the entangled destinies of natural environments and human beings. Thanks largely to the cartography of <a href="http://cascadia-institute.org" target="_blank">David McCloskey</a>, the outline of Cascadia is recognized across national boundaries. Some movements call for its independence. For others, interdependence is the crucial thing.</p>
 
-<p>How to become more sensitive to the places that we inhabit? <em>\"There is a distinct resonance among living things and the factors which influence them,\"</em> wrote Berg and Dasmann. <em>"Discovering and describing that resonance is the best way to describe a bioregion.\"</em></p>
+<p>It's clear that the most powerful contributions to Cascadia come from indigenous peoples. Their assertion of traditional practices brings them to negotiating tables where the fate of land and water is decided. Often they invoke the needs of non-human species. Listen to the words of Native American activist <a href="http://billyfrankjr.org" target="_blank">Billy Frank Jr.</a>, who lived along the banks of the Nisqually River:</p>
+
+<p><div class="quote">"I believe in the sun and the stars, the water, the tides, the floods, the owls, the hawks flying, the river running, the wind talking. They’re measurements. They tell us how healthy things are. How healthy we are. Because we and they are the same."</div></p>
+
+<p>How to become more sensitive to the places we inhabit? Here's another idea from Peter Berg and Raymond Dasmann:</p>
+
+<p><div class="quote">"There is a distinct resonance among living things and the factors which influence them... Discovering and describing that resonance is the best way to describe a bioregion."</div></p>
+
+  </div>
   </div>
 </template>
 
