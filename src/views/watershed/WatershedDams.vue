@@ -27,9 +27,21 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             </div>
         </Accordion>
 
-      <p>On May 10, 1957, in the name of progress and for the needs of the Cold War aluminum industry, the gates of The Dalles Dam were closed and in the space of just a few hours, the rapids that had roared through The Long Narrows since time immemorial were covered by the rising waters. An era was brought to a close. Anyone who possibly can should go one day to the place that used to be called Celilo Falls, and listen to the silence that hangs over what is now a reservoir.</p>
+      <p>On May 10, 1957, the gates of the powerhouse at The Dalles Dam were lowered, blocking the flow of the Columbia River. In the space of just a few hours, the rapids that had roared through The Long Narrows since time immemorial were covered by the rising waters.</p>
 
-      <p>Celilo Falls was the oldest continuously inhabited place in North America. Held sacred by the tribes of the Lower Columbia, and frequented by Native Americans from throughout the Basin. It was an epicenter of culture and trade, the site of the First Salmon ceremony.....</p>
+      <p>What does such an event mean?</p>
+
+      <p>Celilo Falls was the oldest continuously inhabited site in North America. Known as Wyam, it lay at the meeting-place between the Sahaptin and Upper Chinookian language groups, and was frequented by Native Americans from across the West, who there came to fish and to celebrate the First Salmon ceremony. It has been estimated that up to sixteen million salmon used to cross the falls every year. Innumerable <a href="https://www.google.com/search?q=celilo+falls+fishing&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjb3er9pvzcAhVJR6wKHTyUC9AQ_AUICygC&biw=1920&bih=951" target= "_blank">photographs</a> dating back to the late nineteenth century show wooden dip-net platforms jutting out from the powerful basalt on the edges of the cataract. Katrine Barber, the author of <em>Death of Celilo Falls</em>, describes the scene:</p>
+
+      <p class="quote">"At Celilo Falls, where the horseshoe-shaped precipice demanded portage, dozens of villages scattered about the shorelines. A maze of islands separated the small communities and provided fishing sites in the spring and fall. The villages, each an autonomous political unit, faced the river or the mouths of tributaries&mdash;anywhere the fishing was excellent and accessible. The Indian population may have reached as many as 10,000 in this nine-mile stretch of the river before postcontact disease devastated the tribes."</p>
+
+      <p>Up to the date of the flood the Yakama Nation, the Confederated Tribes of Warm Springs, and the Walla Walla, Umatilla, and Cayuse peoples retained their treaty rights to fish at Celilo. They still do, but under vastly different circumstances.</p>
+
+      <p>Rapids and waterfalls were scattered the length of the Columbia and of its tributaries. Most of them, now underwater, were important fisheries and ceremonial sites. In a rare case such as that of Willamette Falls, both salmon and another anadromous fish, the <a href="http://www.critfc.org/fish-and-watersheds/columbia-river-fish-species/lamprey/" target= "_blank">lamprey</a>, still leap across a natural cascade. The locations of the major rapids and waterfalls are shown on the map, along with photographs when they are available.</p>
+
+      <p>Hin-mah-too-yah-lat-kekt, better known as Chief Joseph, did everything he could to find a path of coexistence between the incoming settlers and his band of Nez Perce. Reflecting on his past experience, he seemed to see into the future:</p>
+
+      <p class="quote">"I learned that we were but few, while the white men were many, and that we could not hold our own with them. We were like deer. They were like grizzly bears. We had a small country. Their country was large. We were contented to let things remain as the Great Spirit Chief made them. They were not; and would change the rivers and mountains if they did not suit them."</p>
 
       <br>
       <Accordion>
