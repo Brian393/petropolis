@@ -12,11 +12,8 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     <div class="title">
       <h1>The rivers didn't suit them</h1>
     </div>
-    <div class="video">
-      <iframe width="350" height="197" src="https://www.youtube.com/embed/oWdxY_5DHq0?rel=0&amp;start=26;autoplay=1&mute=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <div class="caption">Echo of Water Against Rocks
-      <br>Ian McCluskey &amp; Steve Mital</div>
+      <img src="images/BonnevilleConstruction.png" class="fullwidth">
+    <div class="caption">Construction of Bonneville Dam, 1936</div>
     <br>
 
         <Accordion :open="false">

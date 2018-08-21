@@ -52,8 +52,8 @@ export default {
           resolution: 700
         },
         transformation: {
-          center: [-119.9, 46.9],
-          resolution: 700
+          center: [-118.0, 45.6],
+          resolution: 1200
         }
       } // end centerPoints
     }
@@ -98,7 +98,7 @@ export default {
     watershedDamsLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/Tsagaglalal.png', null, 2, 32000)
+        this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/cascade.png', null, 2, 32000)
       ]
     },
     watershedDamsTransformationLayers: function () {

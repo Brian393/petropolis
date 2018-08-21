@@ -130,7 +130,7 @@ export default {
       subItems: {
         dams: [
           {
-            name: 'Transformation',
+            name: 'Transformation of the river',
             href: '/watershed/dams/transformation'
           }
         ],
