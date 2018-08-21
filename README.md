@@ -156,4 +156,33 @@ There's also some functionality to:
 At the moment only the Watershed map views are built. In the future `Map.vue` will move to `MapWatershed.vue` and the other two main map categories will have corresponding component files (e.g. MapBioregion.vue & MapMegaregion.vue). 
 
 
-*made with 🖤 in NYC*
+## misc.
+
+### links to re-position map
+
+```js
+import {eventBus} from '../../main'
+```
+
+declare an emit method like so:
+
+```js
+methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
+    }
+  } 
+```
+
+Use in `<template>`s like so:
+
+```html
+<span class="link" @click="emit('set-map-view', {center: [-121.2, 51.0], resolution: 4500, minResolution: 1, maxResolution: 16000})">set-map-view</span>
+```
+
+_note_ minResolution & maxResolution are optional. 
+
+<hr>
+<p align="center"> 
+made with 🖤 in NYC
+</p>

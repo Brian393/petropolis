@@ -6,6 +6,8 @@
     <img src="images/waterbody.png" class="fullwidth">
     <br>
     <div class="caption">Does the territory inhabit you?</div>
+    <span class="link" @click="emit('set-map-view', {center: [-121.2, 51.0], resolution: 4500})">set-map-view</span>
+
     <br>
 
     <Accordion :open="false">
@@ -82,6 +84,8 @@
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
+import {eventBus} from '../../main'
+
 export default {
   name: 'WatershedIntroduction',
   components: {
@@ -112,6 +116,11 @@ export default {
           caption: 'BridgeRiverDam'
         }
       ]
+    }
+  },
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
     }
   }
 }

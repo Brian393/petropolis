@@ -21,12 +21,15 @@
 
 import {mapGetters} from 'vuex'
 import 'ol/ol.css'
-import {Map, Overlay} from 'ol'
+import {Map, Overlay, View} from 'ol'
 import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
 import {ScaleLine, defaults as defaultControls} from 'ol/control'
+import {fromLonLat} from 'ol/proj'
+
+import {eventBus} from '../main'
 
 export default {
   name: 'Map',
@@ -34,6 +37,12 @@ export default {
     return {
       olmap: undefined
     }
+  },
+  created: function () {
+    eventBus.$on('set-map-view', this.setMapView)
+  },
+  beforeDestroy: function () {
+    eventBus.$off('set-map-view', this.setMapView)
   },
   computed: {
     // mix the getters from vuex store into computed with object spread operator
@@ -239,6 +248,26 @@ export default {
       } else {
         document.querySelector('.ol-scale-line').classList.add('hidden')
       }
+    },
+    setMapView: function (optz = {}) {
+      let viewOptz = {}
+      if (optz.center) {
+        viewOptz['center'] = fromLonLat(optz['center'])
+      }
+      if (optz.resolution) {
+        viewOptz['resolution'] = optz.resolution
+      }
+      if (optz.minResolution) {
+        viewOptz['minResolution'] = optz.minResolution
+      } else {
+        viewOptz['minResolution'] = 1
+      }
+      if (optz.maxResolution) {
+        viewOptz['maxResolution'] = optz.maxResolution
+      } else {
+        viewOptz['maxResolution'] = 16000
+      }
+      this.olmap.setView(new View(viewOptz))
     }
   }
 }
