@@ -10,7 +10,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>The rivers didn't suit them</h1>
+      <h1>Age of cement</h1>
     </div>
       <img src="images/BonnevilleConstruction.png" class="fullwidth">
     <div class="caption">Construction of Bonneville Dam, 1936</div>

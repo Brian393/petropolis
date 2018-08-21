@@ -104,9 +104,10 @@ export default {
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/MajorHydroCRB.geojson', 'icons/damOther.png', null, 2, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/Bureau.geojson', 'icons/damBR.png', null, 2, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps.geojson', 'icons/damAC.png', null, 2, 32000)
+        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000)
       ]
     },
     watershedHanfordLayers: function () {
