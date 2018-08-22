@@ -59,7 +59,9 @@ export default {
           center: [-118.0, 45.6],
           resolution: 3500 // 1200
         }
-      } // end centerPoints
+      }, // end centerPoints
+      watershedDamsTransformationIsAnimating: true,
+      didSetSingleclickEvent: false
     }
   },
   computed: {
@@ -108,10 +110,10 @@ export default {
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 0)
+        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 1)
       ]
     },
     watershedHanfordLayers: function () {
@@ -210,6 +212,7 @@ export default {
   },
   methods: {
     initMap: function () {
+      this.watershedDamsTransformationIsAnimating = true
       switch (this.$route.name) {
         case 'watershedIntroduction':
           this.initWatershedIntro()
@@ -291,26 +294,49 @@ export default {
     },
     initWatershedDamsTransformation: function () {
       this.initBaseMap()
-      for (const i of [3, 4, 5, 6]) {
-        // console.log('this.watershedDamsTransformationLayers[i].getSource().getFeatures().length:', this.watershedDamsTransformationLayers[i].getSource().getFeatures().length)
-        let offsetMSec = 0
-        if (i === 4) {
-          offsetMSec = 10000
-        } else if (i === 5) {
-          offsetMSec = 29000
-        } else if (i === 6) {
-          offsetMSec = 39000
+      // note: instead of using a computed property for watershedDamsTransformationLayersAnimation we need to re-initialize this to re-start the animation setTimeouts (via 'route-click' handler)
+      const watershedDamsTransformationLayersAnimation = [
+        ...this.watershedBaseLayers,
+        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 0)
+      ]
+      if (this.watershedDamsTransformationIsAnimating) {
+        for (const i of [3, 4, 5, 6]) {
+          // console.log('this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length:', this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length)
+          // set the offset for each layer group so each one shows consecutively
+          // e# note: should be able to programatically get the features.length (and * 1000) here but i couldn't figoure out how to dig that out. so they are static right now.
+          let offsetMSec = 0
+          if (i === 4) {
+            offsetMSec = 10000
+          } else if (i === 5) {
+            offsetMSec = 29000
+          } else if (i === 6) {
+            offsetMSec = 39000
+          }
+          watershedDamsTransformationLayersAnimation[i].getSource().on('addfeature', (e) => {
+            if (!isNaN(parseInt(e.feature.values_['id']))) {
+              setTimeout(() => {
+                this.flash(e.feature, watershedDamsTransformationLayersAnimation[i].getStyle().getImage().getImage().src)
+              }, (parseInt(e.feature.values_['id']) * 1000) + offsetMSec)
+            }
+          })
         }
-        this.watershedDamsTransformationLayers[i].getSource().on('addfeature', (e) => {
-          if (!isNaN(parseInt(e.feature.values_['id']))) {
-            setTimeout(() => {
-              this.flash(e.feature, this.watershedDamsTransformationLayers[i].getStyle().getImage().getImage().src)
-            }, (parseInt(e.feature.values_['id']) * 1000) + offsetMSec)
+      }
+      if (!this.didSetSingleclickEvent) {
+        this.olmap.on('singleclick', (e) => {
+          if (this.watershedDamsTransformationIsAnimating) {
+            this.watershedDamsTransformationIsAnimating = false
+            this.olmap.setLayerGroup(new Group({
+              layers: this.watershedDamsTransformationLayers
+            }))
           }
         })
+        this.didSetSingleclickEvent = true
       }
       this.olmap.setLayerGroup(new Group({
-        layers: this.watershedDamsTransformationLayers
+        layers: watershedDamsTransformationLayersAnimation
       }))
       this.olmap.setView(
         new View({
