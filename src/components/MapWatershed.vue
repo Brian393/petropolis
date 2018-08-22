@@ -309,7 +309,7 @@ export default {
             if (!isNaN(parseInt(e.feature.values_['id']))) {
               setTimeout(() => {
                 this.flash(e.feature, watershedDamsTransformationLayersAnimation[i].getStyle().getImage().getImage().src)
-              }, (parseInt(e.feature.values_['id']) * 500))
+              }, (parseInt(e.feature.values_['id']) * 1000))
             }
           })
         }
@@ -393,7 +393,7 @@ export default {
       const featureDate = feature.values_['date'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 500
+        const duration = 1000
         // const vectorContext = event.vectorContext
         // const flashGeom = feature.getGeometry().clone()
         const elapsed = event.frameState.time - start
@@ -418,7 +418,7 @@ export default {
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
               backgroundFill: new Stroke({color: [0, 0, 0, opacity]}),
               scale: 2,
-              offsetY: 25
+              offsetY: 30
             })
           }),
           new Style({
