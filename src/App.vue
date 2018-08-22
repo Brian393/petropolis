@@ -3,9 +3,9 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/megaregion/introduction" v-bind:class="{active: $route.name && $route.name.match('megaregion')}">Megaregion</router-link>
-        <router-link to="/watershed/introduction" v-bind:class="{active: $route.name && $route.name.match('watershed')}">Watershed</router-link>
-        <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}">Bioregion</router-link>
+        <router-link to="/megaregion/introduction" v-bind:class="{active: $route.name && $route.name.match('megaregion')}" @click.native="routeClick('/megaregion/introduction')">Megaregion</router-link>
+        <router-link to="/watershed/introduction" v-bind:class="{active: $route.name && $route.name.match('watershed')}" @click.native="routeClick('/watershed/introduction')">Watershed</router-link>
+        <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}" @click.native="routeClick('/bioregion/introduction')">Bioregion</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
@@ -214,6 +214,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import { mapGetters } from 'vuex'
 import AppNav from './components/AppNav.vue'
+import {eventBus} from './main'
 
 export default {
   name: 'App',
@@ -238,6 +239,11 @@ export default {
     },
     scrollToAside () {
       this.$refs.asideContent.scrollIntoView()
+    },
+    routeClick: function (to) {
+      if (to === this.$route.path) {
+        eventBus.$emit('route-click')
+      }
     }
   }
 }
