@@ -8,7 +8,7 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && ./util/minify_dist_geojson.js",
     "lint": "vue-cli-service lint",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
