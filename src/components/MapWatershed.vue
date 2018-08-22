@@ -6,6 +6,10 @@ import {Tile, Group} from 'ol/layer'
 import {XYZ} from 'ol/source'
 import {fromLonLat} from 'ol/proj'
 
+import {easeOut} from 'ol/easing.js'
+import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
+import {unByKey} from 'ol/Observable.js'
+
 import {eventBus} from '../main'
 
 export default {
@@ -53,7 +57,7 @@ export default {
         },
         transformation: {
           center: [-118.0, 45.6],
-          resolution: 1200
+          resolution: 3500 // 1200
         }
       } // end centerPoints
     }
@@ -104,10 +108,10 @@ export default {
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000)
+        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 0),
+        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 0)
       ]
     },
     watershedHanfordLayers: function () {
@@ -287,6 +291,24 @@ export default {
     },
     initWatershedDamsTransformation: function () {
       this.initBaseMap()
+      for (const i of [3, 4, 5, 6]) {
+        // console.log('this.watershedDamsTransformationLayers[i].getSource().getFeatures().length:', this.watershedDamsTransformationLayers[i].getSource().getFeatures().length)
+        let offsetMSec = 0
+        if (i === 4) {
+          offsetMSec = 10000
+        } else if (i === 5) {
+          offsetMSec = 29000
+        } else if (i === 6) {
+          offsetMSec = 39000
+        }
+        this.watershedDamsTransformationLayers[i].getSource().on('addfeature', (e) => {
+          if (!isNaN(parseInt(e.feature.values_['id']))) {
+            setTimeout(() => {
+              this.flash(e.feature, this.watershedDamsTransformationLayers[i].getStyle().getImage().getImage().src)
+            }, (parseInt(e.feature.values_['id']) * 1000) + offsetMSec)
+          }
+        })
+      }
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedDamsTransformationLayers
       }))
@@ -349,6 +371,55 @@ export default {
           minResolution: 2
         })
       )
+    },
+    flash: function (feature, iconSrc) {
+      const featureName = feature.values_['key2'] || ''
+      const featureDate = feature.values_['date'] || ''
+      const start = new Date().getTime()
+      const listenerKey = this.olmap.on('postcompose', (event) => {
+        const duration = 1500
+        // const vectorContext = event.vectorContext
+        // const flashGeom = feature.getGeometry().clone()
+        const elapsed = event.frameState.time - start
+        const elapsedRatio = elapsed / duration
+        // radius will be 5 at start and 30 at end.
+        const opacity = easeOut(1 - elapsedRatio)
+        feature.setStyle([
+          new Style({
+            text: new Text({
+              text: featureName,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              scale: 1,
+              offsetY: -25
+            }),
+            fill: new Fill({color: 'black'})
+          }),
+          new Style({
+            text: new Text({
+              text: featureDate,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              scale: 2,
+              offsetY: 25
+            }),
+            fill: new Fill({color: 'black'})
+          }),
+          new Style({
+            image: new Icon({
+              src: iconSrc,
+              opacity: 1
+            })
+          })
+        ])
+        // vectorContext.drawGeometry(flashGeom)
+        if (elapsed > duration) {
+          unByKey(listenerKey)
+          return
+        }
+        // tell OpenLayers to continue postcompose animation
+        this.olmap.render()
+      })
     }
   }
 }

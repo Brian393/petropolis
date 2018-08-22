@@ -126,6 +126,7 @@ export default {
               this.$refs.popupContent.classList.remove('hidden')
               this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.key2.replace('cascadia/', '')
+              this.$refs.popupContent.innerHTML += props.date ? `<p>${props.date}</p>` : ''
               this.popup.setPosition(e.coordinate)
             } else if (props.title) {
               this.$refs.popupContent.classList.remove('hidden')
@@ -188,7 +189,7 @@ export default {
       this.tooltip.setPosition(undefined)
       return false
     },
-    makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution) {
+    makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
@@ -198,7 +199,8 @@ export default {
         maxResolution: maxResolution,
         style: new Style({
           image: new Icon({
-            src: iconPath
+            src: iconPath,
+            opacity: opacity === undefined ? 1 : opacity
           })
         }),
         label: label
