@@ -305,21 +305,11 @@ export default {
       if (this.watershedDamsTransformationIsAnimating) {
         for (const i of [3, 4, 5, 6]) {
           // console.log('this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length:', this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length)
-          // set the offset for each layer group so each one shows consecutively
-          // e# note: should be able to programatically get the features.length (and * 1000) here but i couldn't figoure out how to dig that out. so they are static right now.
-          let offsetMSec = 0
-          if (i === 4) {
-            offsetMSec = 10000
-          } else if (i === 5) {
-            offsetMSec = 29000
-          } else if (i === 6) {
-            offsetMSec = 39000
-          }
           watershedDamsTransformationLayersAnimation[i].getSource().on('addfeature', (e) => {
             if (!isNaN(parseInt(e.feature.values_['id']))) {
               setTimeout(() => {
                 this.flash(e.feature, watershedDamsTransformationLayersAnimation[i].getStyle().getImage().getImage().src)
-              }, (parseInt(e.feature.values_['id']) * 1000) + offsetMSec)
+              }, (parseInt(e.feature.values_['id']) * 500))
             }
           })
         }
@@ -403,33 +393,33 @@ export default {
       const featureDate = feature.values_['date'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 1500
+        const duration = 500
         // const vectorContext = event.vectorContext
         // const flashGeom = feature.getGeometry().clone()
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
-        // radius will be 5 at start and 30 at end.
         const opacity = easeOut(1 - elapsedRatio)
+        // console.log('feature:', feature)
         feature.setStyle([
           new Style({
             text: new Text({
               text: featureName,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity]}),
               scale: 1,
               offsetY: -25
-            }),
-            fill: new Fill({color: 'black'})
+            })
           }),
           new Style({
             text: new Text({
               text: featureDate,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity]}),
               scale: 2,
               offsetY: 25
-            }),
-            fill: new Fill({color: 'black'})
+            })
           }),
           new Style({
             image: new Icon({

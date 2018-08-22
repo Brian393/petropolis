@@ -182,6 +182,15 @@ Use in `<template>`s like so:
 
 _note_ minResolution & maxResolution are optional. 
 
+### util/sort_dam_json.js
+
+a simple utility to re-sort the .geojson files used for layers via `watershedDamsTransformationLayers` in chronological order. to use: 
+
+```sh
+cd util/
+./sort_dam_json.js
+```
+
 <hr>
 <p align="center"> 
 made with 🖤 in NYC
