@@ -130,7 +130,7 @@ export default {
         center: fromLonLat(this.centerPoints.introductionbio.center),
         resolution: this.centerPoints.introductionbio.resolution,
         minResolution: 2
-        })
+      })
       )
     }
   }
