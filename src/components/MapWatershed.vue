@@ -310,7 +310,7 @@ export default {
       }
       if (!this.didSetSingleclickEvent) {
         this.olmap.on('singleclick', (e) => {
-          if (this.watershedDamsTransformationIsAnimating) {
+          if (this.$route.name === 'watershedDamsTransformation' && this.watershedDamsTransformationIsAnimating) {
             this.watershedDamsTransformationIsAnimating = false
             this.olmap.setLayerGroup(new Group({
               layers: this.watershedDamsTransformationLayers
