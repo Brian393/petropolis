@@ -297,22 +297,16 @@ export default {
       // note: instead of using a computed property for watershedDamsTransformationLayersAnimation we need to re-initialize this to re-start the animation setTimeouts (via 'route-click' handler)
       const watershedDamsTransformationLayersAnimation = [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 0),
-        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 0)
+        this.makeGeoJSONPointVectorLayer('geojson/watershedDamsTransformation.geojson', 'icons/damOther.png', null, 2, 32000, 0)
       ]
       if (this.watershedDamsTransformationIsAnimating) {
-        for (const i of [3, 4, 5, 6]) {
-          // console.log('this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length:', this.watershedDamsTransformationLayersAnimation[i].getSource().getFeatures().length)
-          watershedDamsTransformationLayersAnimation[i].getSource().on('addfeature', (e) => {
-            if (!isNaN(parseInt(e.feature.values_['id']))) {
-              setTimeout(() => {
-                this.flash(e.feature, watershedDamsTransformationLayersAnimation[i].getStyle().getImage().getImage().src)
-              }, (parseInt(e.feature.values_['id']) * 1000))
-            }
-          })
-        }
+        watershedDamsTransformationLayersAnimation[3].getSource().on('addfeature', (e) => {
+          if (!isNaN(parseInt(e.feature.values_['id']))) {
+            setTimeout(() => {
+              this.flash(e.feature)
+            }, (parseInt(e.feature.values_['id']) * 1000))
+          }
+        })
       }
       if (!this.didSetSingleclickEvent) {
         this.olmap.on('singleclick', (e) => {
@@ -388,25 +382,23 @@ export default {
         })
       )
     },
-    flash: function (feature, iconSrc) {
+    flash: function (feature) {
       const featureName = feature.values_['key2'] || ''
       const featureDate = feature.values_['date'] || ''
+      const iconSrc = feature.values_['icon'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
         const duration = 1000
-        // const vectorContext = event.vectorContext
-        // const flashGeom = feature.getGeometry().clone()
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1 - elapsedRatio)
-        // console.log('feature:', feature)
         feature.setStyle([
           new Style({
             text: new Text({
               text: featureName,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 3]}),
               scale: 1,
               offsetY: -25
             })
@@ -416,7 +408,7 @@ export default {
               text: featureDate,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 3]}),
               scale: 2,
               offsetY: 30
             })
@@ -428,7 +420,6 @@ export default {
             })
           })
         ])
-        // vectorContext.drawGeometry(flashGeom)
         if (elapsed > duration) {
           unByKey(listenerKey)
           return

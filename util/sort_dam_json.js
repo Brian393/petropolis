@@ -25,26 +25,57 @@ allFeatures.sort(function (a, b) {
 })
 
 allFeatures.map( (f) => {
-	console.log(f.properties.date)
 	f.properties.id = allFeatures.indexOf(f)
 	return f;
 });
 
-// console.log('aluminum:', JSON.stringify(aluminum))
+// fs.writeFile(aluminumFile, JSON.stringify(aluminum, null, 2), (err) => {  
+//     if (err) throw err;
+//     console.log('wrote:', aluminumFile);
+// });
+// fs.writeFile(otherDamsFile, JSON.stringify(otherDams, null, 2), (err) => {  
+//     if (err) throw err;
+//     console.log('wrote:', otherDamsFile);
+// });
+// fs.writeFile(bureauFile, JSON.stringify(bureau, null, 2), (err) => {  
+//     if (err) throw err;
+//     console.log('wrote:', bureauFile);
+// });
+// fs.writeFile(armyCorpsFile, JSON.stringify(armyCorps, null, 2), (err) => {  
+//     if (err) throw err;
+//     console.log('wrote:', armyCorpsFile);
+// });
 
-fs.writeFile(aluminumFile, JSON.stringify(aluminum, null, 2), (err) => {  
+aluminum.features.map( (f) => {
+	f.properties["icon"] = 'icons/aluminum.png';
+	return f;
+})
+otherDams.features.map( (f) => {
+	f.properties["icon"] = 'icons/damOther.png';
+	return f;
+})
+bureau.features.map( (f) => {
+	f.properties["icon"] = 'icons/damBR.png';
+	return f;
+})
+armyCorps.features.map( (f) => {
+	f.properties["icon"] = 'icons/damAC.png';
+	return f;
+})
+
+let baseGeoJson = {
+  "type": "FeatureCollection",
+  "name": "watershedDamsTransformation",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": allFeatures
+}
+
+fs.writeFile('../public/geojson/watershedDamsTransformation.geojson', JSON.stringify(baseGeoJson, null, 2), (err) => {  
     if (err) throw err;
-    console.log('wrote:', aluminumFile);
-});
-fs.writeFile(otherDamsFile, JSON.stringify(otherDams, null, 2), (err) => {  
-    if (err) throw err;
-    console.log('wrote:', otherDamsFile);
-});
-fs.writeFile(bureauFile, JSON.stringify(bureau, null, 2), (err) => {  
-    if (err) throw err;
-    console.log('wrote:', bureauFile);
-});
-fs.writeFile(armyCorpsFile, JSON.stringify(armyCorps, null, 2), (err) => {  
-    if (err) throw err;
-    console.log('wrote:', armyCorpsFile);
+    console.log('wrote:', '../public/geojson/watershedDamsTransformation.geojson');
 });
