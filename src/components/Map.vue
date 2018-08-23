@@ -1,9 +1,15 @@
 <template>
   <div id="map" ref="map">
+    <div ref="twitterPopup" class="ol-popup ol-twitterpopup">
+      <div ref="twitterpopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
+      <div class="ol-popup-twitter-content">
+        <div ref="loadingTweets" class="twitter-loading hidden">Loading Tweets...</div>
+        <div ref="twitterContent"></div>
+      </div>
+    </div>
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
-      <div class="ol-popup-twitter-content"><div ref="loadingTweets" class="hidden">Loading Tweets...</div><div ref="twitterContent"></div></div>
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
@@ -49,6 +55,16 @@ export default {
     ...mapGetters([
       'asideHidden'
     ]),
+    twitterPopup: function () {
+      return new Overlay({
+        element: this.$refs.twitterPopup,
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250
+        },
+        positioning: 'center-right'
+      })
+    },
     popup: function () {
       return new Overlay({
         element: this.$refs.popup,
@@ -93,7 +109,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.popup, this.titletip, this.tooltip],
+          overlays: [this.twitterPopup, this.popup, this.titletip, this.tooltip],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -113,8 +129,6 @@ export default {
             console.log('has feature! props:', props)
             // #TODO: use better property names in .geojson files for if/else logic
             if (props.title && props.image && props.text1) {
-              this.$refs.popupContent.classList.remove('hidden')
-              this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
               this.$refs.popupContent.innerHTML += props.image ? props.image.replace('cascadia/', '') : ''
               this.$refs.popupContent.innerHTML += props.text1 + '<br>'
@@ -123,25 +137,17 @@ export default {
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
             } else if (props.key2) {
-              this.$refs.popupContent.classList.remove('hidden')
-              this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.key2.replace('cascadia/', '')
               this.$refs.popupContent.innerHTML += props.date ? `<p>${props.date}</p>` : ''
               this.popup.setPosition(e.coordinate)
             } else if (props.title) {
-              this.$refs.popupContent.classList.remove('hidden')
-              this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.title
               this.popup.setPosition(e.coordinate)
             } else if (props.key) {
-              this.$refs.popupContent.classList.remove('hidden')
-              this.$refs.twitterContent.classList.add('hidden')
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(e.coordinate)
             } else if (props.timeline) {
               if (window.twttr) {
-                this.$refs.popupContent.classList.add('hidden')
-                this.$refs.twitterContent.classList.remove('hidden')
                 this.$refs.loadingTweets.classList.remove('hidden')
                 this.$refs.twitterContent.innerHTML = ''
                 window.twttr.widgets.createTimeline(
@@ -153,7 +159,7 @@ export default {
                 ).then(() => {
                   this.$refs.loadingTweets.classList.add('hidden')
                 })
-                this.popup.setPosition(e.coordinate)
+                this.twitterPopup.setPosition(e.coordinate)
               }
             }
           } else {
@@ -179,6 +185,8 @@ export default {
     closePopup: function () {
       this.popup.setPosition(undefined)
       this.$refs.popupCloser.blur()
+      this.twitterPopup.setPosition(undefined)
+      this.$refs.twitterpopupCloser.blur()
       return false
     },
     closeTitletip: function () {
