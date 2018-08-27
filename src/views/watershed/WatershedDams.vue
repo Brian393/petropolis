@@ -37,7 +37,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
       <p>Up to the date of the flood the Yakama Nation, the Confederated Tribes of Warm Springs, and the Walla Walla, Umatilla, and Cayuse peoples retained their treaty rights to fish at Celilo. They still do, but under vastly different circumstances.</p>
 
-      <p>Rapids and waterfalls were scattered the length of the Columbia and of its tributaries. Most of them were important fisheries and ceremonial sites, such as Kettle Falls which is now also underwater. In a rare case like that of Willamette Falls, both salmon and lamprey still find their way across a roaring cascade. The locations of the major rapids and waterfalls are shown on the map, along with photographs of their historical state (just click on the icons).</p>
+      <p>Rapids and waterfalls were scattered the length of the Columbia and of its tributaries. Many of them were important fisheries and ceremonial sites, in particular Kettle Falls, which is now also underwater (<span class="link" @click="emit('set-map-view', {center: [-118.109444, 48.639444], resolution: 120})">zoom to Kettle Falls</span>). In a rare case like that of <span class="link" @click="emit('set-map-view', {center: [-122.61763, 45.35239], resolution: 4})">Willamette Falls</span>, both salmon and lamprey still find their way across a roaring cascade. The locations of the major rapids and waterfalls are shown on the map, along with photographs of their historical state, which can be accessed by clicking on the waterfall icons.</p>
 
       <p>The Nez Perce of the Wallowa Valley were among those who depended on the salmon runs of Celilo Falls. Hinmahtooyahlatkekt, better known as Chief Joseph, did everything he could to find a path of coexistence between the new settlers of the valley and his band, who resisted arbitrary relocation to Idaho. Reflecting on the band's flight, pursuit and defeat in the tumultuous "Nez Perce War" of 1877, he seemed to see into the future:</p>
 
@@ -80,6 +80,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
 
 export default {
   name: 'WatershedDams',
@@ -94,6 +95,11 @@ export default {
           src: 'images/CascadiaMegaregionFullsize.jpg'
         }
       ]
+    }
+  },
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
     }
   }
 }

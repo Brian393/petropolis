@@ -56,8 +56,8 @@ export default {
           resolution: 700
         },
         transformation: {
-          center: [-118.0, 45.6],
-          resolution: 3500 // 1200
+          center: [-119.9, 46.9],
+          resolution: 700 // 1200
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true,

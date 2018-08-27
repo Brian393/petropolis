@@ -6,8 +6,6 @@
     <img src="images/waterbody.png" class="fullwidth">
     <br>
     <div class="caption">Does the territory inhabit you?</div>
-    <span class="link" @click="emit('set-map-view', {center: [-121.2, 51.0], resolution: 4500})">set-map-view</span>
-
     <br>
 
     <Accordion :open="false">
@@ -36,7 +34,7 @@
 
     <p>The Columbia River watershed is a far-flung territory including parts of six US states and one Canadian province. Its border is traced, not by governments or treaties, but by every drop of liquid that finds a common path to the ocean.</p>
 
-    <p>Rainfall washes over forested slopes and grassy plains. Snow and ice collect on mountain peaks. Dew glistens on high deserts. Groundwater bubbles up from artesian springs. Pools spill over into rivulets that become creeks and gushing torrents, before rejoining rivers that gradually converge into a powerful flood. A watershed is defined by endless circulation through a territory. What it takes from the clouds, it gives back to the sea.</p>
+    <p>Rainfall washes over forested slopes and grassy plains. Snow and ice collect on mountain peaks. Dew glistens on high deserts. Groundwater bubbles up from artesian springs. Pools spill over into rivulets that become creeks and gushing torrents, before rejoining rivers that gradually converge into a powerful flood. A watershed is defined by endless circulation through a territory. What it takes from the clouds, it gives back to <span class="link" @click="emit('set-map-view', {center: [-123.435, 46.213], resolution: 120})">the sea</span>.</p>
 
     <p>Human bodies are up to 60% water. We too are part of the shed, along with other living species. What we do outside ourselves inevitably seeps back in.</p>
 
