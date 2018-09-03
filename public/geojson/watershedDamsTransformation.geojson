@@ -1,0 +1,649 @@
+{
+  "type": "FeatureCollection",
+  "name": "watershedDamsTransformation",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "key2": "Swan Falls Dam",
+        "date": "1901",
+        "NID_HEIGHT": 107,
+        "icon": "images/Dams-crop/SwanFallsDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.37948,
+          43.24325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "key2": "Deadwood Dam",
+        "date": "1930",
+        "NID_HEIGHT": 165,
+        "icon": "images/Dams-crop/DeadwoodDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.64597,
+          44.2937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "key2": "Rock Island Dam",
+        "date": "1932",
+        "NID_HEIGHT": 128,
+        "icon": "images/Dams-crop/RockIslandDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.09476,
+          47.34201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "key2": "Bonneville Dam",
+        "date": "1937",
+        "NID_HEIGHT": 197,
+        "icon": "images/Dams-crop/BonnevilleDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.94071,
+          45.64447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "key2": "Seli’s Ksanka Qlispe Dam",
+        "date": "1939",
+        "NID_HEIGHT": 194,
+        "icon": "images/Dams-crop/SelisKsankaQlispe.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.23393,
+          47.67738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "key2": "Alcoa Smelter",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000597",
+        "date": "1940",
+        "Date idled": "1985",
+        "icon": "images/Dams-crop/AlcoaVancouverSmelter.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7339,
+          45.6497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "key2": "Reynolds Metals Aluminum",
+        "EPA": "https://fortress.wa.gov/ecy/gsp/Sitepage.aspx?csid=11796",
+        "date": "1941",
+        "Date idled": "2000",
+        "icon": "images/Dams-crop/ReynoldsMetalsAluminumLongview.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9998,
+          46.1414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "key2": "Reynolds Metals Aluminum",
+        "EPA": "https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.Cleanup&id=1000383#bkground",
+        "date": "1941",
+        "Date idled": "2000",
+        "icon": "images/Dams-crop/ReynoldsMetalsTroutdale.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4009,
+          45.5569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "key2": "Grand Coulee Dam",
+        "date": "1941",
+        "NID_HEIGHT": 550,
+        "icon": "images/Dams-crop/GrandCouleeDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.98124,
+          47.95612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "key2": "Kaiser Aluminum Mead Works",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000551",
+        "date": "1942",
+        "Date idled": "1978",
+        "icon": "images/Dams-crop/KaiserMeadSpokane.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3746,
+          47.755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "key2": "Cascade Dam",
+        "date": "1947",
+        "NID_HEIGHT": 107,
+        "icon": "images/Dams-crop/CascadeDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.05,
+          44.525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "key2": "Hungry Horse Dam",
+        "date": "1952",
+        "NID_HEIGHT": 564,
+        "icon": "images/Dams-crop/HungryHorseDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.01274,
+          48.3413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "key2": "McNary Dam",
+        "date": "1954",
+        "NID_HEIGHT": 220,
+        "icon": "images/Dams-crop/McNaryDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2978,
+          45.93653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "key2": "Waneta Dam",
+        "date": "1954",
+        "NID_HEIGHT": 179,
+        "icon": "images/Dams-crop/WanetaDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.61287,
+          49.00415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "key2": "Anaconda Aluminum Reduction",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0800392",
+        "date": "1955",
+        "Date idled": "2009",
+        "icon": "images/Dams-crop/AnacondaColumbiaFalls.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.1347,
+          48.3931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "key2": "Chief Joseph Dam",
+        "date": "1955",
+        "NID_HEIGHT": 230,
+        "icon": "images/Dams-crop/ChiefJosephDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.64097,
+          47.995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "key2": "Albeni Falls Dam",
+        "date": "1955",
+        "NID_HEIGHT": 180,
+        "icon": "images/Dams-crop/AlbeniFallsDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117,
+          48.1798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "key2": "The Dalles Dam",
+        "date": "1957",
+        "NID_HEIGHT": 200,
+        "icon": "images/Dams-crop/TheDallesDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.13491,
+          45.61441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "key2": "Alcoa Wenatchee Works",
+        "EPA": null,
+        "date": null,
+        "Date idled": null,
+        "icon": "images/Dams-crop/AlcoaWenatchee.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1256,
+          47.3559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "key2": "Brownlee Dam",
+        "date": "1958",
+        "NID_HEIGHT": 415,
+        "icon": "images/Dams-crop/BrownleeDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.89806,
+          44.83667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "key2": "Martin Marietta Aluminum",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000424",
+        "date": "1958",
+        "Date idled": "1987",
+        "icon": "images/Dams-crop/MartinMariettaAluminum.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.2071,
+          45.6247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "key2": "Noxon Rapids Dam",
+        "date": "1960",
+        "NID_HEIGHT": 179,
+        "icon": "images/Dams-crop/NoxonRapidsDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.73328,
+          47.96106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "key2": "Oxbow Dam",
+        "date": "1961",
+        "NID_HEIGHT": 175,
+        "icon": "images/Dams-crop/OxbowDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.83524,
+          44.97075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "key2": "Priest Rapids Dam",
+        "date": "1961",
+        "NID_HEIGHT": 187,
+        "icon": "images/Dams-crop/PriestRapidsDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.91016,
+          46.64433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "key2": "Rocky Reach Dam",
+        "date": "1962",
+        "NID_HEIGHT": 130,
+        "icon": "images/Dams-crop/RockyReachDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.31333,
+          47.54833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "key2": "Ice Harbor Dam",
+        "date": "1962",
+        "NID_HEIGHT": 208,
+        "icon": "images/Dams-crop/IceHarborDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.87949,
+          46.24876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "key2": "Wanapum Dam",
+        "date": "1965",
+        "NID_HEIGHT": 205.5,
+        "icon": "images/Dams-crop/WanapumDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9713,
+          46.87355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "key2": "Hells Canyon Dam",
+        "date": "1967",
+        "NID_HEIGHT": 330,
+        "icon": "images/Dams-crop/HellsCanyonDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.70158,
+          45.24298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "key2": "Wells Dam",
+        "date": "1968",
+        "NID_HEIGHT": 160,
+        "icon": "images/Dams-crop/WellsDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.87833,
+          47.94833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "key2": "Hugh Keenleyside Dam",
+        "date": "1968",
+        "NID_HEIGHT": 179,
+        "icon": "images/Dams-crop/HughKeenleysideDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.76885,
+          49.34302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "key2": "John Day Dam",
+        "date": "1968",
+        "NID_HEIGHT": 230,
+        "icon": "images/Dams-crop/JohnDayDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.69233,
+          45.71489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "key2": "Columbia Gorge Smelter",
+        "EPA": "https://fortress.wa.gov/ecy/gsp/Sitepage.aspx?csid=11797L",
+        "date": "1969",
+        "Date idled": "2003",
+        "icon": "images/Dams-crop/ColumbiaGorgeAluminumGoldendale.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.6991,
+          45.7324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "key2": "Lower Monumental Dam",
+        "date": "1969",
+        "NID_HEIGHT": 226,
+        "icon": "images/Dams-crop/LowerMonumentalDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.54306,
+          46.56286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "key2": "Little Goose Dam",
+        "date": "1970",
+        "NID_HEIGHT": 226,
+        "icon": "images/Dams-crop/LittleGooseDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.02694,
+          46.58424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "key2": "Dworshak Dam",
+        "date": "1973",
+        "NID_HEIGHT": 717,
+        "icon": "images/Dams-crop/DworshakDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.29536,
+          46.51464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "key2": "Lower Granite Dam",
+        "date": "1975",
+        "NID_HEIGHT": 228,
+        "icon": "images/Dams-crop/LowerGraniteDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.42827,
+          46.66053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "key2": "Seven Mile Dam",
+        "date": "1978",
+        "NID_HEIGHT": 179,
+        "icon": "images/Dams-crop/SevenMileDam.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.5041,
+          49.03016
+        ]
+      }
+    }
+  ]
+}

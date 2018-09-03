@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+"features": [
+{ "type": "Feature", "properties": { "title": "Celilo Falls" }, "geometry": { "type": "Point", "coordinates": [ -120.978889, 45.649722 ] } },
+
+{ "type": "Feature", "properties": { "title": "Cascades Rapids" }, "geometry": { "type": "Point", "coordinates": [ -121.901722, 45.667086 ] } },
+
+{ "type": "Feature", "properties": { "title": "Umatilla Rapids" }, "geometry": { "type": "Point", "coordinates": [ -119.3025, 45.938056 ] } },
+
+{ "type": "Feature", "properties": { "title": "Priest Rapids" }, "geometry": { "type": "Point", "coordinates": [ -119.972222, 46.754722 ] } },
+
+{ "type": "Feature", "properties": { "title": "Spokane Falls" }, "geometry": { "type": "Point", "coordinates": [ -117.42586612701, 47.661109724489 ] } },
+
+{ "type": "Feature", "properties": { "title": "Willamette Falls" }, "geometry": { "type": "Point", "coordinates": [ -122.61763, 45.35239 ] } },
+
+{ "type": "Feature", "properties": { "title": "Kettle Falls" }, "geometry": { "type": "Point", "coordinates": [ -118.109444, 48.639444 ] } }
+]
+}

@@ -1,0 +1,315 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "key2": "Milner Dam-Middle",
+        "date": "1905",
+        "NID_HEIGHT": 78
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.0095,
+          42.5264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "key2": "Upper Salmon Falls B-Plant",
+        "date": "1947",
+        "NID_HEIGHT": 70
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.90831,
+          42.7663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "key2": "Upper Salmon Falls A-Plant",
+        "date": "1937",
+        "NID_HEIGHT": 85
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.92471,
+          42.76756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "key2": "C.J. Strike Dam",
+        "date": "1952",
+        "NID_HEIGHT": 115
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.97536,
+          42.94677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "key2": "Swan Falls Dam",
+        "date": "1901",
+        "NID_HEIGHT": 107
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.37948,
+          43.24325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "key2": "Brownlee Dam",
+        "date": "1958",
+        "NID_HEIGHT": 415
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.89806,
+          44.83667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "key2": "Oxbow Dam",
+        "date": "1961",
+        "NID_HEIGHT": 175
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.83524,
+          44.97075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "key2": "Hells Canyon Dam",
+        "date": "1967",
+        "NID_HEIGHT": 330
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.70158,
+          45.24298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "key2": "Priest Rapids Dam",
+        "date": "1961",
+        "NID_HEIGHT": 187
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.91016,
+          46.64433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "key2": "Wanapum Dam",
+        "date": "1965",
+        "NID_HEIGHT": 205.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.9713,
+          46.87355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "key2": "Rock Island Dam",
+        "date": "1932",
+        "NID_HEIGHT": 128
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.09476,
+          47.34201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "key2": "Rocky Reach Dam",
+        "date": "1962",
+        "NID_HEIGHT": 130
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.31333,
+          47.54833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "key2": "Seli’s Ksanka Qlispe Dam",
+        "date": "1939",
+        "NID_HEIGHT": 194
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.23393,
+          47.67738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 40,
+        "key2": "Wells Dam",
+        "date": "1968",
+        "NID_HEIGHT": 160
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.87833,
+          47.94833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "key2": "Noxon Rapids Dam",
+        "date": "1960",
+        "NID_HEIGHT": 179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.73328,
+          47.96106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "key2": "Hugh Keenleyside Dam",
+        "date": "1968",
+        "NID_HEIGHT": 179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.76885,
+          49.34302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 50,
+        "key2": "Revelstoke Dam",
+        "date": "1984",
+        "NID_HEIGHT": 179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.19394,
+          51.04856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 49,
+        "key2": "Seven Mile Dam",
+        "date": "1978",
+        "NID_HEIGHT": 179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.5041,
+          49.03016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "key2": "Waneta Dam",
+        "date": "1954",
+        "NID_HEIGHT": 179
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.61287,
+          49.00415
+        ]
+      }
+    }
+  ]
+}

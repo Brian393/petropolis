@@ -1,0 +1,203 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "key2": "Lucky Peak Dam",
+        "date": "1955",
+        "NID_HEIGHT": 340
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.05367,
+          43.52797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "key2": "The Dalles Dam",
+        "date": "1957",
+        "NID_HEIGHT": 200
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.13491,
+          45.61441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "key2": "Bonneville Dam",
+        "date": "1937",
+        "NID_HEIGHT": 197
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.94071,
+          45.64447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 42,
+        "key2": "",
+        "date": "1968",
+        "NID_HEIGHT": 230
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.69233,
+          45.71489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "key2": "McNary Dam",
+        "date": "1954",
+        "NID_HEIGHT": 220
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2978,
+          45.93653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "key2": "Ice Harbor Dam",
+        "date": "1962",
+        "NID_HEIGHT": 208
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.87949,
+          46.24876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "key2": "Dworshak Dam",
+        "date": "1973",
+        "NID_HEIGHT": 717
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.29536,
+          46.51464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 44,
+        "key2": "Lower Monumental Dam",
+        "date": "1969",
+        "NID_HEIGHT": 226
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.54306,
+          46.56286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 45,
+        "key2": "Little Goose Dam",
+        "date": "1970",
+        "NID_HEIGHT": 226
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.02694,
+          46.58424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 47,
+        "key2": "Lower Granite Dam",
+        "date": "1975",
+        "NID_HEIGHT": 228
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.42827,
+          46.66053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "key2": "Chief Joseph Dam",
+        "date": "1955",
+        "NID_HEIGHT": 230
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.64097,
+          47.995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "key2": "Albeni Falls Dam",
+        "date": "1955",
+        "NID_HEIGHT": 180
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117,
+          48.1798
+        ]
+      }
+    }
+  ]
+}

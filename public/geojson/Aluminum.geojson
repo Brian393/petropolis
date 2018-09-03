@@ -1,0 +1,182 @@
+{
+  "type": "FeatureCollection",
+  "name": "Aluminum",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "key2": "MARTIN-MARIETTA ALUMINUM CO. - The Dalles",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000424",
+        "date": "1958",
+        "Date idled": "1987"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.2071,
+          45.6247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "key2": "Alcoa - Vancouver Smelter",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000597",
+        "date": "1940",
+        "Date idled": "1985"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7339,
+          45.6497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "key2": "KAISER ALUMINUM - MEAD WORKS",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=1000551",
+        "date": "1942",
+        "Date idled": "1978"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3746,
+          47.755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "key2": "Anaconda Aluminum - COLUMBIA FALLS REDUCTION PLANT",
+        "EPA": "https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0800392",
+        "date": "1955",
+        "Date idled": "2009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.1347,
+          48.3931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "key2": "Kaiser Aluminum - Tacoma",
+        "EPA": "https://fortress.wa.gov/ecy/gsp/Sitepage.aspx?csid=2215",
+        "date": "1942",
+        "Date idled": "2000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3704,
+          47.2601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "key2": "Alcoa Intalco Works - Ferndale",
+        "EPA": null,
+        "date": "1966",
+        "Date idled": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7058,
+          48.8456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "key2": "Alcoa Wenatchee Works - Wenatchee",
+        "EPA": null,
+        "date": null,
+        "Date idled": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.1256,
+          47.3559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 43,
+        "key2": "Columbia Gorge Aluminum Smelter -Goldendale",
+        "EPA": "https://fortress.wa.gov/ecy/gsp/Sitepage.aspx?csid=11797L",
+        "date": "1969",
+        "Date idled": "2003"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.6991,
+          45.7324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "key2": "Reynolds Metals Co - Troutdale",
+        "EPA": "https://cumulis.epa.gov/supercpad/SiteProfiles/index.cfm?fuseaction=second.Cleanup&id=1000383#bkground",
+        "date": "1941",
+        "Date idled": "2000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4009,
+          45.5569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "key2": "Reynolds Metals Aluminum Plant -  Longview",
+        "EPA": "https://fortress.wa.gov/ecy/gsp/Sitepage.aspx?csid=11796",
+        "date": "1941",
+        "Date idled": "2000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9998,
+          46.1414
+        ]
+      }
+    }
+  ]
+}

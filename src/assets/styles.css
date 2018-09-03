@@ -1,0 +1,134 @@
+aside a, .link {
+	color: #008080;
+	text-decoration: none;
+}
+
+.link:hover {
+	cursor: pointer;
+}
+
+aside a:visited, .link {
+	color: #004d4d;
+}
+
+
+/* OpenLayers styling in Map* components */
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+  max-height: 280px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-twitterpopup {
+  bottom: -75px;
+  left: 15px;
+  height: 350px;
+  max-height: 350px;
+}
+.ol-twitterpopup.ol-popup:before {
+  left: -22px;
+  top: 263px;
+  margin-left: 0;
+  transform: rotate(90deg);
+}
+.ol-twitterpopup.ol-popup:after {
+  left: -19px;
+  top: 262px;
+  margin-left: 0;
+  transform: rotate(90deg);
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: sticky;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  float: right;
+  font-size: 1em;
+  z-index: 1;
+  line-height: 2em;
+}
+.ol-popup-closer:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+.ol-popup-closer:after {
+  content: "x";
+}
+.ol-popup-twitter-content {
+  position: relative;
+  top: -30px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 550px;
+  width: 350px;
+  border-radius: 10px;
+}
+.twitter-loading {
+  text-align: center;
+  font-style: italic;
+}
+.ol-popup-content {
+  position: relative;
+  top: -30px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 260px;
+  width: calc(100% - 1em);
+  padding: 0.5em;
+}
+.ol-popup-content img {
+  max-width: 350px;
+}
+
+.titletip {
+  position: relative;
+  left: 18px;
+  padding: 3px;
+  background: rgba(102, 0, 0, 0.9);
+  width: 220px;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  font-size: 12pt;
+}
+
+.ol-tooltip {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ol-tooltip img {
+  max-height: 300px;
+  max-width: 300px;
+}

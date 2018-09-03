@@ -1,0 +1,72 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1006764091594207236", 
+"image": "<br>", 
+"text1": "google", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.996777, 46.140942 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1006781511864082432", 
+"image": "", 
+"text1": "", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -123.909440, 46.176083 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1012537047356137472", 
+"image": "", 
+"text1": "", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -123.440888, 46.199616 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1006775969661759488", 
+"image": "<br>", 
+"text1": "upwork", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -123.185755, 46.178332 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1007679879238815750", 
+"image": "<br>", 
+"text1": "skype", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.948690, 46.113402 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1007657353280442369", 
+"image": "<br>", 
+"text1": "cnn", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.945996, 46.105094 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1007467951602192384", 
+"image": "<br>", 
+"text1": "TwitterDev", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.702543, 45.635241 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/BrianHolmes333/timelines/1006667128957784064", 
+"image": "<br>", 
+"text1": "etribune", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.734981, 45.629204 ] } },
+
+{ "type": "Feature", "properties": { "timeline": "https://twitter.com/LCascadia/timelines/1006738082924724224", 
+"image": "", 
+"text1": "", 
+"text2": "", 
+"text3": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -122.733174, 45.649056 ] } }
+]
+}
+
+
+
