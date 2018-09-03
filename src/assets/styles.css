@@ -48,20 +48,20 @@ aside a:visited, .link {
   margin-left: -10px;
 }
 .ol-twitterpopup {
-  bottom: -175px;
+  bottom: -75px;
   left: 15px;
   height: 350px;
   max-height: 350px;
 }
 .ol-twitterpopup.ol-popup:before {
   left: -22px;
-  top: 165px;
+  top: 263px;
   margin-left: 0;
   transform: rotate(90deg);
 }
 .ol-twitterpopup.ol-popup:after {
   left: -19px;
-  top: 166px;
+  top: 262px;
   margin-left: 0;
   transform: rotate(90deg);
 }
@@ -90,7 +90,7 @@ aside a:visited, .link {
   top: -30px;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 350px;
+  max-height: 550px;
   width: 350px;
   border-radius: 10px;
 }

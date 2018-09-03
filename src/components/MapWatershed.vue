@@ -53,11 +53,11 @@ export default {
         },
         dams: {
           center: [-119.9, 46.9],
-          resolution: 700
+          resolution: 1000
         },
         transformation: {
           center: [-119.9, 46.9],
-          resolution: 700 // 1200
+          resolution: 1000
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true,
@@ -388,7 +388,7 @@ export default {
       const iconSrc = feature.values_['icon'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 1000
+        const duration = 3000
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1 - elapsedRatio)
@@ -399,8 +399,8 @@ export default {
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
               backgroundFill: new Stroke({color: [0, 0, 0, opacity / 3]}),
-              scale: 1,
-              offsetY: -25
+              scale: 1.9,
+              offsetY: -7
             })
           }),
           new Style({
@@ -410,7 +410,7 @@ export default {
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
               backgroundFill: new Stroke({color: [0, 0, 0, opacity / 3]}),
               scale: 2,
-              offsetY: 30
+              offsetY: 20
             })
           }),
           new Style({

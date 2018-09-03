@@ -20,8 +20,8 @@
 }
 
 #items {
-  bottom: 5px;
-  left: 0.25em;
+  bottom: 20px;
+  left: 1.5em;
   flex-direction: column;
   width: 150px;
   max-height: calc(100vh - 170px);
@@ -39,7 +39,7 @@
   justify-content: center;
   background-color: transparent;
   height: 0;
-  bottom: 35px;
+  bottom: 50px;
 }
 
 .btn {
