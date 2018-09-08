@@ -53,7 +53,7 @@ export default {
         },
         dams: {
           center: [-119.9, 46.9],
-          resolution: 1000
+          resolution: 900
         },
         transformation: {
           center: [-119.9, 46.9],
@@ -104,16 +104,24 @@ export default {
     watershedDamsLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Rapids.geojson', 'icons/cascade.png', null, 2, 32000)
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/Celilo.geojson', 'images/Falls/Celilo.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/KettleFalls.geojson', 'images/Falls/KettleFalls.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/PriestRapids.geojson', 'images/Falls/PriestRapids.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/UmatillaRapids.geojson', 'images/Falls/UmatillaRapids.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/SpokaneFalls.geojson', 'images/Falls/SpokaneFalls.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/WillametteFalls.geojson', 'images/Falls/WillametteFalls.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/Cascades.geojson', 'images/Falls/CascadesRapids.png', null, 2, 32000, 1)
       ]
     },
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 1)
+        this.makeGeoJSONPointVectorLayer('geojson/Falls/Celilo.geojson', 'images/Falls/.png', null, 2, 32000, 1)
+
+//        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 1),
+//        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 1),
+//        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 1),
+//        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 1)
       ]
     },
     watershedHanfordLayers: function () {
