@@ -44,8 +44,8 @@ export default {
           resolution: 50
         },
         plumes: {
-          center: [-119.51, 46.607574],
-          resolution: 50
+          center: [-119.539345, 46.694],
+          resolution: 4
         },
         stopit: {
           center: [-122.68, 45.84],
@@ -101,7 +101,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/planned.geojson', 'icons/stopit.png', null, 2, 32000)
       ]
     },
-    watershedDamsLayers: function () {
+    watershedFallsLayers: function () {
       return [
         ...this.watershedBaseLayers,
         this.makeGeoJSONPointVectorLayer('geojson/Falls/Celilo.geojson', 'images/Falls/Celilo.png', null, 2, 32000, 1),
@@ -116,12 +116,10 @@ export default {
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayer('geojson/Falls/Celilo.geojson', 'images/Falls/.png', null, 2, 32000, 1)
-
-//        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 1),
-//        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 1),
-//        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 1),
-//        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 1)
+        this.makeGeoJSONPointVectorLayer('geojson/Aluminum.geojson', 'icons/aluminum.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/OtherDams2.geojson', 'icons/damOther.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Bureau2.geojson', 'icons/damBR.png', null, 2, 32000, 1),
+        this.makeGeoJSONPointVectorLayer('geojson/ArmyCorps2.geojson', 'icons/damAC.png', null, 2, 32000, 1)
       ]
     },
     watershedHanfordLayers: function () {
@@ -228,8 +226,8 @@ export default {
         case 'watershedTerminals':
           this.initWatershedTerminals()
           break
-        case 'watershedDams':
-          this.initWatershedDams()
+        case 'watershedFalls':
+          this.initWatershedFalls()
           break
         case 'watershedDamsTransformation':
           this.initWatershedDamsTransformation()
@@ -287,10 +285,10 @@ export default {
         })
       )
     },
-    initWatershedDams: function () {
+    initWatershedFalls: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.watershedDamsLayers
+        layers: this.watershedFallsLayers
       }))
       this.olmap.setView(
         new View({
@@ -396,7 +394,7 @@ export default {
       const iconSrc = feature.values_['icon'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 3000
+        const duration = 2500
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1 - elapsedRatio)
@@ -406,7 +404,7 @@ export default {
               text: featureName,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 3]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 6]}),
               scale: 1.9,
               offsetY: -7
             })

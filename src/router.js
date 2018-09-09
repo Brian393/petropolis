@@ -33,10 +33,10 @@ export default new Router({
       }
     },
     {
-      path: '/watershed/dams',
-      name: 'watershedDams',
+      path: '/watershed/falls',
+      name: 'watershedFalls',
       components: {
-        default: () => import('./views/watershed/WatershedDams.vue'),
+        default: () => import('./views/watershed/WatershedFalls.vue'),
         map: MapWatershed
       }
     },

@@ -105,8 +105,12 @@ export default {
             href: '/watershed/terminals'
           },
           {
+            name: 'Falls',
+            href: '/watershed/falls'
+          },
+          {
             name: 'Dams',
-            href: '/watershed/dams'
+            href: '/watershed/dams/transformation'
           },
           {
             name: 'Hanford',
@@ -131,12 +135,6 @@ export default {
         ]
       },
       subItems: {
-        dams: [
-          {
-            name: 'Transformation of the river',
-            href: '/watershed/dams/transformation'
-          }
-        ],
         hanford: [
           {
             name: 'Legacy',
@@ -188,9 +186,7 @@ export default {
       } else {
         this.nav = []
       }
-      if (/watershedDams/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.dams
-      } else if (/watershedHanford/.test(this.$route.name)) {
+      if (/watershedHanford/.test(this.$route.name)) {
         this.navSubItems = this.subItems.hanford
       } else if (/megaregionCrops/.test(this.$route.name)) {
         this.navSubItems = this.subItems.crops
