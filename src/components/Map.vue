@@ -197,6 +197,25 @@ export default {
       this.tooltip.setPosition(undefined)
       return false
     },
+    geoJSONPointVectorLayerStyle: function (feature) {
+      return new Style({
+        image: new Icon({
+          src: feature.values_['icon'] || 'icons/dam.png'
+        })
+      })
+    },
+    makeGeoJSONPointVectorLayerWithStyle: function (url, label, minResolution, maxResolution, opacity) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONPointVectorLayerStyle,
+        label: label
+      })
+    },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
       return new VectorLayer({
         source: new VectorSource({
