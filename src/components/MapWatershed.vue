@@ -57,7 +57,7 @@ export default {
         },
         transformation: {
           center: [-119.9, 46.9],
-          resolution: 1000
+          resolution: 900
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true,
@@ -116,10 +116,7 @@ export default {
     watershedDamsTransformationLayers: function () {
       return [
         ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Aluminum.geojson', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/OtherDams2.geojson', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Bureau2.geojson', null, 2, 32000, 1),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/ArmyCorps2.geojson', null, 2, 32000, 1)
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/watershedDamsAll.geojson', null, 2, 32000, 1)
       ]
     },
     watershedHanfordLayers: function () {
