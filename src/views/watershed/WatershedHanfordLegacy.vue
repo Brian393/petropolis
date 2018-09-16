@@ -4,7 +4,7 @@
       <h1>Now time</h1>
     </div>
       <img src="images/TunnelCollapse.png" class="fullwidth">
-    <div class="caption">Crumbling sign announces new emergency</div>
+    <div class="caption">Tunnel collapses at Hanford site</div>
     <br>
 
         <Accordion :open="false">
