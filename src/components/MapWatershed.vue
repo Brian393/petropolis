@@ -44,8 +44,8 @@ export default {
           resolution: 50
         },
         plumes: {
-          center: [-119.539345, 46.694],
-          resolution: 4
+          center: [-119.61, 46.61],
+          resolution: 48
         },
         stopit: {
           center: [-122.68, 45.84],
@@ -135,7 +135,7 @@ export default {
     },
     watershedHandfordLegacyLayers: function () {
       return [
-        ...this.watershedBaseLayers,
+        // ...this.watershedBaseLayers,
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -143,7 +143,7 @@ export default {
           }),
           opacity: 1,
           minResolution: 1,
-          maxResolution: 8000
+          maxResolution: 80
         }),
         new Tile({
           preload: Infinity,
