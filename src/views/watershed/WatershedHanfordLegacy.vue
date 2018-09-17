@@ -3,8 +3,8 @@
     <div class="title">
       <h1>Now time</h1>
     </div>
-      <img src="images/TunnelCollapse.png" class="fullwidth">
-    <div class="caption">Tunnel collapses at Hanford site</div>
+      <img src="images/Hanford/Transuranic.png" class="fullwidth">
+    <div class="caption">Worker uncovering buried transuranic waste</div>
     <br>
 
         <Accordion :open="false">
@@ -73,11 +73,6 @@ export default {
           src: 'images/CascadiaMegaregionFullsize.jpg'
         }
       ]
-    }
-  },
-  methods: {
-    emit: function (method, args) {
-      eventBus.$emit(method, args)
     }
   }
 }
