@@ -135,7 +135,7 @@ export default {
     },
     watershedHandfordLegacyLayers: function () {
       return [
-        // ...this.watershedBaseLayers,
+        ...this.watershedBaseLayers,
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -143,7 +143,7 @@ export default {
           }),
           opacity: 1,
           minResolution: 1,
-          maxResolution: 80
+          maxResolution: 8000
         }),
         new Tile({
           preload: Infinity,

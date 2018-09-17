@@ -3,7 +3,7 @@
     <div class="title">
       <h1>Now time</h1>
     </div>
-      <img src="images/Hanford/Transuranic.png" class="fullwidth">
+      <img src="images/Hanford/TunnelCollapse.png" class="fullwidth">
     <div class="caption">Worker uncovering buried transuranic waste</div>
     <br>
 
