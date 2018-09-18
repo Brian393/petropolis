@@ -3,8 +3,8 @@
     <div class="title">
       <h1>Now time</h1>
     </div>
-      <img src="images/TunnelCollapse.png" class="fullwidth">
-    <div class="caption">Tunnel collapses at Hanford site</div>
+      <img src="images/Hanford/TunnelCollapse.png" class="fullwidth">
+    <div class="caption">New things still happen at Hanford</div>
     <br>
 
         <Accordion :open="false">
@@ -14,17 +14,17 @@
             </div>
         </Accordion>
 
-        <p>To understand the Hanford legacy, you have to imagine the production process.</p>
+        <p>To understand the legacy, you have to imagine the production process.</p>
 
-        <p>Small cylinders of enriched uranium, each about 9 inches long and 1.5 inches wide, are coated in airtight aluminum. These fuel rods are inserted into a graphite core to spark a chain reaction. As the uranium atoms split, multiple transuranic products emerge, including plutonium. The hot fuel rods are cooled by river water. Finally they are pushed entirely through the graphite core, until they drop into a pool where the short-lived isotopes are allowed to decay, normally for a two-month period.</p>
+        <p>Small cylinders of enriched uranium, each about 9 inches long and 1.5 inches wide, are coated in airtight aluminum. These uranium slugs are inserted into aluminum tubes set within a graphite core, where they spark a chain reaction. As the uranium atoms split, multiple transuranic products are formed, including plutonium. The hot slugs are cooled by river water at a rate of 30,000 gallons per minute. Finally they are pushed entirely through the graphite core, until they drop into a pool water where the short-lived isotopes are allowed to decay, normally for a two-month period.</p>
 
-        <p>A railroad car then conveys the rods to the processing plants on the Central Plateau, three hundred feet above the river. There the aluminum coating is dissolved in acid, exposing the radioactive materials. This inaugurates a complex series of chemical treatments, each stripping away unwanted impurities, but also leaving behind hot wastes and precipitates. Hanford processed nearly twenty million fuel rods in this way, yielding some seventy-four tons of weapons-grade plutonium.</p>
+        <p>A railroad car then conveys the slugs to the processing plants on the Central Plateau, three hundred feet above the river. There the aluminum coating is dissolved in acid, exposing the radioactive materials. This inaugurates a complex series of chemical treatments, each stripping away unwanted impurities, but also leaving behind hot wastes and precipitates. Hanford processed nearly twenty million fuel rods in this way, yielding some seventy-four tons of weapons-grade plutonium.</p>
 
-        <p>Before you on the map is the real yield: a labyrinth of abandoned buildings, collapsing tunnels, hot pipes and equipment, rusting drums, dried pools, contaminated ditches, cribs, pits and burial grounds, plus some 177 leaking underground storage tanks holding roughly 50 million gallons of radiactive sludge.</p>
+        <p>Before you on the map is the real yield: a labyrinth of abandoned buildings, collapsing tunnels, decaying pipes and equipment, rusting drums, dried pools, contaminated ditches, cribs, pits and burial grounds, plus some 177 leaking underground storage tanks holding roughly 50 million gallons of radiactive sludge.</p>
 
         <p>Scroll over the diagrams: each piece of the legacy is identified by an official name and number. On the Plateau where the map is focused, storage tanks are connected to processing plants by a tangle of pipelines; the stains of unplanned releases and migrating contamination sites envelop the ruins of the processing plants, which are gradually being disassembled by work crews, leaving only the freshly capped underground tanks and earth scraped bare by bulldozers.</p>
 
-        <p>Pan the map to the reactor sites along the river. Cooling water intakes and outfalls can be observed along the bank, as well as large retention ponds nearer the reactors. Most of the buildings and infrastructure have already been scraped off the surface, excepting the cores themselves. Scroll the cursor over the black reactor footprints for images.</p>
+        <p>Pan the map to the reactor sites along the river. Cooling water intakes and outfalls can be observed along the bank, as well as large retention ponds nearer the reactors. Most of the buildings and infrastructure have already been scraped off the surface, except the cores themselves. Scroll the cursor over the black reactor footprints for images.</p>
 
         <p>What remains beyond the shrouded monuments is a deeper and more mobile legacy: the contaminant plumes moving through the groundwater and into the river.</p>
       <br>
