@@ -195,6 +195,15 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 1,
+          maxResolution: 80
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
             url: 'http://ecotopia.today/cascadia/Tiles/Floods/{z}/{x}/{y}.png'
           }),
           opacity: 0.7,

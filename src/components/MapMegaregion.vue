@@ -20,6 +20,10 @@ export default {
           center: [-122.4, 45.564222],
           resolution: 200
         },
+        vanport: {
+          center: [ -122.7025, 45.602 ],
+          resolution: 3
+        },
         energy: {
           center: [-120.1, 47.1],
           resolution: 798
@@ -98,7 +102,6 @@ export default {
           }),
           minResolution: 200
         }),
-        // tiles[5]
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -161,6 +164,54 @@ export default {
         bingMapTile
       ]
     },
+
+//  work zone
+
+    vanportLayers: function () {
+          return [
+            new Tile({
+              preload: Infinity,
+              source: new XYZ({
+                url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+              }),
+              opacity: 1,
+              minZoom: 11,
+              maxZoom: 20,
+              loadTilesWhileAnimating: true,
+              loadTilesWhileInteracting: true
+            }),
+            new Tile({
+              preload: Infinity,
+              source: new XYZ({
+                url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+              }),
+              opacity: 0.5,
+              minZoom: 11,
+              maxZoom: 20
+            }),
+            new Tile({
+              preload: Infinity,
+              source: new XYZ({
+                url: 'http://ecotopia.today/cascadia/Tiles/PDX-new/{z}/{x}/{y}.png'
+              }),
+              opacity: 1,
+              minZoom: 11,
+              maxZoom: 20
+            }),
+            new Tile({
+              preload: Infinity,
+              source: new XYZ({
+                url: 'http://ecotopia.today/cascadia/Tiles/Vanport2/{z}/{x}/{y}.png'
+              }),
+              opacity: 1,
+              minZoom: 11,
+              maxZoom: 20
+            })
+          ]
+        },
+
+// end work zone
+
     energyLayers: function () {
       return [
         ...this.baseLayers, // three dots = "spread operator" does the same as "concat"
@@ -178,7 +229,6 @@ export default {
     },
     cropsLayers: function () {
       return [
-        // tiles[13]
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -190,7 +240,6 @@ export default {
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
         }),
-        // tiles[12]
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -340,6 +389,9 @@ export default {
         case 'megaregionIntroduction':
           this.initMegaregionIntroduction()
           break
+          case 'megaregionVanport':
+            this.initMegaregionVanport()
+            break
         case 'megaregionEnergy':
           this.initMegaregionEnergy()
           break
@@ -367,6 +419,25 @@ export default {
         maxResolution: 16000
       }))
     },
+
+// work zone
+
+    initMegaregionVanport: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.vanportLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.vanport.center),
+        resolution: this.centerPoints.vanport.resolution,
+        minZoom: 11,
+        maxZoom: 19,
+        rotation: -0.39
+      }))
+    },
+
+// end work zone
+
     initMegaregionEnergy: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({

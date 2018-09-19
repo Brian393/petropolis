@@ -89,6 +89,14 @@ export default new Router({
       }
     },
     {
+      path: '/megaregion/vanport',
+      name: 'megaregionVanport',
+      components: {
+        default: () => import('./views/megaregion/MegaregionVanport.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
       path: '/megaregion/energy',
       name: 'megaregionEnergy',
       components: {

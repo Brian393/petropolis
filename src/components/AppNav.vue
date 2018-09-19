@@ -125,6 +125,10 @@ export default {
             href: '/megaregion/introduction'
           },
           {
+            name: 'Vanport',
+            href: '/megaregion/vanport'
+          },
+          {
             name: 'Energy',
             href: '/megaregion/energy'
           },
