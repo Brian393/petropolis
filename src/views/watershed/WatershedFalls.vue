@@ -29,7 +29,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
       <p>On May 10, 1957, the gates of the powerhouse at The Dalles Dam were lowered, blocking the flow of the Columbia River. In just a few hours, the rapids that had roared through The Long Narrows since time immemorial were silenced by the rising waters.</p>
 
-      <p>What changed on that day?</p>
+      <p>What changed?</p>
 
       <p>Celilo Falls was the oldest continuously inhabited site in North America. Known as Wyam, it lay at the meeting-place between the Sahaptin and Upper Chinookian language groups, and was frequented by Native Americans from across the West, who there came to fish and to celebrate the First Salmon ceremony. It has been estimated that up to sixteen million salmon used to cross the falls every year. Innumerable <a href="https://www.google.com/search?q=celilo+falls+fishing&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjb3er9pvzcAhVJR6wKHTyUC9AQ_AUICygC&biw=1920&bih=951" target= "_blank">photographs</a> dating back to the late nineteenth century show wooden dip-net platforms jutting out from the powerful basalt on the edges of the cataract. The historian Katrine Barber describes the scene:</p>
 
@@ -43,7 +43,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
       <p class="quote">"I learned [since I was a boy] that we were but few, while the white men were many, and that we could not hold our own with them. We were like deer. They were like grizzly bears. We had a small country. Their country was large. We were contented to let things remain as the Great Spirit Chief made them. They were not; and would change the rivers and mountains if they did not suit them."</p>
 
-      <p>In 1955, the Chief Joseph Dam was built on the Columbia River, at the edge of the Colville Reservation where the Chief himself had died in exile in 1904. To see what changed in the decades that followed, press "Transformation of the River," at the bottom of the page.</p>
+      <p>In 1955, the Chief Joseph Dam was built on the Columbia River, at the edge of the Colville Reservation where the Chief himself had died in exile in 1904. It was the beginning of a process which, when taken up by the state, would transform both the river and the world around it.</p>
 
       <br>
       <Accordion>
@@ -80,7 +80,6 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
-import {eventBus} from '../../main'
 
 export default {
   name: 'WatershedFalls',
