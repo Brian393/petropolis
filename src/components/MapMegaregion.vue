@@ -198,13 +198,14 @@ export default {
               minZoom: 11,
               maxZoom: 20
             }),
+            this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'),
             new Tile({
               preload: Infinity,
               source: new XYZ({
-                url: 'http://ecotopia.today/cascadia/Tiles/Vanport2/{z}/{x}/{y}.png'
+                url: 'http://ecotopia.today/cascadia/Tiles/Vanport/{z}/{x}/{y}.png'
               }),
               opacity: 1,
-              minZoom: 11,
+              minZoom: 7,
               maxZoom: 20
             })
           ]
@@ -338,7 +339,6 @@ export default {
           minResolution: 2,
           maxResolution: 16000
         }),
-        // mega[11]
         this.makeGeoJSONFillVectorLayer('geojson/CBP-Crops.geojson', 2, 80, 'rgba(189, 7, 97, 0)', 0, 'rgba(189, 7, 97, 0)'),
         // bingMapsAerial3
         bingMapTile
