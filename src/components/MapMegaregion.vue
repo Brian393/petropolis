@@ -164,9 +164,6 @@ export default {
         bingMapTile
       ]
     },
-
-//  work zone
-
     vanportLayers: function () {
           return [
             new Tile({
@@ -210,9 +207,6 @@ export default {
             })
           ]
         },
-
-// end work zone
-
     energyLayers: function () {
       return [
         ...this.baseLayers, // three dots = "spread operator" does the same as "concat"
@@ -432,7 +426,7 @@ export default {
         resolution: this.centerPoints.vanport.resolution,
         minZoom: 11,
         maxZoom: 19,
-        rotation: -0.39
+        rotation: -0.42
       }))
     },
 
