@@ -19,7 +19,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     <div class="title">
       <h1>Coal, Oil, Gas: None Shall Pass</h1>
     </div>
-    <img src="../../../public/images/OilGas.jpg">
+    <img src="images/OilGas.jpg">
     <br>
     <div class="caption">Portland City Hall, Nov. 4, 2015</div>
     <br>

@@ -8,28 +8,6 @@
     <div class="caption">Does the territory inhabit you?</div>
     <br>
 
-    <Accordion :open="false">
-      <h3 slot="header">legends</h3>
-      <div class="flex">
-        <div>
-          <img src="icons/legends/woody.png">
-          Woody wetlands
-        </div>
-        <div>
-          <img src="icons/legends/herbaceous.png">
-          Herbaceous wetlands
-        </div>
-        <div>
-          <img src="icons/legends/peaks.png">
-          Crazy beautiful mountains
-        </div>
-        <div>
-          <img src="icons/legends/watery.png">
-          We love water
-        </div>
-      </div>
-    </Accordion>
-
     <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is more than a beautiful view.</p>
 
     <p>The Columbia River watershed is a far-flung territory including parts of six US states and one Canadian province. Its border is traced, not by governments or treaties, but by every drop of liquid that finds a common path to the ocean.</p>

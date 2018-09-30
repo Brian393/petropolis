@@ -21,7 +21,7 @@ export default {
           resolution: 200
         },
         vanport: {
-          center: [ -122.7025, 45.602 ],
+          center: [ -122.7, 45.601 ],
           resolution: 3
         },
         energy: {
@@ -165,48 +165,48 @@ export default {
       ]
     },
     vanportLayers: function () {
-          return [
-            new Tile({
-              preload: Infinity,
-              source: new XYZ({
-                url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
-              }),
-              opacity: 1,
-              minZoom: 11,
-              maxZoom: 20,
-              loadTilesWhileAnimating: true,
-              loadTilesWhileInteracting: true
-            }),
-            new Tile({
-              preload: Infinity,
-              source: new XYZ({
-                url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
-              }),
-              opacity: 0.5,
-              minZoom: 11,
-              maxZoom: 20
-            }),
-            new Tile({
-              preload: Infinity,
-              source: new XYZ({
-                url: 'http://ecotopia.today/cascadia/Tiles/PDX-new/{z}/{x}/{y}.png'
-              }),
-              opacity: 1,
-              minZoom: 11,
-              maxZoom: 20
-            }),
-            this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'),
-            new Tile({
-              preload: Infinity,
-              source: new XYZ({
-                url: 'http://ecotopia.today/cascadia/Tiles/Vanport/{z}/{x}/{y}.png'
-              }),
-              opacity: 1,
-              minZoom: 7,
-              maxZoom: 20
-            })
-          ]
-        },
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+          }),
+          opacity: 0.4,
+          minZoom: 11,
+          maxZoom: 20
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/PDX-new/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Vanport/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 7,
+          maxZoom: 20
+        })
+      ]
+    },
     energyLayers: function () {
       return [
         ...this.baseLayers, // three dots = "spread operator" does the same as "concat"
@@ -383,9 +383,9 @@ export default {
         case 'megaregionIntroduction':
           this.initMegaregionIntroduction()
           break
-          case 'megaregionVanport':
-            this.initMegaregionVanport()
-            break
+        case 'megaregionVanport':
+          this.initMegaregionVanport()
+          break
         case 'megaregionEnergy':
           this.initMegaregionEnergy()
           break
@@ -413,9 +413,6 @@ export default {
         maxResolution: 16000
       }))
     },
-
-// work zone
-
     initMegaregionVanport: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
@@ -426,12 +423,9 @@ export default {
         resolution: this.centerPoints.vanport.resolution,
         minZoom: 11,
         maxZoom: 19,
-        rotation: -0.42
+        rotation: -0.41
       }))
     },
-
-// end work zone
-
     initMegaregionEnergy: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
