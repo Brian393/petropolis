@@ -77,11 +77,6 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    emit: function (method, args) {
-      eventBus.$emit(method, args)
-    }
   }
 }
 </script>
