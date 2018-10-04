@@ -13,38 +13,29 @@ font-weight: bold; font-style: italic; color: #333333;  text-align: center;
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>Planned city, planned disaster</h1>
+      <h1>Planned city planned disaster</h1>
     </div>
     <div class="video">
       <iframe width="350" height="300" src="https://www.youtube.com/embed/MJp5gA6a02Q?rel=0&amp;autoplay=1&mute=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-    <div class="caption">Vanport Flood, Memorial Day</div>
+    <div class="caption">Vanport Flood</div>
     <br>
 
     <Accordion :open="false">
       <h3 slot="header">legends</h3>
       <div class="flex">
-        <div>
-          <img src="icons/legends/vanstreets.png">
-          Vanport streets
-        </div>
-        <div>
-          <img src="icons/legends/building.png">
-          Buildings with house numbers
-        </div>
-        <div>
-          <img src="icons/legends/vanportwater.png">
-          Water features
-        </div>
+          <p>What you see is the plan of Vanport.</p>
+          <p>Streets and plazas are shown in green, buildings and facilities in gold, water features in bright blue.</p>
+          <p>For an image of the original <a href="https://efiles.portlandoregon.gov/record/17133">click here</a>.</p>
       </div>
     </Accordion>
     <br>
 
-    <p>On May 30, 1948&mdash;a Memorial Day morning&mdash;residents of the workers' metropolis of Vanport received an official handbill slipped beneath their doors:</p>
+    <p>On May 30, 1948&mdash;it was a Memorial Day morning&mdash;residents of the workers' metropolis of Vanport received an official handbill slipped beneath their doors:</p>
 
-    <div class="quote"><p>Remember:<br>Dikes are safe at present.<br>You will be warned if necessary.<br>You will have time to leave.<br>Don't get excited.</p></div>
+    <div class="quote"><p>REMEMBER<br>DIKES ARE SAFE AT PRESENT<br>YOU WILL BE WARNED IF NECESSARY<br>YOU WILL HAVE TIME TO LEAVE<br>DON'T GET EXCITED</p></div>
 
-    <p>The Portland Housing Authority had built the city to provide lodging for over forty thousand laborers who found employment in the nearby Kaiser shipyards during World War II. The design in the form of a lion evoked martial virtues, combined with the clean, cost-cutting efficiency of wartime production. The workers themselves came from across the state and across the country, drawn by patriotism, high wages, modern living, and for some, the prospect of relief from the racist violence of the South. In many ways, Vanport was a utopia.</p>
+    <p>The Portland Housing Authority had built the city to provide lodging for over forty thousand laborers who found employment in the nearby Kaiser shipyards during World War II. The design in the form of a lion evoked martial virtues, combined with the clean, cost-cutting efficiency of wartime production. The workers themselves came from across the state and across the country, drawn by patriotism, high wages, modern living, and for some, the prospect of relief from the racist violence of the South. For a few short years, Vanport was a utopia.</p>
 
     <p>But Portland itself was a "sundown town" that informally barred blacks from permanent inhabitation and property ownership, just as the state of Oregon had formally excluded black people by constitutional law at its foundation in 1859. Institutional racism was a continuing reality in the mid-1940s, despite the egalitarian policies of the federal government and the good will of fellow workers.</p>
 
