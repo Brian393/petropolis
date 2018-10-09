@@ -38,9 +38,9 @@ font-weight: bold; font-style: italic; color: #333333;
 
     <div class="quote"><p>REMEMBER<br>DIKES ARE SAFE AT PRESENT<br>YOU WILL BE WARNED IF NECESSARY<br>YOU WILL HAVE TIME TO LEAVE<br>DON'T GET EXCITED</p></div>
 
-    <p>The Portland Housing Authority had built the city to provide lodging for over forty thousand laborers who took employment in the nearby Kaiser shipyards during World War II. The design in the form of a lion evoked military confidence, bolstered by wartime production. The workers themselves came from across the state and across the country, drawn by patriotism, high wages, modern living, and for some, the prospect of relief from the racist violence of the South. For a few years, Vanport was almost a utopia.</p>
+    <p>The Portland Housing Authority had built the city to provide lodging for over forty thousand laborers who took employment in the nearby Kaiser shipyards during World War II. The layout of the streets, buildings and plazas in the form of a recumbent lion was undoubtedly meant to evoke military power, bolstered by wartime production. The workers themselves came from across the state and across the country, drawn by patriotism, high wages, modern living, and for some, the prospect of relief from the racist violence of the South. There were all kinds of problems, but New Deal enthusiasm ran high. For a few short years, Vanport was a utopia.</p>
 
-    <p>But Portland itself was a <a href="https://books.google.com/books?id=abhIDwAAQBAJ&lpg=PP1&dq=sundown%20town&pg=PT18#v=onepage&q&f=false" target="_blank">"sundown town"</a> that informally barred blacks from permanent inhabitation and property ownership, just as the state of Oregon had formally excluded black people by constitutional law at its foundation in 1859. Institutional racism was a heavy reality in the mid-1940s, despite the egalitarian policies of the federal government and the good will of fellow migrants.</p>
+    <p>But Portland itself was a <a href="https://books.google.com/books?id=abhIDwAAQBAJ&lpg=PP1&dq=sundown%20town&pg=PT18#v=onepage&q&f=false" target="_blank">"sundown town"</a> that informally barred blacks from permanent inhabitation and property ownership, just as the state of Oregon had formally excluded black people by constitutional law at its foundation in 1859. Institutional racism was a heavy reality in the mid-1940s, despite the egalitarian policies of the federal government and the good will of fellow migrants, including many of Native American, Hispanic or Chinese origins.</p>
 
     <p>On that Memorial Day morning in 1948, three years after war's end, the population of the vast housing complex had shrunk to about 18,500. Of these, some 6,300 were black. Redlining in the city left them with nowhere else to go. The lowest point of Vanport was situated fifteen feet beneath the normal level of the Columbia River, so the threat to all the remaining migrants was obvious. Why didn't the Housing Authority take action?</p>
 
@@ -86,7 +86,7 @@ import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
-  name: 'MegaregionEnergy',
+  name: 'MegaregionVanport',
   components: {
     Accordion,
     AppLightBox

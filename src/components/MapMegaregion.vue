@@ -24,6 +24,14 @@ export default {
           center: [ -122.7, 45.601 ],
           resolution: 3
         },
+        slough: {
+          center: [ -122.737, 45.616 ],
+          resolution: 8
+        },
+        willamette: {
+          center: [ -122.737, 45.616 ],
+          resolution: 8
+        },
         energy: {
           center: [-120.1, 47.1],
           resolution: 798
@@ -200,6 +208,89 @@ export default {
           preload: Infinity,
           source: new XYZ({
             url: 'http://ecotopia.today/cascadia/Tiles/Vanport/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 7,
+          maxZoom: 20
+        })
+      ]
+    },
+    memoriesLayers: function () {
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
+          }),
+          opacity: 0.4,
+          minZoom: 11,
+          maxZoom: 20
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/PDX-new/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Vanport/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 7,
+          maxZoom: 20
+        }),
+        this.makeGeoJSONPointVectorLayer('geojson/VanportMemories.geojson', 'icons/Mosaic.png', null, 1, 2000)
+      ]
+    },
+    willametteLayers: function () {
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        })
+      ]
+    },
+    sloughLayers: function () {
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Slough/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minZoom: 7,
@@ -386,6 +477,15 @@ export default {
         case 'megaregionVanport':
           this.initMegaregionVanport()
           break
+        case 'megaregionVanportMemories':
+          this.initMegaregionVanportMemories()
+          break
+        case 'megaregionWillamette':
+          this.initMegaregionWillamette()
+          break
+        case 'megaregionWillametteSlough':
+          this.initMegaregionWillametteSlough()
+          break
         case 'megaregionEnergy':
           this.initMegaregionEnergy()
           break
@@ -424,6 +524,43 @@ export default {
         minZoom: 11,
         maxZoom: 19,
         rotation: -0.41
+      }))
+    },
+    initMegaregionVanportMemories: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.memoriesLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.vanport.center),
+        resolution: this.centerPoints.vanport.resolution,
+        minZoom: 11,
+        maxZoom: 19,
+        rotation: -0.41
+      }))
+    },
+    initMegaregionWillamette: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.willametteLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.willamette.center),
+        resolution: this.centerPoints.willamette.resolution,
+        minZoom: 11,
+        maxZoom: 19
+      }))
+    },
+    initMegaregionWillametteSlough: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.sloughLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.slough.center),
+        resolution: this.centerPoints.slough.resolution,
+        minZoom: 11,
+        maxZoom: 19
       }))
     },
     initMegaregionEnergy: function () {

@@ -129,6 +129,10 @@ export default {
             href: '/megaregion/vanport'
           },
           {
+            name: 'Willamette',
+            href: '/megaregion/willamette'
+          },
+          {
             name: 'Energy',
             href: '/megaregion/energy'
           },
@@ -153,13 +157,25 @@ export default {
             href: '/watershed/hanford/floods'
           }
         ],
+        vanport: [
+          {
+            name: 'Memories',
+            href: '/megaregion/vanport/memories'
+          }
+        ],
+        willamette: [
+          {
+            name: 'Columbia Slough',
+            href: '/megaregion/willamette/slough'
+          }
+        ],
         crops: [
           {
             name: 'Grand Coulee',
             href: '/megaregion/crops/grandcoulee'
           },
           {
-            name: 'Basin Project',
+            name: 'Columbia Basin Project',
             href: '/megaregion/crops/basinproject'
           }
         ]
@@ -192,6 +208,10 @@ export default {
       }
       if (/watershedHanford/.test(this.$route.name)) {
         this.navSubItems = this.subItems.hanford
+      } else if (/megaregionVanport/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.vanport
+      } else if (/megaregionWillamette/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.willamette
       } else if (/megaregionCrops/.test(this.$route.name)) {
         this.navSubItems = this.subItems.crops
       } else {

@@ -97,6 +97,30 @@ export default new Router({
       }
     },
     {
+      path: '/megaregion/vanport/memories',
+      name: 'megaregionVanportMemories',
+      components: {
+        default: () => import('./views/megaregion/MegaregionVanportMemories.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/willamette',
+      name: 'megaregionWillamette',
+      components: {
+        default: () => import('./views/megaregion/MegaregionWillamette.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
+      path: '/megaregion/willamette/slough',
+      name: 'megaregionWillametteSlough',
+      components: {
+        default: () => import('./views/megaregion/MegaregionWillametteSlough.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
       path: '/megaregion/energy',
       name: 'megaregionEnergy',
       components: {
