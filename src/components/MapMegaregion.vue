@@ -25,12 +25,12 @@ export default {
           resolution: 3
         },
         slough: {
-          center: [ -122.737, 45.616 ],
-          resolution: 8
+          center: [ -122.73, 45.59 ],
+          resolution: 24
         },
         willamette: {
-          center: [ -122.737, 45.616 ],
-          resolution: 8
+          center: [ -122.73, 45.59 ],
+          resolution: 24
         },
         energy: {
           center: [-120.1, 47.1],
@@ -212,7 +212,8 @@ export default {
           opacity: 1,
           minZoom: 7,
           maxZoom: 20
-        })
+        }),
+        this.makeGeoJSONPointVectorLayer('geojson/Breach.geojson', 'icons/Breach.png', null, 1, 2000)
       ]
     },
     memoriesLayers: function () {
@@ -264,13 +265,22 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minZoom: 11,
           maxZoom: 20,
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Willamette/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20
         })
       ]
     },
