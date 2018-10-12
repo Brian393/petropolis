@@ -22,8 +22,8 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         <Accordion :open="false">
           <h3 slot="header">legends</h3>
           <div class="flex">
-              Looking out over The Long Narrows is Tsagaglalal, "She Who Watches." Her legend is told by the Wishram people:<br><br><em>A woman had a house where the village of Nixluidix was later built. She was chief of all who lived in the region. That was a long time before Coyote came up the river and changed things and people were not yet real people.  After a time Coyote in his travels came to this place and asked the inhabitants if they were living well or ill. They sent him to their chief who lived up on the rocks, where she could look down on the village and know what was going on.<br><br>Coyote climbed up to the house on the rocks and asked "What kind of living do you give these people? Do you treat them well or are you one of those evil women?" "I am teaching them to live well and build good houses," she said.<br><br>"Soon the world will change," said Coyote, "and women will no longer be chiefs." Then he changed her into a rock with the command, "You shall stay here and watch over the people who live here."<br><br>All the people know that Tsagaglalal sees all things, for whenever they are looking at her those large eyes are watching them.</em><br><br>
               <img src="images/Tsagaglalal.png" class="fullwidth">
+              Looking out over The Long Narrows is Tsagaglalal, "She Who Watches." Her legend is told by the Wishram people:<br><br><em>A woman had a house where the village of Nixluidix was later built. She was chief of all who lived in the region. That was a long time before Coyote came up the river and changed things and people were not yet real people.  After a time Coyote in his travels came to this place and asked the inhabitants if they were living well or ill. They sent him to their chief who lived up on the rocks, where she could look down on the village and know what was going on.<br><br>Coyote climbed up to the house on the rocks and asked "What kind of living do you give these people? Do you treat them well or are you one of those evil women?" "I am teaching them to live well and build good houses," she said.<br><br>"Soon the world will change," said Coyote, "and women will no longer be chiefs." Then he changed her into a rock with the command, "You shall stay here and watch over the people who live here."<br><br>All the people know that Tsagaglalal sees all things, for whenever they are looking at her those large eyes are watching them.</em><br>
             </div>
         </Accordion>
 
@@ -41,24 +41,13 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
       <p>The Nez Perce of the Wallowa Valley were among those who depended on the salmon runs of Celilo Falls. Hinmahtooyahlatkekt, better known as Chief Joseph, did everything he could to find a path of coexistence between the new settlers of the valley and his band, who resisted arbitrary relocation to Idaho. Reflecting on the band's flight, pursuit and defeat in the tumultuous "Nez Perce War" of 1877, he seemed to see into the future:</p>
 
-      <p class="quote">"I learned [since I was a boy] that we were but few, while the white men were many, and that we could not hold our own with them. We were like deer. They were like grizzly bears. We had a small country. Their country was large. We were contented to let things remain as the Great Spirit Chief made them. They were not; and would change the rivers and mountains if they did not suit them."</p>
+      <p class="quote">"I learned that we were but few, while the white men were many, and that we could not hold our own with them. We were like deer. They were like grizzly bears. We had a small country. Their country was large. We were contented to let things remain as the Great Spirit Chief made them. They were not; and would change the rivers and mountains if they did not suit them."</p>
 
       <p>In 1955, the Chief Joseph Dam was built on the Columbia River, at the edge of the Colville Reservation where the Chief himself had died in exile in 1904. It was the beginning of a process which, when taken up by the state, would transform both the river and the world around it.</p>
 
       <br>
       <Accordion>
         <h3 slot="header">sources</h3>
-      <p>For a full-spectrum investigation of the civilizational transformations leading up to and beyond climate change, see <a href="https://www.anthropocene-curriculum.org" target="blank">The Anthropocene Curriculum</a>, with which "Learning from Cascadia" is affiliated.</p>
-      <p>Data sources for this page include:</p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="__blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <br>
       </Accordion>
 
   </div>

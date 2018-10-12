@@ -74,7 +74,8 @@ nav a:hover {
 
 aside {
   background-color: #f4f2f0;
-  border-left: thin solid #008000;
+  border-left: medium solid #008000;
+  border-bottom: medium solid #008000;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

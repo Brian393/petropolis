@@ -18,8 +18,8 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="title">
       <h1>Go superfund me</h1>
     </div>
-
-    <div class="caption"></div>
+    <img src="images/Arkema.jpg" class="fullwidth">
+    <div class="caption">Cleanup at Arkema site</div>
     <br>
 
     <Accordion :open="false">

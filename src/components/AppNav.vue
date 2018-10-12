@@ -159,7 +159,7 @@ export default {
         ],
         vanport: [
           {
-            name: 'Memories',
+            name: 'Vanport Mosaic Documentaries',
             href: '/megaregion/vanport/memories'
           }
         ],

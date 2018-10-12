@@ -26,11 +26,11 @@ export default {
         },
         slough: {
           center: [ -122.73, 45.59 ],
-          resolution: 24
+          resolution: 23
         },
         willamette: {
           center: [ -122.73, 45.59 ],
-          resolution: 24
+          resolution: 23
         },
         energy: {
           center: [-120.1, 47.1],
@@ -261,6 +261,21 @@ export default {
       ]
     },
     willametteLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 0.25,
+        maxResolution: 1
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         new Tile({
           preload: Infinity,
@@ -281,7 +296,9 @@ export default {
           opacity: 1,
           minZoom: 11,
           maxZoom: 20
-        })
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/Upland_Sites.geojson', 0.5, 40, 'rgba(185, 12, 14, 0.70)', 0.5, 'rgba(185, 12, 14, 0.4)'),
+        bingMapTile
       ]
     },
     sloughLayers: function () {

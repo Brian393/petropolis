@@ -7,6 +7,13 @@
     <br>
     <div class="caption">Does the territory inhabit you?</div>
     <br>
+    <Accordion :open="false">
+      <h3 slot="header">Careful, work in progress!</h3>
+      <div class="flex">
+        <p>It looks good at first but rapidly falls apart. Check back after November 1 and the whole concept will be a lot clearer...</p>
+      </div>
+    </Accordion>
+    <br>
 
     <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is more than a beautiful view.</p>
 
