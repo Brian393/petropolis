@@ -75,32 +75,6 @@ export default {
     Accordion,
     AppLightBox
   },
-  data: function () {
-    return {
-      images: [
-        {
-          thumb: 'images/Dams/ArrowLakesDam.jpg',
-          src: 'images/Dams/ArrowLakesDam.jpg',
-          caption: 'ArrowLakesDam'
-        },
-        {
-          thumb: 'images/Dams/BonnevilleDam.jpg',
-          src: 'images/Dams/BonnevilleDam.jpg',
-          caption: 'BonnevilleDam'
-        },
-        {
-          thumb: 'images/Dams/BoundaryDam.jpg',
-          src: 'images/Dams/BoundaryDam.jpg',
-          caption: 'BoundaryDam'
-        },
-        {
-          thumb: 'images/Dams/BridgeRiverDam.jpg',
-          src: 'images/Dams/BridgeRiverDam.jpg',
-          caption: 'BridgeRiverDam'
-        }
-      ]
-    }
-  },
   methods: {
     emit: function (method, args) {
       eventBus.$emit(method, args)

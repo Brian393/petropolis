@@ -97,10 +97,10 @@ export default new Router({
       }
     },
     {
-      path: '/megaregion/vanport/memories',
-      name: 'megaregionVanportMemories',
+      path: '/megaregion/vanport/mosaic',
+      name: 'megaregionVanportMosaic',
       components: {
-        default: () => import('./views/megaregion/MegaregionVanportMemories.vue'),
+        default: () => import('./views/megaregion/MegaregionVanportMosaic.vue'),
         map: MapMegaregion
       }
     },

@@ -69,13 +69,9 @@ export default {
     Accordion,
     AppLightBox
   },
-  data: function () {
-    return {
-      megaImages: [
-        {
-          src: 'images/CascadiaMegaregionFullsize.jpg'
-        }
-      ]
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
     }
   }
 }

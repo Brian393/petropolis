@@ -159,8 +159,8 @@ export default {
         ],
         vanport: [
           {
-            name: 'Vanport Mosaic Documentaries',
-            href: '/megaregion/vanport/memories'
+            name: 'Vanport Mosaic',
+            href: '/megaregion/vanport/mosaic'
           }
         ],
         willamette: [

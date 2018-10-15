@@ -64,7 +64,7 @@ import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
-  name: 'MegaregionVanportMemories',
+  name: 'MegaregionVanportMosaic',
   components: {
     Accordion,
     AppLightBox

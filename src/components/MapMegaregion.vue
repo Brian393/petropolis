@@ -216,7 +216,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Breach.geojson', 'icons/Breach.png', null, 1, 2000)
       ]
     },
-    memoriesLayers: function () {
+    mosaicLayers: function () {
       return [
         new Tile({
           preload: Infinity,
@@ -257,7 +257,7 @@ export default {
           minZoom: 7,
           maxZoom: 20
         }),
-        this.makeGeoJSONPointVectorLayer('geojson/VanportMemories.geojson', 'icons/Mosaic.png', null, 1, 2000)
+        this.makeGeoJSONPointVectorLayer('geojson/VanportMosaic.geojson', 'icons/Mosaic.png', null, 1, 2000)
       ]
     },
     willametteLayers: function () {
@@ -504,8 +504,8 @@ export default {
         case 'megaregionVanport':
           this.initMegaregionVanport()
           break
-        case 'megaregionVanportMemories':
-          this.initMegaregionVanportMemories()
+        case 'megaregionVanportMosaic':
+          this.initMegaregionVanportMosaic()
           break
         case 'megaregionWillamette':
           this.initMegaregionWillamette()
@@ -553,10 +553,10 @@ export default {
         rotation: -0.41
       }))
     },
-    initMegaregionVanportMemories: function () {
+    initMegaregionVanportMosaic: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.memoriesLayers
+        layers: this.mosaicLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.vanport.center),
