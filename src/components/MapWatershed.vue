@@ -40,8 +40,8 @@ export default {
           resolution: 6
         },
         floods: {
-          center: [-119.51, 46.607574],
-          resolution: 50
+          center: [-119.605, 46.605],
+          resolution: 54
         },
         plumes: {
           center: [-119.605, 46.605],
@@ -164,15 +164,6 @@ export default {
           preload: Infinity,
           source: new XYZ({
             url: 'http://ecotopia.today/cascadia/Tiles/Hanford/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 80
-        }),
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Leaks/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 1,

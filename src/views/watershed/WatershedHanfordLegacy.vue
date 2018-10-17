@@ -1,10 +1,19 @@
+<style scoped>
+.video {
+position: relative; padding-bottom: 74.88%; height: 0;
+}
+.video iframe {
+position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+</style>
+
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>Now time</h1>
+      <h1>The remains</h1>
     </div>
-      <img src="images/Hanford/HanfordEmergency.gif" class="fullwidth">
-    <div class="caption">Things still happen at Hanford</div>
+      <img src="images/Hanford/B_reactor.png" class="fullwidth">
+    <div class="caption">Workers inserting fuel rods to B Reactor</div>
     <br>
 
         <Accordion :open="false">
@@ -14,19 +23,24 @@
             </div>
         </Accordion>
 
-        <p>To understand the Hanford legacy, you have to imagine the production process.</p>
+        <p>To understand the Hanford legacy, you have to know something about the production process.</p>
 
-        <p>Small cylinders of enriched uranium, each about 9 inches long and 1.5 inches wide, are sealed in aluminum. These relatively small slugs are inserted into long aluminum tubes set within a graphite core, so as to spark a chain reaction. As the uranium atoms split, multiple transuranic products are formed, including plutonium. The hot slugs are cooled by river water at a rate of some 30,000 gallons per minute. Finally they are pushed entirely through the graphite core until they drop into a pool water where the short-lived isotopes are allowed to decay, normally for a two-month period.</p>
+        <p>Cylinders of enriched uranium, each about 9 inches long and 1.5 inches wide, were encased in aluminum to facilitate handling. These relatively small slugs were inserted into the middle of long metal tubes set within a graphite core, so as to spark a chain reaction. As the uranium atoms broke apart into fragments—that's "nuclear fission"—multiple transuranic products were formed, including highly radioactive substances such as americium, technetium, strontium-90, cesium-127, and small amounts of plutonium.</p>
 
-        <p>A railroad car then conveys the slugs to the processing plants on the Central Plateau, three hundred feet above the river. There the aluminum coating is dissolved in acid, exposing the radioactive materials. This inaugurates a complex series of chemical treatments, each stripping away unwanted impurities, but also leaving behind hot wastes and precipitates. Hanford processed nearly twenty million fuel rods in this way, yielding some seventy-four tons of weapons-grade plutonium.</p>
+        <p>During the fission process, the hot slugs were cooled by river water at a rate of some 30,000 gallons per minute in each of the reactors. Anti-corrosion chemicals such as hexavalent chromium were added. There were no closed cooling circuits, no heat exchangers, no steaming towers: the water was just pumped back to the river after a few hours in a retention pond. Finally the slugs were pushed all the way through the graphite core until they dropped into a pool of water where the shortest-lived radioactive isotopes were allowed to decay for a two-month period.</p>
 
-        <p>Before you on the map is the real yield: a labyrinth of abandoned buildings, collapsing tunnels, decaying pipes and equipment, rusting drums, dried pools, contaminated ditches, cribs, pits and burial grounds, plus some 177 leaking underground storage tanks holding roughly 50 million gallons of radiactive sludge.</p>
+        <p>A railroad car then conveyed the slugs to the processing plants on the Central Plateau, three hundred feet above the river. There the aluminum coating was dissolved in acid, exposing the radioactive materials. The initial acid bath was followed by a series of complex chemical treatments, each stripping away unwanted impurities, but also leaving behind hot wastes and precipitates. Hanford processed nearly twenty million fuel rods in the period from 1944 to 1987, yielding some seventy-four tons of weapons-grade plutonium.</p>
 
-        <p>Zoom in and move the mouse over the diagrams. Each piece of the legacy is identified by an official name and number. On the Plateau where the map is focused, storage tanks are connected to processing plants by a tangle of pipelines. The stains of unplanned releases and migrating contamination sites envelop the ruins of the processing plants. The remaining buildings are gradually being disassembled by work crews, leaving only freshly capped underground tanks and earth scraped bare by bulldozers.</p>
+        <img src="images/PlutoniumButton.png" class="fullwidth">
+        <div class="caption">Finished product: a plutonium "button"</div>
 
-        <p>Pan the map to the reactor sites along the river (or just click <span class="link" @click="emit('set-map-view', {center: [-119.542, 46.69], resolution: 5})">here</span>). Cooling water intakes and outfalls can be observed along the bank, as well as large retention ponds nearer the reactors. Most of the buildings and infrastructure have already been scraped off the surface, except the cores themselves. Scroll the cursor over the black reactor footprints for images.</p>
+        <p>Before you on the map is the real yield: a labyrinth of abandoned buildings, collapsing tunnels, decaying pipes and equipment, rusting drums, dried pools, contaminated ditches, pits and burial grounds, as well as 177 leaking underground storage tanks holding roughly 50 million gallons of radioactive waste. In recent years, the liquid component of this waste has been transferred from the oldest 149 single-shelled tanks into 28 somewhat newer double-shelled tanks. However, water has subsequently infiltrated into the remaining sludge in some of the older tanks, while leaks have been reported in the newer ones. In the most recent major incident, a sealed underground railroad tunnel leading to a plutonium-uranium extraction plant located on the Central Plateau suddenly collapsed, leaving a hole open to the sky.</p>
 
-        <p>What remains beyond the shrouded monuments is a deeper and more mobile legacy: the contaminant plumes moving through the groundwater and into the river.</p>
+        <p>Roll the mouse over the diagrams. Each piece of the legacy is identified by an official name and number. On the Central Plateau, processing plants are connected to storage tanks by a tangle of pipelines. The stains of unplanned releases and migrating contamination sites envelop the ruins of the wartime facilities. The remaining buildings are gradually being disassembled by work crews, leaving only freshly capped underground tanks and earth scraped bare by bulldozers. At the same time, however, new buildings are constructed to support the cleanup effort, including a $17-billion-plus vitrification plant which, if ever successfully completed, would encase high-level radioactive was in impermeable glass logs for storage across the centuries.</p>
+
+        <p>Pan the map to the reactor sites along the river (or just click <span class="link" @click="emit('set-map-view', {center: [-119.542, 46.69], resolution: 5})">here</span>). Cooling water intakes and outfalls can be observed along the bank, as well as large retention ponds nearer to the reactors. Process sewers snake out in every direction, bearing witness to the large quantities of water that bathed all the phases of production. Dumping sites and unplanned releases are indicated with colored patches, just as on the Plateau. Scroll the cursor over the black architectural footprints to see images of the reactors themselves.</p>
+
+        <p>What remains beyond the shrouded monuments is a deeper and more mobile legacy: the contaminant plumes moving through the groundwater, toward the river.</p>
       <br>
       <Accordion>
         <h3 slot="header">sources</h3>
