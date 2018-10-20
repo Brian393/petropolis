@@ -93,6 +93,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
 
 export default {
   name: 'WatershedFalls',
