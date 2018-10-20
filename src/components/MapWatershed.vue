@@ -174,7 +174,7 @@ export default {
           source: new XYZ({
             url: 'http://ecotopia.today/cascadia/Tiles/HanfordPlumes/{z}/{x}/{y}.png'
           }),
-          opacity: 1,
+          opacity: 0.8,
           minResolution: 1,
           maxResolution: 80
         })

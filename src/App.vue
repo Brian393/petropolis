@@ -152,7 +152,7 @@ aside .fullwidth {
 }
 
 .caption {
-text-align: center; font-style: italic; margin-top:5px; margin-bottom:4px;
+text-align: center; font-style: italic; font-size: 90%; margin-top:5px; margin-bottom:8px;
 }
 
 .quote {
