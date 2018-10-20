@@ -47,6 +47,10 @@ aside a:visited, .link {
   left: 48px;
   margin-left: -10px;
 }
+.ol-vimeopopup, .ol-vimeopopup .ol-popup-content {
+  height: 380px;
+  max-height: 380px;
+}
 .ol-twitterpopup {
   bottom: -75px;
   left: 15px;

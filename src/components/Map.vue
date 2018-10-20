@@ -1,5 +1,9 @@
 <template>
   <div id="map" ref="map">
+    <div ref="vimeoPopup" class="ol-popup ol-vimeopopup">
+      <div ref="vimeoPopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
+      <div class="ol-popup-content" ref="vimeoPopupContent"></div>
+    </div>
     <div ref="twitterPopup" class="ol-popup ol-twitterpopup">
       <div ref="twitterpopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-twitter-content">
@@ -55,6 +59,17 @@ export default {
     ...mapGetters([
       'asideHidden'
     ]),
+    vimeoPopup: function () {
+      return new Overlay({
+        element: this.$refs.vimeoPopup,
+        offset: [10, 0],
+        positioning: 'center-right',
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250
+        }
+      })
+    },
     twitterPopup: function () {
       return new Overlay({
         element: this.$refs.twitterPopup,
@@ -109,7 +124,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.twitterPopup, this.popup, this.titletip, this.tooltip],
+          overlays: [this.twitterPopup, this.popup, this.titletip, this.tooltip, this.vimeoPopup],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -161,6 +176,9 @@ export default {
                 })
                 this.twitterPopup.setPosition(e.coordinate)
               }
+            } else if (props.vimeoSrc) {
+              this.$refs.vimeoPopupContent.innerHTML = `<iframe src="${props.vimeoSrc}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
+              this.vimeoPopup.setPosition(e.coordinate)
             }
           } else {
             this.closePopup()
@@ -187,6 +205,8 @@ export default {
       this.$refs.popupCloser.blur()
       this.twitterPopup.setPosition(undefined)
       this.$refs.twitterpopupCloser.blur()
+      this.$refs.vimeoPopup.setPosition(undefined)
+      this.$refs.vimeoPopupCloser.blur()
       return false
     },
     closeTitletip: function () {
