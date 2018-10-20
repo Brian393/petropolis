@@ -32,7 +32,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
         <img src="images/GloveBox.jpg" class="fullwidth">
 
-        <p>Under the pressure of war, nuclear materials were handled with scant knowledge of their consequences. Production was pushed to high speeds. Wastes were scattered everywhere. The tension redoubled when the Soviets exploded their first nuclear device. On December 2-3, 1949, the top brass ordered Hanford workers to skip the normal eighty-day period during which the irradiated fuel slugs remained underwater, waiting for the short-lived isotopes to lose most of their deadly charge. Instead the material would be run through the processing plants after only eight days. This accelerated <a href="http://www.hanfordproject.com/greenrun.html" target="_blank"> Green Run</a> secretly released approximately 8,000 curies of iodine-131, dispersed directly into the air. The resulting levels of atmospheric radiation could then be compared with those of Ozersk, half a world away, where the Soviets' plutonium facilities were located. By poisoning the Hanford area, the military obtained a yardstick with which to measure the opposing side's production.</p>
+        <p>Under the pressure of war, nuclear materials were handled with scant knowledge of their consequences. Production was pushed to high speeds. Wastes were scattered everywhere. The tension redoubled when the Soviets exploded their first nuclear device. On December 2-3, 1949, the top brass ordered Hanford workers to skip the normal eighty-day period during which the irradiated fuel slugs remained underwater, waiting for the short-lived isotopes to lose most of their deadly charge. Instead the material would be run through the processing plants after only eight days. This accelerated <a href="http://www.hanfordproject.com/greenrun.html" target="_blank" rel="nofollow"> Green Run</a> secretly released approximately 8,000 curies of iodine-131, dispersed directly into the air. The resulting levels of atmospheric radiation could then be compared with those of Ozersk, half a world away, where the Soviets' plutonium facilities were located. By poisoning the Hanford area, the military obtained a yardstick with which to measure the opposing side's production.</p>
 
         <p>Although it decays very rapidly, iodine-131 is among the most feared fission products, because it causes thyroid cancer. Untold numbers of people were exposed, with vegetation samples at nearby Kennewick showing levels a thousand times higher than the recommended daily limit. Hanford "downwinders" and their survivors rightly point to this callous open-air experiment to prove government responsibility for their later health disasters. Yet the inexcusable release of iodine-131 during the Green Run was dwarfed by the cumulative daily release of multiple radioactive materials over the active lifetime of the site. Uranium and plutonium, along with a long list of transuranic fission products and a whole catalog of dangerous chemicals, were leaked as flakes, particles, liquids or aerosols into the land, the air, the inhabitants' bodies and the waters of the Columbia River.</p>
 
@@ -45,14 +45,14 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       <Accordion>
         <h3 slot="header">sources</h3>
       <p>Data sources for this page include:</p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <p>-- <a href="" target="__blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <br>
       </Accordion>
 

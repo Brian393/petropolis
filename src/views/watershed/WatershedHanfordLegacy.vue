@@ -45,14 +45,14 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       <Accordion>
         <h3 slot="header">sources</h3>
       <p>Data sources for this page include:</p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <p>-- <a href="" target="__blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <br>
       </Accordion>
 

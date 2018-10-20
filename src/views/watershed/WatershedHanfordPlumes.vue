@@ -78,7 +78,7 @@ font-weight: bold; font-style: italic; color: #333333;
         <h3 slot="header">sources</h3>
 
       <p>Data sources for the plumes:</p>
-      <p>-- <a href="https://phoenix.pnnl.gov/apps/gisexplorer/index.html" target="_blank">Phoenix GIS Explorer</a></p>
+      <p>-- <a href="https://phoenix.pnnl.gov/apps/gisexplorer/index.html" target="_blank" rel="nofollow">Phoenix GIS Explorer</a></p>
       <br>
       </Accordion>
 

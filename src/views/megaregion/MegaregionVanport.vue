@@ -29,7 +29,7 @@ font-weight: bold; font-style: italic; color: #333333;
       <div class="flex">
           <p>What you see is the plan of Vanport.<br><br>Streets and plazas are shown in green, buildings and facilities in gold, water features in bright blue.</p>
           <div class="quote-2">"All of the apartment buildings were constructed using an identical design. On the first floor, there were six two-bedroom apartments with single-bedroom apartments located on each end of the ground floor. Access to the apartments was via a stairwell situated between every two apartments. Four of these apartment buildings were connected to a central plant that provided heat, hot water, and electricity. Storage space for each apartment was also located in that building, as well as a laundry facility with four wringer washing machines."</div>
-          <p>Source of the quote <a href="https://www.ohs.org/research-and-library/oregon-historical-quarterly/upload/Skovgaard-Vanport-Memories_OHQ-108_1_Spring-2007.pdf" target="_blank">here</a>.<br>Image of the original Vanport plan <a href="https://efiles.portlandoregon.gov/record/17133" target="_blank">here</a>.</p>
+          <p>Source of the quote <a href="https://www.ohs.org/research-and-library/oregon-historical-quarterly/upload/Skovgaard-Vanport-Memories_OHQ-108_1_Spring-2007.pdf" target="_blank" rel="nofollow">here</a>.<br>Image of the original Vanport plan <a href="https://efiles.portlandoregon.gov/record/17133" target="_blank" rel="nofollow">here</a>.</p>
       </div>
     </Accordion>
     <br>
@@ -40,7 +40,7 @@ font-weight: bold; font-style: italic; color: #333333;
 
     <p>The Portland Housing Authority had built the city to provide lodging for over forty thousand laborers who took employment in the nearby Kaiser shipyards during World War II. The layout of the streets, buildings and plazas in the form of a recumbent lion was undoubtedly meant to evoke military power, bolstered by wartime production. The workers themselves came from across the state and across the country, drawn by patriotism, high wages, modern living, and for some, the prospect of relief from the racist violence of the South. There were all kinds of problems, but New Deal enthusiasm ran high. For a few short years, Vanport was a utopia.</p>
 
-    <p>But Portland itself was a <a href="https://books.google.com/books?id=abhIDwAAQBAJ&lpg=PP1&dq=sundown%20town&pg=PT18#v=onepage&q&f=false" target="_blank">"sundown town"</a> that informally barred blacks from permanent inhabitation and property ownership, just as the state of Oregon had formally excluded black people by constitutional law at its foundation in 1859. Institutional racism was a heavy reality in the mid-1940s, despite the egalitarian policies of the federal government and the good will of fellow migrants, including many of Native American, Hispanic or Chinese origins.</p>
+    <p>But Portland itself was a <a href="https://books.google.com/books?id=abhIDwAAQBAJ&lpg=PP1&dq=sundown%20town&pg=PT18#v=onepage&q&f=false" target="_blank" rel="nofollow">"sundown town"</a> that informally barred blacks from permanent inhabitation and property ownership, just as the state of Oregon had formally excluded black people by constitutional law at its foundation in 1859. Institutional racism was a heavy reality in the mid-1940s, despite the egalitarian policies of the federal government and the good will of fellow migrants, including many of Native American, Hispanic or Chinese origins.</p>
 
     <p>On that Memorial Day morning in 1948, three years after war's end, the population of the vast housing complex had shrunk to about 18,500. Of these, some 6,300 were black. Redlining in the city left them with nowhere else to go. The lowest point of Vanport was situated fifteen feet beneath the normal level of the Columbia River, so the threat to all the remaining migrants was obvious. Why didn't the Housing Authority take action?</p>
 
@@ -58,7 +58,7 @@ font-weight: bold; font-style: italic; color: #333333;
           <h3 slot="header">sources</h3>
           <div class="flex">
             <div>
-              <p>For an introduction to Vanport, <a href="https://www.smithsonianmag.com/history/vanport-oregon-how-countrys-largest-housing-project-vanished-day-180954040/?no-ist" target="_blank">click here</a>.</p>
+              <p>For an introduction to Vanport, <a href="https://www.smithsonianmag.com/history/vanport-oregon-how-countrys-largest-housing-project-vanished-day-180954040/?no-ist" target="_blank" rel="nofollow">click here</a>.</p>
             </div>
           </div>
         </Accordion>

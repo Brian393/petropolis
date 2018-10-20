@@ -25,12 +25,12 @@ font-weight: bold; font-style: italic; color: #333333;
         <p>At the extreme end of the spectrum, iodine-129, which constitutes one of the largest groundwater plumes on the Central Plateau, has a half-life of 15.7 million years. Toward the other end, strontium-90, which is found near the river in particular, has a half-life of only 8.8 years. Somewhere in the middle of the spectrum is plutonium-239, whose production was Hanford's sole mission. Its half-life is a comparatively modest twenty-four thousand years&mdash;a lapse of time which remains thoroughly unimaginable in traditional human terms.</p>
 
         <p>Let's take a temporal landmark with which inhabitants of the Pacific Northwest have become somewhat familiar: the Ice Age Floods, whose violently rushing waters carved the Willamette Valley and the impressive canyons, mesas, and dry waterfalls of Washington's Channeled Scablands. The floods were released by the periodic failure of ice dams that held back the meltwaters of glacial Lake Missoula. They occurred some thirteen to fifteen thousand years ago, well before the domestication of animals or the invention of agriculture. Zoom out to see the vast extent of these tumultuous floods which entirely covered the Hanford site, not once but many times. Can we imagine what might happen to the remaining nuclear wastes in the next fifteen millennia&mdash;or even in the next 150 years?</p>
-        <a href="https://www.columbiariverkeeper.org/sites/default/files/2018-07/2018.6.1%20Hanford%20Vision%20Report_j_INTERACTIVE.pdf" target="_blank"><img src="images/CompetingVisions.png" class="fullwidth"></a>
+        <a href="https://www.columbiariverkeeper.org/sites/default/files/2018-07/2018.6.1%20Hanford%20Vision%20Report_j_INTERACTIVE.pdf" target="_blank" rel="nofollow"><img src="images/CompetingVisions.png" class="fullwidth"></a>
         <div class="caption">Click the image for the pdf report<br></div>
 
         <p>The "seventh generation" is a measure that Native Americans often use to describe the stewardship responsibilities incurred by the harvest of animals and plants, or by any other exploitation of the land. In short: Use it in a way that respects the plants and animals and leaves equal benefit for others, as far down as the seventh generation. Seven generations is roughly 150 years&mdash;a long time for settlers whose North American ancestors might not even go back that far, but still, an imaginable period of time for any human being.</p>
 
-        <p>In 1999, the State and Tribal Working Group authored a report entitled <a href="https://www.energy.gov/sites/prod/files/2018/07/f53/STGWG_Closure_for_7th_Gen_Report_%282017%29.pdf" target="_blank">Closure for the Seventh Generation</a>, which sets forth localized views of the standards to which the federal Department of Energy should adhere in its environmental cleanup and eventual handover of contaminated nuclear sites. In 2018 Dan Serres, conservation director for Columbia Riverkeeper, drew inspiration from the 2017 version of that report to assess DOE's most recent plans for the Hanford site.</p>
+        <p>In 1999, the State and Tribal Working Group authored a report entitled <a href="https://www.energy.gov/sites/prod/files/2018/07/f53/STGWG_Closure_for_7th_Gen_Report_%282017%29.pdf" target="_blank" rel="nofollow">Closure for the Seventh Generation</a>, which sets forth localized views of the standards to which the federal Department of Energy should adhere in its environmental cleanup and eventual handover of contaminated nuclear sites. In 2018 Dan Serres, conservation director for Columbia Riverkeeper, drew inspiration from the 2017 version of that report to assess DOE's most recent plans for the Hanford site.</p>
 
         <p><em>Closure for the Seventh Generation</em> stresses the uncertainty of so-called "institutional controls," such as land-use laws, KEEP OUT signs, or even engineered fences and barriers that may not withstand the test of time. In the Columbia Riverkeeper report, Dan Serres stresses the high value that large tracts of cleared or never-developed land along a free-flowing stretch of the Columbia River hold for Native Americans in particular, and indeed, for everyone. Will guards be funded, will fences remain standing, will future users of the site even notice rusting signs that once read DANGER or KEEP OUT?</p>
 
@@ -47,14 +47,14 @@ font-weight: bold; font-style: italic; color: #333333;
         <h3 slot="header">sources</h3>
 
       <p>Data sources for this page include:</p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <p>-- <a href="" target="__blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <br>
       </Accordion>
 

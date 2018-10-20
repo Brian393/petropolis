@@ -11,7 +11,7 @@
     </div>
       <img src=images/Irrigation.jpg class="fullwidth">
     <div class="caption">
-      High-tension tower (<a href="http://www.pxleyes.com/photography-picture/4ca6f763f307c/High-voltage-tower.html" target="_blank">source</a>)
+      High-tension tower (<a href="http://www.pxleyes.com/photography-picture/4ca6f763f307c/High-voltage-tower.html" target="_blank" rel="nofollow">source</a>)
     </div>
     <br>
 
