@@ -69,6 +69,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
 
 export default {
   name: 'WatershedFalls',

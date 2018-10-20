@@ -10,8 +10,7 @@ font-weight: bold; font-style: italic; color: #333333;
       <h1>The seventh generation</h1>
     </div>
     <div class="video">
-      <iframe width="350" height="197"
-      <img src="images/HanfordReach.jpg" class="fullwidth">
+      <img src="images/HanfordReach.jpg" class="fullwidth"/>
     </div>
     <div class="caption">Hanford Reach Natural Monument</div>
     <br>
@@ -60,6 +59,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
 
 export default {
   name: 'WatershedFalls',
