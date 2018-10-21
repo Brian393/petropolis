@@ -9,13 +9,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="title">
       <h1>The seventh generation</h1>
     </div>
-<<<<<<< HEAD
-    <div class="video">
-      <img src="images/HanfordReach.jpg" class="fullwidth"/>
-    </div>
-=======
       <img src="images/HanfordReach.jpg" class="fullwidth">
->>>>>>> Bioregion-7
     <div class="caption">Hanford Reach Natural Monument</div>
     <br>
 
@@ -47,8 +41,13 @@ font-weight: bold; font-style: italic; color: #333333;
         <p>Hanford, in particular, is both a real-life ecological disaster and a potent symbol of the responsibility that we have when it comes to dealing with the legacies of twentieth-century modernism. The name of one of the key groups now working with the problem is signficant: that group is called The Hanford Challenge. The capacity to stick with such a challenge, despite all its difficulties, is one of the most important things that can be learned from ecological initiatives in Cascadia. At stake is a reinterpretation and fresh use of the human energies that created the problem in the first place. If three nuclear reactors and an entirely new process for the extraction of plutonium from spent fuel could be developed in the lapse of only two years, then why can't we now find a way to face and undo the mistakes that were part and parcel of past successes?</p>
 
         <p>The answer that we give to this question today and over the upcoming decades will be remembered and lived every day by the seventh generation.</p>
-
       <br>
+      <Accordion :open="false">
+        <h3 slot="header">Hanford Challenge</h3>
+        <div class="flex">
+          <div ref="twttrHanfordC"></div>
+        </div>
+      </Accordion>
       <Accordion>
         <h3 slot="header">sources</h3>
 
@@ -86,7 +85,7 @@ import Accordion from '../../components/Accordion.vue'
 import {eventBus} from '../../main'
 
 export default {
-  name: 'WatershedFalls',
+  name: 'WatershedHanfordFloods',
   components: {
     Accordion,
     AppLightBox
@@ -104,6 +103,15 @@ export default {
     emit: function (method, args) {
       eventBus.$emit(method, args)
     }
+  },
+  mounted: function () {
+    window.twttr.widgets.createTimeline(
+      {
+        sourceType: 'url',
+        url: 'https://twitter.com/HanfordC'
+      },
+      this.$refs.twttrHanfordC
+    )
   }
 }
 </script>

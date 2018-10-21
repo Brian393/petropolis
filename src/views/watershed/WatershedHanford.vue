@@ -22,12 +22,6 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
           </div>
         </Accordion>
 
-        <Accordion :open="false">
-          <h3 slot="header">Hanford Challenge Twitter feed</h3>
-          <div class="flex">
-            <div ref="twttrHanfordC"></div>
-          </div>
-        </Accordion>
         <p>The Hanford Nuclear Reservation is an entombed landscape—a vast outdoor monument to the madness of war and the overwhelming power of engineering.</p>
 
         <p>The natural area was used by the Yakama, Nez Perce and Umatilla tribes, and especially by the Wanapum people who lived there year-round. The village of Hanford, like the other settlements surrounding it, was a tumbleweed town where hardscrabble farmers dreamt of irrigation schemes. In December of 1942 Lieutenant Colonel Frank Matthias planted his feet in the dust and said it was good: a vast empty peninsula far from any urban center, but close to existing railroad tracks and high-tension lines from the Bonneville and Grand Coulee dams, and bordered on two sides by the abundant cool waters of the Columbia River.</p>
@@ -83,7 +77,7 @@ import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
-  name: 'WatershedDamsTransformation',
+  name: 'WatershedHanford',
   components: {
     Accordion,
     AppLightBox
@@ -96,15 +90,6 @@ export default {
         }
       ]
     }
-  },
-  mounted: function () {
-    window.twttr.widgets.createTimeline(
-      {
-        sourceType: 'url',
-        url: 'https://twitter.com/HanfordC'
-      },
-      this.$refs.twttrHanfordC
-    )
   }
 }
 </script>
