@@ -486,10 +486,14 @@ export default {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
           this.tooltip.setPosition(e.coordinate)
+        } else if (props.key3) {
+          this.$refs.textitletipContent.innerHTML = props.key3
+          this.textitletip.setPosition(e.coordinate)
         }
       } else {
         this.closeTitletip()
         this.closeTooltip()
+        this.closeTextitletip()
       }
       this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
       this.olmap.render()

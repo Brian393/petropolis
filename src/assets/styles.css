@@ -127,6 +127,17 @@ aside a:visited, .link {
   font-size: 12pt;
 }
 
+.textitletip {
+  position: relative;
+  left: 18px;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  opacity: 1;
+  font-size: 12pt;
+}
+
 .ol-tooltip {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
