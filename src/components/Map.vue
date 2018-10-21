@@ -207,6 +207,7 @@ export default {
       this.$refs.twitterpopupCloser.blur()
       this.vimeoPopup.setPosition(undefined)
       this.$refs.vimeoPopupCloser.blur()
+      this.$refs.vimeoPopupContent.innerHTML = '';
       return false
     },
     closeTitletip: function () {
