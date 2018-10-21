@@ -19,7 +19,7 @@ font-weight: bold; font-style: italic; color: #333333;
       <h1>Planned city planned disaster</h1>
     </div>
     <div class="video">
-      <iframe width="350" height="300" src="https://www.youtube.com/embed/MJp5gA6a02Q?rel=0&amp;autoplay=1&mute=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe width="350" height="300" src="https://www.youtube.com/embed/z3Ncu-h_SEg?&ampmodestbranding=1&amp;autoplay=1&amp;autohide=1&amp;mute=1&amp;loop=1&amp;playlist=z3Ncu-h_SEg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     <div class="caption">Vanport Flood</div>
     <br>
