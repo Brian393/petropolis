@@ -18,8 +18,8 @@
   display: flex;
   align-items: center;
   color: #5a005a;
-  margin-top:10px;
-  margin-bottom:10px;
+  margin-top:20px;
+  margin-bottom:30px;
   justify-content: center;
 
 }

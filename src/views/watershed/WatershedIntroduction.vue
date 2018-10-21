@@ -35,15 +35,15 @@
       <h3 slot="header">sources</h3>
     <p>This work is made with public data and free software. Code repository <a href="https://github.com/Brian393/ecotopia-today" target="blank">here</a>.</p>
     <p>Major sources for this page include:</p>
-    <p>-- <a href="https://nhd.usgs.gov/NHDPlus_HR.html" target="_blank">National Hydrology Dataset</a></p>
-    <p>-- <a href="https://www.arcgis.com/home/item.html?id=1b243539f4514b6ba35e7d995890db1d" target="_blank">Esri World Hillshade Layer</a></p>
-    <p>-- <a href="https://www.fws.gov/wetlands/Data/Mapper.html" target="_blank">National Wetlands Inventory</a></p>
-    <p>-- <a href="http://www.cec.org/tools-and-resources/map-files/land-cover-2010-landsat-30m" target="_blank">North American Land Cover Monitoring System</a></p>
+    <p>-- <a href="https://nhd.usgs.gov/NHDPlus_HR.html" target="_blank" rel="nofollow">National Hydrology Dataset</a></p>
+    <p>-- <a href="https://www.arcgis.com/home/item.html?id=1b243539f4514b6ba35e7d995890db1d" target="_blank" rel="nofollow">Esri World Hillshade Layer</a></p>
+    <p>-- <a href="https://www.fws.gov/wetlands/Data/Mapper.html" target="_blank" rel="nofollow">National Wetlands Inventory</a></p>
+    <p>-- <a href="http://www.cec.org/tools-and-resources/map-files/land-cover-2010-landsat-30m" target="_blank" rel="nofollow">North American Land Cover Monitoring System</a></p>
     <p>-- <a href="https://www.openstreetmap.org" target="__blank">OpenStreetMap</a></p>
-    <p>-- <a href="https://www.bing.com/maps/aerial" target="_blank">Bing Maps Aerial</a></p>
-    <p>-- <a href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" target="_blank">National Geographic World Map</a></p>
-    <p>-- <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer" target="_blank">USGS Topo Map</a></p>
-    <p>These sources have been combined and put online using two amazing tools: <a href="https://www.qgis.org/en/site/" target="_blank">QGIS</a> and <a href="https://openlayers.org/" target="_blank">OpenLayers</a>.</p>
+    <p>-- <a href="https://www.bing.com/maps/aerial" target="_blank" rel="nofollow">Bing Maps Aerial</a></p>
+    <p>-- <a href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" target="_blank" rel="nofollow">National Geographic World Map</a></p>
+    <p>-- <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer" target="_blank" rel="nofollow">USGS Topo Map</a></p>
+    <p>These sources have been combined and put online using two amazing tools: <a href="https://www.qgis.org/en/site/" target="_blank" rel="nofollow">QGIS</a> and <a href="https://openlayers.org/" target="_blank" rel="nofollow">OpenLayers</a>.</p>
     <p>Thanks to all the creators of this fabulous stuff!</p>
     </Accordion>
 

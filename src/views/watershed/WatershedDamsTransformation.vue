@@ -55,14 +55,14 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         <h3 slot="header">sources</h3>
       <p>For a full-spectrum investigation of the civilizational transformations leading up to and beyond climate change, see <a href="https://www.anthropocene-curriculum.org" target="blank">The Anthropocene Curriculum</a>, with which "Learning from Cascadia" is affiliated.</p>
       <p>Data sources for this page include:</p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <p>-- <a href="" target="__blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
-      <p>-- <a href="" target="_blank"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
+      <p>-- <a href="" target="_blank" rel="nofollow"></a></p>
       <br>
       </Accordion>
 
