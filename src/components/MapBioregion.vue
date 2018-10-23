@@ -36,7 +36,7 @@ export default {
           resolution: 1200
         }
       }, // end centerPoints
-      watershedDamsTransformationIsAnimating: true,  // #TODO: What is this???
+      watershedDamsTransformationIsAnimating: true, // #TODO: What is this???
       didSetSingleclickEvent: false
     }
   },
@@ -121,22 +121,22 @@ export default {
         case 'bioregionIntroduction':
           this.initBioregionIntro()
           break
-          case 'bioregionSalmon':
+        case 'bioregionSalmon':
           this.initBioregionSalmon()
           break
-          case 'bioregionSalmonChinook':
+        case 'bioregionSalmonChinook':
           this.initBioregionSalmonChinook()
           break
-          case 'bioregionSalmonCoho':
+        case 'bioregionSalmonCoho':
           this.initBioregionSalmonCoho()
           break
-          case 'bioregionSalmonChum':
+        case 'bioregionSalmonChum':
           this.initBioregionSalmonChum()
           break
-          case 'bioregionSalmonSockeye':
+        case 'bioregionSalmonSockeye':
           this.initBioregionSalmonSockeye()
           break
-          case 'bioregionSalmonPink':
+        case 'bioregionSalmonPink':
           this.initBioregionSalmonPink()
           break
         default:

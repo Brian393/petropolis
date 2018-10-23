@@ -60,15 +60,15 @@ import Accordion from '../../components/Accordion.vue'
 import {eventBus} from '../../main'
 
 export default {
-name: 'WatershedFalls',
-components: {
-  Accordion,
-  AppLightBox
-},
-methods: {
-  emit: function (method, args) {
-    eventBus.$emit(method, args)
+  name: 'WatershedFalls',
+  components: {
+    Accordion,
+    AppLightBox
+  },
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
+    }
   }
-}
 }
 </script>

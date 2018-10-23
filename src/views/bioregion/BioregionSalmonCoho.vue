@@ -59,8 +59,8 @@ import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
 
 export default {
-name: 'BioregionSalmonCoho',
-components: {
+  name: 'BioregionSalmonCoho',
+  components: {
     Accordion,
     AppLightBox
   }
