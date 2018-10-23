@@ -77,7 +77,8 @@ export default {
           source: new XYZ({
             url: 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg'
           }),
-          minResolution: 800
+          minResolution: 800,
+          maxZoom: 21
         }),
         // tiles[6]
         new Tile({
@@ -108,7 +109,8 @@ export default {
           source: new XYZ({
             url: 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/Coastlines/default/GoogleMapsCompatible_Level9/{z}/{y}/{x}.png'
           }),
-          minResolution: 200
+          minResolution: 200,
+          maxZoom: 21 // XYZ's default is 18
         }),
         new Tile({
           preload: Infinity,
@@ -129,7 +131,7 @@ export default {
             url: 'https://{a-c}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png',
             crossOrigin: null, // make it work inside canvas
             tilePixelRatio: 2, // server returns 512px img for 256 tiles
-            maxZoom: 19, // XYZ's default is 18
+            maxZoom: 21, // XYZ's default is 18
             opaque: false,
             loadTilesWhileAnimating: true,
             loadTilesWhileInteracting: true
@@ -147,6 +149,7 @@ export default {
               return 'https://t0.tiles.virtualearth.net/tiles/t' + this.computeQuadKey(x, y, z) + '.jpg'
             }
           }),
+          maxZoom: 17, // XYZ's default is 18
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
         }),
@@ -486,10 +489,14 @@ export default {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
           this.tooltip.setPosition(e.coordinate)
+        } else if (props.key3) {
+          this.$refs.textitletipContent.innerHTML = props.key3
+          this.textitletip.setPosition(e.coordinate)
         }
       } else {
         this.closeTitletip()
         this.closeTooltip()
+        this.closeTextitletip()
       }
       this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
       this.olmap.render()
@@ -537,7 +544,7 @@ export default {
         center: fromLonLat(this.centerPoints.introductionmetro.center),
         resolution: this.centerPoints.introductionmetro.resolution,
         minResolution: 1,
-        maxResolution: 16000
+        maxResolution: 32000
       }))
     },
     initMegaregionVanport: function () {

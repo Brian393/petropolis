@@ -16,6 +16,7 @@
   "dependencies": {
     "material-design-icons": "^3.0.1",
     "ol": "^5.1.3",
+    "simplify-geojson": "^1.0.3",
     "vue": "^2.5.16",
     "vue-image-lightbox": "^6.0.0",
     "vue-lazyload": "^1.2.6",
