@@ -13,7 +13,17 @@ text-align: justify;
 <template>
   <div class="aside-content">
     <div class="title"><h1>Bioregional turn</h1></div>
-    <img src="images/Cascade.jpg"><br><div class="caption">Falling water, Olympic Peninsula</div><br>
+    <img src="images/Cascade.jpg" class="fullwidth">
+    <br>
+    <div class="caption">Falling water, Olympic Peninsula</div>
+    <br>
+    <Accordion :open="false">
+      <h3 slot="header">Work in progress!</h3>
+      <div class="flex">
+        <p>Check back after November 1 and the whole concept will be a lot clearer...</p>
+      </div>
+    </Accordion>
+    <br>
 
 <p class="quote">"Living-in-place means following the necessities and pleasures of life as they are uniquely presented by a particular site.... Reinhabitation means learning to live-in-place in an area that has been disrupted and injured through past exploitation."</p>
 
@@ -28,8 +38,13 @@ text-align: justify;
 <p>How to become more sensitive to the places we inhabit? Here's another idea from Peter Berg and Raymond Dasmann:</p>
 
 <p class="quote">"There is a distinct resonance among living things and the factors which influence them... Discovering and describing that resonance is the best way to describe a bioregion."</p>
+<br>
 
-  </div>
+<Accordion>
+  <h3 slot="header">sources</h3>
+</Accordion>
+
+</div>
 </template>
 
 <script>

@@ -159,6 +159,54 @@ export default new Router({
         default: () => import('./views/bioregion/BioregionIntroduction.vue'),
         map: MapBioregion
       }
+    },
+    {
+      path: '/bioregion/salmon',
+      name: 'bioregionSalmon',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmon.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/salmon/chinook',
+      name: 'bioregionSalmonChinook',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmonChinook.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/salmon/coho',
+      name: 'bioregionSalmonCoho',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmonCoho.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/salmon/chum',
+      name: 'bioregionSalmonChum',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmonChum.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/salmon/sockeye',
+      name: 'bioregionSalmonSockeye',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmonSockeye.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/salmon/pink',
+      name: 'bioregionSalmonPink',
+      components: {
+        default: () => import('./views/bioregion/BioregionSalmonPink.vue'),
+        map: MapBioregion
+      }
     }
   ]
 })

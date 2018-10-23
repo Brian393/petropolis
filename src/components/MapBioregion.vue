@@ -19,48 +19,24 @@ export default {
     return {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
-        introductionwater: {
-          center: [-120.4, 46.1],
-          resolution: 700
-        },
         introductionbio: {
           center: [-125.2, 51.0],
           resolution: 4900
         },
-        terminals: {
-          center: [-122.9, 45.8],
-          resolution: 220
+        salmon: {
+          center: [-119.3, 46.9],
+          resolution: 1500
         },
-        hanford1: {
-          center: [-119.54, 46.692],
-          resolution: 4
-        },
-        legacy: {
-          center: [-119.529, 46.555],
-          resolution: 6
-        },
-        floods: {
-          center: [-119.51, 46.607574],
-          resolution: 50
-        },
-        plumes: {
-          center: [-119.51, 46.607574],
-          resolution: 50
-        },
-        stopit: {
-          center: [-122.68, 45.84],
-          resolution: 220
-        },
-        dams: {
-          center: [-119.9, 46.9],
-          resolution: 700
+        chinook: {
+          center: [-119.3, 45.6],
+          resolution: 1200
         },
         transformation: {
           center: [-118.0, 45.6],
           resolution: 1200
         }
       }, // end centerPoints
-      watershedDamsTransformationIsAnimating: true,
+      watershedDamsTransformationIsAnimating: true, // #TODO: What is this???
       didSetSingleclickEvent: false
     }
   },
@@ -72,8 +48,8 @@ export default {
             url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png'
           }),
           opacity: 0.9,
-          minResolution: 2,
-          maxResolution: 16000
+          minResolution: 5,
+          maxResolution: 16001
         }),
         new Tile({
           preload: Infinity,
@@ -81,19 +57,52 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Cascadia/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
-          maxResolution: 16000
+          minResolution: 5,
+          maxResolution: 16001
         }),
-        this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 4, 4000, 'rgba(0,0,240, 0.01)', 5),
-        this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 4, 4000, 'rgba(0,0,240, 0.01)', 5),
         new Tile({
           source: new XYZ({
             url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
           }),
           opacity: 0.7,
-          minResolution: 2,
+          minResolution: 5,
           maxResolution: 16
         })
+      ]
+    },
+    salmonLayers: function () {
+      return [
+        ...this.bioregionBaseLayers
+      ]
+    },
+    chinookLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+      ]
+    },
+    cohoLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+      ]
+    },
+    chumLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+      ]
+    },
+    sockeyeLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+      ]
+    },
+    pinkLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
       ]
     }
   },
@@ -109,8 +118,26 @@ export default {
   methods: {
     initMap: function () {
       switch (this.$route.name) {
-        case 'bioegionIntroduction':
+        case 'bioregionIntroduction':
           this.initBioregionIntro()
+          break
+        case 'bioregionSalmon':
+          this.initBioregionSalmon()
+          break
+        case 'bioregionSalmonChinook':
+          this.initBioregionSalmonChinook()
+          break
+        case 'bioregionSalmonCoho':
+          this.initBioregionSalmonCoho()
+          break
+        case 'bioregionSalmonChum':
+          this.initBioregionSalmonChum()
+          break
+        case 'bioregionSalmonSockeye':
+          this.initBioregionSalmonSockeye()
+          break
+        case 'bioregionSalmonPink':
+          this.initBioregionSalmonPink()
           break
         default:
           this.initBioregionIntro()
@@ -126,14 +153,15 @@ export default {
             this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
             this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
             this.tooltip.setPosition(e.coordinate)
-          } else if (props.key3) {
-            this.$refs.textitletipContent.innerHTML = props.key3
-            this.textitletip.setPosition(e.coordinate)
+          } else if (props.key4) {
+            this.$refs.salmontipContent.innerHTML = props.key4
+            this.salmontip.setPosition(e.coordinate)
           }
         } else {
           this.closeTitletip()
           this.closeTooltip()
           this.closeTextitletip()
+          this.closeSalmontip()
         }
         this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
         this.olmap.render()
@@ -147,7 +175,80 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.introductionbio.center),
         resolution: this.centerPoints.introductionbio.resolution,
-        minResolution: 2
+        minResolution: 8,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmon: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.salmonLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.salmon.center),
+        resolution: this.centerPoints.salmon.resolution,
+        minResolution: 10,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmonChinook: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.chinookLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
+        minResolution: 10,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmonCoho: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.cohoLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
+        minResolution: 10,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmonChum: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.chumLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
+        minResolution: 10,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmonSockeye: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.sockeyeLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
+        minResolution: 10,
+        maxResolution: 16001
+      }))
+    },
+    initBioregionSalmonPink: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.pinkLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
+        minResolution: 10,
+        maxResolution: 16001
       })
       )
     }

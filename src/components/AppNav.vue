@@ -142,6 +142,18 @@ export default {
           }
         ]
       },
+      bioregion: {
+        items: [
+          {
+            name: 'Introduction',
+            href: '/bioregion/introduction'
+          },
+          {
+            name: 'Salmon',
+            href: '/bioregion/salmon'
+          }
+        ]
+      },
       subItems: {
         hanford: [
           {
@@ -178,6 +190,28 @@ export default {
             name: 'Columbia Basin Project',
             href: '/megaregion/crops/basinproject'
           }
+        ],
+        salmon: [
+          {
+            name: 'Chinook',
+            href: '/bioregion/salmon/chinook'
+          },
+          {
+            name: 'Coho',
+            href: '/bioregion/salmon/coho'
+          },
+          {
+            name: 'Chum',
+            href: '/bioregion/salmon/chum'
+          },
+          {
+            name: 'Sockeye',
+            href: '/bioregion/salmon/sockeye'
+          },
+          {
+            name: 'Pink',
+            href: '/bioregion/salmon/pink'
+          }
         ]
       }
     }
@@ -201,8 +235,10 @@ export default {
     initNav: function () {
       if (/watershed/.test(this.$route.name)) {
         this.nav = this.watershed
-      } else if (/megaregion/.test(this.$route.name)) { // add one more for Bioregion
+      } else if (/megaregion/.test(this.$route.name)) {
         this.nav = this.megaregion
+      } else if (/bioregion/.test(this.$route.name)) {
+        this.nav = this.bioregion
       } else {
         this.nav = []
       }
@@ -214,6 +250,8 @@ export default {
         this.navSubItems = this.subItems.willamette
       } else if (/megaregionCrops/.test(this.$route.name)) {
         this.navSubItems = this.subItems.crops
+      } else if (/bioregionSalmon/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.salmon
       } else {
         this.navSubItems = []
       }
