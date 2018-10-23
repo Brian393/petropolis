@@ -209,7 +209,7 @@ export default {
             href: '/bioregion/salmon/sockeye'
           },
           {
-            name: 'Coho',
+            name: 'Pink',
             href: '/bioregion/salmon/pink'
           }
         ]

@@ -49,7 +49,7 @@ export default {
           }),
           opacity: 0.9,
           minResolution: 5,
-          maxResolution: 8000
+          maxResolution: 16001
         }),
         new Tile({
           preload: Infinity,
@@ -58,7 +58,7 @@ export default {
           }),
           opacity: 1,
           minResolution: 5,
-          maxResolution: 8000
+          maxResolution: 16001
         }),
         new Tile({
           source: new XYZ({
@@ -89,17 +89,20 @@ export default {
     },
     chumLayers: function () {
       return [
-        ...this.bioregionBaseLayers
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
       ]
     },
     sockeyeLayers: function () {
       return [
-        ...this.bioregionBaseLayers
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
       ]
     },
     pinkLayers: function () {
       return [
-        ...this.bioregionBaseLayers
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
       ]
     }
   },
@@ -173,7 +176,7 @@ export default {
         center: fromLonLat(this.centerPoints.introductionbio.center),
         resolution: this.centerPoints.introductionbio.resolution,
         minResolution: 8,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmon: function () {
@@ -185,7 +188,7 @@ export default {
         center: fromLonLat(this.centerPoints.salmon.center),
         resolution: this.centerPoints.salmon.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmonChinook: function () {
@@ -197,7 +200,7 @@ export default {
         center: fromLonLat(this.centerPoints.chinook.center),
         resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmonCoho: function () {
@@ -209,7 +212,7 @@ export default {
         center: fromLonLat(this.centerPoints.chinook.center),
         resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmonChum: function () {
@@ -218,10 +221,10 @@ export default {
         layers: this.chumLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.introductionbio.center),
-        resolution: this.centerPoints.introductionbio.resolution,
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmonSockeye: function () {
@@ -230,10 +233,10 @@ export default {
         layers: this.sockeyeLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.introductionbio.center),
-        resolution: this.centerPoints.introductionbio.resolution,
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       }))
     },
     initBioregionSalmonPink: function () {
@@ -242,10 +245,10 @@ export default {
         layers: this.pinkLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.introductionbio.center),
-        resolution: this.centerPoints.introductionbio.resolution,
+        center: fromLonLat(this.centerPoints.chinook.center),
+        resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 8000
+        maxResolution: 16001
       })
       )
     }

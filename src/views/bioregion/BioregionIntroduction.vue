@@ -20,7 +20,7 @@ text-align: justify;
     <Accordion :open="false">
       <h3 slot="header">Work in progress!</h3>
       <div class="flex">
-        <p>It looks good at first but rapidly falls apart. Check back after November 1 and the whole concept will be a lot clearer...</p>
+        <p>Check back after November 1 and the whole concept will be a lot clearer...</p>
       </div>
     </Accordion>
     <br>
