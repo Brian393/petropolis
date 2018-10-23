@@ -6,6 +6,10 @@ import {Tile, Group} from 'ol/layer'
 import {XYZ} from 'ol/source'
 import {fromLonLat} from 'ol/proj'
 
+import {easeOut} from 'ol/easing.js'
+import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
+import {unByKey} from 'ol/Observable.js'
+
 import {eventBus} from '../main'
 
 export default {
@@ -55,7 +59,9 @@ export default {
           center: [-118.0, 45.6],
           resolution: 1200
         }
-      } // end centerPoints
+      }, // end centerPoints
+      watershedDamsTransformationIsAnimating: true,
+      didSetSingleclickEvent: false
     }
   },
   computed: {
@@ -78,6 +84,8 @@ export default {
           minResolution: 2,
           maxResolution: 16000
         }),
+        this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 4, 4000, 'rgba(0,0,240, 0.01)', 5),
+        this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 4, 4000, 'rgba(0,0,240, 0.01)', 5),
         new Tile({
           source: new XYZ({
             url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
@@ -111,14 +119,24 @@ export default {
         const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
         if (feature) {
           const props = feature.getProperties()
-          if (props.key) {
+          if (props.CropGroup && props.key) {
             this.$refs.titletipContent.innerHTML = props.key
             this.titletip.setPosition(e.coordinate)
+          } else if (props.title && props.image) {
+            this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
+            this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
+            this.tooltip.setPosition(e.coordinate)
+          } else if (props.key3) {
+            this.$refs.textitletipContent.innerHTML = props.key3
+            this.textitletip.setPosition(e.coordinate)
           }
         } else {
           this.closeTitletip()
           this.closeTooltip()
+          this.closeTextitletip()
         }
+        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+        this.olmap.render()
       })
     },
     initBioregionIntro: function () {

@@ -1,3 +1,4 @@
+
 aside a, .link {
 	color: #008080;
 	text-decoration: none;
@@ -121,17 +122,6 @@ aside a:visited, .link {
   padding: 3px;
   background: rgba(102, 0, 0, 0.9);
   width: 220px;
-  color: white;
-  text-align: center;
-  opacity: 1;
-  font-size: 12pt;
-}
-
-.textitletip {
-  position: relative;
-  left: 18px;
-  padding: 3px;
-  background: rgba(0, 0, 0, 0.6);
   color: white;
   text-align: center;
   opacity: 1;

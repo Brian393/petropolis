@@ -544,7 +544,7 @@ export default {
         center: fromLonLat(this.centerPoints.introductionmetro.center),
         resolution: this.centerPoints.introductionmetro.resolution,
         minResolution: 1,
-        maxResolution: 16000
+        maxResolution: 32000
       }))
     },
     initMegaregionVanport: function () {
