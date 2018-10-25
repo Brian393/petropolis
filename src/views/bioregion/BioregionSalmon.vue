@@ -19,9 +19,9 @@ font-weight: bold; font-style: italic; color: #333333;
       <h1>Messenger of nature</h1>
     </div>
     <div class="video">
-      <iframe width="350" height="197" src="https://www.youtube.com/embed/jlC6HKIcALY?&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=jlC6HKIcALY" frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+      <iframe width="350" height="197" src="https://www.youtube.com/embed/hERlmXgqv7o?&amp;start=87&amp;autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=hERlmXgqv7o" frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
     </div>
-    <div class="caption">A trip from land to sea and back again</div>
+    <div class="caption">A voyage from land to sea and back again<br>(video by Diarmuid NZ, <a href="https://www.youtube.com/channel/UCLAqBw-p3I6918YOVCIcIVQ">here</a>)</div>
     <br>
     <Accordion :open="false">
       <h3 slot="header">Work in progress!</h3>

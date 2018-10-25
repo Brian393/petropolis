@@ -12,7 +12,7 @@ text-align: justify;
 
 <template>
   <div class="aside-content">
-    <div class="title"><h1>Just keep growing</h1></div>
+    <div class="title"><h1>Just keep eating</h1></div>
     <img src="images/PinkSalmon.png" class="fullwidth">
     <br>
     <div class="caption">Pink salmon fry</div>

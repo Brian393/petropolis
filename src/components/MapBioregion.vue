@@ -24,16 +24,32 @@ export default {
           resolution: 4900
         },
         salmon: {
-          center: [-119.3, 46.9],
-          resolution: 1500
+          center: [-119.9, 45.9],
+          resolution: 1000
         },
         chinook: {
-          center: [-119.3, 45.6],
-          resolution: 1200
+          center: [-116.8, 45.0],
+          resolution: 500
+        },
+        coho: {
+          center: [-122.28, 45.55],
+          resolution: 300
+        },
+        chum: {
+          center: [-122.9, 47.8],
+          resolution: 400
+        },
+        sockeye: {
+          center: [-122.1, 47.3],
+          resolution: 700
         },
         transformation: {
           center: [-118.0, 45.6],
           resolution: 1200
+        },
+        pink: {
+          center: [-122.9, 47.8],
+          resolution: 450
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true, // #TODO: What is this???
@@ -48,8 +64,7 @@ export default {
             url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png'
           }),
           opacity: 0.9,
-          minResolution: 5,
-          maxResolution: 16001
+          minResolution: 5
         }),
         new Tile({
           preload: Infinity,
@@ -57,8 +72,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Cascadia/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 5,
-          maxResolution: 16001
+          minResolution: 5
         }),
         new Tile({
           source: new XYZ({
@@ -72,37 +86,91 @@ export default {
     },
     salmonLayers: function () {
       return [
-        ...this.bioregionBaseLayers
+        ...this.bioregionBaseLayers,
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CriticalHabitat/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 1200
+        })
       ]
     },
     chinookLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 700
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     cohoLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 700
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     chumLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 700
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     sockeyeLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 900
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     pinkLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 8)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 700
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     }
   },
@@ -176,7 +244,7 @@ export default {
         center: fromLonLat(this.centerPoints.introductionbio.center),
         resolution: this.centerPoints.introductionbio.resolution,
         minResolution: 8,
-        maxResolution: 16001
+        maxResolution: 8000
       }))
     },
     initBioregionSalmon: function () {
@@ -187,8 +255,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.salmon.center),
         resolution: this.centerPoints.salmon.resolution,
-        minResolution: 10,
-        maxResolution: 16001
+        minResolution: 11,
+        maxResolution: 8000
       }))
     },
     initBioregionSalmonChinook: function () {
@@ -200,7 +268,7 @@ export default {
         center: fromLonLat(this.centerPoints.chinook.center),
         resolution: this.centerPoints.chinook.resolution,
         minResolution: 10,
-        maxResolution: 16001
+        maxResolution: 8000
       }))
     },
     initBioregionSalmonCoho: function () {
@@ -209,10 +277,10 @@ export default {
         layers: this.cohoLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.chinook.center),
-        resolution: this.centerPoints.chinook.resolution,
+        center: fromLonLat(this.centerPoints.coho.center),
+        resolution: this.centerPoints.coho.resolution,
         minResolution: 10,
-        maxResolution: 16001
+        maxResolution: 8000
       }))
     },
     initBioregionSalmonChum: function () {
@@ -221,10 +289,10 @@ export default {
         layers: this.chumLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.chinook.center),
-        resolution: this.centerPoints.chinook.resolution,
+        center: fromLonLat(this.centerPoints.chum.center),
+        resolution: this.centerPoints.chum.resolution,
         minResolution: 10,
-        maxResolution: 16001
+        maxResolution: 8000
       }))
     },
     initBioregionSalmonSockeye: function () {
@@ -233,10 +301,10 @@ export default {
         layers: this.sockeyeLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.chinook.center),
-        resolution: this.centerPoints.chinook.resolution,
+        center: fromLonLat(this.centerPoints.sockeye.center),
+        resolution: this.centerPoints.sockeye.resolution,
         minResolution: 10,
-        maxResolution: 16001
+        maxResolution: 8000
       }))
     },
     initBioregionSalmonPink: function () {
@@ -245,10 +313,10 @@ export default {
         layers: this.pinkLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.chinook.center),
-        resolution: this.centerPoints.chinook.resolution,
+        center: fromLonLat(this.centerPoints.pink.center),
+        resolution: this.centerPoints.pink.resolution,
         minResolution: 10,
-        maxResolution: 16001
+        maxResolution: 8000
       })
       )
     }

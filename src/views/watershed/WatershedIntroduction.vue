@@ -8,9 +8,9 @@
     <div class="caption">Does the territory inhabit you?</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Careful, work in progress!</h3>
+      <h3 slot="header">Got ideas?</h3>
       <div class="flex">
-        <p>Check back after November 1 and the whole concept will be a lot clearer...</p>
+        <p><em>This is a work in progress. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
       </div>
     </Accordion>
     <br>

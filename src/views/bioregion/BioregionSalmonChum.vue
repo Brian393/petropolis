@@ -12,10 +12,10 @@ text-align: justify;
 
 <template>
   <div class="aside-content">
-    <div class="title"><h1>Dog days</h1></div>
-    <img src="images/ChumSalmon.jpg" class="fullwidth">
+    <div class="title"><h1>Gift of the sea</h1></div>
+    <img src="images/DeadChum.jpg" class="fullwidth">
     <br>
-    <div class="caption">Chum salmon in northern Cascadia</div>
+    <div class="caption">Chum salmon brings ocean nutrients to the forest</div>
     <br>
     <Accordion :open="false">
       <h3 slot="header">Work in progress!</h3>
