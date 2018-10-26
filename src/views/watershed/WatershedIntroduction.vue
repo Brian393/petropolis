@@ -10,7 +10,7 @@
     <Accordion :open="false">
       <h3 slot="header">Got ideas?</h3>
       <div class="flex">
-        <p><em>This is a work in progress. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
+        <p>This is a work in progress. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
       </div>
     </Accordion>
     <br>

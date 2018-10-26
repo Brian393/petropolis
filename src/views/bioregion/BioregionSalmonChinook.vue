@@ -21,12 +21,12 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="video">
       <iframe width="350" height="197" src="https://player.vimeo.com/video/44999906?background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
-    <div class="caption">Can you imagine walking all the way here?<br>(video by Gary O. Grimm, <a href="https://vimeo.com/44999906">here</a>)</div>
+    <div class="caption">Could you walk this whole way?<br>&mdash;video by Gary O. Grimm, <a href="https://vimeo.com/44999906">here</a>&mdash;</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Work in progress!</h3>
+      <h3 slot="header">Legends</h3>
       <div class="flex">
-        <p>Check back after November 1 and the whole concept will be a lot clearer...</p>
+
       </div>
     </Accordion>
     <br>
@@ -41,9 +41,29 @@ font-weight: bold; font-style: italic; color: #333333;
 </div>
 </template>
 
+<style scoped>
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.flex img {
+  margin-right: 0.5em;
+}
+</style>
 <script>
+import AppLightBox from '../../components/AppLightBox.vue'
+import Accordion from '../../components/Accordion.vue'
 
 export default {
-  name: 'BioregionSalmonChinook'
+  name: 'BioregionSalmonChinook',
+  components: {
+    Accordion,
+    AppLightBox
+  }
 }
 </script>
