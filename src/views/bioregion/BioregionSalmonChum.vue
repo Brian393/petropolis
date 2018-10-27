@@ -18,9 +18,9 @@ text-align: justify;
     <div class="caption">Chum salmon brings ocean nutrients to the forest</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Work in progress!</h3>
+      <h3 slot="header"></h3>
       <div class="flex">
-        <p>Check back after November 1 and the whole concept will be a lot clearer...</p>
+        <p></p>
       </div>
     </Accordion>
     <br>
@@ -29,7 +29,7 @@ text-align: justify;
 <br>
 
 <Accordion>
-  <h3 slot="header">sources</h3>
+  <h3 slot="header"></h3>
 </Accordion>
 
 </div>
