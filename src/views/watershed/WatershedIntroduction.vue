@@ -23,7 +23,7 @@
 
     <p>Human bodies are up to 60% water. We too are part of the shed, along with other living species. What we do outside ourselves inevitably seeps back in.</p>
 
-    <p>This map is about political ecology. It suggests that human decisions are shaped by exterior realities that have always already gotten under our skin. Like most maps, this one will guide you to real and imaginary places. It will deliver loads of information, with a wealth of topographical detail that increases as you zoom in. It will also show you texts and images, and it will even talk to you via multimedia recordings. The aim is to provide multiple viewpoints on a reality that is at once pragmatic and utopian.</p>
+    <p>This map is about political ecology. It suggests that human decisions are shaped by exterior realities that have always already gotten under our skin. Like most maps, this one will guide you to real and imaginary places. It will deliver loads of information, with a wealth of topographical detail that increases as you zoom in. It will also show you texts and images, and it will even talk to you via multimedia recordings. The aim is to provide multiple viewpoints on reality. It's an experiment in collective perception.</p>
 
     <p>The main sections are accessed through the navigational bar at the top, while specific locations and themes are reached by the panel at lower left. Sometimes further buttons appear at the bottom of the map, to take you through more complex stories. When in doubt, just click on any word or marker or object that you see, and there's a good chance it will reveal something.</p>
 

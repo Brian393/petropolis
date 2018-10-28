@@ -21,7 +21,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="video">
       <iframe width="350" height="197" src="https://player.vimeo.com/video/44999906?background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
-    <div class="caption">Could you walk this whole way?<br>&mdash;video by Gary O. Grimm, <a href="https://vimeo.com/44999906">here</a>&mdash;</div>
+    <div class="caption">Chinook Salmon at Dagger Falls, Idaho<br>&mdash;video by Gary O. Grimm, <a href="https://vimeo.com/44999906">here</a>&mdash;</div>
     <br>
     <Accordion :open="false">
       <h3 slot="header">Legends</h3>

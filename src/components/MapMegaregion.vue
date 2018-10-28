@@ -29,16 +29,16 @@ export default {
           resolution: 23
         },
         willamette: {
-          center: [ -122.73, 45.59 ],
-          resolution: 23
+          center: [ -122.719, 45.585 ],
+          resolution: 24
         },
         energy: {
           center: [-120.1, 47.1],
           resolution: 798
         },
         crops: {
-          center: [-119.3, 46.5],
-          resolution: 900
+          center: [-119.9, 46.49],
+          resolution: 700
         },
         coulee: {
           center: [-118.989, 47.948],

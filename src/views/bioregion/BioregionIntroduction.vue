@@ -13,7 +13,7 @@ text-align: justify;
 <template>
   <div class="aside-content">
     <div class="title"><h1>The old-new idea</h1></div>
-    <img src="images/Cascade.jpg" class="fullwidth">
+    <img src="images/SolDucRainbow.jpg" class="fullwidth">
     <br>
     <div class="caption">Falling water, Olympic Peninsula</div>
     <br>

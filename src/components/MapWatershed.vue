@@ -20,8 +20,8 @@ export default {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionwater: {
-          center: [-120.4, 46.1],
-          resolution: 700
+          center: [-120.4, 46.6],
+          resolution: 750
         },
         introductionbio: {
           center: [-121.2, 51.0],
@@ -266,7 +266,8 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.introductionwater.center),
         resolution: this.centerPoints.introductionwater.resolution,
-        minResolution: 2
+        minResolution: 2,
+        maxResolution: 2000
       }))
     },
     initWatershedTerminals: function () {

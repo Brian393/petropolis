@@ -23,18 +23,19 @@ font-weight: bold; font-style: italic; color: #333333;
     <br>
 
     <Accordion :open="false">
-      <h3 slot="header">legends</h3>
+      <h3 slot="header"></h3>
       <div class="flex">
       </div>
     </Accordion>
     <br>
 
-    <p></p>
+    <p>Half the problem of the Willamette River is up on the banks, where industrial leaks and residues continue to percolate into the water. So far this map covers only the upland sites managed by Oregon's Department of Environmental Quality. Zoom in for a look at the sites through the spyglass. Click the dark red shapes for a link to DEQ's reports on each site.</p>
     <br>
         <Accordion :open="false">
           <h3 slot="header">sources</h3>
           <div class="flex">
             <div>
+              <p>Upland sites polgons based on:<br><a href="https://www.oregon.gov/deq/FilterDocs/PortlandHarborMap.pdf" target="_blank" rel="nofollow">DEQ interactive map</a><br><br>Street, railroad and building data from:<br><a href="https://www.openstreetmap.org" target="_blank" rel="nofollow">OpenStreetMap</a><br><br>Aerial image for spyglass:<br><a href="https://www.bing.com/maps" target="_blank" rel="nofollow">BingMaps</a><br><br>Topgraphic hillshade files:<br><a href="https://gis.dogami.oregon.gov/maps/lidarviewer" target="_blank" rel="nofollow">DOGAMI Lidar Viewer</a></p>
             </div>
           </div>
         </Accordion>

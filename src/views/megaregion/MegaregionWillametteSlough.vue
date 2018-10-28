@@ -23,7 +23,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <br>
 
     <Accordion :open="false">
-      <h3 slot="header">legends</h3>
+      <h3 slot="header"></h3>
       <div class="flex">
       </div>
     </Accordion>
@@ -32,7 +32,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <p></p>
     <br>
         <Accordion :open="false">
-          <h3 slot="header">sources</h3>
+          <h3 slot="header"></h3>
           <div class="flex">
             <div>
             </div>
