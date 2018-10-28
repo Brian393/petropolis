@@ -41,7 +41,8 @@ export default {
   name: 'Map',
   data: function () {
     return {
-      olmap: undefined
+      olmap: undefined,
+      styleCache: {}
     }
   },
   created: function () {
@@ -126,7 +127,7 @@ export default {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
           if (feature) {
             const props = feature.getProperties()
-            console.log('has feature! props:', props)
+            // console.log('has feature! props:', props)
             // #TODO: use better property names in .geojson files for if/else logic
             if (props.title && props.image && props.text1) {
               this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
@@ -198,11 +199,15 @@ export default {
       return false
     },
     geoJSONPointVectorLayerStyle: function (feature) {
-      return new Style({
-        image: new Icon({
-          src: feature.values_['icon'] || 'icons/dam.png'
+      // cache styles here to prevent icon flickering/blinking!
+      if (feature.values_ && feature.values_['icon'] && !this.styleCache[feature.values_['icon']]) {
+        this.styleCache[feature.values_['icon']] = new Style({
+          image: new Icon({
+            src: feature.values_['icon'] || 'icons/dam.png'
+          })
         })
-      })
+      }
+      return this.styleCache[feature.values_['icon']]
     },
     makeGeoJSONPointVectorLayerWithStyle: function (url, label, minResolution, maxResolution, opacity) {
       return new VectorLayer({
