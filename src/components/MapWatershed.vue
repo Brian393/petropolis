@@ -61,7 +61,9 @@ export default {
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true,
-      didSetSingleclickEvent: false
+      didSetSingleclickEvent: false,
+      listenerKeys: [],
+      animTimeouts: []
     }
   },
   computed: {
@@ -306,9 +308,10 @@ export default {
       if (this.watershedDamsTransformationIsAnimating) {
         watershedDamsTransformationLayersAnimation[3].getSource().on('addfeature', (e) => {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
               this.flash(e.feature)
             }, (parseInt(e.feature.values_['id']) * 1000))
+            this.animTimeouts.push(timeout)
           }
         })
       }
@@ -316,6 +319,12 @@ export default {
         this.olmap.on('singleclick', (e) => {
           if (this.$route.name === 'watershedDamsTransformation' && this.watershedDamsTransformationIsAnimating) {
             this.watershedDamsTransformationIsAnimating = false
+            this.listenerKeys.forEach((key) => {
+              unByKey(key)
+            })
+            this.animTimeouts.forEach((timeout) => {
+              clearTimeout(timeout)
+            })
             this.olmap.setLayerGroup(new Group({
               layers: this.watershedDamsTransformationLayers
             }))
@@ -431,6 +440,7 @@ export default {
         // tell OpenLayers to continue postcompose animation
         this.olmap.render()
       })
+      this.listenerKeys.push(listenerKey)
     }
   }
 }
