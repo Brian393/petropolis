@@ -82,7 +82,7 @@ export default {
     }
   },
   methods: {
-    openMedia(url) {
+    openMedia (url) {
       const mediaBox = new MediaLightBox(url)
       mediaBox.open()
     }
