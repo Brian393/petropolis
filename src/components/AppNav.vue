@@ -183,10 +183,6 @@ export default {
         ],
         crops: [
           {
-            name: 'Grand Coulee',
-            href: '/megaregion/crops/grandcoulee'
-          },
-          {
             name: 'Columbia Basin Project',
             href: '/megaregion/crops/basinproject'
           }

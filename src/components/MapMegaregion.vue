@@ -45,8 +45,8 @@ export default {
           resolution: 6
         },
         basin: {
-          center: [-119.4, 46.9],
-          resolution: 300
+          center: [-119.4, 47.0],
+          resolution: 140
         }
       }, // end centerPoints
       radius: 300,
@@ -367,47 +367,6 @@ export default {
         })
       ]
     },
-    grandCouleeLayers: function () {
-      let bingMapTile = new Tile({
-        source: new BingMaps({
-          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-          imagerySet: 'Aerial'
-        }),
-        minResolution: 1,
-        maxResolution: 10
-      })
-      bingMapTile.on('precompose', (e) => {
-        this.spyglass(e)
-      })
-      bingMapTile.on('postcompose', function (e) {
-        e.context.restore()
-      })
-
-      return [
-        // tiles[19]
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 16000
-        }),
-        // tiles[18]
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 2,
-          maxResolution: 16000
-        }),
-        // bingMapsAerial2
-        bingMapTile
-      ]
-    },
     basinProjectLayers: function () {
       let bingMapTile = new Tile({
         source: new BingMaps({
@@ -440,7 +399,7 @@ export default {
           source: new XYZ({
             url: 'http://ecotopia.today/cascadia/Tiles/Crops/{z}/{x}/{y}.png'
           }),
-          opacity: 0.6,
+          opacity: 0.3,
           minResolution: 2,
           maxResolution: 16000
         }),
@@ -454,7 +413,7 @@ export default {
           minResolution: 2,
           maxResolution: 16000
         }),
-        this.makeGeoJSONFillVectorLayer('geojson/CBP-Crops.geojson', 2, 80, 'rgba(189, 7, 97, 0)', 0, 'rgba(189, 7, 97, 0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/CBP-Crops.geojson', 2, 181, 'rgba(189, 7, 97, 0)', 0, 'rgba(189, 7, 97, 0)'),
         // bingMapsAerial3
         bingMapTile
       ]
@@ -525,9 +484,6 @@ export default {
           break
         case 'megaregionCrops':
           this.initMegaregionCrops()
-          break
-        case 'megaregionCropsGrandCoulee':
-          this.initmegaregionCropsGrandCoulee()
           break
         case 'megaregionCropsBasinProject':
           this.initmegaregionCropsBasinProject()
@@ -618,22 +574,6 @@ export default {
         center: fromLonLat(this.centerPoints.crops.center),
         resolution: this.centerPoints.crops.resolution,
         minResolution: 2,
-        maxResolution: 2000
-      }))
-    },
-    initmegaregionCropsGrandCoulee: function () {
-      this.initBaseMap()
-      // this.olmap.on('pointermove', (e) => {
-      //   this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
-      //   this.olmap.render()
-      // })
-      this.olmap.setLayerGroup(new Group({
-        layers: this.grandCouleeLayers
-      }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.coulee.center),
-        resolution: this.centerPoints.coulee.resolution,
-        minResolution: 1,
         maxResolution: 2000
       }))
     },

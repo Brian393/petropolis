@@ -8,9 +8,9 @@
     <div class="caption">Does the territory inhabit you?</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Got ideas?</h3>
+      <h3 slot="header">Welcome</h3>
       <div class="flex">
-        <p>This is a work in progress. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
+        <p>This is a work in progress. It's full of insights, but also gaps, errors and hidden prejudices or distortions that the authors cannot see. You're welcome to enjoy it and to help make it better. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
       </div>
     </Accordion>
     <br>
