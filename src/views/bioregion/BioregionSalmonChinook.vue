@@ -16,7 +16,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>Swim to the mountains</h1>
+      <h1>Fins to the mountains</h1>
     </div>
     <div class="video">
       <iframe width="350" height="197" src="https://player.vimeo.com/video/44999906?background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -31,11 +31,22 @@ font-weight: bold; font-style: italic; color: #333333;
     </Accordion>
     <br>
 
-<p></p>
+      <p>Chinook, also known as "king salmon," are found across Cascadia, with a particularly broad range in Alaska and also on Russia's Kamchatka Peninsula. Here we focus on the Salmon River Mountains of Idaho, far into the interior of Cascadia, where a reduced number of Chinook still make it over the dams to spawn.</p>
+
+      <p>Roll the mouse across the map to discover where Chinook have been seen over the last three decades. Maybe you know some of these places? Find the streams where they still spawn, and trace their survival lines back through the Columbia to the ocean. Notice the precise spot on the Snake River where the migration of the Chinook stops suddenly short.</p>
+
+      <p>Two populations returning to Cascadian waters, the Puget Sound Chinook and the Upper Columbia River spring-run Chinook, are currently listed by the EPA as Endangered Species. Four other populations returning to the Columbia River Basin are listed as Threatened. As we are reminded by the <em>Atlas of Pacific Salmon</em> (see sources below), no less than eight populations in the Fraser River Basin, seven in the Salish Sea, two on Vancouver Island, six in the Klamath River Basin and <em>thirty-three</em> in the Columbia Basin have gone extinct. The Snake River dams, in particular, have been devastating for the Chinooks.</p>
 <br>
 
 <Accordion>
-  <h3 slot="header">sources</h3>
+  <h3 slot="header">Sources</h3>
+  <p>The data used here record any stream reach where the species has been observed over the past three decades, and therefore cover much more territory than NOAA's "critical habitat." As with the NOAA data, there is much more informaion here than is currently captured by the map:</p>
+  <p><a href="https://www.streamnet.org/data/interactive-maps-and-gis-data/" target="_blank" rel="nofollow"> StreamNet Generalized Fish Distribution, All Species Combined</a></p>
+  <p>Information on Endangered Species Act status is provided by NOAA:</p>
+  <p><a href="https://www.westcoast.fisheries.noaa.gov/protected_species/salmon_steelhead/salmon_and_steelhead_listings/salmon_and_steelhead_listings.html" target="_blank" rel="nofollow">West Coast Salmon & Steelhead Listings</a></p>
+  <p>Finally, a wealth of knowledge about salmon can be found in two impressive books published by Ecotrust, including detailed maps of their historic and present spawning ranges, their extinction risk and the many problems that wild salmon face (from dams, logging, agriculture, overfishing, fish farms and hatcheries):
+  <p>&mdash;<a href="https://ecotrust.org/publication/salmon-nation" target="_blank" rel="nofollow">Salmon Nation: People, Fish and Our Common Home</a>, edited by Edward C. Wolf and Seth Zuckerman, published in Portland by Ecotrust, 1999/2003.</p>
+  <p>&mdash;<a href="http://www.stateofthesalmon.org/atlas/" target="_blank" rel="nofollow">Atlas of Pacific Salmon</a>, by Xanthippe Augerot, with cartography by Charles Steinback and photography by Natalie Fobes, co-published by University of California Press and State of the Salmon, a joint project of the Wild Salmon Center and Ecotrust.</p>
 </Accordion>
 
 </div>
