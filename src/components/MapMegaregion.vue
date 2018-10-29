@@ -1,8 +1,3 @@
-<template>
-  <div class="video-content">
-  </div>
-</template>
-
 <script>
 import Map from './Map.vue'
 
@@ -14,6 +9,8 @@ import {Style, Stroke, Fill} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
 import {eventBus} from '../main'
+import VideoLightBox from './VideoLightBox.vue'
+import MediaLightBox from './MediaLightBox.js'
 
 export default {
   name: 'MapMegaregion',
@@ -466,6 +463,9 @@ export default {
     }
 
   },
+  components: {
+    VideoLightBox
+  },
   created: function () {
     eventBus.$on('route-click', this.initMap)
   },
@@ -583,7 +583,8 @@ export default {
           if (feature) {
             const props = feature.getProperties()
             if (props.vimeoSrc) {
-              alert('here')
+              const mediabox = new MediaLightBox(props.vimeoSrc)
+              mediabox.open()
             }
           }
         })

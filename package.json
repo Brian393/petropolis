@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "material-design-icons": "^3.0.1",
+    "mediabox": "^1.1.2",
     "ol": "^5.1.3",
     "simplify-geojson": "^1.0.3",
     "vue": "^2.5.16",

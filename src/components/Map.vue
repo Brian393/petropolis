@@ -197,12 +197,12 @@ export default {
                 this.twitterPopup.setPosition(e.coordinate)
               }
             } else if (props.vimeoSrc) {
-              this.vimeoPopup.setPosition(e.coordinate)
-              this.$refs.vimeoPopupContent.innerHTML = `<iframe src="${props.vimeoSrc}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
-              // this is a hack...
-              if (navigator.userAgent.search('Firefox') > 0) {
-                document.querySelector('.ol-vimeopopup .ol-popup-content').style.top = 0
-              }
+              // this.vimeoPopup.setPosition(e.coordinate)
+              // this.$refs.vimeoPopupContent.innerHTML = `<iframe src="${props.vimeoSrc}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
+              // // this is a hack...
+              // if (navigator.userAgent.search('Firefox') > 0) {
+              //   document.querySelector('.ol-vimeopopup .ol-popup-content').style.top = 0
+              // }
             }
           } else {
             this.closePopup()
