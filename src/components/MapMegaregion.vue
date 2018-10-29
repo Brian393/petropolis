@@ -9,6 +9,8 @@ import {Style, Stroke, Fill} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
 import {eventBus} from '../main'
+import VideoLightBox from './VideoLightBox.vue'
+import MediaLightBox from './MediaLightBox.js'
 
 export default {
   name: 'MapMegaregion',
@@ -420,6 +422,9 @@ export default {
     }
 
   },
+  components: {
+    VideoLightBox
+  },
   created: function () {
     eventBus.$on('route-click', this.initMap)
   },
@@ -528,6 +533,18 @@ export default {
         maxZoom: 19,
         rotation: -0.41
       }))
+      if (this.olmap) {
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc) {
+              const mediabox = new MediaLightBox(props.vimeoSrc)
+              mediabox.open()
+            }
+          }
+        })
+      }
     },
     initMegaregionWillamette: function () {
       this.initBaseMap()

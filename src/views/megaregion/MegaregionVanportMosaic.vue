@@ -23,7 +23,8 @@ font-weight: bold; font-style: italic; color: #333333;
     </div>
     <div class="caption">The Making of The Vanport Mosaic Festival</div>
     <br>
-
+    <!-- <a @click="openMedia('https://www.youtube.com/watch?v=3qyhgV0Zew0')">Open Media</a>
+    <VideoLightBox></VideoLightBox> -->
     <Accordion :open="false">
       <h3 slot="header">legends</h3>
       <div class="flex">
@@ -62,12 +63,14 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
-
+import VideoLightBox from '../../components/VideoLightBox.vue'
+import MediaLightBox from '../../components/MediaLightBox.js'
 export default {
   name: 'MegaregionVanportMosaic',
   components: {
     Accordion,
-    AppLightBox
+    AppLightBox,
+    VideoLightBox
   },
   data: function () {
     return {
@@ -76,6 +79,12 @@ export default {
           src: 'images/CascadiaMegaregionFullsize.jpg'
         }
       ]
+    }
+  },
+  methods: {
+    openMedia (url) {
+      const mediaBox = new MediaLightBox(url)
+      mediaBox.open()
     }
   }
 }
