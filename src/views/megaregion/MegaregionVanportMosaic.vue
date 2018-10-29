@@ -23,7 +23,7 @@ font-weight: bold; font-style: italic; color: #333333;
     </div>
     <div class="caption">The Making of The Vanport Mosaic Festival</div>
     <br>
-
+    <VueGallary></VueGallary>
     <Accordion :open="false">
       <h3 slot="header">legends</h3>
       <div class="flex">
@@ -62,12 +62,13 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
-
+import VueGallary from '../../components/VideoLightBox.vue'
 export default {
   name: 'MegaregionVanportMosaic',
   components: {
     Accordion,
-    AppLightBox
+    AppLightBox,
+    VueGallary
   },
   data: function () {
     return {

@@ -1,3 +1,8 @@
+<template>
+  <div class="video-content">
+  </div>
+</template>
+
 <script>
 import Map from './Map.vue'
 
