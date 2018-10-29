@@ -28,7 +28,7 @@ export default {
           resolution: 1000
         },
         chinook: {
-          center: [-115.30,44.529633],
+          center: [-115.30, 44.529633],
           resolution: 500
         },
         coho: {

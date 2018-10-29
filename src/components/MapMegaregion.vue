@@ -572,6 +572,17 @@ export default {
         maxZoom: 19,
         rotation: -0.41
       }))
+      if (this.olmap) {
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc) {
+              alert('here')
+            }
+          }
+        })
+      }
     },
     initMegaregionWillamette: function () {
       this.initBaseMap()
