@@ -22,12 +22,22 @@ font-weight: bold; font-style: italic; color: #333333;
       <iframe width="350" height="197" src="https://www.youtube.com/embed/xs5JGVFzKOY?&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=xs5JGVFzKOY" frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
     </div>
     <div class="caption">Sockeye salmon at Katmai Park in Alaska</div>
+    <br>
+    <Accordion :open="false">
+      <h3 slot="header">legends</h3>
+      <div class="flex">
+        <img src="images/Sockeye_Salmon.png" class="fullwidth">
+      </div>
+    </Accordion>
+    <br>
 
-      <p>Sockeye salmon in the river have a beautiful two-tone gloss, with a bright red body and a mottled green head. The name comes from <em>suk-kegh</em>, which simply means "red fish" in Halkomelem, a Coast Salish language. In the southern half of their range (which almost perfectly fills the outline of Cascadia), Sockeye can spend up to two years rearing in freshwater before their ocean migration, which can last up to four years. Further north in mainland Alaska, the fish leave for the ocean right away.</p>
+      <p>Sockeye salmon are also known "reds." Their name comes from <em>suk-kegh</em>, which simply means "red fish" in Halkomelem, a Coast Salish language. In the river they show off a beautiful two-tone coat, with a bright red body and a mottled green hood. In the southern half of their range (which almost perfectly matches the borders of Cascadia), sockeye salmon can spend up to two years rearing in fresh water. Further north in mainland Alaska, the smolts leave for the ocean right away. In that case their migration can last up to four years.</p>
 
-      <p>Unfortunately for the Sockeyes, the early twentieth-century canning industry was built around them, and they remain highly attractive to sport fishermen. Unlike most other salmon, Sockeye also spawn in lakes (and there is a distinc variety, known as the Kokanee, which remain in lakes and undertake no ocean migration). In the Pacific, the Snake River and Ozette Lake Sockeye are listed by the EPA as Endangered. Eleven populations in the Fraser River Basin and eleven more in the Columbia, as well as two in the Salish Sea, have gone extinct. In a situation comparable to that of the Chinook, as many as fifty populations face a high risk of extinction in the Columbia River Basin.</p>
+      <p>Unlike most other salmon, sockeye also spawn in lakes. There is even a distinct variety, known as the kokanee, which stay in the lakes and undertake no ocean migration.</p>
 
-      <p>Find out where they live on the map, because they need your help in the real world.</p>
+      <p>Unfortunately for the sockeyes, the early twentieth-century canning industry was built around them, and they remain highly attractive to sport fishermen. In the Pacific Northwest, the Snake River and Ozette Lake Sockeye are listed by the EPA as endangered. Eleven percent of the populations in the Fraser River Basin and 11% more of those in the Columbia have gone extinct, as well as 2% of the Salish Sea populations. In a situation comparable to that of the chinook, as many as half the sockeye communities face a high risk of extinction in the Columbia River Basin.</p>
+
+      <p>Trace their migration up the Columbia to the Okanogan River Valley, where the construction of the great storage dams almost wiped them out in the late twentieth century. Today after major restoration of the environment and sustained tribal efforts to bring them back, sockeye are again found in Okanogan Lake. See where they live near you, because they undoubtedly need help there too.</p>
 
     <br>
     <Accordion>

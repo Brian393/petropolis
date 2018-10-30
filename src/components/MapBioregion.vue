@@ -20,8 +20,8 @@ export default {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         introductionbio: {
-          center: [-125.2, 51.0],
-          resolution: 4900
+          center: [-125.8, 51.0],
+          resolution: 4500
         },
         salmon: {
           center: [-119.9, 45.9],

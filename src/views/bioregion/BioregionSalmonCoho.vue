@@ -24,16 +24,16 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="caption">Coho salmon on Eagle Creek</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header"></h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
-        <p></p>
+        <img src="images/Coho_Salmon.png" class="fullwidth">
       </div>
     </Accordion>
     <br>
 
-<p>Coho are hailed as "silver salmon" by those who encounter them on the sea, but to their admirers on land, returning spawners present an impressive mix of splotchy red and dark bluish-green colorations. Coho favor coastal streams where they gather in small, dense populations, reaching up all the way out to the Cascades. River by river and brook by brook, the entire coastline is Coho country. Inland, the fish maintain a tenacious but highly threatened presence on the Columbia mainstem up to Wells Dam.</p>
+<p>Coho are hailed as "silver salmon" by those who encounter them on the sea, but to their admirers on land, returning spawners present an impressive mix of splotchy red and dark bluish-green colorations. Coho favor coastal streams where they gather in small, dense populations, reaching up all the way out to the Cascades. River by river and brook by brook, the entire coastline is coho country. Inland, the fish maintain a tenacious but highly threatened presence on the Columbia mainstem up to Wells Dam.</p>
 
-<p>Not all the populations you will meet are thriving. The Lower Columbia Coho, along with the Oregon Coast and Southern Oregon/Northern California Coast Coho are listed by the EPA as Endangered Species. Two populations in the Skeena River Basin of northern BC, two more in the Klamath, thirteen in the Columbia and twenty-six in the Salish Sea have gone extinct. Large inland populations, once extending to much of eastern Washington and Oregon, Idaho, and as far as Montana, have entirely disappeared. Humans love to settle along the coast on Coho's remaining range. Think of them before you bulldoze that hillside, dump that weedkiller or dam that stream!</p>
+<p>Not all the populations you will meet are thriving. The Lower Columbia Coho, along with the Oregon Coast and Southern Oregon/Northern California Coast Coho are listed by the EPA as endangered species. Two percent of the Skeena River Basin populations of northern BC, 2% more of the Klamath Coho, 13% of the Columbia and 26% of the Salish Sea populations have gone extinct. Large inland spawning ranges, once extending to much of eastern Washington and Oregon, Idaho, and as far as Montana, have entirely disappeared. Humans love to settle along the coast on the cohos' remaining habitat. Think of them before you bulldoze that hillside, dump that weedkiller or dam that stream.</p>
 <br>
 
 <Accordion>

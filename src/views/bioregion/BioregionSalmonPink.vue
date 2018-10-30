@@ -18,14 +18,16 @@ text-align: justify;
     <div class="caption">Pink salmon fry</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header"></h3>
+      <h3 slot="header">Legends</h3>
       <div class="flex">
-        <p></p>
+        <img src="images/Pink_Salmon.png" class="fullwidth">
       </div>
     </Accordion>
     <br>
 
-<p></p>
+      <p>Pink salmon have a colorful spotted skin with a medial dividing line and an impressive hump when spawning. They are the smallest of the salmon varieties found in Cascadia, and the most common. Like chum, they favor coastal rivers and creeks and spend very little time in fresh water. However, they do not undertake long migrations and they return to fresh water after only two years at sea. For a long time they were considered an inferior fish, judged inedible by some, which was probably not so bad fom a pink perspective! Needless to say, those times have changed.</p>
+
+      <p>Fishermen or not, canneries or not, pinks are on the rise. There is no threatened or endangered population listed by the EPA, although a significant risk of extinction is faced by 6% of the genetic groups in the Fraser River Basin, 11% in the Salish Sea and 34% in the Vancouver Island Coastal Current, according to the <em>Atlas Of Pacific Salmon</em>. Some scientists worry that recent increases in the pink population pose a threat to other fish, simply through pressure on the food supply. With all the troubles the world faces, let's say an abundance of pink salmon might be a good thing.</p>
 <br>
 
 <Accordion>

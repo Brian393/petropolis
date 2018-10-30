@@ -24,19 +24,19 @@ font-weight: bold; font-style: italic; color: #333333;
     <div class="caption">A voyage from land to sea and back again<br>&mdash;video by Diarmuid, <a href="https://www.youtube.com/channel/UCLAqBw-p3I6918YOVCIcIVQ">here</a>&mdash;</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Legends</h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
         <img src="images/ChinookAlevin.png" class="fullwidth"><br>Chinook alevin, <a href="https://www.seattleaquarium.org/blog/redd-alert-our-chinook-salmon-are-hatching">source</a>
       </div>
     </Accordion>
     <br>
-    <p>What you see on the map are the critical habitat areas of Chinook, Coho, Chum and Sockeye salmon in the US Pacific Northwest. Critical habitat means, not just anywhere the fish go, but stream reaches that have been determined essential to the continuing existence of unique wild populations. The health of a stream depends on the watershed surrounding it, so what's really at issue in the map is the terrestial ecology of the ocean-going fish.</p>
+    <p>What you see on the map are the critical habitat areas of chinook, coho, chum and sockeye salmon in the US Pacific Northwest. Critical habitat means, not just anywhere the fish go, but stream reaches that have been determined essential to the continuing existence of unique wild populations. The health of a stream depends on the watershed surrounding it, so what's really at issue in the map is the terrestial ecology of the ocean-going fish.</p>
 
     <p>The cartographic image simplifies their movements through the territory, condensing the migrations of all the different species into streams of a single color: survival lines. These life-lines ask you how the salmon maintain a generational bond between the mountains and the sea&mdash;and whether you can do so with them.</p>
 
     <p>The data prepared by the National Oceanic and Atmospheric Administration are far more complex than any graphic technique could reveal. They divide the four endangered species not only into distinct seasonal runs (spring, summer or fall) but also into distinct gene pools, associated with the real pools and gravel beds that call the fish back to spawn. These divisions separate the different populations in time; but in space they often overlay one another on the same stream, in a way that is not particularly susceptible to representation on a map.</p>
 
-    <p>In effect, any stream reach can be home to multiple stocks of fish, or "evolutionarily significant units" (ESUs), which is the term used under the Endangered Species Act. This concept of ESUs, or localized inbreeding populations, allows us to think of salmon, not just as a tasty catch, but instead as distinct communities of fate, struggling to survive and reproduce under very particular conditions. Further NOAA documents locate the areas where populations have gone extinct, or where stream reaches have been entirely blocked by dams. More speculative studies try to assess the geographical range in which the fish could potentially flourish. This kind of science is beautiful, because it opens windows onto non-human worlds.</p>
+    <p>In effect, any stream reach can be home to multiple stocks of fish, or "evolutionarily significant units" (ESUs), which is the term used under the Endangered Species Act. This concept of ESUs, or localized inbreeding populations, allows us to think of salmon, not just as a tasty catch, but instead as distinct communities of fate, each of which struggles to survive and reproduce under very particular conditions. Further NOAA documents locate the areas where populations have gone extinct, or where stream reaches have been entirely blocked by dams. More speculative studies try to assess the geographical range in which the fish could potentially flourish. This kind of science is beautiful, because it opens windows onto non-human worlds.</p>
 
     <p>A great challenge for cartography would be to render all this knowledge perceptible in the blink of an eye. But it's not obvious how, and besides, you can get lost in the data. The idea here is to focus on the most powerful message that the salmon have for us now, which is that of finding a pathway to the place where the cycles originate. What does that message mean for human beings?</p>
 

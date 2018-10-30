@@ -18,19 +18,18 @@ text-align: justify;
     <div class="caption">Chum salmon brings ocean nutrients to the forest</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header"></h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
-        <p></p>
+        <img src="images/Chum_Salmon.png" class="fullwidth">
       </div>
     </Accordion>
     <br>
 
-<p>Chum have the widest range of all, with strong populations along the Pacific Coast from California to the Kamchatka Peninsula, plus a highly unusual though more limited presence on the Arctic coasts of both North America and Russia. Known as "dog salmon," the fish display an unforgettable green, dark green and purple patterning during spawning season. In Southern Cascadia, chum are mostly found around the Salish sea, as well as in the coastal zones on either side of the Columbia River Estuary.</p>
+<p>Chum have the widest range, with strong populations along the Pacific Coast from California to the Kamchatka Peninsula, plus a highly unusual though more limited presence on the Arctic coasts of both North America and Russia. Also known as "dog salmon," the fish display an unforgettable green, dark green and purple patterning during spawning season. In Southern Cascadia, chum are mostly found around the Salish Sea, as well as in the coastal zones on either side of the Columbia River Estuary.</p>
 
-<p>Like all salmon, chum feed extensively on small zooplankton called coprepods while at sea, and when they die on inland streams after spawning they bring the gift of the ocean's nutrients back to the land. Perhaps some coloristic connection with autumn leaves allows us to recognize the value of rotting chum along the streamside. Death becomes the life of others. How could human beings accomplish so little and so much?</p>
+<p>Like all salmon, chum feed extensively on tiny drifting crustaceans called copepods while at sea, and when they die on inland streams after spawning they bring the gift of the ocean's nutrients back to the land. Perhaps some coloristic connection with autumn leaves allows us to recognize the value of rotting chum along the streamside. Death becomes the life of others. How could human beings accomplish so little and so much?</p>
 
-<p>Both the Hood Canal and the Columbia River populations of chum are listed by the EPA as Threatened. Twenty-two populations of chum have gone extinct in the Salish Sea, and yet surprisingly, only two have disappeared from the Columbia River Basin, where the fish used to make it a short way up the Snake, but now stop at Bonneville Dam. However, the <em>Atlas of Pacific Salmon</em>, published in 2005, puts sixty-seven Columbia River communities of chum at moderate risk of extinction, and thirty-three at high risk.</p>
-
+<p>Both the Hood Canal and the Columbia River populations of chum are listed by the EPA as Threatened. Twenty-two percent of the chum populations in the Salish Sea have gone extinct, and yet surprisingly, only two percent have disappeared from the Columbia River Basin. The fish used to make it a short way up the Snake River, but they now stop short at the Bonneville Dam. However, the <em>Atlas of Pacific Salmon</em>, published in 2005, puts 67% of the Columbia River chum communities at moderate risk of extinction, and 33% at high risk. You will know things are getting better when large numbers of chum start returning to the Columbia.</p>
 <br>
 
 <Accordion>
