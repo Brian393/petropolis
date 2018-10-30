@@ -39,7 +39,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <br>
 
 <Accordion>
-  <h3 slot="header">Sources</h3>
+  <h3 slot="header">sources</h3>
   <p>The data used here record any stream reach where the species has been observed over the past three decades, and therefore cover much more territory than NOAA's "critical habitat." As with the NOAA data, there is much more informaion here than is currently captured by the map:</p>
   <p><a href="https://www.streamnet.org/data/interactive-maps-and-gis-data/" target="_blank" rel="nofollow"> StreamNet Generalized Fish Distribution, All Species Combined</a></p>
   <p>Information on Endangered Species Act status is provided by NOAA:</p>
