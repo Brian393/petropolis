@@ -22,7 +22,6 @@ font-weight: bold; font-style: italic; color: #333333;
       <iframe width="350" height="197" src="https://player.vimeo.com/video/298431466?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <div class="caption">&mdash;video by Jodi Darby&mdash;</div>
-    </Accordion>
     <br>
 
     <p>Liza Jane McAlister is a fourth-generation rancher out in the Wallowa River Valley near Enterprise, Oregon, on an exceptionally beautiful piece of land called the 6 Ranch. She's a spirited, original woman with roots in the ground and ideas as free as the clouds. She's also fiercely loyal to her region, her neighbors and their long experience of cattle ranching, forestry and land management. Her son and daughter are part of the story as well: James is a fishing and hunting guide on the family land, and Adele runs a neighboring cattle ranch with her husband.</p>
