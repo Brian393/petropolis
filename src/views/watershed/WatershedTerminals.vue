@@ -23,7 +23,12 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     <br>
     <div class="caption">Portland City Hall, Nov. 4, 2015</div>
     <br>
-
+    <Accordion :open="false">
+      <h3 slot="header">Columbia Riverkeeper</h3>
+      <div class="flex">
+        <div ref="riverkeeper"></div>
+      </div>
+    </Accordion>
     <div class="justify">
       <p>One thing Cascadia has to teach is activism&mdash;successful activism. Success takes organized groups and spontaneous grassroots movements. The following sections of the map have been developed with an advocacy group, <a href="https://columbiariverkeeper.org" target="_blank" rel="nofollow">Columbia Riverkeeper</a>, in solidarity with dozens of regional organizations and initiatives.</p>
 
@@ -48,7 +53,38 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 </template>
 
 <script>
+import AppLightBox from '../../components/AppLightBox.vue'
+import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
+
 export default {
-  name: 'WatershedTerminals'
+  name: 'WatershedHanfordFloods',
+  components: {
+    Accordion,
+    AppLightBox
+  },
+  data: function () {
+    return {
+      megaImages: [
+        {
+          src: 'images/CascadiaMegaregionFullsize.jpg'
+        }
+      ]
+    }
+  },
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
+    }
+  },
+  mounted: function () {
+    window.twttr.widgets.createTimeline(
+      {
+        sourceType: 'url',
+        url: 'https://twitter.com/ColumbiaRKeeper'
+      },
+      this.$refs.riverkeeper
+    )
+  }
 }
 </script>
