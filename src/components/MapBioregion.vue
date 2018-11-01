@@ -50,6 +50,14 @@ export default {
         pink: {
           center: [-122.9, 47.8],
           resolution: 450
+        },
+        restoration: {
+          center: [-123.561, 48.095],
+          resolution: 4
+        },
+        wallowa: {
+          center: [-117.34, 45.44],
+          resolution: 2
         }
       }, // end centerPoints
       watershedDamsTransformationIsAnimating: true, // #TODO: What is this???
@@ -107,7 +115,7 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 2,
+          minResolution: 8,
           maxResolution: 700
         }),
         this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
@@ -172,6 +180,68 @@ export default {
         }),
         this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
+    },
+    restorationLayers: function () {
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://tile.stamen.com/toposm-color-relief/{z}/{x}/{y}.jpg'
+          }),
+          opacity: 1,
+          minResolution: 1,
+          maxResolution: 10
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://tile.stamen.com/toposm-contours/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 1,
+          maxResolution: 10
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://tile.stamen.com/toposm-features/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 1,
+          maxResolution: 10
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 0.1,
+          minResolution: 1,
+          maxResolution: 10
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 5
+        })
+      ]
+    },
+    wallowaLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Wallowa/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25,
+          maxResolution: 80
+        })
+      ]
     }
   },
   created: function () {
@@ -206,6 +276,12 @@ export default {
           break
         case 'bioregionSalmonPink':
           this.initBioregionSalmonPink()
+          break
+        case 'bioregionRestoration':
+          this.initBioregionRestoration()
+          break
+        case 'bioregionRestorationWallowa':
+          this.initBioregionRestorationWallowa()
           break
         default:
           this.initBioregionIntro()
@@ -316,6 +392,30 @@ export default {
         center: fromLonLat(this.centerPoints.pink.center),
         resolution: this.centerPoints.pink.resolution,
         minResolution: 10,
+        maxResolution: 8000
+      }))
+    },
+    initBioregionRestoration: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.restorationLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.restoration.center),
+        resolution: this.centerPoints.restoration.resolution,
+        minResolution: 2,
+        maxResolution: 8000
+      }))
+    },
+    initBioregionRestorationWallowa: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.wallowaLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.wallowa.center),
+        resolution: this.centerPoints.wallowa.resolution,
+        minResolution: 0.25,
         maxResolution: 8000
       })
       )

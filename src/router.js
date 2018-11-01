@@ -199,6 +199,22 @@ export default new Router({
         default: () => import('./views/bioregion/BioregionSalmonPink.vue'),
         map: MapBioregion
       }
+    },
+    {
+      path: '/bioregion/restoration',
+      name: 'bioregionRestoration',
+      components: {
+        default: () => import('./views/bioregion/BioregionRestoration.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/restoration/wallowa',
+      name: 'bioregionRestorationWallowa',
+      components: {
+        default: () => import('./views/bioregion/BioregionRestorationWallowa.vue'),
+        map: MapBioregion
+      }
     }
   ]
 })

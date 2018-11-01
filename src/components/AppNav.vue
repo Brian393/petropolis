@@ -151,6 +151,10 @@ export default {
           {
             name: 'Salmon',
             href: '/bioregion/salmon'
+          },
+          {
+            name: 'Restoration',
+            href: '/bioregion/restoration'
           }
         ]
       },
@@ -208,6 +212,12 @@ export default {
             name: 'Pink',
             href: '/bioregion/salmon/pink'
           }
+        ],
+        restoration: [
+          {
+            name: 'Wallowa River',
+            href: '/bioregion/restoration/wallowa'
+          }
         ]
       }
     }
@@ -248,6 +258,8 @@ export default {
         this.navSubItems = this.subItems.crops
       } else if (/bioregionSalmon/.test(this.$route.name)) {
         this.navSubItems = this.subItems.salmon
+      } else if (/bioregionRestoration/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.restoration
       } else {
         this.navSubItems = []
       }
