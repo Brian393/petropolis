@@ -24,9 +24,9 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     <div class="caption">Portland City Hall, Nov. 4, 2015</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Columbia Riverkeeper</h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
-        <div ref="riverkeeper"></div>
+        <img src="icons/stop.png">&nbsp;Each marker locates one of the fossil-fuel terminals that has been stopped by citizen activism. A history of the movement, by its participants, is contained in the Twitter feeds that show up when you click on the icons.
       </div>
     </Accordion>
     <div class="justify">
