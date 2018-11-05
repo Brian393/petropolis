@@ -181,6 +181,10 @@ export default {
         ],
         willamette: [
           {
+            name: 'Parallels',
+            href: '/megaregion/willamette/drone'
+          },
+          {
             name: 'Columbia Slough',
             href: '/megaregion/willamette/slough'
           }

@@ -27,8 +27,8 @@ export default {
           resolution: 3
         },
         slough: {
-          center: [ -122.73, 45.59 ],
-          resolution: 23
+          center: [ -122.73, 45.618 ],
+          resolution: 11
         },
         willamette: {
           center: [ -122.719, 45.585 ],
@@ -306,6 +306,48 @@ export default {
         bingMapTile
       ]
     },
+    droneLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 0.25,
+        maxResolution: 1
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20,
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Willamette/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minZoom: 11,
+          maxZoom: 20
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/Upland_Sites.geojson', 0.5, 40, 'rgba(185, 12, 14, 0.70)', 0.5, 'rgba(185, 12, 14, 0.4)'),
+        bingMapTile,
+        this.makeGeoJSONPointVectorLayer('geojson/Drone.geojson', 'icons/Drone.png', null, 1, 8000)
+      ]
+    },
     sloughLayers: function () {
       return [
         new Tile({
@@ -481,6 +523,9 @@ export default {
         case 'megaregionWillamette':
           this.initMegaregionWillamette()
           break
+        case 'megaregionWillametteDrone':
+          this.initMegaregionWillametteDrone()
+          break
         case 'megaregionWillametteSlough':
           this.initMegaregionWillametteSlough()
           break
@@ -557,6 +602,30 @@ export default {
         minZoom: 11,
         maxZoom: 19
       }))
+    },
+    initMegaregionWillametteDrone: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.droneLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.willamette.center),
+        resolution: this.centerPoints.willamette.resolution,
+        minZoom: 11,
+        maxZoom: 19
+      }))
+      if (this.olmap) {
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc) {
+              const mediabox = new MediaLightBox(props.vimeoSrc)
+              mediabox.open()
+            }
+          }
+        })
+      }
     },
     initMegaregionWillametteSlough: function () {
       this.initBaseMap()

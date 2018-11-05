@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "name": "Drone",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "vimeoTitle": "Parallels",
+        "vimeoSrc": "https://player.vimeo.com/video/298449809"
+      },
+      "geometry": { "type": "Point", "coordinates": [ -122.7047, 45.5914 ] }
+    }
+  ]
+}

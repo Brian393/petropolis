@@ -113,6 +113,14 @@ export default new Router({
       }
     },
     {
+      path: '/megaregion/willamette/drone',
+      name: 'megaregionWillametteDrone',
+      components: {
+        default: () => import('./views/megaregion/MegaregionWillametteDrone.vue'),
+        map: MapMegaregion
+      }
+    },
+    {
       path: '/megaregion/willamette/slough',
       name: 'megaregionWillametteSlough',
       components: {
