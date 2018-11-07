@@ -155,7 +155,6 @@ export default {
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
         }),
-        // mega[5]
         new VectorLayer({
           source: new VectorSource({
             format: new GeoJSON(),
@@ -374,17 +373,32 @@ export default {
     },
     energyLayers: function () {
       return [
-        ...this.baseLayers, // three dots = "spread operator" does the same as "concat"
-        // mega[6]
-        this.makeGeoJSONPointVectorLayer('geojson/CascadiaHydro2.geojson', 'icons/dam.png', 'Hydro power', 2, 2000),
+        ...this.baseLayers,
+        new VectorLayer({
+          source: new VectorSource({
+            format: new GeoJSON(),
+            url: 'geojson/BPA2.geojson'
+          }),
+          minResolution: 80,
+          maxResolution: 8000,
+          style: new Style({
+            stroke: new Stroke({
+              width: 4,
+              color: 'rgba(0, 0, 225, 0.8)',
+              lineDash: [8,16],
+              lineDashOffset: 12
+            })
+          })
+        }),
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaHydro2.geojson', 'icons/dam.png', 'Hydro power', 2, 4000),
         // mega[7]
-        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNuclear.geojson', 'icons/nukes.gif', 'Nuclear power', 2, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNuclear.geojson', 'icons/nukes.gif', 'Nuclear power', 2, 4000),
         // mega[9]
-        this.makeGeoJSONPointVectorLayer('geojson/CascadiaWind.geojson', 'icons/wind.png', 'Wind Power', 2, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaWind.geojson', 'icons/wind.png', 'Wind Power', 2, 4000),
         // mega[10]
-        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNatGas.geojson', 'icons/natgas.png', 'Natural Gas', 2, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaNatGas.geojson', 'icons/natgas.png', 'Natural Gas', 2, 4000),
         // mega[8]
-        this.makeGeoJSONPointVectorLayer('geojson/CascadiaCoal.geojson', 'icons/coal.png', 'Coal Power', 2, 2000)
+        this.makeGeoJSONPointVectorLayer('geojson/CascadiaCoal.geojson', 'icons/coal.png', 'Coal Power', 2, 4000)
       ]
     },
     cropsLayers: function () {
@@ -648,7 +662,7 @@ export default {
         center: fromLonLat(this.centerPoints.energy.center),
         resolution: this.centerPoints.energy.resolution,
         minResolution: 1,
-        maxResolution: 8000
+        maxResolution: 4000
       }))
     },
     initMegaregionCrops: function () {
