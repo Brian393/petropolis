@@ -2,15 +2,15 @@
 import Map from './Map.vue'
 
 import {View} from 'ol'
-import {Tile, Group} from 'ol/layer'
-import {XYZ} from 'ol/source'
+import {Tile, Vector as VectorLayer, Group} from 'ol/layer'
+import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
+import {GeoJSON} from 'ol/format'
+import {Style, Stroke, Fill} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
 
-import {easeOut} from 'ol/easing.js'
-import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
-import {unByKey} from 'ol/Observable.js'
-
 import {eventBus} from '../main'
+import VideoLightBox from './VideoLightBox.vue'
+import MediaLightBox from './MediaLightBox.js'
 
 export default {
   name: 'MapBioregion',
@@ -56,12 +56,12 @@ export default {
           resolution: 4
         },
         wallowa: {
-          center: [-117.34, 45.44],
-          resolution: 2
+          center: [-117.344, 45.4415],
+          resolution: 1.9
         }
       }, // end centerPoints
-      watershedDamsTransformationIsAnimating: true, // #TODO: What is this???
-      didSetSingleclickEvent: false
+      radius: 150,
+      mousePosition: undefined
     }
   },
   computed: {
@@ -230,6 +230,22 @@ export default {
       ]
     },
     wallowaLayers: function () {
+      let USGStopoTile = new Tile({
+        preload: Infinity,
+        source: new XYZ({
+          url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}'
+        }),
+        minResolution: 1,
+        maxResolution: 4
+      })
+
+      USGStopoTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      USGStopoTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         ...this.bioregionBaseLayers,
         new Tile({
@@ -238,9 +254,11 @@ export default {
             url: 'http://ecotopia.today/cascadia/Tiles/Wallowa/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 0.25,
+          minResolution: 0.125,
           maxResolution: 80
-        })
+        }),
+        // bingMapsAerial3
+        USGStopoTile
       ]
     }
   },
@@ -252,6 +270,38 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    window.addEventListener('keydown', (e) => {
+      if (e.keyCode === 38) { // up arrow key
+        this.radius = Math.min(this.radius + 5, 800)
+        this.olmap.render()
+      } else if (e.keyCode === 40) { // down arrow key
+        this.radius = Math.max(this.radius - 5, 0)
+        this.olmap.render()
+      }
+    })
+    this.olmap.on('pointermove', (e) => {
+      const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+      if (feature) {
+        const props = feature.getProperties()
+        if (props.CropGroup && props.key) {
+          this.$refs.titletipContent.innerHTML = props.key
+          this.titletip.setPosition(e.coordinate)
+        } else if (props.title && props.image) {
+          this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
+          this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
+          this.tooltip.setPosition(e.coordinate)
+        } else if (props.key3) {
+          this.$refs.textitletipContent.innerHTML = props.key3
+          this.textitletip.setPosition(e.coordinate)
+        }
+      } else {
+        this.closeTitletip()
+        this.closeTooltip()
+        this.closeTextitletip()
+      }
+      this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+      this.olmap.render()
+    })
   },
   methods: {
     initMap: function () {
@@ -286,30 +336,6 @@ export default {
         default:
           this.initBioregionIntro()
       }
-      this.olmap.on('pointermove', (e) => {
-        const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-        if (feature) {
-          const props = feature.getProperties()
-          if (props.CropGroup && props.key) {
-            this.$refs.titletipContent.innerHTML = props.key
-            this.titletip.setPosition(e.coordinate)
-          } else if (props.title && props.image) {
-            this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
-            this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
-            this.tooltip.setPosition(e.coordinate)
-          } else if (props.key4) {
-            this.$refs.salmontipContent.innerHTML = props.key4
-            this.salmontip.setPosition(e.coordinate)
-          }
-        } else {
-          this.closeTitletip()
-          this.closeTooltip()
-          this.closeTextitletip()
-          this.closeSalmontip()
-        }
-        this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
-        this.olmap.render()
-      })
     },
     initBioregionIntro: function () {
       this.initBaseMap()
@@ -415,10 +441,24 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.wallowa.center),
         resolution: this.centerPoints.wallowa.resolution,
-        minResolution: 0.25,
+        minResolution: 0.125,
         maxResolution: 8000
-      })
-      )
+      }))
+    },
+    spyglass: function (e) {
+      let ctx = e.context
+      const pixelRatio = e.frameState.pixelRatio
+      ctx.save()
+      ctx.beginPath()
+      if (this.mousePosition) {
+        // Only show a circle around the mouse --
+        ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+          this.radius * pixelRatio, 0, 2 * Math.PI)
+        ctx.lineWidth = 2 * pixelRatio
+        ctx.strokeStyle = 'rgba(0,0,0,0.4)'
+        ctx.stroke()
+      }
+      ctx.clip()
     }
   }
 }
