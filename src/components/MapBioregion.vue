@@ -77,7 +77,7 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia/{z}/{x}/{y}.png'
+            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia-new/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 5
@@ -109,75 +109,30 @@ export default {
     chinookLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 8,
-          maxResolution: 700
-        }),
         this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     cohoLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 2,
-          maxResolution: 700
-        }),
         this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     chumLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 2,
-          maxResolution: 700
-        }),
         this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     sockeyeLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 2,
-          maxResolution: 900
-        }),
         this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     pinkLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaRivers/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 2,
-          maxResolution: 700
-        }),
         this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
@@ -290,8 +245,8 @@ export default {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
           this.tooltip.setPosition(e.coordinate)
-        } else if (props.key3) {
-          this.$refs.textitletipContent.innerHTML = props.key3
+        } else if (props.key4) {
+          this.$refs.textitletipContent.innerHTML = props.key4
           this.textitletip.setPosition(e.coordinate)
         }
       } else {
