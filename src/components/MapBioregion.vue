@@ -87,7 +87,7 @@ export default {
             url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
           }),
           opacity: 0.7,
-          minResolution: 1,
+          minResolution: 2,
           maxResolution: 16
         })
       ]
