@@ -21,6 +21,9 @@
       <div ref="textitletip" class="textitletip">
         <div class="textitletip-content" ref="textitletipContent"></div>
     </div>
+    <div ref="whitetitletip" class="whitetitletip">
+      <div class="whitetitletip-content" ref="whitetitletipContent"></div>
+  </div>
       <div ref="salmontip" class="salmontip">
         <div class="salmontip-content" ref="salmontipContent"></div>
     </div>
@@ -110,6 +113,13 @@ export default {
         positioning: 'center-left'
       })
     },
+    whitetitletip: function () {
+      return new Overlay({
+        element: this.$refs.whitetitletip,
+        offset: [10, 0],
+        positioning: 'center-left'
+      })
+    },
     salmontip: function () {
       return new Overlay({
         element: this.$refs.salmontip,
@@ -145,7 +155,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.twitterPopup, this.popup, this.titletip, this.textitletip, this.salmontip, this.tooltip, this.vimeoPopup],
+          overlays: [this.twitterPopup, this.popup, this.titletip, this.textitletip, this.whitetitletip, this.salmontip, this.tooltip, this.vimeoPopup],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -241,6 +251,10 @@ export default {
     },
     closeTextitletip: function () {
       this.textitletip.setPosition(undefined)
+      return false
+    },
+    closeWhitetitletip: function () {
+      this.whitetitletip.setPosition(undefined)
       return false
     },
     closeSalmontip: function () {

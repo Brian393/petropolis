@@ -295,13 +295,20 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Willamette/{z}/{x}/{y}.png'
+            url: 'http://ecotopia.today/cascadia/Tiles/Willamette2/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minZoom: 11,
           maxZoom: 20
         }),
-        this.makeGeoJSONFillVectorLayer('geojson/Upland_Sites.geojson', 0.5, 40, 'rgba(185, 12, 14, 0.70)', 0.5, 'rgba(185, 12, 14, 0.4)'),
+        this.makeGeoJSONFillVectorLayer('geojson/Upland_Sites.geojson', 0.25, 20, 'rgba(190,141,143, 1)', 1, 'rgba(255, 0, 0, 0.4)'),
+        this.makeGeoJSONFillVectorLayer('geojson/EnhancedNaturalRecovery.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/DredgeWithCap.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/DredgeFMD.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/Dredge.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/ContaminatedBanks.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/Cap.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/MCormick&BaxterCap2005.geojson', 0.5, 8, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
         bingMapTile
       ]
     },
@@ -512,11 +519,18 @@ export default {
         } else if (props.key3) {
           this.$refs.textitletipContent.innerHTML = props.key3
           this.textitletip.setPosition(e.coordinate)
-        }
+        } else if (props.key6) {
+          this.$refs.whitetitletipContent.innerHTML = props.key6
+          this.whitetitletip.setPosition(e.coordinate)
+        } else if (props.key5) {
+          this.$refs.titletipContent.innerHTML = props.key5
+          this.titletip.setPosition(e.coordinate)
+      }
       } else {
         this.closeTitletip()
         this.closeTooltip()
         this.closeTextitletip()
+        this.closeWhitetitletip()
       }
       this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
       this.olmap.render()
@@ -613,7 +627,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.willamette.center),
         resolution: this.centerPoints.willamette.resolution,
-        minZoom: 11,
+        minZoom: 9,
         maxZoom: 19
       }))
     },
