@@ -31,8 +31,8 @@ export default {
           resolution: 11
         },
         willamette: {
-          center: [ -122.719, 45.585 ],
-          resolution: 24
+          center: [ -122.732, 45.584 ],
+          resolution: 30
         },
         energy: {
           center: [-120.1, 47.1],
@@ -301,10 +301,10 @@ export default {
           minZoom: 11,
           maxZoom: 20
         }),
-        this.makeGeoJSONFillVectorLayer('geojson/UplandHighPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 1)', 1, 'rgba(209, 4, 4, 0.8)'),
-        this.makeGeoJSONFillVectorLayer('geojson/UplandMedPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 1)', 1, 'rgba(209, 4, 4, 0.8)'),
-        this.makeGeoJSONFillVectorLayer('geojson/UplandLowPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 1)', 1, 'rgba(209, 4, 4, 0.8'),
-        this.makeGeoJSONFillVectorLayer('geojson/UplandNoPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 1)', 1, 'rgba(209, 4, 4, 0.8)'),
+        this.makeGeoJSONFillVectorLayer('geojson/UplandHighPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 0)', 1, 'rgba(209, 4, 4, 0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/UplandMedPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 0)', 1, 'rgba(209, 4, 4, 0)'),
+        this.makeGeoJSONFillVectorLayer('geojson/UplandLowPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 0)', 1, 'rgba(209, 4, 4, 0'),
+        this.makeGeoJSONFillVectorLayer('geojson/UplandNoPriority.geojson', 0.5, 20, 'rgba(190, 141, 143, 0)', 1, 'rgba(209, 4, 4, 0)'),
         this.makeGeoJSONFillVectorLayer('geojson/EnhancedNaturalRecovery.geojson', 0.5, 16, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
         this.makeGeoJSONFillVectorLayer('geojson/DredgeWithCap.geojson', 0.5, 16, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
         this.makeGeoJSONFillVectorLayer('geojson/DredgeFMD.geojson', 0.5, 16, 'rgba(185, 12, 14, 0.0)', 0.5, 'rgba(255, 0, 0, 0.0)'),
