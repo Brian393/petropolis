@@ -71,7 +71,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <img src="images/NWNatural.jpg" class="fullwidth">
     <div class="caption">Groundwater treatment at former GASCO site</div>
 
-    <p>Finally, the most difficult question: how to deal with "potential threat waste" (chemicals and heavy metals) that has already made its way into the riverbed? To see EPA's plans, you have to <span class="link" @click="emit('set-map-view', {center: [-122.734, 45.572], resolution: 5})">zoom in a little.</span></p>
+    <p>Finally, the most difficult question: how to deal with "potential threat waste" (chemicals and heavy metals) that has already made its way into the riverbed? To see EPA's plans, you have to <span class="link" @click="emit('set-map-view', {center: [-122.734, 45.572], resolution: 5, minResolution: 0.125, maxResolution: 400})">zoom in</span> a little.</p>
 
     <p>Here's the thing: removal by dredging is the best option, except that dredging risks releasing trapped toxins for fresh dispersal in the river. Every decision about what to do with particular pollutants under particular riverbed conditions must square this vicious circle.</p>
 
@@ -117,6 +117,7 @@ font-weight: bold; font-style: italic; color: #333333;
 <script>
 import AppLightBox from '../../components/AppLightBox.vue'
 import Accordion from '../../components/Accordion.vue'
+import {eventBus} from '../../main'
 
 export default {
   name: 'MegaregionWillamette',
@@ -124,14 +125,11 @@ export default {
     Accordion,
     AppLightBox
   },
-  data: function () {
-    return {
-      megaImages: [
-        {
-          src: 'images/CascadiaMegaregionFullsize.jpg'
-        }
-      ]
+  methods: {
+    emit: function (method, args) {
+      eventBus.$emit(method, args)
     }
   }
 }
+</script>
 </script>
