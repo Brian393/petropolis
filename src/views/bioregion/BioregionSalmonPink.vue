@@ -18,7 +18,7 @@ text-align: justify;
     <div class="caption">Pink salmon fry</div>
     <br>
     <Accordion :open="false">
-      <h3 slot="header">Legends</h3>
+      <h3 slot="header">legends</h3>
       <div class="flex">
         <img src="images/Pink_Salmon.png" class="fullwidth">
       </div>

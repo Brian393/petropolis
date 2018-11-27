@@ -35,7 +35,7 @@ font-weight: bold; font-style: italic; color: #333333;
 
       <p>Roll the mouse across the map to discover where chinook have been seen over the last three decades. Maybe you know some of these places? Find the streams where they still spawn, and trace their survival lines back through the Columbia to the ocean. Notice the precise spot on the Snake River where the migration of the chinook stops suddenly short. Some people want those Snake River dams to come down.</p>
 
-      <p>Two populations spawning in Cascadian waters, the Puget Sound Chinook and the Upper Columbia River spring-run Chinook, are currently listed by the EPA as endangered species. Four other populations returning to the Columbia River Basin are listed as threatened. As we are reminded by the <em>Atlas of Pacific Salmon</em>, 8% of the populations in the Fraser River Basin, 7% in the Salish Sea, 2% on Vancouver Island, 6% in the Klamath River Basin and 33% of the Columbia Basin chinook populations have gone extinct. The Snake River dams, in particular, have been devastating for the chinooks.</p>
+      <p>Two populations spawning in Cascadian waters, the Puget Sound Chinook and the Upper Columbia River spring-run Chinook, are currently listed by the EPA as endangered species. Four other populations returning to the Columbia River Basin are listed as threatened. As we are reminded by the <em>Atlas of Pacific Salmon</em>, 8% of the populations in the Fraser River Basin, 7% in the Salish Sea, 2% on Vancouver Island, 6% in the Klamath River Basin and 33% of the chinook populations in the Columbia Basin have already gone extinct. Those Snake River dams, in particular, have been devastating for the chinooks.</p>
 <br>
 
 <Accordion>
