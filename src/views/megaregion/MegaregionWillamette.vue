@@ -27,6 +27,15 @@ font-weight: bold; font-style: italic; color: #333333;
     <Accordion :open="false">
       <h3 slot="header">legends</h3>
       <div class="flex">
+        <div>
+          <img src="icons/legends/Uplands.png">
+          Upland pollution sources
+        </div>
+        <div>
+          <img src="icons/legends/EPAtechnologies.png">
+          EPA in-river intervention sites
+        </div>
+        <br>Labels appear on mouseover. EPA sites visible only at higher zoom.<br><br><em>It's said that on a clear night, earth's destiny is reflected in any pool of water.</em>
       </div>
     </Accordion>
     <br>
@@ -37,7 +46,7 @@ font-weight: bold; font-style: italic; color: #333333;
 
     <p>The Portland Harbor reach of the Willamette River has been polluted since the late nineteenth century. Up to the 1970s the main concern was raw sewage flushing directly into the stream. Major progress was made across the state under governor Tom McCall, from 1967 to 1975; but in Portland the sewage problem dragged on until the recent completion of the <a href="https://www.portlandoregon.gov/bes/31030" target="_blank" rel="nofollow">Big Pipe</a>, which captures most of the effluent that used to spill out from combined sewer and storm drain overflows. What remains at issue for the future is something quite different: a host of invisible chemicals lodged in the silt and sand of the riverbed, or leaching into the water from legacy debris and active industrial installations.</p>
 
-    <p>In 2000, after decades of struggle, the Portland Harbor was placed on the Environmental Protection Agency's National Priorities List, transforming it into what everyone still calls a Superfund site. As the 2000's rolled on, the EPA organized "early interventions" to address some of the ongoing disasters at surface level. When that was over, the waiting game began. The big questions were, what needs to be done, and who's gonna pay for it?</p>
+    <p>In 2000, after decades of struggle, the Portland Harbor was placed on the Environmental Protection Agency's National Priorities List, transforming it into what everyone still calls a Superfund site. As the 2000's rolled on, the EPA helped organize "<a href="http://www.willametterivercleanup.com/earlyactions/" target="_blank" rel="nofollow">early actions</a>" to address some of the ongoing disasters at surface level. When that was over, the waiting game began. The big questions were, what needs to be done, and who's gonna pay for it?</p>
 
     <img src="images/Arkema.jpg" class="fullwidth">
     <div class="caption">Early intervention at former Arkema plant</div>
@@ -51,7 +60,7 @@ font-weight: bold; font-style: italic; color: #333333;
     <img src="images/EPAdivers.jpg" class="fullwidth">
     <div class="caption">EPA divers on the Willamette</div>
 
-    <p>What opens up next is called, in sublime bureaucratese, the "pre-remedial design phase," which means two more years of sitewide baseline sampling before any detailed cleanup plan can be determined. The baseline sampling will provide a yardstick for future monitoring, to ensure that recovery objectives have actually been met. In parallel to this technical and scientific activity, the lawyers of the Potentially Responsible Parties are slugging it out behind closed doors, each trying to force the other to repent individually, in cash, for the collective misdeeds of the not-so-distant past.</p>
+    <p>What opens up next is called, in sublime bureaucratese, the "<a href="https://semspub.epa.gov/work/10/100080693.pdf" target="_blank" rel="nofollow">pre-remedial design phase</a>," which means two more years of sitewide baseline sampling before any detailed cleanup plan can be determined. The baseline sampling will provide a yardstick for future monitoring, to ensure that recovery objectives have actually been met. In parallel to this technical and scientific activity, the lawyers of the Potentially Responsible Parties are slugging it out behind closed doors, each trying to force the other to repent individually, in cash, for the collective misdeeds of the not-so-distant past.</p>
 
     <p>Let's look at the map to see what all the hue and cry is about.</p>
 
@@ -64,7 +73,7 @@ font-weight: bold; font-style: italic; color: #333333;
 
     <p>Source control of toxic substances at the upland sites is handled by Oregon's Department of Environmental Quality (DEQ). Each site has been ranked as high, medium or low priority, plus a final good-to-go category ("source control complete or not needed"). If you click on the polygons, a window appears with a link that takes you directly to DEQ's record of the site's condition, detailing the interventions that have been carried out or are still required.</p>
 
-    <p>To go a little further, it might be worth reading the report on the former GASCO oil-gasification site on the western bank between River Miles 6 and 7, now owned by a successor company that goes by the ironic name of Northwest Natural. Here an "early intervention" in 2005 dredged a 15,000 cubic-yard tarball out of the river, in hopes of stanching the flow of benzene, cyanide, naphtalene and PAHs into the environment. However this action was not sufficient, because large portions of the site, and of the neighboring Siltronic parcel, are still filled with tar leaching into the river. Northwest Natural loyally spent some $21 million on a groundwater treatment system to take care of the problem. </p>
+    <p>To go a little further, it might be worth reading the report on the former GASCO oil-gasification site on the western bank between River Miles 6 and 7, now owned by a successor company that goes by the ironic name of Northwest Natural. Here an "early action" in 2005 dredged a 15,000 cubic-yard tarball out of the river, in hopes of stanching the flow of benzene, cyanide, naphtalene and PAHs into the environment. However this action was not sufficient, because large portions of the site, and of the neighboring Siltronic parcel, are still filled with tar leaching into the river. Northwest Natural loyally spent some $21 million on a groundwater treatment system to take care of the problem. </p>
 
     <p>The last DEQ report, dated 2012, puts it like this: "Removal action consists of a well-based hydraulic control and containment system that is also being implemented as a groundwater source-control measure along ~2,200 feet of NW Natural's and Siltronic Corporation shorelines." Sounds impressive&mdash;but a group of downriver corporations including BP, Exxon-Mobil and Toyota <a href="https://www.opb.org/news/article/portland-harbor-superfund-cleanup-oregon-epa-tar-globes/" target="_blank" rel="nofollow">now claim</a> that tar is still flowing into the water, and that Northwest Natural should pay for its removal. Is it true, or is it some complex strategy within the blame-game of the current "allocation" phase of superfund responsibilities? Northwest Natural, for its part, is preparing to spend five times more than its initial $21 million outlay, in order to nix the remaining pollutants that it claims are safely sequestered on its own property.</p>
 
@@ -91,7 +100,7 @@ font-weight: bold; font-style: italic; color: #333333;
           <h3 slot="header">sources</h3>
           <div class="flex">
             <div>
-              <p>Upland sites polgons based on:<br><a href="https://www.oregon.gov/deq/FilterDocs/PortlandHarborMap.pdf" target="_blank" rel="nofollow">DEQ interactive map</a><br><br>Street, railroad and building data from:<br><a href="https://www.openstreetmap.org" target="_blank" rel="nofollow">OpenStreetMap</a><br><br>Aerial image for spyglass:<br><a href="https://www.bing.com/maps" target="_blank" rel="nofollow">BingMaps</a><br><br>Topgraphic hillshade files:<br><a href="https://gis.dogami.oregon.gov/maps/lidarviewer" target="_blank" rel="nofollow">DOGAMI Lidar Viewer</a></p>
+              <p>Upland sites polgons based on:<br><a href="https://www.oregon.gov/deq/FilterDocs/PortlandHarborMap.pdf" target="_blank" rel="nofollow">DEQ interactive map</a><br><br>EPA in-river sites based on:<br><a href="https://semspub.epa.gov/work/10/100036257.pdf" target="_blank" rel="nofollow">Record of Decision</a>, "Technology Assignments"<br><br>Street, railroad and building data from:<br><a href="https://www.openstreetmap.org" target="_blank" rel="nofollow">OpenStreetMap</a><br><br>Aerial image for spyglass:<br><a href="https://www.bing.com/maps" target="_blank" rel="nofollow">BingMaps</a><br><br>Topgraphic hillshade files:<br><a href="https://gis.dogami.oregon.gov/maps/lidarviewer" target="_blank" rel="nofollow">DOGAMI Lidar Viewer</a><br><br>Star-struck rivers based on:<br><br><a href="https://nhd.usgs.gov/NHDPlus_HR.html" target="_blank" rel="nofollow">National Hydrology Dataset</a></p>
             </div>
           </div>
         </Accordion>
