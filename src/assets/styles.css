@@ -139,6 +139,18 @@ aside a:visited, .link {
   font-size: 12pt;
 }
 
+.mileagetitletip {
+  position: relative;
+  left: 18px;
+  padding: 3px;
+  background: rgba(108, 0, 0, 0.7);
+  color: white;
+  text-align: left;
+  opacity: 1;
+  font-size: 12pt;
+	width: 300px;
+}
+
 .salmontip {
   position: relative;
   top: -75px;

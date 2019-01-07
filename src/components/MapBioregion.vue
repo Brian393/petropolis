@@ -18,7 +18,7 @@ export default {
   data: function () {
     return {
       centerPoints: {
-        // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
+
         introductionbio: {
           center: [-125.8, 51.0],
           resolution: 4500
@@ -58,6 +58,14 @@ export default {
         wallowa: {
           center: [-117.344, 45.4415],
           resolution: 1.9
+        },
+        awakening: {
+          center: [-121.9, 45.35],
+          resolution: 700
+        },
+        dancing: {
+          center: [-122.76, 45.53],
+          resolution: 36
         }
       }, // end centerPoints
       radius: 150,
@@ -212,8 +220,36 @@ export default {
           minResolution: 0.125,
           maxResolution: 80
         }),
-        // bingMapsAerial3
-        USGStopoTile
+      USGStopoTile
+      ]
+    },
+    awakeningLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 20,
+          maxResolution: 4000
+        }),
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
+        ]
+      },
+      dancingLayers: function () {
+        return [
+          ...this.bioregionBaseLayers,
+          new Tile({
+            preload: Infinity,
+            source: new XYZ({
+              url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 20,
+            maxResolution: 8000
+          })
       ]
     }
   },
@@ -241,6 +277,9 @@ export default {
         if (props.CropGroup && props.key) {
           this.$refs.titletipContent.innerHTML = props.key
           this.titletip.setPosition(e.coordinate)
+        } else if (props.date && props.route) {
+          this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
+          this.mileagetitletip.setPosition(e.coordinate)
         } else if (props.title && props.image) {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
@@ -251,6 +290,7 @@ export default {
         }
       } else {
         this.closeTitletip()
+        this.closeMileagetitletip()
         this.closeTooltip()
         this.closeTextitletip()
       }
@@ -287,6 +327,12 @@ export default {
           break
         case 'bioregionRestorationWallowa':
           this.initBioregionRestorationWallowa()
+          break
+        case 'bioregionAwakening':
+          this.initBioregionAwakening()
+          break
+        case 'bioregionAwakeningDancing':
+          this.initBioregionAwakeningDancing()
           break
         default:
           this.initBioregionIntro()
@@ -397,6 +443,30 @@ export default {
         center: fromLonLat(this.centerPoints.wallowa.center),
         resolution: this.centerPoints.wallowa.resolution,
         minResolution: 0.125,
+        maxResolution: 8000
+      }))
+    },
+    initBioregionAwakening: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.awakeningLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.awakening.center),
+        resolution: this.centerPoints.awakening.resolution,
+        minResolution: 20,
+        maxResolution: 4000
+      }))
+    },
+    initBioregionAwakeningDancing: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.dancingLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.dancing.center),
+        resolution: this.centerPoints.dancing.resolution,
+        minResolution: 20,
         maxResolution: 8000
       }))
     },

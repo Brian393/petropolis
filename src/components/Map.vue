@@ -21,6 +21,9 @@
       <div ref="textitletip" class="textitletip">
         <div class="textitletip-content" ref="textitletipContent"></div>
     </div>
+      <div ref="mileagetitletip" class="mileagetitletip">
+        <div class="mileagetitletip-content" ref="mileagetitletipContent"></div>
+    </div>
     <div ref="whitetitletip" class="whitetitletip">
       <div class="whitetitletip-content" ref="whitetitletipContent"></div>
   </div>
@@ -120,6 +123,11 @@ export default {
         positioning: 'center-left'
       })
     },
+    mileagetitletip: function () {
+      return new Overlay({
+        element: this.$refs.mileagetitletip
+      })
+    },
     salmontip: function () {
       return new Overlay({
         element: this.$refs.salmontip,
@@ -155,7 +163,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.twitterPopup, this.popup, this.titletip, this.textitletip, this.whitetitletip, this.salmontip, this.tooltip, this.vimeoPopup],
+          overlays: [this.twitterPopup, this.popup, this.titletip, this.textitletip, this.mileagetitletip, this.whitetitletip, this.salmontip, this.tooltip, this.vimeoPopup],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -251,6 +259,10 @@ export default {
     },
     closeTextitletip: function () {
       this.textitletip.setPosition(undefined)
+      return false
+    },
+    closeMileagetitletip: function () {
+      this.mileagetitletip.setPosition(undefined)
       return false
     },
     closeWhitetitletip: function () {

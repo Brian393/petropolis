@@ -223,6 +223,22 @@ export default new Router({
         default: () => import('./views/bioregion/BioregionRestorationWallowa.vue'),
         map: MapBioregion
       }
+    },
+    {
+      path: '/bioregion/awakening',
+      name: 'bioregionAwakening',
+      components: {
+        default: () => import('./views/bioregion/BioregionAwakening.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/awakening/dancing',
+      name: 'bioregionAwakeningDancing',
+      components: {
+        default: () => import('./views/bioregion/BioregionAwakeningDancing.vue'),
+        map: MapBioregion
+      }
     }
   ]
 })

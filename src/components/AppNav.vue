@@ -155,6 +155,10 @@ export default {
           {
             name: 'Restoration',
             href: '/bioregion/restoration'
+          },
+          {
+            name: 'Awakening',
+            href: '/bioregion/awakening'
           }
         ]
       },
@@ -222,6 +226,12 @@ export default {
             name: 'Wallowa River',
             href: '/bioregion/restoration/wallowa'
           }
+        ],
+        awakening: [
+          {
+            name: 'Dancing',
+            href: '/bioregion/awakening/dancing'
+          }
         ]
       }
     }
@@ -264,6 +274,8 @@ export default {
         this.navSubItems = this.subItems.salmon
       } else if (/bioregionRestoration/.test(this.$route.name)) {
         this.navSubItems = this.subItems.restoration
+      } else if (/bioregionAwakening/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.awakening
       } else {
         this.navSubItems = []
       }
