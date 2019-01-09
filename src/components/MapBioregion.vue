@@ -63,9 +63,13 @@ export default {
           center: [-121.9, 45.35],
           resolution: 700
         },
-        dancing: {
+        caps: {
           center: [-122.76, 45.53],
           resolution: 36
+        },
+        deconstruction: {
+          center: [-124.05, 46.33],
+          resolution: 42
         }
       }, // end centerPoints
       radius: 150,
@@ -238,18 +242,39 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
         ]
       },
-      dancingLayers: function () {
-        return [
-          ...this.bioregionBaseLayers,
-          new Tile({
-            preload: Infinity,
-            source: new XYZ({
-              url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-            }),
-            opacity: 1,
-            minResolution: 20,
-            maxResolution: 8000
-          })
+    capsLayers: function () {
+      return [
+        ...this.bioregionBaseLayers,
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 20,
+          maxResolution: 8000
+        })
+      ]
+    },
+    deconstructionLayers: function () {
+      return [
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia-new/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 399
+        }),
+        new Tile({
+          source: new BingMaps({
+            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+            imagerySet: 'Aerial'
+          }),
+          minResolution: 1,
+          maxResolution: 400
+        }),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Deconstruction.geojson', null, 2, 32000, 1)
       ]
     }
   },
@@ -277,6 +302,9 @@ export default {
         if (props.CropGroup && props.key) {
           this.$refs.titletipContent.innerHTML = props.key
           this.titletip.setPosition(e.coordinate)
+        } else if (props.image && props.icon) {
+          this.$refs.whitetitletipContent.innerHTML = props.image
+          this.whitetitletip.setPosition(e.coordinate)
         } else if (props.date && props.route) {
           this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
           this.mileagetitletip.setPosition(e.coordinate)
@@ -293,6 +321,7 @@ export default {
         this.closeMileagetitletip()
         this.closeTooltip()
         this.closeTextitletip()
+        this.closeWhitetitletip()
       }
       this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
       this.olmap.render()
@@ -331,8 +360,11 @@ export default {
         case 'bioregionAwakening':
           this.initBioregionAwakening()
           break
-        case 'bioregionAwakeningDancing':
-          this.initBioregionAwakeningDancing()
+        case 'bioregionAwakeningCaps':
+          this.initBioregionAwakeningCaps()
+          break
+        case 'bioregionAwakeningDeconstruction':
+          this.initBioregionAwakeningDeconstruction()
           break
         default:
           this.initBioregionIntro()
@@ -458,15 +490,27 @@ export default {
         maxResolution: 4000
       }))
     },
-    initBioregionAwakeningDancing: function () {
+    initBioregionAwakeningCaps: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.dancingLayers
+        layers: this.capsLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.dancing.center),
-        resolution: this.centerPoints.dancing.resolution,
+        center: fromLonLat(this.centerPoints.caps.center),
+        resolution: this.centerPoints.caps.resolution,
         minResolution: 20,
+        maxResolution: 8000
+      }))
+    },
+    initBioregionAwakeningDeconstruction: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.deconstructionLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.deconstruction.center),
+        resolution: this.centerPoints.deconstruction.resolution,
+        minResolution: 2,
         maxResolution: 8000
       }))
     },
@@ -477,7 +521,7 @@ export default {
       ctx.beginPath()
       if (this.mousePosition) {
         // Only show a circle around the mouse --
-        ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+        ctx.arc(this.mousePotitletipsition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
           this.radius * pixelRatio, 0, 2 * Math.PI)
         ctx.lineWidth = 2 * pixelRatio
         ctx.strokeStyle = 'rgba(0,0,0,0.4)'

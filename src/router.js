@@ -233,10 +233,18 @@ export default new Router({
       }
     },
     {
-      path: '/bioregion/awakening/dancing',
-      name: 'bioregionAwakeningDancing',
+      path: '/bioregion/awakening/caps',
+      name: 'bioregionAwakeningCaps',
       components: {
-        default: () => import('./views/bioregion/BioregionAwakeningDancing.vue'),
+        default: () => import('./views/bioregion/BioregionAwakeningCaps.vue'),
+        map: MapBioregion
+      }
+    },
+    {
+      path: '/bioregion/awakening/deconstruction',
+      name: 'bioregionAwakeningDeconstruction',
+      components: {
+        default: () => import('./views/bioregion/BioregionAwakeningDeconstruction.vue'),
         map: MapBioregion
       }
     }

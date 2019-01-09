@@ -28,7 +28,7 @@ color: #333333; font-style: italic; text-align: center;
     <Accordion>
       <h3 slot="header">legends</h3>
       <div class="flex">
-        <p>This page records the artist's travels from January 13 to Nov 1, 2018 (opening day of the exhibition "The Earth Will Not Abide," featuring <em>Cache VII</em>). Each of the ellipses encompasses a journey devoted to the development of her practice.</p>
+        <p>This page records the artist's travels from January 13 to Nov 1, 2018 (opening day of "The Earth Will Not Abide," featuring <em>Cache VII</em>). Each circle represents a journey devoted to the development of her practice.</p>
       </div>
     </Accordion>
     <br>

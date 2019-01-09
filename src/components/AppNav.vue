@@ -229,8 +229,12 @@ export default {
         ],
         awakening: [
           {
-            name: 'Dancing',
-            href: '/bioregion/awakening/dancing'
+            name: 'Children\'s Dance Caps',
+            href: '/bioregion/awakening/caps'
+          },
+          {
+            name: 'Indigenous Deconstruction',
+            href: '/bioregion/awakening/deconstruction'
           }
         ]
       }
