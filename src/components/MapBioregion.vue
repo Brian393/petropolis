@@ -69,7 +69,7 @@ export default {
         },
         deconstruction: {
           center: [-124.05, 46.33],
-          resolution: 42
+          resolution: 36
         }
       }, // end centerPoints
       radius: 150,
@@ -303,8 +303,8 @@ export default {
           this.$refs.titletipContent.innerHTML = props.key
           this.titletip.setPosition(e.coordinate)
         } else if (props.image && props.icon) {
-          this.$refs.whitetitletipContent.innerHTML = props.image
-          this.whitetitletip.setPosition(e.coordinate)
+          this.$refs.titletipContent.innerHTML = props.image
+          this.titletip.setPosition(e.coordinate)
         } else if (props.date && props.route) {
           this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
           this.mileagetitletip.setPosition(e.coordinate)
