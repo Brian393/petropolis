@@ -148,7 +148,8 @@ aside a:visited, .link {
   text-align: left;
   opacity: 1;
   font-size: 12pt;
-	width: 300px;
+	width: auto;
+	height: auto;
 }
 
 .salmontip {

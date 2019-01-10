@@ -303,8 +303,8 @@ export default {
           this.$refs.titletipContent.innerHTML = props.key
           this.titletip.setPosition(e.coordinate)
         } else if (props.image && props.icon) {
-          this.$refs.titletipContent.innerHTML = props.image
-          this.titletip.setPosition(e.coordinate)
+          this.$refs.mileagetitletipContent.innerHTML = props.image
+          this.mileagetitletip.setPosition(e.coordinate)
         } else if (props.date && props.route) {
           this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
           this.mileagetitletip.setPosition(e.coordinate)
