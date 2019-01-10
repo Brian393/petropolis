@@ -43,6 +43,8 @@ color: #333333; font-style: italic; text-align: center;
 
 <p>In order to negate this and draw attention to it, I have covered the faces of the carvings with red tape, identifying them as “red face”, a term that indicates the masquerading of Indigenous identity by a Euro descent person. I have covered the circular halo around the heads with yellow flourescent safety tape. These two colors combined indicate ambulance, or emergency health vehicles. I am working to protect all of us while we are in the space from the virus of institutionalized racism and deactivate the carvings for as long as I am permitted to.</p>
 
+<img src="images/Indian_Princess.jpg" class="fullwidth">
+
 <p>There is a certain safety to look at these historical instances because the authors are gone and the guilt is somehow further out there. It is quite a bit more uncomfortable to look closer to home, to places and people who we love today.</p>
 
 <p>I recently stayed at a popular resort in Seaview, Washington. This town is in the ancestral and contemporary territory of the Chinook Tribe. The owner of the resort has a stellar reputation as a fair and beloved businesswoman who does wonderful things for her community and employees. The theme of this resort is vintage trailers and eclectic accommodations. somehow looping in an invented Wester animal into the theme. The curtains had sort of a Western hunting theme, buffalo and other game animals and English hunting dogs.</p>
