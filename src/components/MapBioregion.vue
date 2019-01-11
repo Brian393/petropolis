@@ -61,7 +61,7 @@ export default {
         },
         caps: {
           center: [-122.76, 45.53],
-          resolution: 36
+          resolution: 44
         },
         deconstruction: {
           center: [-124.05, 46.33],
