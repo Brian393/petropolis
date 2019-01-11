@@ -172,7 +172,7 @@ export default {
           minResolution: 0.125,
           maxResolution: 80
         }),
-      USGStopoTile
+        USGStopoTile
       ]
     },
     awakeningLayers: function () {
@@ -188,8 +188,8 @@ export default {
           maxResolution: 4000
         }),
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
-        ]
-      },
+      ]
+    },
     capsLayers: function () {
       return [
         ...this.bioregionBaseLayers,
