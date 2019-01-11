@@ -217,14 +217,6 @@ export default new Router({
       }
     },
     {
-      path: '/bioregion/restoration/wallowa',
-      name: 'bioregionRestorationWallowa',
-      components: {
-        default: () => import('./views/bioregion/BioregionRestorationWallowa.vue'),
-        map: MapBioregion
-      }
-    },
-    {
       path: '/bioregion/awakening',
       name: 'bioregionAwakening',
       components: {

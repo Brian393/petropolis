@@ -221,12 +221,6 @@ export default {
             href: '/bioregion/salmon/pink'
           }
         ],
-        restoration: [
-          {
-            name: 'Wallowa River',
-            href: '/bioregion/restoration/wallowa'
-          }
-        ],
         awakening: [
           {
             name: 'Children\'s Dance Caps',

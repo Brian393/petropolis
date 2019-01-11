@@ -52,10 +52,6 @@ export default {
           resolution: 450
         },
         restoration: {
-          center: [-123.561, 48.095],
-          resolution: 4
-        },
-        wallowa: {
           center: [-117.344, 45.4415],
           resolution: 1.9
         },
@@ -69,7 +65,7 @@ export default {
         },
         deconstruction: {
           center: [-124.05, 46.33],
-          resolution: 36
+          resolution: 44
         }
       }, // end centerPoints
       radius: 150,
@@ -149,54 +145,6 @@ export default {
       ]
     },
     restorationLayers: function () {
-      return [
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://tile.stamen.com/toposm-color-relief/{z}/{x}/{y}.jpg'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 10
-        }),
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://tile.stamen.com/toposm-contours/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 10
-        }),
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://tile.stamen.com/toposm-features/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 10
-        }),
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png'
-          }),
-          opacity: 0.1,
-          minResolution: 1,
-          maxResolution: 10
-        }),
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 5
-        })
-      ]
-    },
-    wallowaLayers: function () {
       let USGStopoTile = new Tile({
         preload: Infinity,
         source: new XYZ({
@@ -303,7 +251,7 @@ export default {
           this.$refs.titletipContent.innerHTML = props.key
           this.titletip.setPosition(e.coordinate)
         } else if (props.image && props.icon) {
-          this.$refs.WhitetitletipContent.innerHTML = props.image
+          this.$refs.whitetitletipContent.innerHTML = props.image
           this.whitetitletip.setPosition(e.coordinate)
         } else if (props.date && props.route) {
           this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
@@ -353,9 +301,6 @@ export default {
           break
         case 'bioregionRestoration':
           this.initBioregionRestoration()
-          break
-        case 'bioregionRestorationWallowa':
-          this.initBioregionRestorationWallowa()
           break
         case 'bioregionAwakening':
           this.initBioregionAwakening()
@@ -462,18 +407,6 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.restoration.center),
         resolution: this.centerPoints.restoration.resolution,
-        minResolution: 2,
-        maxResolution: 8000
-      }))
-    },
-    initBioregionRestorationWallowa: function () {
-      this.initBaseMap()
-      this.olmap.setLayerGroup(new Group({
-        layers: this.wallowaLayers
-      }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.wallowa.center),
-        resolution: this.centerPoints.wallowa.resolution,
         minResolution: 0.125,
         maxResolution: 8000
       }))
@@ -521,7 +454,7 @@ export default {
       ctx.beginPath()
       if (this.mousePosition) {
         // Only show a circle around the mouse --
-        ctx.arc(this.mousePotitletipsition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+        ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
           this.radius * pixelRatio, 0, 2 * Math.PI)
         ctx.lineWidth = 2 * pixelRatio
         ctx.strokeStyle = 'rgba(0,0,0,0.4)'

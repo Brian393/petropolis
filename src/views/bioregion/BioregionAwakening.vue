@@ -42,6 +42,9 @@ color: #333333; font-style: italic; text-align: center;
 
     <p>From that work I started The Hanis Coos Traditional Weaving Research and Education Project to revive the practice for my people. With the support of my Tribal government and The Evergreen Longhouse, I opened our Tribal field-to-studio weaving program in 2014. In 2016 the Potlatch Fund and the Oregon Community Foundation joined that pool of support and our weaving program continues to grow steadily. Today I have twenty-five weaving students ranging in age from five to eighty-five and one very bright and talented apprentice, Ashley Russell (<span style="font-variant: small-caps;">miluk coos</span>).</p>
 
+    <img src="images/CacheVII.jpg" class="fullwidth">
+    <div class="caption"><em>Cache VII</em>, Sara Siestreem, PNCA 2018</div>
+
     <p>In an effort to share this awakening with the mainstream I exhibit each year’s cache in public spaces. This is an occupation of public land; an overt political act. To gather and possess these plants is an exercise of sovereign rights, a legal provision for Indigenous people of this land mass to continue to practice our cultural and spiritual birthright. Each plant represents a different relationship I initiate and maintain with Federal, State, and private land owners.</p>
 
     <p>More importantly, every very single section of this cache represents long relationships I have with the places I gather and the plants themselves. From an Indigenous world view, plants, animals, and elements are equals, we are relatives. It is forbidden to take anything without permission, compensation, follow through on promises made, and within the boundaries of sustainability. That means I must establish and gain permission from the land and plant itself. I cannot do that in one day, it takes years. I must visit these places and plants again and again before I am allowed to gather them.</p>
@@ -51,6 +54,9 @@ color: #333333; font-style: italic; text-align: center;
     <p>I am sharing this unique and privileged insight to our culture to benefit your education and give you a better understanding of the place you live and the people whose land you are on. To the Indigenous people who pass through here I hope these plants bring you some comfort and good company. I hope they remind you of who you are and how beautiful, powerful, and sophisticated your culture is. I hope that the ancestors that you carry with you can feel my love and gratitude for them.</p>
 
     <p>I am speaking to you through all of your senses except touch and taste. You can see these plants and the perfection of their design, hear their movement when your body stirs the air in the space, you can smell them as you bring the medicine they are giving you in with your breath. By stimulating your senses, I am situating us in your memory bank. I am informing you that we are living and practicing our culture all around you. By not allowing you physical contact, I am exerting a boundary, showing you how to love us without trespass.</p>
+
+    <img src="images/Ceiling.jpg" class="fullwidth">
+
 
     <p>I gathered this cache of weaving materials in the Columbia River Bioregion. Portions of it I gathered in workshop with my Tribal weaving students in our ancestral homeland on the South Coast of Oregon, for some of them it was a first gathering. This is a particularly precious point of joy and I hope you recognize it for the tender and powerful moment that it is. You are witnessing a victory over genocide here archived by children and generations of grandmothers and grandfathers; please let that connection impact your day today.</p>
 

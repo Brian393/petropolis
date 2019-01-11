@@ -20,7 +20,7 @@ color: #333333; font-style: italic; text-align: center;
   <div class="aside-content">
     <div class="title">
       <h1>THE ARROWHEAD</h1></div>
-      <h3>(An Indigenous Deconstruction of Historic and Contemporary Economic Racism)</h3>
+      <h3>(An Indigenous Deconstruction of Historic and Contemporary Economic Racism)</h3><br>
       <img src="images/Redface.jpg" class="fullwidth">
       <br>
       <div class="caption">"Indian Chief," Redface intervention at PNCA, Sara Siestreem</div>
@@ -43,7 +43,7 @@ color: #333333; font-style: italic; text-align: center;
 
 <p>In order to negate this and draw attention to it, I have covered the faces of the carvings with red tape, identifying them as “red face”, a term that indicates the masquerading of Indigenous identity by a Euro descent person. I have covered the circular halo around the heads with yellow flourescent safety tape. These two colors combined indicate ambulance, or emergency health vehicles. I am working to protect all of us while we are in the space from the virus of institutionalized racism and deactivate the carvings for as long as I am permitted to.</p>
 
-<img src="images/Indian_Princess.jpg" class="fullwidth">
+<img src="images/Hallway.jpg" class="fullwidth">
 
 <p>There is a certain safety to look at these historical instances because the authors are gone and the guilt is somehow further out there. It is quite a bit more uncomfortable to look closer to home, to places and people who we love today.</p>
 
