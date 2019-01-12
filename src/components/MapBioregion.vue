@@ -178,16 +178,7 @@ export default {
     awakeningLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 20,
-          maxResolution: 4000
-        }),
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 1)', 4)
       ]
     },
     capsLayers: function () {
@@ -253,9 +244,6 @@ export default {
         } else if (props.image && props.icon) {
           this.$refs.whitetitletipContent.innerHTML = props.image
           this.whitetitletip.setPosition(e.coordinate)
-        } else if (props.date && props.route) {
-          this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
-          this.mileagetitletip.setPosition(e.coordinate)
         } else if (props.title && props.image) {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
