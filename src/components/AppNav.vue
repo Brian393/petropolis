@@ -157,8 +157,8 @@ export default {
             href: '/bioregion/restoration'
           },
           {
-            name: 'Awakening',
-            href: '/bioregion/awakening'
+            name: null,
+            href: null
           }
         ]
       },
