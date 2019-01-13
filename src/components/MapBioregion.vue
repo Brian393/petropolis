@@ -7,35 +7,11 @@ import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {GeoJSON} from 'ol/format'
 import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
-// this is for rainbow gradient
-import {DEVICE_PIXEL_RATIO} from 'ol/has.js';
 import {unByKey} from 'ol/Observable.js'
 import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
 import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
-
-// These elements from https://openlayers.org/en/latest/examples/canvas-gradient-pattern.html
-const canvas = document.createElement('canvas');
-const context = canvas.getContext('2d');
-
-// Gradient and pattern are in canvas pixel space, so we adjust for the
-// renderer's pixel ratio
-const pixelRatio = DEVICE_PIXEL_RATIO;
-
-// Generate a rainbow gradient
-const gradient = (function() {
-  const grad = context.createLinearGradient(0, 0, 512 * pixelRatio, 0);
-  grad.addColorStop(0, 'red');
-  grad.addColorStop(1 / 6, 'orange');
-  grad.addColorStop(2 / 6, 'yellow');
-  grad.addColorStop(3 / 6, 'green');
-  grad.addColorStop(4 / 6, 'aqua');
-  grad.addColorStop(5 / 6, 'blue');
-  grad.addColorStop(1, 'purple');
-  return grad;
-})();
-// End gradient elements
 
 export default {
   name: 'MapBioregion',
@@ -82,7 +58,7 @@ export default {
         },
         awakening: {
           center: [-121.9, 45.35],
-          resolution: 700
+          resolution: 780
         },
         caps: {
           center: [-122.76, 45.53],
@@ -516,8 +492,8 @@ export default {
         feature.setStyle([
           new Style({
             stroke: new Stroke({
-              color: gradient,
-              width: 5
+              color: 'red',
+              width: 4
             })
           }),
           new Style({
