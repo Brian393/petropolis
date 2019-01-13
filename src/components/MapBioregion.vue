@@ -5,9 +5,10 @@ import {View} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer'
 import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {GeoJSON} from 'ol/format'
-import {Style, Stroke, Fill} from 'ol/style'
+import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
-
+import {unByKey} from 'ol/Observable.js'
+import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
 import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
@@ -57,7 +58,7 @@ export default {
         },
         awakening: {
           center: [-121.9, 45.35],
-          resolution: 700
+          resolution: 780
         },
         caps: {
           center: [-122.76, 45.53],
@@ -68,6 +69,10 @@ export default {
           resolution: 44
         }
       }, // end centerPoints
+      bioregionAwakeningIsAnimating: true,
+      didSetSingleclickEvent: false,
+      listenerKeys: [],
+      animTimeouts: [],
       radius: 150,
       mousePosition: undefined
     }
@@ -185,9 +190,8 @@ export default {
           }),
           opacity: 1,
           minResolution: 20,
-          maxResolution: 4000
-        }),
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
+          maxResolution: 8000
+        })
       ]
     },
     capsLayers: function () {
@@ -253,9 +257,6 @@ export default {
         } else if (props.image && props.icon) {
           this.$refs.whitetitletipContent.innerHTML = props.image
           this.whitetitletip.setPosition(e.coordinate)
-        } else if (props.date && props.route) {
-          this.$refs.mileagetitletipContent.innerHTML = props.date + '<br>' + props.route + '<br>' + props.purpose
-          this.mileagetitletip.setPosition(e.coordinate)
         } else if (props.title && props.image) {
           this.$refs.tooltip.innerHTML = props.image.replace('cascadia/', '')
           this.$refs.tooltip.innerHTML += '<div>' + props.title + '</div>'
@@ -266,7 +267,6 @@ export default {
         }
       } else {
         this.closeTitletip()
-        this.closeMileagetitletip()
         this.closeTooltip()
         this.closeTextitletip()
         this.closeWhitetitletip()
@@ -277,6 +277,7 @@ export default {
   },
   methods: {
     initMap: function () {
+      this.bioregionAwakeningIsAnimating = true
       switch (this.$route.name) {
         case 'bioregionIntroduction':
           this.initBioregionIntro()
@@ -413,15 +414,31 @@ export default {
     },
     initBioregionAwakening: function () {
       this.initBaseMap()
+      // Here I attempt to reuse the code from WatershedDamsTransformation
+      const bioregionAwakeningLayersAnimation = [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 0)', 4)
+      ]
+      if (this.bioregionAwakeningIsAnimating) {
+        bioregionAwakeningLayersAnimation[3].getSource().on('addfeature', (e) => {
+          if (!isNaN(parseInt(e.feature.values_['id']))) {
+            const timeout = setTimeout(() => {
+              this.flash(e.feature)
+            }, (parseInt(e.feature.values_['id']) * 2000))
+            this.animTimeouts.push(timeout)
+          }
+        })
+      }
       this.olmap.setLayerGroup(new Group({
-        layers: this.awakeningLayers
+        layers: bioregionAwakeningLayersAnimation
       }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.awakening.center),
-        resolution: this.centerPoints.awakening.resolution,
-        minResolution: 20,
-        maxResolution: 4000
-      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.awakening.center),
+          resolution: this.centerPoints.awakening.resolution,
+          minResolution: 2
+        })
+      )
     },
     initBioregionAwakeningCaps: function () {
       this.initBaseMap()
@@ -461,6 +478,56 @@ export default {
         ctx.stroke()
       }
       ctx.clip()
+    },
+    flash: function (feature) {
+      const featureDate = feature.values_['date'] || ''
+      const featureRoute = feature.values_['route'] || ''
+      const featurePurpose = feature.values_['purpose'] || ''
+      const start = new Date().getTime()
+      const listenerKey = this.olmap.on('postcompose', (event) => {
+        const duration = 2000
+        const elapsed = event.frameState.time - start
+        const elapsedRatio = elapsed / duration
+        const opacity = easeOut(1 - elapsedRatio)
+        feature.setStyle([
+          new Style({
+            stroke: new Stroke({
+              color: 'red',
+              width: 4
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featureDate,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 1.9,
+              offsetY: -7
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featureRoute,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 2,
+              offsetY: 16
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featurePurpose,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 2,
+              offsetY: 40
+            })
+          })
+        ])
+      })
     }
   }
 }
