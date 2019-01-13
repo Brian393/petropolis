@@ -62,7 +62,7 @@ export default {
         },
         caps: {
           center: [-122.76, 45.53],
-          resolution: 44
+          resolution: 42
         },
         deconstruction: {
           center: [-124.05, 46.33],
@@ -182,30 +182,13 @@ export default {
     },
     awakeningLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 20,
-          maxResolution: 8000
-        })
+        ...this.bioregionBaseLayers
       ]
     },
     capsLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 20,
-          maxResolution: 8000
-        })
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 1)', 4)
       ]
     },
     deconstructionLayers: function () {
@@ -417,14 +400,14 @@ export default {
       // Here I attempt to reuse the code from WatershedDamsTransformation
       const bioregionAwakeningLayersAnimation = [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 0)', 4)
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 0)', 4)
       ]
       if (this.bioregionAwakeningIsAnimating) {
         bioregionAwakeningLayersAnimation[3].getSource().on('addfeature', (e) => {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
             const timeout = setTimeout(() => {
               this.flash(e.feature)
-            }, (parseInt(e.feature.values_['id']) * 2000))
+            }, (parseInt(e.feature.values_['id']) * 2500))
             this.animTimeouts.push(timeout)
           }
         })
@@ -485,15 +468,15 @@ export default {
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 2000
+        const duration = 2500
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
-        const opacity = easeOut(1 - elapsedRatio)
+        const opacity = easeOut(1.2 - elapsedRatio)
         feature.setStyle([
           new Style({
             stroke: new Stroke({
-              color: 'red',
-              width: 4
+              color: 'rgba(255, 0, 0, 1)',
+              width: 3.5
             })
           }),
           new Style({
@@ -501,8 +484,8 @@ export default {
               text: featureDate,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 1.9,
+              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
+              scale: 1.7,
               offsetY: -7
             })
           }),
@@ -511,8 +494,8 @@ export default {
               text: featureRoute,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 2,
+              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
+              scale: 1.5,
               offsetY: 16
             })
           }),
@@ -521,8 +504,8 @@ export default {
               text: featurePurpose,
               fill: new Fill({color: [255, 255, 255, opacity]}),
               stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 2,
+              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
+              scale: 1.4,
               offsetY: 40
             })
           })
