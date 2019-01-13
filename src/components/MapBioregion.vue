@@ -5,12 +5,37 @@ import {View} from 'ol'
 import {Tile, Vector as VectorLayer, Group} from 'ol/layer'
 import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {GeoJSON} from 'ol/format'
-import {Style, Stroke, Fill} from 'ol/style'
+import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
 import {fromLonLat} from 'ol/proj'
-
+// this is for rainbow gradient
+import {DEVICE_PIXEL_RATIO} from 'ol/has.js';
+import {unByKey} from 'ol/Observable.js'
+import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
 import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
+
+// These elements from https://openlayers.org/en/latest/examples/canvas-gradient-pattern.html
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
+
+// Gradient and pattern are in canvas pixel space, so we adjust for the
+// renderer's pixel ratio
+const pixelRatio = DEVICE_PIXEL_RATIO;
+
+// Generate a rainbow gradient
+const gradient = (function() {
+  const grad = context.createLinearGradient(0, 0, 512 * pixelRatio, 0);
+  grad.addColorStop(0, 'red');
+  grad.addColorStop(1 / 6, 'orange');
+  grad.addColorStop(2 / 6, 'yellow');
+  grad.addColorStop(3 / 6, 'green');
+  grad.addColorStop(4 / 6, 'aqua');
+  grad.addColorStop(5 / 6, 'blue');
+  grad.addColorStop(1, 'purple');
+  return grad;
+})();
+// End gradient elements
 
 export default {
   name: 'MapBioregion',
@@ -68,6 +93,10 @@ export default {
           resolution: 44
         }
       }, // end centerPoints
+      bioregionAwakeningIsAnimating: true,
+      didSetSingleclickEvent: false,
+      listenerKeys: [],
+      animTimeouts: [],
       radius: 150,
       mousePosition: undefined
     }
@@ -178,7 +207,15 @@ export default {
     awakeningLayers: function () {
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 1)', 4)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 20,
+          maxResolution: 8000
+        })
       ]
     },
     capsLayers: function () {
@@ -254,7 +291,6 @@ export default {
         }
       } else {
         this.closeTitletip()
-        this.closeMileagetitletip()
         this.closeTooltip()
         this.closeTextitletip()
         this.closeWhitetitletip()
@@ -265,6 +301,7 @@ export default {
   },
   methods: {
     initMap: function () {
+      this.bioregionAwakeningIsAnimating = true
       switch (this.$route.name) {
         case 'bioregionIntroduction':
           this.initBioregionIntro()
@@ -401,15 +438,31 @@ export default {
     },
     initBioregionAwakening: function () {
       this.initBaseMap()
+      // Here I attempt to reuse the code from WatershedDamsTransformation
+      const bioregionAwakeningLayersAnimation = [
+        ...this.bioregionBaseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 0)', 4)
+      ]
+      if (this.bioregionAwakeningIsAnimating) {
+        bioregionAwakeningLayersAnimation[3].getSource().on('addfeature', (e) => {
+          if (!isNaN(parseInt(e.feature.values_['id']))) {
+            const timeout = setTimeout(() => {
+              this.flash(e.feature)
+            }, (parseInt(e.feature.values_['id']) * 2000))
+            this.animTimeouts.push(timeout)
+          }
+        })
+      }
       this.olmap.setLayerGroup(new Group({
-        layers: this.awakeningLayers
+        layers: bioregionAwakeningLayersAnimation
       }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.awakening.center),
-        resolution: this.centerPoints.awakening.resolution,
-        minResolution: 20,
-        maxResolution: 4000
-      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.awakening.center),
+          resolution: this.centerPoints.awakening.resolution,
+          minResolution: 2
+        })
+      )
     },
     initBioregionAwakeningCaps: function () {
       this.initBaseMap()
@@ -449,6 +502,56 @@ export default {
         ctx.stroke()
       }
       ctx.clip()
+    },
+    flash: function (feature) {
+      const featureDate = feature.values_['date'] || ''
+      const featureRoute = feature.values_['route'] || ''
+      const featurePurpose = feature.values_['purpose'] || ''
+      const start = new Date().getTime()
+      const listenerKey = this.olmap.on('postcompose', (event) => {
+        const duration = 2000
+        const elapsed = event.frameState.time - start
+        const elapsedRatio = elapsed / duration
+        const opacity = easeOut(1 - elapsedRatio)
+        feature.setStyle([
+          new Style({
+            stroke: new Stroke({
+              color: gradient,
+              width: 5
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featureDate,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 1.9,
+              offsetY: -7
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featureRoute,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 2,
+              offsetY: 16
+            })
+          }),
+          new Style({
+            text: new Text({
+              text: featurePurpose,
+              fill: new Fill({color: [255, 255, 255, opacity]}),
+              stroke: new Stroke({color: [0, 0, 0, opacity]}),
+              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
+              scale: 2,
+              offsetY: 40
+            })
+          })
+        ])
+      })
     }
   }
 }
