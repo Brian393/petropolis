@@ -10,8 +10,9 @@ import {fromLonLat} from 'ol/proj'
 import {unByKey} from 'ol/Observable.js'
 import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
-import VideoLightBox from './VideoLightBox.vue'
+// import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
+let colormap = require('colormap');
 
 export default {
   name: 'MapBioregion',
@@ -74,7 +75,8 @@ export default {
       listenerKeys: [],
       animTimeouts: [],
       radius: 150,
-      mousePosition: undefined
+      mousePosition: undefined,
+      colors: []
     }
   },
   computed: {
@@ -221,6 +223,14 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    this.colors = colormap({
+        colormap: 'jet',
+        nshades: 10,
+        format: 'hex',
+        alpha: 1
+    });
+    console.log("this is testing ---->");
+    console.log(this.colors);
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
         this.radius = Math.min(this.radius + 5, 800)
@@ -467,6 +477,8 @@ export default {
       const featureRoute = feature.values_['route'] || ''
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
+      const testval = Math.ceil(Math.random()*10);
+      console.log("-- this is test value of --->", testval);
       const listenerKey = this.olmap.on('postcompose', (event) => {
         const duration = 2500
         const elapsed = event.frameState.time - start
@@ -475,7 +487,8 @@ export default {
         feature.setStyle([
           new Style({
             stroke: new Stroke({
-              color: 'rgba(255, 0, 0, 1)',
+              // color: 'rgba(255, 0, 0, 1)',
+              color: this.colors[testval],
               width: 3.5
             })
           }),
