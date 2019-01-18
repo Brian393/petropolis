@@ -492,36 +492,6 @@ export default {
               color: this.colors[colorIndex],
               width: 3.5
             })
-          }),
-          new Style({
-            text: new Text({
-              text: featureDate,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
-              scale: 1.7,
-              offsetY: -7
-            })
-          }),
-          new Style({
-            text: new Text({
-              text: featureRoute,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
-              scale: 1.5,
-              offsetY: 16
-            })
-          }),
-          new Style({
-            text: new Text({
-              text: featurePurpose,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [255, 255, 255, opacity / 7]}),
-              scale: 1.4,
-              offsetY: 40
-            })
           })
         ])
       })
