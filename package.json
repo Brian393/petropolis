@@ -14,6 +14,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "colormap": "^2.3.0",
     "material-design-icons": "^3.0.1",
     "mediabox": "^1.1.2",
     "ol": "^5.1.3",
