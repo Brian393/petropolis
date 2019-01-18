@@ -18,6 +18,11 @@ color: #333333; font-style: italic; text-align: center;
 
 <template>
   <div class="aside-content">
+    <div class="mapInfo">
+      <div class="mapInfo-section1" />
+      <div class="mapInfo-section2" />
+      <div class="mapInfo-section3" />
+    </div>
     <div class="title">
       <h1><span style="font-align: center;">Cache VII<br>This is us dancing</span></h1></div>
     <div class="video">
@@ -84,6 +89,12 @@ color: #333333; font-style: italic; text-align: center;
 }
 .flex img {
   margin-right: 0.5em;
+}
+.mapInfo {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  color: #ffffff;
 }
 </style>
 <script>

@@ -12,7 +12,8 @@ import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
 // import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
-let colormap = require('colormap');
+import jQuery from 'jQuery'
+let colormap = require('colormap')
 
 export default {
   name: 'MapBioregion',
@@ -228,9 +229,7 @@ export default {
         nshades: 10,
         format: 'hex',
         alpha: 1
-    });
-    console.log("this is testing ---->");
-    console.log(this.colors);
+    })
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
         this.radius = Math.min(this.radius + 5, 800)
@@ -477,18 +476,20 @@ export default {
       const featureRoute = feature.values_['route'] || ''
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
-      const testval = Math.ceil(Math.random()*10);
-      console.log("-- this is test value of --->", testval);
+      const colorIndex = Math.ceil(Math.random()*10)
       const listenerKey = this.olmap.on('postcompose', (event) => {
         const duration = 2500
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1.2 - elapsedRatio)
+        jQuery('div.mapInfo-section1').text(featureDate)
+        jQuery('div.mapInfo-section2').text(featureRoute)
+        jQuery('div.mapInfo-section3').text(featurePurpose)
         feature.setStyle([
           new Style({
             stroke: new Stroke({
               // color: 'rgba(255, 0, 0, 1)',
-              color: this.colors[testval],
+              color: this.colors[colorIndex],
               width: 3.5
             })
           }),
