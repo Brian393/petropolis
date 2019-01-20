@@ -189,6 +189,7 @@ export default {
       ]
     },
     capsLayers: function () {
+      // Steven 1/20
       const colorIndex = Math.ceil(Math.random()*10)
       return [
         ...this.bioregionBaseLayers,
