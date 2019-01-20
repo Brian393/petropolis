@@ -482,6 +482,7 @@ export default {
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1.2 - elapsedRatio)
+        // Steven 1/18
         jQuery('div.mapInfo-section1').text(featureDate)
         jQuery('div.mapInfo-section2').text(featureRoute)
         jQuery('div.mapInfo-section3').text(featurePurpose)

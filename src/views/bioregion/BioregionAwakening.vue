@@ -18,6 +18,7 @@ color: #333333; font-style: italic; text-align: center;
 
 <template>
   <div class="aside-content">
+    <!-- Steven 1/18 -->
     <div class="mapInfo">
       <div class="mapInfo-section1" />
       <div class="mapInfo-section2" />
