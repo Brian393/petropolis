@@ -10,8 +10,10 @@ import {fromLonLat} from 'ol/proj'
 import {unByKey} from 'ol/Observable.js'
 import {easeOut} from 'ol/easing.js'
 import {eventBus} from '../main'
-import VideoLightBox from './VideoLightBox.vue'
+// import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
+import jQuery from 'jQuery'
+let colormap = require('colormap')
 
 export default {
   name: 'MapBioregion',
@@ -62,7 +64,7 @@ export default {
         },
         caps: {
           center: [-122.76, 45.53],
-          resolution: 44
+          resolution: 42
         },
         deconstruction: {
           center: [-124.05, 46.33],
@@ -74,7 +76,8 @@ export default {
       listenerKeys: [],
       animTimeouts: [],
       radius: 150,
-      mousePosition: undefined
+      mousePosition: undefined,
+      colors: []
     }
   },
   computed: {
@@ -182,30 +185,15 @@ export default {
     },
     awakeningLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 20,
-          maxResolution: 8000
-        })
+        ...this.bioregionBaseLayers
       ]
     },
     capsLayers: function () {
+      // Steven 1/20
+      const colorIndex = Math.ceil(Math.random()*10)
       return [
         ...this.bioregionBaseLayers,
-        new Tile({
-          preload: Infinity,
-          source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 20,
-          maxResolution: 8000
-        })
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, this.colors[colorIndex], 4)
       ]
     },
     deconstructionLayers: function () {
@@ -238,6 +226,12 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    this.colors = colormap({
+        colormap: 'jet',
+        nshades: 10,
+        format: 'hex',
+        alpha: 1
+    })
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
         this.radius = Math.min(this.radius + 5, 800)
@@ -417,14 +411,14 @@ export default {
       // Here I attempt to reuse the code from WatershedDamsTransformation
       const bioregionAwakeningLayersAnimation = [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(0, 0, 240, 0)', 4)
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 0)', 4)
       ]
       if (this.bioregionAwakeningIsAnimating) {
         bioregionAwakeningLayersAnimation[3].getSource().on('addfeature', (e) => {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
             const timeout = setTimeout(() => {
               this.flash(e.feature)
-            }, (parseInt(e.feature.values_['id']) * 2000))
+            }, (parseInt(e.feature.values_['id']) * 2500))
             this.animTimeouts.push(timeout)
           }
         })
@@ -484,46 +478,22 @@ export default {
       const featureRoute = feature.values_['route'] || ''
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
+      const colorIndex = Math.ceil(Math.random()*10)
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 2000
+        const duration = 2500
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
-        const opacity = easeOut(1 - elapsedRatio)
+        const opacity = easeOut(1.2 - elapsedRatio)
+        // Steven 1/18
+        jQuery('div.mapInfo-section1').text(featureDate)
+        jQuery('div.mapInfo-section2').text(featureRoute)
+        jQuery('div.mapInfo-section3').text(featurePurpose)
         feature.setStyle([
           new Style({
             stroke: new Stroke({
-              color: 'red',
-              width: 4
-            })
-          }),
-          new Style({
-            text: new Text({
-              text: featureDate,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 1.9,
-              offsetY: -7
-            })
-          }),
-          new Style({
-            text: new Text({
-              text: featureRoute,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 2,
-              offsetY: 16
-            })
-          }),
-          new Style({
-            text: new Text({
-              text: featurePurpose,
-              fill: new Fill({color: [255, 255, 255, opacity]}),
-              stroke: new Stroke({color: [0, 0, 0, opacity]}),
-              backgroundFill: new Stroke({color: [0, 0, 0, opacity / 7]}),
-              scale: 2,
-              offsetY: 40
+              // color: 'rgba(255, 0, 0, 1)',
+              color: this.colors[colorIndex],
+              width: 3.5
             })
           })
         ])
