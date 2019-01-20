@@ -739,3 +739,9 @@ export default {
   }
 }
 </script>
+<style>
+  /* Steven 1/20 */
+  .ol-popup {
+    background: rgb(255, 255, 255, 0.8);
+  }
+</style>
