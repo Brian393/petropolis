@@ -189,9 +189,10 @@ export default {
       ]
     },
     capsLayers: function () {
+      const colorIndex = Math.ceil(Math.random()*10)
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 1)', 4)
+        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, this.colors[colorIndex], 4)
       ]
     },
     deconstructionLayers: function () {
