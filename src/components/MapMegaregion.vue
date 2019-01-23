@@ -207,7 +207,7 @@ export default {
           minZoom: 11,
           maxZoom: 20
         }),
-        // this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'), //Steven 1/18
+        this.makeGeoJSONFillVectorLayer('geojson/VanUnderlayer.geojson', 0.25, 160, 'rgba(0,0,0, 0.99)', 1, 'rgba(0,0,0, 0.99)'),
         new Tile({
           preload: Infinity,
           source: new XYZ({

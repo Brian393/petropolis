@@ -14,6 +14,8 @@ import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
 import jQuery from 'jQuery'
 let colormap = require('colormap')
+let colIndex = 0;
+let colIndex1 = 0;
 
 export default {
   name: 'MapBioregion',
@@ -190,7 +192,9 @@ export default {
     },
     capsLayers: function () {
       // Steven 1/20
-      const colorIndex = Math.ceil(Math.random()*10)
+      colIndex1 = (colIndex1+1)%16;
+      const colorIndex = colIndex1;
+      // const colorIndex = Math.ceil(Math.random()*10)
       return [
         ...this.bioregionBaseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, this.colors[colorIndex], 4)
@@ -228,7 +232,7 @@ export default {
     this.initMap()
     this.colors = colormap({
         colormap: 'jet',
-        nshades: 10,
+        nshades: 16,
         format: 'hex',
         alpha: 1
     })
@@ -478,7 +482,9 @@ export default {
       const featureRoute = feature.values_['route'] || ''
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
-      const colorIndex = Math.ceil(Math.random()*10)
+      // const colorIndex = Math.ceil(Math.random()*16)
+      colIndex = (colIndex+1)%16;
+      const colorIndex = colIndex;
       const listenerKey = this.olmap.on('postcompose', (event) => {
         const duration = 2500
         const elapsed = event.frameState.time - start
