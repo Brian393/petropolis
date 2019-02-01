@@ -34,7 +34,7 @@
 #app {
   /* Steven 1/18 */
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:  'Times New Roman', Arial, and Monospace;
+  font-family:  'Helvetica', Arial, and Monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;

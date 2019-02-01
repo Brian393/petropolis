@@ -192,12 +192,19 @@ export default {
     },
     capsLayers: function () {
       // Steven 1/20
-      colIndex1 = (colIndex1+1)%16;
-      const colorIndex = colIndex1;
+      // // colIndex1 = (colIndex1+1)%32;
+      // // const colorIndex = colIndex1;
       // const colorIndex = Math.ceil(Math.random()*10)
       return [
         ...this.bioregionBaseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, this.colors[colorIndex], 4)
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Mileage2/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 12
+        })
       ]
     },
     deconstructionLayers: function () {
@@ -231,8 +238,8 @@ export default {
   mounted: function () {
     this.initMap()
     this.colors = colormap({
-        colormap: 'jet',
-        nshades: 16,
+        colormap: 'portland',
+        nshades: 32,
         format: 'hex',
         alpha: 1
     })
@@ -422,7 +429,7 @@ export default {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
             const timeout = setTimeout(() => {
               this.flash(e.feature)
-            }, (parseInt(e.feature.values_['id']) * 2500))
+            }, (parseInt(e.feature.values_['id']) * 1800))
             this.animTimeouts.push(timeout)
           }
         })
@@ -483,10 +490,10 @@ export default {
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
       // const colorIndex = Math.ceil(Math.random()*16)
-      colIndex = (colIndex+1)%16;
+      colIndex = (colIndex+1)%32;
       const colorIndex = colIndex;
       const listenerKey = this.olmap.on('postcompose', (event) => {
-        const duration = 2500
+        const duration = 1800
         const elapsed = event.frameState.time - start
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1.2 - elapsedRatio)

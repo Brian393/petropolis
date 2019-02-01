@@ -96,6 +96,9 @@ color: #333333; font-style: italic; text-align: center;
   top: 50%;
   left: 30px;
   color: #ffffff;
+  max-width: 300px;
+  background-color: rgba(29, 84, 123, 0.2);
+  text-align: left;
 }
 </style>
 <script>
