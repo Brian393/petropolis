@@ -155,11 +155,11 @@ export default {
           {
             name: 'Restoration',
             href: '/bioregion/restoration'
-          },
-          {
-            name: 'Awakening',
-            href: '/bioregion/awakening'
-          }
+          } // ,
+//          {
+//            name: 'Awakening',
+//            href: '/bioregion/awakening'
+//          }
         ]
       },
       subItems: {
