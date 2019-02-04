@@ -227,8 +227,8 @@ export default {
             href: '/bioregion/awakening/caps'
           },
           {
-            name: 'Indigenous Deconstruction',
-            href: '/bioregion/awakening/deconstruction'
+            name: 'ARROWHEAD',
+            href: '/bioregion/awakening/arrowhead'
           }
         ]
       }

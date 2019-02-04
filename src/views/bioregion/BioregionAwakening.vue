@@ -48,7 +48,7 @@ color: #333333; font-style: italic; text-align: center;
 
     <p>From that work I started The Hanis Coos Traditional Weaving Research and Education Project to revive the practice for my people. With the support of my Tribal government and The Evergreen Longhouse, I opened our Tribal field-to-studio weaving program in 2014. In 2016 the Potlatch Fund and the Oregon Community Foundation joined that pool of support and our weaving program continues to grow steadily. Today I have twenty-five weaving students ranging in age from five to eighty-five and one very bright and talented apprentice, Ashley Russell (<span style="font-variant: small-caps;">miluk coos</span>).</p>
 
-    <img src="images/CacheVII.jpg" class="fullwidth">
+    <img src="images/cache-seven-2.jpg" class="fullwidth">
     <div class="caption"><em>Cache VII</em>, Sara Siestreem, PNCA 2018</div>
 
     <p>In an effort to share this awakening with the mainstream I exhibit each year’s cache in public spaces. This is an occupation of public land; an overt political act. To gather and possess these plants is an exercise of sovereign rights, a legal provision for Indigenous people of this land mass to continue to practice our cultural and spiritual birthright. Each plant represents a different relationship I initiate and maintain with Federal, State, and private land owners.</p>

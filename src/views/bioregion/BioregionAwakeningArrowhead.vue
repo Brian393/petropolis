@@ -19,11 +19,11 @@ color: #333333; font-style: italic; text-align: center;
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>THE ARROWHEAD</h1></div>
+      <h1>ARROWHEAD</h1></div>
       <h3>(An Indigenous Deconstruction of Historic and Contemporary Economic Racism)</h3><br>
       <img src="images/Redface.jpg" class="fullwidth">
       <br>
-      <div class="caption">"Indian Chief," Redface intervention at PNCA, Sara Siestreem</div>
+      <div class="caption">ARROWHEAD intervention at PNCA, Sara Siestreem</div>
       <br>
 
 <Accordion>
@@ -64,6 +64,10 @@ color: #333333; font-style: italic; text-align: center;
 <p>As a way to pass the $163-dollar night of hot rage and impotent nausea I experienced in the Arrowhead, I made art that night. I photo documented each item and constructed some verbiage to deconstruct the problems. Most of that is contained here and is installed above the architectural interventions in the lobby of PNCA.</p>
 
 <p>Today, I spoke with the owner about all of this at length. They said they have been called out on the verbiage on the website and other issues along these same lines in other trailers (African Queen, etc.) but decided to stick with it. They said they will think about the issues I pointed out and speak with their board about it. They said they would get back to me.</p>
+
+<img src="images/the_arrowhead-sm.jpg" class="fullwidth">
+<AppLightBox :images="megaImages">click for enlargement</AppLightBox>
+
 <br>
 
 <Accordion>
@@ -97,6 +101,15 @@ export default {
   components: {
     Accordion,
     AppLightBox
+  },
+  data: function () {
+    return {
+      megaImages: [
+        {
+          src: 'images/the_arrowhead.jpg'
+        }
+      ]
+    }
   },
   methods: {
     emit: function (method, args) {

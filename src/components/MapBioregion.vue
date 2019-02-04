@@ -68,7 +68,7 @@ export default {
           center: [-122.76, 45.53],
           resolution: 42
         },
-        deconstruction: {
+        arrowhead: {
           center: [-124.05, 46.33],
           resolution: 44
         }
@@ -83,7 +83,7 @@ export default {
     }
   },
   computed: {
-    bioregionBaseLayers: function () {
+    baseLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -110,9 +110,23 @@ export default {
         })
       ]
     },
+    bioregionBaseLayers: function () {
+      return [
+        ...this.baseLayers //,
+//        new Tile({
+//          preload: Infinity,
+//          source: new XYZ({
+//            url: 'http://ecotopia.today/cascadia/Tiles/Languages/{z}/{x}/{y}.png'
+//          }),
+//          opacity: 1,
+//          minResolution: 2,
+//          maxResolution: 16000
+//        })
+      ]
+    },
     salmonLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -126,31 +140,31 @@ export default {
     },
     chinookLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Chinook.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     cohoLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Coho.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     chumLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Chum.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     sockeyeLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Sockeye.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
     pinkLayers: function () {
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Pink.geojson', 10, 4000, 'rgba(0,0,240, 0.01)', 12)
       ]
     },
@@ -172,7 +186,7 @@ export default {
       })
 
       return [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -187,7 +201,7 @@ export default {
     },
     awakeningLayers: function () {
       return [
-        ...this.bioregionBaseLayers
+        ...this.baseLayers
       ]
     },
     capsLayers: function () {
@@ -196,7 +210,38 @@ export default {
       // // const colorIndex = colIndex1;
       // const colorIndex = Math.ceil(Math.random()*10)
       return [
-        ...this.bioregionBaseLayers,
+        new Tile({
+          source: new XYZ({
+            url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 0.9,
+          minResolution: 10
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia-new/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2
+        }),
+        new Tile({
+          source: new BingMaps({
+            key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+            imagerySet: 'Aerial'
+          }),
+          opacity: 0.2,
+          minResolution: 2,
+          maxResolution: 10
+        }),
+        new Tile({
+          source: new XYZ({
+            url: 'https://api.mapbox.com/styles/v1/bkholmes/cjr6z7svt00n82rqm1y3igze4/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmtob2xtZXMiLCJhIjoiNjlkYjI4MDUyYTRlZWEyYzkwYTdmOTgxNmMzOGYwMTUifQ.VSUo52PYOUzS60NR6jqXTw'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 400
+        }),
         new Tile({
           preload: Infinity,
           source: new XYZ({
@@ -207,7 +252,7 @@ export default {
         })
       ]
     },
-    deconstructionLayers: function () {
+    arrowheadLayers: function () {
       return [
         new Tile({
           preload: Infinity,
@@ -314,8 +359,8 @@ export default {
         case 'bioregionAwakeningCaps':
           this.initBioregionAwakeningCaps()
           break
-        case 'bioregionAwakeningDeconstruction':
-          this.initBioregionAwakeningDeconstruction()
+        case 'bioregionAwakeningArrowhead':
+          this.initBioregionAwakeningArrowhead()
           break
         default:
           this.initBioregionIntro()
@@ -421,7 +466,7 @@ export default {
       this.initBaseMap()
       // Here I attempt to reuse the code from WatershedDamsTransformation
       const bioregionAwakeningLayersAnimation = [
-        ...this.bioregionBaseLayers,
+        ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 0)', 4)
       ]
       if (this.bioregionAwakeningIsAnimating) {
@@ -453,18 +498,18 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.caps.center),
         resolution: this.centerPoints.caps.resolution,
-        minResolution: 20,
+        minResolution: 2,
         maxResolution: 8000
       }))
     },
-    initBioregionAwakeningDeconstruction: function () {
+    initBioregionAwakeningArrowhead: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.deconstructionLayers
+        layers: this.arrowheadLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.deconstruction.center),
-        resolution: this.centerPoints.deconstruction.resolution,
+        center: fromLonLat(this.centerPoints.arrowhead.center),
+        resolution: this.centerPoints.arrowhead.resolution,
         minResolution: 2,
         maxResolution: 8000
       }))

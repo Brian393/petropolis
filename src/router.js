@@ -233,10 +233,10 @@ export default new Router({
       }
     },
     {
-      path: '/bioregion/awakening/deconstruction',
-      name: 'bioregionAwakeningDeconstruction',
+      path: '/bioregion/awakening/arrowhead',
+      name: 'bioregionAwakeningArrowhead',
       components: {
-        default: () => import('./views/bioregion/BioregionAwakeningDeconstruction.vue'),
+        default: () => import('./views/bioregion/BioregionAwakeningArrowhead.vue'),
         map: MapBioregion
       }
     }
