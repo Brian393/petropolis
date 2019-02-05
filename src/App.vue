@@ -4,7 +4,7 @@
       <nav>
         <span>&nbsp;</span>
         <router-link to="/megaregion/introduction" v-bind:class="{active: $route.name && $route.name.match('megaregion')}" @click.native="routeClick('/megaregion/introduction')">Megaregion</router-link>
-        <router-link to="/watershed/introduction" v-bind:class="{active: $route.name && $route.name.match('watershed')}" @click.native="routeClick('/watershed/introduction')">Watershed</router-link>
+        <router-link to="/watershed/acknowledgement" v-bind:class="{active: $route.name && $route.name.match('watershed')}" @click.native="routeClick('/watershed/acknowledgement')">Watershed</router-link>
         <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}" @click.native="routeClick('/bioregion/introduction')">Bioregion</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
@@ -34,7 +34,7 @@
 #app {
   /* Steven 1/18 */
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:  'Helvetica', Arial, and Monospace;
+  font-family:  'Garamond', Arial, and Monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;

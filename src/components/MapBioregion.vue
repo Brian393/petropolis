@@ -112,16 +112,7 @@ export default {
     },
     bioregionBaseLayers: function () {
       return [
-        ...this.baseLayers //,
-//        new Tile({
-//          preload: Infinity,
-//          source: new XYZ({
-//            url: 'http://ecotopia.today/cascadia/Tiles/Languages/{z}/{x}/{y}.png'
-//          }),
-//          opacity: 1,
-//          minResolution: 2,
-//          maxResolution: 16000
-//        })
+        ...this.baseLayers
       ]
     },
     salmonLayers: function () {

@@ -73,7 +73,7 @@ import Accordion from '../../components/Accordion.vue'
 import {eventBus} from '../../main'
 
 export default {
-  name: 'WatershedFalls',
+  name: 'BioregionSalmon',
   components: {
     Accordion,
     AppLightBox

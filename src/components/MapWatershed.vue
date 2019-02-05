@@ -19,6 +19,10 @@ export default {
     return {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
+        acknowledgement: {
+          center: [-120.8, 46.7],
+          resolution: 1800
+        },
         introductionwater: {
           center: [-120.4, 46.6],
           resolution: 750
@@ -60,13 +64,50 @@ export default {
           resolution: 900
         }
       }, // end centerPoints
-      watershedDamsTransformationIsAnimating: true,
+      WatershedDamsIsAnimating: true,
       didSetSingleclickEvent: false,
       listenerKeys: [],
       animTimeouts: []
     }
   },
   computed: {
+    acknowledgementLayers: function () {
+      return [
+        new Tile({
+          source: new XYZ({
+            url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 0.7,
+          minResolution: 5
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaTopography/{z}/{x}/{y}.png'
+          }),
+          opacity: 0.6,
+          minResolution: 2
+        }),
+        new Tile({
+          source: new XYZ({
+            url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
+          }),
+          opacity: 0.7,
+          minResolution: 2,
+          maxResolution: 8
+        }),
+        new Tile({
+          preload: Infinity,
+          source: new XYZ({
+            url: 'http://ecotopia.today/cascadia/Tiles/Languages/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 2,
+          maxResolution: 16000
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/CascadiaOutline.geojson', 1, 8000, 'rgba(60, 20, 20, 0.5)', 1, 'rgba(255, 255, 0, 0.0)')
+      ]
+    },
     watershedBaseLayers: function () {
       return [
         new Tile({
@@ -103,7 +144,13 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/planned.geojson', 'icons/stopit.png', null, 2, 32000)
       ]
     },
-    watershedFallsLayers: function () {
+    watershedDamsLayers: function () {
+      return [
+        ...this.watershedBaseLayers,
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/watershedDamsAll.geojson', null, 2, 32000, 1)
+      ]
+    },
+    watershedDamsFallsLayers: function () {
       return [
         ...this.watershedBaseLayers,
         this.makeGeoJSONPointVectorLayer('geojson/Falls/Celilo.geojson', 'images/Falls/Celilo.png', null, 2, 32000, 1),
@@ -113,12 +160,6 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Falls/SpokaneFalls.geojson', 'images/Falls/SpokaneFalls.png', null, 2, 32000, 1),
         this.makeGeoJSONPointVectorLayer('geojson/Falls/WillametteFalls.geojson', 'images/Falls/WillametteFalls.png', null, 2, 32000, 1),
         this.makeGeoJSONPointVectorLayer('geojson/Falls/Cascades.geojson', 'images/Falls/CascadesRapids.png', null, 2, 32000, 1)
-      ]
-    },
-    watershedDamsTransformationLayers: function () {
-      return [
-        ...this.watershedBaseLayers,
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/watershedDamsAll.geojson', null, 2, 32000, 1)
       ]
     },
     watershedHanfordLayers: function () {
@@ -217,19 +258,22 @@ export default {
   },
   methods: {
     initMap: function () {
-      this.watershedDamsTransformationIsAnimating = true
+      this.WatershedDamsIsAnimating = true
       switch (this.$route.name) {
+        case 'watershedAcknowledgement':
+          this.initWatershedAcknowledgement()
+          break
         case 'watershedIntroduction':
-          this.initWatershedIntro()
+          this.initWatershedIntroduction()
           break
         case 'watershedTerminals':
           this.initWatershedTerminals()
           break
-        case 'watershedFalls':
-          this.initWatershedFalls()
+        case 'watershedDams':
+          this.initWatershedDams()
           break
-        case 'watershedDamsTransformation':
-          this.initWatershedDamsTransformation()
+        case 'watershedDamsFalls':
+          this.initWatershedDamsFalls()
           break
         case 'watershedHanford':
           this.initWatershedHanford()
@@ -244,7 +288,7 @@ export default {
           this.initWatershedHanfordFloods()
           break
         default:
-          this.initWatershedIntro()
+          this.initWatershedAcknowledgement()
       }
       this.olmap.on('pointermove', (e) => {
         const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
@@ -260,7 +304,19 @@ export default {
         }
       })
     },
-    initWatershedIntro: function () {
+    initWatershedAcknowledgement: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.acknowledgementLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.acknowledgement.center),
+        resolution: this.centerPoints.acknowledgement.resolution,
+        minResolution: 2,
+        maxResolution: 32000
+      }))
+    },
+    initWatershedIntroduction: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.watershedBaseLayers
@@ -285,28 +341,15 @@ export default {
         })
       )
     },
-    initWatershedFalls: function () {
+    initWatershedDams: function () {
       this.initBaseMap()
-      this.olmap.setLayerGroup(new Group({
-        layers: this.watershedFallsLayers
-      }))
-      this.olmap.setView(
-        new View({
-          center: fromLonLat(this.centerPoints.dams.center),
-          resolution: this.centerPoints.dams.resolution,
-          minResolution: 2
-        })
-      )
-    },
-    initWatershedDamsTransformation: function () {
-      this.initBaseMap()
-      // note: instead of using a computed property for watershedDamsTransformationLayersAnimation we need to re-initialize this to re-start the animation setTimeouts (via 'route-click' handler)
-      const watershedDamsTransformationLayersAnimation = [
+      // note: instead of using a computed property for WatershedDamsLayersAnimation we need to re-initialize this to re-start the animation setTimeouts (via 'route-click' handler)
+      const WatershedDamsLayersAnimation = [
         ...this.watershedBaseLayers,
         this.makeGeoJSONPointVectorLayer('geojson/watershedDamsTransformation.geojson', 'icons/damOther.png', null, 2, 32000, 0)
       ]
-      if (this.watershedDamsTransformationIsAnimating) {
-        watershedDamsTransformationLayersAnimation[3].getSource().on('addfeature', (e) => {
+      if (this.WatershedDamsIsAnimating) {
+        WatershedDamsLayersAnimation[3].getSource().on('addfeature', (e) => {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
             const timeout = setTimeout(() => {
               this.flash(e.feature)
@@ -317,8 +360,8 @@ export default {
       }
       if (!this.didSetSingleclickEvent) {
         this.olmap.on('singleclick', (e) => {
-          if (this.$route.name === 'watershedDamsTransformation' && this.watershedDamsTransformationIsAnimating) {
-            this.watershedDamsTransformationIsAnimating = false
+          if (this.$route.name === 'WatershedDams' && this.WatershedDamsIsAnimating) {
+            this.WatershedDamsIsAnimating = false
             this.listenerKeys.forEach((key) => {
               unByKey(key)
             })
@@ -326,19 +369,32 @@ export default {
               clearTimeout(timeout)
             })
             this.olmap.setLayerGroup(new Group({
-              layers: this.watershedDamsTransformationLayers
+              layers: this.WatershedDamsLayers
             }))
           }
         })
         this.didSetSingleclickEvent = true
       }
       this.olmap.setLayerGroup(new Group({
-        layers: watershedDamsTransformationLayersAnimation
+        layers: WatershedDamsLayersAnimation
       }))
       this.olmap.setView(
         new View({
           center: fromLonLat(this.centerPoints.transformation.center),
           resolution: this.centerPoints.transformation.resolution,
+          minResolution: 2
+        })
+      )
+    },
+    initWatershedDamsFalls: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.watershedDamsFallsLayers
+      }))
+      this.olmap.setView(
+        new View({
+          center: fromLonLat(this.centerPoints.dams.center),
+          resolution: this.centerPoints.dams.resolution,
           minResolution: 2
         })
       )

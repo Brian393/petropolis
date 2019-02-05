@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import WatershedIntroduction from './views/watershed/WatershedIntroduction.vue'
+import WatershedAcknowledgement from './views/watershed/WatershedAcknowledgement.vue'
 import MapWatershed from './components/MapWatershed.vue'
 import MapMegaregion from './components/MapMegaregion.vue'
 import MapBioregion from './components/MapBioregion.vue'
@@ -11,13 +11,21 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/watershed/introduction'
+      redirect: '/watershed/acknowledgement'
+    },
+    {
+      path: '/watershed/acknowledgement',
+      name: 'watershedAcknowledgement',
+      components: {
+        default: WatershedAcknowledgement,
+        map: MapWatershed
+      }
     },
     {
       path: '/watershed/introduction',
       name: 'watershedIntroduction',
       components: {
-        default: WatershedIntroduction,
+        default: () => import('./views/watershed/WatershedIntroduction.vue'),
         map: MapWatershed
       }
     },
@@ -33,18 +41,18 @@ export default new Router({
       }
     },
     {
-      path: '/watershed/falls',
-      name: 'watershedFalls',
+      path: '/watershed/dams',
+      name: 'watershedDams',
       components: {
-        default: () => import('./views/watershed/WatershedFalls.vue'),
+        default: () => import('./views/watershed/WatershedDams.vue'),
         map: MapWatershed
       }
     },
     {
-      path: '/watershed/dams/transformation',
-      name: 'watershedDamsTransformation',
+      path: '/watershed/dams/falls',
+      name: 'watershedDamsFalls',
       components: {
-        default: () => import('./views/watershed/WatershedDamsTransformation.vue'),
+        default: () => import('./views/watershed/WatershedDamsFalls.vue'),
         map: MapWatershed
       }
     },
