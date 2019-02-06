@@ -20,8 +20,8 @@ export default {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         acknowledgement: {
-          center: [-120.8, 46.7],
-          resolution: 1800
+          center: [-121.36, 47.7],
+          resolution: 2000
         },
         introductionwater: {
           center: [-120.4, 46.6],
@@ -77,15 +77,15 @@ export default {
           source: new XYZ({
             url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png'
           }),
-          opacity: 0.7,
+          opacity: 1,
           minResolution: 5
         }),
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://ecotopia.today/cascadia/Tiles/CascadiaTopography/{z}/{x}/{y}.png'
+            url: 'http://ecotopia.today/cascadia/Tiles/Cascadia-new/{z}/{x}/{y}.png'
           }),
-          opacity: 0.6,
+          opacity: 1,
           minResolution: 2
         }),
         new Tile({
@@ -104,10 +104,9 @@ export default {
           opacity: 1,
           minResolution: 2,
           maxResolution: 16000
-        }),
-        this.makeGeoJSONFillVectorLayer('geojson/CascadiaOutline.geojson', 1, 8000, 'rgba(60, 20, 20, 0.5)', 1, 'rgba(255, 255, 0, 0.0)')
-      ]
-    },
+        })
+    ]
+   },
     watershedBaseLayers: function () {
       return [
         new Tile({
@@ -312,7 +311,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.acknowledgement.center),
         resolution: this.centerPoints.acknowledgement.resolution,
-        minResolution: 2,
+        minResolution: 40,
         maxResolution: 32000
       }))
     },

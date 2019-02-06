@@ -36,7 +36,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
         <p>As treaty negotiations dragged on, a veritable frenzy of dam-building seized the Pacific Northwest, with the future prospects of aluminum production, aviation, river commerce and recreation all dependent on increased hydrological control. Finally in 1964 the details of construction and compensation were haggled out, along with contracts for the sale of surplus Canadian hydroelectricity. The Columbia River Treaty was signed and the Mica, Duncan, Libby and Keenleyside dams were erected, creating an upriver storage system that canceled the chaotic surge of spring snowmelt.</p>
 
-        <img src="images/BPA-Dittmer-Control-Center.jpg" class="fullwidth"></a>
+        <img src="images/BPA-Dittmer-Control-Center.jpg" class="fullwidth">
         <div class="caption">BPA Dittmer Control Center, Vancouver, WA (source <a href="https://www.energy.gov/oe/articles/bpa-grid-modernization-and-setting-nation-success" target="_blank" rel="nofollow">here</a>)</div>
 
         <p>At present the Pacific Northwest Coordination Agreement regulates the annual flow of the entire transborder system, in a highly computerized attempt at harmonizing the fluctuating demands of power production, flood control, navigation, recreation and the survival of endangered fish species. Within a single river reach -- such as the Lower, Middle or Upper Columbia -- as many as ten dams will synchronize their water releases on an hourly basis, producing a managed diurnal pulse that has become second nature. Not the vagaries of the snowpack or the afternoon weather, but a logic of efficiency and optimization shapes the flow of the Columbia River.</p>

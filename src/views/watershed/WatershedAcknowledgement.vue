@@ -1,21 +1,43 @@
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>Land Acknowledgement</h1>
+      <h1>Language acknowledgement</h1>
     </div>
-    <img src="images/falls.jpg" class="fullwidth">
-    <br>
-    <div class="caption">many languages are spoken here</div>
-    <br>
+    <img src="images/falls.jpg" class="fullwidth"><div class="caption">first name unknown</div>
 
-    <p></p>
+    <p><strong>We begin with respect:</strong></p>
 
-    <p></p>
+    <p>All the land that is now called North America was inhabited for thousands of years before the European colonizers came.</p>
 
-    <p></p>
+    <p>Ancient tongues gave names to these hills, these mountains, these rivers, these waterfalls too, long in advance of modern English.</p>
 
-    <p></p>
+    <p>In this atlas we will name many places, to tell stories about the Columbia River and Cascadia. But first we name the Indigenous languages of this land, to give at least some idea of where they were spoken.</p>
+
+    <p>Are there foreign tongues in the place you call home? Is English a foreign tongue in the place you call home?</p>
+
+    <p>The tragedies of colonization stole the songs from the land and left some of the traditions sleeping. We must remember war, plunder and millions of deaths from disease, along with ongoing prejudice, inequality and ecological devastation. Yet a great awakening is underway. Freed from within, new generations of Indigenous people are finding the words of their ancestors, to revive intimate memories and accomplish an urgent transformation in the stewardship of the territory.</p>
+
+    <p>All whose forebears crossed the seas, or were forced to the crossing, can lend their hands to make a change in this new and dangerous era.</p>
+
+    <p>Those who speak the modern tongues, may you learn to honor the ancient ones. Those who want to see the earth survive the long history of colonization, may you now raise your voices.</p>
 <br>
+<Accordion :open="false">
+  <h3 slot="header">sources</h3>
+  <div class="flex">
+    <p>Language locations: <a href="https://native-land.ca">native-land.ca</a>.<br><br>Further information: <a href="http://www.native-languages.org">native-languages.org</a>.<br><br>World Physical Map: <a href="http://server.arcgisonline.com/arcgis/rest/services/World_Physical_Map/MapServer">Esri/US National Park Service</a>.</p>
+  </div>
+</Accordion>
+
+<Accordion :open="false">
+  <h3 slot="header">authorship</h3>
+  <div class="flex">
+    <p><strong>Brian Holmes</strong>: concept, cartography, text<br><br><strong>Mack McFarland</strong>: curation, outreach<br><br><strong>edward sharp</strong>: programming in Vue<br><br><strong>Jodi Darby</strong>: video interviews<br><br><strong>Claire Pentecost</strong>: title</p>
+  </div>
+</Accordion>
+
+
+  </div>
+</Accordion>
 
   </div>
 </template>

@@ -14,8 +14,7 @@ import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
 import jQuery from 'jQuery'
 let colormap = require('colormap')
-let colIndex = 0;
-let colIndex1 = 0;
+let colIndex = 0
 
 export default {
   name: 'MapBioregion',
@@ -274,10 +273,10 @@ export default {
   mounted: function () {
     this.initMap()
     this.colors = colormap({
-        colormap: 'portland',
-        nshades: 32,
-        format: 'hex',
-        alpha: 1
+      colormap: 'portland',
+      nshades: 32,
+      format: 'hex',
+      alpha: 1
     })
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
@@ -526,8 +525,8 @@ export default {
       const featurePurpose = feature.values_['purpose'] || ''
       const start = new Date().getTime()
       // const colorIndex = Math.ceil(Math.random()*16)
-      colIndex = (colIndex+1)%32;
-      const colorIndex = colIndex;
+      colIndex = (colIndex + 1) % 32
+      const colorIndex = colIndex
       const listenerKey = this.olmap.on('postcompose', (event) => {
         const duration = 1800
         const elapsed = event.frameState.time - start
