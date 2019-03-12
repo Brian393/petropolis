@@ -59,7 +59,7 @@ export default {
           center: [-117.344, 45.4415],
           resolution: 1.9
         },
-        awakening: {
+        dancing: {
           center: [-121.9, 45.35],
           resolution: 780
         },
@@ -72,7 +72,7 @@ export default {
           resolution: 44
         }
       }, // end centerPoints
-      bioregionAwakeningIsAnimating: true,
+      bioregionDancingIsAnimating: true,
       didSetSingleclickEvent: false,
       listenerKeys: [],
       animTimeouts: [],
@@ -189,7 +189,7 @@ export default {
         USGStopoTile
       ]
     },
-    awakeningLayers: function () {
+    dancingLayers: function () {
       return [
         ...this.baseLayers
       ]
@@ -317,7 +317,7 @@ export default {
   },
   methods: {
     initMap: function () {
-      this.bioregionAwakeningIsAnimating = true
+      this.bioregionDancingIsAnimating = true
       switch (this.$route.name) {
         case 'bioregionIntroduction':
           this.initBioregionIntro()
@@ -343,14 +343,14 @@ export default {
         case 'bioregionRestoration':
           this.initBioregionRestoration()
           break
-        case 'bioregionAwakening':
-          this.initBioregionAwakening()
+        case 'bioregionDancing':
+          this.initBioregionDancing()
           break
-        case 'bioregionAwakeningCaps':
-          this.initBioregionAwakeningCaps()
+        case 'bioregionDancingCaps':
+          this.initBioregionDancingCaps()
           break
-        case 'bioregionAwakeningArrowhead':
-          this.initBioregionAwakeningArrowhead()
+        case 'bioregionDancingArrowhead':
+          this.initBioregionDancingArrowhead()
           break
         default:
           this.initBioregionIntro()
@@ -452,15 +452,15 @@ export default {
         maxResolution: 8000
       }))
     },
-    initBioregionAwakening: function () {
+    initBioregionDancing: function () {
       this.initBaseMap()
       // Here I attempt to reuse the code from WatershedDamsTransformation
-      const bioregionAwakeningLayersAnimation = [
+      const bioregionDancingLayersAnimation = [
         ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 0)', 4)
       ]
-      if (this.bioregionAwakeningIsAnimating) {
-        bioregionAwakeningLayersAnimation[3].getSource().on('addfeature', (e) => {
+      if (this.bioregionDancingIsAnimating) {
+        bioregionDancingLayersAnimation[3].getSource().on('addfeature', (e) => {
           if (!isNaN(parseInt(e.feature.values_['id']))) {
             const timeout = setTimeout(() => {
               this.flash(e.feature)
@@ -470,17 +470,17 @@ export default {
         })
       }
       this.olmap.setLayerGroup(new Group({
-        layers: bioregionAwakeningLayersAnimation
+        layers: bioregionDancingLayersAnimation
       }))
       this.olmap.setView(
         new View({
-          center: fromLonLat(this.centerPoints.awakening.center),
-          resolution: this.centerPoints.awakening.resolution,
+          center: fromLonLat(this.centerPoints.dancing.center),
+          resolution: this.centerPoints.dancing.resolution,
           minResolution: 2
         })
       )
     },
-    initBioregionAwakeningCaps: function () {
+    initBioregionDancingCaps: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.capsLayers
@@ -492,7 +492,7 @@ export default {
         maxResolution: 8000
       }))
     },
-    initBioregionAwakeningArrowhead: function () {
+    initBioregionDancingArrowhead: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.arrowheadLayers

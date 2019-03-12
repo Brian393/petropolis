@@ -155,11 +155,11 @@ export default {
           {
             name: 'Restoration',
             href: '/bioregion/restoration'
-          } // ,
-//          {
-//            name: 'Awakening',
-//            href: '/bioregion/awakening'
-//          }
+          },
+          {
+            name: 'Dancing',
+            href: '/bioregion/dancing'
+          }
         ]
       },
       subItems: {
@@ -227,14 +227,14 @@ export default {
             href: '/bioregion/salmon/pink'
           }
         ],
-        awakening: [
+        dancing: [
           {
             name: 'Children\'s Dance Caps',
-            href: '/bioregion/awakening/caps'
+            href: '/bioregion/dancing/caps'
           },
           {
             name: 'ARROWHEAD',
-            href: '/bioregion/awakening/arrowhead'
+            href: '/bioregion/dancing/arrowhead'
           }
         ]
       }
@@ -280,8 +280,8 @@ export default {
         this.navSubItems = this.subItems.salmon
       } else if (/bioregionRestoration/.test(this.$route.name)) {
         this.navSubItems = this.subItems.restoration
-      } else if (/bioregionAwakening/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.awakening
+      } else if (/bioregionDancing/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.dancing
       } else {
         this.navSubItems = []
       }

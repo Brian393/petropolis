@@ -225,26 +225,26 @@ export default new Router({
       }
     },
     {
-      path: '/bioregion/awakening',
-      name: 'bioregionAwakening',
+      path: '/bioregion/dancing',
+      name: 'bioregionDancing',
       components: {
-        default: () => import('./views/bioregion/BioregionAwakening.vue'),
+        default: () => import('./views/bioregion/BioregionDancing.vue'),
         map: MapBioregion
       }
     },
     {
-      path: '/bioregion/awakening/caps',
-      name: 'bioregionAwakeningCaps',
+      path: '/bioregion/dancing/caps',
+      name: 'bioregionDancingCaps',
       components: {
-        default: () => import('./views/bioregion/BioregionAwakeningCaps.vue'),
+        default: () => import('./views/bioregion/BioregionDancingCaps.vue'),
         map: MapBioregion
       }
     },
     {
-      path: '/bioregion/awakening/arrowhead',
-      name: 'bioregionAwakeningArrowhead',
+      path: '/bioregion/dancing/arrowhead',
+      name: 'bioregionDancingArrowhead',
       components: {
-        default: () => import('./views/bioregion/BioregionAwakeningArrowhead.vue'),
+        default: () => import('./views/bioregion/BioregionDancingArrowhead.vue'),
         map: MapBioregion
       }
     }
