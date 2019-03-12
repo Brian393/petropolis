@@ -22,14 +22,14 @@
     <p>Those who speak the modern tongues, may you learn to honor the ancient ones. Those who want to see the earth survive the long history of colonization, may you now raise your voices.</p>
 <br>
 <Accordion :open="false">
-  <h3 slot="header">sources</h3>
+  <h3 slot="header">sources of this map</h3>
   <div class="flex">
     <p>Language locations: <a href="https://native-land.ca">native-land.ca</a>.<br><br>Further information: <a href="http://www.native-languages.org">native-languages.org</a>.<br><br>World Physical Map: <a href="http://server.arcgisonline.com/arcgis/rest/services/World_Physical_Map/MapServer">Esri/US National Park Service</a>.</p>
   </div>
 </Accordion>
 
 <Accordion :open="false">
-  <h3 slot="header">authorship</h3>
+  <h3 slot="header">authorship of this atlas</h3>
   <div class="flex">
     <p><strong>Brian Holmes</strong>: concept, cartography, text<br><br><strong>Mack McFarland</strong>: curation, outreach<br><br><strong>edward sharp</strong>: programming in Vue<br><br><strong>Jodi Darby</strong>: video interviews<br><br><strong>Claire Pentecost</strong>: title</p>
   </div>
