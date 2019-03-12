@@ -1,9 +1,9 @@
 <template>
   <div class="aside-content">
     <div class="title">
-      <h1>Language acknowledgement</h1>
+      <h1>Acknowledgement<br>of land and language</h1>
     </div>
-    <img src="images/falls.jpg" class="fullwidth"><div class="caption">first name unknown</div>
+    <img src="images/falls.jpg" class="fullwidth"><div class="caption">first name still unknown</div>
 
     <p><strong>We begin with respect:</strong></p>
 
