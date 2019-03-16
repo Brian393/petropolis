@@ -23,6 +23,7 @@ color: #333333; font-style: italic; text-align: center;
       <div class="mapInfo-section1" />
       <div class="mapInfo-section2" />
       <div class="mapInfo-section3" />
+      <div class="mapInfo-section4" />
     </div>
     <div class="title">
       <h1><span style="font-align: center;">Cache VII<br>This is us dancing</span></h1></div>
@@ -96,7 +97,7 @@ color: #333333; font-style: italic; text-align: center;
   top: 50%;
   left: 30px;
   color: #ffffff;
-  max-width: 300px;
+  max-width: auto;
   background-color: rgba(29, 84, 123, 0.2);
   text-align: left;
 }

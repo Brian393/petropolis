@@ -454,7 +454,7 @@ export default {
     },
     initBioregionDancing: function () {
       this.initBaseMap()
-      // Here I attempt to reuse the code from WatershedDamsTransformation
+      // Here I reuse the code from WatershedDamsTransformation
       const bioregionDancingLayersAnimation = [
         ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/Mileage.geojson', 10, 4000, 'rgba(255, 0, 0, 0)', 4)
@@ -520,6 +520,7 @@ export default {
       ctx.clip()
     },
     flash: function (feature) {
+      const featureTitle = feature.values_['title'] || ''
       const featureDate = feature.values_['date'] || ''
       const featureRoute = feature.values_['route'] || ''
       const featurePurpose = feature.values_['purpose'] || ''
@@ -533,15 +534,16 @@ export default {
         const elapsedRatio = elapsed / duration
         const opacity = easeOut(1.2 - elapsedRatio)
         // Steven 1/18
-        jQuery('div.mapInfo-section1').text(featureDate)
-        jQuery('div.mapInfo-section2').text(featureRoute)
-        jQuery('div.mapInfo-section3').text(featurePurpose)
+        jQuery('div.mapInfo-section1').text(featureTitle)
+        jQuery('div.mapInfo-section2').text(featureDate)
+        jQuery('div.mapInfo-section3').text(featureRoute)
+        jQuery('div.mapInfo-section4').text(featurePurpose)
         feature.setStyle([
           new Style({
             stroke: new Stroke({
               // color: 'rgba(255, 0, 0, 1)',
               color: this.colors[colorIndex],
-              width: 3.5
+              width: 3.8
             })
           })
         ])
