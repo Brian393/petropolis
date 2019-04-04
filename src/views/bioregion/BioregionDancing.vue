@@ -27,10 +27,11 @@ color: #333333; font-style: italic; text-align: center;
     </div>
     <div class="title">
       <h1><span style="font-align: center;">Cache VII<br>This is us dancing</span></h1></div>
-    <div class="video">
+      <img src="images/VideoInterview.png" class="fullwidth">
+<!--    <div class="video">
       <iframe width="350" height="197" src="https://player.vimeo.com/video/309347715?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    </div>
-    <div class="caption">&mdash;video by Jodi Darby&mdash;<br></div>
+</div> -->
+    <div class="caption">&mdash;video by Jodi Darby, forthcoming&mdash;<br></div>
 
     <Accordion>
       <h3 slot="header">legends</h3>
