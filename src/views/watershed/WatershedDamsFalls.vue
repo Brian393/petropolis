@@ -27,6 +27,9 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             </div>
         </Accordion>
 
+        <p><audio controls><source src='audio/Falls2.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
+
       <p>On May 10, 1957, the gates of the powerhouse at The Dalles Dam were lowered, blocking the flow of the Columbia River. In just a few hours, the rapids that had roared through The Long Narrows since time immemorial were silenced by the rising waters.</p>
 
       <p>What changed on that day?</p>

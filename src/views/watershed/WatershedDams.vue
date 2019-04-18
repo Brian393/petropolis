@@ -22,6 +22,8 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             </div>
         </Accordion>
 
+        <p><audio controls><source src='audio/Dams2.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
         <p>Anyone who longs for wild rivers is going to be disappointed by the Columbia.</p>
 
         <p>The construction of municipal dams for hydropower and flood control on the Columbia and Snake rivers began as early as 1904. The far larger Bonneville and Grand Coulee dams were federal projects of the Roosevelt era, carried out by the Army Corps of Engineers and the Bueau of Reclamation, and completed in 1937 and 1941 respectively.</p>

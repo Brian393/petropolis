@@ -13,7 +13,8 @@
         <p>This is a work in progress. It's full of insights, but also gaps, errors and hidden prejudices or distortions that the authors cannot see. You're welcome to enjoy it and to help make it better. If you'd like to see something here, or have comments or critiques or a revelation to share, just send a message to learningfromcascadia AT gmail.com.</p>
       </div>
     </Accordion>
-    <br>
+
+    <p><audio controls><source src='audio/Introduction2.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
 
     <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is more than a beautiful view.</p>
 

@@ -27,16 +27,15 @@ color: #333333; font-style: italic; text-align: center;
     </div>
     <div class="title">
       <h1><span style="font-align: center;">Cache VII<br>This is us dancing</span></h1></div>
-      <img src="images/VideoInterview.png" class="fullwidth">
-<!--    <div class="video">
+    <div class="video">
       <iframe width="350" height="197" src="https://player.vimeo.com/video/309347715?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div> -->
-    <div class="caption">&mdash;video by Jodi Darby, forthcoming&mdash;<br></div>
+    </div>
+    <div class="caption">&mdash;video by Jodi Darby&mdash;<br></div>
 
     <Accordion>
       <h3 slot="header">legends</h3>
       <div class="flex">
-        <p>This page records Sara Siestreem's travels in 2018, under the title "Seasonal Round." Each circle represents a journey devoted to the development of her practice.</p>
+        <p>This page records Sara Siestreem's travels in 2018, under the title "Seasonal Round." The beautiful design idea is hers. Each circle represents a journey devoted to the development of her practice.</p>
       </div>
     </Accordion>
     <br>
@@ -75,7 +74,7 @@ color: #333333; font-style: italic; text-align: center;
 
 <Accordion>
   <h3 slot="header">materials 2018</h3>
-  <p><strong>Cat Tail</strong><br>Ridgefield Wildlife Reserve, Chinook Land, WA<br>Smith River, OR<br>Charleston, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>), the McNutt Family(<span style="font-variant: small-caps;">miluk coos, snuneymuxw, menomonee</span>) the Russell Family (<span style="font-variant: small-caps;">miluk coos</span>), the Petrie Family (<span style="font-variant: small-caps;">miluk coos</span> and <span style="font-variant: small-caps;">alaskan native</span>), the Medina Family (<span style="font-variant: small-caps;">miluk coos, mexican</span> and <span style="font-variant: small-caps;">filipino</span>)<br><br><strong>Sedge</strong><br>Smith River, OR<br>Umpqua River, OR<br>Charleston, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>) and Ashely Russell(<span style="font-variant: small-caps;">miluk coos</span>)<br><br><strong>Bear Grass</strong><br>Tillamook Forest, OR<br>Salmon Ceremony Gardens, Coos Bay, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>) and Doc Slyder (<span style="font-variant: small-caps;">haniscoos</span>)<br><br><strong>Tule</strong><br>Coos Bay Estuary, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>), Doc Slyder (<span style="font-variant: small-caps;">hanis coos</span>), and Scott Slyder</p>
+  <p><strong>Cat Tail</strong><br>Ridgefield Wildlife Reserve, Chinook Land, WA<br>Smith River, OR<br>Charleston, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>), the McNutt Family(<span style="font-variant: small-caps;">miluk coos, snuneymuxw, menomonee</span>) the Russell Family (<span style="font-variant: small-caps;">miluk coos</span>), the Petrie Family (<span style="font-variant: small-caps;">miluk coos</span> and <span style="font-variant: small-caps;">alaskan native</span>), the Medina Family (<span style="font-variant: small-caps;">miluk coos, mexican</span> and <span style="font-variant: small-caps;">filipino</span>)<br><br><strong>Sedge</strong><br>Smith River, OR<br>Umpqua River, OR<br>Charleston, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>) and Ashley Russell(<span style="font-variant: small-caps;">miluk coos</span>)<br><br><strong>Bear Grass</strong><br>Tillamook Forest, OR<br>Salmon Ceremony Gardens, Coos Bay, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>) and Doc Slyter (<span style="font-variant: small-caps;">haniscoos</span>)<br><br><strong>Tule</strong><br>Coos Bay Estuary, OR<br>Gathered by:<br>Sara Siestreem (<span style="font-variant: small-caps;">hanis coos</span>), Doc Slyter (<span style="font-variant: small-caps;">hanis coos</span>), and Scott Slyter</p>
 </Accordion>
 
 </div>

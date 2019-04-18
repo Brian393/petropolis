@@ -29,6 +29,10 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         <img src="icons/stop.png">&nbsp;Each marker locates one of the fossil-fuel terminals that has been stopped by citizen activism. A history of the movement, by its participants, is contained in the Twitter feeds that show up when you click on the icons.
       </div>
     </Accordion>
+
+    <p><audio controls><source src='audio/Terminals2.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
+
     <div class="justify">
       <p>One thing Cascadia has to teach is activism&mdash;successful activism. Success takes organized groups and spontaneous grassroots movements. The following sections of the map have been developed with an advocacy group, <a href="https://columbiariverkeeper.org" target="_blank" rel="nofollow">Columbia Riverkeeper</a>, in solidarity with dozens of regional organizations and initiatives.</p>
 
