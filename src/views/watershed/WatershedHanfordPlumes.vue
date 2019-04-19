@@ -28,6 +28,8 @@ font-weight: bold; font-style: italic; color: #333333;
           </div>
         </Accordion>
 
+        <p><audio controls><source src='audio/Plumes.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
         <p>What you see on the map are plumes of contaminated groundwater spreading out from leaking tanks buried on the Central Plateau, or infiltrating from the many ditches, pools and pipelines where toxic chemicals were simply dumped without any pretense of containment.</p>
 
         <p>The plumes, which are artifically separated into distinct bodies by the graphic representation, have been identified and tracked by means of samples withdrawn by technicians from hundreds of test wells drilled into the Hanford Reservation, which is roughly twenty-five miles across from east to west.</p>

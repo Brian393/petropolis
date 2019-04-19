@@ -22,6 +22,8 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
           </div>
         </Accordion>
 
+        <p><audio controls><source src='audio/Hanford.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
         <p>The Hanford Nuclear Reservation is an entombed landscape—a vast outdoor monument to the madness of war and the overwhelming power of engineering.</p>
 
         <p>The natural area was used by the Yakama, Nez Perce and Umatilla tribes, and especially by the Wanapum people who lived there year-round. The village of Hanford, like the other settlements surrounding it, was a tumbleweed town where hardscrabble farmers dreamt of irrigation schemes. In December of 1942 Lieutenant Colonel Frank Matthias planted his feet in the dust and said it was good: a vast empty peninsula far from any urban center, but close to existing railroad tracks and high-tension lines from the Bonneville and Grand Coulee dams, and bordered on two sides by the abundant cool waters of the Columbia River.</p>

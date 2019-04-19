@@ -20,7 +20,9 @@ font-weight: bold; font-style: italic; color: #333333;
             </div>
         </Accordion>
 
-        <p>Like the dams and the fossil-fuel system, Hanford is a legacy of twentieth-century modernism. And like the dams and the fossil-fuel system, it still fulfills its opulent promises for some people, even though it is increasingly perceived by the others as a threat.</p>
+        <p><audio controls><source src='audio/Floods.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
+
+        <p>Like the dams and the fossil-fuel system, Hanford is a legacy of twentieth-century modernism. And like the dams and the fossil-fuel system, it still fulfills its opulent promises for some people, even though it is increasingly perceived by others as a threat.</p>
 
         <p>The dams offer hydroelectric power and industrial development to most of the Columbia Basin, while endangering the salmon and the cultural life of the Native American tribes. The fossil-fuel system makes astonishing contributions to human mobility, while placing the entire living planet in jeopardy. Both of these are regional and planetary scale issues. Hanford covers a much smaller territorial footprint, yet still it appears as a hyperbolic case, because the fission products that sprang from its short wartime fever will contaminate the soil and water for incommensurable periods, stretching hundreds of thousands of years into the future.</p>
 

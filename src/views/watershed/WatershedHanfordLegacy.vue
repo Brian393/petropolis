@@ -22,7 +22,7 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 
             </div>
         </Accordion>
-
+        <p><audio controls><source src='audio/Legacy.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
         <p>To understand the Hanford legacy, you have to know something about the production process.</p>
 
         <p>Cylinders of enriched uranium, each about 9 inches long and 1.5 inches wide, were encased in aluminum to facilitate handling. These relatively small slugs were inserted into the middle of long metal tubes set within a graphite core, so as to spark a chain reaction. As the uranium atoms broke apart into fragments—that's "nuclear fission"—multiple transuranic products were formed, including small quantities of highly radioactive substances such as strontium-90, technetium-99, cesium-127, iodine-129 and plutonium-239.</p>
