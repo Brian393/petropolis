@@ -16,9 +16,9 @@
 
     <p><audio controls><source src='audio/Introduction.mp3' type='audio/mpeg'> Your browser does not support the audio element.</audio><br><br></p>
 
-    <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is more than a beautiful view.</p>
+    <p>The Columbia Gorge is one of the most beautiful sights on earth. But a watershed is a lot more than a beautiful view.</p>
 
-    <p>The Columbia River watershed is a far-flung territory including parts of six US states and one Canadian province. Its border is traced, not by governments or treaties, but by every drop of liquid that finds a common path to the ocean.</p>
+    <p>The Columbia River watershed is a far-flung territory including parts of six US states and one Canadian province. Its border is traced, not by governments or treaties, but by every drop of water that finds a common path to the ocean.</p>
 
     <p>Rainfall washes over forested slopes and grassy plains. Snow and ice collect on mountain peaks. Dew glistens on high deserts. Groundwater bubbles up from artesian springs. Pools spill over into rivulets that become creeks and gushing torrents, before rejoining rivers that gradually converge into a powerful flood. A watershed is defined by endless circulation through a territory. What it takes from the clouds, it gives back to <span class="link" @click="emit('set-map-view', {center: [-123.435, 46.213], resolution: 120})">the sea</span>.</p>
 
@@ -28,7 +28,7 @@
 
     <p>The main sections are accessed through the navigational bar at the top, while specific locations and themes are reached by the panel at lower left. Sometimes further buttons appear at the bottom of the map, to take you through more complex stories. When in doubt, just click on any word or marker or object that you see, and there's a good chance it will reveal something.</p>
 
-    <p>Watershed is a scientific category that provides the frame for citizen activism and advocacy. Two riskier and more speculative headings also appear: Megaregion and Bioregion. They're like the red and the blue pill. Which one will you choose? Which one is which?</p>
+    <p>Watershed is a scientific category that provides the frame for citizen activism and advocacy. Two more speculative headings also appear at the top: Megaregion and Bioregion. They're like the red and the blue pill. Which one will you choose? Which one is which?</p>
 
     <p>This project has been made using public research and open-source software, with generous contributions from a growing list of local organizations and inhabitants. Legends for each map can be found at the top of the text column. Sources and collaborators are identified at the end. Pages will be added as new possibilities emerge. The whole thing has been coordinated by a Portland-based artist and curator, Mack McFarland, and by an inquisitive stranger, Brian Holmes, who came to the Pacific Northwest with the quixotic hope of "Learning from Cascadia."</p><br>
 

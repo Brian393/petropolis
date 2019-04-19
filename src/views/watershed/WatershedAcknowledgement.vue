@@ -9,15 +9,15 @@
 
     <p><strong>We begin with respect:</strong></p>
 
-    <p>All the land that is now called North America was inhabited for thousands of years before the European colonizers came.</p>
+    <p>All the land that is now called North America was inhabited for thousands of years before the European colonizers came. Now it's time to remember and to recognize the original inhabitants.</p>
 
     <p>Ancient tongues gave names to these hills, these mountains, these rivers, these waterfalls too, long in advance of modern English.</p>
 
-    <p>In this atlas we will name many places, to tell stories about the Columbia River and Cascadia. But first we name the Indigenous languages of this land, to give at least some idea of where they were spoken.</p>
+    <p>In this atlas we will name many places, to tell stories about the Columbia River and Cascadia. But the first map names the Indigenous languages of this land, to give at least some idea of where they were spoken, and by whom.</p>
 
     <p>Are there foreign tongues in the place you call home? Is English a foreign tongue in the place you call home?</p>
 
-    <p>The tragedies of colonization stole the songs from the land and left some of the traditions sleeping. We must remember war, plunder and millions of deaths from disease, along with ongoing prejudice, inequality and ecological devastation. Yet a great awakening is underway. Freed from within, new generations of Indigenous people are finding the words of their ancestors, to revive intimate memories and accomplish an urgent transformation in the stewardship of the territory.</p>
+    <p>The tragedies of colonization stole the languages from the land and left many of the traditions sleeping. Today we must remember war, plunder and millions of deaths from disease, along with ongoing prejudice, inequality and ecological devastation. Yet a great awakening is underway. Freed from within, by their own efforts, new generations of Indigenous people are finding the words of their ancestors, to revive intimate memories and accomplish an urgent transformation in the stewardship of the territory. It is this that deserves great respect.</p>
 
     <p>All whose forebears crossed the seas, or were forced to the crossing, can lend their hands to make a change in this new and dangerous era.</p>
 
