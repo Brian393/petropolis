@@ -22,46 +22,6 @@ export default {
         acknowledgement: {
           center: [-121.36, 47.7],
           resolution: 2000
-        },
-        introductionwater: {
-          center: [-120.4, 46.6],
-          resolution: 750
-        },
-        introductionbio: {
-          center: [-121.2, 51.0],
-          resolution: 4500
-        },
-        terminals: {
-          center: [-122.9, 45.8],
-          resolution: 220
-        },
-        hanford1: {
-          center: [-119.54, 46.692],
-          resolution: 4
-        },
-        legacy: {
-          center: [-119.529, 46.555],
-          resolution: 6
-        },
-        floods: {
-          center: [-119.605, 46.605],
-          resolution: 54
-        },
-        plumes: {
-          center: [-119.605, 46.605],
-          resolution: 54
-        },
-        stopit: {
-          center: [-122.68, 45.84],
-          resolution: 220
-        },
-        dams: {
-          center: [-119.9, 46.9],
-          resolution: 900
-        },
-        transformation: {
-          center: [-119.9, 46.9],
-          resolution: 900
         }
       }, // end centerPoints
       WatershedDamsIsAnimating: true,
@@ -105,8 +65,8 @@ export default {
           minResolution: 2,
           maxResolution: 16000
         })
-    ]
-   },
+      ]
+    },
     watershedBaseLayers: function () {
       return [
         new Tile({

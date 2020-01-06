@@ -97,24 +97,8 @@ export default {
       watershed: {
         items: [
           {
-            name: 'Remember',
+            name: '',
             href: '/watershed/acknowledgement'
-          },
-          {
-            name: 'Introduction',
-            href: '/watershed/introduction'
-          },
-          {
-            name: 'Terminals',
-            href: '/watershed/terminals'
-          },
-          {
-            name: 'Dams',
-            href: '/watershed/dams'
-          },
-          {
-            name: 'Hanford',
-            href: '/watershed/hanford'
           }
         ]
       },
@@ -145,44 +129,12 @@ export default {
       bioregion: {
         items: [
           {
-            name: 'Introduction',
+            name: '',
             href: '/bioregion/introduction'
-          },
-          {
-            name: 'Salmon',
-            href: '/bioregion/salmon'
-          },
-          {
-            name: 'Restoration',
-            href: '/bioregion/restoration'
-          },
-          {
-            name: 'Dancing',
-            href: '/bioregion/dancing'
           }
         ]
       },
       subItems: {
-        dams: [
-          {
-            name: 'Falls',
-            href: '/watershed/dams/falls'
-          }
-        ],
-        hanford: [
-          {
-            name: 'Legacy',
-            href: '/watershed/hanford/legacy'
-          },
-          {
-            name: 'Plumes',
-            href: '/watershed/hanford/plumes'
-          },
-          {
-            name: 'Floods',
-            href: '/watershed/hanford/floods'
-          }
-        ],
         vanport: [
           {
             name: 'Vanport Mosaic',
@@ -203,38 +155,6 @@ export default {
           {
             name: 'Columbia Basin Project',
             href: '/megaregion/crops/basinproject'
-          }
-        ],
-        salmon: [
-          {
-            name: 'Chinook',
-            href: '/bioregion/salmon/chinook'
-          },
-          {
-            name: 'Coho',
-            href: '/bioregion/salmon/coho'
-          },
-          {
-            name: 'Chum',
-            href: '/bioregion/salmon/chum'
-          },
-          {
-            name: 'Sockeye',
-            href: '/bioregion/salmon/sockeye'
-          },
-          {
-            name: 'Pink',
-            href: '/bioregion/salmon/pink'
-          }
-        ],
-        dancing: [
-          {
-            name: 'Children\'s Dance Caps',
-            href: '/bioregion/dancing/caps'
-          },
-          {
-            name: 'ARROWHEAD',
-            href: '/bioregion/dancing/arrowhead'
           }
         ]
       }
@@ -268,20 +188,10 @@ export default {
       }
       if (/watershedDams/.test(this.$route.name)) {
         this.navSubItems = this.subItems.dams
-      } else if (/watershedHanford/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.hanford
-      } else if (/megaregionVanport/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.vanport
-      } else if (/megaregionWillamette/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.willamette
       } else if (/megaregionCrops/.test(this.$route.name)) {
         this.navSubItems = this.subItems.crops
       } else if (/bioregionSalmon/.test(this.$route.name)) {
         this.navSubItems = this.subItems.salmon
-      } else if (/bioregionRestoration/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.restoration
-      } else if (/bioregionDancing/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.dancing
       } else {
         this.navSubItems = []
       }
