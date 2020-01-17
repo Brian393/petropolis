@@ -19,7 +19,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">LEARNING FROM CASCADIA</p>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}"></p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -45,7 +45,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: teal;      /*navbar background color */
+  background-color: #373334;      /*navbar background color */
 }
 nav a {
   font-weight: bold;
@@ -59,7 +59,7 @@ nav a {
   line-height: 40px;
 }
 nav a.active, nav a.router-link-exact-active {
-  background-color: #008000;       /*background color when active */
+  background-color: black;       /*background color when active */
   color: white;                    /*text color when active */
 }
 nav a:hover {
@@ -68,14 +68,14 @@ nav a:hover {
 #map {
   background-color: #f4f2f0;
   height: calc(100vh - 50px);
-  border-top: thin solid #008000;
+  border-top: thin solid #373334;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
-  background-color: #f4f2f0;
-  border-left: medium solid #008000;
-  border-bottom: medium solid #008000;
+  background-color: #2A2A2A;              /*background of text panel*/
+  border-left: medium solid #373334;      /* Its left-hand border of text panel*/
+  border-bottom: medium solid black;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -85,8 +85,8 @@ aside {
 #aside-wraper {
   position: sticky;
   top: 0;
-  color: white;
-  background-color: #008000;
+  color: white;                               /*toggle x color*/
+  background-color: #2A2A2A;               /*background of sidebar title*/
   z-index: 1;
   height: 51px;
 }
@@ -102,7 +102,7 @@ aside {
   display: none;
 }
 #aside-toggle:hover, #aside-scroll-to:hover {
-  color: #008000;
+  color: #ab0107;
   background-color: white;
   cursor: hand;
 }
@@ -130,6 +130,7 @@ aside .fullwidth {
   max-height: 100%;
   overflow-y: visible;
   text-align: justify;
+  color: white;                /*sidebar text color*/
 }
 
 #aside-heading {
@@ -183,7 +184,7 @@ font-weight: bold; font-style: italic; color: #333333;
   }
   #aside-heading {
     padding: 0 0.6em;
-    text-align: left;
+    text-align: CENTER;
   }
   #aside-toggle {
     display: block;
@@ -193,7 +194,7 @@ font-weight: bold; font-style: italic; color: #333333;
   }
   #content, aside {
     overflow-x: hidden;           /*these scrolls affect hamburger button at upper right! */
-    overflow-y: auto;        /*they create all kinds of weird micro arrows, very strange */
+    overflow-y: auto;        /*they create weird micro arrows, very strange */
     max-height: 100vh;
   }
 }

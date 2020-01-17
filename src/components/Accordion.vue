@@ -17,7 +17,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: #5a005a;
+  color: white;
   margin-top:20px;
   margin-bottom:30px;
   justify-content: center;
