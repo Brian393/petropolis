@@ -3,9 +3,7 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/megaregion/introduction" v-bind:class="{active: $route.name && $route.name.match('megaregion')}" @click.native="routeClick('/megaregion/introduction')">Megaregion</router-link>
         <router-link to="/watershed/acknowledgement" v-bind:class="{active: $route.name && $route.name.match('watershed')}" @click.native="routeClick('/watershed/acknowledgement')">Watershed</router-link>
-        <router-link to="/bioregion/introduction" v-bind:class="{active: $route.name && $route.name.match('bioregion')}" @click.native="routeClick('/bioregion/introduction')">Bioregion</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>

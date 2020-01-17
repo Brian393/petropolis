@@ -97,64 +97,12 @@ export default {
       watershed: {
         items: [
           {
-            name: '',
+            name: 'Remember',
             href: '/watershed/acknowledgement'
-          }
-        ]
-      },
-      megaregion: {
-        items: [
+          },
           {
             name: 'Introduction',
-            href: '/megaregion/introduction'
-          },
-          {
-            name: 'Vanport',
-            href: '/megaregion/vanport'
-          },
-          {
-            name: 'Willamette',
-            href: '/megaregion/willamette'
-          },
-          {
-            name: 'Energy',
-            href: '/megaregion/energy'
-          },
-          {
-            name: 'Crops',
-            href: '/megaregion/crops'
-          }
-        ]
-      },
-      bioregion: {
-        items: [
-          {
-            name: '',
-            href: '/bioregion/introduction'
-          }
-        ]
-      },
-      subItems: {
-        vanport: [
-          {
-            name: 'Vanport Mosaic',
-            href: '/megaregion/vanport/mosaic'
-          }
-        ],
-        willamette: [
-          {
-            name: 'Parallels',
-            href: '/megaregion/willamette/drone'
-          },
-          {
-            name: 'Columbia Slough',
-            href: '/megaregion/willamette/slough'
-          }
-        ],
-        crops: [
-          {
-            name: 'Columbia Basin Project',
-            href: '/megaregion/crops/basinproject'
+            href: '/watershed/introduction'
           }
         ]
       }
@@ -179,19 +127,11 @@ export default {
     initNav: function () {
       if (/watershed/.test(this.$route.name)) {
         this.nav = this.watershed
-      } else if (/megaregion/.test(this.$route.name)) {
-        this.nav = this.megaregion
-      } else if (/bioregion/.test(this.$route.name)) {
-        this.nav = this.bioregion
       } else {
         this.nav = []
       }
       if (/watershedDams/.test(this.$route.name)) {
         this.navSubItems = this.subItems.dams
-      } else if (/megaregionCrops/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.crops
-      } else if (/bioregionSalmon/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.salmon
       } else {
         this.navSubItems = []
       }
