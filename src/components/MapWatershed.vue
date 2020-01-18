@@ -21,9 +21,13 @@ export default {
     return {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
-        acknowledgement: {
+        sites: {
           center: [-87.95, 41.84],
           resolution: 230
+        },
+        previous: {
+          center: [-87.74, 41.88],
+          resolution: 80
         }
       }, // end centerPoints
       WatershedDamsIsAnimating: true,
@@ -50,7 +54,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 220),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 400),
       ]
     },
     watershedBaseLayers: function () {
@@ -70,7 +74,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 220),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 2, 2000),
       ]
     }
   },
@@ -116,9 +120,9 @@ export default {
         layers: this.acknowledgementLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.acknowledgement.center),
-        resolution: this.centerPoints.acknowledgement.resolution,
-        minResolution: 40,
+        center: fromLonLat(this.centerPoints.sites.center),
+        resolution: this.centerPoints.sites.resolution,
+        minResolution: 1,
         maxResolution: 32000
       }))
       if (this.olmap) {
@@ -140,10 +144,10 @@ export default {
         layers: this.watershedBaseLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.acknowledgement.center),
-        resolution: this.centerPoints.acknowledgement.resolution,
-        minResolution: 2,
-        maxResolution: 2000
+        center: fromLonLat(this.centerPoints.previous.center),
+        resolution: this.centerPoints.previous.resolution,
+        minResolution: 1,
+        maxResolution: 16000
       }))
       if (this.olmap) {
           this.olmap.on('singleclick', (e) => {

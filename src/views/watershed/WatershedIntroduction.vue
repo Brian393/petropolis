@@ -1,9 +1,9 @@
 <template>
   <div class="aside-content">
     <div>
-      <br><br><h2>Previous events</h2><br><br>
+      <br><br><h2>Deep Time Past</h2><br><br>
     </div>
-    <img src="images/Fossil-institution.jpg" class="fullwidth"><div class="caption"></div><br>
+    <img src="images/AsianCarp-sm.jpg" class="fullwidth"><div class="caption"></div><br>
 
     <p><strong></strong></p>
 

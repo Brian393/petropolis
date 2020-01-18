@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div>
-      <br><h2>Into the Deep</h2><br><br>
+      <br><h2>Into the City</h2><br><br>
     </div>
     <img src="images/CarbonBuilding.jpg" class="fullwidth"><div class="caption"></div><br>
 
@@ -9,7 +9,7 @@
 
     <p>Geologists are talking about a new epoch, the Anthropocene. What is it, where did it come from, why does it matter right now? How to locate planetary-scale changes in the place where you live?</p>
 
-    <p><a href="http://deeptimechicago.org" target="_blank" rel="nofollow">Deep Time Chicago</a> looks at the city as an extraction machine, transforming million-year processes of nature (coal, iron, petroleum etc) into today's urban theater. You begin to wonder, whose drama are we acting out? And what would it take to change the script? Understanding the roles we are playing means grasping the built environment, the big corporations, the city government and the population itself as ecological forces.</p>
+    <p><a href="http://deeptimechicago.org" target="_blank" rel="nofollow">Deep Time Chicago</a> looks at the city as an extraction machine, transforming millions of years of time (coal, iron, petroleum...) into today's urban theater. You begin to wonder, whose drama are we acting out? What would it take to change the script? Understanding our own roles starts by grasping the built environment, the big corporations, the city government and the population itself as ecological forces.</p>
 
     <p><a href="http://deeptimechicago.org/walk-about-it/" target="_blank" rel="nofollow">Walk About It</a> is a series of urban inquiries, connecting the Anthropocene to specific sites in the Chicagoland area. The mode of inquiry is a guided walk with exploratory concepts and artistic inputs. The duration is about two hours. The aim is a multi-threaded group conversation about planetary changes connected directly to the worlds we inhabit locally. It's about tracing the contours of a new epoch.</p>
 
