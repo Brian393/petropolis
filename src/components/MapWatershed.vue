@@ -121,7 +121,19 @@ export default {
         minResolution: 40,
         maxResolution: 32000
       }))
-    },
+      if (this.olmap) {
+          this.olmap.on('singleclick', (e) => {
+            const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+            if (feature) {
+              const props = feature.getProperties()
+              if (props.vimeoSrc) {
+                const mediabox = new MediaLightBox(props.vimeoSrc)
+                mediabox.open()
+              }
+            }
+          })
+        }
+      },
     initWatershedIntroduction: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({

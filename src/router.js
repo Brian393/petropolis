@@ -9,10 +9,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/watershed/acknowledgement'
+      redirect: '/walkaboutit/2020'
     },
     {
-      path: '/watershed/acknowledgement',
+      path: '/walkaboutit/2020',
       name: 'watershedAcknowledgement',
       components: {
         default: WatershedAcknowledgement,
@@ -20,7 +20,7 @@ export default new Router({
       }
     },
     {
-      path: '/watershed/introduction',
+      path: '/walkabout/previous',
       name: 'watershedIntroduction',
       components: {
         default: () => import('./views/watershed/WatershedIntroduction.vue'),

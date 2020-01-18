@@ -20,8 +20,8 @@
 }
 
 #items {
-  bottom: 20px;
-  left: 1.5em;
+  bottom: 2.5em;
+  left: 2.5em;
   flex-direction: column;
   width: 150px;
   max-height: calc(100vh - 170px);
@@ -97,12 +97,12 @@ export default {
       watershed: {
         items: [
           {
-            name: 'Remember',
-            href: '/watershed/acknowledgement'
+            name: 'Walks 2020',
+            href: '/walkaboutit/2020'
           },
           {
-            name: 'Introduction',
-            href: '/watershed/introduction'
+            name: 'Previous events',
+            href: '/walkabout/previous'
           }
         ]
       }
