@@ -54,7 +54,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 400),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 400)
       ]
     },
     watershedBaseLayers: function () {
@@ -76,9 +76,12 @@ export default {
           maxResolution: 32000
         }),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 2, 16000),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 2, 16000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 2, 16000)
       ]
     }
+  },
+  components: {
+    VideoLightBox
   },
   created: function () {
     eventBus.$on('route-click', this.initMap)
@@ -128,18 +131,18 @@ export default {
         maxResolution: 32000
       }))
       if (this.olmap) {
-          this.olmap.on('singleclick', (e) => {
-            const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-            if (feature) {
-              const props = feature.getProperties()
-              if (props.vimeoSrc) {
-                const mediabox = new MediaLightBox(props.vimeoSrc)
-                mediabox.open()
-              }
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc) {
+              const mediabox = new MediaLightBox(props.vimeoSrc)
+              mediabox.open()
             }
-          })
-        }
-      },
+          }
+        })
+      }
+    },
     initWatershedIntroduction: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
@@ -152,18 +155,18 @@ export default {
         maxResolution: 16000
       }))
       if (this.olmap) {
-          this.olmap.on('singleclick', (e) => {
-            const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-            if (feature) {
-              const props = feature.getProperties()
-              if (props.vimeoSrc) {
-                const mediabox = new MediaLightBox(props.vimeoSrc)
-                mediabox.open()
-              }
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc) {
+              const mediabox = new MediaLightBox(props.vimeoSrc)
+              mediabox.open()
             }
-          })
-        }
+          }
+        })
       }
     }
   }
+}
 </script>

@@ -9,28 +9,28 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 1, "title": "UNEARTHED (the stratigraphic city)", "image": "<img src='cascadia/images/RadicalCraft_IsoMtnBuf-1_1680_670.JPG'>", "text1": "Chicago's iconic buildings have been extracted from the vaults of deep time. Like metamorphic layers stretching upwards, they dissolve into the blue sky. This walk conceives architecture as raw geology. Participants will learn to recognize specific mineral deposits and to sense their effects on the global atmosphere. Do we live on the fragile superstructures of an immense planetary mine? Come explore the stratigraphic city.", "icon": "icons/Marker-purple.png"
+        "id": 1, "title": "UNEARTHED (the stratigraphic city)", "image": "<img src='images/RadicalCraft_IsoMtnBuf-1_1680_670.JPG'>", "text1": "Chicago's iconic buildings have been extracted from the vaults of deep time. Like metamorphic layers stretching upwards, they dissolve into the blue sky. This walk conceives architecture as raw geology. Participants will learn to recognize specific mineral deposits and to sense their effects on the global atmosphere. Do we live on the fragile superstructures of an immense planetary mine? Come explore the stratigraphic city.", "icon": "icons/Marker-purple.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.635909, 41.879339] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 2, "title": "Lincoln Park Zoo", "image": "", "text1": "", "icon": "icons/Marker-orange.png"
+        "id": 2, "title": "Lincoln Park Zoo", "image": "<img src='images/UrbanWildlife.png'>", "text1": " ", "icon": "icons/Marker-orange.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.740776, 41.978177] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 3, "title": "Lincoln Yards", "image": "", "text1": "", "icon": "icons/Marker-blue.png"
+        "id": 3, "title": "Lincoln Yards", "image": "<img src='images/LincolnYards.jpg'>", "text1": " ", "icon": "icons/Marker-blue.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.662664, 41.917955] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 4, "title": "Magic Hedge", "image": "", "text1": "", "icon": "icons/Marker-pink.png"
+        "id": 4, "title": "Magic Hedge", "image": "<img src='images/Montrose-Point.jpg'>", "text1": " ", "icon": "icons/Marker-pink.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.633233, 41.963040] }
     },

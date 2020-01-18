@@ -108,7 +108,7 @@ aside a:visited, .link {
   top: -30px;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 480px;        /*This controls height of content, actual popup height above*/
+  max-height: 460px;        /*This controls height of content, actual popup height above*/
   width: calc(100% - 1em);
   padding: 0.5em;
 }
