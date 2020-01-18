@@ -45,11 +45,11 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 5, "icon": "icons/Marker-blue.png",
+        "id": 5, "icon": "icons/Marker-green.png",
         "vimeoTitle": "Talking Plants, with Wendy Makoons Geniusz and Aubrey Streit Krug",
         "vimeoSrc": "https://player.vimeo.com/video/247623807"
       },
-      "geometry": { "type": "Point", "coordinates": [-87.7177, 41.8862] }
+      "geometry": { "type": "Point", "coordinates": [-87.717726, 41.886250] }
     }
   ]
 }

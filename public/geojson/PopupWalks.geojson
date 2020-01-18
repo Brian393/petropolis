@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "name": "PopupWalks",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1, "title": "Confluence Ecologies", "image": "", "text1": "", "icon": "icons/Marker-blue.png"
+      },
+      "geometry": { "type": "Point", "coordinates": [-89.218930, 37.725439] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2, "title": "The Human Delta", "image": "", "text1": "", "icon": "icons/Marker-orange.png"
+      },
+      "geometry": { "type": "Point", "coordinates": [-90.120246, 29.940007] }
+    }
+  ]
+}

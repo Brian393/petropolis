@@ -23,11 +23,11 @@ export default {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         sites: {
           center: [-87.95, 41.84],
-          resolution: 230
+          resolution: 180
         },
         previous: {
           center: [-87.74, 41.88],
-          resolution: 80
+          resolution: 5000
         }
       }, // end centerPoints
       WatershedDamsIsAnimating: true,
@@ -69,12 +69,14 @@ export default {
         new Tile({
           preload: Infinity,
           source: new XYZ({
-            url: 'http://deeptimechicago.org/Walkaboutit/{z}/{x}/{y}.png'
+            url: 'http://deeptimechicago.org/Drivearound/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 0.25
+          minResolution: 1,
+          maxResolution: 32000
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 2, 2000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 2, 16000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 2, 16000),
       ]
     }
   },
