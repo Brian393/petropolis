@@ -22,8 +22,8 @@ export default {
       centerPoints: {
         // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         sites: {
-          center: [-87.95, 41.84],
-          resolution: 180
+          center: [-87.67, 41.84],
+          resolution: 240
         },
         previous: {
           center: [-87.74, 41.88],
