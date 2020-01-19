@@ -11,7 +11,7 @@
       "properties": {
         "id": 1, "icon": "icons/Marker-green.png",
         "vimeoTitle": "Peggy Salazar, Southeast Environmental Task Force",
-        "vimeoSrc": "https://player.vimeo.com/video/220549536"
+        "vimeoSrc2": "https://player.vimeo.com/video/220549536"
       },
       "geometry": { "type": "Point", "coordinates": [-87.547384, 41.653559] }
     },
@@ -20,7 +20,7 @@
       "properties": {
         "id": 2, "icon": "icons/Marker-pink.png",
         "vimeoTitle": "LaBagh Woods, with Daniel Suarez and Michael Swierz",
-        "vimeoSrc": "https://player.vimeo.com/video/196500132"
+        "vimeoSrc2": "https://player.vimeo.com/video/196500132"
       },
       "geometry": { "type": "Point", "coordinates": [-87.740776, 41.978177] }
     },
@@ -29,27 +29,27 @@
       "properties": {
         "id": 3, "icon": "icons/Marker-purple.png",
         "vimeoTitle": "Morton Arboretum, with Chuck Cannon",
-        "vimeoSrc": "https://player.vimeo.com/video/188349830"
+        "vimeoSrc2": "https://player.vimeo.com/video/188349830"
       },
       "geometry": { "type": "Point", "coordinates": [-88.077733, 41.821578] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 4, "icon": "icons/Marker-orange.png",
-        "vimeoTitle": "BP Refinery in Whiting, Indiana with Thomas Frank",
-        "vimeoSrc": "https://player.vimeo.com/video/226983489"
+        "id": 4, "icon": "icons/Marker-green.png",
+        "vimeoTitle": "Talking Plants, with Wendy Makoons Geniusz and Aubrey Streit Krug",
+        "vimeoSrc2": "https://player.vimeo.com/video/247623807"
       },
-      "geometry": { "type": "Point", "coordinates": [-87.471429, 41.661021] }
+      "geometry": { "type": "Point", "coordinates": [-87.717726, 41.886250] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 5, "icon": "icons/Marker-green.png",
-        "vimeoTitle": "Talking Plants, with Wendy Makoons Geniusz and Aubrey Streit Krug",
-        "vimeoSrc": "https://player.vimeo.com/video/247623807"
+        "id": 5, "icon": "icons/Marker-orange.png",
+        "vimeoTitle": "BP Refinery in Whiting, Indiana with Thomas Frank",
+        "vimeoSrc2": "https://player.vimeo.com/video/226983489"
       },
-      "geometry": { "type": "Point", "coordinates": [-87.717726, 41.886250] }
+      "geometry": { "type": "Point", "coordinates": [-87.471429, 41.661021] }
     }
   ]
 }

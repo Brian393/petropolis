@@ -190,38 +190,8 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-            } else if (props.key2) {
-              this.$refs.popupContent.innerHTML = props.key2.replace('cascadia/', '')
-              this.$refs.popupContent.innerHTML += props.date ? `<p>${props.date}</p>` : ''
-              this.popup.setPosition(e.coordinate)
-            } else if (props.title) {
-              this.$refs.popupContent.innerHTML = props.title
-              this.popup.setPosition(e.coordinate)
-            } else if (props.key) {
-              this.$refs.popupContent.innerHTML = props.key
-              this.popup.setPosition(e.coordinate)
-            } else if (props.timeline) {
-              if (window.twttr) {
-                this.$refs.loadingTweets.classList.remove('hidden')
-                this.$refs.twitterContent.innerHTML = ''
-                window.twttr.widgets.createTimeline(
-                  {
-                    sourceType: 'url',
-                    url: props.timeline
-                  },
-                  this.$refs.twitterContent
-                ).then(() => {
-                  this.$refs.loadingTweets.classList.add('hidden')
-                })
-                this.twitterPopup.setPosition(e.coordinate)
-              }
+// starting here I took out a lot of stuff which can be found in Cascadia maps
             } else if (props.vimeoSrc) {
-              // this.vimeoPopup.setPosition(e.coordinate)
-              // this.$refs.vimeoPopupContent.innerHTML = `<iframe src="${props.vimeoSrc}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`
-              // // this is a hack...
-              // if (navigator.userAgent.search('Firefox') > 0) {
-              //   document.querySelector('.ol-vimeopopup .ol-popup-content').style.top = 0
-              // }
             }
           } else {
             this.closePopup()

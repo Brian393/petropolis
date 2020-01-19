@@ -37,9 +37,9 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 5, "title": "", "image": "", "text1": "", "icon": ""
+        "id": 5, "title": "Green Manufacturing", "image": "<img src='images/Method-sm.jpg'>", "text1": "Guided tour of the Method soap factory in Pullman (720 E 111th St, Chicago, IL 60628), including potential stops at other green sites in the area e.g. urban solar facility. To experience an international corporation whose version of economic development takes a position of self-designed encouragement to promote green energy, social justice (hiring practices from economically depressed local community), recycled materials, greener architecture.", "icon": "icons/Marker-pink.png"
       },
-      "geometry": { "type": "Point", "coordinates": [-87.7177, 41.8862] }
+      "geometry": { "type": "Point", "coordinates": [-87.601, 41.696] }
     }
   ]
 }

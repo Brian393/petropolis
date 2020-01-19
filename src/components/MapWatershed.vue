@@ -80,9 +80,6 @@ export default {
       ]
     }
   },
-  components: {
-    VideoLightBox
-  },
   created: function () {
     eventBus.$on('route-click', this.initMap)
   },
@@ -154,13 +151,14 @@ export default {
         minResolution: 1,
         maxResolution: 16000
       }))
+      // Had to change props to vimeoSrc2 - here and in geojson - or doesn't close 
       if (this.olmap) {
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
           if (feature) {
             const props = feature.getProperties()
-            if (props.vimeoSrc) {
-              const mediabox = new MediaLightBox(props.vimeoSrc)
+            if (props.vimeoSrc2) {
+              const mediabox = new MediaLightBox(props.vimeoSrc2)
               mediabox.open()
             }
           }
