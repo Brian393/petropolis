@@ -15,6 +15,7 @@ aside a:visited, .link {
 
 /* OpenLayers styling in Map* components */
 
+
 .ol-popup {
   position: absolute;
   background-color: white;
@@ -24,8 +25,9 @@ aside a:visited, .link {
   border: 1px solid #cccccc;
   bottom: 12px;
   left: -50px;
-  min-width: 200px;
-  max-height: 480px;                   /*This controls height of popup, content below*/
+  min-width: 370px;
+  max-height: 490px;                   /*This controls height of popup, content below*/
+  offset: 200px;
 }
 .ol-popup:after, .ol-popup:before {
   top: 100%;
@@ -109,7 +111,7 @@ aside a:visited, .link {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 450px;        /*This controls height of content, actual popup height above*/
-	max-width: 350px;
+	max-width: 340px;
   width: calc(100% - 1em);
   padding: 0.5em;
 }

@@ -66,7 +66,7 @@ nav a:hover {
   color: #dcdcdc;
 }
 #map {
-  background-color: #f4f2f0;
+  background-color: #2E2E2E;
   height: calc(100vh - 50px);
   border-top: thin solid #373334;         /* Its lower border of navbar*/
   box-sizing: border-box;

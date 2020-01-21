@@ -54,7 +54,8 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 4, 400)
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Walks.geojson', null, 0.5, 400),
+        this.makeGeoJSONFillVectorLayer('geojson/BldgsGHG-2017.geojson', 1, 4, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
       ]
     },
     watershedBaseLayers: function () {
@@ -75,8 +76,8 @@ export default {
           minResolution: 1,
           maxResolution: 32000
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 2, 16000),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 2, 16000)
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 0.5, 16000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 0.5, 16000)
       ]
     }
   },
@@ -151,7 +152,7 @@ export default {
         minResolution: 1,
         maxResolution: 16000
       }))
-      // Had to change props to vimeoSrc2 - here and in geojson - or doesn't close 
+      // Had to change props to vimeoSrc2 - here and in geojson - or doesn't close
       if (this.olmap) {
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })

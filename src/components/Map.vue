@@ -48,7 +48,7 @@ import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon} from 'ol/style'
-import {ScaleLine, defaults as defaultControls} from 'ol/control'
+import {ScaleLine, defaults as defaultControls, ZoomSlider} from 'ol/control'
 import {fromLonLat} from 'ol/proj'
 
 import {eventBus} from '../main'
@@ -97,6 +97,7 @@ export default {
       return new Overlay({
         element: this.$refs.popup,
         autoPan: true,
+        autoPanMargin: 40,
         autoPanAnimation: {
           duration: 250
         }
@@ -172,7 +173,8 @@ export default {
             new ScaleLine({
               units: 'us',
               minWidth: 150
-            })
+            }),
+            new ZoomSlider()
           ])
         })
         this.toggleScaleLine()
@@ -190,7 +192,10 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-// starting here I took out a lot of stuff which can be found in Cascadia maps
+            } else if (props.key) {
+              this.$refs.popupContent.innerHTML = props.key
+              this.popup.setPosition(e.coordinate)
+            // starting here I took out a lot of stuff which can be found in Cascadia maps
             } else if (props.vimeoSrc) {
             }
           } else {
@@ -249,10 +254,18 @@ export default {
     },
     geoJSONPointVectorLayerStyle: function (feature) {
       // cache styles here to prevent icon flickering/blinking!
+      // second value of icon anchor is height in pixels, Y units specified accordingly
       if (feature.values_ && feature.values_['icon'] && !this.styleCache[feature.values_['icon']]) {
         this.styleCache[feature.values_['icon']] = new Style({
           image: new Icon({
+            scale: 1,
+            rotateWithView: false,
+            anchor: [0.5, 43],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            opacity: 1,
             src: feature.values_['icon'] || 'icons/dam.png'
+
           })
         })
       }

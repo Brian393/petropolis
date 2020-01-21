@@ -9,7 +9,7 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 1, "title": "UNEARTHED (the stratigraphic city)", "image": "<img src='images/RadicalCraft_IsoMtnBuf-1_1680_670.JPG'>", "text1": "Chicago's iconic buildings have been extracted from the vaults of deep time. Like metamorphic layers stretching upwards, they dissolve into the blue sky. This walk conceives architecture as raw geology. Participants will learn to recognize specific mineral deposits and to sense their effects on the global atmosphere. Do we live on the fragile superstructures of an immense planetary mine? Come explore the stratigraphic city.", "icon": "icons/Marker-purple.png"
+        "id": 1, "title": "UNEARTHED (the stratigraphic city)", "image": "<img src='images/RadicalCraft_IsoMtnBuf-1_1680_670.JPG'>", "text1": "Chicago's iconic buildings have been extracted from the vaults of deep time. Like metamorphic layers stretching upwards, they dissolve into the blue sky. This walk conceives architecture as raw geology. Participants will learn to recognize specific mineral deposits and to sense their effects on the global atmosphere. Do we live on the fragile superstructures of an immense planetary mine? Come explore the stratigraphic city.", "icon": "icons/Marker-red.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.635909, 41.879339] }
     },
@@ -37,7 +37,7 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 5, "title": "Green Manufacturing", "image": "<img src='images/Method-sm.jpg'>", "text1": "Guided tour of the Method soap factory in Pullman (720 E 111th St, Chicago, IL 60628), including potential stops at other green sites in the area e.g. urban solar facility. To experience an international corporation whose version of economic development takes a position of self-designed encouragement to promote green energy, social justice (hiring practices from economically depressed local community), recycled materials, greener architecture.", "icon": "icons/Marker-pink.png"
+        "id": 5, "title": "Green Manufacturing", "image": "<img src='images/Method-sm.jpg'>", "text1": "Guided tour of the Method soap factory in Pullman (720 E 111th St, Chicago, IL 60628), including potential stops at other green sites in the area e.g. urban solar facility. To experience an international corporation whose version of economic development takes a position of self-designed encouragement to promote green energy, social justice (hiring practices from economically depressed local community), recycled materials, greener architecture.", "icon": "icons/Marker-green.png"
       },
       "geometry": { "type": "Point", "coordinates": [-87.601, 41.696] }
     }

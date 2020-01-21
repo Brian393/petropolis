@@ -9,7 +9,7 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 1, "title": "Confluence Ecologies", "image": "<img src='images/Little-River.jpg'>", "text1": " ", "icon": "icons/Marker-blue.png"
+        "id": 1, "title": "Confluence Ecologies", "image": "<img src='images/Little-River.jpg'>", "text1": " ", "icon": "icons/Marker-pink.png"
       },
       "geometry": { "type": "Point", "coordinates": [-89.218930, 37.725439] }
     },
