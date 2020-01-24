@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "name": "EventGalleries",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1, "icon": "icons/Marker-green.png",
+        "GALLERY-PROP-HERE": "IMAGE-ARRAY-HERE"
+      },
+      "geometry": { "type": "Point", "coordinates": [-87.912168, 41.702189] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2, "icon": "icons/Marker-blue.png",
+        "GALLERY-PROP-HERE": "IMAGE-ARRAY-HERE"
+      },
+      "geometry": { "type": "Point", "coordinates": [-87.547384, 41.653559] }
+    },
+  ]
+}

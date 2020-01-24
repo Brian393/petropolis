@@ -11,8 +11,8 @@ import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
 import {unByKey} from 'ol/Observable.js'
 
 import {eventBus} from '../main'
-import VideoLightBox from './VideoLightBox.vue'
 import MediaLightBox from './MediaLightBox.js'
+import AppLightBox from './AppLightBox.vue'
 
 export default {
   name: 'MapWatershed',
@@ -77,6 +77,7 @@ export default {
           maxResolution: 32000
         }),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 0.5, 16000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/EventGalleries.geojson', null, 0.5, 16000),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 0.5, 16000)
       ]
     }
@@ -152,7 +153,7 @@ export default {
         minResolution: 1,
         maxResolution: 16000
       }))
-      // Had to change props to vimeoSrc2 - here and in geojson - or doesn't close
+      // Had to change props to vimeoSrc2 - here and in geojson - or else it doesn't close
       if (this.olmap) {
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
