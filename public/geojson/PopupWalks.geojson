@@ -9,14 +9,14 @@
     {
       "type": "Feature",
       "properties": {
-        "id": 1, "title": "Confluence Ecologies", "image": "<img src='images/Little-River.jpg'>", "text1": " ", "icon": "icons/Marker-pink.png"
+        "id": 1, "title": "<h2>Confluence Ecologies</h2> - Carbondale", "image": "<img src='images/Little-River.jpg'>", "text1": " ", "icon": "icons/Marker-pink.png"
       },
       "geometry": { "type": "Point", "coordinates": [-89.218930, 37.725439] }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": 2, "title": "The Human Delta", "image": "", "text1": "", "icon": "icons/Marker-orange.png"
+        "id": 2, "title": "<h2>Human Delta - New Orleans</h2>", "image": "<img src='images/HumanDelta-sm.jpg'>", "text1": " ", "icon": "icons/Marker-orange.png"
       },
       "geometry": { "type": "Point", "coordinates": [-90.120246, 29.940007] }
     }

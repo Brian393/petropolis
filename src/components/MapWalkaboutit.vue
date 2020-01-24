@@ -71,8 +71,8 @@ export default {
           minResolution: 80,
           maxResolution: 32000
         }),
-        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 0.5, 16000),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/EventGalleries.geojson', null, 0.5, 16000),
+        this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 0.5, 16000),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/PopupWalks.geojson', null, 0.5, 16000)
       ]
     }

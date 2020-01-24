@@ -20,7 +20,7 @@
         "id": 2, "icon": "icons/Marker-blue.png",
         "GALLERY-PROP-HERE": "IMAGE-ARRAY-HERE"
       },
-      "geometry": { "type": "Point", "coordinates": [-87.547384, 41.653559] }
+      "geometry": { "type": "Point", "coordinates": [-88.15305556, 41.36555556] }
     }
   ]
 }
