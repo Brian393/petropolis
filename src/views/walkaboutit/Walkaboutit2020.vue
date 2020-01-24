@@ -49,7 +49,7 @@ import Accordion from '../../components/Accordion.vue'
 import {eventBus} from '../../main'
 
 export default {
-  name: 'WalkAboutItSites',
+  name: 'WalkAboutIt2020',
   components: {
     Accordion,
     AppLightBox

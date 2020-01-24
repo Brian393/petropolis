@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import WatershedAcknowledgement from './views/watershed/WatershedAcknowledgement.vue'
-import MapWatershed from './components/MapWatershed.vue'
+import Walkaboutit2020 from './views/walkaboutit/Walkaboutit2020.vue'
+import MapWalkaboutit from './components/MapWalkaboutit.vue'
 
 Vue.use(Router)
 
@@ -13,18 +13,18 @@ export default new Router({
     },
     {
       path: '/walkaboutit/2020',
-      name: 'watershedAcknowledgement',
+      name: 'walkaboutit2020',
       components: {
-        default: WatershedAcknowledgement,
-        map: MapWatershed
+        default: Walkaboutit2020,
+        map: MapWalkaboutit
       }
     },
     {
-      path: '/walkabout/previous',
-      name: 'watershedIntroduction',
+      path: '/walkaboutit/previous',
+      name: 'walkaboutitPrevious',
       components: {
-        default: () => import('./views/watershed/WatershedIntroduction.vue'),
-        map: MapWatershed
+        default: () => import('./views/walkaboutit/WalkaboutitPrevious.vue'),
+        map: MapWalkaboutit
       }
     }
   ]

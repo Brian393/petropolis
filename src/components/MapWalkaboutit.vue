@@ -15,12 +15,11 @@ import MediaLightBox from './MediaLightBox.js'
 import AppLightBox from './AppLightBox.vue'
 
 export default {
-  name: 'MapWatershed',
+  name: 'MapWalkaboutit',
   extends: Map,
   data: function () {
     return {
       centerPoints: {
-        // #TODO: these probably could have better names like watershedIntroduction, watershedHanford, watershedHanfordLegacy to be a bit more semantically obvious
         sites: {
           center: [-87.67, 41.84],
           resolution: 240
@@ -29,15 +28,11 @@ export default {
           center: [-87.74, 41.88],
           resolution: 5000
         }
-      }, // end centerPoints
-      WatershedDamsIsAnimating: true,
-      didSetSingleclickEvent: false,
-      listenerKeys: [],
-      animTimeouts: []
+      }
     }
   },
   computed: {
-    acknowledgementLayers: function () {
+    walkaboutitLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -58,7 +53,7 @@ export default {
         this.makeGeoJSONFillVectorLayer('geojson/BldgsGHG-2017.geojson', 1, 4, 'rgba(60, 20, 20, 0.0)', 2, 'rgba(255, 255, 0, 0.0)')
       ]
     },
-    watershedBaseLayers: function () {
+    walkaboutitBaseLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -93,16 +88,15 @@ export default {
   },
   methods: {
     initMap: function () {
-      this.WatershedDamsIsAnimating = true
       switch (this.$route.name) {
-        case 'watershedAcknowledgement':
-          this.initWatershedAcknowledgement()
+        case 'walkaboutit2020':
+          this.initWalkaboutit2020()
           break
-        case 'watershedIntroduction':
-          this.initWatershedIntroduction()
+        case 'walkaboutitPrevious':
+          this.initWalkaboutitPrevious()
           break
         default:
-          this.initWatershedAcknowledgement()
+          this.initWalkaboutit2020()
       }
       this.olmap.on('pointermove', (e) => {
         const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
@@ -118,10 +112,10 @@ export default {
         }
       })
     },
-    initWatershedAcknowledgement: function () {
+    initWalkaboutit2020: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.acknowledgementLayers
+        layers: this.walkaboutitLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.sites.center),
@@ -142,10 +136,10 @@ export default {
         })
       }
     },
-    initWatershedIntroduction: function () {
+    initWalkaboutitPrevious: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.watershedBaseLayers
+        layers: this.walkaboutitBaseLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.previous.center),

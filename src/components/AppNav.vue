@@ -94,7 +94,7 @@ export default {
     return {
       nav: [],
       navSubItems: [],
-      watershed: {
+      walkaboutit: {
         items: [
           {
             name: 'Walks 2020',
@@ -102,7 +102,7 @@ export default {
           },
           {
             name: 'Previous events',
-            href: '/walkabout/previous'
+            href: '/walkaboutit/previous'
           }
         ]
       }
@@ -125,13 +125,13 @@ export default {
   },
   methods: {
     initNav: function () {
-      if (/watershed/.test(this.$route.name)) {
-        this.nav = this.watershed
+      if (/walkaboutit/.test(this.$route.name)) {
+        this.nav = this.walkaboutit
       } else {
         this.nav = []
       }
-      if (/watershedDams/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.dams
+      if (/walkaboutitPrevious/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.previous
       } else {
         this.navSubItems = []
       }

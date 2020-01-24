@@ -3,7 +3,7 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/walkaboutit/2020" v-bind:class="{active: $route.name && $route.name.match('watershed')}" @click.native="routeClick('/walkaboutit/2020')">Walk About It</router-link>
+        <router-link to="/walkaboutit/2020" v-bind:class="{active: $route.name && $route.name.match('walkaboutit')}" @click.native="routeClick('/walkaboutit/2020')">Walk About It</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
