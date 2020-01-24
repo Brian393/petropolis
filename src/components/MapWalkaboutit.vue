@@ -57,7 +57,7 @@ export default {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+            url: 'https://{a-d}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
           }),
           opacity: 1,
           minResolution: 0.25
@@ -68,7 +68,7 @@ export default {
             url: 'http://deeptimechicago.org/Drivearound/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 1,
+          minResolution: 80,
           maxResolution: 32000
         }),
         this.makeGeoJSONPointVectorLayerWithStyle('geojson/Events.geojson', null, 0.5, 16000),
