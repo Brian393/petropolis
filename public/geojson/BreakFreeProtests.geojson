@@ -1,0 +1,41 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+"features": [
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/Fm5V0QmBw-I",
+	"vimeoTitle": "Action Against Fracking in Thornton, Colorado - May 14, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -104.954397, 39.973000 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/Mkc8y5miZ2w",
+	"vimeoTitle": "Action Against Sale of Oil & Gas Leases, Lakewood, Colorado - May 12, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -105.079001, 39.651405 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/3D382hy6OFc",
+	"vimeoTitle": "Protest Against Neighborhood Drilling in Los Angeles, CA - May 14, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -118.243497, 34.054192 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/ykioNfVQ1-g",
+	"vimeoTitle": "Protest Against TransMountain Pipeline in Vancouver, BC - May 14, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -122.954925, 49.289387 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/h2GhHMCdyDc",
+	"vimeoTitle": "Action Against Oil Trains in Albany, New York - May 14, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -73.764670, 42.632090 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/PFUJvGdjnjY",
+	"vimeoTitle": "Actions Against Refineries in Anacortes, WA - May 13-15, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -122.561656, 48.478450 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/6RJQREvxeqY",
+	"vimeoTitle": "Break Free Convergence in Washington, DC - May 15, 2016"},
+"geometry": { "type": "Point", "coordinates": [ -77.036562, 38.898752 ] } }
+]
+}

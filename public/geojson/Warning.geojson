@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Name": "Action",
+"images":[
+
+        {"src": "https://www.youtube.com/watch?v=ic9NcKtEPGs",
+	"subHtml": "MOTHERBOARD: The Dirty Secret at the Bottom of the Great Lakes"}
+] }, 
+"geometry": { "type": "Point", "coordinates": [ -84.731560, 45.815734 ] } }
+]
+}
+

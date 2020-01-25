@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Name": "Anthroquakes",
+"images":[
+
+        {"src": "https://www.youtube.com/watch?v=Abi4j58ghjA",
+	"subHtml": "NPR-State Impact: How Disposal Wells Might Cause Earthquakes"}
+],
+"Image": "<a href='Galleries/KCBX2.html'><img src='images/Conveyors.jpg'></a><br>photos by Terry Evans<br>", 
+"website": "<h4>click image for slideshow</h4>", 
+"EPA": "", 
+"Notes": "" }, 
+"geometry": { "type": "Point", "coordinates": [  ] } }
+]
+}
+

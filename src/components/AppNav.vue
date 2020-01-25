@@ -94,15 +94,15 @@ export default {
     return {
       nav: [],
       navSubItems: [],
-      walkaboutit: {
+      petropolis: {
         items: [
           {
-            name: 'Walks 2020',
-            href: '/walkaboutit/2020'
+            name: 'Pipelines',
+            href: '/petropolis/pipelines'
           },
           {
-            name: 'Previous events',
-            href: '/walkaboutit/previous'
+            name: 'Tar Sands',
+            href: '/petropolis/tarsands'
           }
         ]
       }
@@ -125,13 +125,13 @@ export default {
   },
   methods: {
     initNav: function () {
-      if (/walkaboutit/.test(this.$route.name)) {
-        this.nav = this.walkaboutit
+      if (/petropolis/.test(this.$route.name)) {
+        this.nav = this.petropolis
       } else {
         this.nav = []
       }
-      if (/walkaboutitPrevious/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.previous
+      if (/petropolisTarSands/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.tarsands
       } else {
         this.navSubItems = []
       }

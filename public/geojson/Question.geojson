@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+"features": [
+{ "type": "Feature", "properties": { "title": "<strong>What caused the Fort McMurray fire?</strong>",
+"image": "<img src='images/Surface.png'><br>",
+"text1": "<em>Map showing land surface temperature from April 26–May 3, 2016. Red areas were hotter than the 2000–2010 average for the same one-week period, blue areas were cooler.</em>",
+"text2": "<strong>Wildfire scientist Mike Flanigan answers the crucial question about the fire:</strong> <br>\"<em>In nearly every interview with journalists, Flannigan is asked whether the Fort McMurray wildfire is the result of climate change. The answer is unfailingly consistent—and careful.<br>'I never like to attribute a single event to climate change,' Flannigan explains into his speaker phone to a U.S.-based reporter.<br>What he does attribute to climate change is the amount of area burned each year, which has more than doubled since the early 1970s.<br>'This is a result of human-caused climate change. There's a lot of year-to-year variability with area burned, but we have doubled.'<br>The warmer it gets, the more fire we get due to increased evaporation and evapotranspiration, he explains, with the atmosphere drawing off moisture from trees and shrubs. According to research Flannigan published earlier this year in Climatic Change, for every degree in warming, 15 per cent more precipitation is needed to offset the risk of wildfire from drying fuel. Research published in Science in 2014 also associated every degree in warming with a 12 per cent increase in lightning activity—'more lightning, more fire.'</em>\"",
+"text3": "Source <a href='http://phys.org/news/2016-05-fort-mcmurray-blaze-extreme-wildfires.html#jCp'>here</a>" }, 
+"geometry": { "type": "Point", "coordinates": [ -111.3889, 56.753571 ] } }
+]
+}

@@ -3,7 +3,7 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/walkaboutit/2020" v-bind:class="{active: $route.name && $route.name.match('walkaboutit')}" @click.native="routeClick('/walkaboutit/2020')">Walk About It</router-link>
+        <router-link to="/petropolis/Pipelines" v-bind:class="{active: $route.name && $route.name.match('petropolis')}" @click.native="routeClick('/petropolis/Pipelines')">EXTINCTION REBELLION</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
@@ -19,7 +19,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}"></p>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">act now</p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -32,7 +32,7 @@
 #app {
   /* Steven 1/18 */
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:  'Garamond', Arial, and Monospace;
+  font-family:  'Verdana', Arial, and Monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -41,40 +41,42 @@
 }
 
 nav {
-  height: 50px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #373334;      /*navbar background color */
+  background-color: #E00607;      /*navbar background color */
 }
 nav a {
   font-weight: bold;
-  color: #003232;              /*navbar text color */
+  color: #4F1D2A;              /*navbar text color */
   text-decoration: none;
-  max-height: 50px;
+  max-height: 56px;
   display: flex;
   align-items: center;
   font-size: 1em;            /*no idea what this does */
-  padding: 5px 50px;
-  line-height: 40px;
+  padding: 5px 50px ;
+  line-height: 38px;
 }
 nav a.active, nav a.router-link-exact-active {
-  background-color: black;       /*background color when active */
-  color: white;                    /*text color when active */
+  background-color: #FFFFFF;       /*background color when active */
+  color: #333333;                    /*text color when active */
+  font-size: 330%;
+  margin: 30px;
 }
 nav a:hover {
-  color: #dcdcdc;
+  color: black;
 }
 #map {
-  background-color: #2E2E2E;
+  background-color: #f2f2f2;
   height: calc(100vh - 50px);
-  border-top: thin solid #373334;         /* Its lower border of navbar*/
+  border-top: thin solid #f2f2f2;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
-  background-color: #2A2A2A;              /*background of text panel*/
-  border-left: medium solid #373334;      /* Its left-hand border of text panel*/
+  background-color: #f2f2f2;              /*background of text panel*/
+  border-left: solid #333333;      /* Its left-hand border of text panel*/
   border-bottom: medium solid black;
   box-sizing: border-box;
   display: flex;
@@ -85,10 +87,10 @@ aside {
 #aside-wraper {
   position: sticky;
   top: 0;
-  color: white;                               /*toggle x color*/
-  background-color: #2A2A2A;               /*background of sidebar title*/
+  color: black;                               /*toggle x color*/
+  background-color: #333333;               /*background of sidebar title*/
   z-index: 1;
-  height: 51px;
+  height: 60px;
 }
 
 #aside-toggle, #aside-scroll-to {
@@ -130,15 +132,15 @@ aside .fullwidth {
   max-height: 100%;
   overflow-y: visible;
   text-align: justify;
-  color: white;                /*sidebar text color*/
+  color: black;                /*sidebar text color*/
 }
 
 #aside-heading {
-  margin-top: 0.8em;
+  margin-top: 0.1em;
   padding: 0;
   text-align: center;
-  font-size: 1.2em;             /* sidebar header title, "Learning" */
-  color: #dcdcdc;
+  font-size: 240%;             /* sidebar header title, "Learning" */
+  color: white;
 
 }
 
@@ -147,8 +149,8 @@ aside .fullwidth {
 }
 
 .aside-content h1{             /* sidebar item title settings */
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   color: #800000;
 }
 

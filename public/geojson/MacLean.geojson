@@ -1,0 +1,38 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Name": "Black piles in the neighborhood",
+"images":[
+
+{"src": "Galleries/MacLean/1.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Suncor Oil Sands Project. Piles of uncovered petrolum coke, a byproduct of upgrading tar sands oil to synthetic crude.'"},
+	{"src": "Galleries/MacLean/2.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Smoke, steam, and gas flares rise from the Suncor upgrading facility. Reclamation efforts seen to the right, on what was once a tailing pond. Suncor has reclaimed only 7 per cent of their total land disturbance.'"},
+	{"src": "Galleries/MacLean/3.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Mining operations at the North Steepbank Extension. Suncor mine, Alberta, Canada.'"},
+	{"src": "Galleries/MacLean/4.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Syncrude Mildred Lake mining site. View south to upgrading facility with rising plumes of steam and smoke. Alberta, Canada.'"},
+	{"src": "Galleries/MacLean/5.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Overview of tailing pond at Suncor mining site.'"},
+	{"src": "Galleries/MacLean/6.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Seismic lines and well pad for exploratory drilling through the boreal forest at the Suncor Firebag Oil Sands Project. Alberta, Canada.'"},
+	{"src": "Galleries/MacLean/7.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Growing pyramids of sulfur, a byproduct of upgrading bitumen. Mildred Lake, Alberta, Canada.'"},
+	{"src": "Galleries/MacLean/8.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Earthen wall to tailing pond. Suncor mining site, Alberta, Canada.'"},
+        {"src": "Galleries/MacLean/9.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Hot waste filling tailing pond. Suncor mining site, Alberta, Canada.'"},
+	{"src": "Galleries/MacLean/10.jpg",
+	"subHtml": "Photo by Alex MacLean: 'Surface oil on tailing pond. Suncor mine near Fort McMurray.'"}
+],
+"Image": "<a href='Galleries/KCBX2.html'><img src='images/Conveyors.jpg'></a><br>photos by Terry Evans<br>", 
+"website": "<h4>click image for slideshow</h4>", 
+"EPA": "", 
+"Notes": "" }, 
+"geometry": { "type": "Point", "coordinates": [ -112.19133, 57.101571 ] } }
+]
+}
+
+

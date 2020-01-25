@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Walkaboutit2020 from './views/walkaboutit/Walkaboutit2020.vue'
-import MapWalkaboutit from './components/MapWalkaboutit.vue'
+import PetropolisPipelines from './views/petropolis/PetropolisPipelines.vue'
+import MapPetropolis from './components/MapPetropolis.vue'
 
 Vue.use(Router)
 
@@ -9,22 +9,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/walkaboutit/2020'
+      redirect: '/petropolis/Pipelines'
     },
     {
-      path: '/walkaboutit/2020',
-      name: 'walkaboutit2020',
+      path: '/petropolis/Pipelines',
+      name: 'petropolisPipelines',
       components: {
-        default: Walkaboutit2020,
-        map: MapWalkaboutit
+        default: PetropolisPipelines,
+        map: MapPetropolis
       }
     },
     {
-      path: '/walkaboutit/previous',
-      name: 'walkaboutitPrevious',
+      path: '/petropolis/tarsands',
+      name: 'petropolisTarSands',
       components: {
-        default: () => import('./views/walkaboutit/WalkaboutitPrevious.vue'),
-        map: MapWalkaboutit
+        default: () => import('./views/petropolis/PetropolisTarSands.vue'),
+        map: MapPetropolis
       }
     }
   ]
