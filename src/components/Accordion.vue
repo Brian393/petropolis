@@ -17,7 +17,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   margin-top:20px;
   margin-bottom:30px;
   justify-content: center;
@@ -40,7 +40,7 @@ font-size: 20px;
 }
 .content {
   border-radius: 10px;
-  border: 2px solid #5a005a;
+  border: 2px solid black;
   padding: 20px;
 }
 .legendtext {

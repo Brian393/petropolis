@@ -1,9 +1,9 @@
 <template>
   <div class="aside-content">
     <div>
-      <br><br><h2>This Is Your Car on Tar Sands</h2><br><br>
+      <br><br><h3 style="color:#E00607; font-size:130%; text-align: denter;">We Don't Need More Dirty Oil</h3><br><br>
     </div>
-    <img src="images/TarSandsMining.jpg" class="fullwidth"><div class="caption"></div><br>
+    <img src="images/NoTarSands.jpg" class="fullwidth"><div class="caption"></div><br>
 
     <p><strong></strong></p>
 
@@ -15,9 +15,9 @@
 
 <br>
 <Accordion :open="false">
-  <h3 slot="header">who/why/how</h3>
+  <h3 slot="header">legend</h3>
   <div class="flex">
-    <p><strong></strong></p>
+    <p><strong>coming soon</strong></p>
   </div>
 </Accordion>
 

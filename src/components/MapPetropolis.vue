@@ -26,7 +26,7 @@ export default {
         },
         tarsands: {
           center: [-111.439654, 56.9275],
-          resolution: 150
+          resolution: 180
         }
       }
     }
@@ -51,7 +51,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000)
       ]
     },
-    petropolisBaseLayers: function () {
+    petropolisTarSandsLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -69,8 +69,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Question.geojson','icons/Question.gif', null, 40, 4000),
         this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Mettler.geojson', 'images/Mettler.png', null, 60, 160)
+        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400)
       ]
     }
   },
@@ -136,7 +135,7 @@ export default {
     initPetropolisTarSands: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisBaseLayers
+        layers: this.petropolisTarSandsLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.tarsands.center),

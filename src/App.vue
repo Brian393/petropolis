@@ -62,22 +62,22 @@ nav a.active, nav a.router-link-exact-active {
   background-color: #FFFFFF;       /*background color when active */
   color: #333333;                    /*text color when active */
   font-size: 330%;
-  margin: 30px;
+  margin: 10px;
 }
 nav a:hover {
   color: black;
 }
 #map {
   background-color: #f2f2f2;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   border-top: thin solid #f2f2f2;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
   background-color: #f2f2f2;              /*background of text panel*/
-  border-left: solid #333333;      /* Its left-hand border of text panel*/
-  border-bottom: medium solid black;
+  border-left: solid #E00607;      /* Its left-hand border of text panel*/
+  border-bottom: medium solid #E00607;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -87,17 +87,17 @@ aside {
 #aside-wraper {
   position: sticky;
   top: 0;
-  color: black;                               /*toggle x color*/
-  background-color: #333333;               /*background of sidebar title*/
+  color: #f2f2f2;                               /*toggle x color*/
+  background-color: #E00607;               /*background of sidebar closer square*/
   z-index: 1;
   height: 60px;
 }
 
 #aside-toggle, #aside-scroll-to {
   cursor: pointer;
-  padding-top: 12px;
+  padding-top: 20px;
   text-align: center;
-  height: 38px;
+  height: 0px;
   width: 100%;
   max-width: 50px;
   float: right;

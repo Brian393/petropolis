@@ -174,7 +174,6 @@ export default {
               units: 'us',
               minWidth: 150
             }),
-            new ZoomSlider()
           ])
         })
         this.toggleScaleLine()
