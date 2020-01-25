@@ -3,7 +3,7 @@ import Map from './Map.vue'
 
 import {View} from 'ol'
 import {Tile, Group} from 'ol/layer'
-import {XYZ} from 'ol/source'
+import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {fromLonLat} from 'ol/proj'
 
 import {easeOut} from 'ol/easing.js'
@@ -28,11 +28,28 @@ export default {
           center: [-111.439654, 56.9275],
           resolution: 180
         }
-      }
+      }, // end centerPoints
+      radius: 250,
+      mousePosition: undefined
     }
   },
   computed: {
-    petropolisLayers: function () {
+    baseLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 1,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         new Tile({
           source: new XYZ({
@@ -48,10 +65,27 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Earthquake.gif', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000)
+        this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
+        // bingMapsAerial
+        bingMapTile
       ]
     },
     petropolisTarSandsLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 1,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         new Tile({
           source: new XYZ({
@@ -69,7 +103,9 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Question.geojson','icons/Question.gif', null, 40, 4000),
         this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400)
+        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400),
+        // bingMapsAerial
+        bingMapTile
       ]
     }
   },
@@ -81,6 +117,30 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    window.addEventListener('keydown', (e) => {
+      if (e.keyCode === 38) { // up arrow key
+        this.radius = Math.min(this.radius + 5, 800)
+        this.olmap.render()
+      } else if (e.keyCode === 40) { // down arrow key
+        this.radius = Math.max(this.radius - 5, 0)
+        this.olmap.render()
+      }
+    })
+    this.olmap.on('pointermove', (e) => {
+      const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+      if (feature) {
+        const props = feature.getProperties()
+        if (props.key) {
+          this.$refs.titletipContent.innerHTML = props.key
+          this.titletip.setPosition(e.coordinate)
+        }
+      } else {
+        this.closeTitletip()
+        this.closeTooltip()
+      }
+      this.mousePosition = this.olmap.getEventPixel(e.originalEvent)
+      this.olmap.render()
+    })
   },
   methods: {
     initMap: function () {
@@ -92,26 +152,12 @@ export default {
           this.initPetropolisTarSands()
           break
         default:
-          this.initPetropolisPipelines()
       }
-      this.olmap.on('pointermove', (e) => {
-        const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-        if (feature) {
-          const props = feature.getProperties()
-          if (props.key) {
-            this.$refs.titletipContent.innerHTML = props.key
-            this.titletip.setPosition(e.coordinate)
-          }
-        } else {
-          this.closeTitletip()
-          this.closeTooltip()
-        }
-      })
     },
     initPetropolisPipelines: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisLayers
+        layers: this.baseLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelines.center),
@@ -156,7 +202,23 @@ export default {
           }
         })
       }
+    },
+    spyglass: function (e) {
+      let ctx = e.context
+      const pixelRatio = e.frameState.pixelRatio
+      ctx.save()
+      ctx.beginPath()
+      if (this.mousePosition) {
+        // Only show a circle around the mouse --
+        ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
+          this.radius * pixelRatio, 0, 2 * Math.PI)
+        ctx.lineWidth = 5 * pixelRatio
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)'
+        ctx.stroke()
+      }
+      ctx.clip()
     }
   }
 }
+
 </script>
