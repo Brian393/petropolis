@@ -27,6 +27,10 @@ export default {
         tarsands: {
           center: [-111.439654, 56.9275],
           resolution: 180
+        },
+        chicago: {
+          center: [-87.75, 41.767832],
+          resolution: 150
         }
       }, // end centerPoints
       radius: 250,
@@ -107,6 +111,47 @@ export default {
         // bingMapsAerial
         bingMapTile
       ]
+    },
+    petropolisChicagoLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 1,
+        maxResolution: 10
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
+      return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+        new Tile({
+          source: new XYZ({
+            url: 'http://environmentalobservatory.net/Petropolis/tiles/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe****lines.geojson', 1, 16000, '#000000', 3.5),
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/Chakrabarty***.geojson', 'icons/Title3.png', null, 140, 160),
+        // bingMapsAerial
+        bingMapTile
+      ]
     }
   },
   created: function () {
@@ -151,7 +196,11 @@ export default {
         case 'petropolisTarSands':
           this.initPetropolisTarSands()
           break
+        case 'petropolisChicago':
+          this.initPetropolisChicago()
+          break
         default:
+          this.initPetropolisPipelines()
       }
     },
     initPetropolisPipelines: function () {
@@ -196,6 +245,31 @@ export default {
           if (feature) {
             const props = feature.getProperties()
             if (props.vimeoSrc2) {
+              const mediabox = new MediaLightBox(props.vimeoSrc2)
+              mediabox.open()
+            }
+          }
+        })
+      }
+    },
+    initPetropolisChicago: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisChicagoLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.chicago.center),
+        resolution: this.centerPoints.chicago.resolution,
+        minResolution: 1,
+        maxResolution: 16000
+      }))
+      // Had to change props to vimeoSrc3 - here and in geojson - or else it doesn't close
+      if (this.olmap) {
+        this.olmap.on('singleclick', (e) => {
+          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          if (feature) {
+            const props = feature.getProperties()
+            if (props.vimeoSrc3) {
               const mediabox = new MediaLightBox(props.vimeoSrc2)
               mediabox.open()
             }

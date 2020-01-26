@@ -70,7 +70,7 @@ nav a:hover {
 #map {
   background-color: #f2f2f2;
   height: calc(100vh - 60px);
-  border-top: thin solid #f2f2f2;         /* Its lower border of navbar*/
+  /* border-top: thin solid #E00607;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 

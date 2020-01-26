@@ -1,12 +1,11 @@
-# ecotopia-today 
+# ecotopia-today
 
-A Vue.js app based on a prototype by Brian Holmes (@Brian393). 
+A Vue.js app programmed by edward sharp, based on a prototype by Brian Holmes. 
 
 🗣 [OpenLayers](https://openlayers.org/)  
 🗣 [vue-image-lightbox](https://www.npmjs.com/package/vue-image-lightbox)  
 
-https://edwardsharp.github.io/ecotopia-today/
-
+https://github.com/Brian393
 http://ecotopia.today/
 
 ## Project setup
@@ -41,7 +40,7 @@ note: change the `baseUrl` option in the `vue.config.js` file accordingly.
 npm run build
 ```
 
-Everything inside the dist/ folder can be copied to your webserver. 
+Everything inside the dist/ folder can be copied to your webserver.
 
 #### Deploy to GitHub Pages
 
@@ -111,10 +110,10 @@ export default {
 Then in your `<template>` use like so:
 
 ```
-<AppLightBox :images="damImages">A Dam Light Box</AppLightBox> 
+<AppLightBox :images="damImages">A Dam Light Box</AppLightBox>
 ```
 
-Further customization of `<LightBox/>`. See: https://www.npmjs.com/package/vue-image-lightbox#properties for all configuration options provided by this module. To extend more options (for example the `showThumbs` property) from this module do something like: 
+Further customization of `<LightBox/>`. See: https://www.npmjs.com/package/vue-image-lightbox#properties for all configuration options provided by this module. To extend more options (for example the `showThumbs` property) from this module do something like:
 
 Add the `showThumbs` property to `AppLightBox.vue`:
 
@@ -133,7 +132,7 @@ props: {
 }
 ```
 
-set the `<LightBox/>` element to use this property: 
+set the `<LightBox/>` element to use this property:
 
 ```
 <LightBox :showThumbs="showThumbs"></LightBox>
@@ -142,18 +141,18 @@ set the `<LightBox/>` element to use this property:
 then you can customize this per `<AppLightBox/>` instance like so:
 
 ```
-<AppLightBox :showThumbs="true">A Dam Light Box</AppLightBox> 
+<AppLightBox :showThumbs="true">A Dam Light Box</AppLightBox>
 ```
 
 ### `<Map/>`
 
-The map component is a wrapper for working with the openlayers library. Different map views are managed via the [Vue Router](https://router.vuejs.org/) (see: `router.js`) so `<router-link>` elements can be used to navigate to different map views. Each different map view has a corresponding method to setup (init) the OpenLayers map details. Generally there's some set of layers that will be used on every map view so those are stored in a common method that returns those layers (see: `watershedBaseLayers()`). Then each particular view can `.concat()` any additional layers needed. 
+The map component is a wrapper for working with the openlayers library. Different map views are managed via the [Vue Router](https://router.vuejs.org/) (see: `router.js`) so `<router-link>` elements can be used to navigate to different map views. Each different map view has a corresponding method to setup (init) the OpenLayers map details. Generally there's some set of layers that will be used on every map view so those are stored in a common method that returns those layers (see: `watershedBaseLayers()`). Then each particular view can `.concat()` any additional layers needed.
 
 There's also some functionality to:  
 * handle resizing the map when the aside conent is hidden/shown (via [Vuex](https://vuex.vuejs.org/) see: `store.js`)  
 * close any open popups when navigating to another view
 
-At the moment only the Watershed map views are built. In the future `Map.vue` will move to `MapWatershed.vue` and the other two main map categories will have corresponding component files (e.g. MapBioregion.vue & MapMegaregion.vue). 
+At the moment only the Watershed map views are built. In the future `Map.vue` will move to `MapWatershed.vue` and the other two main map categories will have corresponding component files (e.g. MapBioregion.vue & MapMegaregion.vue).
 
 
 ## misc.
@@ -171,7 +170,7 @@ methods: {
     emit: function (method, args) {
       eventBus.$emit(method, args)
     }
-  } 
+  }
 ```
 
 Use in `<template>`s like so:
@@ -180,11 +179,11 @@ Use in `<template>`s like so:
 <span class="link" @click="emit('set-map-view', {center: [-121.2, 51.0], resolution: 4500, minResolution: 1, maxResolution: 16000})">set-map-view</span>
 ```
 
-_note_ minResolution & maxResolution are optional. 
+_note_ minResolution & maxResolution are optional.
 
 ### util/sort_dam_json.js
 
-a simple utility to re-sort the .geojson files used for layers via `watershedDamsTransformationLayers` in chronological order. to use: 
+a simple utility to re-sort the .geojson files used for layers via `watershedDamsTransformationLayers` in chronological order. to use:
 
 ```sh
 cd util/
@@ -192,6 +191,6 @@ cd util/
 ```
 
 <hr>
-<p align="center"> 
+<p align="center">
 made with 🖤 in NYC
 </p>

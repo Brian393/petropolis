@@ -103,6 +103,10 @@ export default {
           {
             name: 'Tar Sands',
             href: '/petropolis/tarsands'
+          },
+          {
+            name: 'Chicago',
+            href: '/petropolis/chicago'
           }
         ]
       }

@@ -26,6 +26,14 @@ export default new Router({
         default: () => import('./views/petropolis/PetropolisTarSands.vue'),
         map: MapPetropolis
       }
+    },
+    {
+      path: '/petropolis/chicago',
+      name: 'petropolisChicago',
+      components: {
+        default: () => import('./views/petropolis/PetropolisChicago.vue'),
+        map: MapPetropolis
+      }
     }
   ]
 })
