@@ -113,21 +113,6 @@ export default {
       ]
     },
     petropolisChicagoLayers: function () {
-      let bingMapTile = new Tile({
-        source: new BingMaps({
-          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-          imagerySet: 'Aerial'
-        }),
-        minResolution: 1,
-        maxResolution: 10
-      })
-      bingMapTile.on('precompose', (e) => {
-        this.spyglass(e)
-      })
-      bingMapTile.on('postcompose', function (e) {
-        e.context.restore()
-      })
-
       return [
         new Tile({
           source: new XYZ({
@@ -141,16 +126,13 @@ export default {
             url: 'http://environmentalobservatory.net/Petropolis/tiles/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 0.25
+          minResolution: 0.25,
+	        updateWhileAnimating: true
         }),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe****lines.geojson', 1, 16000, '#000000', 3.5),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/Chakrabarty***.geojson', 'icons/Title3.png', null, 140, 160),
-        // bingMapsAerial
-        bingMapTile
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000)
       ]
     }
   },
@@ -294,5 +276,4 @@ export default {
     }
   }
 }
-
 </script>

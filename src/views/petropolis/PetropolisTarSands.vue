@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div>
-      <br><br><h3 style="color:#E00607; font-size:130%; text-align: denter;">We Don't Need More Dirty Oil</h3><br><br>
+      <br><br><h3 style="color:#E00607; font-size:130%; text-align: center;">We Don't Need More Dirty Oil</h3><br><br>
     </div>
     <img src="images/NoTarSands.jpg" class="fullwidth"><div class="caption"></div><br>
 

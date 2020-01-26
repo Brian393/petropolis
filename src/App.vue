@@ -32,7 +32,7 @@
 #app {
   /* Steven 1/18 */
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:  'Verdana', Arial, and Monospace;
+  font-family:  'Roboto', Arial, and Monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -61,7 +61,7 @@ nav a {
 nav a.active, nav a.router-link-exact-active {
   background-color: #FFFFFF;       /*background color when active */
   color: #333333;                    /*text color when active */
-  font-size: 330%;
+  font-size: 310%;
   margin: 10px;
 }
 nav a:hover {
@@ -136,7 +136,7 @@ aside .fullwidth {
 }
 
 #aside-heading {
-  margin-top: 0.1em;
+  margin-top: 0.15em;
   padding: 0;
   text-align: center;
   font-size: 240%;             /* sidebar header title, "Learning" */
