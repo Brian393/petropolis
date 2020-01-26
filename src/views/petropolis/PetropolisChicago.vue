@@ -9,10 +9,10 @@ position: absolute; top: 0; left: 0; width: 100%; height: 75%;
 <template>
   <div class="aside-content">
     <div>
-      <br><br><h3 style="color:#E00607; font-size:140%; text-align: center;">Emergency in Petropolis!</h3><br><br>
+      <br><br><h3 style="color:#E00607; font-size:130%; text-align: center;">Emergency in Petropolis</h3><br><br>
     </div>
     <div class="video">
-      <iframe width="350" height="300" src="https://www.youtube.com/embed/-oFmCNjgfUM?&ampmodestbranding=1&amp;autoplay=1&amp;autohide=1&amp;mute=1&amp;loop=1&amp;playlist=-oFmCNjgfUM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe width="350" height="300" src="https://www.youtube.com/embed/-oFmCNjgfUM?&ampmodestbranding=1&amp;autoplay=0&amp;autohide=1&amp;mute=1&amp;loop=1&amp;playlist=-oFmCNjgfUM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <p style="font-size:180%; font-weight: 900;">OUR DEMANDS</p>

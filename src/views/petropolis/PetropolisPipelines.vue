@@ -7,7 +7,7 @@
 
     <p><strong></strong></p>
 
-    <p style="font-size:100%;"><strong><em>From the Tars Sands to the Gulf of Mexico, the pipeline network pumps out a future of melting icecaps, sea-level rise, drought and forest fires. For the oilmen, every city is "Petropolis."</em></strong></p>
+    <p style="font-size:120%;"><strong><em>From the Tars Sands to the Gulf of Mexico, the pipeline network pumps out a future of melting icecaps, sea-level rise, drought and forest fires. For the oilmen, every city is "Petropolis."</em></strong></p>
 
     <p>The collapse of climate and ecosystems is accelerating. We are nearly out of time. Decades of protests, petitions and donations to environmental groups have done nothing to slow catastrophic change. Food and water shortages, resource wars, economic breakdown, and millions of new climate refugees are on the horizon. Human survival itself is at risk as temperatures continue to rise.</p>
 
