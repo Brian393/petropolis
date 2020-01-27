@@ -276,7 +276,7 @@ export default {
           if (feature) {
             const props = feature.getProperties()
             if (props.vimeoSrc3) {
-              const mediabox = new MediaLightBox(props.vimeoSrc2)
+              const mediabox = new MediaLightBox(props.vimeoSrc3)
               mediabox.open()
             }
           }
