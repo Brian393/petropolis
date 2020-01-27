@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+"features": [
+{ "type": "Feature", "properties": { "Name": "Dipesh Chakrabarty",
+"Image": "",
+"website": "'The mansion of modern freedoms stands on an ever-expanding base of fossil-fuel use. Most of our freedoms so far have been energy-intensive.... Whatever our socioeconomic and technological choices, whatever the rights we wish to celebrate as our freedom, we cannot afford to destabilize conditions (such as the temperature zone in which the planet exists) that work like boundary parameters of human existence.'",
+"EPA": "",
+"Notes": "Dipesh Chakrabarty, 'The Climate of History: Four Theses' (2009)." },
+"geometry": { "type": "Point", "coordinates": [ -87.49, 41.876 ] } }
+]
+}

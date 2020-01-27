@@ -44,8 +44,8 @@ export default {
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
           imagerySet: 'Aerial'
         }),
-        minResolution: 1,
-        maxResolution: 10
+        minResolution: 0.25,
+        maxResolution: 2
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -66,8 +66,13 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONPointVectorLayer('geojson/CoalPlants.geojson', 'icons/Coal.png', null, 1, 2000),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 16000, 1300000, '#c21313', 1.5),
         this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe***lines.geojson', 1, 16000, '#000000', 3.5),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries3.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Leaks.geojson', 'icons/OilSpill.gif', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Earthquake.gif', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
@@ -81,8 +86,8 @@ export default {
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
           imagerySet: 'Aerial'
         }),
-        minResolution: 1,
-        maxResolution: 10
+        minResolution: 0.25,
+        maxResolution: 2
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -114,6 +119,21 @@ export default {
       ]
     },
     petropolisChicagoLayers: function () {
+      let bingMapTile = new Tile({
+        source: new BingMaps({
+          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
+          imagerySet: 'Aerial'
+        }),
+        minResolution: 0.25,
+        maxResolution: 2
+      })
+      bingMapTile.on('precompose', (e) => {
+        this.spyglass(e)
+      })
+      bingMapTile.on('postcompose', function (e) {
+        e.context.restore()
+      })
+
       return [
         new Tile({
           source: new XYZ({
@@ -133,7 +153,10 @@ export default {
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000)
+        this.makeGeoJSONPointVectorLayer('geojson/Title.geojson', 'icons/Title3.png', null, 140, 180),
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
+        // bingMapsAerial
+        bingMapTile
       ]
     }
   },
@@ -194,7 +217,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelines.center),
         resolution: this.centerPoints.pipelines.resolution,
-        minResolution: 1,
+        minResolution: 0.25,
         maxResolution: 32000
       }))
       if (this.olmap) {
@@ -218,7 +241,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.tarsands.center),
         resolution: this.centerPoints.tarsands.resolution,
-        minResolution: 1,
+        minResolution: 0.25,
         maxResolution: 16000
       }))
       // Had to change props to vimeoSrc2 - here and in geojson - or else it doesn't close
@@ -243,7 +266,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.chicago.center),
         resolution: this.centerPoints.chicago.resolution,
-        minResolution: 1,
+        minResolution: 0.5,
         maxResolution: 16000
       }))
       // Had to change props to vimeoSrc3 - here and in geojson - or else it doesn't close
