@@ -119,6 +119,7 @@ export default {
       ]
     },
     petropolisChicagoLayers: function () {
+<<<<<<< HEAD
       let bingMapTile = new Tile({
         source: new BingMaps({
           key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
@@ -134,6 +135,8 @@ export default {
         e.context.restore()
       })
 
+=======
+>>>>>>> 9363238f4d90da0c1a812c8ebe69d8c459984576
       return [
         new Tile({
           source: new XYZ({
@@ -153,10 +156,14 @@ export default {
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+<<<<<<< HEAD
         this.makeGeoJSONPointVectorLayer('geojson/Title.geojson', 'icons/Title3.png', null, 140, 180),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
         // bingMapsAerial
         bingMapTile
+=======
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000)
+>>>>>>> 9363238f4d90da0c1a812c8ebe69d8c459984576
       ]
     }
   },
