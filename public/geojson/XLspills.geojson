@@ -3,11 +3,11 @@
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 
 "features": [
-{ "type": "Feature", "properties": { "title": "Kalamazoo River Oil Spill, July 25, 2010",
+{ "type": "Feature", "properties": { "title": "<h3>Kalamazoo Oil Spill, July 25, 2010</h3><br>",
 "image": "<img src='images/Kalamazoo.jpg'><br>",
 "text1": " ",
 "text2": "\"The spill happened in Marshall, a community of 7,400 in southwestern Michigan. At least 1 million gallons of oil blackened more than two miles of Talmadge Creek and almost 36 miles of the Kalamazoo River... The accident was triggered by a six-and-a-half foot tear in 6B, a 30-inch carbon steel pipeline operated by Enbridge Energy Partners, the U.S. branch of Enbridge Inc., Canada's largest transporter of crude oil. With Enbridge's costs already totaling more than $765 million, it is the most expensive oil pipeline spill since the U.S. government began keeping records in 1968... Just about everybody, including the EPA officials who rushed to Marshall, expected the mess to be cleaned up in a couple of months. What the EPA didn't know then, however, was that 6B was carrying bitumen, the dirtiest, stickiest oil on the market.'<br><br>Read more from the brilliant article by Elizabeth McGowan and Lisa Song, <a href='http://insideclimatenews.org/news/20120626/dilbit-diluted-bitumen-enbridge-kalamazoo-river-marshall-michigan-oil-spill-6b-pipeline-epa'>The Dilbit Disaster</a>.\"<br>",
-"text3": "Wikipedia page <a href='https://en.wikipedia.org/wiki/Kalamazoo_River_oil_spill'>here</a>.<br>EPA reports <a href='https://19january2017snapshot.epa.gov/enbridge-spill-michigan/enbridge-oil-spill-documents_.html'>here</a> (these have been cut from the official site)." }, 
+"text3": "Wikipedia page <a href='https://en.wikipedia.org/wiki/Kalamazoo_River_oil_spill'>here</a>.<br>EPA reports <a href='https://19january2017snapshot.epa.gov/enbridge-spill-michigan/enbridge-oil-spill-documents_.html'>here</a> (these have been cut from the official site)." },
 "geometry": { "type": "Point", "coordinates": [ -84.97251, 42.24329 ] } }
 ]
 }

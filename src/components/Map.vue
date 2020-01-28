@@ -263,7 +263,7 @@ export default {
             anchorXUnits: 'fraction',
             anchorYUnits: 'pixels',
             opacity: 1,
-            src: feature.values_['icon'] || 'icons/dam.png'
+            src: feature.values_['icon'] || 'icons/XLspill.gif'
 
           })
         })

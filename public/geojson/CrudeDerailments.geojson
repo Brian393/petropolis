@@ -61,6 +61,21 @@
 { "type": "Feature", "properties": { "Name": "Derailment",
 "vimeoSrc": "https://www.youtube-nocookie.com/embed/c8Q7d8c24T0",
 	"vimeoTitle": "Adrien Aubert: Catastrophe in in Lac Mégantic, Quebec (July 6, 2013)"},
-"geometry": { "type": "Point", "coordinates": [ -70.883190, 45.577510 ] } }
+"geometry": { "type": "Point", "coordinates": [ -70.883190, 45.577510 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Derailment",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/9Rz_c1JRtVQ",
+	"vimeoTitle": "Oil Train Derails in Floodwaters near Doon, IA (June 22, 2018), "},
+"geometry": { "type": "Point", "coordinates": [ -96.237205, 43.264117 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Derailment",
+"vimeoSrc": "https://www.youtube.com/embed/V4HdxXy5fCw",
+	"vimeoTitle": "Oil Train Derails near Guernsey, Saskatchewan (December 10, 2019), "},
+"geometry": { "type": "Point", "coordinates": [ -105.245936, 51.884467 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Derailment",
+"vimeoSrc": "https://globalnews.ca/video/embed/4979441",
+	"vimeoTitle": "Oil Train Derails near St Lazare, Manitoba (February 16, 2019), "},
+"geometry": { "type": "Point", "coordinates": [ -101.192650, 50.320091 ] } }
 ]
 }
