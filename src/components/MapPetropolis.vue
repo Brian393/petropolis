@@ -33,7 +33,7 @@ export default {
           resolution: 150
         }
       }, // end centerPoints
-      radius: 250,
+      radius: 600,
       mousePosition: undefined
     }
   },
@@ -45,7 +45,7 @@ export default {
           imagerySet: 'Aerial'
         }),
         minResolution: 0.25,
-        maxResolution: 2
+        maxResolution: 4
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -63,13 +63,17 @@ export default {
           minResolution: 0.25
         }),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
+        this.makeGeoJSONFillVectorLayer('geojson/OilFields-NA.geojson', 80, 6000, 'rgba(102,	51,	51, 0.6)', 2, 'rgba(242,207,207, 0.2)'),
+        this.makeGeoJSONFillVectorLayer('geojson/OilFields_outsideNA.geojson', 80, 6000, 'rgba(102,	51,	51, 0.6)', 2, 'rgba(242,207,207, 0.2)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONPointVectorLayer('geojson/CoalPlants.geojson', 'icons/Coal.png', null, 1, 2000),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 16000, 1300000, '#c21313', 1.5),
-        this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe***lines.geojson', 1, 16000, '#000000', 3.5),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries3.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, '#c21313', 1.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 200, 16000, '#c21313', 3.5),
+        this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA.geojson', 'icons/OilIcon2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/Leaks-fullfile-edited.geojson', 'icons/OilSpill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
@@ -77,6 +81,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Anthroquake.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000),
         // bingMapsAerial
         bingMapTile
       ]

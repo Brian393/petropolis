@@ -36,6 +36,11 @@
 { "type": "Feature", "properties": { "Name": "Action",
 "vimeoSrc": "https://www.youtube-nocookie.com/embed/6RJQREvxeqY",
 	"vimeoTitle": "Break Free Convergence in Washington, DC - May 15, 2016"},
-"geometry": { "type": "Point", "coordinates": [ -77.036562, 38.898752 ] } }
+"geometry": { "type": "Point", "coordinates": [ -77.036562, 38.898752 ] } },
+
+{ "type": "Feature", "properties": { "Name": "Action",
+"vimeoSrc": "https://www.youtube-nocookie.com/embed/Fm5V0QmBw-I",
+	"vimeoTitle": "Break Free Convergence in Washington, DC - May 15, 2016"},
+"geometry": { "type": "Point", "coordinates": [  -88.022461, 40.497092 ] } }
 ]
 }
