@@ -21,8 +21,8 @@ export default {
     return {
       centerPoints: {
         pipelines: {
-          center: [-95.2128, 42.8],
-          resolution: 6000
+          center: [-95.9, 41.0],
+          resolution: 7000
         },
         tarsands: {
           center: [-111.439654, 56.9275],
@@ -70,11 +70,12 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe***lines.geojson', 1, 16000, '#000000', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries3.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/Leaks.geojson', 'icons/OilSpill.gif', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/Leaks-fullfile-edited.geojson', 'icons/OilSpill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Earthquake.gif', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Anthroquake.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
         // bingMapsAerial
         bingMapTile
