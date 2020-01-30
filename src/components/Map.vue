@@ -350,6 +350,31 @@ export default {
         fillColor: fillColor
       })
     },
+    geoJSONLineVectorLayerStyle: function (feature) {
+      // cache styles here to prevent icon flickering/blinking!
+      // second value of icon anchor is height in pixels, Y units specified accordingly
+      if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
+        this.styleCache[feature.values_['color']] = new Style({
+          stroke: new Stroke({
+            color: feature.values_['color'],
+            width: 3.5,
+            lineDash: [4]
+          })
+        })
+      }
+      return this.styleCache[feature.values_['color']]
+    },
+    makeGeoJSONLineVectorLayerWithStyle: function (url, minResolution, maxResolution, width) {
+      return new VectorLayer({
+        source: new VectorSource({
+          format: new GeoJSON(),
+          url: url
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONLineVectorLayerStyle
+      })
+    },
     makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
       return new VectorLayer({
         source: new VectorSource({

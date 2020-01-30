@@ -66,6 +66,7 @@ export default {
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.2)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, '#c21313', 1.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 200, 16000, '#c21313', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/CoalPlants.geojson', 'icons/Coal.png', null, 1, 2000),
