@@ -47,7 +47,7 @@ import {Map, Overlay, View} from 'ol'
 import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
-import {Style, Stroke, Fill, Icon} from 'ol/style'
+import {Style, Stroke, Fill, Icon, Circle} from 'ol/style'
 import {ScaleLine, defaults as defaultControls, ZoomSlider} from 'ol/control'
 import {fromLonLat} from 'ol/proj'
 
@@ -173,7 +173,7 @@ export default {
             new ScaleLine({
               units: 'us',
               minWidth: 150
-            }),
+            })
           ])
         })
         this.toggleScaleLine()
@@ -193,6 +193,9 @@ export default {
               this.closeTooltip()
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
+              this.popup.setPosition(e.coordinate)
+            } else if (props.images) {
+              this.$refs.popupContent.innerHTML = props.images
               this.popup.setPosition(e.coordinate)
             // starting here I took out a lot of stuff which can be found in Cascadia maps
             } else if (props.vimeoSrc) {
@@ -280,6 +283,33 @@ export default {
         maxResolution: maxResolution,
         style: this.geoJSONPointVectorLayerStyle,
         label: label
+      })
+    },
+    makeGeoJSONPointVectorLayerWithCircleStyle: function (url, label, minResolution, maxResolution, strokeColor, width, fillColor) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: strokeColor,
+              width: width
+            }),
+            fill: new Fill({
+              color: fillColor
+            }),
+            radius: 20
+          })
+        }),
+        label: label,
+        width: width,
+        strokeColor: strokeColor,
+        fill: fillColor,
+        fillColor: fillColor
       })
     },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {

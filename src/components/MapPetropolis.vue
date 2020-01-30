@@ -63,8 +63,7 @@ export default {
           minResolution: 0.25
         }),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
-        this.makeGeoJSONFillVectorLayer('geojson/OilFields-NA**.geojson', 80, 6000, 'rgba(102,	51,	51, 0.6)', 2, 'rgba(66,28,82, 0.1)'),
-        this.makeGeoJSONFillVectorLayer('geojson/OilFields_outsideNA**.geojson', 80, 6000, 'rgba(102,	51,	51, 0.6)', 2, 'rgba(242,207,207, 0.2)'),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.2)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, '#c21313', 1.5),
@@ -74,14 +73,16 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
-        this.makeGeoJSONPointVectorLayer('geojson/Leaks.geojson', 'icons/OilSpill.gif', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
+        // this.makeGeoJSONPointVectorLayer('geojson/Leaks.geojson', 'icons/OilSpill.gif', null, 1, 2000),
+        // this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
+        // this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Anthroquake.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000),
+        // Attempt to set up a lightbox, see below as well:
+        this.makeGeoJSONPointVectorLayer('geojson/Conveyers.geojson', 'icons/piles.gif', null, 1, 2000),
         // bingMapsAerial
         bingMapTile
       ]
@@ -116,7 +117,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe****lines.geojson', 1, 16000, '#000000', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/Question.geojson','icons/Question.gif', null, 40, 4000),
+        this.makeGeoJSONPointVectorLayer('geojson/Question.geojson', 'icons/Question.gif', null, 40, 4000),
         this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400),
@@ -234,6 +235,11 @@ export default {
             if (props.vimeoSrc) {
               const mediabox = new MediaLightBox(props.vimeoSrc)
               mediabox.open()
+            }
+            // attempt to set up a lightbox - BH
+            else if (props.images) {
+              const lightbox = new AppLightBox(props.images)
+              lightbox.open()
             }
           }
         })
