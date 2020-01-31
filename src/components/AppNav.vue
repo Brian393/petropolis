@@ -48,13 +48,14 @@
   border: thin solid darkgray;
   border-radius: 6px;
   margin: 0.1em;
-  background-color: rgba(255,255,255, 0.95);
+  background-color: #F2F2F2;
   color: black;
   text-decoration: none;
 }
 
 .btn:hover, .router-link-active {
-  color: #008000;
+  color: #c21313;
+  background: white;
 }
 
 .subItem {
@@ -107,6 +108,18 @@ export default {
           {
             name: 'Chicago',
             href: '/petropolis/chicago'
+          }
+        ]
+      },
+      subItems: {
+        tarsands: [
+          {
+            name: 'Bakken Shale Oil',
+            href: '/petropolis/tarsands/bakken'
+          },
+          {
+            name: 'Gulf of Mexico',
+            href: '/petropolis/tarsands/gulf'
           }
         ]
       }

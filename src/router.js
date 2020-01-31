@@ -28,6 +28,22 @@ export default new Router({
       }
     },
     {
+      path: '/petropolis/tarsands/bakken',
+      name: 'petropolisTarSandsBakken',
+      components: {
+        default: () => import('./views/petropolis/PetropolisTarSandsBakken.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/tarsands/gulf',
+      name: 'petropolisTarSandsGulf',
+      components: {
+        default: () => import('./views/petropolis/PetropolisTarSandsGulf.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
       path: '/petropolis/chicago',
       name: 'petropolisChicago',
       components: {

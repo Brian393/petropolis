@@ -28,6 +28,14 @@ export default {
           center: [-111.439654, 56.9275],
           resolution: 180
         },
+        bakken: {
+          center: [-102.9, 47.6030],
+          resolution: 1600
+        },
+        gulf: {
+          center: [-91.231, 28.962],
+          resolution: 180
+        },
         chicago: {
           center: [-87.75, 41.767832],
           resolution: 150
@@ -67,7 +75,7 @@ export default {
         bingMapTile
       ]
     },
-    petropolisBaseLayers: function () {
+    petropolisPipelineLayers: function () {
       return [
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
@@ -108,6 +116,27 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400)
+      ]
+    },
+    petropolisBakkenLayers: function () {
+      return [
+        ...this.baseLayers,
+        this.makeGeoJSONFillVectorLayer('geojson/NAshaleplays.geojson', 4, 4000, 'rgba(134,82,63,0.2)', 0.2, 'rgba(134,82,63,0.2)'),
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
+        this.makeGeoJSONPointVectorLayer('geojson/OilHubs.geojson', 'icons/OilRR.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Emissions.geojson','icons/flare.png', null, 2, 4000),
+        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/BombTrainOverlay2.geojson', 'icons/1267-lg.gif', null, 1000, 4000)
+      ]
+    },
+    petropolisGulfLayers: function () {
+      return [
+        ...this.baseLayers
       ]
     },
     petropolisChicagoLayers: function () {
@@ -171,6 +200,12 @@ export default {
         case 'petropolisTarSands':
           this.initPetropolisTarSands()
           break
+        case 'petropolisTarSandsBakken':
+          this.initPetropolisTarSandsBakken()
+          break
+        case 'petropolisTarSandsGulf':
+          this.initPetropolisTarSandsGulf()
+          break
         case 'petropolisChicago':
           this.initPetropolisChicago()
           break
@@ -181,7 +216,7 @@ export default {
     initPetropolisPipelines: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisBaseLayers
+        layers: this.petropolisPipelineLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelines.center),
@@ -231,6 +266,30 @@ export default {
           }
         })
       }
+    },
+    initPetropolisTarSandsBakken: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisBakkenLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.bakken.center),
+        resolution: this.centerPoints.bakken.resolution,
+        minResolution: 0.25,
+        maxResolution: 16000
+      }))
+    },
+    initPetropolisTarSandsGulf: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisGulfLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.gulf.center),
+        resolution: this.centerPoints.gulf.resolution,
+        minResolution: 0.25,
+        maxResolution: 16000
+      }))
     },
     initPetropolisChicago: function () {
       this.initBaseMap()
