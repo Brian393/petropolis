@@ -285,6 +285,23 @@ export default {
         label: label
       })
     },
+    geoJSONPointVectorLayerCircleStyle: function (feature) {
+      if (feature.values_ && feature.values_['rad'] && !this.styleCache[feature.values_['rad']]) {
+        this.styleCache[feature.values_['rad']] = new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: 'rgba(134, 40, 26, 0.4)',
+              width: 1
+            }),
+            fill: new Fill({
+              color: 'rgba(134, 40, 26, 0.2)'
+            }),
+            radius: Math.sqrt(feature.values_['rad'])
+          })
+        })
+      }
+      return this.styleCache[feature.values_['rad']]
+    },
     makeGeoJSONPointVectorLayerWithCircleStyle: function (url, label, minResolution, maxResolution, strokeColor, width, fillColor) {
       return new VectorLayer({
         source: new VectorSource({
@@ -293,23 +310,8 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
-        style: new Style({
-          image: new Circle({
-            stroke: new Stroke({
-              color: strokeColor,
-              width: width
-            }),
-            fill: new Fill({
-              color: fillColor
-            }),
-            radius: 20
-          })
-        }),
-        label: label,
-        width: width,
-        strokeColor: strokeColor,
-        fill: fillColor,
-        fillColor: fillColor
+        style: this.geoJSONPointVectorLayerCircleStyle,
+        label: label
       })
     },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
@@ -351,8 +353,6 @@ export default {
       })
     },
     geoJSONLineVectorLayerStyle: function (feature) {
-      // cache styles here to prevent icon flickering/blinking!
-      // second value of icon anchor is height in pixels, Y units specified accordingly
       if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
         this.styleCache[feature.values_['color']] = new Style({
           stroke: new Stroke({
