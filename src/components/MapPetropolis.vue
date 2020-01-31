@@ -34,7 +34,7 @@ export default {
         },
         gulf: {
           center: [-91.231, 28.962],
-          resolution: 180
+          resolution: 800
         },
         chicago: {
           center: [-87.75, 41.767832],
@@ -91,16 +91,11 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
-        // this.makeGeoJSONPointVectorLayer('geojson/Leaks.geojson', 'icons/OilSpill.gif', null, 1, 2000),
-        // this.makeGeoJSONPointVectorLayer('geojson/LargeLeaks.geojson', 'icons/LargeSpill.gif', null, 1, 2000),
-        // this.makeGeoJSONPointVectorLayer('geojson/XLspills.geojson', 'icons/XLspill.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Anthroquakes.geojson', 'icons/Anthroquake.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000),
-        // Attempt to set up a lightbox, see below as well:
-        this.makeGeoJSONPointVectorLayer('geojson/Conveyers.geojson', 'icons/piles.gif', null, 1, 2000)
+        this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000)
       ]
     },
     petropolisTarSandsLayers: function () {
@@ -136,7 +131,16 @@ export default {
     },
     petropolisGulfLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+        this.makeGeoJSONLineVectorLayer('geojson/GulfPipelinesActive.geojson', 1, 16000, '#c21313', 1),
+        this.makeGeoJSONPointVectorLayer('geojson/OperatingPlatforms.geojson', 'icons/Rig.gif', null, 1, 16000),
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
+        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Horizon.geojson', 'icons/leak2.png', null, 600, 1200)
       ]
     },
     petropolisChicagoLayers: function () {
@@ -154,7 +158,8 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/Title.geojson', 'icons/Title3.png', null, 140, 180),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000)
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/BombTrainOverlay.geojson', 'icons/1267-lg.gif', null, 100, 4000)
       ]
     }
   },
@@ -232,11 +237,6 @@ export default {
             if (props.vimeoSrc) {
               const mediabox = new MediaLightBox(props.vimeoSrc)
               mediabox.open()
-            }
-            // attempt to set up a lightbox - BH
-            else if (props.images) {
-              const lightbox = new AppLightBox(props.images)
-              lightbox.open()
             }
           }
         })

@@ -1,10 +1,11 @@
 <template>
   <div class="aside-content">
     <div>
-      <br><br><h3 style="color:#E00607; font-size:130%; text-align: center;">We Don't Need More Dirty Oil</h3><br><br>
+      <br><br><h3 style="color:#E00607; font-size:130%; text-align: center;">Tar Sands Is Climate Crime</h3><br><br>
     </div>
-    <img src="images/NoTarSands.jpg" class="fullwidth"><div class="caption"></div><br>
-
+    <div class="video">
+      <iframe width="350" height="230" src="https://www.youtube.com/embed/Fy8TC4UZhXw?&ampmodestbranding=1&amp;autoplay=1&amp;autohide=1&amp;mute=1&amp;loop=1&amp;playlist=Fy8TC4UZhXw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
     <p><strong></strong></p>
 
     <p></p>

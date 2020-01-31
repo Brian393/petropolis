@@ -20,8 +20,8 @@
 }
 
 #items {
-  bottom: 2.5em;
-  left: 2.5em;
+  bottom: 50px;
+  left: 1em;
   flex-direction: column;
   width: 150px;
   max-height: calc(100vh - 170px);
