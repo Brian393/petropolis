@@ -45,7 +45,8 @@ export default {
           imagerySet: 'Aerial'
         }),
         minResolution: 0.25,
-        maxResolution: 4
+        maxResolution: 4,
+        zIndex: 10
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -62,6 +63,13 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
+        // bingMapsAerial
+        bingMapTile
+      ]
+    },
+    petropolisBaseLayers: function () {
+      return [
+        ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
@@ -84,35 +92,12 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000),
         // Attempt to set up a lightbox, see below as well:
-        this.makeGeoJSONPointVectorLayer('geojson/Conveyers.geojson', 'icons/piles.gif', null, 1, 2000),
-        // bingMapsAerial
-        bingMapTile
+        this.makeGeoJSONPointVectorLayer('geojson/Conveyers.geojson', 'icons/piles.gif', null, 1, 2000)
       ]
     },
     petropolisTarSandsLayers: function () {
-      let bingMapTile = new Tile({
-        source: new BingMaps({
-          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-          imagerySet: 'Aerial'
-        }),
-        minResolution: 0.25,
-        maxResolution: 2
-      })
-      bingMapTile.on('precompose', (e) => {
-        this.spyglass(e)
-      })
-      bingMapTile.on('postcompose', function (e) {
-        e.context.restore()
-      })
-
       return [
-        new Tile({
-          source: new XYZ({
-            url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 0.25
-        }),
+        ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/TarSandsFootprints2.geojson', 0.25, 4000, 'black', 0.6, 'rgba(244, 164, 96, 0.6)'),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
@@ -122,35 +107,12 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/Question.geojson', 'icons/Question.gif', null, 40, 4000),
         this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
         this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400),
-        // bingMapsAerial
-        bingMapTile
+        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400)
       ]
     },
     petropolisChicagoLayers: function () {
-      let bingMapTile = new Tile({
-        source: new BingMaps({
-          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-          imagerySet: 'Aerial'
-        }),
-        minResolution: 0.25,
-        maxResolution: 2
-      })
-      bingMapTile.on('precompose', (e) => {
-        this.spyglass(e)
-      })
-      bingMapTile.on('postcompose', function (e) {
-        e.context.restore()
-      })
-
       return [
-        new Tile({
-          source: new XYZ({
-            url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 0.25
-        }),
+        ...this.baseLayers,
         new Tile({
           source: new XYZ({
             url: 'http://environmentalobservatory.net/Petropolis/tiles/{z}/{x}/{y}.png'
@@ -163,9 +125,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/Title.geojson', 'icons/Title3.png', null, 140, 180),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
-        // bingMapsAerial
-        bingMapTile
+        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000)
       ]
     }
   },
@@ -221,7 +181,7 @@ export default {
     initPetropolisPipelines: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.baseLayers
+        layers: this.petropolisBaseLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelines.center),
