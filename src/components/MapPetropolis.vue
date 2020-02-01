@@ -24,6 +24,14 @@ export default {
           center: [-95.9, 41.0],
           resolution: 7000
         },
+        coal: {
+          center: [-96.9, 38.0],
+          resolution: 5000
+        },
+        gas: {
+          center: [-95.9, 41.0],
+          resolution: 6000
+        },
         tarsands: {
           center: [-111.439654, 56.9275],
           resolution: 180
@@ -85,8 +93,6 @@ export default {
         this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, '#c21313', 1.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 200, 16000, '#c21313', 3.5),
-        this.makeGeoJSONPointVectorLayer('geojson/CoalPlants.geojson', 'icons/Coal.png', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/OilHubs.geojson', 'icons/OilRR.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA.geojson', 'icons/OilIcon2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/refinery-red-sm.gif', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
@@ -96,6 +102,21 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BreakFreeProtests.geojson', 'icons/Break.gif', null, 40, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/Gasland2.gif', null, 4, 8000)
+      ]
+    },
+    petropolisCoalLayers: function () {
+      return [
+        ...this.baseLayers,
+        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 16000, 'rgba(0, 0, 0, 0.7)', 0.5, 'rgba(0, 0, 0, 0.4)'),
+        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/Coal_Mine.png', null, 4, 16000),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/CoalGHG.geojson', null, 4, 8000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)')
+
+      ]
+    },
+    petropolisGasLayers: function () {
+      return [
+        ...this.baseLayers
+
       ]
     },
     petropolisTarSandsLayers: function () {
@@ -132,6 +153,7 @@ export default {
     petropolisGulfLayers: function () {
       return [
         ...this.baseLayers,
+        this.makeGeoJSONPointVectorLayerWithCircleStyle3('geojson/MarineSpillsOver1000.geojson', null, 4, 16000),
         this.makeGeoJSONLineVectorLayer('geojson/GulfPipelinesActive.geojson', 1, 16000, '#c21313', 1),
         this.makeGeoJSONPointVectorLayer('geojson/OperatingPlatforms.geojson', 'icons/Rig.gif', null, 1, 16000),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
@@ -202,6 +224,12 @@ export default {
         case 'petropolisPipelines':
           this.initPetropolisPipelines()
           break
+        case 'petropolisPipelinesCoal':
+          this.initPetropolisPipelinesCoal()
+          break
+        case 'petropolisPipelinesGas':
+          this.initPetropolisPipelinesGas()
+          break
         case 'petropolisTarSands':
           this.initPetropolisTarSands()
           break
@@ -241,6 +269,30 @@ export default {
           }
         })
       }
+    },
+    initPetropolisPipelinesCoal: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisCoalLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.coal.center),
+        resolution: this.centerPoints.coal.resolution,
+        minResolution: 0.25,
+        maxResolution: 16000
+      }))
+    },
+    initPetropolisPipelinesGas: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisGasLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.gas.center),
+        resolution: this.centerPoints.gas.resolution,
+        minResolution: 0.25,
+        maxResolution: 16000
+      }))
     },
     initPetropolisTarSands: function () {
       this.initBaseMap()

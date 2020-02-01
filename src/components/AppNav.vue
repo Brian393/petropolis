@@ -112,6 +112,16 @@ export default {
         ]
       },
       subItems: {
+        pipelines: [
+          {
+            name: 'Coal',
+            href: '/petropolis/pipelines/coal'
+          },
+          {
+            name: 'Gas',
+            href: '/petropolis/pipelines/gas'
+          }
+        ],
         tarsands: [
           {
             name: 'Bakken Shale Oil',
@@ -147,7 +157,9 @@ export default {
       } else {
         this.nav = []
       }
-      if (/petropolisTarSands/.test(this.$route.name)) {
+      if (/petropolisPipelines/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.pipelines
+      } else if (/petropolisTarSands/.test(this.$route.name)) {
         this.navSubItems = this.subItems.tarsands
       } else {
         this.navSubItems = []

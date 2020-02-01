@@ -9,13 +9,29 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/petropolis/Pipelines'
+      redirect: '/petropolis/pipelines'
     },
     {
-      path: '/petropolis/Pipelines',
+      path: '/petropolis/pipelines',
       name: 'petropolisPipelines',
       components: {
         default: PetropolisPipelines,
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/pipelines/coal',
+      name: 'petropolisPipelinesCoal',
+      components: {
+        default: () => import('./views/petropolis/PetropolisPipelinesCoal.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/pipelines/gas',
+      name: 'petropolisPipelinesGas',
+      components: {
+        default: () => import('./views/petropolis/PetropolisPipelinesGas.vue'),
         map: MapPetropolis
       }
     },

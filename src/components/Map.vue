@@ -314,6 +314,64 @@ export default {
         label: label
       })
     },
+    geoJSONPointVectorLayerCircleStyle2: function (feature) {
+      if (feature.values_ && feature.values_['GHG2'] && !this.styleCache[feature.values_['GHG2']]) {
+        this.styleCache[feature.values_['GHG2']] = new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: 'rgba(0, 0, 0, 0.9)',
+              width: 1
+            }),
+            fill: new Fill({
+              color: 'rgba(194, 19, 19, 0.7)'
+            }),
+            radius: Math.sqrt(feature.values_['GHG2']) * 3
+          })
+        })
+      }
+      return this.styleCache[feature.values_['GHG2']]
+    },
+    makeGeoJSONPointVectorLayerWithCircleStyle2: function (url, label, minResolution, maxResolution) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONPointVectorLayerCircleStyle2,
+        label: label
+      })
+    },
+    geoJSONPointVectorLayerCircleStyle3: function (feature) {
+      if (feature.values_ && feature.values_['max_ptl_release_gallons'] && !this.styleCache[feature.values_['max_ptl_release_gallons']]) {
+        this.styleCache[feature.values_['max_ptl_release_gallons']] = new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: 'rgba(134, 40, 26, 0.9)',
+              width: 1
+            }),
+            fill: new Fill({
+              color: 'rgba(134, 40, 26, 0.6)'
+            }),
+            radius: Math.sqrt(feature.values_['max_ptl_release_gallons']) / 70
+          })
+        })
+      }
+      return this.styleCache[feature.values_['max_ptl_release_gallons']]
+    },
+    makeGeoJSONPointVectorLayerWithCircleStyle3: function (url, label, minResolution, maxResolution) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONPointVectorLayerCircleStyle3,
+        label: label
+      })
+    },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
       return new VectorLayer({
         source: new VectorSource({
