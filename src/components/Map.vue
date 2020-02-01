@@ -372,6 +372,35 @@ export default {
         label: label
       })
     },
+    geoJSONPointVectorLayerCircleStyle4: function (feature) {
+      if (feature.values_ && feature.values_['GHG2'] && !this.styleCache[feature.values_['GHG2']]) {
+        this.styleCache[feature.values_['GHG2']] = new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: 'rgba(0, 0, 0, 0.6)',
+              width: 1
+            }),
+            fill: new Fill({
+              color: 'rgba(0, 200, 237, 0.2)'
+            }),
+            radius: Math.sqrt(feature.values_['GHG2']) / 70
+          })
+        })
+      }
+      return this.styleCache[feature.values_['GHG2']]
+    },
+    makeGeoJSONPointVectorLayerWithCircleStyle4: function (url, label, minResolution, maxResolution) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONPointVectorLayerCircleStyle4,
+        label: label
+      })
+    },
     makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
       return new VectorLayer({
         source: new VectorSource({

@@ -29,8 +29,8 @@ export default {
           resolution: 5000
         },
         gas: {
-          center: [-95.9, 41.0],
-          resolution: 6000
+          center: [-96.9, 38.0],
+          resolution: 5000
         },
         tarsands: {
           center: [-111.439654, 56.9275],
@@ -125,7 +125,8 @@ export default {
           minResolution: 0.25,
 	        updateWhileAnimating: true
         }),
-        this.makeGeoJSONPointVectorLayer('geojson/NatGasGenerators.geojson', 'icons/Natgas3.gif', null, 4, 16000)
+        this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/NatGasGenerators.geojson', null, 4, 8000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
+        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000)
 
       ]
     },
@@ -171,7 +172,6 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Horizon.geojson', 'icons/leak2.png', null, 600, 1200)
       ]
     },
