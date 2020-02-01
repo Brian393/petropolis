@@ -21,7 +21,7 @@ export default {
     return {
       centerPoints: {
         pipelines: {
-          center: [-95.9, 41.0],
+          center: [-98, 40.9],
           resolution: 7000
         },
         coal: {
@@ -34,7 +34,7 @@ export default {
         },
         tarsands: {
           center: [-111.439654, 56.9275],
-          resolution: 180
+          resolution: 170
         },
         bakken: {
           center: [-102.9, 47.6030],
@@ -42,14 +42,14 @@ export default {
         },
         gulf: {
           center: [-91.231, 28.962],
-          resolution: 800
+          resolution: 1000
         },
         chicago: {
           center: [-87.75, 41.767832],
           resolution: 150
         }
       }, // end centerPoints
-      radius: 600,
+      radius: 400,
       mousePosition: undefined
     }
   },
@@ -115,7 +115,17 @@ export default {
     },
     petropolisGasLayers: function () {
       return [
-        ...this.baseLayers
+        ...this.baseLayers,
+
+        new Tile({
+          source: new XYZ({
+            url: 'http://environmentalobservatory.net/NatGas/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25,
+	        updateWhileAnimating: true
+        }),
+        this.makeGeoJSONPointVectorLayer('geojson/NatGasGenerators.geojson', 'icons/Natgas3.gif', null, 4, 16000)
 
       ]
     },
