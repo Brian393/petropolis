@@ -377,11 +377,11 @@ export default {
         this.styleCache[feature.values_['GHG2']] = new Style({
           image: new Circle({
             stroke: new Stroke({
-              color: 'rgba(0, 0, 0, 0.6)',
+              color: 'rgba(0, 0, 0, 0.9)',
               width: 1
             }),
             fill: new Fill({
-              color: 'rgba(0, 200, 237, 0.2)'
+              color: 'rgba(0, 200, 237, 0.8)'
             }),
             radius: Math.sqrt(feature.values_['GHG2']) / 70
           })

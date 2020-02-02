@@ -125,7 +125,7 @@ export default {
           minResolution: 0.25,
 	        updateWhileAnimating: true
         }),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/NatGasGenerators.geojson', null, 4, 8000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/NatGasGenerators.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000)
 
       ]
