@@ -132,17 +132,33 @@ export default {
     },
     petropolisTarSandsLayers: function () {
       return [
-        ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/TarSandsFootprints2.geojson', 0.25, 4000, 'black', 0.6, 'rgba(244, 164, 96, 0.6)'),
+        new Tile({
+          source: new XYZ({
+            url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25,
+          maxResolution: 440
+        }),
+          new Tile({
+            source: new XYZ({
+              url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 300,
+            maxResolution: 16000
+          }),
+        this.makeGeoJSONFillVectorLayer('geojson/TarSandsFootprints2.geojson', 32, 4000, 'black', 0.6, 'rgba(244, 164, 96, 0.4)'),
+        this.makeGeoJSONFillVectorLayer('geojson/TarSandsFootprints2.geojson', 2, 40, 'rgba(244, 164, 96, 0.8)', 3, 'rgba(255, 255, 255, 0.1)'),
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, '#c21313', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/Enbridge_Pipe****lines.geojson', 1, 16000, '#000000', 3.5),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/refinery-red.gif', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/Question.geojson', 'icons/Question.gif', null, 40, 4000),
-        this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 400),
-        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 400)
+        this.makeGeoJSONPointVectorLayer('geojson/ShylePierce.geojson', 'icons/ShylePierce.png', null, 40, 300),
+        this.makeGeoJSONPointVectorLayer('geojson/Escape.geojson', 'icons/Escape.png', null, 40, 300),
+        this.makeGeoJSONPointVectorLayer('geojson/Petropolis.geojson', 'icons/Petropolis.png', null, 40, 300)
       ]
     },
     petropolisBakkenLayers: function () {
