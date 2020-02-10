@@ -10,6 +10,10 @@
 
     <p style="font-size:120%;"><strong><em>From the Tars Sands to the Gulf of Mexico, the pipeline network pumps out a future of melting icecaps, sea-level rise, drought and forest fires. For the oilmen, every city is "Petropolis."</em></strong></p>
 
+    <p>This map reveals the inner workings of Petropolis at the national, regional and local levels. It focuses on crude oil pipelines and refineries, but it also includes sections on coal and natural gas. To navigate through the different sections use the buttons at the lower left corner, and also at the bottom of each page in the center.</p>
+
+    <p>Every feature delivers information at a click, and a visual legend can be accessed below the sidebar texts. Zoom in far enough and you'll actually see the refineries and generating plants, through a "spyglass" that opens up to a satellite image. The point is to build an awareness of fossil-fuel infrastructure and its damaging effects, while at the same time highlighting the many forms of critique, protest and political action that are spearheading an urgently needed change in our energy system&mdash;and in our society as a whole.</p>
+
     <p>The collapse of climate and ecosystems is accelerating. We are nearly out of time. Decades of protests, petitions and donations to environmental groups have done nothing to slow catastrophic change. Food and water shortages, resource wars, economic breakdown, and millions of new climate refugees are on the horizon. Human survival itself is at risk as temperatures continue to rise.</p>
 
     <p>Extinction Rebellion uses nonviolent direct actions and peaceful civil disobedience to disrupt business-as-usual in order to compel governments to act now to save a livable climate.</p>
