@@ -122,12 +122,14 @@ export default {
             url: 'http://environmentalobservatory.net/NatGas/{z}/{x}/{y}.png'
           }),
           opacity: 1,
-          minResolution: 0.25,
+          minResolution: 40,
 	        updateWhileAnimating: true
         }),
+        this.makeGeoJSONLineVectorLayer('geojson/NatGasPipes.geojson', 4, 80, '#c21313', 3),
+        this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
         this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/NatGasGenerators.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000)
-
       ]
     },
     petropolisTarSandsLayers: function () {
