@@ -1,61 +1,929 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
-                                                                                
-"features": [
-{ "type": "Feature", "properties": { "Name": "586 - Valero Energy Corp. - Paulsboro", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Paulsboro.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -8377613.3678190513, 4842754.9790898468 ] } },
-{ "type": "Feature", "properties": { "Name": "543 - Valero Energy Corp. - Delaware City", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">175,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/DelawareCity.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikip", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -8419651.818448836, 4806108.7207875969 ] } },
-{ "type": "Feature", "properties": { "Name": "547 - ConocoPhillips - Wood River", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">306,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10025978.0595882963, 4698388.6155976253 ] } },
-{ "type": "Feature", "properties": { "Name": "548 - ExxonMobil Refining + Supply Co. - Joliet", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">238,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9816018.192,5073981.797 ] } },
-{ "type": "Feature", "properties": { "Name": "549 - Marathon Petroleum Co. LLC - Robinson", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">192,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Robinson_Illinois\/\">Company website<\/a> - <", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9764603.3749710992, 4721248.0349169457 ] } },
-{ "type": "Feature", "properties": { "Name": "546 - Citgo Petroleum Corp. - Lemont", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LemontRefinery.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">W", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9801674.675,5109414.415 ] } },
-{ "type": "Feature", "properties": { "Name": "BP PRODUCTS NORTH AMERICA INC, WHITING<br>", "website": "Crude capacity 410,000 bpd. Website <a href='http:\/\/www.bp.com\/en_us\/bp-us\/what-we-do\/refining\/whiting.html' target='_blank'>here.<\/a> EPA facility report <a href='http:\/\/www3.epa.gov\/enviro\/facts\/tri\/ef-facilities\/#\/Release\/46394MCLC%202815I\/BP%20PRODUC", "Image": "<a href='images\/Claire Pentecost_BP-Whiting.jpg' target='_blank'><img src='images\/Claire Pentecost_BP-Whiting-s.jpg'><\/a><\/a><br>photo Claire Pentecost <em>(click for enlargement)<\/em><br><br>", "EPA": null, "Notes": "The BP Whiting refinery is among the world's largest processers of tar sands oil from Canada, which is brought to East Chicago by Enbridge company pipelines. Tar sands oil is full of a highly polluting coal-like substance called petroleum coke. Through" }, "geometry": { "type": "Point", "coordinates": [ -9738412.0440323558, 5111045.3275761716 ] } },
-{ "type": "Feature", "properties": { "Name": "553 - Frontier Oil Corp. - El Dorado", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">103,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.frontieroil-eldorado.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Frontier_Oil\">Wikipedia<\/a><\/td><\/", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10783786.4371543322, 4550882.9124377696 ] } },
-{ "type": "Feature", "properties": { "Name": "552 - Coffeyville Resources LLC - Coffeyville", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">112,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.coffeyvillegroup.com\/processP.asp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Coffeyville_Resources_LLC\"", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10642792.9059739877, 4445971.0203052573 ] } },
-{ "type": "Feature", "properties": { "Name": "554 - National Cooperative Refining Assoc. - McPherson", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">81,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.ncra.coop\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia<\/a><\/td><\/tr><tr", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10873243.5443668626, 4627698.4830481894 ] } },
-{ "type": "Feature", "properties": { "Name": "575 - Marathon Petroleum Co. LLC - Detroit", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">74,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Detroit_Michigan\/\">Company website<\/a> - <a", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9257139.9057677146, 5203603.5892556449 ] } },
-{ "type": "Feature", "properties": { "Name": "576 - Flint Hills Resources - Rosemount", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">265,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.fhr.com\/minnesota\/default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikip", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10357303.5709103998, 5584758.8315435844 ] } },
-{ "type": "Feature", "properties": { "Name": "591 - BP PLC  - Toledo", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.bp.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Bp\">Wikipedia<\/a><\/td><\/tr><tr><td><img src=\"http:\/\/w", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9290093.7623057049, 5112914.1893144771 ] } },
-{ "type": "Feature", "properties": { "Name": "594 - Valero Energy Corp. - Lima", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">158,400 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/NewsRoom\/NewsReleases\/NR_20070502.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wik", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9364589.6289111879, 4970937.3621742073 ] } },
-{ "type": "Feature", "properties": { "Name": "595 - ConocoPhillips - Ponca City", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">194,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10808653.0893019103, 4394931.1061884016 ] } },
-{ "type": "Feature", "properties": { "Name": "515 - Hunt Refining Co. - Tuscaloosa", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">52,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.huntrefining.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Hunt_Refining\">Wikipedia<\/a><\/td><\/tr><tr><t", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9752025.5993923768, 3922243.1855411581 ] } },
-{ "type": "Feature", "properties": { "Name": "565 - ExxonMobil Refining + Supply Co. - Baton Rouge", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">493,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/NA-English\/PA\/about_where_ref_br.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMo", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10149975.8253753278, 3566446.2210514853 ] } },
-{ "type": "Feature", "properties": { "Name": "567 - Marathon Petroleum Co. LLC - Garyville", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">245,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Garyville_Louisiana\/\">Company website<\/a> -", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10085418.3543584347, 3511251.4944499494 ] } },
-{ "type": "Feature", "properties": { "Name": "562 - Citgo Petroleum Corp. - Lake Charles", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">324,300 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LakeCharlesManufacturing.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wik", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10389081.7510088217, 3526983.2550539323 ] } },
-{ "type": "Feature", "properties": { "Name": "574 - Valero Energy Corp. - Norco", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">260,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/StCharles.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10068330.0788336527, 3501212.7940025879 ] } },
-{ "type": "Feature", "properties": { "Name": "563 - ConocoPhillips - Belle Chasse", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">247,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10015687.9082659576, 3462919.4901723699 ] } },
-{ "type": "Feature", "properties": { "Name": "564 - ConocoPhillips - Westlake", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">239,400 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10383400.5269969739, 3534575.6070777057 ] } },
-{ "type": "Feature", "properties": { "Name": "569 - Motiva Enterprises LLC - Norco", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">226,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.motivaenterprises.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Motiva\">Wikipedia<\/a><\/td><\/tr><tr><td", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10063494.6014769897, 3503725.951870888 ] } },
-{ "type": "Feature", "properties": { "Name": "566 - Chalmette Refining LLC - Chalmette", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">187,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chalmetterefining.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia<\/a>", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10015951.1586492844, 3495212.8262011958 ] } },
-{ "type": "Feature", "properties": { "Name": "578 - Chevron Corp. - Pascagoula", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">325,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chevron.com\/countries\/usa\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Chevron_Corporation\">Wikipedia<\/a", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -9850643.9529925548, 3547882.723867001 ] } },
-{ "type": "Feature", "properties": { "Name": "618 - Motiva Enterprises LLC - Port Arthur", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">600,000 bpd crude capacity - largest in North America, fifth largest in the world<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.motivaenterprises.com\">Company website<\/a> - <a href=\"http:\/\/en.wi", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10460604.8252198119, 3485562.7186050704 ] } },
-{ "type": "Feature", "properties": { "Name": "612 - ExxonMobil Refining + Supply Co. - Baytown", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">557,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10576377.6728847809, 3470310.547657914 ] } },
-{ "type": "Feature", "properties": { "Name": "617 - Marathon Petroleum Co. LLC - Texas City", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">72,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Texas_City_Texas\/\">Company website<\/a> - <a", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10563874.8860468064, 3423803.9338205573 ] } },
-{ "type": "Feature", "properties": { "Name": "613 - ExxonMobil Refining + Supply Co. - Beaumont", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">348,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10471883.9372626767, 3512228.4750323636 ] } },
-{ "type": "Feature", "properties": { "Name": "620 - Shell Deer Park Refining Co. - Deer Park", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">333,700 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/us\/deerpark\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Royal_Dutch_Shell\">Wikipedia<\/a><\/td><", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10589567.7147312667, 3467155.9760329574 ] } },
-{ "type": "Feature", "properties": { "Name": "622 - Valero Energy Corp. - Corpus Christi", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">142,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/CorpusChristi.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wiki", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10847492.4575264398, 3224624.3595314114 ] } },
-{ "type": "Feature", "properties": { "Name": "624 - Valero Energy Corp. - Port Arthur", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">250,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/PortArthur.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikiped", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10451711.1210478358, 3498191.1909208284 ] } },
-{ "type": "Feature", "properties": { "Name": "616 - Lyondell-Citgo Refining LP - Houston", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">270,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.lyondell.com\/Lyondell\/WorldWideLocations\/NorthAmerica\/USA\/Texas\/HoustonRefining\/\">Company website<\/a> - <a href=\"http:\/\/e", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10601195.0576887839, 3466909.9033621806 ] } },
-{ "type": "Feature", "properties": { "Name": "611 - ConocoPhillips - Sweeny", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">229,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10658831.0177616086, 3385006.3491973695 ] } },
-{ "type": "Feature", "properties": { "Name": "626 - Valero Energy Corp. - Texas City", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">210,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/TexasCity.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10565151.7952072117, 3422533.4884959175 ] } },
-{ "type": "Feature", "properties": { "Name": "621 - Total SA - Port Arthur", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">233,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.totalpetrochemicalsusa.com\/locations\/portarthur.asp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Total_S.", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10456343.0842500348, 3498948.317394645 ] } },
-{ "type": "Feature", "properties": { "Name": "609 - Citgo Petroleum Corp. - Corpus Christi", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">156,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/Refining.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">Wikiped", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10852138.0650527962, 3225415.4777781744 ] } },
-{ "type": "Feature", "properties": { "Name": "614 - Flint Hills Resources - Corpus Christi", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">288,100 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.fhr.com\/texas\/default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10856448.9467965998, 3227952.1970016956 ] } },
-{ "type": "Feature", "properties": { "Name": "581 - ConocoPhillips - Billings", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">58,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/west.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -12076917.6236871406, 5745508.1499344911 ] } },
-{ "type": "Feature", "properties": { "Name": "582 - ExxonMobil Refining + Supply Co. - Billings", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">60,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil\"", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -12070877.4767253455, 5750688.197786971 ] } },
-{ "type": "Feature", "properties": { "Name": "610 - ConocoPhillips - Borger", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">146,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -11283593.6450153384, 4259180.3543852447 ] } },
-{ "type": "Feature", "properties": { "Name": "619 - Pasadena Refining System - Pasadena", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">100,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.pasadenarefining.com\/PRSWeb\/en\/Default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refi", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10603742.5698399115, 3465210.7167126895 ] } },
-{ "type": "Feature", "properties": { "Name": "614 - Delek Refining Ltd. - Tyler\tTyler\tRefinery", "website": "55,000 bpd crude capacity", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -10606584.5074073132, 3810994.2388156401 ] } },
-{ "type": "Feature", "properties": { "Name": "642 - Frontier Refining Inc. - Cheyenne", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">46,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.frontieroil.com\/en\/cms\/?209\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Frontier_Oil\">Wikipedia<\/a><\/td><", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -11665135.3029080667, 5031111.6189880176 ] } },
-{ "type": "Feature", "properties": { "Name": "534 - Paramount Petroleum Corp. - Paramount", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">54,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.ppcla.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Paramount_Petroleum\">Wikipedia<\/a><\/td><\/tr><tr><t", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13152076.5498897657, 4015163.0211300622 ] } },
-{ "type": "Feature", "properties": { "Name": "528 - Chevron Corp. - El Segundo", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">260,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chevron.com\/countries\/usa\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Chevron_Corporation\">Wikipedia<\/a", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13181104.4421909619, 4016628.1496847481 ] } },
-{ "type": "Feature", "properties": { "Name": "539 - Valero Energy Corp. - Benicia", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">144,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Benicia.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedia<", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13596372.0289973859, 4589615.8145343894 ] } },
-{ "type": "Feature", "properties": { "Name": "536 - Shell Oil Products US - Martinez", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">155,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/home\/content\/us-en\/shell_for_businesses\/oil_products\/about\/about_us.html\">Company website<\/a> - <a href=\"http:\/", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13593573.1670595687, 4582086.558337125 ] } },
-{ "type": "Feature", "properties": { "Name": "538 - Tesoro Corp. - Golden Eagle", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">168,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.tsocorp.com\/TSOCORP\/ProductsandServices\/Refining\/ssLINK\/MartinezCaliforniaRefinery\">Company website<\/a> - <a href=\"http:\/", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13588426.1831040625, 4583365.4689919436 ] } },
-{ "type": "Feature", "properties": { "Name": "532 - ExxonMobil Refining + Supply Co. - Torrance", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">149,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/NA-English\/PA\/about_where_ref_torrance.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/E", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13172684.3422338255, 4009114.0572396978 ] } },
-{ "type": "Feature", "properties": { "Name": "530 - ConocoPhillips - Los Angeles (Carson and Wilmington)", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">133,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/west.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13167583.0080342628, 3998353.855409659 ] } },
-{ "type": "Feature", "properties": { "Name": "540 - Valero Energy Corp. - Wilmington", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">140,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Wilmington.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikiped", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13162056.390650481, 3999094.5323245339 ] } },
-{ "type": "Feature", "properties": { "Name": "635 - BP PLC - Ferndale", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">225,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.bp.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Bp\">Wikipedia<\/a><\/td><\/tr><tr><td><img src=\"http:\/\/w", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13662785.4337036442, 6255299.8544288538 ] } },
-{ "type": "Feature", "properties": { "Name": "637 - Shell Oil Products US - Anacortes", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">145,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/home\/content\/us-en\/shell_for_businesses\/oil_products\/about\/about_us.html\">Company website<\/a> - <a href=\"http:\/", "Image": null, "EPA": null, "Notes": null }, "geometry": { "type": "Point", "coordinates": [ -13642902.3056044094, 6185515.863176127 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3857"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "586 - Valero Energy Corp. - Paulsboro",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Paulsboro.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8377613.3678190513,
+          4842754.9790898468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "543 - Valero Energy Corp. - Delaware City",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">175,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/DelawareCity.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikip",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8419651.818448836,
+          4806108.7207875969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "547 - ConocoPhillips - Wood River",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">306,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10025978.0595882963,
+          4698388.6155976253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "548 - ExxonMobil Refining + Supply Co. - Joliet",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">238,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9816018.192,
+          5073981.797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "549 - Marathon Petroleum Co. LLC - Robinson",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">192,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Robinson_Illinois\/\">Company website<\/a> - <",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9764603.3749710992,
+          4721248.0349169457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "546 - Citgo Petroleum Corp. - Lemont",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LemontRefinery.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">W",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9801674.675,
+          5109414.415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "BP PRODUCTS NORTH AMERICA INC, WHITING<br>",
+        "website": "Crude capacity 410,000 bpd. Website <a href='http:\/\/www.bp.com\/en_us\/bp-us\/what-we-do\/refining\/whiting.html' target='_blank'>here.<\/a> EPA facility report <a href='http:\/\/www3.epa.gov\/enviro\/facts\/tri\/ef-facilities\/#\/Release\/46394MCLC%202815I\/BP%20PRODUC",
+        "Image": "<a href='images\/Claire Pentecost_BP-Whiting.jpg' target='_blank'><img src='images\/Claire Pentecost_BP-Whiting-s.jpg'><\/a><\/a><br>photo Claire Pentecost <em>(click for enlargement)<\/em><br><br>",
+        "EPA": null,
+        "Notes": "The BP Whiting refinery is among the world's largest processers of tar sands oil from Canada, which is brought to East Chicago by Enbridge company pipelines. Tar sands oil is full of a highly polluting coal-like substance called petroleum coke. Through"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9738412.0440323558,
+          5111045.3275761716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "553 - Frontier Oil Corp. - El Dorado",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">103,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.frontieroil-eldorado.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Frontier_Oil\">Wikipedia<\/a><\/td><\/",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10783786.4371543322,
+          4550882.9124377696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "552 - Coffeyville Resources LLC - Coffeyville",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">112,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.coffeyvillegroup.com\/processP.asp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Coffeyville_Resources_LLC\"",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10642792.9059739877,
+          4445971.0203052573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "554 - National Cooperative Refining Assoc. - McPherson",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">81,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.ncra.coop\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia<\/a><\/td><\/tr><tr",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10873243.5443668626,
+          4627698.4830481894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "575 - Marathon Petroleum Co. LLC - Detroit",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">74,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Detroit_Michigan\/\">Company website<\/a> - <a",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9257139.9057677146,
+          5203603.5892556449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "576 - Flint Hills Resources - Rosemount",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">265,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.fhr.com\/minnesota\/default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikip",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10357303.5709103998,
+          5584758.8315435844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "591 - BP PLC  - Toledo",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.bp.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Bp\">Wikipedia<\/a><\/td><\/tr><tr><td><img src=\"http:\/\/w",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9290093.7623057049,
+          5112914.1893144771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "594 - Valero Energy Corp. - Lima",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">158,400 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/NewsRoom\/NewsReleases\/NR_20070502.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wik",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9364589.6289111879,
+          4970937.3621742073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "595 - ConocoPhillips - Ponca City",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">194,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10808653.0893019103,
+          4394931.1061884016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "515 - Hunt Refining Co. - Tuscaloosa",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">52,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.huntrefining.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Hunt_Refining\">Wikipedia<\/a><\/td><\/tr><tr><t",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9752025.5993923768,
+          3922243.1855411581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "565 - ExxonMobil Refining + Supply Co. - Baton Rouge",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">493,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/NA-English\/PA\/about_where_ref_br.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMo",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10149975.8253753278,
+          3566446.2210514853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "567 - Marathon Petroleum Co. LLC - Garyville",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">245,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Garyville_Louisiana\/\">Company website<\/a> -",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10085418.3543584347,
+          3511251.4944499494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "562 - Citgo Petroleum Corp. - Lake Charles",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">324,300 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LakeCharlesManufacturing.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wik",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10389081.7510088217,
+          3526983.2550539323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "574 - Valero Energy Corp. - Norco",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">260,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/StCharles.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10068330.0788336527,
+          3501212.7940025879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "563 - ConocoPhillips - Belle Chasse",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">247,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10015687.9082659576,
+          3462919.4901723699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "564 - ConocoPhillips - Westlake",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">239,400 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10383400.5269969739,
+          3534575.6070777057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "569 - Motiva Enterprises LLC - Norco",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">226,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.motivaenterprises.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Motiva\">Wikipedia<\/a><\/td><\/tr><tr><td",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10063494.6014769897,
+          3503725.951870888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "566 - Chalmette Refining LLC - Chalmette",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">187,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chalmetterefining.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia<\/a>",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10015951.1586492844,
+          3495212.8262011958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "578 - Chevron Corp. - Pascagoula",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">325,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chevron.com\/countries\/usa\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Chevron_Corporation\">Wikipedia<\/a",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9850643.9529925548,
+          3547882.723867001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "618 - Motiva Enterprises LLC - Port Arthur",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">600,000 bpd crude capacity - largest in North America, fifth largest in the world<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.motivaenterprises.com\">Company website<\/a> - <a href=\"http:\/\/en.wi",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10460604.8252198119,
+          3485562.7186050704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "612 - ExxonMobil Refining + Supply Co. - Baytown",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">557,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10576377.6728847809,
+          3470310.547657914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "617 - Marathon Petroleum Co. LLC - Texas City",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">72,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.marathon.com\/Global_Operations\/Refining_Marketing_and_Transportation\/Refining\/Texas_City_Texas\/\">Company website<\/a> - <a",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10563874.8860468064,
+          3423803.9338205573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "613 - ExxonMobil Refining + Supply Co. - Beaumont",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">348,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10471883.9372626767,
+          3512228.4750323636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "620 - Shell Deer Park Refining Co. - Deer Park",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">333,700 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/us\/deerpark\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Royal_Dutch_Shell\">Wikipedia<\/a><\/td><",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10589567.7147312667,
+          3467155.9760329574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "622 - Valero Energy Corp. - Corpus Christi",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">142,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/CorpusChristi.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wiki",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10847492.4575264398,
+          3224624.3595314114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "624 - Valero Energy Corp. - Port Arthur",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">250,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/PortArthur.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikiped",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10451711.1210478358,
+          3498191.1909208284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "616 - Lyondell-Citgo Refining LP - Houston",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">270,200 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.lyondell.com\/Lyondell\/WorldWideLocations\/NorthAmerica\/USA\/Texas\/HoustonRefining\/\">Company website<\/a> - <a href=\"http:\/\/e",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10601195.0576887839,
+          3466909.9033621806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "611 - ConocoPhillips - Sweeny",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">229,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/gulf.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10658831.0177616086,
+          3385006.3491973695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "626 - Valero Energy Corp. - Texas City",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">210,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/TexasCity.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedi",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10565151.7952072117,
+          3422533.4884959175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "621 - Total SA - Port Arthur",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">233,500 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.totalpetrochemicalsusa.com\/locations\/portarthur.asp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Total_S.",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10456343.0842500348,
+          3498948.317394645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "609 - Citgo Petroleum Corp. - Corpus Christi",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">156,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/Refining.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">Wikiped",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10852138.0650527962,
+          3225415.4777781744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "614 - Flint Hills Resources - Corpus Christi",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">288,100 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.fhr.com\/texas\/default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refineries\">Wikipedia",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10856448.9467965998,
+          3227952.1970016956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "581 - ConocoPhillips - Billings",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">58,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/west.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -12076917.6236871406,
+          5745508.1499344911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "582 - ExxonMobil Refining + Supply Co. - Billings",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">60,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil\"",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -12070877.4767253455,
+          5750688.197786971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "610 - ConocoPhillips - Borger",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">146,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/central.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipe",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -11283593.6450153384,
+          4259180.3543852447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "619 - Pasadena Refining System - Pasadena",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">100,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.pasadenarefining.com\/PRSWeb\/en\/Default.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/List_of_oil_refi",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10603742.5698399115,
+          3465210.7167126895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "614 - Delek Refining Ltd. - Tyler\tTyler\tRefinery",
+        "website": "55,000 bpd crude capacity",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -10606584.5074073132,
+          3810994.2388156401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "642 - Frontier Refining Inc. - Cheyenne",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">46,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.frontieroil.com\/en\/cms\/?209\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Frontier_Oil\">Wikipedia<\/a><\/td><",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -11665135.3029080667,
+          5031111.6189880176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "534 - Paramount Petroleum Corp. - Paramount",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">54,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.ppcla.com\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Paramount_Petroleum\">Wikipedia<\/a><\/td><\/tr><tr><t",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13152076.5498897657,
+          4015163.0211300622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "528 - Chevron Corp. - El Segundo",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">260,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.chevron.com\/countries\/usa\/\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Chevron_Corporation\">Wikipedia<\/a",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13181104.4421909619,
+          4016628.1496847481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "539 - Valero Energy Corp. - Benicia",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">144,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Benicia.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikipedia<",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13596372.0289973859,
+          4589615.8145343894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "536 - Shell Oil Products US - Martinez",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">155,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/home\/content\/us-en\/shell_for_businesses\/oil_products\/about\/about_us.html\">Company website<\/a> - <a href=\"http:\/",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13593573.1670595687,
+          4582086.558337125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "538 - Tesoro Corp. - Golden Eagle",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">168,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.tsocorp.com\/TSOCORP\/ProductsandServices\/Refining\/ssLINK\/MartinezCaliforniaRefinery\">Company website<\/a> - <a href=\"http:\/",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13588426.1831040625,
+          4583365.4689919436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "532 - ExxonMobil Refining + Supply Co. - Torrance",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">149,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/NA-English\/PA\/about_where_ref_torrance.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/E",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13172684.3422338255,
+          4009114.0572396978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "530 - ConocoPhillips - Los Angeles (Carson and Wilmington)",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">133,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.conocophillips.com\/about\/worldwide_ops\/country\/north_america\/west.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13167583.0080342628,
+          3998353.855409659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "540 - Valero Energy Corp. - Wilmington",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">140,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.valero.com\/AboutUs\/Refineries\/Wilmington.htm\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Valero\">Wikiped",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13162056.390650481,
+          3999094.5323245339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "635 - BP PLC - Ferndale",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">225,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.bp.com\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Bp\">Wikipedia<\/a><\/td><\/tr><tr><td><img src=\"http:\/\/w",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13662785.4337036442,
+          6255299.8544288538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "637 - Shell Oil Products US - Anacortes",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">145,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.shell.com\/home\/content\/us-en\/shell_for_businesses\/oil_products\/about\/about_us.html\">Company website<\/a> - <a href=\"http:\/",
+        "Image": null,
+        "EPA": null,
+        "Notes": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -13642902.3056044094,
+          6185515.863176127
+        ]
+      }
+    }
+  ]
 }

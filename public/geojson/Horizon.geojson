@@ -1,13 +1,28 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-"features": [
-{ "type": "Feature", "properties": { "title": "Deepwater Horizon",
-"image": "<img src='images/Dolphin.jpg'>",
-"text1": " ",
-"text2": "The Deepwater Horizon was the best-ever drilling rig, owned by Transocean, contracted by BP, serviced by Halliburton. The Macondo well was supposed to be a blowout of shareholder value for CEO Tony Hayward. One day before, BP and Transocean officials visited the rig to pressure the crew to finish the job. Later it came out that managers <a href='http://www.nola.com/news/gulf-oil-spill/index.ssf/2010/08/bp_manager_boss_both_ignored_w.html'>deliberately ignored warnings</a> about the cement plug that was meant to cap off the drilling.<br><br>After the explosion and fire on April 20, 2010, the rig collapsed and sank two days later. Five thousand feet below, the wellhead continued spewing into the Gulf of Mexico until June 15 - about five million barrels, fifteen times the quantity leaked by the Exxon Valdez. The most cynical thing was the public relations bombardment with Corexit, <a href='http://www.huffingtonpost.com/riki-ott/an-open-letter-to-us-epa_b_697376.html'>a chemical dispersamt</a> denounced by marine toxicologist Riki Ott.<br>The BP spill was the worst environmental disaster in the US since the Dust Bowl of the 1930s. The consequences are ongoing.<br>",
-"text3": "For an extensive look into the human, ecological and economic damages, see Wikipedia, <a href='https://en.wikipedia.org/wiki/Health_consequences_of_the_Deepwater_Horizon_oil_spill'>here</a> and <a href='https://en.wikipedia.org/wiki/Environmental_impact_of_the_Deepwater_Horizon_oil_spill'>here</a> and <a href='https://en.wikipedia.org/wiki/Economic_and_political_consequences_of_the_Deepwater_Horizon_disaster'>here</a>. Also the report by the National Wildlife Foundation, <a href='http://www.nwf.org/~/media/PDFs/water/2015/Gulf-Wildlife-In-the-Aftermath-of-the-Deepwater-Horizon-Disaster_Five-Years-and-Counting.pdf'>Five Years and Counting: Gulf Wildlife in the Aftermath of the Deepwater Horizon Disaster</a>, and the article <a href='https://www.popularresistance.org/study-links-bp-oil-spill-to-dolphin-deaths/'>Study Links BP Oil Spill To Dolphin Deaths</a>. For the 'containment' of the spill within the knowledge systems of the denial society, see David Bond, <a href='../documents/GoverningDisaster.pdf'>GOVERNING DISASTER: The Political Life of the Environment during the BP Oil Spill</a><br>" },
-"geometry": { "type": "Point", "coordinates": [ -88.3871611, 28.7366694 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Deepwater Horizon",
+        "image": "<img src='images/Dolphin.jpg'>",
+        "text1": " ",
+        "text2": "The Deepwater Horizon was the best-ever drilling rig, owned by Transocean, contracted by BP, serviced by Halliburton. The Macondo well was supposed to be a blowout of shareholder value for CEO Tony Hayward. One day before, BP and Transocean officials visited the rig to pressure the crew to finish the job. Later it came out that managers <a href='http://www.nola.com/news/gulf-oil-spill/index.ssf/2010/08/bp_manager_boss_both_ignored_w.html'>deliberately ignored warnings</a> about the cement plug that was meant to cap off the drilling.<br><br>After the explosion and fire on April 20, 2010, the rig collapsed and sank two days later. Five thousand feet below, the wellhead continued spewing into the Gulf of Mexico until June 15 - about five million barrels, fifteen times the quantity leaked by the Exxon Valdez. The most cynical thing was the public relations bombardment with Corexit, <a href='http://www.huffingtonpost.com/riki-ott/an-open-letter-to-us-epa_b_697376.html'>a chemical dispersamt</a> denounced by marine toxicologist Riki Ott.<br>The BP spill was the worst environmental disaster in the US since the Dust Bowl of the 1930s. The consequences are ongoing.<br>",
+        "text3": "For an extensive look into the human, ecological and economic damages, see Wikipedia, <a href='https://en.wikipedia.org/wiki/Health_consequences_of_the_Deepwater_Horizon_oil_spill'>here</a> and <a href='https://en.wikipedia.org/wiki/Environmental_impact_of_the_Deepwater_Horizon_oil_spill'>here</a> and <a href='https://en.wikipedia.org/wiki/Economic_and_political_consequences_of_the_Deepwater_Horizon_disaster'>here</a>. Also the report by the National Wildlife Foundation, <a href='http://www.nwf.org/~/media/PDFs/water/2015/Gulf-Wildlife-In-the-Aftermath-of-the-Deepwater-Horizon-Disaster_Five-Years-and-Counting.pdf'>Five Years and Counting: Gulf Wildlife in the Aftermath of the Deepwater Horizon Disaster</a>, and the article <a href='https://www.popularresistance.org/study-links-bp-oil-spill-to-dolphin-deaths/'>Study Links BP Oil Spill To Dolphin Deaths</a>. For the 'containment' of the spill within the knowledge systems of the denial society, see David Bond, <a href='../documents/GoverningDisaster.pdf'>GOVERNING DISASTER: The Political Life of the Environment during the BP Oil Spill</a><br>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.3871611,
+          28.7366694
+        ]
+      }
+    }
+  ]
 }
