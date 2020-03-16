@@ -20,50 +20,18 @@ export default new Router({
       }
     },
     {
-      path: '/petropolis/pipelines/coal',
-      name: 'petropolisPipelinesCoal',
+      path: '/petropolis/coal',
+      name: 'petropolisCoal',
       components: {
-        default: () => import('./views/petropolis/PetropolisPipelinesCoal.vue'),
+        default: () => import('./views/petropolis/PetropolisCoal.vue'),
         map: MapPetropolis
       }
     },
     {
-      path: '/petropolis/pipelines/gas',
-      name: 'petropolisPipelinesGas',
+      path: '/petropolis/gas',
+      name: 'petropolisGas',
       components: {
-        default: () => import('./views/petropolis/PetropolisPipelinesGas.vue'),
-        map: MapPetropolis
-      }
-    },
-    {
-      path: '/petropolis/tarsands',
-      name: 'petropolisTarSands',
-      components: {
-        default: () => import('./views/petropolis/PetropolisTarSands.vue'),
-        map: MapPetropolis
-      }
-    },
-    {
-      path: '/petropolis/tarsands/bakken',
-      name: 'petropolisTarSandsBakken',
-      components: {
-        default: () => import('./views/petropolis/PetropolisTarSandsBakken.vue'),
-        map: MapPetropolis
-      }
-    },
-    {
-      path: '/petropolis/tarsands/gulf',
-      name: 'petropolisTarSandsGulf',
-      components: {
-        default: () => import('./views/petropolis/PetropolisTarSandsGulf.vue'),
-        map: MapPetropolis
-      }
-    },
-    {
-      path: '/petropolis/chicago',
-      name: 'petropolisChicago',
-      components: {
-        default: () => import('./views/petropolis/PetropolisChicago.vue'),
+        default: () => import('./views/petropolis/PetropolisGas.vue'),
         map: MapPetropolis
       }
     }

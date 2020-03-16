@@ -98,38 +98,16 @@ export default {
       petropolis: {
         items: [
           {
-            name: 'Pipelines',
+            name: 'Oil',
             href: '/petropolis/pipelines'
           },
           {
-            name: 'Tar Sands',
-            href: '/petropolis/tarsands'
-          },
-          {
-            name: 'Chicago',
-            href: '/petropolis/chicago'
-          }
-        ]
-      },
-      subItems: {
-        pipelines: [
-          {
             name: 'Coal',
-            href: '/petropolis/pipelines/coal'
+            href: '/petropolis/coal'
           },
           {
             name: 'Gas',
-            href: '/petropolis/pipelines/gas'
-          }
-        ],
-        tarsands: [
-          {
-            name: 'Bakken Shale Oil',
-            href: '/petropolis/tarsands/bakken'
-          },
-          {
-            name: 'Gulf of Mexico',
-            href: '/petropolis/tarsands/gulf'
+            href: '/petropolis/gas'
           }
         ]
       }

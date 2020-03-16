@@ -3,7 +3,7 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/petropolis/pipelines" v-bind:class="{active: $route.name && $route.name.match('petropolis')}" @click.native="routeClick('/petropolis/pipelines')">EXTINCTION REBELLION</router-link>
+        <router-link to="/petropolis/pipelines" v-bind:class="{active: $route.name && $route.name.match('petropolis')}" @click.native="routeClick('/petropolis/pipelines')">Fossil Fuel</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
@@ -19,7 +19,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">act now</p>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">leave it in the ground</p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -136,10 +136,10 @@ aside .fullwidth {
 }
 
 #aside-heading {
-  margin-top: 0.15em;
+  margin-top: 0.40em;
   padding: 0;
   text-align: center;
-  font-size: 240%;             /* sidebar header title, "Learning" */
+  font-size: 180%;             /* sidebar header title, "Learning" */
   color: white;
 
 }
