@@ -86,27 +86,28 @@ export default {
     petropolisPipelineLayers: function () {
       return [
         ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(134, 40, 26, 0.7)', 3, 'rgba(134, 40, 26, 0.1)'),
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
-        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 16000, 'gray', 3.5),
-        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 16000, 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, 'gray', 1.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 200, 16000, '#000000', 3.5),
-        this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA.geojson', 'icons/Refinery.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/Refinery.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/GulfOilPipelines.geojson', 1, 8000, 'rgba(134, 40, 26, 1)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 2.5),
+        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 64000, 3.5),
+    //    this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, 'gray', 1.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle1('geojson/GlobalRefineries.geojson', null, 4, 64000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
+    //    this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 1, 16000),
+    //    this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
+    //    this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000)
       ]
     },
     petropolisCoalLayers: function () {
       return [
         ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 16000, 'rgba(0, 0, 0, 0.7)', 0.5, 'rgba(0, 0, 0, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'dimgray', 1),
-        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/Coal_Mine.png', null, 4, 16000),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/CoalGHG.geojson', null, 4, 8000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)')
+        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(138, 128, 126, 0.6)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
+        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
 
       ]
     },
@@ -305,7 +306,7 @@ export default {
         center: fromLonLat(this.centerPoints.coal.center),
         resolution: this.centerPoints.coal.resolution,
         minResolution: 0.25,
-        maxResolution: 16000
+        maxResolution: 64000
       }))
     },
     initPetropolisGas: function () {

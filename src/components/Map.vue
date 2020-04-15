@@ -290,11 +290,11 @@ export default {
         this.styleCache[feature.values_['rad']] = new Style({
           image: new Circle({
             stroke: new Stroke({
-              color: 'rgba(134, 40, 26, 0.4)',
+              color: 'rgba(134, 40, 26, 0.5)',
               width: 1
             }),
             fill: new Fill({
-              color: 'rgba(134, 40, 26, 0.2)'
+              color: 'rgba(134, 40, 26, 0.3)'
             }),
             radius: Math.sqrt(feature.values_['rad'])
           })
@@ -314,22 +314,51 @@ export default {
         label: label
       })
     },
+    geoJSONPointVectorLayerCircleStyle1: function (feature) {
+      if (feature.values_ && feature.values_['BPD'] && !this.styleCache[feature.values_['BPD']]) {
+        this.styleCache[feature.values_['BPD']] = new Style({
+          image: new Circle({
+            stroke: new Stroke({
+              color: 'rgba(0, 0, 0, 1)',
+              width: 1
+            }),
+            fill: new Fill({
+              color: 'rgba(204, 0, 0, 0.7)'
+            }),
+            radius: Math.sqrt(feature.values_['BPD']) / 50
+          })
+        })
+      }
+      return this.styleCache[feature.values_['BPD']]
+    },
+    makeGeoJSONPointVectorLayerWithCircleStyle1: function (url, label, minResolution, maxResolution) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONPointVectorLayerCircleStyle1,
+        label: label
+      })
+    },
     geoJSONPointVectorLayerCircleStyle2: function (feature) {
-      if (feature.values_ && feature.values_['GHG2'] && !this.styleCache[feature.values_['GHG2']]) {
-        this.styleCache[feature.values_['GHG2']] = new Style({
+      if (feature.values_ && feature.values_['MW'] && !this.styleCache[feature.values_['MW']]) {
+        this.styleCache[feature.values_['MW']] = new Style({
           image: new Circle({
             stroke: new Stroke({
               color: 'rgba(0, 0, 0, 0.9)',
               width: 1
             }),
             fill: new Fill({
-              color: 'rgba(194, 19, 19, 0.7)'
+              color: 'rgba(195, 72, 28, 0.7)'
             }),
-            radius: Math.sqrt(feature.values_['GHG2']) * 3
+            radius: Math.sqrt(feature.values_['MW']) * 0.4
           })
         })
       }
-      return this.styleCache[feature.values_['GHG2']]
+      return this.styleCache[feature.values_['MW']]
     },
     makeGeoJSONPointVectorLayerWithCircleStyle2: function (url, label, minResolution, maxResolution) {
       return new VectorLayer({

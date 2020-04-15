@@ -1,21 +1,20 @@
 <template>
   <div class="aside-content">
     <div>
-    <p><img src="images/OilHead.jpg" class="fullwidth"><div class="caption"></p></div>
+    <p><img src="images/Legend-Oil.png" class="fullwidth"><div class="caption"></p></div>
 
-    <p style="font-size:120%;"><strong><em>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</em></strong></p>
+    <p style="font-size:120%;"><strong><em>This pipeline map shows the major fossil fuel infrastructures of the United States and the entire world. From wellheads, ports and railway loaders, crude is piped to refineries that create gas, jet fuel, asphalt and large quantities of CO2.</em></strong></p>
 
-    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    <p>For information about any of the elements, click on a line, a circle or a marker. The locations of the pipelines are approximate, but most other features are quite accurate. When you zoom in very close, a "spyglass" opens up, allowing you to see what's on the ground.</p>
 
-    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    <p>The buttons at lower left open similar maps of coal and natural gas infrastructures. Along the bottom of each map there are also buttons marked "roadmap" and "worldmap." You can navigate through Petropolis on foot and you can visualize the global energy network.</p>
 
 
 <br>
 <Accordion :open="false">
-  <h3 slot="header">legend</h3>
+  <h3 slot="header">sources</h3>
   <div class="flex">
-    <img src="images/Legend.png"><br>
-    <p>* These appear when you zoom in.<br><br>Click any element to find out more.<br><br>Spyglass appears at full zoom.<br>Press "shift" + &#8593; to enlarge it.<br>Press "shift" + &#8595; to shrink it.</p>
+    <p>Coming...</p>
   </div>
 </Accordion>
 

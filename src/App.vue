@@ -3,7 +3,7 @@
     <main>
       <nav>
         <span>&nbsp;</span>
-        <router-link to="/petropolis/pipelines" v-bind:class="{active: $route.name && $route.name.match('petropolis')}" @click.native="routeClick('/petropolis/pipelines')">Fossil Fuel</router-link>
+        <router-link to="/petropolis/pipelines" v-bind:class="{active: $route.name && $route.name.match('petropolis')}" @click.native="routeClick('/petropolis/pipelines')">Petropolis</router-link>
         <span>&nbsp;</span>
         <div v-on:click="scrollToAside" id="aside-scroll-to" title="Skip To Content">
           <i class="material-icons">keyboard_arrow_down</i>
@@ -19,7 +19,7 @@
           <i v-if="asideHidden" class="material-icons">menu</i>
           <i v-else class="material-icons">close</i>
         </div>
-        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">leave it in the ground</p>
+        <p id="aside-heading" v-bind:class="{hidden: this.asideHidden}">it's all fossil fuels</p>
       </div>
       <div id="content" v-bind:class="{hidden: this.asideHidden}" ref="asideContent">
         <router-view/>
@@ -31,8 +31,8 @@
 <style>
 #app {
   /* Steven 1/18 */
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:  'Roboto', Arial, and Monospace;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+/*  font-family:  'Roboto', Arial, and Monospace; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -45,7 +45,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #E00607;      /*navbar background color */
+  background-color: #cc0000;      /*navbar background color */
 }
 nav a {
   font-weight: bold;
@@ -70,14 +70,14 @@ nav a:hover {
 #map {
   background-color: #f2f2f2;
   height: calc(100vh - 60px);
-  /* border-top: thin solid #E00607;         /* Its lower border of navbar*/
+  /* border-top: thin solid #cc0000;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
   background-color: #f2f2f2;              /*background of text panel*/
-  border-left: solid #E00607;      /* Its left-hand border of text panel*/
-  border-bottom: medium solid #E00607;
+  border-left: solid #cc0000;      /* Its left-hand border of text panel*/
+  border-bottom: medium solid #cc0000;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ aside {
   position: sticky;
   top: 0;
   color: #f2f2f2;                               /*toggle x color*/
-  background-color: #E00607;               /*background of sidebar closer square*/
+  background-color: #cc0000;               /*background of sidebar closer square*/
   z-index: 1;
   height: 60px;
 }
