@@ -1,5 +1,6 @@
 <template>
   <div id="map" ref="map">
+    <div class="spotlightControls" ref="spotlightControls">press ↑ or ↓ to change spotlight size</div>
     <div ref="vimeoPopup" class="ol-popup ol-vimeopopup">
       <div ref="vimeoPopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="vimeoPopupContent"></div>
@@ -48,7 +49,7 @@ import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source' // OSM
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon, Circle} from 'ol/style'
-import {ScaleLine, defaults as defaultControls, ZoomSlider} from 'ol/control'
+import {ScaleLine, defaults as defaultControls, Control} from 'ol/control'
 import {fromLonLat} from 'ol/proj'
 
 import {eventBus} from '../main'
@@ -173,7 +174,10 @@ export default {
             new ScaleLine({
               units: 'us',
               minWidth: 150
-            })
+            }),
+            new Control({
+              element: document.querySelector('.spotlightControls')
+            }),
           ])
         })
         this.toggleScaleLine()
@@ -218,6 +222,15 @@ export default {
           const hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
+        this.olmap.on('moveend', function(e) {
+          const zoomLevel = this.getView().getZoom();
+          const spotlightControls = document.querySelector('.spotlightControls');
+          if (zoomLevel >= 14) {
+            spotlightControls.style.display = 'block';
+          } else {
+            spotlightControls.style.display = 'none';
+          }
+        });
       }
     },
     closePopup: function () {
