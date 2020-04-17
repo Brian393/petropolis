@@ -25,12 +25,12 @@ export default {
           resolution: 7000
         },
         coal: {
-          center: [-96.9, 38.0],
-          resolution: 5000
+          center: [-98, 40.9],
+          resolution: 7000
         },
         gas: {
-          center: [-96.9, 38.0],
-          resolution: 5000
+          center: [-98, 40.9],
+          resolution: 7000
         },
         tarsands: {
           center: [-111.439654, 56.9275],
@@ -61,8 +61,7 @@ export default {
           imagerySet: 'Aerial'
         }),
         minResolution: 0.25,
-        maxResolution: 4,
-        zIndex: 10
+        maxResolution: 2
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -89,34 +88,55 @@ export default {
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
-        this.makeGeoJSONLineVectorLayer('geojson/GulfPipelinesActive.geojson', 1, 4000, 'rgba(0, 0, 0, 1)', 0.7),
-        this.makeGeoJSONPointVectorLayer('geojson/OperatingPlatforms.geojson', 'icons/Platform.png', null, 1, 4000),
-  //      this.makeGeoJSONLineVectorLayer('geojson/GulfOilPipelines.geojson', 1, 8000, 'rgba(134, 40, 26, 1)', 1),
+  //      this.makeGeoJSONLineVectorLayer('geojson/GulfPipelinesActive.geojson', 1, 4000, 'rgba(0, 0, 0, 1)', 0.7),
+  //      this.makeGeoJSONPointVectorLayer('geojson/OperatingPlatforms.geojson', 'icons/Platform.png', null, 1, 4000),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 2.5),
-        this.makeGeoJSONLineVectorLayerWithStyle('geojson/ContestedPipelines.geojson', 1, 64000, 3.5),
-    //    this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines-sm.geojson', 16000, 1300000, 'gray', 1.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5),
+    //    this.makeGeoJSONLineVectorLayerWithStyle('geojson/PipelineProjects.geojson', 1, 64000, 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle1('geojson/GlobalRefineries.geojson', null, 4, 64000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-    //    this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 1, 16000),
-    //    this.makeGeoJSONPointVectorLayer('geojson/Refineries-outsideNA-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
-    //    this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries-sm.geojson', 'icons/Refinery.png', null, 16000, 1300000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
+  //      this.makeGeoJSONPointVectorLayerWithCircleStyle1('geojson/GlobalRefineries.geojson', null, 4, 64000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
+        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000)
+      ]
+    },
+    petropolisPipelinesContestedLayers: function () {
+      return [
+        ...this.baseLayers,
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5)
+      ]
+    },
+    petropolisPipelinesAllLayers: function () {
+      return [
+        ...this.baseLayers,
+        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 2.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000)
       ]
     },
     petropolisCoalLayers: function () {
       return [
         ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(138, 128, 126, 0.6)'),
+        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(7, 29, 81, 0.5)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
-
+        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant3.png', null, 1, 64000)
+//        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
       ]
     },
     petropolisGasLayers: function () {
       return [
         ...this.baseLayers,
-
         new Tile({
           source: new XYZ({
             url: 'http://environmentalobservatory.net/NatGas/{z}/{x}/{y}.png'
@@ -125,11 +145,14 @@ export default {
           minResolution: 40,
 	        updateWhileAnimating: true
         }),
-        this.makeGeoJSONLineVectorLayer('geojson/NatGasPipes.geojson', 4, 80, '#c21313', 3),
-        this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/NatGasGenerators.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
-        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 4, 16000),
+  //      this.makeGeoJSONLineVectorLayer('geojson/NatGasPipes.geojson', 4, 80, '#c21313', 3),
+  //      this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
+  //      this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas.png', null, 1, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas.png', null, 1, 32000),
+
+    //    this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/Gas.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
+        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
       ]
     },
@@ -253,6 +276,13 @@ export default {
         case 'petropolisPipelines':
           this.initPetropolisPipelines()
           break
+        case 'petropolisPipelinesContested':
+          this.initPetropolisPipelinesContested()
+          break
+          // added
+        case 'petropolisPipelinesAll':
+          this.initPetropolisPipelinesAll()
+          break
         case 'petropolisCoal':
           this.initPetropolisCoal()
           break
@@ -298,6 +328,19 @@ export default {
           }
         })
       }
+    },
+    initPetropolisPipelinesContested: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisPipelinesContestedLayers
+      }))
+    },
+    // added
+    initPetropolisPipelinesAll: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisPipelinesAllLayers
+      }))
     },
     initPetropolisCoal: function () {
       this.initBaseMap()

@@ -3,11 +3,11 @@
     <div>
     <p><img src="images/Legend-Oil.png" class="fullwidth"><div class="caption"></p></div>
 
-    <p style="font-size:120%;"><strong><em>This pipeline map shows the major fossil fuel infrastructures of the United States and the entire world. From wellheads, ports and railway loaders, crude is piped to refineries that create gas, jet fuel, asphalt and large quantities of CO2.</em></strong></p>
+    <p style="font-size:120%;"><strong><em>This pipeline map shows the major fossil fuel infrastructures of the United States and the world. From wellheads, platforms, ports and railway loaders, crude is piped to refineries that produce gas, jet fuel, asphalt and vast quantities of CO2.</em></strong></p>
 
-    <p>For information about any of the elements, click on a line, a circle or a marker. The locations of the pipelines are approximate, but most other features are quite accurate. When you zoom in very close, a "spyglass" opens up, allowing you to see what's on the ground.</p>
+    <p>For information about any of the elements, click on a line or a marker. The locations of the pipelines are approximate, but most other features are quite accurate. When you zoom in very close, a "spyglass" opens up, allowing you to see what's on the ground.</p>
 
-    <p>The buttons at lower left open similar maps of coal and natural gas infrastructures. Along the bottom of each map there are also buttons marked "roadmap" and "worldmap." You can navigate through Petropolis on foot and you can visualize the global energy network.</p>
+    <p>The buttons at lower left open similar maps of coal and natural gas infrastructures. The view is initially centered on the US, but you can zoom out to see the whole world. As it stands today, everywhere is "Petropolis."</p>
 
 
 <br>

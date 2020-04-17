@@ -20,6 +20,23 @@ export default new Router({
       }
     },
     {
+      path: '/petropolis/pipelines/contested',
+      name: 'petropolisPipelinesContested',
+      components: {
+        default: () => import('./views/petropolis/PetropolisPipelines.vue'),
+        map: MapPetropolis
+      }
+    },
+    // added
+    {
+      path: '/petropolis/pipelines/all',
+      name: 'petropolisPipelinesAll',
+      components: {
+        default: () => import('./views/petropolis/PetropolisPipelines.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
       path: '/petropolis/coal',
       name: 'petropolisCoal',
       components: {

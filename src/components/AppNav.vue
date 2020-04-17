@@ -20,7 +20,7 @@
 }
 
 #items {
-  bottom: 50px;
+  bottom: 20px;
   left: 1em;
   flex-direction: column;
   width: 150px;
@@ -38,8 +38,8 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: transparent;
-  height: 0;
-  bottom: 50px;
+  max-height: calc(100vh - 170px);
+  bottom: 20px;
 }
 
 .btn {
@@ -98,16 +98,28 @@ export default {
       petropolis: {
         items: [
           {
-            name: 'Oil',
+            name: 'Pipelines',
             href: '/petropolis/pipelines'
           },
           {
-            name: 'Coal',
+            name: 'Coal Plants',
             href: '/petropolis/coal'
           },
           {
-            name: 'Gas',
+            name: 'Natural Gas',
             href: '/petropolis/gas'
+          }
+        ]
+      },
+      subItems: {
+        pipelines: [
+          {
+            name: 'Contested Pipelines',
+            href: '/petropolis/pipelines/contested'
+          },
+          {
+            name: 'All the Pipelines',
+            href: '/petropolis/pipelines/all'
           }
         ]
       }
@@ -137,8 +149,6 @@ export default {
       }
       if (/petropolisPipelines/.test(this.$route.name)) {
         this.navSubItems = this.subItems.pipelines
-      } else if (/petropolisTarSands/.test(this.$route.name)) {
-        this.navSubItems = this.subItems.tarsands
       } else {
         this.navSubItems = []
       }
