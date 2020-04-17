@@ -102,12 +102,12 @@ export default {
             href: '/petropolis/pipelines'
           },
           {
-            name: 'Coal Plants',
-            href: '/petropolis/coal'
-          },
-          {
             name: 'Natural Gas',
             href: '/petropolis/gas'
+          },
+          {
+            name: 'Coal Plants',
+            href: '/petropolis/coal'
           }
         ]
       },
