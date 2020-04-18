@@ -11,6 +11,8 @@
 
       </nav>
       <router-view name="map" id="map" />
+      <v-dialog name="request-location">
+      </v-dialog>
     </main>
     <AppNav></AppNav>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">

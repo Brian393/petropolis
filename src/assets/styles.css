@@ -179,6 +179,12 @@ aside a:visited, .link {
   max-width: 300px;
 }
 
+.locateMe-control {
+  position: absolute;
+  top: 4.5em;
+  left: .5em;
+}
+
 .spotlightControls {
   position: absolute;
   display: none;
@@ -189,4 +195,8 @@ aside a:visited, .link {
   left: 3rem;
   color: white;
   border: 3px rgba(255,255,255,0.4) solid;
+}
+
+button:hover {
+  cursor: pointer;
 }
