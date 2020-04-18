@@ -1,101 +1,1986 @@
 {
-"type": "FeatureCollection",
-"name": "RRTerminals",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "title": "Agnew Crude Terminal", "CITY": "Oklahoma City", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -97.558467, "LATITUDE": 35.452639 }, "geometry": { "type": "Point", "coordinates": [ -97.558, 35.453 ] } },
-{ "type": "Feature", "properties": { "title": "Albany Terminal", "CITY": "Albany", "STATE": "NY", "PADD": 1, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -73.763952, "LATITUDE": 42.618016 }, "geometry": { "type": "Point", "coordinates": [ -73.764, 42.618 ] } },
-{ "type": "Feature", "properties": { "title": "Bakersfield Refinery", "CITY": "Bakersfield", "STATE": "CA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -118.923088, "LATITUDE": 35.293986 }, "geometry": { "type": "Point", "coordinates": [ -118.923, 35.294 ] } },
-{ "type": "Feature", "properties": { "title": "Bakken Oil Express", "CITY": "Dickinson", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.87868, "LATITUDE": 46.865796 }, "geometry": { "type": "Point", "coordinates": [ -102.879, 46.866 ] } },
-{ "type": "Feature", "properties": { "title": "BakkenLink Rail Hub", "CITY": "Fryburg", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.301703, "LATITUDE": 46.871807 }, "geometry": { "type": "Point", "coordinates": [ -103.302, 46.872 ] } },
-{ "type": "Feature", "properties": { "title": "Baltimore Transload Terminal", "CITY": "Baltimore", "STATE": "MD", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -76.566106, "LATITUDE": 39.229793 }, "geometry": { "type": "Point", "coordinates": [ -76.566, 39.23 ] } },
-{ "type": "Feature", "properties": { "title": "Barnhart Terminal", "CITY": "Barnhart", "STATE": "TX", "PADD": 3, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -101.168489, "LATITUDE": 31.128338 }, "geometry": { "type": "Point", "coordinates": [ -101.168, 31.128 ] } },
-{ "type": "Feature", "properties": { "title": "Basin Transload (aka Zap Terminal)", "CITY": "Beulah", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -101.747016, "LATITUDE": 47.266135 }, "geometry": { "type": "Point", "coordinates": [ -101.747, 47.266 ] } },
-{ "type": "Feature", "properties": { "title": "Baton Rouge Refinery", "CITY": "Baton Rouge", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -91.178655, "LATITUDE": 30.482679 }, "geometry": { "type": "Point", "coordinates": [ -91.179, 30.483 ] } },
-{ "type": "Feature", "properties": { "title": "Bayway Refinery", "CITY": "Bayway", "STATE": "NJ", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -74.214449, "LATITUDE": 40.637193 }, "geometry": { "type": "Point", "coordinates": [ -74.214, 40.637 ] } },
-{ "type": "Feature", "properties": { "title": "Bayway Refinery", "CITY": "Linden", "STATE": "NJ", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -74.222349, "LATITUDE": 40.826077 }, "geometry": { "type": "Point", "coordinates": [ -74.222, 40.826 ] } },
-{ "type": "Feature", "properties": { "title": "Black Run Rail Facility", "CITY": "Frazeysburg", "STATE": "OH", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -82.119383, "LATITUDE": 40.119106 }, "geometry": { "type": "Point", "coordinates": [ -82.119, 40.119 ] } },
-{ "type": "Feature", "properties": { "title": "Black Thunder Terminal", "CITY": "Gillette", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -105.235549, "LATITUDE": 43.705337 }, "geometry": { "type": "Point", "coordinates": [ -105.236, 43.705 ] } },
-{ "type": "Feature", "properties": { "title": "Brownsville Terminal", "CITY": "Brownsville", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -97.387646, "LATITUDE": 25.958229 }, "geometry": { "type": "Point", "coordinates": [ -97.388, 25.958 ] } },
-{ "type": "Feature", "properties": { "title": "Casper Crude to Rail Terminal", "CITY": "Casper", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -106.439314, "LATITUDE": 42.933343 }, "geometry": { "type": "Point", "coordinates": [ -106.439, 42.933 ] } },
-{ "type": "Feature", "properties": { "title": "Centane Rail Loading Terminal", "CITY": "Carlsbad", "STATE": "NM", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.224586, "LATITUDE": 32.421656 }, "geometry": { "type": "Point", "coordinates": [ -104.225, 32.422 ] } },
-{ "type": "Feature", "properties": { "title": "Channahon Terminal", "CITY": "Lorenzo", "STATE": "IL", "PADD": 2, "image": "Station type: Destination", "FACILITY_T": "Barge", "text1": "Activity: Loading", "LONGITUDE": -88.196418, "LATITUDE": 41.407805 }, "geometry": { "type": "Point", "coordinates": [ -88.196, 41.408 ] } },
-{ "type": "Feature", "properties": { "title": "Cherry Point Terminal", "CITY": "Ferndale", "STATE": "WA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -122.720725, "LATITUDE": 48.887315 }, "geometry": { "type": "Point", "coordinates": [ -122.721, 48.887 ] } },
-{ "type": "Feature", "properties": { "title": "Cheyenne Crude Terminal", "CITY": "Cheyenne", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.795326, "LATITUDE": 41.132512 }, "geometry": { "type": "Point", "coordinates": [ -104.795, 41.133 ] } },
-{ "type": "Feature", "properties": { "title": "Cheyenne Logistics Hub", "CITY": "Cheyenne", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.853452, "LATITUDE": 41.095216 }, "geometry": { "type": "Point", "coordinates": [ -104.853, 41.095 ] } },
-{ "type": "Feature", "properties": { "title": "Chickasaw Terminal", "CITY": "Chickasaw", "STATE": "AL", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -88.060509, "LATITUDE": 30.770067 }, "geometry": { "type": "Point", "coordinates": [ -88.061, 30.77 ] } },
-{ "type": "Feature", "properties": { "title": "COLT Hub", "CITY": "Epping", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.349807, "LATITUDE": 48.276864 }, "geometry": { "type": "Point", "coordinates": [ -103.35, 48.277 ] } },
-{ "type": "Feature", "properties": { "title": "Columbus Terminal", "CITY": "Columbus", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.741362, "LATITUDE": 48.888456 }, "geometry": { "type": "Point", "coordinates": [ -102.741, 48.888 ] } },
-{ "type": "Feature", "properties": { "title": "Corpus Christi Refinery", "CITY": "Corpus Christi", "STATE": "TX", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -97.454215, "LATITUDE": 27.811868 }, "geometry": { "type": "Point", "coordinates": [ -97.454, 27.812 ] } },
-{ "type": "Feature", "properties": { "title": "Crescent Point - Unita", "CITY": "Uinta Basin", "STATE": "UT", "PADD": 4, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -109.914496, "LATITUDE": 40.305582 }, "geometry": { "type": "Point", "coordinates": [ -109.914, 40.306 ] } },
-{ "type": "Feature", "properties": { "title": "Delaware City Refinery", "CITY": "Delaware City", "STATE": "DE", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -75.628877, "LATITUDE": 39.591123 }, "geometry": { "type": "Point", "coordinates": [ -75.629, 39.591 ] } },
-{ "type": "Feature", "properties": { "title": "Douglas Rail Facility", "CITY": "Douglas", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -105.335841, "LATITUDE": 42.677872 }, "geometry": { "type": "Point", "coordinates": [ -105.336, 42.678 ] } },
-{ "type": "Feature", "properties": { "title": "Eagle Ford Crude Terminal", "CITY": "Cotulla", "STATE": "TX", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -99.220684, "LATITUDE": 28.523877 }, "geometry": { "type": "Point", "coordinates": [ -99.221, 28.524 ] } },
-{ "type": "Feature", "properties": { "title": "Eddystone Rail Facility", "CITY": "Eddystone", "STATE": "PA", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -75.625037, "LATITUDE": 40.236262 }, "geometry": { "type": "Point", "coordinates": [ -75.625, 40.236 ] } },
-{ "type": "Feature", "properties": { "title": "El Dorado Refinery", "CITY": "El Dorado", "STATE": "AR", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -92.675744, "LATITUDE": 33.198787 }, "geometry": { "type": "Point", "coordinates": [ -92.676, 33.199 ] } },
-{ "type": "Feature", "properties": { "title": "Enbridge Berthold", "CITY": "Berthold", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -101.737007, "LATITUDE": 48.313384 }, "geometry": { "type": "Point", "coordinates": [ -101.737, 48.313 ] } },
-{ "type": "Feature", "properties": { "title": "Enserco Gascoyne", "CITY": "Gascoyne", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.079956, "LATITUDE": 46.118674 }, "geometry": { "type": "Point", "coordinates": [ -103.08, 46.119 ] } },
-{ "type": "Feature", "properties": { "title": "Ferndale Refinery", "CITY": "Ferndale", "STATE": "WA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -122.698848, "LATITUDE": 48.831366 }, "geometry": { "type": "Point", "coordinates": [ -122.699, 48.831 ] } },
-{ "type": "Feature", "properties": { "title": "Gallup Refinery", "CITY": "Gallup", "STATE": "NM", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -108.426332, "LATITUDE": 35.490332 }, "geometry": { "type": "Point", "coordinates": [ -108.426, 35.49 ] } },
-{ "type": "Feature", "properties": { "title": "Geismar Facility", "CITY": "Riverside", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -91.037095, "LATITUDE": 30.211701 }, "geometry": { "type": "Point", "coordinates": [ -91.037, 30.212 ] } },
-{ "type": "Feature", "properties": { "title": "Greens Port Industrial Park", "CITY": "Houston", "STATE": "TX", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -95.193123, "LATITUDE": 29.75529 }, "geometry": { "type": "Point", "coordinates": [ -95.193, 29.755 ] } },
-{ "type": "Feature", "properties": { "title": "Guernsey Terminal", "CITY": "Guernsey", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.736957, "LATITUDE": 42.27095 }, "geometry": { "type": "Point", "coordinates": [ -104.737, 42.271 ] } },
-{ "type": "Feature", "properties": { "title": "Hayti Terminal", "CITY": "Hayti", "STATE": "MO", "PADD": 2, "image": "Station type: Destination", "FACILITY_T": "Barge", "text1": "Activity: Loading", "LONGITUDE": -89.749473, "LATITUDE": 36.234581 }, "geometry": { "type": "Point", "coordinates": [ -89.749, 36.235 ] } },
-{ "type": "Feature", "properties": { "title": "Helper Crude Terminal", "CITY": "Helper", "STATE": "UT", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -110.871, "LATITUDE": 39.704 }, "geometry": { "type": "Point", "coordinates": [ -110.871, 39.704 ] } },
-{ "type": "Feature", "properties": { "title": "Hunt Refinery", "CITY": "Tuscaloosa", "STATE": "AL", "PADD": 0, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -87.611, "LATITUDE": 33.2005 }, "geometry": { "type": "Point", "coordinates": [ -87.611, 33.201 ] } },
-{ "type": "Feature", "properties": { "title": "Jefferson Transload Railport", "CITY": "Beaumont", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge, Refinery", "text1": "Activity: Unloading", "LONGITUDE": -94.07773, "LATITUDE": 30.075556 }, "geometry": { "type": "Point", "coordinates": [ -94.078, 30.076 ] } },
-{ "type": "Feature", "properties": { "title": "La Feria Terminal", "CITY": "La Feria", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -97.821151, "LATITUDE": 26.160445 }, "geometry": { "type": "Point", "coordinates": [ -97.821, 26.16 ] } },
-{ "type": "Feature", "properties": { "title": "Lacassine Rail Facility", "CITY": "Lacassine", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Barge, Refinery", "text1": "Activity: Unloading", "LONGITUDE": -92.943711, "LATITUDE": 30.239705 }, "geometry": { "type": "Point", "coordinates": [ -92.944, 30.24 ] } },
-{ "type": "Feature", "properties": { "title": "Lake Charles Refinery", "CITY": "Lake Charles", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -93.270285, "LATITUDE": 30.242574 }, "geometry": { "type": "Point", "coordinates": [ -93.27, 30.243 ] } },
-{ "type": "Feature", "properties": { "title": "Long Beach Refinery", "CITY": "Long Beach", "STATE": "CA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -118.257706, "LATITUDE": 33.745255 }, "geometry": { "type": "Point", "coordinates": [ -118.258, 33.745 ] } },
-{ "type": "Feature", "properties": { "title": "Manitou Rail Facility", "CITY": "Ross", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.549802, "LATITUDE": 48.313998 }, "geometry": { "type": "Point", "coordinates": [ -102.55, 48.314 ] } },
-{ "type": "Feature", "properties": { "title": "Mission Rail Park", "CITY": "Elmendorf", "STATE": "TX", "PADD": 3, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -98.303023, "LATITUDE": 29.233296 }, "geometry": { "type": "Point", "coordinates": [ -98.303, 29.233 ] } },
-{ "type": "Feature", "properties": { "title": "Mobile Terminal", "CITY": "Mobile", "STATE": "AL", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -88.034488, "LATITUDE": 30.708428 }, "geometry": { "type": "Point", "coordinates": [ -88.034, 30.708 ] } },
-{ "type": "Feature", "properties": { "title": "Monahans Terminal", "CITY": "Monahans", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.915443, "LATITUDE": 31.591087 }, "geometry": { "type": "Point", "coordinates": [ -102.915, 31.591 ] } },
-{ "type": "Feature", "properties": { "title": "Mountrail Terminal", "CITY": "Palermo", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.23232, "LATITUDE": 48.337282 }, "geometry": { "type": "Point", "coordinates": [ -102.232, 48.337 ] } },
-{ "type": "Feature", "properties": { "title": "Musket Terminal", "CITY": "Dore", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.0306, "LATITUDE": 47.919434 }, "geometry": { "type": "Point", "coordinates": [ -104.031, 47.919 ] } },
-{ "type": "Feature", "properties": { "title": "Natchez Terminal", "CITY": "Natchez", "STATE": "MS", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading, Unloading", "LONGITUDE": -91.434824, "LATITUDE": 31.532582 }, "geometry": { "type": "Point", "coordinates": [ -91.435, 31.533 ] } },
-{ "type": "Feature", "properties": { "title": "Navajo Refinery", "CITY": "Artesia", "STATE": "NM", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Rail, Terminal", "text1": "Activity: Unloading", "LONGITUDE": -104.395908, "LATITUDE": 32.84359 }, "geometry": { "type": "Point", "coordinates": [ -104.396, 32.844 ] } },
-{ "type": "Feature", "properties": { "title": "Nederland Terminal", "CITY": "Nederland", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -94.004262, "LATITUDE": 29.988691 }, "geometry": { "type": "Point", "coordinates": [ -94.004, 29.989 ] } },
-{ "type": "Feature", "properties": { "title": "Niobrara Crude Terminal", "CITY": "Carr", "STATE": "CO", "PADD": 4, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.870771, "LATITUDE": 40.885405 }, "geometry": { "type": "Point", "coordinates": [ -104.871, 40.885 ] } },
-{ "type": "Feature", "properties": { "title": "Northstar Transloading", "CITY": "Fairview", "STATE": "ND", "PADD": 4, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.035518, "LATITUDE": 47.859342 }, "geometry": { "type": "Point", "coordinates": [ -104.036, 47.859 ] } },
-{ "type": "Feature", "properties": { "title": "Odessa Railport", "CITY": "Odessa", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.311385, "LATITUDE": 31.871231 }, "geometry": { "type": "Point", "coordinates": [ -102.311, 31.871 ] } },
-{ "type": "Feature", "properties": { "title": "Odessa Terminal", "CITY": "Odessa", "STATE": "TX", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.335074, "LATITUDE": 31.832931 }, "geometry": { "type": "Point", "coordinates": [ -102.335, 31.833 ] } },
-{ "type": "Feature", "properties": { "title": "Okeene Terminal", "CITY": "Okeene", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading, Unloading", "LONGITUDE": -98.312455, "LATITUDE": 36.120776 }, "geometry": { "type": "Point", "coordinates": [ -98.312, 36.121 ] } },
-{ "type": "Feature", "properties": { "title": "Oklahoma City Terminal", "CITY": "Midwest City", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -97.396399, "LATITUDE": 35.450183 }, "geometry": { "type": "Point", "coordinates": [ -97.396, 35.45 ] } },
-{ "type": "Feature", "properties": { "title": "Omniport", "CITY": "Port Arthur", "STATE": "TX", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -93.962455, "LATITUDE": 29.848495 }, "geometry": { "type": "Point", "coordinates": [ -93.962, 29.848 ] } },
-{ "type": "Feature", "properties": { "title": "Paulsboro Asphalt Refinery", "CITY": "Paulsboro", "STATE": "NJ", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -75.227778, "LATITUDE": 39.846389 }, "geometry": { "type": "Point", "coordinates": [ -75.228, 39.846 ] } },
-{ "type": "Feature", "properties": { "title": "Pecos Valley Terminal", "CITY": "Pecos", "STATE": "TX", "PADD": 3, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.518388, "LATITUDE": 31.416713 }, "geometry": { "type": "Point", "coordinates": [ -103.518, 31.417 ] } },
-{ "type": "Feature", "properties": { "title": "Philadelphia Energy Solutions Refinery", "CITY": "Philadelphia", "STATE": "PA", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -75.198889, "LATITUDE": 39.92 }, "geometry": { "type": "Point", "coordinates": [ -75.199, 39.92 ] } },
-{ "type": "Feature", "properties": { "title": "Pioneer Terminal", "CITY": "New Town", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.473219, "LATITUDE": 47.977584 }, "geometry": { "type": "Point", "coordinates": [ -102.473, 47.978 ] } },
-{ "type": "Feature", "properties": { "title": "Port Manchac Terminal", "CITY": "Port Manchac", "STATE": "LA", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -90.405496, "LATITUDE": 30.314048 }, "geometry": { "type": "Point", "coordinates": [ -90.405, 30.314 ] } },
-{ "type": "Feature", "properties": { "title": "Port of Minot", "CITY": "Minot", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -101.301316, "LATITUDE": 48.234156 }, "geometry": { "type": "Point", "coordinates": [ -101.301, 48.234 ] } },
-{ "type": "Feature", "properties": { "title": "Port of New Orleans", "CITY": "New Orleans", "STATE": "LA", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -89.997569, "LATITUDE": 30.001138 }, "geometry": { "type": "Point", "coordinates": [ -89.998, 30.001 ] } },
-{ "type": "Feature", "properties": { "title": "Port of Vancouver", "CITY": "Port of Vancouver", "STATE": "WA", "PADD": 5, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -122.689374, "LATITUDE": 45.661305 }, "geometry": { "type": "Point", "coordinates": [ -122.689, 45.661 ] } },
-{ "type": "Feature", "properties": { "title": "Portland Maine Terminal", "CITY": "Portland", "STATE": "ME", "PADD": 1, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -70.285835, "LATITUDE": 43.639164 }, "geometry": { "type": "Point", "coordinates": [ -70.286, 43.639 ] } },
-{ "type": "Feature", "properties": { "title": "Princeton Refinery", "CITY": "Princeton", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -93.513559, "LATITUDE": 32.589793 }, "geometry": { "type": "Point", "coordinates": [ -93.514, 32.59 ] } },
-{ "type": "Feature", "properties": { "title": "Red River Terminal", "CITY": "Williston", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.601216, "LATITUDE": 48.145883 }, "geometry": { "type": "Point", "coordinates": [ -103.601, 48.146 ] } },
-{ "type": "Feature", "properties": { "title": "Rogers Lacy Refinery", "CITY": "Sandersville", "STATE": "MS", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -89.008883, "LATITUDE": 31.816832 }, "geometry": { "type": "Point", "coordinates": [ -89.009, 31.817 ] } },
-{ "type": "Feature", "properties": { "title": "Savage Energy Terminal", "CITY": "Price", "STATE": "UT", "PADD": 4, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -110.789599, "LATITUDE": 39.589133 }, "geometry": { "type": "Point", "coordinates": [ -110.79, 39.589 ] } },
-{ "type": "Feature", "properties": { "title": "Savage Energy Terminal", "CITY": "Salt Lake City", "STATE": "UT", "PADD": 4, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -111.908821, "LATITUDE": 40.789575 }, "geometry": { "type": "Point", "coordinates": [ -111.909, 40.79 ] } },
-{ "type": "Feature", "properties": { "title": "Savage Terminal", "CITY": "Trenton", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -103.83397, "LATITUDE": 48.070064 }, "geometry": { "type": "Point", "coordinates": [ -103.834, 48.07 ] } },
-{ "type": "Feature", "properties": { "title": "Sayre Terminal", "CITY": "Sayre", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -99.650804, "LATITUDE": 35.289969 }, "geometry": { "type": "Point", "coordinates": [ -99.651, 35.29 ] } },
-{ "type": "Feature", "properties": { "title": "Shreveport Refinery", "CITY": "Shreveport", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -93.789624, "LATITUDE": 32.462787 }, "geometry": { "type": "Point", "coordinates": [ -93.79, 32.463 ] } },
-{ "type": "Feature", "properties": { "title": "South Gate Refinery", "CITY": "South Gate", "STATE": "CA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -118.186185, "LATITUDE": 33.956311 }, "geometry": { "type": "Point", "coordinates": [ -118.186, 33.956 ] } },
-{ "type": "Feature", "properties": { "title": "St Rose Terminal", "CITY": "St Rose", "STATE": "LA", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Barge", "text1": "Activity: Unloading", "LONGITUDE": -90.331739, "LATITUDE": 29.938517 }, "geometry": { "type": "Point", "coordinates": [ -90.332, 29.939 ] } },
-{ "type": "Feature", "properties": { "title": "St. Charles Refinery", "CITY": "Norco", "STATE": "LA", "PADD": 3, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -90.389725, "LATITUDE": 29.998515 }, "geometry": { "type": "Point", "coordinates": [ -90.39, 29.999 ] } },
-{ "type": "Feature", "properties": { "title": "St. James Rail Terminal", "CITY": "St. James", "STATE": "LA", "PADD": 3, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading, Unloading", "LONGITUDE": -90.846796, "LATITUDE": 30.028637 }, "geometry": { "type": "Point", "coordinates": [ -90.847, 30.029 ] } },
-{ "type": "Feature", "properties": { "title": "St. Paul Park Refining Co", "CITY": "St. Paul", "STATE": "MN", "PADD": 2, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -92.998339, "LATITUDE": 44.851278 }, "geometry": { "type": "Point", "coordinates": [ -92.998, 44.851 ] } },
-{ "type": "Feature", "properties": { "title": "Stanley Terminal", "CITY": "Stanley", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.347177, "LATITUDE": 48.335285 }, "geometry": { "type": "Point", "coordinates": [ -102.347, 48.335 ] } },
-{ "type": "Feature", "properties": { "title": "Stroud Terminal", "CITY": "Stroud", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -96.651551, "LATITUDE": 35.741058 }, "geometry": { "type": "Point", "coordinates": [ -96.652, 35.741 ] } },
-{ "type": "Feature", "properties": { "title": "Sunnylane Crude Terminal", "CITY": "Oklahoma City", "STATE": "OK", "PADD": 2, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -97.44163, "LATITUDE": 35.471575 }, "geometry": { "type": "Point", "coordinates": [ -97.442, 35.472 ] } },
-{ "type": "Feature", "properties": { "title": "Tacoma Refinery", "CITY": "Tacoma", "STATE": "WA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -122.405871, "LATITUDE": 47.263564 }, "geometry": { "type": "Point", "coordinates": [ -122.406, 47.264 ] } },
-{ "type": "Feature", "properties": { "title": "Tampa Rail Facility", "CITY": "Tampa", "STATE": "CO", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.45896, "LATITUDE": 40.136038 }, "geometry": { "type": "Point", "coordinates": [ -104.459, 40.136 ] } },
-{ "type": "Feature", "properties": { "title": "Tioga Rail Terminal", "CITY": "Tioga", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.91642, "LATITUDE": 48.394695 }, "geometry": { "type": "Point", "coordinates": [ -102.916, 48.395 ] } },
-{ "type": "Feature", "properties": { "title": "Toledo Refinery", "CITY": "Toledo", "STATE": "OH", "PADD": 2, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -83.506722, "LATITUDE": 41.63061 }, "geometry": { "type": "Point", "coordinates": [ -83.507, 41.631 ] } },
-{ "type": "Feature", "properties": { "title": "Upton Logistic Center", "CITY": "Upton", "STATE": "WY", "PADD": 4, "image": "Station type: Transload", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -104.628369, "LATITUDE": 44.09751 }, "geometry": { "type": "Point", "coordinates": [ -104.628, 44.098 ] } },
-{ "type": "Feature", "properties": { "title": "Van Hook Crude Terminal", "CITY": "New Town", "STATE": "ND", "PADD": 2, "image": "Station type: Origin", "FACILITY_T": "Terminal", "text1": "Activity: Loading", "LONGITUDE": -102.490128, "LATITUDE": 47.981391 }, "geometry": { "type": "Point", "coordinates": [ -102.49, 47.981 ] } },
-{ "type": "Feature", "properties": { "title": "Walnut Hill Crude Oil Rail Unloading Facility", "CITY": "Walnut Hill", "STATE": "FL", "PADD": 1, "image": "Station type: Destination", "FACILITY_T": "Terminal", "text1": "Activity: Unloading", "LONGITUDE": -87.506558, "LATITUDE": 30.879272 }, "geometry": { "type": "Point", "coordinates": [ -87.507, 30.879 ] } },
-{ "type": "Feature", "properties": { "title": "Wilmington Refinery", "CITY": "Wilmington", "STATE": "CA", "PADD": 5, "image": "Station type: Destination", "FACILITY_T": "Refinery", "text1": "Activity: Unloading", "LONGITUDE": -118.233836, "LATITUDE": 33.779877 }, "geometry": { "type": "Point", "coordinates": [ -118.234, 33.78 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "RRTerminals",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Agnew Crude Terminal",
+        "CITY": "Oklahoma City",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -97.558467,
+        "LATITUDE": 35.452639
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.558,
+          35.453
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Albany Terminal",
+        "CITY": "Albany",
+        "STATE": "NY",
+        "PADD": 1,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -73.763952,
+        "LATITUDE": 42.618016
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.764,
+          42.618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bakersfield Refinery",
+        "CITY": "Bakersfield",
+        "STATE": "CA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -118.923088,
+        "LATITUDE": 35.293986
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.923,
+          35.294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bakken Oil Express",
+        "CITY": "Dickinson",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.87868,
+        "LATITUDE": 46.865796
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.879,
+          46.866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "BakkenLink Rail Hub",
+        "CITY": "Fryburg",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.301703,
+        "LATITUDE": 46.871807
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.302,
+          46.872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Baltimore Transload Terminal",
+        "CITY": "Baltimore",
+        "STATE": "MD",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -76.566106,
+        "LATITUDE": 39.229793
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.566,
+          39.23
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Barnhart Terminal",
+        "CITY": "Barnhart",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -101.168489,
+        "LATITUDE": 31.128338
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.168,
+          31.128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Basin Transload (aka Zap Terminal)",
+        "CITY": "Beulah",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -101.747016,
+        "LATITUDE": 47.266135
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.747,
+          47.266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Baton Rouge Refinery",
+        "CITY": "Baton Rouge",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -91.178655,
+        "LATITUDE": 30.482679
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.179,
+          30.483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bayway Refinery",
+        "CITY": "Bayway",
+        "STATE": "NJ",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -74.214449,
+        "LATITUDE": 40.637193
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.214,
+          40.637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Bayway Refinery",
+        "CITY": "Linden",
+        "STATE": "NJ",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -74.222349,
+        "LATITUDE": 40.826077
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.222,
+          40.826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Black Run Rail Facility",
+        "CITY": "Frazeysburg",
+        "STATE": "OH",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -82.119383,
+        "LATITUDE": 40.119106
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.119,
+          40.119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Black Thunder Terminal",
+        "CITY": "Gillette",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -105.235549,
+        "LATITUDE": 43.705337
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.236,
+          43.705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Brownsville Terminal",
+        "CITY": "Brownsville",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -97.387646,
+        "LATITUDE": 25.958229
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.388,
+          25.958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Casper Crude to Rail Terminal",
+        "CITY": "Casper",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -106.439314,
+        "LATITUDE": 42.933343
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.439,
+          42.933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Centane Rail Loading Terminal",
+        "CITY": "Carlsbad",
+        "STATE": "NM",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.224586,
+        "LATITUDE": 32.421656
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.225,
+          32.422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Channahon Terminal",
+        "CITY": "Lorenzo",
+        "STATE": "IL",
+        "PADD": 2,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -88.196418,
+        "LATITUDE": 41.407805
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.196,
+          41.408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Cherry Point Terminal",
+        "CITY": "Ferndale",
+        "STATE": "WA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -122.720725,
+        "LATITUDE": 48.887315
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.721,
+          48.887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Cheyenne Crude Terminal",
+        "CITY": "Cheyenne",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.795326,
+        "LATITUDE": 41.132512
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.795,
+          41.133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Cheyenne Logistics Hub",
+        "CITY": "Cheyenne",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.853452,
+        "LATITUDE": 41.095216
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.853,
+          41.095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Chickasaw Terminal",
+        "CITY": "Chickasaw",
+        "STATE": "AL",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -88.060509,
+        "LATITUDE": 30.770067
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.061,
+          30.77
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "COLT Hub",
+        "CITY": "Epping",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.349807,
+        "LATITUDE": 48.276864
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.35,
+          48.277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Columbus Terminal",
+        "CITY": "Columbus",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.741362,
+        "LATITUDE": 48.888456
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.741,
+          48.888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Corpus Christi Refinery",
+        "CITY": "Corpus Christi",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -97.454215,
+        "LATITUDE": 27.811868
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.454,
+          27.812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Crescent Point - Unita",
+        "CITY": "Uinta Basin",
+        "STATE": "UT",
+        "PADD": 4,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -109.914496,
+        "LATITUDE": 40.305582
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.914,
+          40.306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Delaware City Refinery",
+        "CITY": "Delaware City",
+        "STATE": "DE",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -75.628877,
+        "LATITUDE": 39.591123
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.629,
+          39.591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Douglas Rail Facility",
+        "CITY": "Douglas",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -105.335841,
+        "LATITUDE": 42.677872
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.336,
+          42.678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Eagle Ford Crude Terminal",
+        "CITY": "Cotulla",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -99.220684,
+        "LATITUDE": 28.523877
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.221,
+          28.524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Eddystone Rail Facility",
+        "CITY": "Eddystone",
+        "STATE": "PA",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -75.625037,
+        "LATITUDE": 40.236262
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.625,
+          40.236
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "El Dorado Refinery",
+        "CITY": "El Dorado",
+        "STATE": "AR",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -92.675744,
+        "LATITUDE": 33.198787
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.676,
+          33.199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Enbridge Berthold",
+        "CITY": "Berthold",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -101.737007,
+        "LATITUDE": 48.313384
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.737,
+          48.313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Enserco Gascoyne",
+        "CITY": "Gascoyne",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.079956,
+        "LATITUDE": 46.118674
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.08,
+          46.119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Ferndale Refinery",
+        "CITY": "Ferndale",
+        "STATE": "WA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -122.698848,
+        "LATITUDE": 48.831366
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.699,
+          48.831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Gallup Refinery",
+        "CITY": "Gallup",
+        "STATE": "NM",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -108.426332,
+        "LATITUDE": 35.490332
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.426,
+          35.49
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Geismar Facility",
+        "CITY": "Riverside",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -91.037095,
+        "LATITUDE": 30.211701
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.037,
+          30.212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Greens Port Industrial Park",
+        "CITY": "Houston",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -95.193123,
+        "LATITUDE": 29.75529
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.193,
+          29.755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Guernsey Terminal",
+        "CITY": "Guernsey",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.736957,
+        "LATITUDE": 42.27095
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.737,
+          42.271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Hayti Terminal",
+        "CITY": "Hayti",
+        "STATE": "MO",
+        "PADD": 2,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -89.749473,
+        "LATITUDE": 36.234581
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.749,
+          36.235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Helper Crude Terminal",
+        "CITY": "Helper",
+        "STATE": "UT",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -110.871,
+        "LATITUDE": 39.704
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.871,
+          39.704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Hunt Refinery",
+        "CITY": "Tuscaloosa",
+        "STATE": "AL",
+        "PADD": 0,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -87.611,
+        "LATITUDE": 33.2005
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.611,
+          33.201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Jefferson Transload Railport",
+        "CITY": "Beaumont",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge, Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -94.07773,
+        "LATITUDE": 30.075556
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.078,
+          30.076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "La Feria Terminal",
+        "CITY": "La Feria",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -97.821151,
+        "LATITUDE": 26.160445
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.821,
+          26.16
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Lacassine Rail Facility",
+        "CITY": "Lacassine",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Barge, Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -92.943711,
+        "LATITUDE": 30.239705
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.944,
+          30.24
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Lake Charles Refinery",
+        "CITY": "Lake Charles",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -93.270285,
+        "LATITUDE": 30.242574
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.27,
+          30.243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Long Beach Refinery",
+        "CITY": "Long Beach",
+        "STATE": "CA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -118.257706,
+        "LATITUDE": 33.745255
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.258,
+          33.745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Manitou Rail Facility",
+        "CITY": "Ross",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.549802,
+        "LATITUDE": 48.313998
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.55,
+          48.314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Mission Rail Park",
+        "CITY": "Elmendorf",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -98.303023,
+        "LATITUDE": 29.233296
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.303,
+          29.233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Mobile Terminal",
+        "CITY": "Mobile",
+        "STATE": "AL",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -88.034488,
+        "LATITUDE": 30.708428
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.034,
+          30.708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Monahans Terminal",
+        "CITY": "Monahans",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.915443,
+        "LATITUDE": 31.591087
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.915,
+          31.591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Mountrail Terminal",
+        "CITY": "Palermo",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.23232,
+        "LATITUDE": 48.337282
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.232,
+          48.337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Musket Terminal",
+        "CITY": "Dore",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.0306,
+        "LATITUDE": 47.919434
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.031,
+          47.919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Natchez Terminal",
+        "CITY": "Natchez",
+        "STATE": "MS",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading, Unloading",
+        "LONGITUDE": -91.434824,
+        "LATITUDE": 31.532582
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.435,
+          31.533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Navajo Refinery",
+        "CITY": "Artesia",
+        "STATE": "NM",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Rail, Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -104.395908,
+        "LATITUDE": 32.84359
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.396,
+          32.844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Nederland Terminal",
+        "CITY": "Nederland",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -94.004262,
+        "LATITUDE": 29.988691
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.004,
+          29.989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Niobrara Crude Terminal",
+        "CITY": "Carr",
+        "STATE": "CO",
+        "PADD": 4,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.870771,
+        "LATITUDE": 40.885405
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.871,
+          40.885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Northstar Transloading",
+        "CITY": "Fairview",
+        "STATE": "ND",
+        "PADD": 4,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.035518,
+        "LATITUDE": 47.859342
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.036,
+          47.859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Odessa Railport",
+        "CITY": "Odessa",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.311385,
+        "LATITUDE": 31.871231
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.311,
+          31.871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Odessa Terminal",
+        "CITY": "Odessa",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.335074,
+        "LATITUDE": 31.832931
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.335,
+          31.833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Okeene Terminal",
+        "CITY": "Okeene",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading, Unloading",
+        "LONGITUDE": -98.312455,
+        "LATITUDE": 36.120776
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.312,
+          36.121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Oklahoma City Terminal",
+        "CITY": "Midwest City",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -97.396399,
+        "LATITUDE": 35.450183
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.396,
+          35.45
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Omniport",
+        "CITY": "Port Arthur",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -93.962455,
+        "LATITUDE": 29.848495
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.962,
+          29.848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Paulsboro Asphalt Refinery",
+        "CITY": "Paulsboro",
+        "STATE": "NJ",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -75.227778,
+        "LATITUDE": 39.846389
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.228,
+          39.846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Pecos Valley Terminal",
+        "CITY": "Pecos",
+        "STATE": "TX",
+        "PADD": 3,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.518388,
+        "LATITUDE": 31.416713
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.518,
+          31.417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Philadelphia Energy Solutions Refinery",
+        "CITY": "Philadelphia",
+        "STATE": "PA",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -75.198889,
+        "LATITUDE": 39.92
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.199,
+          39.92
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Pioneer Terminal",
+        "CITY": "New Town",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.473219,
+        "LATITUDE": 47.977584
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.473,
+          47.978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Port Manchac Terminal",
+        "CITY": "Port Manchac",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -90.405496,
+        "LATITUDE": 30.314048
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.405,
+          30.314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Port of Minot",
+        "CITY": "Minot",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -101.301316,
+        "LATITUDE": 48.234156
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.301,
+          48.234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Port of New Orleans",
+        "CITY": "New Orleans",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -89.997569,
+        "LATITUDE": 30.001138
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.998,
+          30.001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Port of Vancouver",
+        "CITY": "Port of Vancouver",
+        "STATE": "WA",
+        "PADD": 5,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -122.689374,
+        "LATITUDE": 45.661305
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.689,
+          45.661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Portland Maine Terminal",
+        "CITY": "Portland",
+        "STATE": "ME",
+        "PADD": 1,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -70.285835,
+        "LATITUDE": 43.639164
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.286,
+          43.639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Princeton Refinery",
+        "CITY": "Princeton",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -93.513559,
+        "LATITUDE": 32.589793
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.514,
+          32.59
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Red River Terminal",
+        "CITY": "Williston",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.601216,
+        "LATITUDE": 48.145883
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.601,
+          48.146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Rogers Lacy Refinery",
+        "CITY": "Sandersville",
+        "STATE": "MS",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -89.008883,
+        "LATITUDE": 31.816832
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.009,
+          31.817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Savage Energy Terminal",
+        "CITY": "Price",
+        "STATE": "UT",
+        "PADD": 4,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -110.789599,
+        "LATITUDE": 39.589133
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.79,
+          39.589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Savage Energy Terminal",
+        "CITY": "Salt Lake City",
+        "STATE": "UT",
+        "PADD": 4,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -111.908821,
+        "LATITUDE": 40.789575
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.909,
+          40.79
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Savage Terminal",
+        "CITY": "Trenton",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -103.83397,
+        "LATITUDE": 48.070064
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.834,
+          48.07
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Sayre Terminal",
+        "CITY": "Sayre",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -99.650804,
+        "LATITUDE": 35.289969
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.651,
+          35.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Shreveport Refinery",
+        "CITY": "Shreveport",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -93.789624,
+        "LATITUDE": 32.462787
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.79,
+          32.463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "South Gate Refinery",
+        "CITY": "South Gate",
+        "STATE": "CA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -118.186185,
+        "LATITUDE": 33.956311
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.186,
+          33.956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "St Rose Terminal",
+        "CITY": "St Rose",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Barge",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -90.331739,
+        "LATITUDE": 29.938517
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.332,
+          29.939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "St. Charles Refinery",
+        "CITY": "Norco",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -90.389725,
+        "LATITUDE": 29.998515
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.39,
+          29.999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "St. James Rail Terminal",
+        "CITY": "St. James",
+        "STATE": "LA",
+        "PADD": 3,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading, Unloading",
+        "LONGITUDE": -90.846796,
+        "LATITUDE": 30.028637
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.847,
+          30.029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "St. Paul Park Refining Co",
+        "CITY": "St. Paul",
+        "STATE": "MN",
+        "PADD": 2,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -92.998339,
+        "LATITUDE": 44.851278
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.998,
+          44.851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Stanley Terminal",
+        "CITY": "Stanley",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.347177,
+        "LATITUDE": 48.335285
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.347,
+          48.335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Stroud Terminal",
+        "CITY": "Stroud",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -96.651551,
+        "LATITUDE": 35.741058
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.652,
+          35.741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Sunnylane Crude Terminal",
+        "CITY": "Oklahoma City",
+        "STATE": "OK",
+        "PADD": 2,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -97.44163,
+        "LATITUDE": 35.471575
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.442,
+          35.472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tacoma Refinery",
+        "CITY": "Tacoma",
+        "STATE": "WA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -122.405871,
+        "LATITUDE": 47.263564
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.406,
+          47.264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tampa Rail Facility",
+        "CITY": "Tampa",
+        "STATE": "CO",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.45896,
+        "LATITUDE": 40.136038
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.459,
+          40.136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tioga Rail Terminal",
+        "CITY": "Tioga",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.91642,
+        "LATITUDE": 48.394695
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.916,
+          48.395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Toledo Refinery",
+        "CITY": "Toledo",
+        "STATE": "OH",
+        "PADD": 2,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -83.506722,
+        "LATITUDE": 41.63061
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.507,
+          41.631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Upton Logistic Center",
+        "CITY": "Upton",
+        "STATE": "WY",
+        "PADD": 4,
+        "image": "Station type: Transload",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -104.628369,
+        "LATITUDE": 44.09751
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.628,
+          44.098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Van Hook Crude Terminal",
+        "CITY": "New Town",
+        "STATE": "ND",
+        "PADD": 2,
+        "image": "Station type: Origin",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Loading",
+        "LONGITUDE": -102.490128,
+        "LATITUDE": 47.981391
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.49,
+          47.981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Walnut Hill Crude Oil Rail Unloading Facility",
+        "CITY": "Walnut Hill",
+        "STATE": "FL",
+        "PADD": 1,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Terminal",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -87.506558,
+        "LATITUDE": 30.879272
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.507,
+          30.879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Wilmington Refinery",
+        "CITY": "Wilmington",
+        "STATE": "CA",
+        "PADD": 5,
+        "image": "Station type: Destination",
+        "FACILITY_T": "Refinery",
+        "text1": "Activity: Unloading",
+        "LONGITUDE": -118.233836,
+        "LATITUDE": 33.779877
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.234,
+          33.78
+        ]
+      }
+    }
+  ]
 }

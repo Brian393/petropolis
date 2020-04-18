@@ -1,11 +1,26 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-"features": [
-  { "type": "Feature", "properties": { "Name": "Welcome to Hell",
-  "vimeoSrc2": "https://www.youtube-nocookie.com/embed/uQZxcSRGqlo",
-  	"vimeoTitle": "Seen from a dashcam: Resident escaping Ft McMurray fire"},
-  "geometry": { "type": "Point", "coordinates": [ -111.0954, 56.753571 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Welcome to Hell",
+        "vimeoSrc2": "https://www.youtube-nocookie.com/embed/uQZxcSRGqlo",
+        "vimeoTitle": "Seen from a dashcam: Resident escaping Ft McMurray fire"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.0954,
+          56.753571
+        ]
+      }
+    }
+  ]
 }

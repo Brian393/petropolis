@@ -11,8 +11,7 @@
 
       </nav>
       <router-view name="map" id="map" />
-      <v-dialog name="request-location" ref="requestLocation">
-        would you like to zoom to location?
+      <v-dialog name="request-location">
       </v-dialog>
     </main>
     <AppNav></AppNav>

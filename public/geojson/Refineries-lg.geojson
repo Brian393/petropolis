@@ -1,17 +1,58 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
-                                                                                
-"features": [
-{ "type": "Feature", "properties": { "Name": "BP PRODUCTS NORTH AMERICA INC, WHITING<br>",
-"Image": "<a href='images/Claire Pentecost_BP-Whiting.jpg' target='_blank'><img src='images/Claire Pentecost_BP-Whiting-s.jpg'></a></a><br>photo Claire Pentecost <em>(click for enlargement)</em><br><br>",  
-"EPA": "", 
-"website": "Crude capacity 410,000 bpd. Website <a href='http://www.bp.com/en_us/bp-us/what-we-do/refining/whiting.html' target='_blank'>here.</a> EPA facility report <a href='http://www3.epa.gov/enviro/facts/tri/ef-facilities/#/Release/46394MCLC%202815I/BP%20PRODUCTS%20NA%20WHITING%20BUSINESS%20UNIT' target='_blank'>here.</a>", 
-"Notes": " The BP Whiting refinery is among the world's largest processers of tar sands oil from Canada, which is brought to East Chicago by Enbridge company pipelines. Tar sands oil is full of a highly polluting coal-like substance called petroleum coke. Through the dusty piles of petcoke stocked along the Calumet river, we inhabitants of Chicagoland have come to perceive our own place in the global climate-change production system." }, 
-"geometry": { "type": "Point", "coordinates": [ -9738012.044032355770469, 5110045.327576171606779 ] } },
-
-{ "type": "Feature", "properties": { "Name": "548 - ExxonMobil Refining + Supply Co. - Joliet", "Image": "<img src='images/ExxonMobilJoliet-s.jpg'>", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">238,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil" }, "geometry": { "type": "Point", "coordinates": [ -9816514.259082358330488, 5073692.228608233854175 ] } },
-
-{ "type": "Feature", "properties": { "Name": "546 - Citgo Petroleum Corp. - Lemont", "Image": "<a href='images/CitgoLemont.jpg' target='_blank'><img src='images/CitgoLemont-s.jpg'></a>", "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LemontRefinery.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">W" }, "geometry": { "type": "Point", "coordinates": [ -9801549.983517279848456, 5109209.246994088403881 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3857"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "BP PRODUCTS NORTH AMERICA INC, WHITING<br>",
+        "Image": "<a href='images/Claire Pentecost_BP-Whiting.jpg' target='_blank'><img src='images/Claire Pentecost_BP-Whiting-s.jpg'></a></a><br>photo Claire Pentecost <em>(click for enlargement)</em><br><br>",
+        "EPA": "",
+        "website": "Crude capacity 410,000 bpd. Website <a href='http://www.bp.com/en_us/bp-us/what-we-do/refining/whiting.html' target='_blank'>here.</a> EPA facility report <a href='http://www3.epa.gov/enviro/facts/tri/ef-facilities/#/Release/46394MCLC%202815I/BP%20PRODUCTS%20NA%20WHITING%20BUSINESS%20UNIT' target='_blank'>here.</a>",
+        "Notes": " The BP Whiting refinery is among the world's largest processers of tar sands oil from Canada, which is brought to East Chicago by Enbridge company pipelines. Tar sands oil is full of a highly polluting coal-like substance called petroleum coke. Through the dusty piles of petcoke stocked along the Calumet river, we inhabitants of Chicagoland have come to perceive our own place in the global climate-change production system."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9738012.044032355770469,
+          5110045.327576171606779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "548 - ExxonMobil Refining + Supply Co. - Joliet",
+        "Image": "<img src='images/ExxonMobilJoliet-s.jpg'>",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">238,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"http:\/\/www.exxonmobil.com\/Corporate\/about_what_refining.aspx\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/ExxonMobil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9816514.259082358330488,
+          5073692.228608233854175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "546 - Citgo Petroleum Corp. - Lemont",
+        "Image": "<a href='images/CitgoLemont.jpg' target='_blank'><img src='images/CitgoLemont-s.jpg'></a>",
+        "website": "<table width=\"300\" border=\"0\"><tr><td colspan=\"2\">160,000 bpd crude capacity<\/td><\/tr><tr><td colspan=\"2\">Links: <a href=\"https:\/\/www.citgo.com\/AboutCITGO\/Operations\/LemontRefinery.jsp\">Company website<\/a> - <a href=\"http:\/\/en.wikipedia.org\/wiki\/Citgo\">W"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9801549.983517279848456,
+          5109209.246994088403881
+        ]
+      }
+    }
+  ]
 }

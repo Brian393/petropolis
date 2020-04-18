@@ -1,13 +1,28 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-"features": [
-{ "type": "Feature", "properties": { "title": "<h2>Crude-by-rail in the Bakken</h2>",
-"image": "<img src='images/BakkenTankers.jpg'><br><br>",
-"text1": "Around 2011, at a period of historically high prices, hydrofracking suddenly began delivering more oil than anyone was prepared to take away. It was not long before North American railroads were transformed into rolling pipelines. As the speculators swooped in to finance even more wells, the Bakken region went through a decade of uncontrolled development. From it come the sinister hundred-car trains that snake continuously across the Midwest before snarling up in Chicago.<br>",
-"text2": "Pictured on the map are the transloading points where trucks and gathering pipelines deliver the freshly extracted oil to the tank cars. The fireburst icons can be clicked for videos of exploding cars along a line aimed directly at Chicago (check out Cassleton along the way). The flaming stack yields some more precise information about the climate consequences of leaking methane.<br>",
-"text3": "So what's the Bakken secret? How does this industry routinely produce fireball disasters? <em>They're too cheap to take the gas out of the freshly fracked oil</em>. In Texas they degasify the oil, so the tankers don't explode. The solution is obvious. But is the failing hydrofracking industry ever going to quit cutting costs, while risking thousands of lives in railroad towns and urbanized areas? They'll only do it if we demand it, a lot more loudly than ever before. That's the point. The entire industry depicted in this map has to change at the root." },
-"geometry": { "type": "Point", "coordinates": [ -99.30397, 45.1 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "<h2>Crude-by-rail in the Bakken</h2>",
+        "image": "<img src='images/BakkenTankers.jpg'><br><br>",
+        "text1": "Around 2011, at a period of historically high prices, hydrofracking suddenly began delivering more oil than anyone was prepared to take away. It was not long before North American railroads were transformed into rolling pipelines. As the speculators swooped in to finance even more wells, the Bakken region went through a decade of uncontrolled development. From it come the sinister hundred-car trains that snake continuously across the Midwest before snarling up in Chicago.<br>",
+        "text2": "Pictured on the map are the transloading points where trucks and gathering pipelines deliver the freshly extracted oil to the tank cars. The fireburst icons can be clicked for videos of exploding cars along a line aimed directly at Chicago (check out Cassleton along the way). The flaming stack yields some more precise information about the climate consequences of leaking methane.<br>",
+        "text3": "So what's the Bakken secret? How does this industry routinely produce fireball disasters? <em>They're too cheap to take the gas out of the freshly fracked oil</em>. In Texas they degasify the oil, so the tankers don't explode. The solution is obvious. But is the failing hydrofracking industry ever going to quit cutting costs, while risking thousands of lives in railroad towns and urbanized areas? They'll only do it if we demand it, a lot more loudly than ever before. That's the point. The entire industry depicted in this map has to change at the root."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.30397,
+          45.1
+        ]
+      }
+    }
+  ]
 }

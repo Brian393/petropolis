@@ -9,7 +9,6 @@ import {fromLonLat} from 'ol/proj'
 import {easeOut} from 'ol/easing.js'
 import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
 import {unByKey} from 'ol/Observable.js'
-
 import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
 import AppLightBox from './AppLightBox.vue'

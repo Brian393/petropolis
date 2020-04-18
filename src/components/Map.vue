@@ -3,6 +3,7 @@
     <div class="ol-control locateMe-control">
       <button class="locateMe" title="Locate me">◎</button>
     </div>
+    <div class="spotlightControls" ref="spotlightControls">press ↑ or ↓ to change spotlight size</div>
     <div ref="vimeoPopup" class="ol-popup ol-vimeopopup">
       <div ref="vimeoPopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="vimeoPopupContent"></div>
@@ -179,6 +180,9 @@ const map = {
               units: 'us',
               minWidth: 150
             }),
+            new Control({
+              element: document.querySelector('.spotlightControls')
+            }),
           ])
         })
         this.toggleScaleLine()
@@ -223,7 +227,8 @@ const map = {
           const hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
-        // Zoom to my location functionality as button.
+
+        // Adding zoom to my location functionality as button control.
         this.userLocSource = this.makeUserLocationLayer(this.olmap);
         const locateMe = document.querySelector('.locateMe');
         /**
@@ -267,16 +272,25 @@ const map = {
               {
                 title: 'Close',
                 default: true,
+                handler: () => {
+                  this.$cookies.set('locationRequested', true, '7d');
+                  this.$modal.hide('dialog');
+                }
               }
-            ]
+            ],
           });
         }
-        methods: {
-          function beforeClose(e) {
-            // Adds a browser cookie so we only show popup one time.
-            this.$cookies.set('locationRequested', true, '7d');
+        // After the map moveend event fires, determine if the instructions
+        // for using the spotlights should be shown based on zoom level.
+        this.olmap.on('moveend', function(e) {
+          const zoomLevel = this.getView().getZoom();
+          const spotlightControls = document.querySelector('.spotlightControls');
+          if (zoomLevel >= 14) {
+            spotlightControls.style.display = 'block';
+          } else {
+            spotlightControls.style.display = 'none';
           }
-        }
+        });
       }
     },
 

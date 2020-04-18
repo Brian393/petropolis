@@ -1,88 +1,1599 @@
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
-"features": [
-{ "type": "Feature", "properties": { "Name": "Anacortes Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.5734781915, 48.5053412483 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Baton Rouge Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -91.1941028441, 30.4818344894 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Baytown Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -95.0214949782, 29.7299117774 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Beaumont Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -94.0682914178, 30.0769089988 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Belle Chasse Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.007302388, 29.8089827873 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Benicia Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.1184751039, 38.0551897796 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Chalmette Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -89.9755203662, 29.9282884803 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Cherry Point Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.7595513381, 48.8624263681 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Convent Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.9124285895, 30.1115445829 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Corpus Christi Oil Terminal III", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -97.4184179721, 27.8140135523 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Corpus Christi Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -97.4339056111, 27.8208439457 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Corpus Christi West Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -97.4825005096, 27.8205507363 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Deer Park Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -95.1339978984, 29.7310784442 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Delaware Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.6034017685, 39.6008596991 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Detroit Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -83.1112483581, 42.2665770218 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Ferndale Oil terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.720176541, 48.8256438545 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Flint Hills Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -97.5212658261, 27.8425658602 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Garyville Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.5936714458, 30.0502006367 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Houston Oil Terminal IV", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -95.2374077743, 29.7183963454 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Houston Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -95.2619649291, 29.7254801121 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Joliet Oil terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -88.1930302231, 41.4214223424 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Kenai Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -151.3919835526, 60.6765805601 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Koolina Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -158.1157665358, 21.3224214146 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Krotz Springs Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -91.7458307775, 30.5348712442 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Lake Charles Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.3217131813, 30.1351592981 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Lake Charles Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.256738225, 30.2314967816 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Linden Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -74.203519078, 40.6297230214 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Marcus Hook OIl Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.4056249864, 39.8132555667 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Martinez Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.1260592911, 38.0319238724 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Martinez Oil Terminals II", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.0909226532, 38.0487311804 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Meraux Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -89.9464841435, 29.9250128762 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Mobile Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -88.0350877681, 30.6965103399 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Norco Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.4048719966, 29.9909112135 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Pascagoula Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -88.509872694, 30.3336494318 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Paulsboro Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.2504439976, 39.8497174501 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Paulsboro Oil Terminal II", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.2282728162, 39.8537252563 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Philadelphia Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.2031727679, 39.8950224659 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Allen Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -91.1998607643, 30.4761347765 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Arthur Oil Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.983177125, 30.0077283878 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Arthur Oil Terminal II", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.9575956829, 29.8355333692 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Arthur Oil Terminal III", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.9697618649, 29.8481428042 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Arthur Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.8666610881, 29.941415589 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Richmond Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.4106887061, 37.9223245183 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Rodeo San Francisco Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.2616109882, 38.056533247 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Saint Charles Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.438140233, 29.9919512474 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Saint Rose Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.3270757305, 29.9369588449 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Saraland Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -88.059595051, 30.7795492124 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Savannah Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -81.1155973466, 32.1012285692 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Sewaren Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -74.2520687234, 40.5321742262 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Tacoma Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.3892350458, 47.2628544098 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Texas City Oil Terminal II", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -94.9065459919, 29.363298151 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Texas City Oil Terminal III", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -94.917289525, 29.3615506282 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Texas City Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -94.8915736878, 29.3769074651 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Toledo Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -83.440611698, 41.7150480578 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Torrance Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -118.3955488986, 33.8433675057 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Trainer Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.4180447265, 39.8075325845 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Valdez Oil Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -146.3429526841, 61.1217904836 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Valdez Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -146.3957241412, 61.0872141621 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Vicksburg Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -90.9047151071, 32.3848607798 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Westlake Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.3183510645, 30.1765956694 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Westville Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -75.1564883548, 39.8779930882 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Whiting Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -87.4407469575, 41.6730587171 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Wilmington Terminal I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -118.260258362, 33.7635921416 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Wilmington Terminal II", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -118.2325706813, 33.768091031 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Wilmington Terminal III", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -118.2768269585, 33.7640548558 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Yorktown Oil Terminal", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -76.438734089, 37.2248288057 ] ] } },
-
-{ "type": "Feature", "properties": { "Name": "Burnaby Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -122.9754809656, 49.2909720362 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Come by Chance Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -54.0185890307, 47.7984971669 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Corunna Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -82.4578515488, 42.9088712937 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Dartmouth Oil Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -63.5413251524, 44.6378215949 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Montréal Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -73.4953740506, 45.6270143686 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Nanticoke Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -80.0569992074, 42.7694330321 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Saint John Port", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -66.0410204087, 45.2722534886 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Saint-David Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -71.2081843914, 46.7824505187 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Sarnia Oil Terminals", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -82.4441282761, 42.9371320362 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Sarnia Terminals I", "Image": "", "website": "", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -82.4307615133, 42.9468785522 ] ] } },
-
-{ "type": "Feature", "properties": { "Name": "Ciudad Madero Oil Port", "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": -1, "extrude": -1, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -97.8083280105, 22.2545712621 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Manzanillo Port", "timestamp": null, "begin": null, "end": null, "altitudeMode": null, "tessellate": -1, "extrude": -1, "visibility": -1, "drawOrder": null, "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -104.3151347657, 19.0567736463 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Port Tampa Bay", "Image": "<img src='images/Central-Florida-petroleum-supply.png'>", "website": "The Richard E. Knight pier and associated petroleum complex is the primary supplier of gas, diesel, jet fuel and oil for 9 million people from Tampa Bay to Orlando and Naples. Kinder Morgan’s Central Florida Pipeline system runs from the Tampa dock to Orlando; Buckeye Partners and Murphy Oil USA run tanker truck connections. Around 2.5 billion gallons of fuel are offloaded here every year.", "EPA": "", "Notes": "", "icon": null }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -82.444533, 27.917909 ] ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Anacortes Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.5734781915,
+            48.5053412483
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Baton Rouge Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -91.1941028441,
+            30.4818344894
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Baytown Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -95.0214949782,
+            29.7299117774
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Beaumont Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -94.0682914178,
+            30.0769089988
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Belle Chasse Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.007302388,
+            29.8089827873
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Benicia Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.1184751039,
+            38.0551897796
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Chalmette Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -89.9755203662,
+            29.9282884803
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Cherry Point Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.7595513381,
+            48.8624263681
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Convent Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.9124285895,
+            30.1115445829
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corpus Christi Oil Terminal III",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -97.4184179721,
+            27.8140135523
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corpus Christi Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -97.4339056111,
+            27.8208439457
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corpus Christi West Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -97.4825005096,
+            27.8205507363
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Deer Park Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -95.1339978984,
+            29.7310784442
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Delaware Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.6034017685,
+            39.6008596991
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Detroit Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -83.1112483581,
+            42.2665770218
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ferndale Oil terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.720176541,
+            48.8256438545
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Flint Hills Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -97.5212658261,
+            27.8425658602
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Garyville Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.5936714458,
+            30.0502006367
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Houston Oil Terminal IV",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -95.2374077743,
+            29.7183963454
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Houston Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -95.2619649291,
+            29.7254801121
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Joliet Oil terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -88.1930302231,
+            41.4214223424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Kenai Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -151.3919835526,
+            60.6765805601
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Koolina Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -158.1157665358,
+            21.3224214146
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Krotz Springs Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -91.7458307775,
+            30.5348712442
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Lake Charles Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.3217131813,
+            30.1351592981
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Lake Charles Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.256738225,
+            30.2314967816
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Linden Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -74.203519078,
+            40.6297230214
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Marcus Hook OIl Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.4056249864,
+            39.8132555667
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Martinez Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.1260592911,
+            38.0319238724
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Martinez Oil Terminals II",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.0909226532,
+            38.0487311804
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Meraux Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -89.9464841435,
+            29.9250128762
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Mobile Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -88.0350877681,
+            30.6965103399
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Norco Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.4048719966,
+            29.9909112135
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pascagoula Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -88.509872694,
+            30.3336494318
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Paulsboro Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.2504439976,
+            39.8497174501
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Paulsboro Oil Terminal II",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.2282728162,
+            39.8537252563
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Philadelphia Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.2031727679,
+            39.8950224659
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Allen Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -91.1998607643,
+            30.4761347765
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Arthur Oil Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.983177125,
+            30.0077283878
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Arthur Oil Terminal II",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.9575956829,
+            29.8355333692
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Arthur Oil Terminal III",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.9697618649,
+            29.8481428042
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Arthur Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.8666610881,
+            29.941415589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Richmond Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.4106887061,
+            37.9223245183
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Rodeo San Francisco Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.2616109882,
+            38.056533247
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Saint Charles Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.438140233,
+            29.9919512474
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Saint Rose Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.3270757305,
+            29.9369588449
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Saraland Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -88.059595051,
+            30.7795492124
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Savannah Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -81.1155973466,
+            32.1012285692
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sewaren Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -74.2520687234,
+            40.5321742262
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Tacoma Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.3892350458,
+            47.2628544098
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Texas City Oil Terminal II",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -94.9065459919,
+            29.363298151
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Texas City Oil Terminal III",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -94.917289525,
+            29.3615506282
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Texas City Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -94.8915736878,
+            29.3769074651
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Toledo Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -83.440611698,
+            41.7150480578
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Torrance Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -118.3955488986,
+            33.8433675057
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Trainer Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.4180447265,
+            39.8075325845
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Valdez Oil Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -146.3429526841,
+            61.1217904836
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Valdez Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -146.3957241412,
+            61.0872141621
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Vicksburg Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -90.9047151071,
+            32.3848607798
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Westlake Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -93.3183510645,
+            30.1765956694
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Westville Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -75.1564883548,
+            39.8779930882
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Whiting Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -87.4407469575,
+            41.6730587171
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Wilmington Terminal I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -118.260258362,
+            33.7635921416
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Wilmington Terminal II",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -118.2325706813,
+            33.768091031
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Wilmington Terminal III",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -118.2768269585,
+            33.7640548558
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Yorktown Oil Terminal",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -76.438734089,
+            37.2248288057
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Burnaby Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -122.9754809656,
+            49.2909720362
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Come by Chance Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -54.0185890307,
+            47.7984971669
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Corunna Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -82.4578515488,
+            42.9088712937
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Dartmouth Oil Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -63.5413251524,
+            44.6378215949
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Montréal Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -73.4953740506,
+            45.6270143686
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Nanticoke Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -80.0569992074,
+            42.7694330321
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Saint John Port",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -66.0410204087,
+            45.2722534886
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Saint-David Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -71.2081843914,
+            46.7824505187
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sarnia Oil Terminals",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -82.4441282761,
+            42.9371320362
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sarnia Terminals I",
+        "Image": "",
+        "website": "",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -82.4307615133,
+            42.9468785522
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ciudad Madero Oil Port",
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": null,
+        "tessellate": -1,
+        "extrude": -1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -97.8083280105,
+            22.2545712621
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Manzanillo Port",
+        "timestamp": null,
+        "begin": null,
+        "end": null,
+        "altitudeMode": null,
+        "tessellate": -1,
+        "extrude": -1,
+        "visibility": -1,
+        "drawOrder": null,
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -104.3151347657,
+            19.0567736463
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Port Tampa Bay",
+        "Image": "<img src='images/Central-Florida-petroleum-supply.png'>",
+        "website": "The Richard E. Knight pier and associated petroleum complex is the primary supplier of gas, diesel, jet fuel and oil for 9 million people from Tampa Bay to Orlando and Naples. Kinder Morgan’s Central Florida Pipeline system runs from the Tampa dock to Orlando; Buckeye Partners and Murphy Oil USA run tanker truck connections. Around 2.5 billion gallons of fuel are offloaded here every year.",
+        "EPA": "",
+        "Notes": "",
+        "icon": null
+      },
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -82.444533,
+            27.917909
+          ]
+        ]
+      }
+    }
+  ]
 }
