@@ -1,53 +1,409 @@
-
 {
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
-"features": [
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Buckeye Partners Transload Facility<br><br>2400 Michigan Street, Hammond, IN 46320",
-"Image": "<img src='images/BuckeyeTrainloader.jpg'><br><br>", 
-"EPA": "This is a pipeline-to-train operation. It originates crude-by-rail shipments to refineries seeking the price discounts of Bakken and Tar Sands oil. As the corporation explained in 2013: \"Western Canadian and Bakken crude oil expected to be transported via pipeline into Chicago Complex for ultimate delivery to unit-train facilities on the East, Gulf, and West Coasts.\" (<a href='httphttp://www.up.com/customers/chemical/crude/origin_facilities/index.htm://www.buckeye.com/LinkClick.aspx?fileticket=MTjOINbEC0Q%3D&tabid=776' target='_blank'>source</a>)<br>", 
-"website": "The new railcar loader can be seen in situ with the spyglass (just zoom in close). Here's the technical description:<br>\"A 24-spot railcar loading rack, constructed in 2011, and approved in 2013 for modification, designed to load/offload petroleum product in up to six (6) railcars at a time through an available twelve (12) loading arms. The railcars are 30,000 gallons per car with a total rack capacity of 180,000 gallons per hour. The loading racks emissions will be controlled by two (2) vapor combustion units, identified as two VCU2 and three VCU3, with a natural gas-fuel pilot flame rated at 0.045 MMBtu/hr, as well as a vac assist for crude oil loading.\" (<a href='http://www.hammond.lib.in.us/PDF/PublicAccess/Buckeye%20Terminals/IDEM%20Buckeye%20Terminals%20Notice%20of%20Decision.pdf' target='_blank'>source</a>).", 
-"Notes": "Link to <a href='http://www.buckeye.com/BusinessOperations/TerminalOperations/TerminalOperationsMap/tabid/774/Default.aspx' target='_blank'>company website</a>." }, 
-"geometry": { "type": "Point", "coordinates": [ -87.4733022, 41.6070198, 0.0 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Bakken Oil Express, Dickinson, ND", "Image": "<img src='images/BakkenTransload/BakkenOilExpress.jpg'>", "website": "Corporate website <a href='http://www.boemidstream.com/about-bakken-oil-express'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "This terminal is connected to gathering pipelines and also has 22 truck unloading stations. They have 640,000 barrels of storage and 4 loop tracks, which means they can load two unit trains simultaneously. Projected maximum capacity is 200,000 bpd.", "LONGITUDE": -102.878680, "LATITUDE": 46.865796, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.87868, 46.8658 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Tesoro / BakkenLink Rail Hub, Fryburg, ND", "Image": "<img src='images/BakkenTransload/FryburgTerminal.jpg'>", "website": "Press article on Tesoro's recent acquisition of the site <a href='http://thebakken.com/articles/1388/tesoro-buys-bakken-crude-pipeline-gathering-assets'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "They have a pipeline that connects to several gathering systems and a 657,000 barrel storage facility so they can pump 154,000 barrels a day of highly explosive crude into a bomb train headed near you.", "LONGITUDE": -103.301703, "LATITUDE": 46.871807, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -103.3017, 46.87181 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Global Partners / Basin Transload (aka Zap Terminal), Beulah, ND", "Image": "<img src='images/BakkenTransload/BasinTransload.jpg'><br>Site Manager receives Patriot Award<br>", "website": "Corporate website <a href='http://www.globalp.com/news/article.cfm?articleID=277'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "The place has 280,000 barrels of storage capacity and they can ship 60,000 barrels a day.", "LONGITUDE": -101.747016, "LATITUDE": 47.266135, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -101.74702, 47.26614 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Crestwood Midstream / COLT Hub, Epping, ND", "Image": "<img src='images/BakkenTransload/Colt.jpg'>", "website": "Corporate website <a href='http://www.crestwoodlp.com/operations/storage-and-transportation/#Colt'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "It was built by a company called Rangeland: \"With 720 MBbl of working capacity tankage (six 120 MBbl tanks), space for additional tanks (120 MBbl or larger), eight truck bays, and two 8,700 foot rail loops, COLT accommodates large 120-car unit trains and, at the time of its sale to Inergy Midstream, L.P. was capable of moving more than 120 MBbl/d by rail\" (source <a href='https://rbnenergy.com/plains-enbridge-and-global-terminals-in-the-bakken'>here</a>).<br>MBbl/d means \"thousand barrels a day\" in oilspeak; they are now up to 160,000 MBl/d of loading capacity, which definitely makes this a big one.", "LONGITUDE": -103.349807, "LATITUDE": 48.276864, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -103.34981, 48.27686 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Global Partners / Basin Transload Columbus (aka Stampede) Terminal, Columbus, ND", "Image": "<img src='images/BakkenTransload/Basin Transload2.jpg'><br>Basin Transload supervisors honored by DoD<br>", "website": "Corporate website <a href='http://www.globalp.com/products/product.cfm?productID=130'>here</a>.", "EPA": "Railroad: Canadian Pacific<br>", "Notes": "A major oil logistics firm, Global Partners, bought this site and another one further south. Now they send a rolling stream of explosive oil to the East Coast by Canadian Pacific, without any change of company and locomotive in Chicago. As the business press reports: \"In August 2012 Global completed a 100 Mb/d crude rail storage facility at the Basin Transload Stampede ND rail loading facility. In October 2012 Global acquired a 60 percent interest in Basin Transload including the Stampede terminal and the Zap rail loading terminal at Beulah, ND. Stampede can load 120 car trains at present at a rate of 80 Mb/d [that means 80,000 barrels a day]. The terminal will have a link to the Tesoro Pipeline in 2013. The major advantage of the Stampede terminal is the direct 'single-haul' trip to Albany, NY that takes 10 days round trip.\" (source <a href='http://www.rangelandenergy.com/operations/colt-experience'>here</a>) ", "LONGITUDE": -102.741362, "LATITUDE": 48.888456, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.74136, 48.88846 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>NGL Energy / High Sierra, Donnybrook, ND", "Image": "--THIS PLACE IS TOO LOST FOR A PICTURE---", "website": "Corporate website <a href='http://www.nglenergypartners.com/segments/crude-oil-logistics/assets/'>here</a>", "EPA": "Railroad: Canadian Pacific<br>", "Notes": "It seems they only do 10,000 barrels a day.", "LONGITUDE": -103.628531, "LATITUDE": 48.143653, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -103.62853, 48.14365 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Enbridge Berthold, Berthold, ND", "Image": "<img src='images/BakkenTransload/BertholdEnbridge.jpg'>", "website": "Corporate website <a href='http://www.enbridge.com/search#q=Berthold'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "The 80,000 b/d rail facility also has a tank farm that's the departure point to the Enbridge mainline going to Superior, Wisconsin", "LONGITUDE": -101.737007, "LATITUDE": 48.313384, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -101.73701, 48.31338 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Plains All American / Manitou Rail Facility, Ross, ND", "Image": "<img src='images/BakkenTransload/Manitou.jpg'>", "website": "Corporate website <a href='https://www.plainsallamerican.com/what-we-do/facilities'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "The terminal has 150,000 barrels storage and the unit trainloader can do 65,000 barrels a day - but in early 2016 this site was reported closed, due to the collapse in demand from East Coast refineries which have switched back to overseas oil (source <a href='http://www.reuters.com/article/us-railways-crude-plains-all-amer-idUSKCN0V31CX'>here</a>). Industry operators now expect wildly fluctuating demand from the refineries as they shift capriciously between global producers.", "LONGITUDE": -102.549802, "LATITUDE": 48.313998, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.5498, 48.314 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Paradigm Midstream / Mountrail Terminal, Palermo, ND", "Image": "", "website": "Corporate website <a href='http://paradigmmidstream.com/operations/bakken-shale'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "It's hard to determine the status of this one... ", "LONGITUDE": -102.232320, "LATITUDE": 48.337282, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.23232, 48.33728 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Musket Terminal, Dickinson, ND", "Image": "", "website": "Corporate website <a href='http://www.musketcorp.com/Capabilities/Terminals'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "\"The Dickinson terminal is a small 10 Mb/d manifest truck to rail facility on the Southern BNSF line in Stark County that is also used by High Sierra Energy LP.\" (source <a href='https://rbnenergy.com/crude-loves-rock-n-rail-plethora-in-the-williston-basin'>here</a>)", "LONGITUDE": -102.785464, "LATITUDE": 46.876611, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.78546, 46.87661 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Musket Terminal, Dore, ND", "Image": "<img src='images/BakkenTransload/Musket.jpg'>", "website": "Corporate website <a href='http://www.musketcorp.com/Capabilities/Terminals/Dore.aspx'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "\"Originally the Dore terminal had only 10 Mb/d capacity but in 2012 it was upgraded to a 60 Mb/d unit train facility with 90 MBbl of storage. The Dore terminal receives crude from trucks as well as the Continental Oil Banner pipeline gathering system.\" (source <a href='https://rbnenergy.com/crude-loves-rock-n-rail-plethora-in-the-williston-basin'>here</a>)", "LONGITUDE": -104.030600, "LATITUDE": 47.919434, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -104.0306, 47.91943 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Northstar Transloading, Fairview, ND", "Image": "<img src='images/BakkenTransload/Northstar.jpg'>", "website": "Corporate website <a href='http://www.northstarmidstream.com/nstbakken/'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "They can unload 12 trucks at once, store 515,000 barrels of oil and pump 180,000 barrels a day onto unit and manifest trains. Manifest means it's shorter, like 40 cars that get mixed in with other things, unit is your typical 100+ cars of potential fireball.", "LONGITUDE": -104.035518, "LATITUDE": 47.859342, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -104.03552, 47.85934 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Pioneer Terminal, New Town, ND", "Image": "<img src='images/BakkenTransload/Pioneer.jpg'>", "website": "Corporate website <a href='http://www.dakotaplains.com/operations/'>here</a>.", "EPA": "Railroad: Canadian Pacific<br>", "Notes": "From the website: \"Dakota Plains crude oil operations are based around two 8,500 foot loop tracks each capable of 120 car unit trains, 180,000 barrels of crude oil storage, a high speed loading facility that can accommodate 10 rail cars simultaneously, two active gathering system pipelines and transfer stations to receive crude oil from 10 trucks simultaneously.\" They were hoping to do 80,000 barrels a day, plus frac sand, but that was in 2015 when the bottom was just falling out...", "LONGITUDE": -102.473219, "LATITUDE": 47.977584, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.47322, 47.97758 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>North Dakota Port Services / Port of Minot, Minot, ND", "Image": "<img src='images/BakkenTransload/'>", "website": "Corporate website <a href='http://www.ndportservices.com/services/transload/'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "\"As originally planned, truck containers with products from Asia being shipped by rail to markets in the eastern U.S. would be loaded with agricultural products at NDPS rather than being sent back empty overseas. 'We discovered that a lot of that inbound freight to the Bakken was coming from Asia across the water via container,' [port CEO] Johnson explains. 'We made a proposal to our ocean carriers and the operators to utilize that container box by getting it off the train, off-loaded, inspected, cleaned up, reloaded with our ag products and sent back.'\" (source <a href='http://thebakken.com/articles/965/nd-port-services-in-training'>here</a>)", "LONGITUDE": -101.301316, "LATITUDE": 48.234156, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -101.30132, 48.23416 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Red River Terminal, Williston, ND", "Image": "<img src='images/BakkenTransload/RedRiver.jpg'>", "website": "Corporate website <a href='http://www.redriversupply.us/TransloadFacilities'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "It's an oil-services company adjacent to a traditional railyard that can also load 10,000 barrels a day - just a drop in the bucket of the Bakken oil industry. But the presence of drilling chemicals turned a traditional warehouse fire into a real inferno. (LA Times article <a href='http://www.latimes.com/nation/nationnow/la-na-nn-north-dakota-oil-business-fire-20140722-story.html'>here</a>)", "LONGITUDE": -103.601216, "LATITUDE": 48.145883, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -103.60122, 48.14588 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Savage Terminal, Trenton, ND", "Image": "<img src='images/BakkenTransload/Savage.jpg'>", "website": "Corporate website <a href='http://www.savageservices.com/solutions/oil-and-gas-services.html'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "Here's what they said in 2014: \"The Savage terminal in Trenton, ND, provides truck dispatch and transportation, unit train loading, single car transloading, and car storage for crude-by-rail shippers. Today, in the Williston Basin, Savage has the capacity to truck over 10,000 barrels per day today, and will add an additional 10,000 barrels per day capacity by February. The terminal can transload over 100,000 barrels of crude each day onto unit trains, with track capacity to hold up to two unit trains at the facility simultaneously, and has storage capacity of over 50 rail cars for crude-by-rail shippers. Savage currently has six crude receiving truck bays and 290,000 barrels of tankage with expansions underway that will increase the capacity of tank storage, truck receiving and outbound unit train loading.\" (source <a href='http://thebakken.com/articles/473/savage-expands-bakken-transloading-adds-crude-by-truck'>here</a>)", "LONGITUDE": -103.833970, "LATITUDE": 48.070064, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -103.83397, 48.07006 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>EOG Resources / Stanley, ND", "Image": "<img src='images/BakkenTransload/Stanley.jpg'>", "website": "Corporate website <a href='http://www.eogresources.com/home/index.html'>here</a>", "EPA": "Railroad: BNSF<br>", "Notes": "The builder of the terminal, Wilson and Co., writes this: \"The facility was designed to load 60,000 barrels of crude oil per day into one 100-car unit train, where it is transported to Oklahoma and other points south for refining. The crude oil is supplied to multiple storage tanks through a pipeline installed by EOG/Pecan Pipeline and by on-site truck unloading facilities. Loading operations are completed through an elevated rail side safety platform allowing 14 cars to be loaded simultaneously.\" (source <a href='http://www.wilsonco.com/project/crude-oil-loading-terminal-transfer-facility-stanley-nd'>here</a>).", "LONGITUDE": -102.347177, "LATITUDE": 48.335285, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.34718, 48.33529 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Tioga Rail Terminal, Tioga, ND", "Image": "<img src='images/BakkenTransload/Tioga.jpg'>", "website": "Corporate website <a href='http://www.hess.com/company/news-article/2015/08/27/hess-announces-bakken-midstream-joint-venture-valued-at-$5.35-billion'>here</a>.", "EPA": "Railroad: BNSF<br>", "Notes": "It can load two unit trains a day for a max capacity of 140,000 barrels a day.", "LONGITUDE": -102.916420, "LATITUDE": 48.394695, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.91642, 48.3947 ] } },
-
-{ "type": "Feature", "properties": { "Name": "<strong>Crude-by-Rail</strong><br><br>Plains ll American / Van Hook Crude Terminal, New Town, ND", "Image": "<img src='images/BakkenTransload/Plains.jpg'>", "website": "Corporate website <a href='https://www.plainsallamerican.com/what-we-do/facilities'>here</a>.", "EPA": "Railroad: Canadian Pacific<br>", "Notes": "\"The Van Hook Crude Terminal received oil by truck in New Town, ND, has capacity for 208 rail cars, and can move as much as 65,000 b/d. There is also 12,000 bbls of storage onsite. The terminal is serviced by Canadian Pacific Railroad. Most of the crude moving from the terminal ends up in St. James, LA, where the facility can handle 300 loaded railcars at one time or 130,000 b/d. The St. James Rail Terminal also ties into several pipelines, including one owned by PAA.\" (source <a href='http://bakkenshale.com/bsp-news/news/plains-all-american-u-s-development-corp-reach-500-million-rail-deal'>here</a>)) HOWEVER, activity at this site has slowed almost to zero as East Coast refineries switch back to imported crude (source <a href='http://www.reuters.com/article/us-railways-crude-plains-all-amer-idUSKCN0V31CX'>here</a>).", "LONGITUDE": -102.490128, "LATITUDE": 47.981391, "Source": "EIA" }, "geometry": { "type": "Point", "coordinates": [ -102.49013, 47.98139 ] } }
-]
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "Name": "<strong>Crude-by-Rail</strong><br><br>urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Buckeye Partners Transload Facility<br><br>2400 Michigan Street, Hammond, IN 46320",
+        "Image": "<img src='images/BuckeyeTrainloader.jpg'><br><br>",
+        "EPA": "This is a pipeline-to-train operation. It originates crude-by-rail shipments to refineries seeking the price discounts of Bakken and Tar Sands oil. As the corporation explained in 2013: \"Western Canadian and Bakken crude oil expected to be transported via pipeline into Chicago Complex for ultimate delivery to unit-train facilities on the East, Gulf, and West Coasts.\" (<a href='httphttp://www.up.com/customers/chemical/crude/origin_facilities/index.htm://www.buckeye.com/LinkClick.aspx?fileticket=MTjOINbEC0Q%3D&tabid=776' target='_blank'>source</a>)<br>",
+        "website": "The new railcar loader can be seen in situ with the spyglass (just zoom in close). Here's the technical description:<br>\"A 24-spot railcar loading rack, constructed in 2011, and approved in 2013 for modification, designed to load/offload petroleum product in up to six (6) railcars at a time through an available twelve (12) loading arms. The railcars are 30,000 gallons per car with a total rack capacity of 180,000 gallons per hour. The loading racks emissions will be controlled by two (2) vapor combustion units, identified as two VCU2 and three VCU3, with a natural gas-fuel pilot flame rated at 0.045 MMBtu/hr, as well as a vac assist for crude oil loading.\" (<a href='http://www.hammond.lib.in.us/PDF/PublicAccess/Buckeye%20Terminals/IDEM%20Buckeye%20Terminals%20Notice%20of%20Decision.pdf' target='_blank'>source</a>).",
+        "Notes": "Link to <a href='http://www.buckeye.com/BusinessOperations/TerminalOperations/TerminalOperationsMap/tabid/774/Default.aspx' target='_blank'>company website</a>."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.4733022,
+          41.6070198,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Bakken Oil Express, Dickinson, ND",
+        "Image": "<img src='images/BakkenTransload/BakkenOilExpress.jpg'>",
+        "website": "Corporate website <a href='http://www.boemidstream.com/about-bakken-oil-express'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "This terminal is connected to gathering pipelines and also has 22 truck unloading stations. They have 640,000 barrels of storage and 4 loop tracks, which means they can load two unit trains simultaneously. Projected maximum capacity is 200,000 bpd.",
+        "LONGITUDE": -102.878680,
+        "LATITUDE": 46.865796,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.87868,
+          46.8658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Tesoro / BakkenLink Rail Hub, Fryburg, ND",
+        "Image": "<img src='images/BakkenTransload/FryburgTerminal.jpg'>",
+        "website": "Press article on Tesoro's recent acquisition of the site <a href='http://thebakken.com/articles/1388/tesoro-buys-bakken-crude-pipeline-gathering-assets'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "They have a pipeline that connects to several gathering systems and a 657,000 barrel storage facility so they can pump 154,000 barrels a day of highly explosive crude into a bomb train headed near you.",
+        "LONGITUDE": -103.301703,
+        "LATITUDE": 46.871807,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.3017,
+          46.87181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Global Partners / Basin Transload (aka Zap Terminal), Beulah, ND",
+        "Image": "<img src='images/BakkenTransload/BasinTransload.jpg'><br>Site Manager receives Patriot Award<br>",
+        "website": "Corporate website <a href='http://www.globalp.com/news/article.cfm?articleID=277'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "The place has 280,000 barrels of storage capacity and they can ship 60,000 barrels a day.",
+        "LONGITUDE": -101.747016,
+        "LATITUDE": 47.266135,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.74702,
+          47.26614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Crestwood Midstream / COLT Hub, Epping, ND",
+        "Image": "<img src='images/BakkenTransload/Colt.jpg'>",
+        "website": "Corporate website <a href='http://www.crestwoodlp.com/operations/storage-and-transportation/#Colt'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "It was built by a company called Rangeland: \"With 720 MBbl of working capacity tankage (six 120 MBbl tanks), space for additional tanks (120 MBbl or larger), eight truck bays, and two 8,700 foot rail loops, COLT accommodates large 120-car unit trains and, at the time of its sale to Inergy Midstream, L.P. was capable of moving more than 120 MBbl/d by rail\" (source <a href='https://rbnenergy.com/plains-enbridge-and-global-terminals-in-the-bakken'>here</a>).<br>MBbl/d means \"thousand barrels a day\" in oilspeak; they are now up to 160,000 MBl/d of loading capacity, which definitely makes this a big one.",
+        "LONGITUDE": -103.349807,
+        "LATITUDE": 48.276864,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.34981,
+          48.27686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Global Partners / Basin Transload Columbus (aka Stampede) Terminal, Columbus, ND",
+        "Image": "<img src='images/BakkenTransload/Basin Transload2.jpg'><br>Basin Transload supervisors honored by DoD<br>",
+        "website": "Corporate website <a href='http://www.globalp.com/products/product.cfm?productID=130'>here</a>.",
+        "EPA": "Railroad: Canadian Pacific<br>",
+        "Notes": "A major oil logistics firm, Global Partners, bought this site and another one further south. Now they send a rolling stream of explosive oil to the East Coast by Canadian Pacific, without any change of company and locomotive in Chicago. As the business press reports: \"In August 2012 Global completed a 100 Mb/d crude rail storage facility at the Basin Transload Stampede ND rail loading facility. In October 2012 Global acquired a 60 percent interest in Basin Transload including the Stampede terminal and the Zap rail loading terminal at Beulah, ND. Stampede can load 120 car trains at present at a rate of 80 Mb/d [that means 80,000 barrels a day]. The terminal will have a link to the Tesoro Pipeline in 2013. The major advantage of the Stampede terminal is the direct 'single-haul' trip to Albany, NY that takes 10 days round trip.\" (source <a href='http://www.rangelandenergy.com/operations/colt-experience'>here</a>) ",
+        "LONGITUDE": -102.741362,
+        "LATITUDE": 48.888456,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.74136,
+          48.88846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>NGL Energy / High Sierra, Donnybrook, ND",
+        "Image": "--THIS PLACE IS TOO LOST FOR A PICTURE---",
+        "website": "Corporate website <a href='http://www.nglenergypartners.com/segments/crude-oil-logistics/assets/'>here</a>",
+        "EPA": "Railroad: Canadian Pacific<br>",
+        "Notes": "It seems they only do 10,000 barrels a day.",
+        "LONGITUDE": -103.628531,
+        "LATITUDE": 48.143653,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.62853,
+          48.14365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Enbridge Berthold, Berthold, ND",
+        "Image": "<img src='images/BakkenTransload/BertholdEnbridge.jpg'>",
+        "website": "Corporate website <a href='http://www.enbridge.com/search#q=Berthold'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "The 80,000 b/d rail facility also has a tank farm that's the departure point to the Enbridge mainline going to Superior, Wisconsin",
+        "LONGITUDE": -101.737007,
+        "LATITUDE": 48.313384,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.73701,
+          48.31338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Plains All American / Manitou Rail Facility, Ross, ND",
+        "Image": "<img src='images/BakkenTransload/Manitou.jpg'>",
+        "website": "Corporate website <a href='https://www.plainsallamerican.com/what-we-do/facilities'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "The terminal has 150,000 barrels storage and the unit trainloader can do 65,000 barrels a day - but in early 2016 this site was reported closed, due to the collapse in demand from East Coast refineries which have switched back to overseas oil (source <a href='http://www.reuters.com/article/us-railways-crude-plains-all-amer-idUSKCN0V31CX'>here</a>). Industry operators now expect wildly fluctuating demand from the refineries as they shift capriciously between global producers.",
+        "LONGITUDE": -102.549802,
+        "LATITUDE": 48.313998,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.5498,
+          48.314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Paradigm Midstream / Mountrail Terminal, Palermo, ND",
+        "Image": "",
+        "website": "Corporate website <a href='http://paradigmmidstream.com/operations/bakken-shale'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "It's hard to determine the status of this one... ",
+        "LONGITUDE": -102.232320,
+        "LATITUDE": 48.337282,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.23232,
+          48.33728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Musket Terminal, Dickinson, ND",
+        "Image": "",
+        "website": "Corporate website <a href='http://www.musketcorp.com/Capabilities/Terminals'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "\"The Dickinson terminal is a small 10 Mb/d manifest truck to rail facility on the Southern BNSF line in Stark County that is also used by High Sierra Energy LP.\" (source <a href='https://rbnenergy.com/crude-loves-rock-n-rail-plethora-in-the-williston-basin'>here</a>)",
+        "LONGITUDE": -102.785464,
+        "LATITUDE": 46.876611,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.78546,
+          46.87661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Musket Terminal, Dore, ND",
+        "Image": "<img src='images/BakkenTransload/Musket.jpg'>",
+        "website": "Corporate website <a href='http://www.musketcorp.com/Capabilities/Terminals/Dore.aspx'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "\"Originally the Dore terminal had only 10 Mb/d capacity but in 2012 it was upgraded to a 60 Mb/d unit train facility with 90 MBbl of storage. The Dore terminal receives crude from trucks as well as the Continental Oil Banner pipeline gathering system.\" (source <a href='https://rbnenergy.com/crude-loves-rock-n-rail-plethora-in-the-williston-basin'>here</a>)",
+        "LONGITUDE": -104.030600,
+        "LATITUDE": 47.919434,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.0306,
+          47.91943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Northstar Transloading, Fairview, ND",
+        "Image": "<img src='images/BakkenTransload/Northstar.jpg'>",
+        "website": "Corporate website <a href='http://www.northstarmidstream.com/nstbakken/'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "They can unload 12 trucks at once, store 515,000 barrels of oil and pump 180,000 barrels a day onto unit and manifest trains. Manifest means it's shorter, like 40 cars that get mixed in with other things, unit is your typical 100+ cars of potential fireball.",
+        "LONGITUDE": -104.035518,
+        "LATITUDE": 47.859342,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.03552,
+          47.85934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Pioneer Terminal, New Town, ND",
+        "Image": "<img src='images/BakkenTransload/Pioneer.jpg'>",
+        "website": "Corporate website <a href='http://www.dakotaplains.com/operations/'>here</a>.",
+        "EPA": "Railroad: Canadian Pacific<br>",
+        "Notes": "From the website: \"Dakota Plains crude oil operations are based around two 8,500 foot loop tracks each capable of 120 car unit trains, 180,000 barrels of crude oil storage, a high speed loading facility that can accommodate 10 rail cars simultaneously, two active gathering system pipelines and transfer stations to receive crude oil from 10 trucks simultaneously.\" They were hoping to do 80,000 barrels a day, plus frac sand, but that was in 2015 when the bottom was just falling out...",
+        "LONGITUDE": -102.473219,
+        "LATITUDE": 47.977584,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.47322,
+          47.97758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>North Dakota Port Services / Port of Minot, Minot, ND",
+        "Image": "<img src='images/BakkenTransload/'>",
+        "website": "Corporate website <a href='http://www.ndportservices.com/services/transload/'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "\"As originally planned, truck containers with products from Asia being shipped by rail to markets in the eastern U.S. would be loaded with agricultural products at NDPS rather than being sent back empty overseas. 'We discovered that a lot of that inbound freight to the Bakken was coming from Asia across the water via container,' [port CEO] Johnson explains. 'We made a proposal to our ocean carriers and the operators to utilize that container box by getting it off the train, off-loaded, inspected, cleaned up, reloaded with our ag products and sent back.'\" (source <a href='http://thebakken.com/articles/965/nd-port-services-in-training'>here</a>)",
+        "LONGITUDE": -101.301316,
+        "LATITUDE": 48.234156,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.30132,
+          48.23416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Red River Terminal, Williston, ND",
+        "Image": "<img src='images/BakkenTransload/RedRiver.jpg'>",
+        "website": "Corporate website <a href='http://www.redriversupply.us/TransloadFacilities'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "It's an oil-services company adjacent to a traditional railyard that can also load 10,000 barrels a day - just a drop in the bucket of the Bakken oil industry. But the presence of drilling chemicals turned a traditional warehouse fire into a real inferno. (LA Times article <a href='http://www.latimes.com/nation/nationnow/la-na-nn-north-dakota-oil-business-fire-20140722-story.html'>here</a>)",
+        "LONGITUDE": -103.601216,
+        "LATITUDE": 48.145883,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.60122,
+          48.14588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Savage Terminal, Trenton, ND",
+        "Image": "<img src='images/BakkenTransload/Savage.jpg'>",
+        "website": "Corporate website <a href='http://www.savageservices.com/solutions/oil-and-gas-services.html'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "Here's what they said in 2014: \"The Savage terminal in Trenton, ND, provides truck dispatch and transportation, unit train loading, single car transloading, and car storage for crude-by-rail shippers. Today, in the Williston Basin, Savage has the capacity to truck over 10,000 barrels per day today, and will add an additional 10,000 barrels per day capacity by February. The terminal can transload over 100,000 barrels of crude each day onto unit trains, with track capacity to hold up to two unit trains at the facility simultaneously, and has storage capacity of over 50 rail cars for crude-by-rail shippers. Savage currently has six crude receiving truck bays and 290,000 barrels of tankage with expansions underway that will increase the capacity of tank storage, truck receiving and outbound unit train loading.\" (source <a href='http://thebakken.com/articles/473/savage-expands-bakken-transloading-adds-crude-by-truck'>here</a>)",
+        "LONGITUDE": -103.833970,
+        "LATITUDE": 48.070064,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.83397,
+          48.07006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>EOG Resources / Stanley, ND",
+        "Image": "<img src='images/BakkenTransload/Stanley.jpg'>",
+        "website": "Corporate website <a href='http://www.eogresources.com/home/index.html'>here</a>",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "The builder of the terminal, Wilson and Co., writes this: \"The facility was designed to load 60,000 barrels of crude oil per day into one 100-car unit train, where it is transported to Oklahoma and other points south for refining. The crude oil is supplied to multiple storage tanks through a pipeline installed by EOG/Pecan Pipeline and by on-site truck unloading facilities. Loading operations are completed through an elevated rail side safety platform allowing 14 cars to be loaded simultaneously.\" (source <a href='http://www.wilsonco.com/project/crude-oil-loading-terminal-transfer-facility-stanley-nd'>here</a>).",
+        "LONGITUDE": -102.347177,
+        "LATITUDE": 48.335285,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.34718,
+          48.33529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Tioga Rail Terminal, Tioga, ND",
+        "Image": "<img src='images/BakkenTransload/Tioga.jpg'>",
+        "website": "Corporate website <a href='http://www.hess.com/company/news-article/2015/08/27/hess-announces-bakken-midstream-joint-venture-valued-at-$5.35-billion'>here</a>.",
+        "EPA": "Railroad: BNSF<br>",
+        "Notes": "It can load two unit trains a day for a max capacity of 140,000 barrels a day.",
+        "LONGITUDE": -102.916420,
+        "LATITUDE": 48.394695,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.91642,
+          48.3947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "<strong>Crude-by-Rail</strong><br><br>Plains ll American / Van Hook Crude Terminal, New Town, ND",
+        "Image": "<img src='images/BakkenTransload/Plains.jpg'>",
+        "website": "Corporate website <a href='https://www.plainsallamerican.com/what-we-do/facilities'>here</a>.",
+        "EPA": "Railroad: Canadian Pacific<br>",
+        "Notes": "\"The Van Hook Crude Terminal received oil by truck in New Town, ND, has capacity for 208 rail cars, and can move as much as 65,000 b/d. There is also 12,000 bbls of storage onsite. The terminal is serviced by Canadian Pacific Railroad. Most of the crude moving from the terminal ends up in St. James, LA, where the facility can handle 300 loaded railcars at one time or 130,000 b/d. The St. James Rail Terminal also ties into several pipelines, including one owned by PAA.\" (source <a href='http://bakkenshale.com/bsp-news/news/plains-all-american-u-s-development-corp-reach-500-million-rail-deal'>here</a>)) HOWEVER, activity at this site has slowed almost to zero as East Coast refineries switch back to imported crude (source <a href='http://www.reuters.com/article/us-railways-crude-plains-all-amer-idUSKCN0V31CX'>here</a>).",
+        "LONGITUDE": -102.490128,
+        "LATITUDE": 47.981391,
+        "Source": "EIA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.49013,
+          47.98139
+        ]
+      }
+    }
+  ]
 }
