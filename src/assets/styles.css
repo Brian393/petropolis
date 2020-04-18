@@ -178,3 +178,9 @@ aside a:visited, .link {
   max-height: 300px;
   max-width: 300px;
 }
+
+.locateMe-control {
+  position: absolute;
+  top: 4.5em;
+  left: .5em;
+}

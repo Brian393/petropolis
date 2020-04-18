@@ -11,6 +11,9 @@
 
       </nav>
       <router-view name="map" id="map" />
+      <v-dialog name="request-location" ref="requestLocation">
+        would you like to zoom to location?
+      </v-dialog>
     </main>
     <AppNav></AppNav>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">
