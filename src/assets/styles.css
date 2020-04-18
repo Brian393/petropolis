@@ -178,3 +178,15 @@ aside a:visited, .link {
   max-height: 300px;
   max-width: 300px;
 }
+
+.spotlightControls {
+  position: absolute;
+  display: none;
+  background-color: rgba(0,60,136,0.5);
+  border-radius: 2px;
+  padding: 2px 5px;
+  top: calc(.5em);
+  left: 3rem;
+  color: white;
+  border: 3px rgba(255,255,255,0.4) solid;
+}
