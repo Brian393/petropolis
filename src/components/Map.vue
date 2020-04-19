@@ -595,7 +595,7 @@ const map = {
       console.log('bout to zoom', source);
     },
     handleGetUserLocation: function(source, map) {
-      navigator.geolocation.watchPosition(function(pos) {
+      const watchId = navigator.geolocation.watchPosition(function(pos) {
         const coords = [pos.coords.longitude, pos.coords.latitude];
         const accuracy = circular(coords, pos.coords.accuracy);
         source.clear(true);
@@ -610,6 +610,7 @@ const map = {
             maxZoom: 15,
             duration: 500
           });
+          navigator.geolocation.clearWatch(watchId);
         }
       }, function(error) {
         alert(`ERROR: ${error.message}`);
