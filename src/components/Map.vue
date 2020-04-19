@@ -604,7 +604,7 @@ const map = {
         ]);
         if (!source.isEmpty()) {
           map.getView().fit(source.getExtent(), {
-            maxZoom: 15,
+            maxZoom: 7,
             duration: 500
           });
         }
