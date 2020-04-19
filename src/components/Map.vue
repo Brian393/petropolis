@@ -594,7 +594,7 @@ const map = {
       handler(source, map);
     },
     handleGetUserLocation: function(source, map) {
-      navigator.geolocation.watchPosition(function(pos) {
+      const watchId = navigator.geolocation.watchPosition(function(pos) {
         const coords = [pos.coords.longitude, pos.coords.latitude];
         const accuracy = circular(coords, pos.coords.accuracy);
         source.clear(true);
@@ -607,6 +607,7 @@ const map = {
             maxZoom: 7,
             duration: 500
           });
+          navigator.geolocation.clearWatch(watchId);
         }
       }, function(error) {
         alert(`ERROR: ${error.message}`);
