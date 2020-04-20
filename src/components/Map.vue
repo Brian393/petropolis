@@ -1,8 +1,5 @@
 <template>
   <div id="map" ref="map">
-    <div class="ol-control locateMe-control">
-      <button class="locateMe" title="Locate me">◎</button>
-    </div>
     <div class="spotlightControls" ref="spotlightControls">press ↑ or ↓ to change spotlight size</div>
     <div ref="vimeoPopup" class="ol-popup ol-vimeopopup">
       <div ref="vimeoPopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
@@ -54,12 +51,10 @@ import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon, Circle} from 'ol/style'
 import {ScaleLine, defaults as defaultControls, Control} from 'ol/control'
 import {fromLonLat} from 'ol/proj'
-import {circular} from 'ol/geom/Polygon';
-import {eventBus} from '../main'
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
 
-const map = {
+import {eventBus} from '../main'
+
+export default {
   name: 'Map',
   data: function () {
     return {
@@ -227,61 +222,6 @@ const map = {
           const hit = this.olmap.hasFeatureAtPixel(pixel)
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
-
-        // Adding zoom to my location functionality as button control.
-        this.userLocSource = this.makeUserLocationLayer(this.olmap);
-        const locateMe = document.querySelector('.locateMe');
-        /**
-         * Return the curried event handler function, that is, pass all the following objects into the scope of the event handler. This is an
-         * IIFE so it's called immediately.
-         *
-         * @param {Object}: {handler: map.methods.handleGetUserLocation, source: VectorSource, map: Map}
-         * @return {function}: the event handler that is called when zoom to location
-         * is clicked.
-         */
-        locateMe.getLocateArgs = function(map, userLocSource, handleGetUserLocation){
-          // Here, we return the eventhandler.
-          return function() {
-            return {
-              map: map,
-              source: userLocSource,
-              handler: handleGetUserLocation
-            }
-          }
-        } (this.olmap, this.userLocSource, this.handleGetUserLocation);
-        locateMe.addEventListener('click', this.handleZoomToMe);
-        // Add the new Locate Me button to the controls.
-        this.olmap.addControl(new Control({
-          element: document.querySelector('.locateMe-control'),
-        }))
-
-        // Trigger the modal requesting zoom-to-location.
-        if (!this.$cookies.get('locationRequested')) {
-          this.$modal.show('dialog', {
-            title: 'Zoom to my location?',
-            buttons: [
-              {
-                title: 'Share my location',
-                handler: e => {
-                  this.handleGetUserLocation(this.userLocSource, this.olmap);
-                  this.$modal.hide('dialog');
-                  // Adds a browser cookie so we only show popup one time.
-                  this.$cookies.set('locationRequested', true, '7d');
-                }
-              },
-              {
-                title: 'Close',
-                default: true,
-                handler: () => {
-                  this.$cookies.set('locationRequested', true, '7d');
-                  this.$modal.hide('dialog');
-                }
-              }
-            ],
-          });
-        }
-        // After the map moveend event fires, determine if the instructions
-        // for using the spotlights should be shown based on zoom level.
         this.olmap.on('moveend', function(e) {
           const zoomLevel = this.getView().getZoom();
           const spotlightControls = document.querySelector('.spotlightControls');
@@ -293,7 +233,6 @@ const map = {
         });
       }
     },
-
     closePopup: function () {
       this.popup.setPosition(undefined)
       this.$refs.popupCloser.blur()
@@ -582,56 +521,6 @@ const map = {
         strokeColor: strokeColor
       })
     },
-    /**
-     * Zoom to my location. Utilizes a function getLocateArgs
-     * that is curried with an object containing map, source, and handler
-     * passed through from the scope of this object into the event handler
-     * scope, whose "this" scope is the event and the clicked button.
-     *
-     */
-    handleZoomToMe: function(e) {
-      const {map, source, handler} = e.target.getLocateArgs();
-      handler(source, map);
-      console.log('bout to zoom', source);
-    },
-    handleGetUserLocation: function(source, map) {
-      navigator.geolocation.watchPosition(function(pos) {
-        const coords = [pos.coords.longitude, pos.coords.latitude];
-        const accuracy = circular(coords, pos.coords.accuracy);
-        source.clear(true);
-        source.addFeatures([
-          new Feature(accuracy.transform('EPSG:4326', map.getView().getProjection())),
-          new Feature(new Point(fromLonLat(coords)))
-        ]);
-        if (!source.isEmpty()) {
-          console.log('zoomed');
-
-          map.getView().fit(source.getExtent(), {
-            maxZoom: 15,
-            duration: 500
-          });
-        }
-      }, function(error) {
-        alert(`ERROR: ${error.message}`);
-      }, {
-        enableHighAccuracy: true
-      });
-    },
-    /*
-     * Creates a new layer for the user's location that will be used for getting
-     * the user's location.
-     *
-     * @param {Object} map: this vueJS map object
-     * @return {VectorSource}: The created user layer VectorSource
-     */
-    makeUserLocationLayer: function(map) {
-      const source = new VectorSource();
-      const layer = new VectorLayer({
-        source: source
-      });
-      this.olmap.addLayer(layer)
-      return source;
-    },
     toggleScaleLine: function () {
       if (this.asideHidden || window.innerWidth < 850) {
         document.querySelector('.ol-scale-line').classList.remove('hidden')
@@ -661,6 +550,4 @@ const map = {
     }
   }
 }
-
-export default map;
 </script>
