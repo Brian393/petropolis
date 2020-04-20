@@ -48,7 +48,7 @@ export default {
           resolution: 150
         }
       }, // end centerPoints
-      radius: 400,
+      radius: 300,
       mousePosition: undefined
     }
   },
