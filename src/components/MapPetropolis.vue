@@ -48,8 +48,7 @@ export default {
           resolution: 150
         }
       }, // end centerPoints
-      // Spyglass/spotlight default size.
-      radius: 300,
+      radius: 400,
       mousePosition: undefined
     }
   },
