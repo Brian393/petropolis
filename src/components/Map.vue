@@ -592,6 +592,7 @@ const map = {
     handleZoomToMe: function(e) {
       const {map, source, handler} = e.target.getLocateArgs();
       handler(source, map);
+      console.log('bout to zoom', source);
     },
     handleGetUserLocation: function(source, map) {
       navigator.geolocation.watchPosition(function(pos) {
@@ -603,8 +604,10 @@ const map = {
           new Feature(new Point(fromLonLat(coords)))
         ]);
         if (!source.isEmpty()) {
+          console.log('zoomed');
+
           map.getView().fit(source.getExtent(), {
-            maxZoom: 7,
+            maxZoom: 15,
             duration: 500
           });
         }
