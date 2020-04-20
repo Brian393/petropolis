@@ -521,6 +521,57 @@ export default {
         strokeColor: strokeColor
       })
     },
+<<<<<<< HEAD
+=======
+    /**
+     * Zoom to my location. Utilizes a function getLocateArgs
+     * that is curried with an object containing map, source, and handler
+     * passed through from the scope of this object into the event handler
+     * scope, whose "this" scope is the event and the clicked button.
+     *
+     */
+    handleZoomToMe: function(e) {
+      const {map, source, handler} = e.target.getLocateArgs();
+      handler(source, map);
+    },
+    handleGetUserLocation: function(source, map) {
+      const watchId = navigator.geolocation.watchPosition(function(pos) {
+        const coords = [pos.coords.longitude, pos.coords.latitude];
+        const accuracy = circular(coords, pos.coords.accuracy);
+        source.clear(true);
+        source.addFeatures([
+          new Feature(accuracy.transform('EPSG:4326', map.getView().getProjection())),
+          new Feature(new Point(fromLonLat(coords)))
+        ]);
+        if (!source.isEmpty()) {
+          map.getView().fit(source.getExtent(), {
+            maxZoom: 7,
+            duration: 500
+          });
+          navigator.geolocation.clearWatch(watchId);
+        }
+      }, function(error) {
+        alert(`ERROR: ${error.message}`);
+      }, {
+        enableHighAccuracy: true
+      });
+    },
+    /*
+     * Creates a new layer for the user's location that will be used for getting
+     * the user's location.
+     *
+     * @param {Object} map: this vueJS map object
+     * @return {VectorSource}: The created user layer VectorSource
+     */
+    makeUserLocationLayer: function(map) {
+      const source = new VectorSource();
+      const layer = new VectorLayer({
+        source: source
+      });
+      this.olmap.addLayer(layer)
+      return source;
+    },
+>>>>>>> b7a777f74286417de2aade9d45dd9024e376a9c1
     toggleScaleLine: function () {
       if (this.asideHidden || window.innerWidth < 850) {
         document.querySelector('.ol-scale-line').classList.remove('hidden')
