@@ -86,41 +86,47 @@ export default {
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.4)', 1),
   //      this.makeGeoJSONLineVectorLayer('geojson/GulfPipelinesActive.geojson', 1, 4000, 'rgba(0, 0, 0, 1)', 0.7),
   //      this.makeGeoJSONPointVectorLayer('geojson/OperatingPlatforms.geojson', 'icons/Platform.png', null, 1, 4000),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 2.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, 'black', 8.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, '#d66500', 3.5),
     //    this.makeGeoJSONLineVectorLayerWithStyle('geojson/PipelineProjects.geojson', 1, 64000, 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery.png', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 1, 64000),
   //      this.makeGeoJSONPointVectorLayerWithCircleStyle1('geojson/GlobalRefineries.geojson', null, 4, 64000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000)
+        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000)
       ]
     },
     petropolisPipelinesContestedLayers: function () {
       return [
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5)
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, 'black', 8.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, '#d66500', 3.5)
       ]
     },
     petropolisPipelinesAllLayers: function () {
       return [
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
-        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 2.5),
+  //      this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
+    //    this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.6)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 1, 64000, '#d60051', 2),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#d66500', 3.5),
+    //    this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, 'dimgray', 10.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, '#cc0000', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, 'black', 8.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CurrentOilLines.geojson', 1, 64000, '#d66500', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.gif', null, 1, 64000),
-        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000)
+    //    this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery.png', null, 1, 64000),
+  //      this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 1, 64000),
+    //    this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000)
       ]
     },
     petropolisCoalLayers: function () {
@@ -197,7 +203,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/OilHubs.geojson', 'icons/OilRR.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/NA_Refineries.geojson', 'icons/OilIcon2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Emissions.geojson','icons/flare.png', null, 2, 4000),
-        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion.gif', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/StandingRock.geojson', 'icons/StandingRock.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/BombTrainOverlay2.geojson', 'icons/1267-lg.gif', null, 1000, 4000)
       ]
