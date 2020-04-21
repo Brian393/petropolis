@@ -22,7 +22,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/canadians.org\/blog\/125-barrels-oil-spill-line-67-regina-pumping-station'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -90,7 +91,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/4611'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -242,7 +244,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/11401'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -2314,7 +2317,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/4631'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -2398,7 +2402,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/15851'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -2786,7 +2791,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/4561'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -2962,7 +2968,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/bloximages.newyork1.vip.townnews.com\/mysoutex.com\/content\/tncms\/assets\/v3\/editorial\/c\/b7\/cb767486-a718-11e8-a79e-c376a4a460c0\/5b7f22a7b0555.image.jpg?resize=1700%2C1011'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -3660,7 +3667,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/www.magellanlp.com\/~\/media\/2BD598CAA36C4415967A3B7660B4723C.ashx?db=master'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -3864,7 +3872,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/s.yimg.com\/ny\/api\/res\/1.2\/dQk.mhVdPS5y.XzPOYtl_w--~A\/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9MTI4MDtoPTk2MA--\/http:\/\/media.zenfs.com\/en-US\/homerun\/bloomberg_markets_842\/c0d730af486ec9f33d4ed51a8b797705'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -4324,7 +4333,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/sites\/default\/files\/styles\/extra_large\/public\/field\/image\/figure2a_1.png?itok=FK8At2aH'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -4700,7 +4710,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/pbs.twimg.com\/media\/DDgCmZlUQAA0kNk.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -4848,7 +4859,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/www.energytransfer.com\/docs\/mainpage\/2018-ETE-ETP-MLPA-Conference-Presentation_Final.pdf'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5124,7 +5136,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/www.coqa-inc.org\/docs\/default-source\/san-antonio-2018\/022218-emery-bakken-etp.pdf?sfvrsn=9e8745bb_2'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5500,7 +5513,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/18421'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5664,7 +5678,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/www.tallgrassenergylp.com\/Documents\/Tallgrass_PXP%20System%20Map_A_v518f.pdf'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5872,7 +5887,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/4671'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5928,7 +5944,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/www.naturalgasintel.com\/ext\/resources\/Mexico-GPI\/MG1Q2018\/Rangeland-Energy-II-LLC-Rio-System-20170103-v3.png?1515171803'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -5964,7 +5981,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/bloximages.chicago2.vip.townnews.com\/journalstar.com\/content\/tncms\/assets\/v3\/editorial\/d\/bc\/dbcabc51-3048-5aea-a88a-c3a4b9706373\/5421aad926cd4.preview.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -6336,7 +6354,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/okenergytoday.com\/new\/wp-content\/uploads\/2016\/08\/enbridgeSandpiper.png'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -6528,7 +6547,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/18426'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -6660,7 +6680,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/landownerattorneys.com\/images\/Southern_Access_Extension_web.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -6728,7 +6749,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/farm6.staticflickr.com\/5543\/10835966394_896635b1dd_h.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -7300,7 +7322,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/www.sec.gov\/Archives\/edgar\/data\/1423902\/000142390217000012\/transportationa10.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -7412,7 +7435,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/www.line901r.com\/images\/Proposed-Line-901R-Line-903R-Map.pdf'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -7468,7 +7492,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/www.line901r.com\/images\/Proposed-Line-901R-Line-903R-Map.pdf'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -7904,7 +7929,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/www.line901r.com\/images\/Proposed-Line-901R-Line-903R-Map.pdf'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -8182,7 +8208,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -9666,7 +9693,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -34676,7 +34704,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -35388,7 +35417,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -35972,7 +36002,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -36440,7 +36471,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Reactivation'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -36552,7 +36584,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -36620,7 +36653,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -36760,7 +36794,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -38328,7 +38363,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Combination.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -48218,7 +48254,8 @@
         "yes_soon": 1,
         "in_PA": 0,
         "text2": "Source: Combination.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -48594,7 +48631,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -48714,7 +48752,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -49378,7 +49417,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -49510,7 +49550,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": " ",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -49558,7 +49599,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -49842,7 +49884,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: Expansion'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -50250,7 +50293,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -50502,7 +50546,8 @@
         "yes_soon": 1,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -50826,7 +50871,8 @@
         "yes_soon": 1,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -50922,7 +50968,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -51018,7 +51065,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -51170,7 +51218,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -55756,7 +55805,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='http:\/\/plnoildom.wpengine.com\/wp-content\/uploads\/Delaware.jpg'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -56112,7 +56162,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "Comments": null,
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
@@ -58816,7 +58867,8 @@
         "yes_soon": 0,
         "in_PA": 0,
         "text2": "Source: <a href='https:\/\/rbnenergy.com\/node\/17071'>here</a>.",
-        "color": "#a02bb7"
+        "color": "#a02bb7",
+        "dash": 4
       },
       "geometry": {
         "type": "MultiLineString",
