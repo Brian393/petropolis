@@ -98,7 +98,7 @@ export default {
       petropolis: {
         items: [
           {
-            name: 'Pipelines',
+            name: 'Crude Oil',
             href: '/petropolis/pipelines'
           },
           {
@@ -118,7 +118,7 @@ export default {
             href: '/petropolis/pipelines/contested'
           },
           {
-            name: 'All Pipelines',
+            name: 'Only Pipelines',
             href: '/petropolis/pipelines/all'
           }
         ]

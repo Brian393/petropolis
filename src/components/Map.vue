@@ -539,19 +539,19 @@ export default {
         fillColor: fillColor
       })
     },
-    geoJSONLineVectorLayerStyle: function (feature) {
+    geoJSONLineVectorLayerStyle1: function (feature) {
       if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
         this.styleCache[feature.values_['color']] = new Style({
           stroke: new Stroke({
             color: feature.values_['color'],
-            width: 3.5 //,
-        //    lineDash: [4]
+            width: 4,
+            lineDash: [4]
           })
         })
       }
       return this.styleCache[feature.values_['color']]
     },
-    makeGeoJSONLineVectorLayerWithStyle: function (url, minResolution, maxResolution, width) {
+    makeGeoJSONLineVectorLayerWithStyle1: function (url, minResolution, maxResolution, width) {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
@@ -559,7 +559,29 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
-        style: this.geoJSONLineVectorLayerStyle
+        style: this.geoJSONLineVectorLayerStyle1
+      })
+    },
+    geoJSONLineVectorLayerStyle2: function (feature) {
+      if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
+        this.styleCache[feature.values_['color']] = new Style({
+          stroke: new Stroke({
+            color: feature.values_['color'],
+            width: 3.5
+          })
+        })
+      }
+      return this.styleCache[feature.values_['color']]
+    },
+    makeGeoJSONLineVectorLayerWithStyle2: function (url, minResolution, maxResolution, width) {
+      return new VectorLayer({
+        source: new VectorSource({
+          format: new GeoJSON(),
+          url: url
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        style: this.geoJSONLineVectorLayerStyle2
       })
     },
     makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
