@@ -13,6 +13,7 @@
       <router-view name="map" id="map" />
       <v-dialog name="request-location">
       </v-dialog>
+      <modals-container/>
     </main>
     <AppNav></AppNav>
     <aside v-bind:class="{ 'no-flex': this.asideHidden}">
@@ -221,6 +222,7 @@ font-weight: bold; font-style: italic; color: #333333;
 import { mapGetters } from 'vuex'
 import AppNav from './components/AppNav.vue'
 import {eventBus} from './main'
+import {doInfoPopUp} from './components/InfoPopUp';
 
 export default {
   name: 'App',
@@ -239,6 +241,12 @@ export default {
       'asideHidden'
     ])
   },
+  mounted() {
+    // Check to see if the infoPopUp query string was added to the route and display popup if so.
+    if (this.$route.query && this.$route.query.infoPopUp){
+      doInfoPopUp(this, this.$route.query.infoPopUp, false);
+    }
+  },
   methods: {
     toggleAside () {
       this.$store.dispatch('toggle')
@@ -250,7 +258,7 @@ export default {
       if (to === this.$route.path) {
         eventBus.$emit('route-click')
       }
-    }
+    },
   }
 }
 

@@ -190,7 +190,6 @@ export default {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
           if (feature) {
             const props = feature.getProperties()
-            // console.log('has feature! props:', props)
             // #TODO: use better property names in .geojson files for if/else logic
             if (props.title && props.image && props.text1) {
               this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
