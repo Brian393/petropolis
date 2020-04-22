@@ -3,6 +3,7 @@ import 'material-design-icons/iconfont/material-icons.css'
 import 'vue-image-lightbox/dist/vue-image-lightbox.min.css'
 import './assets/styles.css'
 import VueCookies from 'vue-cookies'
+import InfoPopUp, {infoPopUpName} from './components/InfoPopUp';
 
 import Vue from 'vue'
 import VueLazyLoad from 'vue-lazyload'
@@ -13,7 +14,12 @@ import VModal from 'vue-js-modal'
 
 Vue.use(VueLazyLoad)
 Vue.use(VueLazyLoad);
-Vue.use(VModal, { dialog: true });
+Vue.use(VModal, { dialog: true,
+  dynamic: true,
+  dynamicDefaults: { clickToClose: false }
+});
+
+Vue.component(infoPopUpName, InfoPopUp);
 
 Vue.use(VueCookies);
 
