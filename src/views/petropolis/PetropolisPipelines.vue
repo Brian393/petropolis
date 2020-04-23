@@ -8,7 +8,10 @@
     <p>For information about any of the elements, click on a line or a marker. The locations of the pipelines are approximate, but most other features are quite accurate. When you zoom in very close, a "spotlight" opens up, allowing you to see what's on the ground.</p>
 
     <p>The buttons at lower left open similar maps of coal and natural gas infrastructures. The view is initially centered on the US, but you can zoom out to see the whole world. As it stands today, everywhere is Petropolis.</p>
-
+    
+    <info-pop-up :fileName="'pipeline-list'" :title="'Pipeline List'">
+         test me
+       </info-pop-up>
 
 <br>
 <Accordion :open="false">
