@@ -12,6 +12,8 @@ import router from './router'
 import store from './store'
 import VModal from 'vue-js-modal'
 
+const appSelector = '#app';
+
 Vue.use(VueLazyLoad)
 Vue.use(VueLazyLoad);
 Vue.use(VModal, { dialog: true,
@@ -34,3 +36,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+export {appSelector};

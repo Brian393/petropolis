@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import {appSelector} from '../main.js';
+
   /**
    * Launch a modal based on a filename pointing to an HTML file located in public/html/filename.html.
    * The title of the modal is derived from turning "-" into spaces and titlecasing the words.
@@ -110,6 +112,15 @@
       doInfoPopUp,
     },
   }
+
+  window.infoPopupHtml = (fileName) => {
+    return (e) => {
+      const app = document.querySelector(appSelector)['__vue__'];
+      const isLink = true;
+      e.preventDefault();
+      doInfoPopUp(app, fileName, isLink);
+    }
+  };
 
   export {InfoPopUp as default, infoPopUpName, doInfoPopUp};
 </script>
