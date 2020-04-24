@@ -26,6 +26,9 @@
    * http://localhost:8081/#/?infoPopUp=pipeline-list
    * ^ That would load the file public/html/pipeline-list.html with the title "Pipeline List" on app load.
    *
+   * Example #3 GeoJson
+   * <a href='#' data-info-popup-filename='pipeline-list' onclick="window.infoPopupHtml('pipeline-list')(event)",> test popup, remove me.</a>
+   * 
    * @param app {Object}: the "this" vuejs object
    * @param fileName {String}: the string which will become the filename that will be fetched from public/html/fileName.html
    * @param isLink {Boolean}: If true add isLoading to the data and add the query string to the URL.
