@@ -282,7 +282,7 @@ export default {
         this.olmap.on('moveend', function(e) {
           const zoomLevel = this.getView().getZoom();
           const spotlightControls = document.querySelector('.spotlightControls');
-          if (zoomLevel >= 14) {
+          if (zoomLevel >= 11) {
             spotlightControls.style.display = 'block';
           } else {
             spotlightControls.style.display = 'none';
