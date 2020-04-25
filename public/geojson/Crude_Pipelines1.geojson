@@ -1830,31 +1830,6 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Enbridge Lakehead - Southern Access (Line 61)",
-        "image": " ",
-        "text1": "Route: Superior, WI - Flanagan, IL<br>Capacity: 400,000 bpd <br>Crude type: Lights Synthetics, Sweet, Light & High Sour, Medium, Heavy",
-        "text2": "",
-        "text3": "Corporate website <a href='https://www.enbridgepartners.com/Delivering-Energy/Pipeline-Systems/Liquids-Pipelines.aspx'>here</a>."
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -10249008.7419853173,
-            5890999.765586067,
-            0.0
-          ],
-          [
-            -9869722.4226241726,
-            5003222.8669594629,
-            0.0
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "title": "Enbridge Pipelines (Norman Wells) Inc.",
         "image": " ",
         "text1": "Route: Norman Wells, NWT - Zama, AB <br>Capacity:  39,400 bpd",

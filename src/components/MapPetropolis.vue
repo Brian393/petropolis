@@ -114,7 +114,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
         this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 64000, 3.5),
         this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
+    //    this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fd6a02', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5)
       ]
