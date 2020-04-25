@@ -2170,41 +2170,6 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Enbridge-Lakehead - Line 5",
-        "image": " ",
-        "text1": "Route: Superior, WI - Sarnia <br>Capacity: 491,200 bpd<br>Crude: NGL, Condensates, Lights Synthetics, Sweet, Light Sour",
-        "text2": "",
-        "text3": "Corporate website <a href='https://www.enbridgepartners.com/Delivering-Energy/Pipeline-Systems/Liquids-Pipelines.aspx'>here</a>."
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -10248130.9878004119,
-            5891930.4606843842,
-            0.0
-          ],
-          [
-            -9438899.2928142697,
-            5782336.0708029596,
-            0.0
-          ],
-          [
-            -9345736.2336083595,
-            5416002.8448846005,
-            0.0
-          ],
-          [
-            -9169642.8254292402,
-            5304419.0302885612,
-            0.0
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "title": "Enbridge-Lakehead - Line 65",
         "image": " ",
         "text1": "Route: Cromer, MB - Clearbrook, MN<br> Capacity: 185,600<br> Crude: Light Sour, Medium",
