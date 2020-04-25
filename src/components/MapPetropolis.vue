@@ -72,7 +72,7 @@ export default {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
           }),
           opacity: 1,
           minResolution: 0.25
@@ -86,7 +86,7 @@ export default {
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.4)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
         this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
         this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 64000, 3.5),
         this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
@@ -274,7 +274,6 @@ export default {
         case 'petropolisPipelinesContested':
           this.initPetropolisPipelinesContested()
           break
-          // added
         case 'petropolisPipelinesAll':
           this.initPetropolisPipelinesAll()
           break
@@ -283,18 +282,6 @@ export default {
           break
         case 'petropolisGas':
           this.initPetropolisGas()
-          break
-        case 'petropolisTarSands':
-          this.initPetropolisTarSands()
-          break
-        case 'petropolisTarSandsBakken':
-          this.initPetropolisTarSandsBakken()
-          break
-        case 'petropolisTarSandsGulf':
-          this.initPetropolisTarSandsGulf()
-          break
-        case 'petropolisChicago':
-          this.initPetropolisChicago()
           break
         default:
           this.initPetropolisPipelines()
@@ -330,7 +317,6 @@ export default {
         layers: this.petropolisPipelinesContestedLayers
       }))
     },
-    // added
     initPetropolisPipelinesAll: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({

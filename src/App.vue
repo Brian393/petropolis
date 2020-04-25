@@ -48,7 +48,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #cc0000;      /*navbar background color */
+  background-color: #dc143c;      /*navbar background color */
 }
 nav a {
   font-weight: bold;
@@ -73,14 +73,14 @@ nav a:hover {
 #map {
   background-color: #f2f2f2;
   height: calc(100vh - 60px);
-  /* border-top: thin solid #cc0000;         /* Its lower border of navbar*/
+  /* border-top: thin solid #dc143c;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
   background-color: #f2f2f2;              /*background of text panel*/
-  border-left: solid #cc0000;      /* Its left-hand border of text panel*/
-  border-bottom: medium solid #cc0000;
+  border-left: solid #dc143c;      /* Its left-hand border of text panel*/
+  border-bottom: medium solid #dc143c;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ aside {
   position: sticky;
   top: 0;
   color: #f2f2f2;                               /*toggle x color*/
-  background-color: #cc0000;               /*background of sidebar closer square*/
+  background-color: #dc143c;               /*background of sidebar closer square*/
   z-index: 1;
   height: 60px;
 }
