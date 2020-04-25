@@ -21,15 +21,15 @@ export default {
       centerPoints: {
         pipelines: {
           center: [-98, 40.9],
-          resolution: 7000
+          resolution: 7500
         },
         coal: {
           center: [-98, 40.9],
-          resolution: 7000
+          resolution: 7500
         },
         gas: {
           center: [-98, 40.9],
-          resolution: 7000
+          resolution: 7500
         },
         tarsands: {
           center: [-111.439654, 56.9275],
@@ -295,7 +295,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelines.center),
         resolution: this.centerPoints.pipelines.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 32000
       }))
       if (this.olmap) {
@@ -331,7 +331,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.coal.center),
         resolution: this.centerPoints.coal.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 64000
       }))
     },
@@ -343,7 +343,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.gas.center),
         resolution: this.centerPoints.gas.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 16000
       }))
     },
@@ -355,7 +355,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.tarsands.center),
         resolution: this.centerPoints.tarsands.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 16000
       }))
       // Had to change props to vimeoSrc2 - here and in geojson - or else it doesn't close
@@ -380,7 +380,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.bakken.center),
         resolution: this.centerPoints.bakken.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 16000
       }))
     },
@@ -392,7 +392,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.gulf.center),
         resolution: this.centerPoints.gulf.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 16000
       }))
     },
