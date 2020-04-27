@@ -94,8 +94,8 @@ export default {
     //    this.makeGeoJSONLineVectorLayerWithStyle2('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fb5c04', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery.png', null, 1, 64000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 64000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000)
       ]
     },
