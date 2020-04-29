@@ -45,8 +45,24 @@ export default new Router({
       }
     },
     {
+      path: '/petropolis/coal/world',
+      name: 'petropolisCoalWorld',
+      components: {
+        default: () => import('./views/petropolis/PetropolisCoal.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
       path: '/petropolis/gas',
       name: 'petropolisGas',
+      components: {
+        default: () => import('./views/petropolis/PetropolisGas.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/gas/world',
+      name: 'petropolisGasWorld',
       components: {
         default: () => import('./views/petropolis/PetropolisGas.vue'),
         map: MapPetropolis

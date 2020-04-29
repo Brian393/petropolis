@@ -199,6 +199,17 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+            } else if (props.type && props.corporation && props.name) {
+              this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
+              this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>NAME:</strong> ' + props.name + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>DESCRIPTION:</strong> ' + props.description + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>CAPACITY:</strong> ' + props.capacity + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>CORPORATE WEBSITE:</strong> <a href=\'' + props.link1 + '\' target=\'_blank\'>here</a><br>'
+              this.$refs.popupContent.innerHTML += props.link2 + '<br>'
+              this.$refs.popupContent.innerHTML += props.link3 + '<br>'
+              this.popup.setPosition(e.coordinate)
+              this.closeTooltip()
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(e.coordinate)

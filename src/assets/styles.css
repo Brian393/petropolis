@@ -18,7 +18,7 @@ aside a:visited, .link {
 
 .ol-popup {
   position: absolute;
-  background-color: white;
+  background-color: #f7fcfe;
   -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
   filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
   border-radius: 10px;
@@ -193,6 +193,10 @@ aside a:visited, .link {
 
 button:hover {
   cursor: pointer;
+}
+
+.button {
+	background: #f7fcfe;
 }
 
 .locateMe-control {

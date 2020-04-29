@@ -21,15 +21,27 @@ export default {
       centerPoints: {
         pipelines: {
           center: [-98, 40.9],
-          resolution: 7500
+          resolution: 8000
+        },
+        pipelinesAll: {
+          center: [2.44, 30.81 ],
+          resolution: 25000
         },
         coal: {
-          center: [-98, 40.9],
-          resolution: 7500
+          center: [-90, 38.9],
+          resolution: 3500
+        },
+        coalWorld: {
+          center: [59.4431132, 35.8189178],
+          resolution: 18000
         },
         gas: {
-          center: [-98, 40.9],
-          resolution: 7500
+          center: [-98, 38.9],
+          resolution: 4000
+        },
+        gasWorld: {
+          center: [2.44, 40.81],
+          resolution: 25000
         },
         tarsands: {
           center: [-111.439654, 56.9275],
@@ -55,12 +67,13 @@ export default {
   computed: {
     baseLayers: function () {
       let bingMapTile = new Tile({
-        source: new BingMaps({
-          key: 'Asxv26hh6HvBjw5idX-d8QS5vaJH1krMPBfZKjNmLjaQyr0Sc-BrHBoatyjwzc_k',
-          imagerySet: 'Aerial'
+        source: new XYZ({
+         attributions: ['Powered by Esri',
+                   'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
+          url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
         }),
         minResolution: 0.25,
-        maxResolution: 16
+        maxResolution: 40
       })
       bingMapTile.on('precompose', (e) => {
         this.spyglass(e)
@@ -68,7 +81,11 @@ export default {
       bingMapTile.on('postcompose', function (e) {
         e.context.restore()
       })
-
+        return [
+          bingMapTile
+        ]
+      },
+    petropolisPipelineLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -78,29 +95,35 @@ export default {
           minResolution: 0.25
         }),
         // bingMapsAerial
-        bingMapTile
-      ]
-    },
-    petropolisPipelineLayers: function () {
-      return [
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
-        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
-        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 64000, 3.5),
-        this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
+  //      this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
+        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
+  //      this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
     //    this.makeGeoJSONLineVectorLayerWithStyle2('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fb5c04', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 64000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000)
       ]
     },
     petropolisPipelinesContestedLayers: function () {
       return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+        // bingMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
@@ -109,46 +132,130 @@ export default {
     },
     petropolisPipelinesAllLayers: function () {
       return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+        // bingMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
-        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 64000, 3.5),
-        this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
-    //    this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fd6a02', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5)
-      ]
-    },
-    petropolisCoalLayers: function () {
-      return [
-        ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(7, 29, 81, 0.5)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
-        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant3.png', null, 1, 64000)
-//        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
+//        this.makeGeoJSONLineVectorLayer('geojson/Crude_Pipelines1.geojson', 1, 64000, 'black', 3.5),
+      //  this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 64000, 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 2.5),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 2.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 2.5),
+    //    this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NewOilLines.geojson', 1, 64000, 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, 'black', 7),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, '#fd6a02', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 8000)
       ]
     },
     petropolisGasLayers: function () {
       return [
-        ...this.baseLayers,
         new Tile({
           source: new XYZ({
-            url: 'http://environmentalobservatory.net/NatGas/{z}/{x}/{y}.png'
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
           }),
           opacity: 1,
-          minResolution: 40,
-	        updateWhileAnimating: true
+          minResolution: 0.25
         }),
+        // bingMapsAerial
+        ...this.baseLayers,
+  //      new Tile({
+  //        source: new XYZ({
+  //          url: 'http://environmentalobservatory.net/NatGas/{z}/{x}/{y}.png'
+  //        }),
+  //        opacity: 1,
+  //        minResolution: 40,
+	  //      updateWhileAnimating: true
+  //      }),
   //      this.makeGeoJSONLineVectorLayer('geojson/NatGasPipes.geojson', 4, 80, '#c21313', 3),
   //      this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
   //      this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas.png', null, 1, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas.png', null, 1, 32000),
-
+        this.makeGeoJSONLineVectorLayer('geojson/Nat_Gas.geojson', 1, 64000, '#1c9bf5', 1.5),
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas2.png', null, 1, 32000),
     //    this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/Gas.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
-        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 1, 16000),
+  //      this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
+      ]
+    },
+    petropolisGasWorldLayers: function () {
+      return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+        // bingMapsAerial
+        ...this.baseLayers,
+  //      this.makeGeoJSONLineVectorLayer('geojson/NatGasPipes.geojson', 4, 80, '#c21313', 3),
+  //      this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
+  //      this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1, 64000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas2.png', null, 1, 64000)
+    //    this.makeGeoJSONPointVectorLayerWithCircleStyle4('geojson/Gas.geojson', null, 4, 16000, 'rgba(0, 200, 237, 0.4)', 1, 'rgba(0, 200, 237, 0.2)'),
+      //  this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNG.png', null, 1, 16000),
+    //    this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
+      ]
+    },
+    petropolisCoalLayers: function () {
+      return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+          new Tile({
+            source: new XYZ({
+              url: 'https://{a-d}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 0.25,
+            maxResolution: 8000
+          }),
+        // bingMapsAerial
+        ...this.baseLayers,
+    //    this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(7, 29, 81, 0.5)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
+        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant5.png', null, 1, 64000)
+//        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
+      ]
+    },
+    petropolisCoalWorldLayers: function () {
+      return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+          new Tile({
+            source: new XYZ({
+              url: 'https://{a-d}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png'
+            }),
+            opacity: 1,
+            minResolution: 0.25,
+            maxResolution: 8000
+          }),
+        // bingMapsAerial
+        ...this.baseLayers,
+    //    this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(7, 29, 81, 0.5)'),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
+        this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant5.png', null, 1, 64000)
+//        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/Coal.geojson', null, 1, 64000, 'rgba(195, 72, 28, 0.4)', 1, 'rgba(195, 72, 28, 0.3)')
       ]
     },
     petropolisTarSandsLayers: function () {
@@ -280,8 +387,14 @@ export default {
         case 'petropolisCoal':
           this.initPetropolisCoal()
           break
+        case 'petropolisCoalWorld':
+          this.initPetropolisCoalWorld()
+          break
         case 'petropolisGas':
           this.initPetropolisGas()
+          break
+        case 'petropolisGasWorld':
+          this.initPetropolisGasWorld()
           break
         default:
           this.initPetropolisPipelines()
@@ -322,6 +435,12 @@ export default {
       this.olmap.setLayerGroup(new Group({
         layers: this.petropolisPipelinesAllLayers
       }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.pipelinesAll.center),
+        resolution: this.centerPoints.pipelinesAll.resolution,
+        minResolution: 0.25,
+        maxResolution: 32000
+      }))
     },
     initPetropolisCoal: function () {
       this.initBaseMap()
@@ -331,6 +450,18 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.coal.center),
         resolution: this.centerPoints.coal.resolution,
+        minResolution: 0.5,
+        maxResolution: 64000
+      }))
+    },
+    initPetropolisCoalWorld: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisCoalWorldLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.coalWorld.center),
+        resolution: this.centerPoints.coalWorld.resolution,
         minResolution: 0.5,
         maxResolution: 64000
       }))
@@ -345,6 +476,18 @@ export default {
         resolution: this.centerPoints.gas.resolution,
         minResolution: 0.5,
         maxResolution: 16000
+      }))
+    },
+    initPetropolisGasWorld: function () {
+      this.initBaseMap()
+      this.olmap.setLayerGroup(new Group({
+        layers: this.petropolisGasWorldLayers
+      }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.gasWorld.center),
+        resolution: this.centerPoints.gasWorld.resolution,
+        minResolution: 0.5,
+        maxResolution: 32000
       }))
     },
     initPetropolisTarSands: function () {

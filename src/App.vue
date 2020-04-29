@@ -71,14 +71,14 @@ nav a:hover {
   color: black;
 }
 #map {
-  background-color: #f2f2f2;
+  background-color: #f7fcfe;
   height: calc(100vh - 60px);
   /* border-top: thin solid #dc143c;         /* Its lower border of navbar*/
   box-sizing: border-box;
 }
 
 aside {
-  background-color: #f2f2f2;              /*background of text panel*/
+  background-color: #f7fcfe;              /*background of text panel*/
   border-left: solid #dc143c;      /* Its left-hand border of text panel*/
   border-bottom: medium solid #dc143c;
   box-sizing: border-box;
@@ -90,7 +90,7 @@ aside {
 #aside-wraper {
   position: sticky;
   top: 0;
-  color: #f2f2f2;                               /*toggle x color*/
+  color: #f7fcfe;                               /*toggle x color*/
   background-color: #dc143c;               /*background of sidebar closer square*/
   z-index: 1;
   height: 60px;

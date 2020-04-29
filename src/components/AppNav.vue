@@ -98,7 +98,7 @@ export default {
       petropolis: {
         items: [
           {
-            name: 'Crude Oil',
+            name: 'Oil',
             href: '/petropolis/pipelines'
           },
           {
@@ -106,7 +106,7 @@ export default {
             href: '/petropolis/gas'
           },
           {
-            name: 'Coal Plants',
+            name: 'Coal',
             href: '/petropolis/coal'
           }
         ]
@@ -118,8 +118,20 @@ export default {
             href: '/petropolis/pipelines/contested'
           },
           {
-            name: 'Only Pipelines',
+            name: 'Rest of the World',
             href: '/petropolis/pipelines/all'
+          }
+        ],
+        gas: [
+          {
+            name: 'Rest of the World',
+            href: '/petropolis/gas/world'
+          }
+        ],
+        coal: [
+          {
+            name: 'Rest of the World',
+            href: '/petropolis/coal/world'
           }
         ]
       }
@@ -149,6 +161,12 @@ export default {
       }
       if (/petropolisPipelines/.test(this.$route.name)) {
         this.navSubItems = this.subItems.pipelines
+      }
+      else if (/petropolisGas/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.gas
+      }
+      else if (/petropolisCoal/.test(this.$route.name)) {
+        this.navSubItems = this.subItems.coal
       } else {
         this.navSubItems = []
       }
