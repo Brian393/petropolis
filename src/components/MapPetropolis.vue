@@ -23,6 +23,10 @@ export default {
           center: [-98, 40.9],
           resolution: 8000
         },
+          pipelinesContested: {
+            center: [-98, 40.9],
+            resolution: 8000
+          },
         pipelinesAll: {
           center: [2.44, 30.81 ],
           resolution: 25000
@@ -137,7 +141,31 @@ export default {
             url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}'
           }),
           opacity: 1,
-          minResolution: 0.25
+          minResolution: 2000
+        }),
+          new Tile({
+          source: new XYZ({
+            url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25,
+          maxResolution: 2000
+        }),
+        // quadKeyLayer   https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.
+        new Tile({
+          minResolution: 20,
+          opacity: 1,
+          source: new XYZ({
+            tileUrlFunction: (tileCoord, pixelRatio, projection) => {
+              const z = tileCoord[0]
+              const x = tileCoord[1]
+              const y = -tileCoord[2] - 1
+              return 'https://t0.tiles.virtualearth.net/tiles/t' + this.computeQuadKey(x, y, z) + '.jpg'
+            }
+          }),
+          maxZoom: 17, // XYZ's default is 18
+          loadTilesWhileAnimating: true,
+          loadTilesWhileInteracting: true
         }),
         // bingMapsAerial
         ...this.baseLayers,
@@ -429,6 +457,12 @@ export default {
       this.olmap.setLayerGroup(new Group({
         layers: this.petropolisPipelinesContestedLayers
       }))
+      this.olmap.setView(new View({
+        center: fromLonLat(this.centerPoints.pipelinesContested.center),
+        resolution: this.centerPoints.pipelinesContested.resolution,
+        minResolution: 0.25,
+        maxResolution: 32000
+      }))
     },
     initPetropolisPipelinesAll: function () {
       this.initBaseMap()
@@ -563,6 +597,21 @@ export default {
           }
         })
       }
+    },
+    computeQuadKey: function (x, y, z) {
+      let quadKeyDigits = []
+      for (let i = z; i > 0; i--) {
+        let digit = 0
+        const mask = 1 << (i - 1)
+        if ((x & mask) !== 0) {
+          digit++
+        }
+        if ((y & mask) !== 0) {
+          digit = digit + 2
+        }
+        quadKeyDigits.push(digit)
+      }
+      return quadKeyDigits.join('')
     },
     spyglass: function (e) {
       let ctx = e.context
