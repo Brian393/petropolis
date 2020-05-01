@@ -114,10 +114,6 @@ export default {
       subItems: {
         pipelines: [
           {
-            name: 'Contested Pipelines',
-            href: '/petropolis/pipelines/contested'
-          },
-          {
             name: 'Rest of the World',
             href: '/petropolis/pipelines/all'
           }

@@ -210,6 +210,11 @@ export default {
               this.$refs.popupContent.innerHTML += props.link3 + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+            } else if (props.type && props.TYPEPIPE) {
+              this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
+              this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
+              this.popup.setPosition(e.coordinate)
+              this.closeTooltip()
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(e.coordinate)
