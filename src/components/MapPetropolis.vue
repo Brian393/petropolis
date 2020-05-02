@@ -219,20 +219,28 @@ export default {
   //      this.makeGeoJSONPointVectorLayer('geojson/NatGasCompressors.geojson', 'icons/RedDot.png', null, 4, 2000),
   //      this.makeGeoJSONPointVectorLayer('geojson/NatGasProcessing.geojson', 'icons/NatGasProcessing.png', null, 4, 16000),
         this.makeGeoJSONFillVectorLayer('geojson/ShaleBasins.geojson', 0.25, 64000, 'rgba(56, 132, 189, 0.7)', 0.5, 'rgba(56, 132, 189, 0.3)'),
+
         new VectorTileLayer({
           source: new VectorTileSource({
             format: new MVT(),
-            url: 'http://ecotopia.today/Petropolis/GasPipes/{z}/{x}/{y}.pbf'
+            url: 'https://ecotopia.today/Petropolis/GasPipes/{z}/{x}/{y}.pbf'
           }),
             style: new Style({
             stroke: new Stroke({
-              color: '#001EEF',
-              width: 0.6,
-              opacity: 0.7
+              color: '#00c8f0',
+              width: 1,
+              opacity: 1
             })
           })
         }),
-    //    this.makeGeoJSONLineVectorLayer('geojson/Nat_Gas.geojson', 1, 64000, '#1c9bf5', 1.5),
+
+  //      new VectorTileLayer({
+  //        source: new VectorTileSource({
+  //          format: new MVT(),
+  //          url: 'https://ecotopia.today/Petropolis/GasWells/{z}/{x}/{y}.pbf'
+  //        })
+//        }),
+    //    this.makeGeoJSONLineVectorLayerWithStyle2('geojson/NatGasPipes.geojson', 1, 64000, '#d44b57', 0.8),
         this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
         this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1600, 8000),
@@ -281,8 +289,8 @@ export default {
         ...this.baseLayers,
     //    this.makeGeoJSONFillVectorLayer('geojson/CoalField.geojson', 0.25, 64000, 'rgba(138, 128, 126, 0.7)', 0.5, 'rgba(7, 29, 81, 0.5)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
-        this.makeGeoJSONPointVectorLayer('geojson/SurfaceCoal.geojson', 'icons/Truck.png', null, 1, 2000),
-        this.makeGeoJSONPointVectorLayer('geojson/UndergroundCoal.geojson', 'icons/CoalWagon.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/SurfaceCoal.geojson', 'icons/Truck.png', null, 1, 800),
+        this.makeGeoJSONPointVectorLayer('geojson/UndergroundCoal.geojson', 'icons/CoalWagon.png', null, 1, 800),
         this.makeGeoJSONPointVectorLayer('geojson/CoalAsh.geojson', 'icons/CoalAsh.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant7.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant6.png', null, 8000, 64000)
@@ -296,7 +304,16 @@ export default {
             url: 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg'
           }),
           opacity: 1,
-          minResolution: 0.25
+          minResolution: 200
+        }),
+        new Tile({
+          source: new XYZ({
+            url: 'https://api.mapbox.com/styles/v1/bkholmes/ck9ogzy1a25m01ipb9zpsishl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmtob2xtZXMiLCJhIjoiNjlkYjI4MDUyYTRlZWEyYzkwYTdmOTgxNmMzOGYwMTUifQ.VSUo52PYOUzS60NR6jqXTw'
+          }),
+          opacity: 0.8,
+          minResolution: 0.25,
+          maxResolution: 800,
+          transition: 750
         }),
         // bingMapsAerial
         ...this.baseLayers,

@@ -577,26 +577,26 @@ export default {
         style: this.geoJSONLineVectorLayerStyle1
       })
     },
-    geoJSONLineVectorLayerStyle2: function (feature) {
+    LineVectorTileLayerStyle2: function (feature) {
       if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
         this.styleCache[feature.values_['color']] = new Style({
           stroke: new Stroke({
             color: feature.values_['color'],
-            width: 3.5
+              width: 1
           })
         })
       }
       return this.styleCache[feature.values_['color']]
     },
-    makeGeoJSONLineVectorLayerWithStyle2: function (url, minResolution, maxResolution, width) {
-      return new VectorLayer({
-        source: new VectorSource({
-          format: new GeoJSON(),
+    makeLineVectorTileLayerWithStyle2: function (url, minResolution, maxResolution, width, opacity) {
+      return new VectorTileLayer({
+        source: new VectorTileSource({
+          format: new MVT(),
           url: url
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
-        style: this.geoJSONLineVectorLayerStyle2
+        style: this.LineVectorTileLayerStyle2
       })
     },
     makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
