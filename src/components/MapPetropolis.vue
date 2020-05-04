@@ -6,9 +6,9 @@ import {Tile, Group} from 'ol/layer'
 import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
 import {Vector as VectorLayer} from 'ol/layer'
 import {GeoJSON} from 'ol/format'
-import MVT from 'ol/format/MVT';
-import VectorTileLayer from 'ol/layer/VectorTile';
-import VectorTileSource from 'ol/source/VectorTile';
+import MVT from 'ol/format/MVT'
+import VectorTileLayer from 'ol/layer/VectorTile'
+import VectorTileSource from 'ol/source/VectorTile'
 import {fromLonLat} from 'ol/proj'
 
 import {easeOut} from 'ol/easing.js'
@@ -28,10 +28,10 @@ export default {
           center: [-98, 40.9],
           resolution: 8000
         },
-          pipelinesContested: {
-            center: [-98, 40.9],
-            resolution: 8000
-          },
+        pipelinesContested: {
+          center: [-98, 40.9],
+          resolution: 8000
+        },
         pipelinesAll: {
           center: [2.44, 30.81 ],
           resolution: 25000
@@ -61,8 +61,8 @@ export default {
     baseLayers: function () {
       let bingMapTile = new Tile({
         source: new XYZ({
-         attributions: ['Powered by Esri',
-                   'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
+          attributions: ['Powered by Esri',
+            'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
           url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
         }),
         minResolution: 0.25,
@@ -74,10 +74,10 @@ export default {
       bingMapTile.on('postcompose', function (e) {
         e.context.restore()
       })
-        return [
-          bingMapTile
-        ]
-      },
+      return [
+        bingMapTile
+      ]
+    },
     petropolisPipelineLayers: function () {
       return [
         new Tile({
@@ -130,15 +130,15 @@ export default {
           opacity: 1,
           minResolution: 200
         }),
-          new Tile({
-            source: new XYZ({
-              url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}'
-            }),
-            opacity: 1,
-            minResolution: 200,
-            maxResolution: 32000
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}'
           }),
-          new Tile({
+          opacity: 1,
+          minResolution: 200,
+          maxResolution: 32000
+        }),
+        new Tile({
           source: new XYZ({
             url: 'https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png'
           }),
@@ -195,7 +195,7 @@ export default {
             format: new MVT(),
             url: 'https://ecotopia.today/Petropolis/GasPipes/{z}/{x}/{y}.pbf'
           }),
-            style: new Style({
+          style: new Style({
             stroke: new Stroke({
               color: '#00c8f0',
               width: 1,
@@ -250,7 +250,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/SurfaceCoal.geojson', 'icons/Truck.png', null, 1, 800),
         this.makeGeoJSONPointVectorLayer('geojson/UndergroundCoal.geojson', 'icons/CoalWagon.png', null, 1, 800),
         this.makeGeoJSONPointVectorLayer('geojson/CoalAsh.geojson', 'icons/CoalAsh.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/GHG.png', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant7.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/CoalPlant6.png', null, 8000, 64000)
       ]
     },

@@ -157,11 +157,9 @@ export default {
       }
       if (/petropolisPipelines/.test(this.$route.name)) {
         this.navSubItems = this.subItems.pipelines
-      }
-      else if (/petropolisGas/.test(this.$route.name)) {
+      } else if (/petropolisGas/.test(this.$route.name)) {
         this.navSubItems = this.subItems.gas
-      }
-      else if (/petropolisCoal/.test(this.$route.name)) {
+      } else if (/petropolisCoal/.test(this.$route.name)) {
         this.navSubItems = this.subItems.coal
       } else {
         this.navSubItems = []

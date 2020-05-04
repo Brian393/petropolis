@@ -10,9 +10,9 @@
 </template>
 
 <script>
-  import {appSelector} from '../main.js';
+import {appSelector} from '../main.js'
 
-  /**
+/**
    * Launch a modal based on a filename pointing to an HTML file located in public/html/filename.html.
    * The title of the modal is derived from turning "-" into spaces and titlecasing the words.
    *
@@ -28,41 +28,41 @@
    *
    * Example #3 GeoJson
    * <a href='#' data-info-popup-filename='pipeline-list' onclick="window.infoPopupHtml('pipeline-list')(event)",> test popup, remove me.</a>
-   * 
+   *
    * @param app {Object}: the "this" vuejs object
    * @param fileName {String}: the string which will become the filename that will be fetched from public/html/fileName.html
    * @param isLink {Boolean}: If true add isLoading to the data and add the query string to the URL.
    */
-  const doInfoPopUp = function(app, fileName, isLink) {
-    try {
-      if (!fileName) {
-        throw new Error('You didn\'t provide a filename properly. Please use v-bind:fileName="\'myfile\'", without ".html" at the end.');
-      }
-      let cleanedFilename = fileName.trim();
-      if (fileName.endsWith('.html')) {
-        cleanedFilename = cleanedFilename.substring(0, cleanedFilename.length - 5);
-      }
-      // Strip out any special characters from the URL to make this secure. Only alphanumeric and - and _.
-      cleanedFilename = cleanedFilename.replace(/[^a-zA-Z0-9/-]+/g, '');
-      fetch(`/html/${cleanedFilename}.html`)
-        .then((res) => {
-          res.text().then((html) => {
-            const title = cleanedFilename.replace('-', ' ')
-              .split(' ')
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ');
-            if (isLink) {
-              app.$data.isLoading = false;
-              // Push the infoPopUp name into the query string to make a shareable URL.
-              app.oldUrl = window.location.href;
-              window.history.replaceState(
-                {oldUrl: window.location.href, oldTitle: document.title},
-                title,
-                window.location.href + `?infoPopUp=${cleanedFilename}`
-              );
-            }
-            app.$modal.show({
-              template: `
+const doInfoPopUp = function (app, fileName, isLink) {
+  try {
+    if (!fileName) {
+      throw new Error('You didn\'t provide a filename properly. Please use v-bind:fileName="\'myfile\'", without ".html" at the end.')
+    }
+    let cleanedFilename = fileName.trim()
+    if (fileName.endsWith('.html')) {
+      cleanedFilename = cleanedFilename.substring(0, cleanedFilename.length - 5)
+    }
+    // Strip out any special characters from the URL to make this secure. Only alphanumeric and - and _.
+    cleanedFilename = cleanedFilename.replace(/[^a-zA-Z0-9/-]+/g, '')
+    fetch(`/html/${cleanedFilename}.html`)
+      .then((res) => {
+        res.text().then((html) => {
+          const title = cleanedFilename.replace('-', ' ')
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ')
+          if (isLink) {
+            app.$data.isLoading = false
+            // Push the infoPopUp name into the query string to make a shareable URL.
+            app.oldUrl = window.location.href
+            window.history.replaceState(
+              {oldUrl: window.location.href, oldTitle: document.title},
+              title,
+              window.location.href + `?infoPopUp=${cleanedFilename}`
+            )
+          }
+          app.$modal.show({
+            template: `
                   <div class="info-pop-up__modal-inner">
                     <div class="info-pop-up__modal-close-wrapper">
                     <button class="info-pop-up__modal-close" @click="$modal.hide('info-pop-up')">
@@ -72,60 +72,60 @@
                     <h1>${title}</h1>
                     ${html}
                   </div>
-                `,
-            }, {
-            }, {
-              height: 'auto',
-              scrollable: true,
-              name: 'info-pop-up'
-            }, {
-              'before-close': (event) => {
-                // Get rid of all the query params from the URL
-                window.history.replaceState(
-                  {  },
-                  document.title,
-                  window.location.href.split('?')[0]
-                );
-              }
-            })
-          });
-        });
-    } catch (e) {
-      console.warn(e);
-    }
-  };
-
-  const infoPopUpName = 'info-pop-up';
-
-  const InfoPopUp = {
-    props: {
-      fileName: String,
-      title: String,
-    },
-    data: function() {
-      return {
-        isLoading: false,
-      }
-    },
-    methods: {
-      handleInfoPopUpLinkClick: function() {
-        this.$data.isLoading = true;
-        this.doInfoPopUp(this, this.fileName, true)
-      },
-      doInfoPopUp,
-    },
+                `
+          }, {
+          }, {
+            height: 'auto',
+            scrollable: true,
+            name: 'info-pop-up'
+          }, {
+            'before-close': (event) => {
+              // Get rid of all the query params from the URL
+              window.history.replaceState(
+                { },
+                document.title,
+                window.location.href.split('?')[0]
+              )
+            }
+          })
+        })
+      })
+  } catch (e) {
+    console.warn(e)
   }
+}
 
-  window.infoPopupHtml = (fileName) => {
-    return (e) => {
-      const app = document.querySelector(appSelector)['__vue__'];
-      const isLink = true;
-      e.preventDefault();
-      doInfoPopUp(app, fileName, isLink);
+const infoPopUpName = 'info-pop-up'
+
+const InfoPopUp = {
+  props: {
+    fileName: String,
+    title: String
+  },
+  data: function () {
+    return {
+      isLoading: false
     }
-  };
+  },
+  methods: {
+    handleInfoPopUpLinkClick: function () {
+      this.$data.isLoading = true
+      this.doInfoPopUp(this, this.fileName, true)
+    },
+    doInfoPopUp
+  }
+}
 
-  export {InfoPopUp as default, infoPopUpName, doInfoPopUp};
+window.infoPopupHtml = (fileName) => {
+  return (e) => {
+    const app = document.querySelector(appSelector)['__vue__']
+    const isLink = true
+    e.preventDefault()
+    doInfoPopUp(app, fileName, isLink)
+  }
+}
+
+export {InfoPopUp as default, infoPopUpName, doInfoPopUp}
 </script>
 
 <style>

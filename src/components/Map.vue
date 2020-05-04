@@ -54,10 +54,10 @@ import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon, Circle} from 'ol/style'
 import {ScaleLine, defaults as defaultControls, Control} from 'ol/control'
 import {fromLonLat} from 'ol/proj'
-import {circular} from 'ol/geom/Polygon';
+import {circular} from 'ol/geom/Polygon'
 import {eventBus} from '../main'
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
+import Feature from 'ol/Feature'
+import Point from 'ol/geom/Point'
 
 export default {
   name: 'Map',
@@ -182,7 +182,7 @@ export default {
             }),
             new Control({
               element: document.querySelector('.spotlightControls')
-            }),
+            })
           ])
         })
         this.toggleScaleLine()
@@ -199,7 +199,6 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-
             } else if (props.type && props.corporation && props.name) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h2><br>'
               this.$refs.popupContent.innerHTML += '<strong>NAME:</strong> ' + props.name + '<br>'
@@ -211,7 +210,6 @@ export default {
               this.$refs.popupContent.innerHTML += '<a href=\'' + props.link3 + '\' target=\'_blank\'>here</a>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-
             } else if (props.ProjectType && props.Company) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.ProjectType + '</h2><br>'
               this.$refs.popupContent.innerHTML += '<strong>Company:</strong> ' + props.Company + '<br>'
@@ -256,17 +254,14 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (3 miles):</strong> ' + props.Percent_Older_than_64_3_miles + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-
             } else if (props.type && props.TYPEPIPE) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
               this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(e.coordinate)
-
             } else if (props.images) {
               this.$refs.popupContent.innerHTML = props.images
               this.popup.setPosition(e.coordinate)
@@ -292,8 +287,8 @@ export default {
           this.$refs.map.style.cursor = hit ? 'pointer' : ''
         })
         // Adding zoom to my location functionality as button control.
-        this.userLocSource = this.makeUserLocationLayer(this.olmap);
-        const locateMe = document.querySelector('.locateMe');
+        this.userLocSource = this.makeUserLocationLayer(this.olmap)
+        const locateMe = document.querySelector('.locateMe')
         /**
          * Return the curried event handler function, that is, pass all the following objects into the scope of the event handler. This is an
          * IIFE so it's called immediately.
@@ -302,20 +297,20 @@ export default {
          * @return {function}: the event handler that is called when zoom to location
          * is clicked.
          */
-        locateMe.getLocateArgs = function(map, userLocSource, handleGetUserLocation){
+        locateMe.getLocateArgs = (function (map, userLocSource, handleGetUserLocation) {
           // Here, we return the eventhandler.
-          return function() {
+          return function () {
             return {
               map: map,
               source: userLocSource,
               handler: handleGetUserLocation
             }
           }
-        } (this.olmap, this.userLocSource, this.handleGetUserLocation);
-        locateMe.addEventListener('click', this.handleZoomToMe);
+        }(this.olmap, this.userLocSource, this.handleGetUserLocation))
+        locateMe.addEventListener('click', this.handleZoomToMe)
         // Add the new Locate Me button to the controls.
         this.olmap.addControl(new Control({
-          element: document.querySelector('.locateMe-control'),
+          element: document.querySelector('.locateMe-control')
         }))
         // Trigger the modal requesting zoom-to-location.
         if (!this.$cookies.get('locationRequested')) {
@@ -325,34 +320,34 @@ export default {
               {
                 title: 'Share my location',
                 handler: e => {
-                  this.handleGetUserLocation(this.userLocSource, this.olmap);
-                  this.$modal.hide('dialog');
+                  this.handleGetUserLocation(this.userLocSource, this.olmap)
+                  this.$modal.hide('dialog')
                   // Adds a browser cookie so we only show popup one time.
-                  this.$cookies.set('locationRequested', true, '7d');
+                  this.$cookies.set('locationRequested', true, '7d')
                 }
               },
               {
                 title: 'Close',
                 default: true,
                 handler: () => {
-                  this.$cookies.set('locationRequested', true, '7d');
-                  this.$modal.hide('dialog');
+                  this.$cookies.set('locationRequested', true, '7d')
+                  this.$modal.hide('dialog')
                 }
               }
-            ],
-          });
+            ]
+          })
         }
         // After the map moveend event fires, determine if the instructions
         // for using the spotlights should be shown based on zoom level.
-        this.olmap.on('moveend', function(e) {
-          const zoomLevel = this.getView().getZoom();
-          const spotlightControls = document.querySelector('.spotlightControls');
+        this.olmap.on('moveend', function (e) {
+          const zoomLevel = this.getView().getZoom()
+          const spotlightControls = document.querySelector('.spotlightControls')
           if (zoomLevel >= 11) {
-            spotlightControls.style.display = 'block';
+            spotlightControls.style.display = 'block'
           } else {
-            spotlightControls.style.display = 'none';
+            spotlightControls.style.display = 'none'
           }
-        });
+        })
       }
     },
     closePopup: function () {
@@ -631,7 +626,7 @@ export default {
         this.styleCache[feature.values_['color']] = new Style({
           stroke: new Stroke({
             color: feature.values_['color'],
-              width: 1
+            width: 1
           })
         })
       }
@@ -672,31 +667,31 @@ export default {
      * scope, whose "this" scope is the event and the clicked button.
      *
      */
-    handleZoomToMe: function(e) {
-      const {map, source, handler} = e.target.getLocateArgs();
-      handler(source, map);
+    handleZoomToMe: function (e) {
+      const {map, source, handler} = e.target.getLocateArgs()
+      handler(source, map)
     },
-    handleGetUserLocation: function(source, map) {
-      const watchId = navigator.geolocation.watchPosition(function(pos) {
-        const coords = [pos.coords.longitude, pos.coords.latitude];
-        const accuracy = circular(coords, pos.coords.accuracy);
-        source.clear(true);
+    handleGetUserLocation: function (source, map) {
+      const watchId = navigator.geolocation.watchPosition(function (pos) {
+        const coords = [pos.coords.longitude, pos.coords.latitude]
+        const accuracy = circular(coords, pos.coords.accuracy)
+        source.clear(true)
         source.addFeatures([
           new Feature(accuracy.transform('EPSG:4326', map.getView().getProjection())),
           new Feature(new Point(fromLonLat(coords)))
-        ]);
+        ])
         if (!source.isEmpty()) {
           map.getView().fit(source.getExtent(), {
             maxZoom: 7,
             duration: 500
-          });
-          navigator.geolocation.clearWatch(watchId);
+          })
+          navigator.geolocation.clearWatch(watchId)
         }
-      }, function(error) {
-        alert(`ERROR: ${error.message}`);
+      }, function (error) {
+        alert(`ERROR: ${error.message}`)
       }, {
         enableHighAccuracy: true
-      });
+      })
     },
     /*
      * Creates a new layer for the user's location that will be used for getting
@@ -705,13 +700,13 @@ export default {
      * @param {Object} map: this vueJS map object
      * @return {VectorSource}: The created user layer VectorSource
      */
-    makeUserLocationLayer: function(map) {
-      const source = new VectorSource();
+    makeUserLocationLayer: function (map) {
+      const source = new VectorSource()
       const layer = new VectorLayer({
         source: source
-      });
+      })
       this.olmap.addLayer(layer)
-      return source;
+      return source
     },
     toggleScaleLine: function () {
       if (this.asideHidden || window.innerWidth < 850) {

@@ -9,7 +9,6 @@
 
     <p>The buttons at lower left open up similar maps of coal and natural gas installations (these pages are still under development). The view is initially centered on the US, but you can zoom out to see the whole world. As it stands today, everywhere is Petropolis.</p>
 
-
 <br>
 <Accordion :open="false">
   <h3 slot="header">sources</h3>
