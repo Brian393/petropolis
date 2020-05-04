@@ -45,12 +45,12 @@ export default {
           resolution: 25000
         },
         gas: {
-          center: [-98, 40.9],
-          resolution: 8000
+          center: [-89, 34.90],
+          resolution: 4500
         },
         gasWorld: {
-          center: [2.44, 31.81],
-          resolution: 25000
+          center: [2.44, 31.01],
+          resolution: 30000
         }
       }, // end centerPoints
       radius: 400,
@@ -102,7 +102,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin.png', null, 1, 8000)
+        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
       ]
     },
     petropolisPipelinesContestedLayers: function () {
@@ -212,7 +212,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 2),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin.png', null, 1, 5000),
+        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNGterminal.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
       ]
@@ -457,55 +457,6 @@ export default {
             const props = feature.getProperties()
             if (props.vimeoSrc2) {
               const mediabox = new MediaLightBox(props.vimeoSrc2)
-              mediabox.open()
-            }
-          }
-        })
-      }
-    },
-    initPetropolisTarSandsBakken: function () {
-      this.initBaseMap()
-      this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisBakkenLayers
-      }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.bakken.center),
-        resolution: this.centerPoints.bakken.resolution,
-        minResolution: 0.5,
-        maxResolution: 16000
-      }))
-    },
-    initPetropolisTarSandsGulf: function () {
-      this.initBaseMap()
-      this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisGulfLayers
-      }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.gulf.center),
-        resolution: this.centerPoints.gulf.resolution,
-        minResolution: 0.5,
-        maxResolution: 16000
-      }))
-    },
-    initPetropolisChicago: function () {
-      this.initBaseMap()
-      this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisChicagoLayers
-      }))
-      this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.chicago.center),
-        resolution: this.centerPoints.chicago.resolution,
-        minResolution: 0.5,
-        maxResolution: 16000
-      }))
-      // Had to change props to vimeoSrc3 - here and in geojson - or else it doesn't close
-      if (this.olmap) {
-        this.olmap.on('singleclick', (e) => {
-          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
-          if (feature) {
-            const props = feature.getProperties()
-            if (props.vimeoSrc3) {
-              const mediabox = new MediaLightBox(props.vimeoSrc3)
               mediabox.open()
             }
           }

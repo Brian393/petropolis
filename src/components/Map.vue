@@ -202,13 +202,13 @@ export default {
 
             } else if (props.type && props.corporation && props.name) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h2><br>'
-              this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>NAME:</strong> ' + props.name + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>DESCRIPTION:</strong> ' + props.description + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>CAPACITY:</strong> ' + props.capacity + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>CORPORATE WEBSITE:</strong> <a href=\'' + props.link1 + '\' target=\'_blank\'>here</a><br>'
-              this.$refs.popupContent.innerHTML += props.link2 + '<br>'
-              this.$refs.popupContent.innerHTML += props.link3 + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>More information:</strong>  <a href=\'' + props.link2 + '\' target=\'_blank\'>here</a><br>'
+              this.$refs.popupContent.innerHTML += '<a href=\'' + props.link3 + '\' target=\'_blank\'>here</a>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
 
