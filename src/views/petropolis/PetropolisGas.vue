@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div>
-    <p><img src="images/OilHead.jpg" class="fullwidth"><div class="caption"></p></div>
+    <p><img src="icons/LegendGas.png" class="fullwidth"><div class="caption">* these features appear when you zoom in</p></div>
 
     <p style="font-size:120%;"><strong><em>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</em></strong></p>
 
@@ -13,8 +13,7 @@
 <Accordion :open="false">
   <h3 slot="header">legend</h3>
   <div class="flex">
-    <img src="images/Legend.png"><br>
-    <p>* These appear when you zoom in.<br><br>Click any element to find out more.<br><br>Spyglass appears at full zoom.<br>Press "shift" + &#8593; to enlarge it.<br>Press "shift" + &#8595; to shrink it.</p>
+
   </div>
 </Accordion>
 

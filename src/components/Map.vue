@@ -191,7 +191,7 @@ export default {
           if (feature) {
             const props = feature.getProperties()
             // #TODO: use better property names in .geojson files for if/else logic
-            if (props.title && props.image && props.text1) {
+            if (props.title && props.image) {
               this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
               this.$refs.popupContent.innerHTML += props.image ? props.image.replace('cascadia/', '') : ''
               this.$refs.popupContent.innerHTML += props.text1 + '<br>'
@@ -199,8 +199,9 @@ export default {
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+
             } else if (props.type && props.corporation && props.name) {
-              this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
+              this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h2><br>'
               this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>NAME:</strong> ' + props.name + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>DESCRIPTION:</strong> ' + props.description + '<br>'
@@ -210,14 +211,62 @@ export default {
               this.$refs.popupContent.innerHTML += props.link3 + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+
+            } else if (props.ProjectType && props.Company) {
+              this.$refs.popupContent.innerHTML = '<h2>' + props.ProjectType + '</h2><br>'
+              this.$refs.popupContent.innerHTML += '<strong>Company:</strong> ' + props.Company + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Plant or Project:</strong> ' + props.Plant_or_Project + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>State:</strong> ' + props.State + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>County\/Parish:</strong> ' + props.County_Parish + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Classification:</strong> ' + props.Classification + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Sector:</strong> ' + props.Sector + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Description:</strong> ' + props.Description + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Type(s):</strong> ' + props.Types + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>CO2 equivalent, tons per year:</strong> ' + props.CO2e_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>PM10, tons per year:</strong> ' + props.PM10_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>PM2.5, tons per year:</strong> ' + props.PM25_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>PM, tons per year:</strong> ' + props.PM_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>NOx, tons per year:</strong> ' + props.NOx_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>VOC, tons per year:</strong> ' + props.VOC_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>SO2, tons per year:</strong> ' + props.SO2_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>CO, tons per year:</strong> ' + props.CO_tpy + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>GHG Permit Status:</strong> ' + props.GHG_Permit_Status + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Permit History (permit no., type, issue date):</strong> ' + props.Permit_History_permit_no_type_issue_date + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Permit Documents:</strong> ' + props.Permit_Documents + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>State Facility ID(s):</strong> ' + props.State_Facility_IDs + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Link to State Permitting Website:</strong> ' + props.Link_to_State_Permitting_Website + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Link to State Enforcement Records:</strong> ' + props.Link_to_State_Enforcement_Records + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>EPA Compliance Report:</strong> ' + props.EPA_Compliance_Report + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Congressional Representative, Political Party:</strong> ' + props.Congressional_Representative_Political_Party + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Permit Status Last Updated by EIP Staff:</strong> ' + props.Permit_Status_Last_Updated_by_EIP_Staff + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Operational Status:</strong> ' + props.Operational_Status + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Year Operating or Expected Completion Date:</strong> ' + props.Year_Operating_or_Expected_Completion_Date + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Operational Status Sources:</strong> ' + props.Operational_Status_Sources + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Operational Status Links:</strong> ' + props.Operational_Status_Links + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Operating Status Last Updated by EIP Staff:</strong> ' + props.Operating_Status_Last_Updated_by_EIP_Staff + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Total Population (1 mile):</strong> ' + props.Total_Population_1_mile + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Minority (1 mile):</strong> ' + props.Percent_Minority_1_mile + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Low Income (1 mile):</strong> ' + props.Percent_Low_Income_1_mile + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Younger than 5 (1 mile):</strong> ' + props.Percent_Younger_than_5 + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (1 mile):</strong> ' + props.Percent_Older_than_64_1_mile + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Total Population (3 miles):</strong> ' + props.Total_Population_3_miles + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Minority (3 miles):</strong> ' + props.Percent_Minority_3_miles + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Low Income (3 miles):</strong> ' + props.Percent_Low_Income_3_miles + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Younger than 5 (3 miles):</strong> ' + props.Percent_Younger_than_5_3_miles + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (3 miles):</strong> ' + props.Percent_Older_than_64_3_miles + '<br>'
+              this.popup.setPosition(e.coordinate)
+              this.closeTooltip()
+
             } else if (props.type && props.TYPEPIPE) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
               this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
+
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(e.coordinate)
+
             } else if (props.images) {
               this.$refs.popupContent.innerHTML = props.images
               this.popup.setPosition(e.coordinate)
@@ -560,7 +609,7 @@ export default {
           stroke: new Stroke({
             color: feature.values_['color'],
             width: 4,
-            lineDash: [4]
+            lineDash: [6]
           })
         })
       }

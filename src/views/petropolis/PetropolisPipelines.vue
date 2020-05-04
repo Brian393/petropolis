@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div>
-    <p><img src="icons/Legend.png" class="fullwidth"><div class="caption"></p></div>
+    <p><img src="icons/Legend.png" class="fullwidth"><div class="caption">* these features appear when you zoom in</p></div>
 
     <p style="font-size:120%;"><strong><em>This map shows the major petroleum infrastructures of the United States and the world. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.</em></strong></p>
 
