@@ -101,7 +101,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
       ]
     },
-    petropolisPipelinesContestedLayers: function () {
+    petropolisOilContestedLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -117,7 +117,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fd6a02', 3.5)
       ]
     },
-    petropolisPipelinesAllLayers: function () {
+    petropolisOilAllLayers: function () {
       return [
         new Tile({
           source: new XYZ({
@@ -313,14 +313,14 @@ export default {
   methods: {
     initMap: function () {
       switch (this.$route.name) {
-        case 'petropolisPipelines':
-          this.initPetropolisPipelines()
+        case 'petropolisOil':
+          this.initPetropolisOil()
           break
-        case 'petropolisPipelinesContested':
-          this.initPetropolisPipelinesContested()
+        case 'petropolisOilContested':
+          this.initPetropolisOilContested()
           break
-        case 'petropolisPipelinesAll':
-          this.initPetropolisPipelinesAll()
+        case 'petropolisOilAll':
+          this.initPetropolisOilAll()
           break
         case 'petropolisCoal':
           this.initPetropolisCoal()
@@ -335,10 +335,10 @@ export default {
           this.initPetropolisGasWorld()
           break
         default:
-          this.initPetropolisPipelines()
+          this.initPetropolisOil()
       }
     },
-    initPetropolisPipelines: function () {
+    initPetropolisOil: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
         layers: this.petropolisPipelineLayers
@@ -362,10 +362,10 @@ export default {
         })
       }
     },
-    initPetropolisPipelinesContested: function () {
+    initPetropolisOilContested: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisPipelinesContestedLayers
+        layers: this.petropolisOilContestedLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelinesContested.center),
@@ -374,10 +374,10 @@ export default {
         maxResolution: 32000
       }))
     },
-    initPetropolisPipelinesAll: function () {
+    initPetropolisOilAll: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisPipelinesAllLayers
+        layers: this.petropolisOilAllLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelinesAll.center),

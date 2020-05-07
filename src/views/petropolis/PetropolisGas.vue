@@ -46,7 +46,7 @@ import Accordion from '../../components/Accordion.vue'
 import {eventBus} from '../../main'
 
 export default {
-  name: 'PetropolisPipelinesGas',
+  name: 'PetropolisOilGas',
   components: {
     Accordion,
     AppLightBox

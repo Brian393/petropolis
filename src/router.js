@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PetropolisPipelines from './views/petropolis/PetropolisPipelines.vue'
+import PetropolisOil from './views/petropolis/PetropolisOil.vue'
 import MapPetropolis from './components/MapPetropolis.vue'
 
 Vue.use(Router)
@@ -9,30 +9,30 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/petropolis/pipelines'
+      redirect: '/petropolis/oil'
     },
     {
-      path: '/petropolis/pipelines',
-      name: 'petropolisPipelines',
+      path: '/petropolis/oil',
+      name: 'petropolisOil',
       components: {
-        default: PetropolisPipelines,
+        default: PetropolisOil,
         map: MapPetropolis
       }
     },
-    {
-      path: '/petropolis/pipelines/contested',
-      name: 'petropolisPipelinesContested',
-      components: {
-        default: () => import('./views/petropolis/PetropolisPipelines.vue'),
-        map: MapPetropolis
-      }
-    },
+//    {
+//      path: '/petropolis/oil/contested',
+//      name: 'petropolisOilContested',
+//      components: {
+//        default: () => import('./views/petropolis/PetropolisOil.vue'),
+//        map: MapPetropolis
+//      }
+//    },
     // added
     {
-      path: '/petropolis/pipelines/all',
-      name: 'petropolisPipelinesAll',
+      path: '/petropolis/oil/world',
+      name: 'petropolisOilAll',
       components: {
-        default: () => import('./views/petropolis/PetropolisPipelines.vue'),
+        default: () => import('./views/petropolis/PetropolisOil.vue'),
         map: MapPetropolis
       }
     },

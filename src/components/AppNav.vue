@@ -99,7 +99,7 @@ export default {
         items: [
           {
             name: 'Oil',
-            href: '/petropolis/pipelines'
+            href: '/petropolis/oil'
           },
           {
             name: 'Natural Gas',
@@ -114,19 +114,19 @@ export default {
       subItems: {
         pipelines: [
           {
-            name: 'Rest of the World',
-            href: '/petropolis/pipelines/all'
+            name: 'Rest of the Oil',
+            href: '/petropolis/oil/world'
           }
         ],
         gas: [
           {
-            name: 'Rest of the World',
+            name: 'Rest of the Gas',
             href: '/petropolis/gas/world'
           }
         ],
         coal: [
           {
-            name: 'Rest of the World',
+            name: 'Rest of the Coal',
             href: '/petropolis/coal/world'
           }
         ]
@@ -155,7 +155,7 @@ export default {
       } else {
         this.nav = []
       }
-      if (/petropolisPipelines/.test(this.$route.name)) {
+      if (/petropolisOil/.test(this.$route.name)) {
         this.navSubItems = this.subItems.pipelines
       } else if (/petropolisGas/.test(this.$route.name)) {
         this.navSubItems = this.subItems.gas
