@@ -3,7 +3,7 @@ import Map from './Map.vue'
 
 import {View} from 'ol'
 import {Tile, Group} from 'ol/layer'
-import {XYZ, Vector as VectorSource, BingMaps} from 'ol/source'
+import {XYZ, Vector as VectorSource} from 'ol/source'
 import {Vector as VectorLayer} from 'ol/layer'
 import {GeoJSON} from 'ol/format'
 import MVT from 'ol/format/MVT'
@@ -17,6 +17,7 @@ import {unByKey} from 'ol/Observable.js'
 import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
 import AppLightBox from './AppLightBox.vue'
+import colormap from 'colormap';
 
 export default {
   name: 'MapPetropolis',
@@ -52,30 +53,30 @@ export default {
           center: [2.44, 31.01],
           resolution: 30000
         }
-      }, // end centerPoints
-      radius: 400,
+      }, // end centerPoints, radius controls spotlight size
+      radius: 160,
       mousePosition: undefined
     }
   },
   computed: {
     baseLayers: function () {
-      let bingMapTile = new Tile({
+      let esriMapTile = new Tile({
         source: new XYZ({
           attributions: ['Powered by Esri',
             'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
           url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
         }),
         minResolution: 0.25,
-        maxResolution: 40
+        maxResolution: 20
       })
-      bingMapTile.on('precompose', (e) => {
-        this.spyglass(e)
+      esriMapTile.on('precompose', (e) => {
+        this.spotlight(e)
       })
-      bingMapTile.on('postcompose', function (e) {
+      esriMapTile.on('postcompose', function (e) {
         e.context.restore()
       })
       return [
-        bingMapTile
+        esriMapTile
       ]
     },
     petropolisPipelineLayers: function () {
@@ -89,9 +90,10 @@ export default {
         }),
         // Aerial
         ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+    //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
+        this.makeGeoJSONPointVectorLayer('geojson/Terminals.geojson', 'icons/terminal.png', null, 1, 2000),
         this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
         this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
         this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
@@ -99,8 +101,8 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
       ]
@@ -114,7 +116,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
@@ -162,43 +164,43 @@ export default {
           loadTilesWhileAnimating: true,
           loadTilesWhileInteracting: true
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 2.5),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 2.5),
-        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 2.5),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, 'black', 7),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, '#fd6a02', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery2.png', null, 1, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery2.png', null, 1, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery.png', null, 8000, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery.png', null, 8000, 32000)
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery4.png', null, 8000, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery4.png', null, 8000, 32000)
       ]
     },
     petropolisGasLayers: function () {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
           }),
-          opacity: 1,
+          opacity: 0.8,
           minResolution: 0.25
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/ShalePlays.geojson', 40, 64000, 'rgba(91, 73, 14, 0.7)', 0.5, 'rgba(91, 73, 14, 0.3)'),
 
         new VectorTileLayer({
           source: new VectorTileSource({
             format: new MVT(),
-            url: 'https://ecotopia.today/Petropolis/GasPipes/{z}/{x}/{y}.pbf'
+            url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
           }),
           style: new Style({
             stroke: new Stroke({
               color: '#00c8f0',
-              width: 1,
+              width: 1.5,
               opacity: 1
             })
           })
@@ -209,8 +211,8 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1600, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas2.png', null, 800, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 2),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
         this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNGterminal.png', null, 1, 16000),
@@ -226,7 +228,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONFillVectorLayer('geojson/ShaleBasins.geojson', 0.25, 64000, 'rgba(56, 132, 189, 0.7)', 0.5, 'rgba(7, 29, 81, 0.2)'),
         this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1, 64000),
@@ -244,7 +246,7 @@ export default {
           opacity: 1,
           minResolution: 0.25
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/SurfaceCoal.geojson', 'icons/Truck.png', null, 1, 800),
@@ -272,7 +274,7 @@ export default {
           maxResolution: 800,
           transition: 750
         }),
-        // bingMapsAerial
+        // esriMapsAerial
         ...this.baseLayers,
         this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
@@ -289,6 +291,12 @@ export default {
   },
   mounted: function () {
     this.initMap()
+    this.colors = colormap({
+      colormap: 'portland',
+      nshades: 32,
+      format: 'hex',
+      alpha: 1
+    })
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
         this.radius = Math.min(this.radius + 5, 800)
@@ -478,7 +486,7 @@ export default {
       }
       return quadKeyDigits.join('')
     },
-    spyglass: function (e) {
+    spotlight: function (e) {
       let ctx = e.context
       const pixelRatio = e.frameState.pixelRatio
       ctx.save()
@@ -487,7 +495,7 @@ export default {
         // Only show a circle around the mouse --
         ctx.arc(this.mousePosition[0] * pixelRatio, this.mousePosition[1] * pixelRatio,
           this.radius * pixelRatio, 0, 2 * Math.PI)
-        ctx.lineWidth = 5 * pixelRatio
+        ctx.lineWidth = 6 * pixelRatio
         ctx.strokeStyle = 'rgba(0,0,0,0.5)'
         ctx.stroke()
       }

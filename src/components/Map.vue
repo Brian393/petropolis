@@ -254,9 +254,10 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (3 miles):</strong> ' + props.Percent_Older_than_64_3_miles + '<br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
-            } else if (props.type && props.TYPEPIPE) {
-              this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h4><br>'
-              this.$refs.popupContent.innerHTML += '<strong>OWNER:</strong> ' + props.corporation + '<br>'
+            } else if (props.type && props.description && props.Operator) {
+              this.$refs.popupContent.innerHTML = '<h2>' + props.type + 'line</h4><br>'
+              this.$refs.popupContent.innerHTML += '<strong>Operator:</strong> ' + props.Operator + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Description:</strong> ' + props.description + ' pipeline <br>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
             } else if (props.key) {

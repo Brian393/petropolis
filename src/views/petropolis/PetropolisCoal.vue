@@ -14,7 +14,7 @@
   <h3 slot="header">legend</h3>
   <div class="flex">
     <img src="images/Legend.png"><br>
-    <p>* These appear when you zoom in.<br><br>Click any element to find out more.<br><br>Spyglass appears at full zoom.<br>Press "shift" + &#8593; to enlarge it.<br>Press "shift" + &#8595; to shrink it.</p>
+    <p>* These appear when you zoom in.<br><br>Click any element to find out more.<br><br>spotlight appears at full zoom.<br>Press "shift" + &#8593; to enlarge it.<br>Press "shift" + &#8595; to shrink it.</p>
   </div>
 </Accordion>
 
