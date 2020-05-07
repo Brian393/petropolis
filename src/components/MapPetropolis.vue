@@ -3,21 +3,15 @@ import Map from './Map.vue'
 
 import {View} from 'ol'
 import {Tile, Group} from 'ol/layer'
-import {XYZ, Vector as VectorSource} from 'ol/source'
-import {Vector as VectorLayer} from 'ol/layer'
-import {GeoJSON} from 'ol/format'
+import {XYZ} from 'ol/source'
 import MVT from 'ol/format/MVT'
 import VectorTileLayer from 'ol/layer/VectorTile'
 import VectorTileSource from 'ol/source/VectorTile'
 import {fromLonLat} from 'ol/proj'
 
-import {easeOut} from 'ol/easing.js'
-import {Style, Icon, Text, Fill, Stroke} from 'ol/style'
-import {unByKey} from 'ol/Observable.js'
+import {Style, Stroke} from 'ol/style'
 import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
-import AppLightBox from './AppLightBox.vue'
-import colormap from 'colormap';
 
 export default {
   name: 'MapPetropolis',
@@ -34,7 +28,7 @@ export default {
           resolution: 8000
         },
         pipelinesAll: {
-          center: [2.44, 30.81 ],
+          center: [ 2.44, 30.81 ],
           resolution: 25000
         },
         coal: {
@@ -291,12 +285,6 @@ export default {
   },
   mounted: function () {
     this.initMap()
-    this.colors = colormap({
-      colormap: 'portland',
-      nshades: 32,
-      format: 'hex',
-      alpha: 1
-    })
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 38) { // up arrow key
         this.radius = Math.min(this.radius + 5, 800)
