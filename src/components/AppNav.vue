@@ -114,6 +114,10 @@ export default {
       subItems: {
         pipelines: [
           {
+            name: 'Pipelines Only',
+            href: '/petropolis/oil/pipelines'
+          },
+          {
             name: 'Rest of the Oil',
             href: '/petropolis/oil/world'
           }

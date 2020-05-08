@@ -24,8 +24,8 @@ export default {
           resolution: 8000
         },
         pipelinesContested: {
-          center: [-98, 40.9],
-          resolution: 8000
+          center: [-99, 43.9],
+          resolution: 10000
         },
         pipelinesAll: {
           center: [ 2.44, 30.81 ],
@@ -75,48 +75,46 @@ export default {
     },
     petropolisPipelineLayers: function () {
       return [
-        new Tile({
-          source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
-          }),
-          opacity: 1,
-          minResolution: 0.25
-        }),
-        // Aerial
-        ...this.baseLayers,
-    //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
-        this.makeGeoJSONPointVectorLayer('geojson/Terminals.geojson', 'icons/terminal.png', null, 1, 2000),
-        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
-        this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
-      ]
-    },
-    petropolisOilContestedLayers: function () {
+      // Aerial
+      ...this.baseLayers,
+  //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1, 64000, 'gray', 0.5),
+      this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1-key.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes2-key.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes-key.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines-key.geojson', 1, 16000, 'black', 8.5),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines-key.geojson', 1, 16000, '#fb5c04', 3.5)
+    ]
+  },
+    petropolisOilPipelineLayers: function () {
       return [
-        new Tile({
-          source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
-          }),
-          opacity: 1,
-          minResolution: 0.25
-        }),
-        // esriMapsAerial
-        ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, 'black', 8.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 64000, '#fd6a02', 3.5)
-      ]
-    },
+            new Tile({
+              source: new XYZ({
+                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png'
+              }),
+              opacity: 1,
+              minResolution: 0.25
+            }),
+            // Aerial
+            ...this.baseLayers,
+        //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+            this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
+            this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
+            this.makeGeoJSONPointVectorLayer('geojson/Terminals.geojson', 'icons/terminal.png', null, 1, 2000),
+            this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
+            this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
+            this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+            this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
+            this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
+            this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5),
+            this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+            this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
+            this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
+            this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
+            this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
+          ]
+        },
     petropolisOilAllLayers: function () {
       return [
         new Tile({
@@ -177,7 +175,7 @@ export default {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}'
           }),
           opacity: 0.8,
           minResolution: 0.25
@@ -316,8 +314,8 @@ export default {
         case 'petropolisOil':
           this.initPetropolisOil()
           break
-        case 'petropolisOilContested':
-          this.initPetropolisOilContested()
+        case 'petropolisOilPipelines':
+          this.initPetropolisOilPipelines()
           break
         case 'petropolisOilAll':
           this.initPetropolisOilAll()
@@ -362,10 +360,10 @@ export default {
         })
       }
     },
-    initPetropolisOilContested: function () {
+    initPetropolisOilPipelines: function () {
       this.initBaseMap()
       this.olmap.setLayerGroup(new Group({
-        layers: this.petropolisOilContestedLayers
+        layers: this.petropolisOilPipelineLayers
       }))
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelinesContested.center),

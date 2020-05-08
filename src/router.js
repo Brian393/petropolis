@@ -19,14 +19,14 @@ export default new Router({
         map: MapPetropolis
       }
     },
-//    {
-//      path: '/petropolis/oil/contested',
-//      name: 'petropolisOilContested',
-//      components: {
-//        default: () => import('./views/petropolis/PetropolisOil.vue'),
-//        map: MapPetropolis
-//      }
-//    },
+    {
+      path: '/petropolis/oil/pipelines',
+      name: 'petropolisOilPipelines',
+      components: {
+        default: () => import('./views/petropolis/PetropolisOil.vue'),
+        map: MapPetropolis
+      }
+    },
     // added
     {
       path: '/petropolis/oil/world',

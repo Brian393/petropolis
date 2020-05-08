@@ -206,7 +206,7 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>DESCRIPTION:</strong> ' + props.description + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>CAPACITY:</strong> ' + props.capacity + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>CORPORATE WEBSITE:</strong> <a href=\'' + props.link1 + '\' target=\'_blank\'>here</a><br>'
-              this.$refs.popupContent.innerHTML += '<strong>More information:</strong>  <a href=\'' + props.link2 + '\' target=\'_blank\'>here</a><br>'
+              this.$refs.popupContent.innerHTML += '<strong>More information:</strong>  <a href=\'' + props.link2 + '\' target=\'_blank\'>here</a> and '
               this.$refs.popupContent.innerHTML += '<a href=\'' + props.link3 + '\' target=\'_blank\'>here</a>'
               this.popup.setPosition(e.coordinate)
               this.closeTooltip()
