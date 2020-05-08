@@ -205,6 +205,11 @@ export default {
           if (this.popupInfoLayerSource) {
             this.popupInfoLayerSource.clear()
           }
+          // Reset sidebar html state
+          if (this.sideBarInitialHtmlState) {
+            document.getElementById('feature-content').innerHTML = this.sideBarInitialHtmlState
+            this.sideBarInitialHtmlState = ''
+          }
           if (feature) {
             const props = feature.getProperties()
             // Correct popup position
@@ -417,6 +422,10 @@ export default {
     },
     zoomToFeature () {
       const geometry = this.activeFeature.getGeometry()
+      const sideBarFeatureContentEl = document.getElementById('feature-content')
+      this.sideBarInitialHtmlState = sideBarFeatureContentEl.innerHTML
+      sideBarFeatureContentEl.innerHTML = this.$refs.popupContent.innerHTML
+
       if (geometry.getType() === 'Point') {
         this.olmap.getView().animate({
           center: geometry.getCoordinates(),
