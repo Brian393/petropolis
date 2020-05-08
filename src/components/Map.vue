@@ -18,6 +18,12 @@
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
+      <div v-if="activeFeature" class="zoomToFeature">
+      <a href="javascript:void(0)" @click="zoomToFeature()">
+        <strong>{{ activeFeature.getGeometry().getType() === 'Point' ? 'DIVE' : 'VIEW WHOLE LINE' }}</strong>
+      </a>
+      </div>
+
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
@@ -46,10 +52,15 @@
 */
 
 import {mapGetters} from 'vuex'
+
 import 'ol/ol.css'
 import {Map, Overlay, View} from 'ol'
 import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source' // OSM
+import VectorTileLayer from 'ol/layer/VectorTile'
+import MVT from 'ol/format/MVT'
+import VectorTileSource from 'ol/source/VectorTile'
+
 import {GeoJSON} from 'ol/format'
 import {Style, Stroke, Fill, Icon, Circle} from 'ol/style'
 import {ScaleLine, defaults as defaultControls, Control} from 'ol/control'
@@ -64,7 +75,9 @@ export default {
   data: function () {
     return {
       olmap: undefined,
-      styleCache: {}
+      styleCache: {},
+      activeFeature: null,
+      popupInfoLayerSource: null
     }
   },
   created: function () {
@@ -188,8 +201,21 @@ export default {
         this.toggleScaleLine()
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          // Clear popupInfo layer
+          if (this.popupInfoLayerSource) {
+            this.popupInfoLayerSource.clear()
+          }
           if (feature) {
             const props = feature.getProperties()
+            // Correct popup position
+            const closestPoint = feature.getGeometry().getClosestPoint(e.coordinate)
+
+            // Center the map so the highlight circle is opened directly over the point when the user clicks "DIVE"
+            this.olmap.getView().animate({
+              center: closestPoint,
+              duration: 400
+            })
+
             // #TODO: use better property names in .geojson files for if/else logic
             if (props.title && props.image) {
               this.$refs.popupContent.innerHTML = '<h4>' + props.title + '</h4>'
@@ -197,7 +223,7 @@ export default {
               this.$refs.popupContent.innerHTML += props.text1 + '<br>'
               this.$refs.popupContent.innerHTML += props.text2 ? props.text2 + '<br>' : ''
               this.$refs.popupContent.innerHTML += props.text3 ? props.text3 + '<br>' : ''
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
               this.closeTooltip()
             } else if (props.type && props.corporation && props.name) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + '</h2><br>'
@@ -208,7 +234,7 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>CORPORATE WEBSITE:</strong> <a href=\'' + props.link1 + '\' target=\'_blank\'>here</a><br>'
               this.$refs.popupContent.innerHTML += '<strong>More information:</strong>  <a href=\'' + props.link2 + '\' target=\'_blank\'>here</a><br>'
               this.$refs.popupContent.innerHTML += '<a href=\'' + props.link3 + '\' target=\'_blank\'>here</a>'
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
               this.closeTooltip()
             } else if (props.ProjectType && props.Company) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.ProjectType + '</h2><br>'
@@ -252,23 +278,25 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>Percent Low Income (3 miles):</strong> ' + props.Percent_Low_Income_3_miles + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>Percent Younger than 5 (3 miles):</strong> ' + props.Percent_Younger_than_5_3_miles + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (3 miles):</strong> ' + props.Percent_Older_than_64_3_miles + '<br>'
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
               this.closeTooltip()
             } else if (props.type && props.description && props.Operator) {
               this.$refs.popupContent.innerHTML = '<h2>' + props.type + 'line</h4><br>'
               this.$refs.popupContent.innerHTML += '<strong>Operator:</strong> ' + props.Operator + '<br>'
               this.$refs.popupContent.innerHTML += '<strong>Description:</strong> ' + props.description + ' pipeline <br>'
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
               this.closeTooltip()
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
             } else if (props.images) {
               this.$refs.popupContent.innerHTML = props.images
-              this.popup.setPosition(e.coordinate)
+              this.popup.setPosition(closestPoint)
+
             // starting here I took out a lot of stuff which can be found in Cascadia maps
             } else if (props.vimeoSrc) {
             }
+            this.activeFeature = feature
           } else {
             this.closePopup()
           }
@@ -290,6 +318,8 @@ export default {
         // Adding zoom to my location functionality as button control.
         this.userLocSource = this.makeUserLocationLayer(this.olmap)
         const locateMe = document.querySelector('.locateMe')
+        // Create popupInfo layer
+        setTimeout(() => { this.makePopupInfoLayer() }, 1000)
         /**
          * Return the curried event handler function, that is, pass all the following objects into the scope of the event handler. This is an
          * IIFE so it's called immediately.
@@ -384,6 +414,65 @@ export default {
     closeTooltip: function () {
       this.tooltip.setPosition(undefined)
       return false
+    },
+    zoomToFeature () {
+      const geometry = this.activeFeature.getGeometry()
+      if (geometry.getType() === 'Point') {
+        this.olmap.getView().animate({
+          center: geometry.getCoordinates(),
+          zoom: 14,
+          duration: 500
+        })
+      } else {
+        // Zoom to extent adding a padding to the extent
+        this.olmap.getView().fit(geometry.getExtent(), { padding: [10, 10, 10, 10] })
+
+        // Highlight feature
+        this.popupInfoLayerSource.addFeature(this.activeFeature.clone())
+      }
+      // Close popup
+      this.popup.setPosition(undefined)
+    },
+    popupInfoLayerStyle () {
+      const styles = []
+      styles.push(
+        new Style({
+          stroke: new Stroke({
+            color: 'rgba(255, 255, 255, 0.7)',
+            width: 20
+          })
+        })
+      )
+      styles.push(new Style({
+        fill: new Fill({
+          color: 'rgba(255,0,0, 0.2)'
+        }),
+        stroke: new Stroke({
+          color: '#FF0000',
+          width: 8
+        }),
+        image: new Circle({
+          radius: 7,
+          fill: new Fill({
+            color: '#FF0000'
+          })
+        })
+      }))
+
+      return styles
+    },
+    makePopupInfoLayer () {
+      const source = new VectorSource({
+        wrapX: false
+      })
+      const vector = new VectorLayer({
+        name: 'Popinfo Info Layer',
+        zIndex: 100,
+        source: source,
+        style: this.popupInfoLayerStyle()
+      })
+      this.popupInfoLayerSource = source
+      this.olmap.addLayer(vector)
     },
     geoJSONPointVectorLayerStyle: function (feature) {
       // cache styles here to prevent icon flickering/blinking!
@@ -739,3 +828,16 @@ export default {
   }
 }
 </script>
+<style lang="css" scoped>
+.zoomToFeature {
+    position: relative;
+    top: -25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 450px;
+    max-width: 330px;
+    width: calc(100% - 1em);
+    padding: 0em;
+    margin-left: 0.5em;
+}
+</style>
