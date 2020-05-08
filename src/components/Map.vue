@@ -323,8 +323,6 @@ export default {
         // Adding zoom to my location functionality as button control.
         this.userLocSource = this.makeUserLocationLayer(this.olmap)
         const locateMe = document.querySelector('.locateMe')
-        // Create popupInfo layer
-        setTimeout(() => { this.makePopupInfoLayer() }, 1000)
         /**
          * Return the curried event handler function, that is, pass all the following objects into the scope of the event handler. This is an
          * IIFE so it's called immediately.
@@ -384,6 +382,11 @@ export default {
             spotlightControls.style.display = 'none'
           }
         })
+      }
+
+      // Create popupInfo layer ()
+      if (this.olmap) {
+        setTimeout(() => { this.makePopupInfoLayer() }, 1000)
       }
     },
     closePopup: function () {
@@ -481,6 +484,8 @@ export default {
         style: this.popupInfoLayerStyle()
       })
       this.popupInfoLayerSource = source
+      // Workaround if map view is changed.
+      this.olmap.removeLayer(vector)
       this.olmap.addLayer(vector)
     },
     geoJSONPointVectorLayerStyle: function (feature) {
