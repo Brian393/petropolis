@@ -42,6 +42,7 @@
     </div>
     <div ref="tooltip" class="ol-tooltip">
     </div>
+    <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
   </div>
 </template>
 
@@ -69,15 +70,20 @@ import {circular} from 'ol/geom/Polygon'
 import {eventBus} from '../main'
 import Feature from 'ol/Feature'
 import Point from 'ol/geom/Point'
+import AppLightBox from './AppLightBox'
 
 export default {
   name: 'Map',
+  components: {
+    'app-lightbox': AppLightBox
+  },
   data: function () {
     return {
       olmap: undefined,
       styleCache: {},
       activeFeature: null,
-      popupInfoLayerSource: null
+      popupInfoLayerSource: null,
+      lightBoxImages: [ ]
     }
   },
   created: function () {
@@ -201,9 +207,17 @@ export default {
         this.toggleScaleLine()
         this.olmap.on('singleclick', (e) => {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+
+          /**
+           * MAJK: Applightbox and popup placement in sidebar logic
+          */
           // Clear popupInfo layer
           if (this.popupInfoLayerSource) {
             this.popupInfoLayerSource.clear()
+          }
+          // Clear lightbox images array
+          if (this.lightBoxImages) {
+            this.lightBoxImages = []
           }
           // Reset sidebar html state
           if (this.sideBarInitialHtmlState) {
@@ -212,7 +226,30 @@ export default {
           }
           if (feature) {
             const props = feature.getProperties()
-            // Correct popup position
+            // Check if feature has lightbox array of images
+            if (Array.isArray(props.lightbox)) {
+              props.lightbox.forEach(imageUrl => {
+                let url = ''
+                // Check if image url is relative or absolute
+                const pat = /^https?:\/\//i
+                if (pat.test(imageUrl) === true) {
+                  // Image url is absolute
+                  url = imageUrl
+                } else {
+                  // Image url is relative, (so we get the baseUrl from the domain)
+                  url = new URL(imageUrl, window.location.origin).href
+                }
+                this.lightBoxImages.push({
+                  src: url,
+                  thumb: url
+                })
+              })
+              // Open lightbox
+              this.$refs.lightbox.open()
+              // Popup will not be opened if there are lightbox images
+              return
+            }
+            // Correct popup position (used feature coordinates insteaad of mouse)
             const closestPoint = feature.getGeometry().getClosestPoint(e.coordinate)
 
             // Center the map so the highlight circle is opened directly over the point when the user clicks "DIVE"
@@ -220,6 +257,8 @@ export default {
               center: closestPoint,
               duration: 400
             })
+
+            // ===///// ===
 
             // #TODO: use better property names in .geojson files for if/else logic
             if (props.title && props.image) {
@@ -301,6 +340,7 @@ export default {
             // starting here I took out a lot of stuff which can be found in Cascadia maps
             } else if (props.vimeoSrc) {
             }
+            // MAJK: Sets the active feature to access it in the zoomToFeature method.
             this.activeFeature = feature
           } else {
             this.closePopup()
@@ -424,6 +464,10 @@ export default {
       return false
     },
     zoomToFeature () {
+      /**
+       * MAJK: Zooms to feature, add a cloned feature to the highlight layer and set the position of popup undefined
+       *
+      */
       const geometry = this.activeFeature.getGeometry()
       const sideBarFeatureContentEl = document.getElementById('feature-content')
       this.sideBarInitialHtmlState = sideBarFeatureContentEl.innerHTML
@@ -446,6 +490,7 @@ export default {
       this.popup.setPosition(undefined)
     },
     popupInfoLayerStyle () {
+      // MAJK: PopupInfo layer style (used for highlight)
       const styles = []
       styles.push(
         new Style({
@@ -474,6 +519,7 @@ export default {
       return styles
     },
     makePopupInfoLayer () {
+      // MAJK: PopupInfo layer (used for highlight)
       const source = new VectorSource({
         wrapX: false
       })
