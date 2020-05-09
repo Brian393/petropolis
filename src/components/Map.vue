@@ -228,7 +228,17 @@ export default {
             const props = feature.getProperties()
             // Check if feature has lightbox array of images
             if (Array.isArray(props.lightbox)) {
-              props.lightbox.forEach(imageUrl => {
+              props.lightbox.forEach(image => {
+                let imageUrl
+                let caption = ''
+                if (typeof image === 'object') {
+                  // Image is stored as object. Get imageUrl and caption values
+                  imageUrl = image.imageUrl
+                  caption = image.caption
+                } else {
+                  // Image is stored as a string
+                  imageUrl = image
+                }
                 let url = ''
                 // Check if image url is relative or absolute
                 const pat = /^https?:\/\//i
@@ -241,7 +251,8 @@ export default {
                 }
                 this.lightBoxImages.push({
                   src: url,
-                  thumb: url
+                  thumb: url,
+                  caption: caption
                 })
               })
               // Open lightbox
