@@ -20,17 +20,16 @@ export default new Router({
       }
     },
     {
-      path: '/petropolis/oil/pipelines',
-      name: 'petropolisOilPipelines',
+      path: '/petropolis/oil/industry',
+      name: 'petropolisOilIndustry',
       components: {
         default: () => import('./views/petropolis/PetropolisOil.vue'),
         map: MapPetropolis
       }
     },
-    // added
     {
       path: '/petropolis/oil/world',
-      name: 'petropolisOilAll',
+      name: 'petropolisOilWorld',
       components: {
         default: () => import('./views/petropolis/PetropolisOil.vue'),
         map: MapPetropolis
@@ -39,6 +38,14 @@ export default new Router({
     {
       path: '/petropolis/coal',
       name: 'petropolisCoal',
+      components: {
+        default: () => import('./views/petropolis/PetropolisCoal.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/coal/industry',
+      name: 'petropolisCoalIndustry',
       components: {
         default: () => import('./views/petropolis/PetropolisCoal.vue'),
         map: MapPetropolis
@@ -55,6 +62,14 @@ export default new Router({
     {
       path: '/petropolis/gas',
       name: 'petropolisGas',
+      components: {
+        default: () => import('./views/petropolis/PetropolisGas.vue'),
+        map: MapPetropolis
+      }
+    },
+    {
+      path: '/petropolis/gas/industry',
+      name: 'petropolisGasIndustry',
       components: {
         default: () => import('./views/petropolis/PetropolisGas.vue'),
         map: MapPetropolis

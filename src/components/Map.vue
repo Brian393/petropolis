@@ -446,21 +446,21 @@ export default {
       })
     },
     geoJSONPointVectorLayerCircleStyle1: function (feature) {
-      if (feature.values_ && feature.values_['BPD'] && !this.styleCache[feature.values_['BPD']]) {
-        this.styleCache[feature.values_['BPD']] = new Style({
+      if (feature.values_ && feature.values_['production'] && !this.styleCache[feature.values_['production']]) {
+        this.styleCache[feature.values_['production']] = new Style({
           image: new Circle({
             stroke: new Stroke({
-              color: 'rgba(0, 0, 0, 1)',
+              color: 'rgba(255, 255, 255, 1)',
               width: 1
             }),
             fill: new Fill({
-              color: 'rgba(204, 0, 0, 0.7)'
+              color: 'rgba(129, 56, 17, 0.7)'
             }),
-            radius: Math.sqrt(feature.values_['BPD']) / 50
+            radius: Math.sqrt(feature.values_['production']) / 150
           })
         })
       }
-      return this.styleCache[feature.values_['BPD']]
+      return this.styleCache[feature.values_['production']]
     },
     makeGeoJSONPointVectorLayerWithCircleStyle1: function (url, label, minResolution, maxResolution) {
       return new VectorLayer({

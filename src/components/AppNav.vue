@@ -59,6 +59,7 @@
 }
 
 .subItem {
+  padding: 0.43em;
   min-width: 100px;
   height: 1.25em;
 }
@@ -114,23 +115,31 @@ export default {
       subItems: {
         pipelines: [
           {
-            name: 'Pipelines Only',
-            href: '/petropolis/oil/pipelines'
+            name: 'Industry',
+            href: '/petropolis/oil/industry'
           },
           {
-            name: 'Rest of the Oil',
+            name: 'World',
             href: '/petropolis/oil/world'
           }
         ],
         gas: [
           {
-            name: 'Rest of the Gas',
+            name: 'Industry',
+            href: '/petropolis/gas/industry'
+          },
+          {
+            name: 'World',
             href: '/petropolis/gas/world'
           }
         ],
         coal: [
           {
-            name: 'Rest of the Coal',
+            name: 'Industry',
+            href: '/petropolis/coal/industry'
+          },
+          {
+            name: 'World',
             href: '/petropolis/coal/world'
           }
         ]
