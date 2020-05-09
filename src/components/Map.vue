@@ -487,12 +487,12 @@ export default {
       sidePanelFeatureContentEl.innerHTML = this.$refs.popupContent.innerHTML
 
       // Change legend image with feature image if exist
-      if (props.image) {
+      if (props.imageUrl) {
         const sidePanelImageEl = document.getElementById('sidepanel-image')
         // Copy initial image src
         this.sidePanelInitialImageSrc = sidePanelImageEl.src
         // Change default image with feature image
-        sidePanelImageEl.src = this.parseUrl(props.image)
+        sidePanelImageEl.src = this.parseUrl(props.imageUrl)
       }
 
       if (geometry.getType() === 'Point') {
