@@ -1,7 +1,7 @@
 <template>
   <div class="aside-content">
     <div>
-    <p><img src="images/OilHead.jpg" class="fullwidth"></p></div>
+    <p><img id="sidepanel-image" src="images/OilHead.jpg" class="fullwidth"></p></div>
     <div id="feature-content">
     <div class="caption" />
     <p style="font-size:120%;"><strong><em>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</em></strong></p>

@@ -209,7 +209,7 @@ export default {
           const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
 
           /**
-           * MAJK: Applightbox and popup placement in sidebar logic
+           * MAJK: Applightbox and popup placement in sidepanel logic
           */
           // Clear popupInfo layer
           if (this.popupInfoLayerSource) {
@@ -219,11 +219,18 @@ export default {
           if (this.lightBoxImages) {
             this.lightBoxImages = []
           }
-          // Reset sidebar html state
-          if (this.sideBarInitialHtmlState) {
-            document.getElementById('feature-content').innerHTML = this.sideBarInitialHtmlState
-            this.sideBarInitialHtmlState = ''
+          // Reset sidepanel html state
+          if (this.sidePanelInitialHtmlState) {
+            document.getElementById('feature-content').innerHTML = this.sidePanelInitialHtmlState
+            this.sidePanelInitialHtmlState = ''
           }
+
+          // Reset sidepanel legend image if it's changed
+          if (this.sidePanelInitialImageSrc) {
+            document.getElementById('sidepanel-image').src = this.sidePanelInitialImageSrc
+            this.sidePanelInitialImageSrc = ''
+          }
+
           if (feature) {
             const props = feature.getProperties()
             // Check if feature has lightbox array of images
@@ -239,16 +246,7 @@ export default {
                   // Image is stored as a string
                   imageUrl = image
                 }
-                let url = ''
-                // Check if image url is relative or absolute
-                const pat = /^https?:\/\//i
-                if (pat.test(imageUrl) === true) {
-                  // Image url is absolute
-                  url = imageUrl
-                } else {
-                  // Image url is relative, (so we get the baseUrl from the domain)
-                  url = new URL(imageUrl, window.location.origin).href
-                }
+                const url = this.parseUrl(imageUrl)
                 this.lightBoxImages.push({
                   src: url,
                   thumb: url,
@@ -477,12 +475,25 @@ export default {
     zoomToFeature () {
       /**
        * MAJK: Zooms to feature, add a cloned feature to the highlight layer and set the position of popup undefined
+       * move the popup content to sidepanel and replace legend with feature image if exist.
        *
       */
       const geometry = this.activeFeature.getGeometry()
-      const sideBarFeatureContentEl = document.getElementById('feature-content')
-      this.sideBarInitialHtmlState = sideBarFeatureContentEl.innerHTML
-      sideBarFeatureContentEl.innerHTML = this.$refs.popupContent.innerHTML
+      const props = this.activeFeature.getProperties()
+
+      // Add popup content in sidepanel
+      const sidePanelFeatureContentEl = document.getElementById('feature-content')
+      this.sidePanelInitialHtmlState = sidePanelFeatureContentEl.innerHTML
+      sidePanelFeatureContentEl.innerHTML = this.$refs.popupContent.innerHTML
+
+      // Change legend image with feature image if exist
+      if (props.image) {
+        const sidePanelImageEl = document.getElementById('sidepanel-image')
+        // Copy initial image src
+        this.sidePanelInitialImageSrc = sidePanelImageEl.src
+        // Change default image with feature image
+        sidePanelImageEl.src = this.parseUrl(props.image)
+      }
 
       if (geometry.getType() === 'Point') {
         this.olmap.getView().animate({
@@ -895,6 +906,19 @@ export default {
         viewOptz['maxResolution'] = 16000
       }
       this.olmap.setView(new View(viewOptz))
+    },
+    parseUrl (urlString) {
+      let url = ''
+      // Check if image url is relative or absolute
+      const pat = /^https?:\/\//i
+      if (pat.test(url) === true) {
+        // Image url is absolute
+        url = urlString
+      } else {
+        // Image url is relative, (so we get the baseUrl from the domain)
+        url = new URL(urlString, window.location.origin).href
+      }
+      return url
     }
   }
 }
