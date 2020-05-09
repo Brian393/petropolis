@@ -19,7 +19,7 @@
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
       <div v-if="activeFeature" class="zoomToFeature">
-      <a href="javascript:void(0)" @click="zoomToFeature()">
+      <a v-if="!popupConfig.hiddenLayerNames.includes(getLayerName(activeLayer))" href="javascript:void(0)" @click="zoomToFeature()">
         <strong>{{ activeFeature.getGeometry().getType() === 'Point' ? 'DIVE' : 'VIEW WHOLE LINE' }}</strong>
       </a>
       </div>
@@ -83,7 +83,8 @@ export default {
       styleCache: {},
       activeFeature: null,
       popupInfoLayerSource: null,
-      lightBoxImages: [ ]
+      lightBoxImages: [ ],
+      popupConfig: null // Data is fetched on load but we store it here when the user click the map
     }
   },
   created: function () {
@@ -206,7 +207,15 @@ export default {
         })
         this.toggleScaleLine()
         this.olmap.on('singleclick', (e) => {
-          const feature = this.olmap.forEachFeatureAtPixel(e.pixel, (feature) => { return feature })
+          let feature, layer
+          this.olmap.forEachFeatureAtPixel(e.pixel, (f, l) => {
+            feature = f
+            layer = l
+          })
+          this.activeLayer = layer
+          if (!this.popupConfig) {
+            this.popupConfig = this.$appConfig.map.popup
+          }
 
           /**
            * MAJK: Applightbox and popup placement in sidepanel logic
@@ -919,6 +928,17 @@ export default {
         url = new URL(urlString, window.location.origin).href
       }
       return url
+    },
+    getLayerName (layer) {
+      if (!layer) {
+        return ''
+      }
+      const layerUrl = layer.getSource().getUrl()
+      const layerName = layerUrl.substring(
+        layerUrl.lastIndexOf('/') + 1,
+        layerUrl.lastIndexOf('.')
+      )
+      return layerName
     }
   }
 }
