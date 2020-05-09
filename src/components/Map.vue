@@ -424,7 +424,7 @@ export default {
         })
       }
 
-      // Create popupInfo layer ()
+      // MAJK: Create popupInfo layer
       if (this.olmap) {
         setTimeout(() => { this.makePopupInfoLayer() }, 1000)
       }
