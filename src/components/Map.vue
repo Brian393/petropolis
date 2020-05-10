@@ -20,7 +20,7 @@
       <div class="ol-popup-content" ref="popupContent"></div>
       <div v-if="activeFeature" class="zoomToFeature">
       <a v-if="!popupConfig.hiddenLayerNames.includes(getLayerName(activeLayer))" href="javascript:void(0)" @click="zoomToFeature()">
-        <strong>{{ activeFeature.getGeometry().getType() === 'Point' ? 'DIVE' : 'VIEW WHOLE LINE' }}</strong>
+        <strong>{{ activeFeature.getGeometry().getType() === 'Point' ? 'DIVE' : 'VIEW WHOLE FEATURE' }}</strong>
       </a>
       </div>
 
@@ -526,7 +526,7 @@ export default {
       styles.push(
         new Style({
           stroke: new Stroke({
-            color: 'rgba(255, 255, 255, 0.7)',
+            color: 'rgba(236, 236, 236, 0.7)',
             width: 20
           })
         })
@@ -536,13 +536,13 @@ export default {
           color: 'rgba(255,0,0, 0.2)'
         }),
         stroke: new Stroke({
-          color: '#FF0000',
-          width: 8
+          color: '#ff0000',
+          width: 4
         }),
         image: new Circle({
           radius: 7,
           fill: new Fill({
-            color: '#FF0000'
+            color: '#ff0000'
           })
         })
       }))

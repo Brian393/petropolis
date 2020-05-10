@@ -120,7 +120,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
-        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
+//        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
       ]
     },
     petropolisOilWorldLayers: function () {
@@ -245,7 +245,7 @@ export default {
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
-        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
+//        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNGterminal.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
       ]
@@ -270,15 +270,21 @@ export default {
     },
     petropolisCoalLayers: function () {
       return [
-  //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-//      new Tile({
-//        source: new XYZ({
-//          url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
-//        }),
-//        opacity: 0.8,
-//        minResolution: 0.5
-//      }),
-      this.makeGeoJSONFillVectorLayer('geojson/NApolitical.geojson', 0.25, 64000, 'rgba(250, 250, 248, 0.85)', 0.5, 'rgba(0, 0, 0, 0.8)'),
+      new Tile({
+        source: new XYZ({
+          url: 'https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
+        }),
+        opacity: 1,
+        minResolution: 0.5
+      }),
+      new Tile({
+        source: new XYZ({
+          url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
+        }),
+        opacity: 0.1,
+        minResolution: 0.5
+      }),
+//      this.makeGeoJSONFillVectorLayer('geojson/NApolitical.geojson', 0.25, 64000, 'rgba(250, 250, 248, 0.85)', 0.5, 'rgba(0, 0, 0, 0.8)'),
       // Aerial
       ...this.baseLayers,
   //        this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1, 64000, 'gray', 0.7),

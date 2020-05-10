@@ -2,7 +2,7 @@
     "title": "Petropolis",
     "map": {
         "popup": {
-            "hiddenLayerNames": [ ]
+            "hiddenLayerNames": [ "EIP-Oil", "Spills_20yrs", "ShalePlays" ]
         }
     }
 }
