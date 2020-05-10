@@ -88,11 +88,11 @@ export default {
         maxResolution: 4000
       }),
       this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
-      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1-key.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/OilPipes2-key.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes-key.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines-key.geojson', 1, 16000, 'black', 8.5),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines-key.geojson', 1, 16000, '#fb5c04', 3.5)
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5)
     ]
   },
     petropolisOilPipelineLayers: function () {
@@ -166,13 +166,15 @@ export default {
         }),
         // esriMapsAerial
         ...this.baseLayers,
-        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+//        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
         this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/GiantOilFields.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
         this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, 'black', 7),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, '#fd6a02', 3.5),
         this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONPointVectorLayer('geojson/OilPorts.geojson', 'icons/Tanker2.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery4.png', null, 8000, 32000),

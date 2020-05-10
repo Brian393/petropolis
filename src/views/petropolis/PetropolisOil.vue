@@ -1,13 +1,13 @@
 <template>
   <div class="aside-content">
     <div>
-    <p><img id="sidepanel-image" src="icons/Legend.png" class="fullwidth"></p></div>
+    <p><br><img id="sidepanel-image" src="icons/LegendOil1.png" class="fullwidth"><br><br></p></div>
       <div id="feature-content">
-      <div class="caption">* these features appear when you zoom in></div>
-      <p style="font-size:120%;"><strong><em>This map shows the major petroleum infrastructures of the United States and the world. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.</em></strong></p>
-      <p>For information about any of the elements, click on a line or a marker. The locations of most pipelines are approximate, but other features such as refineries are  accurate. When you zoom in close, a "spotlight" opens, allowing you to see what's on the ground.</p>
-      <p>The buttons at lower left activate similar maps of coal and natural gas installations. The view is initially centered on the US, but you can hit the buttom at the bottom (center) to see the whole world. As it stands today, everywhere is Petropolis.</p>
-   
+      <div class="caption"></div>
+      <p style="font-size:120%;"><strong><em>This map shows the major pipeline infrastructures of the United States. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.</em></strong></p>
+      <p>Click on any pipeline for information. The link "View Whole Feature" will isolate a single line, while displaying the information in the sidebar. Further links in the text give more details. For a deeper look into the US petroleum complex, hit the "Industry" button at bottom center. And for the global extent of oil-processing technologies, click "World."
+      <p>Additional maps of coal and natural gas installations can be accessed with the buttons at lower left. They too offer simplified diagrams, full-industry coverage and global extent. The idea is to show both the logical structure and the material reality of fossil-fuel technologies. Their operations span the world. As it stands today, everywhere is Petropolis.</p>
+
 <br>
 <Accordion :open="false">
   <h3 slot="header">sources</h3>

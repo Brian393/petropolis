@@ -23,7 +23,7 @@ export default new Router({
       path: '/petropolis/oil/industry',
       name: 'petropolisOilIndustry',
       components: {
-        default: () => import('./views/petropolis/PetropolisOil.vue'),
+        default: () => import('./views/petropolis/PetropolisOilIndustry.vue'),
         map: MapPetropolis
       }
     },
@@ -31,7 +31,7 @@ export default new Router({
       path: '/petropolis/oil/world',
       name: 'petropolisOilWorld',
       components: {
-        default: () => import('./views/petropolis/PetropolisOil.vue'),
+        default: () => import('./views/petropolis/PetropolisOilWorld.vue'),
         map: MapPetropolis
       }
     },
@@ -71,7 +71,7 @@ export default new Router({
       path: '/petropolis/gas/industry',
       name: 'petropolisGasIndustry',
       components: {
-        default: () => import('./views/petropolis/PetropolisGas.vue'),
+        default: () => import('./views/petropolis/PetropolisGasIndustry.vue'),
         map: MapPetropolis
       }
     },
