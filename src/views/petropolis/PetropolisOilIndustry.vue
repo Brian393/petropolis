@@ -1,12 +1,14 @@
 <template>
   <div class="aside-content">
     <div>
+      <div class="title">
+      <h1><span style="font-align: center;">Legend</span></h1></div>
     <p><img id="sidepanel-image" src="icons/LegendOil2.png" class="fullwidth"></p></div>
       <div id="feature-content">
       <div class="caption">* these features appear when you zoom in></div>
-      <p style="font-size:120%;"><strong><em>This map shows the major petroleum infrastructures of the United States and the world. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.</em></strong></p>
-      <p>For information about any of the elements, click on a line or a marker. The locations of most pipelines are approximate, but other features such as refineries are  accurate. When you zoom in close, a "spotlight" opens, allowing you to see what's on the ground.</p>
-      <p>The buttons at lower left activate similar maps of coal and natural gas installations. The view is initially centered on the US, but you can hit the buttom at the bottom (center) to see the whole world. As it stands today, everywhere is Petropolis.</p>
+      <p style="font-size:120%;"><strong><em>Here you find the entire petroleum extraction industry, right up to the point where refineries turn crude into gasoline. It's the truth of our daily commutes. There's too much to see at once, so you'll have to go deeper in.</em></strong></p>
+      <p>For information, click on any line or marker. The locations of most pipelines are approximate, but other features such as refineries are quite accurate. When you click on the icons, a popup appears. If you hit "Dive," the map will plunge downward while a spotlight opens up, displaying aerial imagery to let you see exactly what's on the ground. You can control the size of the spotlight, or get rid of it entirely, by using the up/down arrows on your computer keyboard.</p>
+      <p>The buried infrastructure of Petropolis was long in the making. Once you know how the energy system works, you can start imagining another one.</p>
 
 <br>
 <Accordion :open="false">

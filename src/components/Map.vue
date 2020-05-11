@@ -348,6 +348,13 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>Description:</strong> ' + props.description + ' pipeline <br>'
               this.popup.setPosition(closestPoint)
               this.closeTooltip()
+            } else if (props.type && props.name && props.location) {
+              this.$refs.popupContent.innerHTML = props.type + '<br>'
+              this.$refs.popupContent.innerHTML += '<strong>Name:</strong> ' + props.name + '<br>'
+              this.$refs.popupContent.innerHTML += props.location + '<br>'
+              this.$refs.popupContent.innerHTML += props.date + '<br>'
+              this.$refs.popupContent.innerHTML += props.size
+              this.popup.setPosition(closestPoint)
             } else if (props.key) {
               this.$refs.popupContent.innerHTML = props.key
               this.popup.setPosition(closestPoint)

@@ -40,8 +40,12 @@ export default {
           resolution: 25000
         },
         gas: {
-          center: [-99, 39],
-          resolution: 7000
+          center: [-97, 37],
+          resolution: 3600
+        },
+        gasIndustry: {
+          center: [-97, 37],
+          resolution: 3600
         },
         gasWorld: {
           center: [2.44, 31.01],
@@ -186,15 +190,10 @@ export default {
       // Aerial
       ...this.baseLayers,
   //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.6),
+
       this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.8),
-      new Tile({
-        source: new XYZ({
-          url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}'
-        }),
-        opacity: 1,
-        minResolution: 1,
-        maxResolution: 4000
-      }),
+
       new VectorTileLayer({
         source: new VectorTileSource({
           format: new MVT(),
@@ -202,14 +201,18 @@ export default {
         }),
         style: new Style({
           stroke: new Stroke({
-            color: '#cc0000',
-            width: 1,
+            color: '#00c8f0',
+            width: 1.5,
             opacity: 1
           })
         })
       }),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3)
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 40),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 40, 400),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 400, 1000),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 1000, 4000)
+//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
+//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3)
       ]
     },
     petropolisGasIndustryLayers: function () {
@@ -239,11 +242,6 @@ export default {
           })
         }),
 
-        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
-        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1600, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas2.png', null, 800, 8000),
-        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
         this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
@@ -532,8 +530,8 @@ export default {
         layers: this.petropolisGasIndustryLayers
       }))
       this.olmap.setView(new View({
-        center: fromLonLat(this.centerPoints.gas.center),
-        resolution: this.centerPoints.gas.resolution,
+        center: fromLonLat(this.centerPoints.gasIndustry.center),
+        resolution: this.centerPoints.gasIndustry.resolution,
         minResolution: 0.5,
         maxResolution: 16000
       }))

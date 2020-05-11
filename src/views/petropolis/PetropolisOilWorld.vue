@@ -1,6 +1,8 @@
 <template>
   <div class="aside-content">
     <div>
+      <div class="title">
+      <h1><span style="font-align: center;">Legend</span></h1></div>
     <p><img id="sidepanel-image" src="icons/LegendOil3.png" class="fullwidth"></p></div>
       <div id="feature-content">
       <div class="caption">* these features appear when you zoom in</div>

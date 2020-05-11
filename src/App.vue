@@ -154,7 +154,8 @@ aside .fullwidth {
 .aside-content h1{             /* sidebar item title settings */
   margin-top: 1em;
   margin-bottom: 1em;
-  color: #800000;
+  color: #cc0000;
+  text-align: center;
 }
 
 .caption {
