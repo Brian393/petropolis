@@ -41,11 +41,11 @@ export default {
         },
         gas: {
           center: [-97, 37],
-          resolution: 3600
+          resolution: 4500
         },
         gasIndustry: {
           center: [-97, 37],
-          resolution: 3600
+          resolution: 4500
         },
         gasWorld: {
           center: [2.44, 31.01],
@@ -188,9 +188,20 @@ export default {
     },
     petropolisGasLayers: function () {
       return [
+        new Tile({
+          source: new XYZ({
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}'
+          }),
+          opacity: 0.6,
+          minResolution: 200
+        }),
       // Aerial
       ...this.baseLayers,
   //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
+
+
+
+      this.makeGeoJSONFillVectorLayer('geojson/ShaleBasins-EIA.geojson', 40, 64000, 'rgba(239, 98, 47, 0.9)', 2, 'rgba(247, 206, 149, 0.3)'),
       this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.6),
 
       new VectorTileLayer({
@@ -201,24 +212,24 @@ export default {
         style: new Style({
           stroke: new Stroke({
             color: '#00c8f0',
-            width: 2,
+            width: 1,
             opacity: 1
           })
         })
       }),
-      
-        new Tile({
-          source: new XYZ({
-            url: 'https://ecotopia.today/Petropolis/WellTiles/{z}/{x}/{y}.png'
-          }),
-          opacity: 1,
-          minResolution: 0.25
-        }),
+
+//        new Tile({
+//          source: new XYZ({
+//            url: 'https://ecotopia.today/Petropolis/WellTiles/{z}/{x}/{y}.png'
+//          }),
+//          opacity: 1,
+//          minResolution: 0.25
+//        }),
 
       this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
       this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
       this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 1000),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 4000)
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 5000)
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3)
       ]
