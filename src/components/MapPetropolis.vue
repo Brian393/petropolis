@@ -9,7 +9,7 @@ import VectorTileLayer from 'ol/layer/VectorTile'
 import VectorTileSource from 'ol/source/VectorTile'
 import {fromLonLat} from 'ol/proj'
 
-import {Style, Stroke} from 'ol/style'
+import {Style, Stroke, Circle, Fill} from 'ol/style'
 import {eventBus} from '../main'
 import MediaLightBox from './MediaLightBox.js'
 
@@ -52,7 +52,7 @@ export default {
           resolution: 30000
         }
       }, // end centerPoints, radius controls spotlight size
-      radius: 200,
+      radius: 300,
       mousePosition: undefined
     }
   },
@@ -64,7 +64,7 @@ export default {
             'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
           url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
         }),
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 20
       })
       esriMapTile.on('precompose', (e) => {
@@ -124,6 +124,7 @@ export default {
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/VideoOilIndustry.geojson', 'icons/Warning.png', null, 1, 4000)
 //        this.makeGeoJSONPointVectorLayer('geojson/EIP-Oil.geojson', 'icons/redpin2.png', null, 1, 8000)
       ]
     },
@@ -192,8 +193,6 @@ export default {
   //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
       this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.6),
 
-      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.8),
-
       new VectorTileLayer({
         source: new VectorTileSource({
           format: new MVT(),
@@ -202,15 +201,24 @@ export default {
         style: new Style({
           stroke: new Stroke({
             color: '#00c8f0',
-            width: 1.5,
+            width: 2,
             opacity: 1
           })
         })
       }),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 40),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 40, 400),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 400, 1000),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 1000, 4000)
+      
+        new Tile({
+          source: new XYZ({
+            url: 'https://ecotopia.today/Petropolis/WellTiles/{z}/{x}/{y}.png'
+          }),
+          opacity: 1,
+          minResolution: 0.25
+        }),
+
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 1000),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 4000)
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3)
       ]
