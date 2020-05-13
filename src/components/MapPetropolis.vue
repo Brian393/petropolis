@@ -40,8 +40,8 @@ export default {
           resolution: 25000
         },
         gas: {
-          center: [-94, 37],
-          resolution: 9000
+          center: [-97, 37],
+          resolution: 4500
         },
         gasIndustry: {
           center: [-97, 37],
@@ -307,7 +307,7 @@ export default {
         source: new XYZ({
           url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
         }),
-        opacity: 0.3,
+        opacity: 0.2,
         minResolution: 0.5
       }),
 //      this.makeGeoJSONFillVectorLayer('geojson/NApolitical.geojson', 0.25, 64000, 'rgba(250, 250, 248, 0.85)', 0.5, 'rgba(0, 0, 0, 0.8)'),
