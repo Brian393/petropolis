@@ -40,8 +40,8 @@ export default {
           resolution: 25000
         },
         gas: {
-          center: [-97, 37],
-          resolution: 4500
+          center: [-94, 37],
+          resolution: 9000
         },
         gasIndustry: {
           center: [-97, 37],
@@ -82,7 +82,7 @@ export default {
       // Aerial
       ...this.baseLayers,
   //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1, 64000, 'gray', 0.7),
+      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 0, 1, 64000, 'gray', 0.7),
       new Tile({
         source: new XYZ({
           url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}'
@@ -91,12 +91,12 @@ export default {
         minResolution: 1,
         maxResolution: 4000
       }),
-      this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
-      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5)
+      this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 0, 1, 32000, 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', -10, 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 0, 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 0, 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 100, 1, 16000, 'black', 8.5),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 100, 1, 16000, '#fb5c04', 3.5)
     ]
   },
     petropolisOilPipelineLayers: function () {
@@ -112,15 +112,15 @@ export default {
         ...this.baseLayers,
         //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
         this.makeGeoJSONPointVectorLayerWithCircleStyle('geojson/Spills_20yrs.geojson', null, 4, 2000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 0, 16, 4000, 'rgba(105, 105, 105, 0.4)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/Terminals.geojson', 'icons/terminal.png', null, 1, 2000),
-        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 1, 32000, 3),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, 'black', 8.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 16000, '#fb5c04', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 0, 1, 32000, 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 0, 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 0, 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 0, 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 0, 1, 16000, 'black', 8.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 0, 1, 16000, '#fb5c04', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 0, 20, 64000, '#000000', 2.5),
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/CrudeDerailments.geojson', 'icons/Explosion3.png', null, 1, 16000),
@@ -172,13 +172,13 @@ export default {
         // esriMapsAerial
         ...this.baseLayers,
 //        this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 0, 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 0, 1, 64000, 'black', 3),
         this.makeGeoJSONPointVectorLayerWithCircleStyle2('geojson/GiantOilFields.geojson', null, 4, 4000, 'rgba(134, 40, 26, 0.4)', 1, 'rgba(134, 40, 26, 0.3)'),
-        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 1, 64000, 'black', 3),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, 'black', 7),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1, 8000, '#fd6a02', 3.5),
-        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 20, 64000, '#000000', 2.5),
+        this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 0, 1, 64000, 'black', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 0, 1, 8000, 'black', 7),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 0, 1, 8000, '#fd6a02', 3.5),
+        this.makeGeoJSONLineVectorLayer('geojson/GlobalPipelines.geojson', 0, 20, 64000, '#000000', 2.5),
         this.makeGeoJSONPointVectorLayer('geojson/OilPorts.geojson', 'icons/Tanker2.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/US_Refineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalRefineries.geojson', 'icons/Refinery3.png', null, 1, 8000),
@@ -190,10 +190,17 @@ export default {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}'
+            url: 'https://{a-d}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png'
           }),
           opacity: 0.6,
           minResolution: 200
+        }),
+        new Tile({
+          source: new XYZ({
+            url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
+          }),
+          opacity: 0.5,
+          minResolution: 0.5
         }),
       // Aerial
       ...this.baseLayers,
@@ -202,7 +209,7 @@ export default {
 
 
       this.makeGeoJSONFillVectorLayer('geojson/ShaleBasins-EIA.geojson', 40, 64000, 'rgba(239, 98, 47, 0.9)', 2, 'rgba(247, 206, 149, 0.3)'),
-      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1.5, 64000, 'black', 0.6),
+      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 0, 1.5, 64000, 'black', 0.6),
 
       new VectorTileLayer({
         source: new VectorTileSource({
@@ -212,7 +219,7 @@ export default {
         style: new Style({
           stroke: new Stroke({
             color: '#00c8f0',
-            width: 1,
+            width: 0.6,
             opacity: 1
           })
         })
@@ -226,12 +233,12 @@ export default {
 //          minResolution: 0.25
 //        }),
 
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 1000),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 5000)
-//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
-//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3)
+//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
+//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
+//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 1000),
+//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 5000)
+//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, 'black', 6.5),
+//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, '#00c8f0', 3)
       ]
     },
     petropolisGasIndustryLayers: function () {
@@ -261,8 +268,8 @@ export default {
           })
         }),
 
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
-        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, 'black', 6.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, '#00c8f0', 3),
         this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
 //        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNGterminal.png', null, 1, 16000),
@@ -300,14 +307,14 @@ export default {
         source: new XYZ({
           url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
         }),
-        opacity: 0.1,
+        opacity: 0.3,
         minResolution: 0.5
       }),
 //      this.makeGeoJSONFillVectorLayer('geojson/NApolitical.geojson', 0.25, 64000, 'rgba(250, 250, 248, 0.85)', 0.5, 'rgba(0, 0, 0, 0.8)'),
       // Aerial
       ...this.baseLayers,
-  //        this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 1, 64000, 'gray', 0.7),
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 16000, 'rgba(255, 255, 255, 0.6)', 1),
+  //        this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 0, 1, 64000, 'gray', 0.7),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 0, 16, 16000, 'rgba(255, 255, 255, 0.6)', 1),
     //    this.makeGeoJSONPointVectorLayerWithCircleStyle1('geojson/UndergroundCoal.geojson', 'icons/CoalWagon.png', null, 1, 800),
     //    this.makeGeoJSONPointVectorLayer('geojson/CoalAsh.geojson', 'icons/CoalAsh.png', null, 1, 16000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/Smokestack6.png', null, 1, 64000),
@@ -327,7 +334,7 @@ export default {
         }),
         // esriMapsAerial
         ...this.baseLayers,
-//        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
+//        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 0, 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/SurfaceCoal.geojson', 'icons/Truck.png', null, 1, 800),
         this.makeGeoJSONPointVectorLayer('geojson/UndergroundCoal.geojson', 'icons/CoalWagon.png', null, 1, 800),
         this.makeGeoJSONPointVectorLayer('geojson/CoalAsh.geojson', 'icons/CoalAsh3.png', null, 1, 16000),
@@ -345,7 +352,7 @@ export default {
         }),
         new Tile({
           source: new XYZ({
-            url: 'https://api.mapbox.com/styles/v1/bkholmes/ck9ogzy1a25m01ipb9zpsishl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmtob2xtZXMiLCJhIjoiNjlkYjI4MDUyYTRlZWEyYzkwYTdmOTgxNmMzOGYwMTUifQ.VSUo52PYOUzS60NR6jqXTw'
+            url: 'https://cartocdn_{a-d}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png'
           }),
           opacity: 0.8,
           minResolution: 0.25,
@@ -373,7 +380,7 @@ export default {
         }),
         // esriMapsAerial
         ...this.baseLayers,
-        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
+        this.makeGeoJSONLineVectorLayer('geojson/NA-RR.geojson', 0, 16, 8000, 'rgba(105, 105, 105, 0.5)', 1),
         this.makeGeoJSONPointVectorLayer('geojson/CoalMines.geojson', 'icons/CoalMine.png', null, 1, 2000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/Smokestack3.png', null, 1, 6000),
         this.makeGeoJSONPointVectorLayer('geojson/Coal.geojson', 'icons/Smokestack4.png', null, 6000, 64000)
@@ -467,7 +474,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelinesContested.center),
         resolution: this.centerPoints.pipelinesContested.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 32000
       }))
       if (this.olmap) {
@@ -491,7 +498,7 @@ export default {
       this.olmap.setView(new View({
         center: fromLonLat(this.centerPoints.pipelinesAll.center),
         resolution: this.centerPoints.pipelinesAll.resolution,
-        minResolution: 0.25,
+        minResolution: 0.5,
         maxResolution: 32000
       }))
     },

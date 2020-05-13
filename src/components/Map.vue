@@ -831,7 +831,7 @@ export default {
         style: this.LineVectorTileLayerStyle2
       })
     },
-    makeGeoJSONLineVectorLayer: function (url, minResolution, maxResolution, strokeColor, width) {
+    makeGeoJSONLineVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width) {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
@@ -839,6 +839,7 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
+        zIndex: zIndex,
         style: new Style({
           stroke: new Stroke({
             color: strokeColor,
