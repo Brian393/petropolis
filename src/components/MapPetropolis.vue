@@ -233,9 +233,9 @@ export default {
 //          minResolution: 0.25
 //        }),
 
-//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
-//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
-//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 1000),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
+      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 400, 8000),
 //      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 5000)
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, 'black', 6.5),
 //      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, '#00c8f0', 3)
