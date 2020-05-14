@@ -8,13 +8,6 @@
       <div ref="vimeoPopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="vimeoPopupContent"></div>
     </div>
-    <div ref="twitterPopup" class="ol-popup ol-twitterpopup">
-      <div ref="twitterpopupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
-      <div class="ol-popup-twitter-content">
-        <div ref="loadingTweets" class="twitter-loading hidden">Loading Tweets...</div>
-        <div ref="twitterContent"></div>
-      </div>
-    </div>
     <div ref="popup" class="ol-popup">
       <div ref="popupCloser" class="ol-popup-closer" v-on:click="closePopup"></div>
       <div class="ol-popup-content" ref="popupContent"></div>
@@ -23,22 +16,9 @@
         <strong>{{ activeFeature.getGeometry().getType() === 'Point' ? 'DIVE' : 'VIEW WHOLE FEATURE' }}</strong>
       </a>
       </div>
-
     </div>
     <div ref="titletip" class="titletip">
       <div class="titletip-content" ref="titletipContent"></div>
-    </div>
-      <div ref="textitletip" class="textitletip">
-        <div class="textitletip-content" ref="textitletipContent"></div>
-    </div>
-      <div ref="mileagetitletip" class="mileagetitletip">
-        <div class="mileagetitletip-content" ref="mileagetitletipContent"></div>
-    </div>
-    <div ref="whitetitletip" class="whitetitletip">
-      <div class="whitetitletip-content" ref="whitetitletipContent"></div>
-  </div>
-      <div ref="salmontip" class="salmontip">
-        <div class="salmontip-content" ref="salmontipContent"></div>
     </div>
     <div ref="tooltip" class="ol-tooltip">
     </div>
@@ -109,16 +89,6 @@ export default {
         }
       })
     },
-    twitterPopup: function () {
-      return new Overlay({
-        element: this.$refs.twitterPopup,
-        autoPan: true,
-        autoPanAnimation: {
-          duration: 250
-        },
-        positioning: 'center-right'
-      })
-    },
     popup: function () {
       return new Overlay({
         element: this.$refs.popup,
@@ -134,32 +104,6 @@ export default {
         element: this.$refs.titletip,
         offset: [10, 0],
         positioning: 'center-left'
-      })
-    },
-    textitletip: function () {
-      return new Overlay({
-        element: this.$refs.textitletip,
-        offset: [10, 0],
-        positioning: 'center-left'
-      })
-    },
-    whitetitletip: function () {
-      return new Overlay({
-        element: this.$refs.whitetitletip,
-        offset: [10, 0],
-        positioning: 'center-left'
-      })
-    },
-    mileagetitletip: function () {
-      return new Overlay({
-        element: this.$refs.mileagetitletip
-      })
-    },
-    salmontip: function () {
-      return new Overlay({
-        element: this.$refs.salmontip,
-        offset: [10, 0],
-        positioning: 'center'
       })
     },
     tooltip: function () {
@@ -190,7 +134,7 @@ export default {
       if (!this.olmap) {
         this.olmap = new Map({
           target: 'map',
-          overlays: [this.twitterPopup, this.popup, this.titletip, this.textitletip, this.mileagetitletip, this.whitetitletip, this.salmontip, this.tooltip, this.vimeoPopup],
+          overlays: [this.popup, this.titletip, this.tooltip, this.vimeoPopup],
           controls: defaultControls({
             attributionOptions: {
               collapsible: true
@@ -296,50 +240,6 @@ export default {
               this.$refs.popupContent.innerHTML += '<strong>CORPORATE WEBSITE:</strong> <a href=\'' + props.link1 + '\' target=\'_blank\'>here</a><br>'
               this.$refs.popupContent.innerHTML += '<strong>More information:</strong>  <a href=\'' + props.link2 + '\' target=\'_blank\'>here</a> and '
               this.$refs.popupContent.innerHTML += '<a href=\'' + props.link3 + '\' target=\'_blank\'>here</a>'
-              this.popup.setPosition(closestPoint)
-              this.closeTooltip()
-            } else if (props.ProjectType && props.Company) {
-              this.$refs.popupContent.innerHTML = '<h2>' + props.ProjectType + '</h2><br>'
-              this.$refs.popupContent.innerHTML += '<strong>Company:</strong> ' + props.Company + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Plant or Project:</strong> ' + props.Plant_or_Project + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>State:</strong> ' + props.State + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>County\/Parish:</strong> ' + props.County_Parish + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Classification:</strong> ' + props.Classification + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Sector:</strong> ' + props.Sector + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Description:</strong> ' + props.Description + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Type(s):</strong> ' + props.Types + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>CO2 equivalent, tons per year:</strong> ' + props.CO2e_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>PM10, tons per year:</strong> ' + props.PM10_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>PM2.5, tons per year:</strong> ' + props.PM25_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>PM, tons per year:</strong> ' + props.PM_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>NOx, tons per year:</strong> ' + props.NOx_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>VOC, tons per year:</strong> ' + props.VOC_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>SO2, tons per year:</strong> ' + props.SO2_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>CO, tons per year:</strong> ' + props.CO_tpy + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>GHG Permit Status:</strong> ' + props.GHG_Permit_Status + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Permit History (permit no., type, issue date):</strong> ' + props.Permit_History_permit_no_type_issue_date + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Permit Documents:</strong> ' + props.Permit_Documents + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>State Facility ID(s):</strong> ' + props.State_Facility_IDs + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Link to State Permitting Website:</strong> ' + props.Link_to_State_Permitting_Website + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Link to State Enforcement Records:</strong> ' + props.Link_to_State_Enforcement_Records + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>EPA Compliance Report:</strong> ' + props.EPA_Compliance_Report + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Congressional Representative, Political Party:</strong> ' + props.Congressional_Representative_Political_Party + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Permit Status Last Updated by EIP Staff:</strong> ' + props.Permit_Status_Last_Updated_by_EIP_Staff + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Operational Status:</strong> ' + props.Operational_Status + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Year Operating or Expected Completion Date:</strong> ' + props.Year_Operating_or_Expected_Completion_Date + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Operational Status Sources:</strong> ' + props.Operational_Status_Sources + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Operational Status Links:</strong> ' + props.Operational_Status_Links + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Operating Status Last Updated by EIP Staff:</strong> ' + props.Operating_Status_Last_Updated_by_EIP_Staff + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Total Population (1 mile):</strong> ' + props.Total_Population_1_mile + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Minority (1 mile):</strong> ' + props.Percent_Minority_1_mile + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Low Income (1 mile):</strong> ' + props.Percent_Low_Income_1_mile + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Younger than 5 (1 mile):</strong> ' + props.Percent_Younger_than_5 + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (1 mile):</strong> ' + props.Percent_Older_than_64_1_mile + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Total Population (3 miles):</strong> ' + props.Total_Population_3_miles + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Minority (3 miles):</strong> ' + props.Percent_Minority_3_miles + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Low Income (3 miles):</strong> ' + props.Percent_Low_Income_3_miles + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Younger than 5 (3 miles):</strong> ' + props.Percent_Younger_than_5_3_miles + '<br>'
-              this.$refs.popupContent.innerHTML += '<strong>Percent Older than 64 (3 miles):</strong> ' + props.Percent_Older_than_64_3_miles + '<br>'
               this.popup.setPosition(closestPoint)
               this.closeTooltip()
             } else if (props.type && props.description && props.Operator) {
@@ -457,31 +357,9 @@ export default {
     closePopup: function () {
       this.popup.setPosition(undefined)
       this.$refs.popupCloser.blur()
-      this.twitterPopup.setPosition(undefined)
-      this.$refs.twitterpopupCloser.blur()
       this.vimeoPopup.setPosition(undefined)
       this.$refs.vimeoPopupCloser.blur()
       this.$refs.vimeoPopupContent.innerHTML = ''
-      return false
-    },
-    closeTitletip: function () {
-      this.titletip.setPosition(undefined)
-      return false
-    },
-    closeTextitletip: function () {
-      this.textitletip.setPosition(undefined)
-      return false
-    },
-    closeMileagetitletip: function () {
-      this.mileagetitletip.setPosition(undefined)
-      return false
-    },
-    closeWhitetitletip: function () {
-      this.whitetitletip.setPosition(undefined)
-      return false
-    },
-    closeSalmontip: function () {
-      this.salmontip.setPosition(undefined)
       return false
     },
     closeTooltip: function () {

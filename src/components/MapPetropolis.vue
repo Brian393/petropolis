@@ -40,8 +40,8 @@ export default {
           resolution: 25000
         },
         gas: {
-          center: [-97, 37],
-          resolution: 4500
+          center: [-94, 37],
+          resolution: 4000
         },
         gasIndustry: {
           center: [-97, 37],
@@ -92,12 +92,12 @@ export default {
         maxResolution: 4000
       }),
       this.makeGeoJSONLineVectorLayerWithStyle1('geojson/CancelledOilLines.geojson', 0, 1, 32000, 3),
-      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', -10, 1, 64000, 'black', 3),
+      this.makeGeoJSONLineVectorLayer('geojson/OilPipes1.geojson', 0, 1, 64000, 'black', 3),
       this.makeGeoJSONLineVectorLayer('geojson/OilPipes2.geojson', 0, 1, 64000, 'black', 3),
       this.makeGeoJSONLineVectorLayer('geojson/CanadianPipes.geojson', 0, 1, 64000, 'black', 3),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1000, 1, 16000, 'rgba(105, 105, 105, 0.0)', 16),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1000, 1, 16000, 'black', 8.5),
-      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 1000, 1, 16000, '#fb5c04', 3.5)
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 10, 1, 16000, 'rgba(105, 105, 105, 0.0)', 16),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 10, 1, 16000, 'black', 8.5),
+      this.makeGeoJSONLineVectorLayer('geojson/ContestedOilLines.geojson', 10, 1, 16000, '#fb5c04', 3.5)
     ]
   },
     petropolisOilPipelineLayers: function () {
@@ -192,63 +192,40 @@ export default {
       return [
         new Tile({
           source: new XYZ({
-            url: 'https://{a-d}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png'
+            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}'
           }),
-          opacity: 0.6,
-          minResolution: 200
+          opacity: 0.8,
+          minResolution: 0.25
         }),
-        new Tile({
-          source: new XYZ({
-            url: 'https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png'
+        // esriMapsAerial
+        ...this.baseLayers,
+        this.makeGeoJSONFillVectorLayer('geojson/ShalePlays.geojson', 40, 64000, 'rgba(91, 73, 14, 0.7)', 0.5, 'rgba(91, 73, 14, 0.3)'),
+
+        new VectorTileLayer({
+          source: new VectorTileSource({
+            format: new MVT(),
+            url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
           }),
-          opacity: 0.5,
-          minResolution: 0.5
-        }),
-        new Tile({
-          source: new XYZ({
-            url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}'
-          }),
-          opacity: 1,
-          minResolution: 1,
-          maxResolution: 4000
-        }),
-      // Aerial
-      ...this.baseLayers,
-  //    this.makeGeoJSONFillVectorLayer('geojson/Crude_Terminals.geojson', 0.25, 40, 'rgba(169, 169, 169, 0.9)', 3, 'rgba(169, 169, 169, 0.4)'),
-
-
-
-      this.makeGeoJSONFillVectorLayer('geojson/ShaleBasins-EIA.geojson', 40, 64000, 'rgba(239, 98, 47, 0.9)', 2, 'rgba(247, 206, 149, 0.3)'),
-      this.makeGeoJSONLineVectorLayer('geojson/NorAm.geojson', 0, 1.5, 64000, 'black', 0.6),
-
-      new VectorTileLayer({
-        source: new VectorTileSource({
-          format: new MVT(),
-          url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
-        }),
-        style: new Style({
-          stroke: new Stroke({
-            color: '#00c8f0',
-            width: 0.6,
-            opacity: 1
+          style: new Style({
+            stroke: new Stroke({
+              color: '#00c8f0',
+              width: 1.5,
+              opacity: 1
+            })
           })
-        })
-      }),
+        }),
 
-//        new Tile({
-//          source: new XYZ({
-//            url: 'https://ecotopia.today/Petropolis/WellTiles/{z}/{x}/{y}.png'
-//          }),
-//          opacity: 1,
-//          minResolution: 0.25
-//        }),
-
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 0.25, 80),
-      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 80, 400),
-      this.makeGeoJSONPointVectorLayer('geojson/USGasGens.geojson', 'icons/NatGas1.png', null, 400, 8000),
-//      this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas0.png', null, 1000, 5000)
-//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, 'black', 6.5),
-//      this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0, 0.5, 16000, '#00c8f0', 3)
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas3.png', null, 1, 1600),
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas2.png', null, 1600, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas2.png', null, 800, 8000),
+        this.makeGeoJSONPointVectorLayer('geojson/USnatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, 'black', 6.5),
+        this.makeGeoJSONLineVectorLayer('geojson/ContestedGasLines.geojson', 0.5, 16000, '#00c8f0', 3),
+        this.makeGeoJSONPointVectorLayer('geojson/GlobalNatGas.geojson', 'icons/NatGas1.png', null, 8000, 32000),
+        this.makeGeoJSONPointVectorLayer('geojson/EIP-NatGas.geojson', 'icons/redpin2.png', null, 1, 2000),
+        this.makeGeoJSONPointVectorLayer('geojson/LNGterminals.geojson', 'icons/LNGterminal.png', null, 1, 16000),
+        this.makeGeoJSONPointVectorLayer('geojson/Gasland.geojson', 'icons/PetropolisGasland2.gif', null, 4, 8000)
       ]
     },
     petropolisGasIndustryLayers: function () {
