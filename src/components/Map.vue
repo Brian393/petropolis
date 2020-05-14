@@ -439,9 +439,9 @@ export default {
         // After the map moveend event fires, determine if the instructions
         // for using the spotlights should be shown based on zoom level.
         this.olmap.on('moveend', function (e) {
-          const zoomLevel = this.getView().getZoom()
+          const resolutionLevel = this.getView().getResolution()
           const spotlightControls = document.querySelector('.spotlightControls')
-          if (zoomLevel >= 11) {
+          if (resolutionLevel <= 20) {
             spotlightControls.style.display = 'block'
           } else {
             spotlightControls.style.display = 'none'
@@ -514,8 +514,8 @@ export default {
       if (geometry.getType() === 'Point') {
         this.olmap.getView().animate({
           center: geometry.getCoordinates(),
-          zoom: 14,
-          duration: 500
+          zoom: 13,
+          duration: 800
         })
       } else {
         // Zoom to extent adding a padding to the extent
