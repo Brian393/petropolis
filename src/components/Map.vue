@@ -362,6 +362,10 @@ export default {
       this.$refs.vimeoPopupContent.innerHTML = ''
       return false
     },
+    closeTitletip: function () {
+      this.titletip.setPosition(undefined)
+      return false
+    },
     closeTooltip: function () {
       this.tooltip.setPosition(undefined)
       return false
@@ -450,37 +454,67 @@ export default {
       this.olmap.removeLayer(vector)
       this.olmap.addLayer(vector)
     },
-    geoJSONPointVectorLayerStyle: function (feature) {
-      // cache styles here to prevent icon flickering/blinking!
-      // second value of icon anchor is height in pixels, Y units specified accordingly
-      if (feature.values_ && feature.values_['icon'] && !this.styleCache[feature.values_['icon']]) {
-        this.styleCache[feature.values_['icon']] = new Style({
-          image: new Icon({
-            scale: 1,
-            rotateWithView: false,
-            anchor: [0.5, 43],
-            anchorXUnits: 'fraction',
-            anchorYUnits: 'pixels',
-            opacity: 1,
-            src: feature.values_['icon'] || 'icons/XLspill.gif'
-
-          })
+  // These are standard layer styles, not based on properties. Each includes a zIndex:
+  makeGeoJSONPointVectorLayer: function (url, zIndex, iconPath, label, minResolution, maxResolution, opacity) {
+    return new VectorLayer({
+      source: new VectorSource({
+        url: url,
+        format: new GeoJSON()
+      }),
+      minResolution: minResolution,
+      maxResolution: maxResolution,
+      zIndex: zIndex,
+      style: new Style({
+        image: new Icon({
+          src: iconPath,
+          opacity: opacity === undefined ? 1 : opacity
         })
-      }
-      return this.styleCache[feature.values_['icon']]
-    },
-    makeGeoJSONPointVectorLayerWithStyle: function (url, label, minResolution, maxResolution, opacity) {
+      }),
+      label: label
+    })
+  },
+  makeGeoJSONFillVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width, fillColor) {
+    return new VectorLayer({
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: url
+      }),
+      minResolution: minResolution,
+      maxResolution: maxResolution,
+      zIndex: zIndex,
+      style: new Style({
+        stroke: new Stroke({
+          color: strokeColor,
+          width: width
+        }),
+        fill: new Fill({
+          color: fillColor
+        })
+      }),
+      fill: fillColor,
+      fillColor: fillColor
+    })
+  },
+    makeGeoJSONLineVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width) {
       return new VectorLayer({
         source: new VectorSource({
-          url: url,
-          format: new GeoJSON()
+          format: new GeoJSON(),
+          url: url
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
-        style: this.geoJSONPointVectorLayerStyle,
-        label: label
+        zIndex: zIndex,
+        style: new Style({
+          stroke: new Stroke({
+            color: strokeColor,
+            width: width
+          })
+        }),
+        strokeColor: strokeColor
       })
     },
+
+    //These are specific styles using properties to style an element. They also have zIndexes. I am not sure these are done correctly.
     geoJSONPointVectorLayerCircleStyle: function (feature) {
       if (feature.values_ && feature.values_['rad'] && !this.styleCache[feature.values_['rad']]) {
         this.styleCache[feature.values_['rad']] = new Style({
@@ -498,7 +532,7 @@ export default {
       }
       return this.styleCache[feature.values_['rad']]
     },
-    makeGeoJSONPointVectorLayerWithCircleStyle: function (url, label, minResolution, maxResolution, strokeColor, width, fillColor) {
+    makeGeoJSONPointVectorLayerWithCircleStyle: function (url, zIndex, label, minResolution, maxResolution, strokeColor, width, fillColor) {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
@@ -506,6 +540,7 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
+        zIndex: zIndex,
         style: this.geoJSONPointVectorLayerCircleStyle,
         label: label
       })
@@ -527,7 +562,7 @@ export default {
       }
       return this.styleCache[feature.values_['production']]
     },
-    makeGeoJSONPointVectorLayerWithCircleStyle1: function (url, label, minResolution, maxResolution) {
+    makeGeoJSONPointVectorLayerWithCircleStyle1: function (url, zIndex, label, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
@@ -535,6 +570,7 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
+        zIndex: zIndex,
         style: this.geoJSONPointVectorLayerCircleStyle1,
         label: label
       })
@@ -556,7 +592,7 @@ export default {
       }
       return this.styleCache[feature.values_['EUR_MMBOE']]
     },
-    makeGeoJSONPointVectorLayerWithCircleStyle2: function (url, label, minResolution, maxResolution) {
+    makeGeoJSONPointVectorLayerWithCircleStyle2: function (url, zIndex, label, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
@@ -564,6 +600,7 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
+        zIndex: zIndex,
         style: this.geoJSONPointVectorLayerCircleStyle2,
         label: label
       })
@@ -585,7 +622,7 @@ export default {
       }
       return this.styleCache[feature.values_['max_ptl_release_gallons']]
     },
-    makeGeoJSONPointVectorLayerWithCircleStyle3: function (url, label, minResolution, maxResolution) {
+    makeGeoJSONPointVectorLayerWithCircleStyle3: function (url, zIndex, label, minResolution, maxResolution) {
       return new VectorLayer({
         source: new VectorSource({
           url: url,
@@ -593,75 +630,9 @@ export default {
         }),
         minResolution: minResolution,
         maxResolution: maxResolution,
+        zIndex: zIndex,
         style: this.geoJSONPointVectorLayerCircleStyle3,
         label: label
-      })
-    },
-    geoJSONPointVectorLayerCircleStyle4: function (feature) {
-      if (feature.values_ && feature.values_['CAP'] && !this.styleCache[feature.values_['CAP']]) {
-        this.styleCache[feature.values_['CAP']] = new Style({
-          image: new Circle({
-            stroke: new Stroke({
-              color: 'rgba(0, 0, 0, 0.9)',
-              width: 1
-            }),
-            fill: new Fill({
-              color: 'rgba(0, 200, 237, 0.8)'
-            }),
-            radius: Math.sqrt(feature.values_['CAP']) / 3
-          })
-        })
-      }
-      return this.styleCache[feature.values_['CAP']]
-    },
-    makeGeoJSONPointVectorLayerWithCircleStyle4: function (url, label, minResolution, maxResolution) {
-      return new VectorLayer({
-        source: new VectorSource({
-          url: url,
-          format: new GeoJSON()
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: this.geoJSONPointVectorLayerCircleStyle4,
-        label: label
-      })
-    },
-    makeGeoJSONPointVectorLayer: function (url, iconPath, label, minResolution, maxResolution, opacity) {
-      return new VectorLayer({
-        source: new VectorSource({
-          url: url,
-          format: new GeoJSON()
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: new Style({
-          image: new Icon({
-            src: iconPath,
-            opacity: opacity === undefined ? 1 : opacity
-          })
-        }),
-        label: label
-      })
-    },
-    makeGeoJSONFillVectorLayer: function (url, minResolution, maxResolution, strokeColor, width, fillColor) {
-      return new VectorLayer({
-        source: new VectorSource({
-          format: new GeoJSON(),
-          url: url
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: new Style({
-          stroke: new Stroke({
-            color: strokeColor,
-            width: width
-          }),
-          fill: new Fill({
-            color: fillColor
-          })
-        }),
-        fill: fillColor,
-        fillColor: fillColor
       })
     },
     geoJSONLineVectorLayerStyle1: function (feature) {
@@ -676,40 +647,7 @@ export default {
       }
       return this.styleCache[feature.values_['color']]
     },
-    makeGeoJSONLineVectorLayerWithStyle1: function (url, minResolution, maxResolution, width) {
-      return new VectorLayer({
-        source: new VectorSource({
-          format: new GeoJSON(),
-          url: url
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: this.geoJSONLineVectorLayerStyle1
-      })
-    },
-    LineVectorTileLayerStyle2: function (feature) {
-      if (feature.values_ && feature.values_['color'] && !this.styleCache[feature.values_['color']]) {
-        this.styleCache[feature.values_['color']] = new Style({
-          stroke: new Stroke({
-            color: feature.values_['color'],
-            width: 1
-          })
-        })
-      }
-      return this.styleCache[feature.values_['color']]
-    },
-    makeLineVectorTileLayerWithStyle2: function (url, minResolution, maxResolution, width, opacity) {
-      return new VectorTileLayer({
-        source: new VectorTileSource({
-          format: new MVT(),
-          url: url
-        }),
-        minResolution: minResolution,
-        maxResolution: maxResolution,
-        style: this.LineVectorTileLayerStyle2
-      })
-    },
-    makeGeoJSONLineVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width) {
+    makeGeoJSONLineVectorLayerWithStyle1: function (url, zIndex, minResolution, maxResolution, width) {
       return new VectorLayer({
         source: new VectorSource({
           format: new GeoJSON(),
@@ -718,13 +656,7 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: new Style({
-          stroke: new Stroke({
-            color: strokeColor,
-            width: width
-          })
-        }),
-        strokeColor: strokeColor
+        style: this.geoJSONLineVectorLayerStyle1
       })
     },
     /**
