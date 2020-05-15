@@ -214,12 +214,6 @@ export default {
             // Correct popup position (used feature coordinates insteaad of mouse)
             const closestPoint = feature.getGeometry().getClosestPoint(e.coordinate)
 
-            // Center the map so the highlight circle is opened directly over the point when the user clicks "DIVE"
-            this.olmap.getView().animate({
-              center: closestPoint,
-              duration: 400
-            })
-
             // ===///// ===
 
             // #TODO: use better property names in .geojson files for if/else logic
