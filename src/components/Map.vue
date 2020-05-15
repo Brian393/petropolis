@@ -454,47 +454,47 @@ export default {
       this.olmap.removeLayer(vector)
       this.olmap.addLayer(vector)
     },
-  // These are standard layer styles, not based on properties. Each includes a zIndex:
-  makeGeoJSONPointVectorLayer: function (url, zIndex, iconPath, label, minResolution, maxResolution, opacity) {
-    return new VectorLayer({
-      source: new VectorSource({
-        url: url,
-        format: new GeoJSON()
-      }),
-      minResolution: minResolution,
-      maxResolution: maxResolution,
-      zIndex: zIndex,
-      style: new Style({
-        image: new Icon({
-          src: iconPath,
-          opacity: opacity === undefined ? 1 : opacity
-        })
-      }),
-      label: label
-    })
-  },
-  makeGeoJSONFillVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width, fillColor) {
-    return new VectorLayer({
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: url
-      }),
-      minResolution: minResolution,
-      maxResolution: maxResolution,
-      zIndex: zIndex,
-      style: new Style({
-        stroke: new Stroke({
-          color: strokeColor,
-          width: width
+    // These are standard layer styles, not based on properties. Each includes a zIndex:
+    makeGeoJSONPointVectorLayer: function (url, zIndex, iconPath, label, minResolution, maxResolution, opacity) {
+      return new VectorLayer({
+        source: new VectorSource({
+          url: url,
+          format: new GeoJSON()
         }),
-        fill: new Fill({
-          color: fillColor
-        })
-      }),
-      fill: fillColor,
-      fillColor: fillColor
-    })
-  },
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        zIndex: zIndex,
+        style: new Style({
+          image: new Icon({
+            src: iconPath,
+            opacity: opacity === undefined ? 1 : opacity
+          })
+        }),
+        label: label
+      })
+    },
+    makeGeoJSONFillVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width, fillColor) {
+      return new VectorLayer({
+        source: new VectorSource({
+          format: new GeoJSON(),
+          url: url
+        }),
+        minResolution: minResolution,
+        maxResolution: maxResolution,
+        zIndex: zIndex,
+        style: new Style({
+          stroke: new Stroke({
+            color: strokeColor,
+            width: width
+          }),
+          fill: new Fill({
+            color: fillColor
+          })
+        }),
+        fill: fillColor,
+        fillColor: fillColor
+      })
+    },
     makeGeoJSONLineVectorLayer: function (url, zIndex, minResolution, maxResolution, strokeColor, width) {
       return new VectorLayer({
         source: new VectorSource({
@@ -514,7 +514,7 @@ export default {
       })
     },
 
-    //These are specific styles using properties to style an element. They also have zIndexes. I am not sure these are done correctly.
+    // These are specific styles using properties to style an element. They also have zIndexes. I am not sure these are done correctly.
     geoJSONPointVectorLayerCircleStyle: function (feature) {
       if (feature.values_ && feature.values_['rad'] && !this.styleCache[feature.values_['rad']]) {
         this.styleCache[feature.values_['rad']] = new Style({
