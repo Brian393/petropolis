@@ -61,6 +61,8 @@ import VectorTileLayer from 'ol/layer/VectorTile'
 import MVT from 'ol/format/MVT'
 import VectorTileSource from 'ol/source/VectorTile'
 
+import { popupInfoStyle, baseStyle } from '../style/OlStyleDefs'
+
 import { GeoJSON } from 'ol/format'
 import { Style, Stroke, Fill, Icon, Circle } from 'ol/style'
 import { ScaleLine, defaults as defaultControls, Control } from 'ol/control'
@@ -79,7 +81,6 @@ export default {
   data: function() {
     return {
       olmap: undefined,
-      styleCache: {},
       activeFeature: null,
       popupInfoLayerSource: null,
       lightBoxImages: [],
@@ -442,7 +443,6 @@ export default {
       const geometry = this.activeFeature.getGeometry()
       const props = this.activeFeature.getProperties()
 
-
       // Add popup content in sidepanel
       const sidePanelFeatureContentEl = document.getElementById(
         'feature-content'
@@ -477,37 +477,6 @@ export default {
       // Close popup
       this.popup.setPosition(undefined)
     },
-    popupInfoLayerStyle() {
-      // MAJK: PopupInfo layer style (used for highlight)
-      const styles = []
-      styles.push(
-        new Style({
-          stroke: new Stroke({
-            color: 'rgba(236, 236, 236, 0.7)',
-            width: 20
-          })
-        })
-      )
-      styles.push(
-        new Style({
-          fill: new Fill({
-            color: 'rgba(255,0,0, 0.2)'
-          }),
-          stroke: new Stroke({
-            color: '#ff0000',
-            width: 4
-          }),
-          image: new Circle({
-            radius: 7,
-            fill: new Fill({
-              color: '#ff0000'
-            })
-          })
-        })
-      )
-
-      return styles
-    },
     makePopupInfoLayer() {
       // MAJK: PopupInfo layer (used for highlight)
       const source = new VectorSource({
@@ -517,7 +486,7 @@ export default {
         name: 'Popinfo Info Layer',
         zIndex: 100,
         source: source,
-        style: this.popupInfoLayerStyle()
+        style: popupInfoStyle
       })
       this.popupInfoLayerSource = source
       // Workaround if map view is changed.
@@ -623,28 +592,6 @@ export default {
       return new VectorLayer(config)
     },
 
-    // These are specific styles using properties to style an element. They also have zIndexes. I am not sure these are done correctly.
-    geoJSONPointVectorLayerCircleStyle: function(feature) {
-      if (
-        feature.values_ &&
-        feature.values_['rad'] &&
-        !this.styleCache[feature.values_['rad']]
-      ) {
-        this.styleCache[feature.values_['rad']] = new Style({
-          image: new Circle({
-            stroke: new Stroke({
-              color: 'rgba(134, 40, 26, 0.5)',
-              width: 1
-            }),
-            fill: new Fill({
-              color: 'rgba(134, 40, 26, 0.3)'
-            }),
-            radius: Math.sqrt(feature.values_['rad'])
-          })
-        })
-      }
-      return this.styleCache[feature.values_['rad']]
-    },
     makeGeoJSONPointVectorLayerWithCircleStyle: function(
       url,
       zIndex,
@@ -663,30 +610,15 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: this.geoJSONPointVectorLayerCircleStyle,
+        style: baseStyle('rad', {
+          strokeColor: 'rgba(134, 40, 26, 0.5)',
+          fillColor: 'rgba(134, 40, 26, 0.3)',
+          circleRadiusFn: propertyValue => {
+            return Math.sqrt(propertyValue)
+          }
+        }),
         label: label
       })
-    },
-    geoJSONPointVectorLayerCircleStyle1: function(feature) {
-      if (
-        feature.values_ &&
-        feature.values_['production'] &&
-        !this.styleCache[feature.values_['production']]
-      ) {
-        this.styleCache[feature.values_['production']] = new Style({
-          image: new Circle({
-            stroke: new Stroke({
-              color: 'rgba(255, 255, 255, 1)',
-              width: 1
-            }),
-            fill: new Fill({
-              color: 'rgba(129, 56, 17, 0.7)'
-            }),
-            radius: Math.sqrt(feature.values_['production']) / 150
-          })
-        })
-      }
-      return this.styleCache[feature.values_['production']]
     },
     makeGeoJSONPointVectorLayerWithCircleStyle1: function(
       url,
@@ -703,30 +635,15 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: this.geoJSONPointVectorLayerCircleStyle1,
+        style: baseStyle('production', {
+          strokeColor: 'rgba(255, 255, 255, 1)',
+          fillColor: 'rgba(129, 56, 17, 0.7)',
+          circleRadiusFn: propertyValue => {
+            return Math.sqrt(propertyValue) / 150
+          }
+        }),
         label: label
       })
-    },
-    geoJSONPointVectorLayerCircleStyle2: function(feature) {
-      if (
-        feature.values_ &&
-        feature.values_['EUR_MMBOE'] &&
-        !this.styleCache[feature.values_['EUR_MMBOE']]
-      ) {
-        this.styleCache[feature.values_['EUR_MMBOE']] = new Style({
-          image: new Circle({
-            stroke: new Stroke({
-              color: 'rgba(255, 255, 255, 0.7)',
-              width: 1
-            }),
-            fill: new Fill({
-              color: 'rgba(195, 72, 28, 0.4)'
-            }),
-            radius: Math.sqrt(feature.values_['EUR_MMBOE']) * 0.3
-          })
-        })
-      }
-      return this.styleCache[feature.values_['EUR_MMBOE']]
     },
     makeGeoJSONPointVectorLayerWithCircleStyle2: function(
       url,
@@ -743,32 +660,15 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: this.geoJSONPointVectorLayerCircleStyle2,
+        style: baseStyle('EUR_MMBOE', {
+          strokeColor: 'rgba(255, 255, 255, 0.7)',
+          fillColor: 'rgba(195, 72, 28, 0.4)',
+          circleRadiusFn: propertyValue => {
+            return Math.sqrt(propertyValue) * 0.3
+          }
+        }),
         label: label
       })
-    },
-    geoJSONPointVectorLayerCircleStyle3: function(feature) {
-      if (
-        feature.values_ &&
-        feature.values_['max_ptl_release_gallons'] &&
-        !this.styleCache[feature.values_['max_ptl_release_gallons']]
-      ) {
-        this.styleCache[feature.values_['max_ptl_release_gallons']] = new Style(
-          {
-            image: new Circle({
-              stroke: new Stroke({
-                color: 'rgba(134, 40, 26, 0.9)',
-                width: 1
-              }),
-              fill: new Fill({
-                color: 'rgba(134, 40, 26, 0.6)'
-              }),
-              radius: Math.sqrt(feature.values_['max_ptl_release_gallons']) / 70
-            })
-          }
-        )
-      }
-      return this.styleCache[feature.values_['max_ptl_release_gallons']]
     },
     makeGeoJSONPointVectorLayerWithCircleStyle3: function(
       url,
@@ -785,25 +685,15 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: this.geoJSONPointVectorLayerCircleStyle3,
+        style: baseStyle('max_ptl_release_gallons', {
+          strokeColor: 'rgba(134, 40, 26, 0.9)',
+          fillColor: 'rgba(134, 40, 26, 0.6)',
+          circleRadiusFn: propertyValue => {
+            return Math.sqrt(propertyValue) / 70
+          }
+        }),
         label: label
       })
-    },
-    geoJSONLineVectorLayerStyle1: function(feature) {
-      if (
-        feature.values_ &&
-        feature.values_['color'] &&
-        !this.styleCache[feature.values_['color']]
-      ) {
-        this.styleCache[feature.values_['color']] = new Style({
-          stroke: new Stroke({
-            color: feature.values_['color'],
-            width: 4,
-            lineDash: [6]
-          })
-        })
-      }
-      return this.styleCache[feature.values_['color']]
     },
     makeGeoJSONLineVectorLayerWithStyle1: function(
       url,
@@ -820,7 +710,11 @@ export default {
         minResolution: minResolution,
         maxResolution: maxResolution,
         zIndex: zIndex,
-        style: this.geoJSONLineVectorLayerStyle1
+        style: baseStyle('color', {
+          strokeColor: propertyValue => propertyValue,
+          strokeWidth: 4,
+          lineDash: [6]
+        })
       })
     },
     /**
@@ -921,8 +815,8 @@ export default {
       if (!layer) {
         return ''
       }
-      if (layer.get("name")) {
-        return layer.get("name")
+      if (layer.get('name')) {
+        return layer.get('name')
       }
       if (!layer.getUrl) return ''
 

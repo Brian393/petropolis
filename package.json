@@ -14,6 +14,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "colormap": "^2.3.0",
     "jQuery": "^1.7.4",
     "jsdom": "^13.1.0",
