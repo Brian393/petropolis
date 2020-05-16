@@ -1,0 +1,82 @@
+version: "3.7"
+
+networks:
+  proxy:
+
+volumes:
+  postgres_data:
+
+services:
+  traefik:
+    image: "traefik:1.7.2-alpine"
+    container_name: "traefik"
+    ports:
+      - "80:80" # - Default Port
+      - "443:443" # - SSL Port
+      - "31951:31951" # - Mapproxy
+      - "8000:8000" # - Traefik UI
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./app/config/traefik.toml:/etc/traefik/traefik.toml
+      - ./app/config/ssl:/ssl
+    labels:
+      - "traefik.backend=traefik"
+      - "traefik.frontend.entryPoints=traefik-ui"
+      - "traefik.frontend.rule=Host:209.126.13.2;"
+      - "traefik.port=8080"
+      - "traefik.enable=true"
+    networks:
+      proxy:
+
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./app/client
+    image: petropolis-client
+    volumes:
+      - /app/node_modules
+      - ./app/client:/app
+    container_name: petropolis-client
+    labels:
+      - "traefik.backend=client"
+      - "traefik.frontend.entryPoints=https,http"
+      - "traefik.frontend.rule=Host:209.126.13.2;"
+      - "traefik.port=80"
+      - "traefik.enable=true"
+    networks:
+      proxy:
+
+  geoserver:
+    image: oscarfonts/geoserver:2.17.0
+    volumes:
+      - ./app/geoserver/geoserver_data:/var/local/geoserver
+    container_name: petropolis-geoserver
+    restart: on-failure
+    depends_on:
+      - db
+    labels:
+      - "traefik.backend=geoserver"
+      - "traefik.frontend.entryPoints=https,http"
+      - "traefik.frontend.rule=Host:209.126.13.2;PathPrefix:/geoserver"
+      - "traefik.port=8080"
+      - "traefik.enable=true"
+    networks:
+      proxy:
+
+  db:
+    image: kartoza/postgis:12.1
+    container_name: petropolis-database
+    restart: on-failure
+    volumes:
+      # we are mounting a named volume here instead of a data directory path because of
+      # a windows 10 premission issue. See https://github.com/docker-library/postgres/issues/435)
+      # .........
+      - postgres_data:/var/lib/postgresql
+      - ./app/database:/opt
+      - ./app/config:/opt/config
+    env_file:
+      - ./app/config/docker-env/db.env
+    ports:
+      - "65432:5432"
+    networks:
+      proxy:
