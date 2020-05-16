@@ -1,0 +1,7 @@
+{
+    "extends": "standard",
+    "rules": {
+    //disable rule of space before function parentheses 
+        "space-before-function-paren": 0
+    }
+}
