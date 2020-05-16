@@ -73,7 +73,7 @@ import Feature from 'ol/Feature'
 import Point from 'ol/geom/Point'
 import AppLightBox from './AppLightBox'
 
-import { UrlUtil } from '../utils/Url'
+import UrlUtil from '../utils/Url'
 import { getLayerName } from '../utils/MapUtils'
 
 export default {
@@ -178,7 +178,6 @@ export default {
             feature = f
             layer = l
           })
-
           // Check if layer is interactive
           if (layer && layer.get('isInteractive') === false) return
           this.activeLayer = layer
@@ -239,6 +238,7 @@ export default {
               // Popup will not be opened if there are lightbox images
               return
             }
+  
             // Correct popup position (used feature coordinates insteaad of mouse)
 
             let closestPoint
