@@ -230,7 +230,6 @@ export const LayerFactory = {
       visible: lConf.visible,
       opacity: lConf.opacity,
       zIndex: lConf.zIndex,
-      showInMapillary: lConf.showInMapillary,
       source: new VectorSource({
         url: lConf.url,
         format: new this.formatMapping[lConf.format](lConf.formatConfig),

@@ -73,6 +73,9 @@ import Feature from 'ol/Feature'
 import Point from 'ol/geom/Point'
 import AppLightBox from './AppLightBox'
 
+import { UrlUtil } from '../utils/Url'
+import { getLayerName } from '../utils/MapUtils'
+
 export default {
   name: 'Map',
   components: {
@@ -145,6 +148,7 @@ export default {
     }
   },
   methods: {
+    getLayerName,
     initMap: function() {
       // NOTE: the extended class needs to implement initMap()
     },
@@ -223,7 +227,7 @@ export default {
                   // Image is stored as a string
                   imageUrl = image
                 }
-                const url = this.parseUrl(imageUrl)
+                const url = UrlUtil.parseUrl(imageUrl)
                 this.lightBoxImages.push({
                   src: url,
                   thumb: url,
@@ -456,7 +460,7 @@ export default {
         // Copy initial image src
         this.sidePanelInitialImageSrc = sidePanelImageEl.src
         // Change default image with feature image
-        sidePanelImageEl.src = this.parseUrl(props.imageUrl)
+        sidePanelImageEl.src = UrlUtil.parseUrl(props.imageUrl)
       }
 
       if (geometry.getType() === 'Point') {
@@ -797,35 +801,6 @@ export default {
         viewOptz['maxResolution'] = 16000
       }
       this.olmap.setView(new View(viewOptz))
-    },
-    parseUrl(urlString) {
-      let url = ''
-      // Check if image url is relative or absolute
-      const pat = /^https?:\/\//i
-      if (pat.test(url) === true) {
-        // Image url is absolute
-        url = urlString
-      } else {
-        // Image url is relative, (so we get the baseUrl from the domain)
-        url = new URL(urlString, window.location.origin).href
-      }
-      return url
-    },
-    getLayerName(layer) {
-      if (!layer) {
-        return ''
-      }
-      if (layer.get('name')) {
-        return layer.get('name')
-      }
-      if (!layer.getUrl) return ''
-
-      const layerUrl = layer.getSource().getUrl()
-      const layerName = layerUrl.substring(
-        layerUrl.lastIndexOf('/') + 1,
-        layerUrl.lastIndexOf('.')
-      )
-      return layerName
     }
   }
 }
