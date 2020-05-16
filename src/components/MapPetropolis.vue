@@ -464,6 +464,7 @@ export default {
         ),
 
         new VectorTileLayer({
+          name: "GasPipes2",
           source: new VectorTileSource({
             format: new MVT(),
             url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
@@ -580,6 +581,7 @@ export default {
         ),
 
         new VectorTileLayer({
+          name: "GasPipes2",
           source: new VectorTileSource({
             format: new MVT(),
             url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'

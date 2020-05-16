@@ -175,7 +175,7 @@ export default {
           })
 
           // Check if layer is interactive
-          if (layer.get('isInteractive') === false) return
+          if (layer && layer.get('isInteractive') === false) return
           this.activeLayer = layer
           if (!this.popupConfig) {
             this.popupConfig = this.$appConfig.map.popup
@@ -235,9 +235,15 @@ export default {
               return
             }
             // Correct popup position (used feature coordinates insteaad of mouse)
-            const closestPoint = feature
-              .getGeometry()
-              .getClosestPoint(e.coordinate)
+
+            let closestPoint
+            // Closest point doesn't work with vector tile layers.
+            if (feature.getGeometry && feature.getGeometry().getClosestPoint) {
+              closestPoint = feature.getGeometry().getClosestPoint(e.coordinate)
+            } else {
+              closestPoint = e.coordinate
+            }
+
             // ===///// ===
 
             // #TODO: use better property names in .geojson files for if/else logic
@@ -435,6 +441,7 @@ export default {
        */
       const geometry = this.activeFeature.getGeometry()
       const props = this.activeFeature.getProperties()
+
 
       // Add popup content in sidepanel
       const sidePanelFeatureContentEl = document.getElementById(
@@ -914,6 +921,11 @@ export default {
       if (!layer) {
         return ''
       }
+      if (layer.get("name")) {
+        return layer.get("name")
+      }
+      if (!layer.getUrl) return ''
+
       const layerUrl = layer.getSource().getUrl()
       const layerName = layerUrl.substring(
         layerUrl.lastIndexOf('/') + 1,
