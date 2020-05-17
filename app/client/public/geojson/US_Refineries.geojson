@@ -1636,8 +1636,7 @@
         "text1": "<br><strong>CORPORATE WEBSITE:</strong> <a href='http:\/\/www.andeavor.com' target='_blank'>click here<\/a>",
         "text2": "<strong>RIGHT-TO-KNOW NETWORK:</strong> <a href='https:\/\/rtk.rjifuture.org\/rmp\/facility\/100000063487' target='_blank'>click here<\/a>",
         "text3": "<strong>US RANK:</strong> 113<br><strong>CAPACITY:</strong> 25,500 barrels per day<br><br><strong>SOURCE:</strong> <a href='https://hifld-geoplatform.opendata.arcgis.com/datasets/oil-refinieries' target='_blank'>HIFLD</a>",
-        "BPD": 25500,
-        "imageUrl": "https://i-thethao.vnecdn.net/2018/05/27/000-15D921-1527377928_680x0.jpg"
+        "BPD": 25500
       },
       "geometry": {
         "type": "Point",
@@ -2339,11 +2338,7 @@
         "text1": "<br><strong>CORPORATE WEBSITE:</strong> <a href='NOT AVAILABLE' target='_blank'>click here<\/a>",
         "text2": "<strong>RIGHT-TO-KNOW NETWORK:</strong> <a href='https:\/\/rtk.rjifuture.org\/rmp\/facility\/NOT AVAILABLE' target='_blank'>click here<\/a>",
         "text3": "<strong>US RANK:</strong> 137<br><strong>CAPACITY:</strong> 2,000 barrels per day<br><br><strong>SOURCE:</strong> <a href='https://hifld-geoplatform.opendata.arcgis.com/datasets/oil-refinieries' target='_blank'>HIFLD</a>",
-        "BPD": 2000,
-        "lightbox": [
-          "https://i-thethao.vnecdn.net/2018/05/27/000-15D921-1527377928_680x0.jpg",
-          "https://i-thethao.vnecdn.net/2018/05/27/000-15D9DX-1527378233_680x0.jpg"
-          ]
+        "BPD": 2000
       },
       "geometry": {
         "type": "Point",
