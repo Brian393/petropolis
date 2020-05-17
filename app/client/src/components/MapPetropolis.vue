@@ -467,7 +467,7 @@ export default {
           name: "GasPipes2",
           source: new VectorTileSource({
             format: new MVT(),
-            url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
+            url: 'http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf'
           }),
           style: new Style({
             stroke: new Stroke({
