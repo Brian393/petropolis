@@ -28,28 +28,31 @@ services:
     networks:
       proxy:
 
-  client:
-    build:
-      dockerfile: Dockerfile
-      context: ./app/client
-    image: petropolis-client
-    volumes:
-      - /app/node_modules
-      - ./app/client:/app
-    container_name: petropolis-client
-    labels:
-      - "traefik.backend=client"
-      - "traefik.frontend.entryPoints=https,http"
-      - "traefik.frontend.rule=Host:209.126.13.2;"
-      - "traefik.port=80"
-      - "traefik.enable=true"
-    networks:
-      proxy:
+  # client:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./app/client
+  #   image: petropolis-client
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./app/client:/app
+  #   container_name: petropolis-client
+  #   labels:
+  #     - "traefik.backend=client"
+  #     - "traefik.frontend.entryPoints=https,http"
+  #     - "traefik.frontend.rule=Host:209.126.13.2;"
+  #     - "traefik.port=80"
+  #     - "traefik.enable=true"
+  #   networks:
+  #     proxy:
 
   geoserver:
     image: oscarfonts/geoserver:2.17.0
     volumes:
       - ./app/geoserver/geoserver_data:/var/local/geoserver
+      - ./app/geoserver/geoserver_exts:/var/local/geoserver-exts/
+    env_file:
+      - ./app/config/docker-env/geoserver.env
     container_name: petropolis-geoserver
     restart: on-failure
     depends_on:
