@@ -238,9 +238,9 @@ export default {
   },
   computed: {
     // mix the getters into computed with object spread operator
-    ...mapGetters([
-      'asideHidden'
-    ])
+   ...mapGetters("app",{
+     asideHidden: 'asideHidden'
+   })
   },
   mounted () {
     // Check to see if the infoPopUp query string was added to the route and display popup if so.
@@ -250,7 +250,7 @@ export default {
   },
   methods: {
     toggleAside () {
-      this.$store.dispatch('toggle')
+      this.$store.dispatch('app/toggle')
     },
     scrollToAside () {
       this.$refs.asideContent.scrollIntoView()

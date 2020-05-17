@@ -9,7 +9,7 @@ import Vue from 'vue'
 import VueLazyLoad from 'vue-lazyload'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/index'
 import VModal from 'vue-js-modal'
 
 const appSelector = '#app'
@@ -32,6 +32,7 @@ Vue.config.productionTip = false
 export const eventBus = new Vue()
 
 // App Configuration
+// eslint-disable-next-line no-undef
 fetch('./static/app-conf.json')
   .then(function (response) {
     if (response.status !== 200) {

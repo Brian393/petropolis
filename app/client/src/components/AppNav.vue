@@ -148,9 +148,9 @@ export default {
   },
   computed: {
     // mix the getters from vuex store into computed with object spread operator
-    ...mapGetters([
-      'asideHidden'
-    ])
+   ...mapGetters("app",{
+     asideHidden: 'asideHidden'
+   })
   },
   watch: {
     '$route' (to, from) {
