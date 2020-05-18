@@ -1,8 +1,1398 @@
 {
-    "title": "Petropolis",
-    "map": {
-        "popup": {
-            "hiddenLayerNames": [ "EIP-Oil", "Spills_20yrs", "ShalePlays", "NA-RR", "GiantOilFields" ]
+  "title": "Petropolis",
+  "map": {
+    "popup": {
+      "hiddenLayerNames": [
+        "EIP-Oil",
+        "Spills_20yrs",
+        "ShalePlays",
+        "NA-RR",
+        "GiantOilFields"
+      ]
+    },
+    "minZoom": 10,
+    "maxZoom": 21,
+    "layers": [
+      {
+        "type": "VECTOR",
+        "name": "NorAm",
+        "url": "geojson/NorAm.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 0.7
         }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CancelledOilLines",
+        "url": "geojson/CancelledOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 32000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "strokeColor",
+        "styleField": "color",
+        "style": {
+          "strokeWidth": 4,
+          "lineDash": [6]
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "OilPipes1",
+        "url": "geojson/OilPipes1.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "OilPipes2",
+        "url": "geojson/OilPipes2.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CanadianPipes",
+        "url": "geojson/CanadianPipes.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines1",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "rgba(105, 105, 105, 0.0)",
+          "strokeWidth": 16
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines2",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 8.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines3",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#fb5c04",
+          "strokeWidth": 3.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines4",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 7
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines5",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#fd6a02",
+          "strokeWidth": 3.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Spills_20yrs",
+        "url": "geojson/Spills_20yrs.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 2000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "circleRadiusFn",
+        "styleField": "rad",
+        "style": {
+          "strokeColor": "rgba(134, 40, 26, 0.5)",
+          "fillColor": "rgba(134, 40, 26, 0.3)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "NA-RR1",
+        "url": "geojson/NA-RR.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 16,
+        "maxResolution": 4000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(105, 105, 105, 0.4)",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Terminals",
+        "url": "geojson/Terminals.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 2000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/terminal.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalPipelines",
+        "url": "geojson/GlobalPipelines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#000000",
+          "strokeWidth": 2.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "US_Refineries1",
+        "url": "geojson/US_Refineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalRefineries1",
+        "url": "geojson/GlobalRefineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CrudeDerailments",
+        "url": "geojson/CrudeDerailments.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Explosion3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "VideoOilIndustry",
+        "url": "geojson/VideoOilIndustry.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Warning.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "MacLean",
+        "url": "geojson/MacLean.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/A_MacLean.png"
+        }
+      },
+      {
+        "type": "XYZ",
+        "name": "Toner-Lite",
+        "group": "petropolisOil",
+        "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
+        "minResolution": 0.25,
+        "maxResolution": 200,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "VECTOR",
+        "name": "OilPipes2",
+        "url": "geojson/OilPipes2.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GiantOilFields",
+        "url": "geojson/GiantOilFields.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 4000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "circleRadiusFn",
+        "styleField": "EUR_MMBOE",
+        "style": {
+          "strokeColor": "rgba(255, 255, 255, 0.7)",
+          "fillColor": "rgba(195, 72, 28, 0.4)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines4",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 7
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines5",
+        "url": "geojson/ContestedOilLines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#fd6a02",
+          "strokeWidth": 3.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "OilPorts",
+        "url": "geojson/OilPorts.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Tanker2.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "US_Refineries2",
+        "url": "geojson/US_Refineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "US_Refineries3",
+        "url": "geojson/US_Refineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 8000,
+        "maxResolution": 32000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery4.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalRefineries2",
+        "url": "geojson/GlobalRefineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalRefineries3",
+        "url": "geojson/GlobalRefineries.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 8000,
+        "maxResolution": 32000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery4.png"
+        }
+      },
+
+      {
+        "type": "VECTOR",
+        "name": "ShalePlays",
+        "url": "geojson/ShalePlays.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 40,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(91, 73, 14, 0.7)",
+          "strokeWidth": 0.5,
+          "fillColor": "rgba(91, 73, 14, 0.3)"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "GasPipes2",
+        "url": "http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "#00c8f0",
+          "strokeWidth": 1.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "USnatGas1",
+        "url": "geojson/USnatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 1600,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "USnatGas2",
+        "url": "geojson/USnatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1600,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas2.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "USnatGas3",
+        "url": "geojson/USnatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 8000,
+        "maxResolution": 32000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas1.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "USnatGas4",
+        "url": "geojson/USnatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas2.gif"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalNatGas1",
+        "url": "geojson/GlobalNatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 1600,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalNatGas2",
+        "url": "geojson/GlobalNatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 800,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas2.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalNatGas3",
+        "url": "geojson/GlobalNatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 8000,
+        "maxResolution": 32000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas1.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "GlobalNatGas4",
+        "url": "geojson/GlobalNatGas.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/NatGas2.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedGasLines1",
+        "url": "geojson/ContestedGasLines.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 6.5
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedGasLines2",
+        "url": "geojson/ContestedGasLines.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#00c8f0",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "LNGterminals",
+        "url": "geojson/LNGterminals.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/LNGterminal.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Gasland",
+        "url": "geojson/Gasland.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/PetropolisGasland2.gif"
+        }
+      },
+
+      {
+        "type": "VECTOR",
+        "name": "ShaleBasins",
+        "url": "geojson/ShaleBasins.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.25,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(56, 132, 189, 0.7)",
+          "strokeWidth": 0.5,
+          "fillColor": "rgba(7, 29, 81, 0.2)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Global_LNG",
+        "url": "geojson/Global_LNG.geojson",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/LNGtanker.png"
+        }
+      },
+
+      {
+        "type": "VECTOR",
+        "name": "NA-RR2",
+        "url": "geojson/NA-RR.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 16,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(255, 255, 255, 0.6)",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal1",
+        "url": "geojson/Coal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Smokestack6.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal_Mines",
+        "url": "geojson/Coal_Mines.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "circleRadiusFn",
+        "styleField": "production",
+        "style": {
+          "strokeColor": "rgba(255, 255, 255, 1)",
+          "fillColor": "rgba(129, 56, 17, 0.7)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "SurfaceCoal",
+        "url": "geojson/SurfaceCoal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 800,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Truck.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "UndergroundCoal",
+        "url": "geojson/UndergroundCoal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 800,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/CoalWagon.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CoalAsh",
+        "url": "geojson/CoalAsh.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/CoalAsh3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal",
+        "url": "geojson/Coal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Smokestack3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "NA-RR3",
+        "url": "geojson/NA-RR.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 16,
+        "maxResolution": 8000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(105, 105, 105, 0.5)",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CoalMines",
+        "url": "geojson/CoalMines.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 2000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/CoalMine.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal2",
+        "url": "geojson/Coal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 6000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Smokestack3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal3",
+        "url": "geojson/Coal.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 6000,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Smokestack4.png"
+        }
+      },
+
+      {
+        "type": "XYZ",
+        "name": "Open-Railway-Map",
+        "group": "backgroundLayers",
+        "url": "https://{a-c}.tiles.openrailwaymap.org/signals/{z}/{x}/{y}.png",
+        "minResolution": 2,
+        "maxResolution": 4000,
+        "crossOrigin": null,
+        "tilePixelRatio": 2,
+        "maxZoom": 2,
+        "opaque": false,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "Base-Midnight",
+        "group": "backgroundLayers",
+        "url": "https://cartocdn_{a-d}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
+        "minResolution": 0.25,
+        "maxResolution": 800,
+        "opacity": 0.8,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "Citylights-2012",
+        "group": "backgroundLayers",
+        "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg",
+        "minResolution": 200,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-Elevation-Hillshade",
+        "group": "backgroundLayers",
+        "url": "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}.png",
+        "minResolution": 2,
+        "opacity": 0.2,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "Dark-No-Labels",
+        "group": "backgroundLayers",
+        "url": "https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+        "minResolution": 0.5,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "MapSurfer-Roads",
+        "group": "backgroundLayers",
+        "url": "https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png",
+        "minResolution": 0.25,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-Delorme-World-BaseMap",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 0.25,
+        "opacity": 0.8,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Terrain",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 200,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Terrain-Base",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 200,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Street-Map",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png",
+        "minResolution": 0.25,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Reference-1",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 1,
+        "maxResolution": 4000,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Reference-2",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 200,
+        "maxResolution": 32000,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Imagery",
+        "group": "backgroundLayers",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 0.5,
+        "maxResolution": 20,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-Nat-Geo-World",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 0.5,
+        "maxResolution": 20,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "BING",
+        "name": "BING-Aerial",
+        "group": "backgroundLayers",
+        "accessToken": "Ar13AKId_wQdPtNosq1oET7T1L3EkQGX1c0gkRHpy2JDZq5u-0xG360j3QzZOd9k",
+        "imagerySet": "Aerial",
+        "maxZoom": 17,
+        "minResolution": 0.25,
+        "queryable": false,
+        "visible": false,
+        "displayInLayerList": true,
+        "attributions": "© Microsoft Coorporation © Digital Globe ©CNES Distribution Airbus DS <a href='https://www.microsoft.com/en-us/maps/product'>Terms of use</a> "
+      },
+      {
+        "type": "OSM",
+        "name": "OSM-Standart",
+        "url": "http://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "group": "backgroundLayers",
+        "maxZoom": 19,
+        "queryable": false,
+        "visible": false,
+        "displayInLayerList": true,
+        "attributions": "© <a href='https://www.openstreetmap.org/copyright'> OpenStreetMap </a> contributors "
+      }
+    ],
+
+    "groups": {
+      "oil": {
+        "default": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "NorAm",
+            "ESRI-World-Reference-1",
+            "CancelledOilLines",
+            "OilPipes1",
+            "OilPipes2",
+            "CanadianPipes",
+            "ContestedOilLines1",
+            "ContestedOilLines2",
+            "ContestedOilLines3"
+          ]
+        },
+        "industry": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "ESRI-World-Street-Map",
+            "Spills_20yrs",
+            "NA-RR1",
+            "Terminals",
+            "CancelledOilLines",
+            "OilPipes1",
+            "OilPipes2",
+            "CanadianPipes",
+            "ContestedOilLines2",
+            "ContestedOilLines3",
+            "GlobalPipelines",
+            "US_Refineries1",
+            "GlobalRefineries1",
+            "CrudeDerailments",
+            "VideoOilIndustry",
+            "MacLean"
+          ]
+        },
+        "world": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "ESRI-World-Terrain-Base",
+            "ESRI-World-Reference-2",
+            "Toner-Lite",
+            "BING-Aerial",
+            "OilPipes1",
+            "OilPipes2",
+            "GiantOilFields",
+            "CanadianPipes",
+            "ContestedOilLines4",
+            "ContestedOilLines5",
+            "GlobalPipelines",
+            "OilPorts",
+            "US_Refineries2",
+            "US_Refineries3",
+            "GlobalRefineries2",
+            "GlobalRefineries3"
+          ]
+        }
+      },
+      "gas": {
+        "default": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "ESRI-Nat-Geo-World",
+            "ShalePlays",
+            "GasPipes2",
+            "USnatGas1",
+            "USnatGas2",
+            "USnatGas3",
+            "GlobalNatGas1",
+            "GlobalNatGas2",
+            "GlobalNatGas3",
+            "ContestedGasLines1",
+            "ContestedGasLines2",
+            "LNGterminals",
+            "Gasland"
+          ]
+        },
+        "industry": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "ESRI-Delorme-World-BaseMap",
+            "ShalePlays",
+            "GasPipes2",
+            "ContestedGasLines1",
+            "ContestedGasLines2",
+            "LNGterminals",
+            "Gasland"
+          ]
+        },
+        "world": {
+          "layers": [
+            "ESRI-World-Imagery",
+            "MapSurfer-Roads",
+            "ShaleBasins",
+            "USnatGas4",
+            "GlobalNatGas4",
+            "Global_LNG"
+          ]
+        }
+      },
+      "coal": {
+        "default": {
+          "layers": []
+        },
+        "industry": {
+          "layers": []
+        },
+        "world": {
+          "layers": []
+        }
+      }
     }
+  }
 }

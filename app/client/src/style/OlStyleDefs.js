@@ -124,3 +124,9 @@ export function baseStyle(propertyName, config) {
   }
   return styleFunction
 }
+
+export const styleRefs = {
+  'defaultStyle': defaultStyle,
+  'popupInfoStyle': popupInfoStyle,
+  'baseStyle': baseStyle
+}

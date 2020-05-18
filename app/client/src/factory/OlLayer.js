@@ -18,7 +18,7 @@ import ImageWMS from 'ol/source/ImageWMS.js'
 import { Image as ImageLayer } from 'ol/layer.js'
 import XyzSource from 'ol/source/XYZ'
 import { OlStyleFactory } from './OlStyle'
-import { baseStyleDefs } from '../style/OlStyleDefs'
+import { styleRefs } from '../style/OlStyleDefs'
 import http from '../services/http'
 
 /**
@@ -146,16 +146,20 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      cascadePrint: lConf.cascadePrint,
       displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       opacity: lConf.opacity,
+      minResolution: lConf.minResolution,
+      maxResolution: lConf.maxResolution,
       source: new XyzSource({
         url: lConf.hasOwnProperty('accessToken')
           ? lConf.url + '?access_token=' + lConf.accessToken
           : lConf.url,
-        maxZoom: lConf.maxZoom,
-        attributions: lConf.attributions
+        maxZoom: lConf.maxZoom || 18,
+        attributions: lConf.attributions,
+        tilePixelRatio: lConf.tilePixelRatio || 1,
+        crossOrigin: lConf.crossOrigin,
+        opaque: lConf.opaque || true
       })
     })
 
@@ -173,7 +177,6 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      cascadePrint: lConf.cascadePrint,
       displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       opacity: lConf.opacity,
@@ -202,8 +205,9 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      cascadePrint: lConf.cascadePrint,
       displayInLayerList: lConf.displayInLayerList,
+      minResolution: lConf.minResolution,
+      maxResolution: lConf.maxResolution,
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: bingMaps
@@ -228,6 +232,9 @@ export const LayerFactory = {
       extent: lConf.extent,
       queryable: lConf.queryable,
       visible: lConf.visible,
+      minResolution: lConf.minResolution,
+      maxResolution: lConf.maxResolution,
+      isInteractive: lConf.isInteractive,
       opacity: lConf.opacity,
       zIndex: lConf.zIndex,
       source: new VectorSource({
@@ -236,10 +243,10 @@ export const LayerFactory = {
         attributions: lConf.attributions
       }),
       style:
-        OlStyleFactory.getInstance(lConf.style) ||
-        baseStyleDefs[lConf.styleRef],
+        OlStyleFactory.getInstance(lConf.style) || styleRefs[lConf.styleRef],
       hoverable: lConf.hoverable,
-      hoverAttribute: lConf.hoverAttribute
+      hoverAttribute: lConf.hoverAttribute,
+      label: lConf.label
     })
     return vectorLayer
   },
@@ -258,6 +265,9 @@ export const LayerFactory = {
       lid: lConf.lid,
       displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
+      minResolution: lConf.minResolution,
+      maxResolution: lConf.maxResolution,
+      isInteractive: lConf.isInteractive,
       opacity: lConf.opacity,
       source: new VectorTileSource({
         url: lConf.url,
@@ -265,8 +275,7 @@ export const LayerFactory = {
         attributions: lConf.attributions
       }),
       style:
-        OlStyleFactory.getInstance(lConf.style) ||
-        baseStyleDefs[lConf.styleRef],
+        OlStyleFactory.getInstance(lConf.style) || styleRefs[lConf.styleRef],
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute
     })
@@ -330,7 +339,7 @@ export const LayerFactory = {
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: vectorSource,
-      style: baseStyleDefs[lConf.styleRef]
+      style: styleRefs[lConf.styleRef]
     })
 
     return layer

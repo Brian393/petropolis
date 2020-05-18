@@ -1,4 +1,10 @@
-import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
+import {
+  Circle as CircleStyle,
+  Icon as IconStyle,
+  Fill,
+  Stroke,
+  Style
+} from 'ol/style'
 
 /**
  * Factory, which creates OpenLayers style instances according to a given config
@@ -8,7 +14,6 @@ import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
  * For advanced styling use a custom style function or
  * GeoStyler<https://github.com/terrestris/geostyler>
  */
-
 export const OlStyleFactory = {
   /**
    * Returns an OpenLayers Style instance due to given config.
@@ -18,7 +23,8 @@ export const OlStyleFactory = {
    */
   getInstance(styleConf) {
     if (!styleConf) {
-    } else if (styleConf.radius) {
+
+    } else if (styleConf.radius || styleConf.iconUrl) {
       return OlStyleFactory.createPointStyle(styleConf)
     } else if (styleConf.fillColor) {
       return OlStyleFactory.createPolygonStyle(styleConf)
@@ -34,13 +40,29 @@ export const OlStyleFactory = {
    * @return {Style}             OL style instance
    */
   createPointStyle(styleConf) {
-    return new Style({
-      image: new CircleStyle({
-        radius: styleConf.radius,
-        fill: OlStyleFactory.createFill(styleConf),
-        stroke: OlStyleFactory.createStroke(styleConf)
+    let pointStyle
+    if (styleConf.iconUrl) {
+      pointStyle = new Style({
+        image: new IconStyle({
+          src: styleConf.iconUrl,
+          scale: styleConf.scale || 1,
+          opacity: styleConf.opacity || 1,
+          anchor: styleConf.iconAnchor,
+          anchorXUnits: styleConf.iconAnchorXUnits,
+          anchorYUnits: styleConf.iconAnchorYUnits
+        })
       })
-    })
+    } else {
+      pointStyle = new Style({
+        image: new CircleStyle({
+          radius: styleConf.radius,
+          fill: OlStyleFactory.createFill(styleConf),
+          stroke: OlStyleFactory.createStroke(styleConf)
+        })
+      })
+    }
+
+    return pointStyle
   },
 
   /**
