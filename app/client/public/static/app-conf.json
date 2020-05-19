@@ -1384,13 +1384,36 @@
       },
       "coal": {
         "default": {
-          "layers": []
+          "layers": [
+            "ESRI-World-Imagery",
+            "Dark-No-Labels",
+            "ESRI-Elevation-Hillshade",
+            "NA-RR2",
+            "Coal1",
+            "Coal_Mines"
+          ]
         },
         "industry": {
-          "layers": []
+          "layers": [
+            "ESRI-World-Imagery",
+            "ESRI-World-Street-Map",
+            "SurfaceCoal",
+            "UndergroundCoal",
+            "CoalAsh",
+            "Coal"
+          ]
         },
         "world": {
-          "layers": []
+          "layers": [
+            "ESRI-World-Imagery",
+            "Citylights-2012",
+            "Base-Midnight",
+            "Open-Railway-Map",
+            "NA-RR3",
+            "CoalMines",
+            "Coal2",
+            "Coal3"
+          ]
         }
       }
     }
