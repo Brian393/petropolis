@@ -18,7 +18,7 @@ import ImageWMS from 'ol/source/ImageWMS.js'
 import { Image as ImageLayer } from 'ol/layer.js'
 import XyzSource from 'ol/source/XYZ'
 import { OlStyleFactory } from './OlStyle'
-import { styleRefs } from '../style/OlStyleDefs'
+import { styleRefs, layersStylePropFn } from '../style/OlStyleDefs'
 import http from '../services/http'
 
 /**
@@ -35,6 +35,37 @@ export const LayerFactory = {
     GeoJSON: GeoJsonFormat,
     TopoJSON: TopoJsonFormat,
     KML: KmlFormat
+  },
+
+  /**
+   * Returns the corresponding style of the layer based on configuration.
+   *
+   * @param  {Object} lConf  Layer config object
+   * @return {ol.style} Ol Style
+   */
+  getStyle(lConf) {
+    const styleProps = lConf.style
+    const styleRef = lConf.styleRef
+    const stylePropFnRef = lConf.stylePropFnRef
+    const styleField = lConf.styleField
+
+    if (
+      styleProps &&
+      styleRef &&
+      stylePropFnRef &&
+      styleField &&
+      styleRefs[styleRef] &&
+      layersStylePropFn[lConf.name] &&
+      layersStylePropFn[lConf.name][stylePropFnRef]
+    ) {
+      const styleFn = styleRefs[styleRef]
+      const stylePropsFn = layersStylePropFn[lConf.name][stylePropFnRef]
+      return styleFn(styleField, { ...styleProps, ...stylePropsFn })
+    } else if (styleRef) {
+      return styleRefs[lConf.styleRef]
+    } else {
+      return OlStyleFactory.getInstance(styleProps)
+    }
   },
 
   /**

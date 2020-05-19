@@ -126,7 +126,28 @@ export function baseStyle(propertyName, config) {
 }
 
 export const styleRefs = {
-  'defaultStyle': defaultStyle,
-  'popupInfoStyle': popupInfoStyle,
-  'baseStyle': baseStyle
+  defaultStyle: defaultStyle,
+  popupInfoStyle: popupInfoStyle,
+  baseStyle: baseStyle
+}
+
+export const layersStylePropFn = {
+  CancelledOilLines: {
+    strokeColor: propertyValue => propertyValue
+  },
+  Spills_20yrs: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue)
+    }
+  },
+  GiantOilFields: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3
+    }
+  },
+  Coal_Mines: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) / 150
+    }
+  }
 }
