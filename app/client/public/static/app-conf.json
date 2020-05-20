@@ -1,5 +1,7 @@
 {
   "title": "Petropolis",
+  "baseColor": "red darken-3",
+  "controlsColor": "#DC143C",
   "map": {
     "popup": {
       "hiddenLayerNames": [
@@ -10,8 +12,32 @@
         "GiantOilFields"
       ]
     },
-    "minZoom": 10,
+    "projectionCode": "EPSG:3857",
+    "minZoom": 1,
     "maxZoom": 21,
+    "zoom": 1,
+    "resolutions": [
+      156543.03,
+      78271.52,
+      39135.76,
+      19567.88,
+      9783.94,
+      4891.97,
+      2445.98,
+      1222.99,
+      611.5,
+      305.75,
+      152.87,
+      76.437,
+      38.219,
+      19.109,
+      9.5546,
+      4.7773,
+      2.3887,
+      1.1943,
+      0.5972
+    ],
+    "center": [0, 0],
     "layers": [
       {
         "type": "VECTOR",
@@ -1192,16 +1218,6 @@
       },
       {
         "type": "XYZ",
-        "name": "ESRI-World-Terrain-Base",
-        "group": "backgroundLayers",
-        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 200,
-        "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
-      },
-      {
-        "type": "XYZ",
         "name": "ESRI-World-Street-Map",
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png",
@@ -1256,15 +1272,16 @@
         "displayInLayerList": true
       },
       {
-        "type": "BING",
-        "name": "BING-Aerial",
+        "type": "BING-QUADKEY",
+        "name": "BING-Layer",
         "group": "backgroundLayers",
-        "accessToken": "Ar13AKId_wQdPtNosq1oET7T1L3EkQGX1c0gkRHpy2JDZq5u-0xG360j3QzZOd9k",
-        "imagerySet": "Aerial",
+        "url": "https://t0.tiles.virtualearth.net/tiles/t",
         "maxZoom": 17,
         "minResolution": 0.25,
+        "loadTilesWhileAnimating": true,
+        "loadTilesWhileInteracting": true,
         "queryable": false,
-        "visible": false,
+        "visible": true,
         "displayInLayerList": true,
         "attributions": "© Microsoft Coorporation © Digital Globe ©CNES Distribution Airbus DS <a href='https://www.microsoft.com/en-us/maps/product'>Terms of use</a> "
       },
@@ -1275,7 +1292,7 @@
         "group": "backgroundLayers",
         "maxZoom": 19,
         "queryable": false,
-        "visible": false,
+        "visible": true,
         "displayInLayerList": true,
         "attributions": "© <a href='https://www.openstreetmap.org/copyright'> OpenStreetMap </a> contributors "
       }
@@ -1295,7 +1312,11 @@
             "ContestedOilLines1",
             "ContestedOilLines2",
             "ContestedOilLines3"
-          ]
+          ],
+          "center": [-99, 42.9],
+          "resolution": 9000,
+          "minResolution": 0.5,
+          "maxResolution": 32000
         },
         "industry": {
           "layers": [
@@ -1316,15 +1337,17 @@
             "CrudeDerailments",
             "VideoOilIndustry",
             "MacLean"
-          ]
+          ],
+          "center": [-99, 42.9],
+          "resolution": 9000,
+          "minResolution": 0.5,
+          "maxResolution": 32000
         },
         "world": {
           "layers": [
+          
+            "BING-Layer",
             "ESRI-World-Imagery",
-            "ESRI-World-Terrain-Base",
-            "ESRI-World-Reference-2",
-            "Toner-Lite",
-            "BING-Aerial",
             "OilPipes1",
             "OilPipes2",
             "GiantOilFields",
@@ -1337,7 +1360,11 @@
             "US_Refineries3",
             "GlobalRefineries2",
             "GlobalRefineries3"
-          ]
+          ],
+          "center": [2.44, 30.81],
+          "resolution": 25000,
+          "minResolution": 0.5,
+          "maxResolution": 32000
         }
       },
       "gas": {
@@ -1357,7 +1384,11 @@
             "ContestedGasLines2",
             "LNGterminals",
             "Gasland"
-          ]
+          ],
+          "center": [-94, 37],
+          "resolution": 4000,
+          "minResolution": 0.5,
+          "maxResolution": 16000
         },
         "industry": {
           "layers": [
@@ -1369,7 +1400,11 @@
             "ContestedGasLines2",
             "LNGterminals",
             "Gasland"
-          ]
+          ],
+          "center": [-97, 37],
+          "resolution": 4500,
+          "minResolution": 0.5,
+          "maxResolution": 16000
         },
         "world": {
           "layers": [
@@ -1379,7 +1414,11 @@
             "USnatGas4",
             "GlobalNatGas4",
             "Global_LNG"
-          ]
+          ],
+          "center": [2.44, 31.01],
+          "resolution": 30000,
+          "minResolution": 0.5,
+          "maxResolution": 32000
         }
       },
       "coal": {
@@ -1391,7 +1430,11 @@
             "NA-RR2",
             "Coal1",
             "Coal_Mines"
-          ]
+          ],
+          "center": [-97.5, 41],
+          "resolution": 5700,
+          "minResolution": 0.5,
+          "maxResolution": 64000
         },
         "industry": {
           "layers": [
@@ -1401,7 +1444,11 @@
             "UndergroundCoal",
             "CoalAsh",
             "Coal"
-          ]
+          ],
+          "center": [-97.5, 41],
+          "resolution": 5700,
+          "minResolution": 0.5,
+          "maxResolution": 64000
         },
         "world": {
           "layers": [
@@ -1413,7 +1460,11 @@
             "CoalMines",
             "Coal2",
             "Coal3"
-          ]
+          ],
+          "center": [2.44, 30.81],
+          "resolution": 25000,
+          "minResolution": 0.5,
+          "maxResolution": 64000
         }
       }
     }

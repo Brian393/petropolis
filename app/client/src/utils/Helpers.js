@@ -3,8 +3,8 @@ export function humanize(str) {
     .replace(/^[\s_]+|[\s_]+$/g, '')
     .replace(/[_\s]+/g, ' ')
     .replace(/^[a-z]/, function(m) {
-      return m.toUpperCase()
-    })
+      return m.toUpperCase();
+    });
 }
 
 export function groupBy(items, key) {
@@ -14,56 +14,56 @@ export function groupBy(items, key) {
       [item[key]]: [...(result[item[key]] || []), item]
     }),
     {}
-  )
+  );
 }
 
 export function getNestedProperty(obj, key) {
   return key.split('.').reduce(function(o, x) {
-    return typeof o === 'undefined' || o === null ? o : o[x]
-  }, obj)
+    return typeof o === 'undefined' || o === null ? o : o[x];
+  }, obj);
 }
 
 export function addProps(obj, arr, val) {
-  if (typeof arr === 'string') arr = arr.split('.')
+  if (typeof arr === 'string') arr = arr.split('.');
 
-  obj[arr[0]] = obj[arr[0]] || {}
+  obj[arr[0]] = obj[arr[0]] || {};
 
-  var tmpObj = obj[arr[0]]
+  var tmpObj = obj[arr[0]];
 
   if (arr.length > 1) {
-    arr.shift()
-    addProps(tmpObj, arr, val)
-  } else obj[arr[0]] = val
+    arr.shift();
+    addProps(tmpObj, arr, val);
+  } else obj[arr[0]] = val;
 
-  return obj
+  return obj;
 }
 
 export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 export function debounce(fn, delay) {
-  let timeoutID = null
+  let timeoutID = null;
   return function() {
-    clearTimeout(timeoutID)
-    let args = arguments
-    let that = this
+    clearTimeout(timeoutID);
+    let args = arguments;
+    let that = this;
     timeoutID = setTimeout(function() {
-      fn.apply(that, args)
-    }, delay)
-  }
+      fn.apply(that, args);
+    }, delay);
+  };
 }
 
 export function getCurrentDate() {
-  const today = new Date()
+  const today = new Date();
   return (
     today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-  )
+  );
 }
 
 export function getCurrentTime() {
-  const today = new Date()
-  return today.getHours() + '-' + today.getMinutes() + '-' + today.getSeconds()
+  const today = new Date();
+  return today.getHours() + '-' + today.getMinutes() + '-' + today.getSeconds();
 }
 
 /**
@@ -74,7 +74,7 @@ export function getCurrentTime() {
  * @hidden
  */
 export function colorZeroPadding(hex) {
-  return hex.length === 1 ? `0${hex}` : hex
+  return hex.length === 1 ? `0${hex}` : hex;
 }
 
 /**
@@ -84,21 +84,21 @@ export function colorZeroPadding(hex) {
  * @hidden
  */
 export function rgbArrayToHex(rgb) {
-  const r = rgb[0]
-  const g = rgb[1]
-  const b = rgb[2]
+  const r = rgb[0];
+  const g = rgb[1];
+  const b = rgb[2];
   if (r !== (r & 255) || g !== (g & 255) || b !== (b & 255)) {
-    throw Error(`"(${r},${g},${b})" is not a valid RGB color`)
+    throw Error(`"(${r},${g},${b})" is not a valid RGB color`);
   }
-  const hexR = colorZeroPadding(r.toString(16))
-  const hexG = colorZeroPadding(g.toString(16))
-  const hexB = colorZeroPadding(b.toString(16))
-  return `#${hexR}${hexG}${hexB}`
+  const hexR = colorZeroPadding(r.toString(16));
+  const hexG = colorZeroPadding(g.toString(16));
+  const hexB = colorZeroPadding(b.toString(16));
+  return `#${hexR}${hexG}${hexB}`;
 }
 
 // helper function to detect a CSS color
 // Taken from Vuetify sources
 // https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/mixins/colorable.ts
 export function isCssColor(color) {
-  return !!color && !!color.match(/^(#|(rgb|hsl)a?\()/)
+  return !!color && !!color.match(/^(#|(rgb|hsl)a?\()/);
 }

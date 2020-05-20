@@ -184,7 +184,7 @@ export default {
           4000,
           'rgba(105, 105, 105, 0.4)',
           1,
-          { isInteractive: false}
+          { isInteractive: false }
         ),
         this.makeGeoJSONPointVectorLayer(
           'geojson/Terminals.geojson',
@@ -464,10 +464,11 @@ export default {
         ),
 
         new VectorTileLayer({
-          name: "GasPipes2",
+          name: 'GasPipes2',
           source: new VectorTileSource({
             format: new MVT(),
-            url: 'http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf'
+            url:
+              'http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf'
           }),
           style: new Style({
             stroke: new Stroke({
@@ -487,14 +488,6 @@ export default {
           1600
         ),
         this.makeGeoJSONPointVectorLayer(
-          'geojson/GlobalNatGas.geojson',
-          0,
-          'icons/NatGas3.png',
-          null,
-          1,
-          1600
-        ),
-        this.makeGeoJSONPointVectorLayer(
           'geojson/USnatGas.geojson',
           0,
           'icons/NatGas2.png',
@@ -502,6 +495,24 @@ export default {
           1600,
           8000
         ),
+        this.makeGeoJSONPointVectorLayer(
+          'geojson/USnatGas.geojson',
+          0,
+          'icons/NatGas1.png',
+          null,
+          8000,
+          32000
+        ),
+
+        this.makeGeoJSONPointVectorLayer(
+          'geojson/GlobalNatGas.geojson',
+          0,
+          'icons/NatGas3.png',
+          null,
+          1,
+          1600
+        ),
+
         this.makeGeoJSONPointVectorLayer(
           'geojson/GlobalNatGas.geojson',
           0,
@@ -511,7 +522,7 @@ export default {
           8000
         ),
         this.makeGeoJSONPointVectorLayer(
-          'geojson/USnatGas.geojson',
+          'geojson/GlobalNatGas.geojson',
           0,
           'icons/NatGas1.png',
           null,
@@ -531,14 +542,6 @@ export default {
           16000,
           '#00c8f0',
           3
-        ),
-        this.makeGeoJSONPointVectorLayer(
-          'geojson/GlobalNatGas.geojson',
-          0,
-          'icons/NatGas1.png',
-          null,
-          8000,
-          32000
         ),
         this.makeGeoJSONPointVectorLayer(
           'geojson/LNGterminals.geojson',
@@ -581,7 +584,7 @@ export default {
         ),
 
         new VectorTileLayer({
-          name: "GasPipes2",
+          name: 'GasPipes2',
           source: new VectorTileSource({
             format: new MVT(),
             url: 'https://ecotopia.today/Petropolis/GasPipes2/{z}/{x}/{y}.pbf'
@@ -718,7 +721,7 @@ export default {
           16000,
           'rgba(255, 255, 255, 0.6)',
           1,
-          { isInteractive: false}
+          { isInteractive: false }
         ),
         this.makeGeoJSONPointVectorLayer(
           'geojson/Coal.geojson',
@@ -833,7 +836,7 @@ export default {
           8000,
           'rgba(105, 105, 105, 0.5)',
           1,
-          { isInteractive: false}
+          { isInteractive: false }
         ),
         this.makeGeoJSONPointVectorLayer(
           'geojson/CoalMines.geojson',

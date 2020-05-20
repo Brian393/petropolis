@@ -12,18 +12,18 @@ const UrlUtil = {
    */
   getQueryParams(querySearch) {
     if (!querySearch) {
-      querySearch = document.location.search
+      querySearch = document.location.search;
     }
-    querySearch = querySearch.split('+').join(' ')
+    querySearch = querySearch.split('+').join(' ');
 
-    const re = /[?&]?([^=]+)=([^&]*)/g
-    let params = {}
-    let tokens
+    const re = /[?&]?([^=]+)=([^&]*)/g;
+    let params = {};
+    let tokens;
     while ((tokens = re.exec(querySearch))) {
-      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2])
+      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
     }
 
-    return params
+    return params;
   },
 
   /**
@@ -35,15 +35,15 @@ const UrlUtil = {
    * @return {String}             Value of the given URL param
    */
   getQueryParam(param, querySearch) {
-    const params = this.getQueryParams(querySearch)
-    let value
+    const params = this.getQueryParams(querySearch);
+    let value;
     Object.keys(params).forEach(key => {
       if (key === param) {
-        value = params[key]
+        value = params[key];
       }
-    })
+    });
 
-    return value
+    return value;
   },
 
   /**
@@ -53,18 +53,18 @@ const UrlUtil = {
    * @return {Object}             Constructed Url
    */
   parseUrl(urlString) {
-    let url = ''
+    let url = '';
     // Check if image url is relative or absolute
-    const pat = /^https?:\/\//i
+    const pat = /^https?:\/\//i;
     if (pat.test(url) === true) {
       // Image url is absolute
-      url = urlString
+      url = urlString;
     } else {
       // Image url is relative, (so we get the baseUrl from the domain)
-      url = new URL(urlString, window.location.origin).href
+      url = new URL(urlString, window.location.origin).href;
     }
-    return url
+    return url;
   }
-}
+};
 
-export default UrlUtil
+export default UrlUtil;

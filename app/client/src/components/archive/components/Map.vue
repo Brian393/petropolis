@@ -503,6 +503,7 @@ export default {
       this.olmap.removeLayer(vector)
       this.olmap.addLayer(vector)
     },
+    
     // These are standard layer styles, not based on properties. Each includes a zIndex:
     makeGeoJSONPointVectorLayer: function(
       url,

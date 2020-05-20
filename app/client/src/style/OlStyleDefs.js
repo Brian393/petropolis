@@ -1,10 +1,10 @@
-import OlStyle from 'ol/style/Style'
-import OlStroke from 'ol/style/Stroke'
-import OlFill from 'ol/style/Fill'
-import OlCircle from 'ol/style/Circle'
+import OlStyle from 'ol/style/Style';
+import OlStroke from 'ol/style/Stroke';
+import OlFill from 'ol/style/Fill';
+import OlCircle from 'ol/style/Circle';
 
 export function defaultStyle(feature) {
-  const geomType = feature.getGeometry().getType()
+  const geomType = feature.getGeometry().getType();
   const style = new OlStyle({
     fill: new OlFill({
       color: ['MultiPolygon', 'Polygon'].includes(geomType)
@@ -23,8 +23,8 @@ export function defaultStyle(feature) {
         color: '#FF0000'
       })
     })
-  })
-  return [style]
+  });
+  return [style];
 }
 
 /**
@@ -33,7 +33,7 @@ export function defaultStyle(feature) {
 
 export function popupInfoStyle() {
   // MAJK: PopupInfo layer style (used for highlight)
-  const styles = []
+  const styles = [];
   styles.push(
     new OlStyle({
       stroke: new OlStroke({
@@ -41,7 +41,7 @@ export function popupInfoStyle() {
         width: 20
       })
     })
-  )
+  );
   styles.push(
     new OlStyle({
       fill: new OlFill({
@@ -58,18 +58,18 @@ export function popupInfoStyle() {
         })
       })
     })
-  )
+  );
 
-  return styles
+  return styles;
 }
 
 /**
  * Style function used for vector layers.
  */
-const styleCache = {}
+const styleCache = {};
 export function baseStyle(propertyName, config) {
   const styleFunction = feature => {
-    const propertyValue = feature.get(propertyName)
+    const propertyValue = feature.get(propertyName);
     if (propertyValue && !styleCache[propertyValue]) {
       const {
         strokeColor,
@@ -77,8 +77,8 @@ export function baseStyle(propertyName, config) {
         lineDash,
         fillColor,
         circleRadiusFn
-      } = config
-      const geometryType = feature.getGeometry().getType()
+      } = config;
+      const geometryType = feature.getGeometry().getType();
       switch (geometryType) {
         /**
          * Style used for geometry point type. It will render a circle based on the given formula
@@ -96,8 +96,8 @@ export function baseStyle(propertyName, config) {
               }),
               radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
             })
-          })
-          break
+          });
+          break;
         }
         /**
          * Style used for line geometry type.
@@ -113,23 +113,23 @@ export function baseStyle(propertyName, config) {
               width: strokeWidth || 4,
               lineDash: lineDash || [6]
             })
-          })
-          break
+          });
+          break;
         }
         default:
-          break
+          break;
       }
     }
-    return styleCache[propertyValue] || defaultStyle
-  }
-  return styleFunction
+    return styleCache[propertyValue] || defaultStyle;
+  };
+  return styleFunction;
 }
 
 export const styleRefs = {
   defaultStyle: defaultStyle,
   popupInfoStyle: popupInfoStyle,
   baseStyle: baseStyle
-}
+};
 
 export const layersStylePropFn = {
   CancelledOilLines: {
@@ -137,17 +137,17 @@ export const layersStylePropFn = {
   },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue)
+      return Math.sqrt(propertyValue);
     }
   },
   GiantOilFields: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3
+      return Math.sqrt(propertyValue) * 0.3;
     }
   },
   Coal_Mines: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) / 150
+      return Math.sqrt(propertyValue) / 150;
     }
   }
-}
+};

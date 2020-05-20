@@ -1,25 +1,25 @@
 /* eslint-disable no-prototype-builtins */
-import TileLayer from 'ol/layer/Tile'
-import TileWmsSource from 'ol/source/TileWMS'
-import OsmSource from 'ol/source/OSM'
-import EsriJSON from 'ol/format/EsriJSON'
-import { tile as tileStrategy } from 'ol/loadingstrategy'
-import { createXYZ } from 'ol/tilegrid'
-import BingMaps from 'ol/source/BingMaps'
-import VectorTileLayer from 'ol/layer/VectorTile'
-import VectorTileSource from 'ol/source/VectorTile'
-import MvtFormat from 'ol/format/MVT'
-import GeoJsonFormat from 'ol/format/GeoJSON'
-import TopoJsonFormat from 'ol/format/TopoJSON'
-import KmlFormat from 'ol/format/KML'
-import VectorLayer from 'ol/layer/Vector'
-import VectorSource from 'ol/source/Vector'
-import ImageWMS from 'ol/source/ImageWMS.js'
-import { Image as ImageLayer } from 'ol/layer.js'
-import XyzSource from 'ol/source/XYZ'
-import { OlStyleFactory } from './OlStyle'
-import { styleRefs, layersStylePropFn } from '../style/OlStyleDefs'
-import http from '../services/http'
+import TileLayer from 'ol/layer/Tile';
+import TileWmsSource from 'ol/source/TileWMS';
+import OsmSource from 'ol/source/OSM';
+import EsriJSON from 'ol/format/EsriJSON';
+import { tile as tileStrategy } from 'ol/loadingstrategy';
+import { createXYZ } from 'ol/tilegrid';
+import BingMaps from 'ol/source/BingMaps';
+import VectorTileLayer from 'ol/layer/VectorTile';
+import VectorTileSource from 'ol/source/VectorTile';
+import MvtFormat from 'ol/format/MVT';
+import GeoJsonFormat from 'ol/format/GeoJSON';
+import TopoJsonFormat from 'ol/format/TopoJSON';
+import KmlFormat from 'ol/format/KML';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import ImageWMS from 'ol/source/ImageWMS.js';
+import { Image as ImageLayer } from 'ol/layer.js';
+import XyzSource from 'ol/source/XYZ';
+import { OlStyleFactory } from './OlStyle';
+import { styleRefs, layersStylePropFn } from '../style/OlStyleDefs';
+import http from '../services/http';
 
 /**
  * Factory, which creates OpenLayers layer instances according to a given config
@@ -37,6 +37,22 @@ export const LayerFactory = {
     KML: KmlFormat
   },
 
+  computeQuadKey: function(x, y, z) {
+    let quadKeyDigits = [];
+    for (let i = z; i > 0; i--) {
+      let digit = 0;
+      const mask = 1 << (i - 1);
+      if ((x & mask) !== 0) {
+        digit++;
+      }
+      if ((y & mask) !== 0) {
+        digit = digit + 2;
+      }
+      quadKeyDigits.push(digit);
+    }
+    return quadKeyDigits.join('');
+  },
+
   /**
    * Returns the corresponding style of the layer based on configuration.
    *
@@ -44,10 +60,10 @@ export const LayerFactory = {
    * @return {ol.style} Ol Style
    */
   getStyle(lConf) {
-    const styleProps = lConf.style
-    const styleRef = lConf.styleRef
-    const stylePropFnRef = lConf.stylePropFnRef
-    const styleField = lConf.styleField
+    const styleProps = lConf.style;
+    const styleRef = lConf.styleRef;
+    const stylePropFnRef = lConf.stylePropFnRef;
+    const styleField = lConf.styleField;
 
     if (
       styleProps &&
@@ -58,13 +74,14 @@ export const LayerFactory = {
       layersStylePropFn[lConf.name] &&
       layersStylePropFn[lConf.name][stylePropFnRef]
     ) {
-      const styleFn = styleRefs[styleRef]
-      const stylePropsFn = layersStylePropFn[lConf.name][stylePropFnRef]
-      return styleFn(styleField, { ...styleProps, ...stylePropsFn })
+      const styleFn = styleRefs[styleRef];
+      const stylePropsFn = layersStylePropFn[lConf.name];
+      const props = { ...styleProps, ...stylePropsFn };
+      return styleFn(styleField, props);
     } else if (styleRef) {
-      return styleRefs[lConf.styleRef]
+      return styleRefs[lConf.styleRef];
     } else {
-      return OlStyleFactory.getInstance(styleProps)
+      return OlStyleFactory.getInstance(styleProps);
     }
   },
 
@@ -77,29 +94,31 @@ export const LayerFactory = {
   getInstance(lConf) {
     // apply LID (Layer ID) if not existant
     if (!lConf.lid) {
-      var now = new Date()
-      lConf.lid = now.getTime()
+      var now = new Date();
+      lConf.lid = now.getTime();
     }
 
     // create correct layer type
     if (lConf.type === 'WMS') {
-      return this.createWmsLayer(lConf)
+      return this.createWmsLayer(lConf);
     } else if (lConf.type === 'WMSTILE') {
-      return this.createWmsTileLayer(lConf)
+      return this.createWmsTileLayer(lConf);
     } else if (lConf.type === 'XYZ') {
-      return this.createXyzLayer(lConf)
+      return this.createXyzLayer(lConf);
     } else if (lConf.type === 'OSM') {
-      return this.createOsmLayer(lConf)
+      return this.createOsmLayer(lConf);
     } else if (lConf.type === 'BING') {
-      return this.createBingLayer(lConf)
+      return this.createBingLayer(lConf);
+    } else if (lConf.type === 'BING-QUADKEY') {
+      return this.createBingQuadKeyLayer(lConf);
     } else if (lConf.type === 'VECTOR') {
-      return this.createVectorLayer(lConf)
+      return this.createVectorLayer(lConf);
     } else if (lConf.type === 'VECTORTILE') {
-      return this.createVectorTileLayer(lConf)
+      return this.createVectorTileLayer(lConf);
     } else if (lConf.type === 'ESRI') {
-      return this.createESRIFeatureService(lConf)
+      return this.createESRIFeatureService(lConf);
     } else {
-      return null
+      return null;
     }
   },
 
@@ -131,9 +150,9 @@ export const LayerFactory = {
         ratio: lConf.ratio,
         attributions: lConf.attributions
       })
-    })
+    });
 
-    return layer
+    return layer;
   },
   /**
    * Returns an OpenLayers WMS Tile layer instance due to given config.
@@ -161,9 +180,9 @@ export const LayerFactory = {
         serverType: lConf.serverType ? lConf.serverType : 'geoserver',
         attributions: lConf.attributions
       })
-    })
+    });
 
-    return layer
+    return layer;
   },
 
   /**
@@ -192,9 +211,9 @@ export const LayerFactory = {
         crossOrigin: lConf.crossOrigin,
         opaque: lConf.opaque || true
       })
-    })
+    });
 
-    return xyzLayer
+    return xyzLayer;
   },
 
   /**
@@ -215,9 +234,9 @@ export const LayerFactory = {
         url: lConf.url,
         maxZoom: lConf.maxZoom
       })
-    })
+    });
 
-    return layer
+    return layer;
   },
 
   /**
@@ -231,20 +250,51 @@ export const LayerFactory = {
       key: lConf.accessToken,
       imagerySet: lConf.imagerySet,
       maxZoom: lConf.maxZoom
-    })
+    });
     const layer = new TileLayer({
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
       displayInLayerList: lConf.displayInLayerList,
       minResolution: lConf.minResolution,
-      maxResolution: lConf.maxResolution,
+      maxZoom: lConf.maxZoom,
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: bingMaps
-    })
+    });
 
-    return layer
+    return layer;
+  },
+
+  /**
+   * Returns an OpenLayers BING layer instance due to given config.
+   *
+   * @param  {Object} lConf  Layer config object
+   * @return {ol.layer.Tile} OL BING layer instance
+   */
+  createBingQuadKeyLayer(lConf) {
+    const layer = new TileLayer({
+      name: lConf.name,
+      title: lConf.title,
+      lid: lConf.lid,
+      displayInLayerList: lConf.displayInLayerList,
+      minResolution: lConf.minResolution,
+      maxZoom: lConf.maxZoom,
+      visible: lConf.visible,
+      opacity: lConf.opacity,
+      loadTilesWhileAnimating: true,
+      loadTilesWhileInteracting: true,
+      source: new XyzSource({
+        tileUrlFunction: tileCoord => {
+          const z = tileCoord[0];
+          const x = tileCoord[1];
+          const y = -tileCoord[2] - 1;
+          return lConf.url + this.computeQuadKey(x, y, z) + '.jpg';
+        }
+      })
+    });
+
+    return layer;
   },
 
   /**
@@ -273,13 +323,12 @@ export const LayerFactory = {
         format: new this.formatMapping[lConf.format](lConf.formatConfig),
         attributions: lConf.attributions
       }),
-      style:
-        OlStyleFactory.getInstance(lConf.style) || styleRefs[lConf.styleRef],
+      style: this.getStyle(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute,
       label: lConf.label
-    })
-    return vectorLayer
+    });
+    return vectorLayer;
   },
 
   /**
@@ -305,13 +354,12 @@ export const LayerFactory = {
         format: new this.formatMapping[lConf.format](),
         attributions: lConf.attributions
       }),
-      style:
-        OlStyleFactory.getInstance(lConf.style) || styleRefs[lConf.styleRef],
+      style: this.getStyle(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute
-    })
+    });
 
-    return vtLayer
+    return vtLayer;
   },
 
   /**
@@ -321,7 +369,7 @@ export const LayerFactory = {
    * @return {ol.layer.VectorTile} OL vector tile layer instance
    */
   createESRIFeatureService(lConf) {
-    const esrijsonFormat = new EsriJSON()
+    const esrijsonFormat = new EsriJSON();
     const vectorSource = new VectorSource({
       loader: function(extent, resolution, projection) {
         const url =
@@ -341,23 +389,23 @@ export const LayerFactory = {
               ',"spatialReference":{"wkid":102100}}'
           ) +
           '&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*' +
-          '&outSR=102100'
+          '&outSR=102100';
 
         http.get(url).then(response => {
           var features = esrijsonFormat.readFeatures(response.data, {
             featureProjection: projection
-          })
+          });
           if (features.length > 0) {
-            vectorSource.addFeatures(features)
+            vectorSource.addFeatures(features);
           }
-        })
+        });
       },
       strategy: tileStrategy(
         createXYZ({
           tileSize: 512
         })
       )
-    })
+    });
 
     const layer = new VectorLayer({
       name: lConf.name,
@@ -370,9 +418,9 @@ export const LayerFactory = {
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: vectorSource,
-      style: styleRefs[lConf.styleRef]
-    })
+      style: this.getStyle(lConf)
+    });
 
-    return layer
+    return layer;
   }
-}
+};
