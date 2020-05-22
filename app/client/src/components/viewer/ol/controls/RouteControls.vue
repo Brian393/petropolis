@@ -1,0 +1,109 @@
+<template>
+  <div>
+    <div class="fuelgroup-control">
+      <div v-for="(fuelGroup, index) in fuelGroups" :key="index">
+        <v-btn
+          min-width="140"
+          class="mx-2 mb-2 locate-button"
+          dark
+          @click="changeFuelGroup(fuelGroup)"
+          :color="
+            activeLayerGroup.fuelGroup === fuelGroup.name
+              ? '#DC143C'
+              : '#E44C6B'
+          "
+          :class="{
+            'elevation-6': activeLayerGroup.fuelGroup === fuelGroup.name
+          }"
+        >
+          {{ fuelGroup.title }}
+        </v-btn>
+      </div>
+    </div>
+    <div class="region-control">
+      <v-layout row>
+        <div v-for="(region, index) in regions" :key="index">
+          <v-btn
+            min-width="140"
+            class="mx-2 mb-2 locate-button"
+            dark
+            @click="changeRegion(region)"
+            :color="
+              activeLayerGroup.region === region.name ? '#DC143C' : '#E44C6B'
+            "
+            :class="{
+              'elevation-6': activeLayerGroup.region === region.name
+            }"
+          >
+            {{ region.title }}
+          </v-btn>
+        </div>
+      </v-layout>
+    </div>
+  </div>
+</template>
+<script>
+//Store imports
+import { mapGetters } from 'vuex';
+
+export default {
+  data() {
+    return {
+      fuelGroups: [
+        {
+          name: 'oil',
+          title: 'Oil'
+        },
+        {
+          name: 'gas',
+          title: 'Natural Gas'
+        },
+        {
+          name: 'coal',
+          title: 'Coal'
+        }
+      ],
+      regions: [
+        {
+          name: 'industry',
+          title: 'Industry'
+        },
+        {
+          name: 'world',
+          title: 'World'
+        }
+      ]
+    };
+  },
+  name: 'route-control',
+  methods: {
+    changeFuelGroup(fuelGroup) {
+      this.$router.push({ path: `/petropolis/${fuelGroup.name}` });
+    },
+    changeRegion(region) {
+      this.$router.push({
+        path: `/petropolis/${this.activeLayerGroup.fuelGroup}/${region.name}`
+      });
+    }
+  },
+  computed: {
+    ...mapGetters('map', {
+      activeLayerGroup: 'activeLayerGroup'
+    })
+  }
+};
+</script>
+<style lang="css" scoped>
+.fuelgroup-control {
+  position: absolute;
+  left: 12px;
+  bottom: 20px;
+  z-index: 1;
+}
+.region-control {
+  position: absolute;
+  left: 45%;
+  bottom: 20px;
+  z-index: 1;
+}
+</style>

@@ -1,8 +1,21 @@
 {
-"type": "FeatureCollection",
-"name": "VideoOilIndustry",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "id": 1, "vimeoSrc": "https:\/\/www.youtube-nocookie.com\/embed\/ic9NcKtEPGs" }, "geometry": { "type": "Point", "coordinates": [ -84.764, 45.813 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "VideoOilIndustry",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "id": 1,
+      "vimeoSrc": "https://www.youtube-nocookie.com/embed/ic9NcKtEPGs"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-84.764, 45.813]
+    }
+  }]
 }

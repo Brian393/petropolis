@@ -8,1278 +8,1924 @@
     }
   },
   "features": [{
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Bethioua",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -0.265, 35.814 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Marsa al Brega",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/marsa-el-brega-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 19.588, 30.408 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Angola LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Angola_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 12.334, -6.119 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "NLNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Nigeria_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 7.161, 4.429 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "ELNG Idku",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/elng-idco-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 30.316, 31.349 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "SEGAS LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/SEGAS_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 31.747, 31.468 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "EG LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/EG_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 8.715, 3.783 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Skikda",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sonatrach-skikda-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 6.949, 36.88 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Dahej",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/dahej-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 72.536, 21.675 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Hazira",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/hazira-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 72.676, 21.163 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Gwangyang",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/gwangyang-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 127.778, 34.888 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Tongyeon",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/tongyoung-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 128.42, 34.948 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Tangguh LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/tangguh-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 133.138, -2.439 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Fukwoke",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/fukuoka-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 130.354, 33.646 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Nagasaki",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/nagasaki-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 129.867, 32.756 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Yanai",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 132.124, 33.95 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Kita Kyushu",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/kitakyushu-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 130.867, 33.917 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sakai",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sakai-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 135.436, 34.563 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Mizushima",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/mizushima-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 133.73, 34.502 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Oita",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/oita-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 131.687, 33.272 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Senboku",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/senboku-2-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 135.43, 34.546 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Yokkaichi",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/yokkaichi-works-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 136.65, 34.94 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Kawagoe",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/kawagoe-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 136.696, 35.009 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Chita",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/chita-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 136.852, 34.982 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Futtsu",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/futtsu-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 139.829, 35.346 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Negishi",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/negishi-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 139.64, 35.405 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Ohgishima",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/ohgishima-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 139.757, 35.497 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Himeji",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/himeji-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 134.693, 34.763 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Hachinone",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/hachinohe-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 141.517, 40.535 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sodegaura",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sodegaura-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 140.027, 35.487 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Brunei LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Brunei_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 114.464, 4.669 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Arun LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/arun-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 97.111, 5.216 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Malaysia LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Malaysia_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 113.069, 3.271 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Bontang LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/bontang-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 117.475, 0.101 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sakhalin II",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Sakhalin-II#LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 142.91, 46.628 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Dapeng",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Dapeng_LNG_Terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 114.385, 22.617 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Fujian",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/fujian-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 118.972, 25.168 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Shanghai",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/shanghai-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 121.709, 31.291 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Yung An",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/yung-an-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 120.339, 22.533 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Taichung",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/taichung-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 120.498, 24.262 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Incheon",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/incheon-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 126.606, 37.352 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Pyeongtaek",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/pyeongtaek-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 126.79, 37.003 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Shimizu",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 138.495, 35.026 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Nihonku",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 139.083, 37.95 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Shinminato",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 141.034, 38.277 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Higashi Ogishima",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 139.775, 35.518 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Qalhat LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/qalhat-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 59.406, 22.659 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Kagoshima",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 131.027, 31.369 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Ras Gas",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Rasgas"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 51.578, 25.917 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Das Island",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/adgas-das-island-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 52.874, 25.155 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Qatar Gas",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Qatargas"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 51.581, 25.902 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Yemen LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Yemen_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 48.179, 13.981 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Hatsukaichi",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 132.338, 34.339 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Oman LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Oman_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 59.429, 22.638 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Pearl GTL",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Pearl_GTL"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 51.504, 25.906 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Darwin LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/darwin-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 130.864, -12.524 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "North west shelf LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/north-west-shelf-lng"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 116.771, -20.592 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Gulf Gateway",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/gulf-gateway-deepwater-port-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -92.423, 27.822 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Cameron LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/cameron-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -93.337, 30.038 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Freeport",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/freeport-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -95.316, 28.932 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Cove Point",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Dominion_Cove_Point_LNG,_LP"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -76.41, 38.389 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Canaport",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/canaport-lng"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -65.983, 45.209 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Energia Costa Azul",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/costa-azul-lng"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -116.85, 31.988 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Mejilones",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/mejillones-lng-import-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -70.413, -23.089 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "de Altamira",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/altamira-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -97.89, 22.494 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Andres",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/andres-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -69.628, 18.407 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Atlantic LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Atlantic_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -61.687, 10.184 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Peru LNG",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Peru_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -76.298, -13.245 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Kenai LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/kenai-alaska-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -151.382, 60.674 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Quintero",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/quintero-lng-import-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -71.492, -32.777 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Bahia Blanca",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/bahia-blanca-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -62.301, -38.784 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Guanabara Bay",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/guanabara-bay-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -43.119, -22.803 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Pecem",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/pecem-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -38.797, -3.532 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Penuelas Ecoelectrica",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/EcoEl%C3%A9ctrica"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -66.757, 17.978 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Distrigas",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/everett-marine-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -71.066, 42.39 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Northeast Gateway",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -70.583, 42.417 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Neptune LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/neptune-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -70.602, 42.487 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sabine Pass",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sabine-pass-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -93.87, 29.756 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Trunkline",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/Trunkline_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -93.286, 30.112 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "North Adriatic LNG",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/adriatic-rovigo-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 12.485, 44.952 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "La Spezia",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/panigaglia-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 9.832, 44.073 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Barcelona",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/barcelona-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 2.164, 41.338 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sagunto",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sagunto-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -0.214, 39.634 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Bilbao",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/bilbao-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -3.097, 43.363 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Grain",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/grain-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 0.683, 51.451 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Marmara",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/marmara-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 27.982, 40.993 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Aliaga",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/izmir-aliaga-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 26.943, 38.823 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Snohvit",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/hammerfest-lng-snohvit"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 23.596, 70.688 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Fluxys",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/fluxys-zeebrugge-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 3.222, 51.354 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Revythoussa",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/revithoussa-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 23.402, 37.961 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "South Hook",
-        "corporation": " ",
-        "description": "http:\/\/en.wikipedia.org\/wiki\/South_Hook_LNG"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -5.076, 51.715 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Regansoa",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/reganosa-ferrol-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -8.235, 43.46 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Montoir de Bretagne",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/montoir-de-bretagne-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -2.086, 47.309 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Sines",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/sines-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -8.844, 37.942 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Cartegena",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/cartagena-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -0.958, 37.575 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Fos sur Mer",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ 4.899, 43.42 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Teeside",
-        "corporation": " ",
-        " description": " "
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -1.163, 54.617 ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "LNG Terminal",
-        "name": "Huelva",
-        "corporation": " ",
-        "description": "http:\/\/abarrelfull.wikidot.com\/huelva-lng-terminal"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [ -6.936, 37.202 ]
-      }
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Bethioua",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-0.265, 35.814]
     }
-  ]
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Marsa al Brega",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/marsa-el-brega-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [19.588, 30.408]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Angola LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Angola_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [12.334, -6.119]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "NLNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Nigeria_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.161, 4.429]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "ELNG Idku",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/elng-idco-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [30.316, 31.349]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "SEGAS LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/SEGAS_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [31.747, 31.468]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "EG LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/EG_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [8.715, 3.783]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Skikda",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sonatrach-skikda-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.949, 36.88]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Dahej",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/dahej-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [72.536, 21.675]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Hazira",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/hazira-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [72.676, 21.163]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Gwangyang",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/gwangyang-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [127.778, 34.888]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Tongyeon",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/tongyoung-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [128.42, 34.948]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Tangguh LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/tangguh-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [133.138, -2.439]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Fukwoke",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/fukuoka-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [130.354, 33.646]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Nagasaki",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/nagasaki-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [129.867, 32.756]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Yanai",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [132.124, 33.95]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Kita Kyushu",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/kitakyushu-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [130.867, 33.917]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sakai",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sakai-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [135.436, 34.563]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Mizushima",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/mizushima-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [133.73, 34.502]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Oita",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/oita-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [131.687, 33.272]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Senboku",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/senboku-2-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [135.43, 34.546]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Yokkaichi",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/yokkaichi-works-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [136.65, 34.94]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Kawagoe",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/kawagoe-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [136.696, 35.009]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Chita",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/chita-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [136.852, 34.982]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Futtsu",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/futtsu-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [139.829, 35.346]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Negishi",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/negishi-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [139.64, 35.405]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Ohgishima",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/ohgishima-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [139.757, 35.497]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Himeji",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/himeji-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [134.693, 34.763]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Hachinone",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/hachinohe-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [141.517, 40.535]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sodegaura",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sodegaura-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [140.027, 35.487]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Brunei LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Brunei_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [114.464, 4.669]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Arun LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/arun-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [97.111, 5.216]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Malaysia LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Malaysia_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [113.069, 3.271]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Bontang LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/bontang-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [117.475, 0.101]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sakhalin II",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Sakhalin-II#LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [142.91, 46.628]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Dapeng",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Dapeng_LNG_Terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [114.385, 22.617]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Fujian",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/fujian-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [118.972, 25.168]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Shanghai",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/shanghai-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [121.709, 31.291]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Yung An",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/yung-an-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [120.339, 22.533]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Taichung",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/taichung-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [120.498, 24.262]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Incheon",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/incheon-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [126.606, 37.352]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Pyeongtaek",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/pyeongtaek-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [126.79, 37.003]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Shimizu",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [138.495, 35.026]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Nihonku",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [139.083, 37.95]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Shinminato",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [141.034, 38.277]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Higashi Ogishima",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [139.775, 35.518]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Qalhat LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/qalhat-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [59.406, 22.659]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Kagoshima",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [131.027, 31.369]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Ras Gas",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Rasgas",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [51.578, 25.917]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Das Island",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/adgas-das-island-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [52.874, 25.155]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Qatar Gas",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Qatargas",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [51.581, 25.902]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Yemen LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Yemen_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [48.179, 13.981]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Hatsukaichi",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [132.338, 34.339]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Oman LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Oman_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [59.429, 22.638]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Pearl GTL",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Pearl_GTL",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [51.504, 25.906]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Darwin LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/darwin-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [130.864, -12.524]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "North west shelf LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/north-west-shelf-lng",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [116.771, -20.592]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Gulf Gateway",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/gulf-gateway-deepwater-port-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-92.423, 27.822]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Cameron LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/cameron-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.337, 30.038]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Freeport",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/freeport-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-95.316, 28.932]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Cove Point",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Dominion_Cove_Point_LNG,_LP",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-76.41, 38.389]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Canaport",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/canaport-lng",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-65.983, 45.209]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Energia Costa Azul",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/costa-azul-lng",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-116.85, 31.988]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Mejilones",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/mejillones-lng-import-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-70.413, -23.089]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "de Altamira",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/altamira-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-97.89, 22.494]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Andres",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/andres-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-69.628, 18.407]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Atlantic LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Atlantic_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-61.687, 10.184]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Peru LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Peru_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-76.298, -13.245]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Kenai LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/kenai-alaska-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-151.382, 60.674]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Quintero",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/quintero-lng-import-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-71.492, -32.777]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Bahia Blanca",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/bahia-blanca-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-62.301, -38.784]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Guanabara Bay",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/guanabara-bay-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-43.119, -22.803]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Pecem",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/pecem-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-38.797, -3.532]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Penuelas Ecoelectrica",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/EcoEl%C3%A9ctrica",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-66.757, 17.978]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Distrigas",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/everett-marine-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-71.066, 42.39]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Northeast Gateway",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-70.583, 42.417]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Neptune LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/neptune-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-70.602, 42.487]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sabine Pass",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sabine-pass-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.87, 29.756]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Trunkline",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/Trunkline_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.286, 30.112]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "North Adriatic LNG",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/adriatic-rovigo-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [12.485, 44.952]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "La Spezia",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/panigaglia-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.832, 44.073]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Barcelona",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/barcelona-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.164, 41.338]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sagunto",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sagunto-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-0.214, 39.634]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Bilbao",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/bilbao-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.097, 43.363]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Grain",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/grain-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0.683, 51.451]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Marmara",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/marmara-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [27.982, 40.993]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Aliaga",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/izmir-aliaga-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [26.943, 38.823]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Snohvit",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/hammerfest-lng-snohvit",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [23.596, 70.688]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Fluxys",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/fluxys-zeebrugge-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [3.222, 51.354]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Revythoussa",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/revithoussa-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [23.402, 37.961]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "South Hook",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://en.wikipedia.org/wiki/South_Hook_LNG",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-5.076, 51.715]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Regansoa",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/reganosa-ferrol-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.235, 43.46]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Montoir de Bretagne",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/montoir-de-bretagne-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-2.086, 47.309]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Sines",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/sines-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.844, 37.942]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Cartegena",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/cartagena-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-0.958, 37.575]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Fos sur Mer",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [4.899, 43.42]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Teeside",
+      "entity": "",
+      " description": "",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.163, 54.617]
+    }
+  }, {
+    "type": "Feature",
+    "properties": {
+      "category": "LNG Terminal",
+      "title": "Huelva",
+      "entity": "",
+      "description": "",
+      "comment": "",
+      "capacity": "",
+      "link1": "",
+      "link2": "http://abarrelfull.wikidot.com/huelva-lng-terminal",
+      "link3": "",
+      "source": "",
+      "variable1": "",
+      "variable2": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-6.936, 37.202]
+    }
+  }]
 }

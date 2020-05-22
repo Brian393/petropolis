@@ -1,4 +1,10 @@
-import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
+import {
+  Circle as CircleStyle,
+  Icon as IconStyle,
+  Fill,
+  Stroke,
+  Style
+} from 'ol/style';
 
 /**
  * Factory, which creates OpenLayers style instances according to a given config
@@ -8,7 +14,6 @@ import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
  * For advanced styling use a custom style function or
  * GeoStyler<https://github.com/terrestris/geostyler>
  */
-
 export const OlStyleFactory = {
   /**
    * Returns an OpenLayers Style instance due to given config.
@@ -18,12 +23,13 @@ export const OlStyleFactory = {
    */
   getInstance(styleConf) {
     if (!styleConf) {
-    } else if (styleConf.radius) {
-      return OlStyleFactory.createPointStyle(styleConf)
+      return []
+    } else if (styleConf.radius || styleConf.iconUrl) {
+      return OlStyleFactory.createPointStyle(styleConf);
     } else if (styleConf.fillColor) {
-      return OlStyleFactory.createPolygonStyle(styleConf)
+      return OlStyleFactory.createPolygonStyle(styleConf);
     } else if (styleConf.strokeColor || styleConf.strokeWidth) {
-      return OlStyleFactory.createLineStyle(styleConf)
+      return OlStyleFactory.createLineStyle(styleConf);
     }
   },
 
@@ -34,13 +40,29 @@ export const OlStyleFactory = {
    * @return {Style}             OL style instance
    */
   createPointStyle(styleConf) {
-    return new Style({
-      image: new CircleStyle({
-        radius: styleConf.radius,
-        fill: OlStyleFactory.createFill(styleConf),
-        stroke: OlStyleFactory.createStroke(styleConf)
-      })
-    })
+    let pointStyle;
+    if (styleConf.iconUrl) {
+      pointStyle = new Style({
+        image: new IconStyle({
+          src: styleConf.iconUrl,
+          scale: styleConf.scale || 1,
+          opacity: styleConf.opacity || 1,
+          anchor: styleConf.iconAnchor,
+          anchorXUnits: styleConf.iconAnchorXUnits,
+          anchorYUnits: styleConf.iconAnchorYUnits
+        })
+      });
+    } else {
+      pointStyle = new Style({
+        image: new CircleStyle({
+          radius: styleConf.radius,
+          fill: OlStyleFactory.createFill(styleConf),
+          stroke: OlStyleFactory.createStroke(styleConf)
+        })
+      });
+    }
+
+    return pointStyle;
   },
 
   /**
@@ -52,9 +74,9 @@ export const OlStyleFactory = {
   createLineStyle(styleConf) {
     const olStyle = new Style({
       stroke: OlStyleFactory.createStroke(styleConf)
-    })
+    });
 
-    return olStyle
+    return olStyle;
   },
 
   /**
@@ -64,10 +86,10 @@ export const OlStyleFactory = {
    * @return {Style}             OL style instance
    */
   createPolygonStyle(styleConf) {
-    let olStyle = OlStyleFactory.createLineStyle(styleConf)
-    olStyle.setFill(OlStyleFactory.createFill(styleConf))
+    let olStyle = OlStyleFactory.createLineStyle(styleConf);
+    olStyle.setFill(OlStyleFactory.createFill(styleConf));
 
-    return olStyle
+    return olStyle;
   },
 
   /**
@@ -80,7 +102,7 @@ export const OlStyleFactory = {
     return new Stroke({
       color: styleConf.strokeColor,
       width: styleConf.strokeWidth
-    })
+    });
   },
 
   /**
@@ -92,6 +114,6 @@ export const OlStyleFactory = {
   createFill(styleConf) {
     return new Fill({
       color: styleConf.fillColor
-    })
+    });
   }
-}
+};

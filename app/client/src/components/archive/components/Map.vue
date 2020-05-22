@@ -98,7 +98,9 @@ export default {
   },
   computed: {
     // mix the getters from vuex store into computed with object spread operator
-    ...mapGetters(['asideHidden']),
+   ...mapGetters("app",{
+     asideHidden: 'asideHidden'
+   }),
     vimeoPopup: function() {
       return new Overlay({
         element: this.$refs.vimeoPopup,
@@ -175,8 +177,12 @@ export default {
         this.olmap.on('singleclick', e => {
           let feature, layer
           this.olmap.forEachFeatureAtPixel(e.pixel, (f, l) => {
-            feature = f
-            layer = l
+            // Order of features is based is based on zIndex. 
+            // First feature is on top, last feature is on bottom.
+            if (!feature) {
+              feature = f
+              layer = l
+            }
           })
           // Check if layer is interactive
           if (layer && layer.get('isInteractive') === false) return
@@ -497,6 +503,7 @@ export default {
       this.olmap.removeLayer(vector)
       this.olmap.addLayer(vector)
     },
+    
     // These are standard layer styles, not based on properties. Each includes a zIndex:
     makeGeoJSONPointVectorLayer: function(
       url,

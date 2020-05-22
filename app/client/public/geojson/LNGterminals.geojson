@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "LNGterminals",
+  "name": "LNGterminals-r",
   "crs": {
     "type": "name",
     "properties": {
@@ -10,20 +10,18 @@
   "features": [{
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "CONOCOPHILLIPS KENAI LNG PLANT",
+        "category": "LNG Terminal - Export",
+        "title": "CONOCOPHILLIPS KENAI LNG PLANT",
         "corporation": "KENAI LNG",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1969. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.2,
-        "APPCAP": -999.0,
         "link1": "http:\/\/alaska.conocophillips.com",
-        "OPYEAR": "1969",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "KENAI",
-        "BERTHS": 1,
-        "STORAGE": 3,
-        "STORCAP": 2.2
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 3
       },
       "geometry": {
         "type": "Point",
@@ -33,20 +31,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "SLNG STATION 9999 ELBA ISLAND (IMPORT)",
+        "category": "LNG Terminal - Import",
+        "title": "SLNG STATION 9999 ELBA ISLAND (IMPORT)",
         "corporation": "SOUTHERN LNG (KINDER MORGAN)",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1978. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.6,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.kindermorgan.com",
-        "OPYEAR": "1978",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "ELBA ISLAND",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 11.3
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -56,20 +52,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "CAMERON LNG LLC - CAMERON LNG IMPORT FACILITY",
+        "category": "LNG Terminal - Import",
+        "title": "CAMERON LNG LLC - CAMERON LNG IMPORT FACILITY",
         "corporation": "SEMPRA LNG & MIDSTREAM",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2009. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.8,
-        "APPCAP": -999.0,
         "link1": "http:\/\/cameronlng.com",
-        "OPYEAR": "2009",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "HACKBERRY",
-        "BERTHS": 2,
-        "STORAGE": 3,
-        "STORCAP": 10.1
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 3
       },
       "geometry": {
         "type": "Point",
@@ -79,20 +73,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "LAKE CHARLES TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "LAKE CHARLES TERMINAL",
         "corporation": "LAKE CHARLES LNG CO. LLC",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1982. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 2.1,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.energytransfer.com",
-        "OPYEAR": "1982",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "LAKE CHARLES",
-        "BERTHS": 2,
-        "STORAGE": 4,
-        "STORCAP": 9.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 4
       },
       "geometry": {
         "type": "Point",
@@ -102,20 +94,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "SABINE PASS LNG LP - SABINE PASS LNG IMPORT TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "SABINE PASS LNG LP - SABINE PASS LNG IMPORT TERMINAL",
         "corporation": "CHENIERE ENERGY PARTNERS",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2008. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 4.0,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.cheniere.com",
-        "OPYEAR": "2008",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "SABINE PASS",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 16.9
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -125,20 +115,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "SABINE PASS LIQUEFACTION",
+        "category": "LNG Terminal - Export",
+        "title": "SABINE PASS LIQUEFACTION",
         "corporation": "CHENIERE ENERGY PARTNERS",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since NOT APPLICABLE. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 3.5,
-        "APPCAP": 0.7,
         "link1": "http:\/\/www.cheniere.com",
-        "OPYEAR": "NOT APPLICABLE",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "SABINE PASS",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 16.9
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -148,20 +136,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "DISTRIGAS LNG FACILITY",
+        "category": "LNG Terminal - Import",
+        "title": "DISTRIGAS LNG FACILITY",
         "corporation": "GDF SUEZ GAS NA LLC",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1971. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.035,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.engie-na.com",
-        "OPYEAR": "1971",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "EVERETT",
-        "BERTHS": 1,
-        "STORAGE": 2,
-        "STORCAP": 3.3
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -171,20 +157,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "NEPTUNE DEEPWATER PORT",
+        "category": "LNG Terminal - Import",
+        "title": "NEPTUNE DEEPWATER PORT",
         "corporation": "ENGIE",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2010. Current status: SUSPENDED<br>Container type: LNG TANKER",
         "capacity": 0.4,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.engie-na.com; https:\/\/www.federalregister.gov",
-        "OPYEAR": "2010",
-        "STATUS": "SUSPENDED",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "NEPTUNE DEEPWATER",
-        "BERTHS": 0,
-        "STORAGE": 1,
-        "STORCAP": 0.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 0,
+        "variable2": 1
       },
       "geometry": {
         "type": "Point",
@@ -194,20 +178,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "NORTHEAST GATEWAY ENERGY BRIDGE LLC",
+        "category": "LNG Terminal - Import",
+        "title": "NORTHEAST GATEWAY ENERGY BRIDGE LLC",
         "corporation": "EXCELERATE ENERGY LLC",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2008. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.8,
-        "APPCAP": -999.0,
         "link1": "http:\/\/excelerateenergy.com",
-        "OPYEAR": "2008",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "NORTHEAST GATEWAY DEEPWATER PORT",
-        "BERTHS": 0,
-        "STORAGE": 1,
-        "STORCAP": 0.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 0,
+        "variable2": 1
       },
       "geometry": {
         "type": "Point",
@@ -217,20 +199,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "COVE POINT LNG IMPORT TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "COVE POINT LNG IMPORT TERMINAL",
         "corporation": "DOMINION",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1978. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.8,
-        "APPCAP": -999.0,
         "link1": "https:\/\/dominionenergy.com",
-        "OPYEAR": "1978",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "COVE POINT",
-        "BERTHS": 2,
-        "STORAGE": 7,
-        "STORCAP": 14.8
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 7
       },
       "geometry": {
         "type": "Point",
@@ -240,20 +220,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "GULF LNG ENERGY",
+        "category": "LNG Terminal - Import",
+        "title": "GULF LNG ENERGY",
         "corporation": "GULF LNG ENERGY LLC",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2011. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.5,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.kindermorgan.com",
-        "OPYEAR": "2011",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "GULF LNG",
-        "BERTHS": 2,
-        "STORAGE": 2,
-        "STORCAP": 7.5
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -263,20 +241,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "FREEPORT LNG IMPORT TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "FREEPORT LNG IMPORT TERMINAL",
         "corporation": "FREEPORT LNG DEVELOPMENT, LP",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2008. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.5,
-        "APPCAP": -999.0,
         "link1": "http:\/\/www.freeportlng.com",
-        "OPYEAR": "2008",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "FREEPORT",
-        "BERTHS": 1,
-        "STORAGE": 2,
-        "STORCAP": 6.8
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -286,20 +262,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "FREEPORT LNG EXPORT TERMINAL",
+        "category": "LNG Terminal - Export",
+        "title": "FREEPORT LNG EXPORT TERMINAL",
         "corporation": "FREEPORT LNG DEVELOPMENT, LP",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since NOT APPLICABLE. Current status: UNDER CONSTRUCTION<br>Container type: LNG TANKER",
         "capacity": 0.0,
-        "APPCAP": 2.14,
         "link1": "http:\/\/www.freeportlng.com",
-        "OPYEAR": "NOT APPLICABLE",
-        "STATUS": "UNDER CONSTRUCTION",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "FREEPORT",
-        "BERTHS": 1,
-        "STORAGE": 2,
-        "STORCAP": 6.8
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -309,20 +283,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "GOLDEN PASS LNG IMPORT TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "GOLDEN PASS LNG IMPORT TERMINAL",
         "corporation": "QATAR PETROLEUM (70%), EXXONMOBIL (17.6%), CONOCO PHILLIPS (12.4%)",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2010. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 2.0,
-        "APPCAP": -999.0,
         "link1": "http:\/\/goldenpassterminal.com",
-        "OPYEAR": "2010",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "GOLDEN PASS",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 18.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -332,20 +304,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "CANAPORT LNG",
+        "category": "LNG Terminal - Import",
+        "title": "CANAPORT LNG",
         "corporation": "CANAPORT LNG",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2009. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.0,
-        "APPCAP": -999.0,
         "link1": "https:\/\/www.canaportlng.com\/",
-        "OPYEAR": "2009",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "CANAPORT",
-        "BERTHS": 1,
-        "STORAGE": 3,
-        "STORCAP": 1.2
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 3
       },
       "geometry": {
         "type": "Point",
@@ -355,20 +325,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "ENERGIA COSTA AZUL TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "ENERGIA COSTA AZUL TERMINAL",
         "corporation": "SEMPRA LNG & IENOVA",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2019. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.0,
-        "APPCAP": -999.0,
         "link1": "http:\/\/ecalng.com\/",
-        "OPYEAR": "2019",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "ENERGIA COSTA AZUL",
-        "BERTHS": 1,
-        "STORAGE": 2,
-        "STORCAP": -999.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -378,20 +346,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "IMPORT",
-        "name": "ECOELECTRICA LNG TERMINAL",
+        "category": "LNG Terminal - Import",
+        "title": "ECOELECTRICA LNG TERMINAL",
         "corporation": "ECOELECTRICA",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2008. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.3,
-        "APPCAP": -999.0,
         "link1": "https:\/\/www.sourcewatch.org\/index.php\/EcoEl%C3%A9ctrica_LNG",
-        "OPYEAR": "2008",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "ECOELECTRICA",
-        "BERTHS": 1,
-        "STORAGE": 1,
-        "STORCAP": -999.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 1,
+        "variable2": 1
       },
       "geometry": {
         "type": "Point",
@@ -401,20 +367,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "COVE POINT LNG EXPORT TERMINAL",
+        "category": "LNG Terminal - Export",
+        "title": "COVE POINT LNG EXPORT TERMINAL",
         "corporation": "DOMINION",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1978. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.82,
-        "APPCAP": -999.0,
         "link1": "https:\/\/dominionenergy.com",
-        "OPYEAR": "1978",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "COVE POINT",
-        "BERTHS": 2,
-        "STORAGE": 7,
-        "STORCAP": 14.6
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 7
       },
       "geometry": {
         "type": "Point",
@@ -424,20 +388,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "CAMERON LNG LLC - CAMERON LNG EXPORT FACILITY",
+        "category": "LNG Terminal - Export",
+        "title": "CAMERON LNG LLC - CAMERON LNG EXPORT FACILITY",
         "corporation": "SEMPRA LNG & MIDSTREAM",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2009. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.71,
-        "APPCAP": 1.41,
         "link1": "http:\/\/cameronlng.com",
-        "OPYEAR": "2009",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "HACKBERRY",
-        "BERTHS": 2,
-        "STORAGE": 3,
-        "STORCAP": 11.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 3
       },
       "geometry": {
         "type": "Point",
@@ -447,20 +409,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "SLNG STATION 9999 ELBA ISLAND (EXPORT)",
+        "category": "LNG Terminal - Export",
+        "title": "SLNG STATION 9999 ELBA ISLAND (EXPORT)",
         "corporation": "SOUTHERN LNG (KINDER MORGAN)",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 1978. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 0.035,
-        "APPCAP": 0.315,
         "link1": "http:\/\/www.kindermorgan.com",
-        "OPYEAR": "1978",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "ELBA ISLAND",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 11.5
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -470,20 +430,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "DRIFTWOOD LNG",
+        "category": "LNG Terminal - Export",
+        "title": "DRIFTWOOD LNG",
         "corporation": "TELLURIAN INC.",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since -999. Current status: UNDER CONSTRUCTION<br>Container type: LNG TANKER",
         "capacity": 0.0,
-        "APPCAP": 4.0,
         "link1": "http:\/\/driftwoodlng.com\/",
-        "OPYEAR": "-999",
-        "STATUS": "UNDER CONSTRUCTION",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "DRIFTWOOD",
-        "BERTHS": -999,
-        "STORAGE": -999,
-        "STORCAP": -999.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": -999,
+        "variable2": -999
       },
       "geometry": {
         "type": "Point",
@@ -493,20 +451,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "CORPUS CHRISTI LNG",
+        "category": "LNG Terminal - Export",
+        "title": "CORPUS CHRISTI LNG",
         "corporation": "CORPUS CHRISTI LIQUEFICATION LLC, CHENIERE",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2019. Current status: IN SERVICE<br>Container type: LNG TANKER",
         "capacity": 1.44,
-        "APPCAP": 0.72,
         "link1": "https:\/\/www.cheniere.com",
-        "OPYEAR": "2019",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "COVE POINT",
-        "BERTHS": 2,
-        "STORAGE": 2,
-        "STORCAP": 10.4
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 2
       },
       "geometry": {
         "type": "Point",
@@ -516,20 +472,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "GOLDEN PASS LNG EXPORT TERMINAL",
+        "category": "LNG Terminal - Export",
+        "title": "GOLDEN PASS LNG EXPORT TERMINAL",
         "corporation": "QATAR PETROLEUM (70%), EXXONMOBIL (17.6%), CONOCO PHILLIPS (12.4%)",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since -999. Current status: UNDER CONSTRUCTION<br>Container type: LNG TANKER",
         "capacity": 0.0,
-        "APPCAP": 2.1,
         "link1": "http:\/\/goldenpassterminal.com",
-        "OPYEAR": "-999",
-        "STATUS": "UNDER CONSTRUCTION",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "CORPUS CHRISTI",
-        "BERTHS": 2,
-        "STORAGE": 5,
-        "STORCAP": 18.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": 2,
+        "variable2": 5
       },
       "geometry": {
         "type": "Point",
@@ -539,20 +493,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "CALCASIEU PASS LNG",
+        "category": "LNG Terminal - Export",
+        "title": "CALCASIEU PASS LNG",
         "corporation": "VENTURE GLOBAL LNG (VENTURE GLOBAL CALCASIEU PASS LLC)",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since -999. Current status: UNDER CONSTRUCTION<br>Container type: LNG TANKER",
         "capacity": 0.0,
-        "APPCAP": 1.41,
         "link1": "http:\/\/venturegloballng.com",
-        "OPYEAR": "-999",
-        "STATUS": "UNDER CONSTRUCTION",
-        "CONTYPE": "LNG TANKER",
-        "IE_PORT": "CALCASIEU PASS",
-        "BERTHS": -999,
-        "STORAGE": -999,
-        "STORCAP": -999.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": -999,
+        "variable2": -999
       },
       "geometry": {
         "type": "Point",
@@ -562,20 +514,18 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "EXPORT",
-        "name": "AMERICAN LNG HIALEAH TERMINAL",
+        "category": "LNG Terminal - Export",
+        "title": "AMERICAN LNG HIALEAH TERMINAL",
         "corporation": "AMERICAN LNG MARKETING LLC",
         "description": "PIPELINE TRANSPORTATION OF NATURAL GAS",
+        "comment": "Operating since 2016. Current status: IN SERVICE<br>Container type: ISO CONTAINER",
         "capacity": -999.0,
-        "APPCAP": 3.02,
         "link1": "https:\/\/www.energy.gov\/fe\/",
-        "OPYEAR": "2016",
-        "STATUS": "IN SERVICE",
-        "CONTYPE": "ISO CONTAINER",
-        "IE_PORT": "FORT LAUDERDALE",
-        "BERTHS": -999,
-        "STORAGE": 3,
-        "STORCAP": -999.0
+        "link2": "",
+        "link3": "",
+        "source": "",
+        "variable1": -999,
+        "variable2": 3
       },
       "geometry": {
         "type": "Point",

@@ -1,46 +1,54 @@
 {
   "name": "ecotopia-today",
   "version": "0.0.1",
-  "author": "edwardsharp",
-  "description": "ecotopia.today openlayers component prototype",
-  "repository": "github:edwardsharp/ecotopia-today",
   "private": true,
+  "description": "ecotopia.today openlayers component prototype",
+  "author": "edwardsharp",
   "scripts": {
-    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && ./util/minify_dist_geojson.js",
     "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "axios": "^0.19.2",
     "colormap": "^2.3.0",
+    "core-js": "^3.6.4",
     "jQuery": "^1.7.4",
     "jsdom": "^13.1.0",
     "location": "0.0.1",
     "material-design-icons": "^3.0.1",
     "mediabox": "^1.1.2",
     "navigator": "^1.0.1",
-    "ol": "^5.1.3",
+    "ol": "^6.3.1",
     "simplify-geojson": "^1.0.3",
-    "vue": "^2.5.16",
+    "vue": "^2.6.11",
     "vue-cookies": "^1.7.0",
     "vue-gallery": "^1.5.0",
     "vue-image-lightbox": "^6.0.0",
-    "vue-js-modal": "^1.3.33",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "xmlhttprequest": "^1.8.0"
+    "vuescroll": "^4.14.4",
+    "vuetify": "^2.2.28",
+    "vuex": "^3.1.1",
+    "vuex-map-fields": "^1.4.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
-    "@vue/cli-service": "^4.1.2",
-    "@vue/eslint-config-standard": "^3.0.0-rc.10",
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^1.2.0",
-    "vue-template-compiler": "^2.5.16"
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   },
   "eslintConfig": {
     "root": true,
@@ -49,21 +57,17 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/standard"
+      "eslint:recommended"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+    },
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "repository": "github:edwardsharp/ecotopia-today"
 }
