@@ -4,7 +4,7 @@
       <template v-slot:activator="{ on }">
         <v-btn
           class="mx-2 zoom-buttons"
-          style="top:110px;"
+          style="top:100px;"
           v-on="on"
           fab
           dark

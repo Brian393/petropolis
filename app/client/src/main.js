@@ -9,7 +9,7 @@ import InfoPopUp, { infoPopUpName } from './components/core/InfoPopUp.vue';
 import VueLazyLoad from 'vue-lazyload';
 import router from './router';
 import store from './store/index';
-import VModal from 'vue-js-modal';
+
 
 require('../node_modules/ol/ol.css');
 require('./assets/scss/app.scss');
@@ -23,13 +23,11 @@ const appEl = document.querySelector('#app');
 Vue.prototype.$isEmbedded = appEl.hasAttribute('embedded');
 
 Vue.use(VueLazyLoad);
-Vue.use(VModal, {
-  dialog: true,
-  dynamic: true,
-  dynamicDefaults: { clickToClose: false }
-});
 Vue.use(VueCookies);
 Vue.component(infoPopUpName, InfoPopUp);
+
+
+
 
 // App Configuration
 // eslint-disable-next-line no-undef

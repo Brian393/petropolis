@@ -9,10 +9,14 @@
       clipped
       right
     >
+    <side-panel></side-panel>
     </v-navigation-drawer>
     <v-app-bar app clipped-right height="60" color="#DC143C" dark>
       <v-spacer></v-spacer>
-      <v-toolbar-title flat class="logo headline font-weight-bold black--text"
+      <v-toolbar-title
+        @click="$router.push({ name: 'petropolisOil' })"
+        flat
+        class="logo headline font-weight-bold black--text"
         >PETROPOLIS</v-toolbar-title
       >
       <v-spacer></v-spacer>
@@ -34,6 +38,7 @@
 <script>
 import { EventBus } from '../EventBus.js';
 import Viewer from '../components/viewer/viewer';
+import SidePanel from '../components/core/SidePanel';
 //Store imports
 import { mapMutations } from 'vuex';
 
@@ -41,7 +46,8 @@ export default {
   name: 'wg-app',
   props: ['fuelGroup', 'region'],
   components: {
-    'app-viewer': Viewer
+    'app-viewer': Viewer,
+    'side-panel': SidePanel
   },
   data() {
     return {
@@ -54,11 +60,18 @@ export default {
     })
   },
   created() {
-    console.log(this.fuelGroup)
     this.setActiveLayerGroup({
       fuelGroup: this.fuelGroup,
       region: this.region
-    })
+    });
+  },
+  watch: {
+    $route() {
+      this.setActiveLayerGroup({
+        fuelGroup: this.fuelGroup,
+        region: this.region
+      });
+    }
   },
   mounted() {
     // inform registered cmps that the app is mounted and the dynamic

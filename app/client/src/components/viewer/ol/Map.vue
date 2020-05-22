@@ -4,72 +4,78 @@
     <zoom-control :map="map" />
     <full-screen />
     <locate :map="map" />
+    <route-controls />
+    <div
+      v-show="spotlightMessage === true"
+      class="elevation-4 regular spotlight-message"
+      ref="spotlightControls"
+    >
+      press ↑ or ↓ to change spotlight size
+    </div>
     <!-- Popup overlay  -->
     <overlay-popup :title="popup.title" v-show="popup.isVisible" ref="popup">
       <v-btn icon>
         <v-icon>close</v-icon>
       </v-btn>
       <template v-slot:close>
-        <template v-if="getInfoResult.length > 1">
-          <span
-            >({{ popup.currentLayerIndex + 1 }} of
-            {{ getInfoResult.length }})</span
-          >
-          <v-icon
-            :disabled="popup.currentLayerIndex === 0"
-            style="cursor:pointer;"
-            @click="previousGetInfoLayer()"
-            >chevron_left</v-icon
-          >
-          <v-icon
-            :disabled="popup.currentLayerIndex === getInfoResult.length - 1"
-            style="cursor:pointer;"
-            @click="nextGetInfoLayer()"
-            >chevron_right</v-icon
-          >
-        </template>
         <v-btn @click="closePopup()" icon>
           <v-icon>close</v-icon>
         </v-btn>
       </template>
       <template v-slot:body>
-        <div class="subtitle-2 mb-4 font-weight-bold">
-          {{
-            getInfoResult[popup.currentLayerIndex]
-              ? getInfoResult[popup.currentLayerIndex].get('layerName')
+        <div
+          v-if="popup.activeFeature"
+          class="mb-3 font-weight-bold title"
+          v-html="
+            popup.activeFeature.get('category') ||
+            popup.activeFeature.get('title')
+              ? popup.activeFeature.get('category') ||
+                popup.activeFeature.get('title')
+              : popup.activeLayer
+              ? popup.activeLayer.get('name')
               : ''
-          }}
-        </div>
+          "
+        ></div>
 
-        <v-divider></v-divider>
-        <span v-html="popup.rawHtml"></span>
-        <div style="height:190px;">
+        <div style="max-height:490px;">
           <vue-scroll>
-            <v-simple-table dense class="pr-2">
-              <template v-slot:default>
-                <tbody>
-                  <tr v-for="item in currentInfo" :key="item.property">
-                    <td v-if="item.property !== 'PopupInfo'">
-                      {{ item.property }}
-                    </td>
-
-                    <td v-if="item.property !== 'PopupInfo'">
-                      {{ item.value }}
-                    </td>
-                    <span
-                      v-if="item.property === 'PopupInfo'"
-                      v-html="item.value"
-                    ></span>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
+            <div class="body-2" v-for="item in popupInfo" :key="item.property">
+              <span
+                v-if="
+                  popup.activeFeature.getGeometry().getType() === 'Point'
+                    ? popup.diveVisibleProps.includes(item.property) &&
+                      item.value !== '---'
+                    : !popup.hiddenProps.includes(item.property) &&
+                      item.value !== '---'
+                "
+                v-html="
+                  `<strong>${item.humanizedProperty}: </strong>` + item.value
+                "
+              ></span>
+            </div>
           </vue-scroll>
+          <div v-if="popup.activeFeature" class="mt-1">
+            <a
+              v-if="
+                popup.activeLayer &&
+                  popup.activeLayer.get('showZoomToFeature') !== false &&
+                  popup.activeFeature
+              "
+              href="javascript:void(0)"
+              @click="zoomToFeature()"
+            >
+              <strong>{{
+                popup.activeFeature.getGeometry().getType() === 'Point'
+                  ? 'DIVE'
+                  : 'VIEW WHOLE FEATURE'
+              }}</strong>
+            </a>
+          </div>
         </div>
-
         <v-divider></v-divider>
       </template>
     </overlay-popup>
+    <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
   </div>
 </template>
 
@@ -89,33 +95,41 @@ import { EventBus } from '../../../EventBus';
 
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
-import { groupBy, humanize, isCssColor } from '../../../utils/Helpers';
-import { getAllChildLayers, getLayerType } from '../../../utils/Layer';
-import { geojsonToFeature } from '../../../utils/MapUtils';
-import { Group as LayerGroup } from 'ol/layer.js';
+import { isCssColor } from '../../../utils/Helpers';
 import { fromLonLat } from 'ol/proj';
-
-import http from '../../../services/http';
-import axios from 'axios';
+import UrlUtil from '../../../utils/Url';
 
 //Store imports
 import { mapMutations, mapGetters } from 'vuex';
+import { mapFields } from 'vuex-map-fields';
 
 // Map Controls
 import OverlayPopup from './controls/Overlay';
 import ZoomControl from './controls/ZoomControl';
 import FullScreen from './controls/FullScreen';
 import Locate from './controls/Locate';
-import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
+import RouteControls from './controls/RouteControls';
 
-import { defaults as defaultControls, Attribution } from 'ol/control';
+// Interactions
+import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 import { defaults as defaultInteractions } from 'ol/interaction';
+
+// Ol controls
+import { defaults as defaultControls, Attribution } from 'ol/control';
+
+// Lightbox
+import AppLightBox from '../../core/AppLightBox';
+
+// Media lightbox
+import MediaLightBox from '../../core/MediaLightBox';
 
 export default {
   components: {
     'overlay-popup': OverlayPopup,
     'zoom-control': ZoomControl,
     'full-screen': FullScreen,
+    'route-controls': RouteControls,
+    'app-lightbox': AppLightBox,
     locate: Locate
   },
   name: 'app-ol-map',
@@ -130,24 +144,32 @@ export default {
       allLayers: [],
       queryableLayers: [],
       activeInteractions: [],
-      popup: {
-        rawHtml: null,
-        title: 'Info',
-        isVisible: false,
-        currentLayerIndex: 0
-      },
-      getInfoResult: []
+      getInfoResult: [],
+      radius: 300,
+      mousePosition: undefined,
+      spotlightMessage: false,
+      lightBoxImages: []
     };
   },
   mounted() {
     var me = this;
+    // Add keydown event listener to change spotlight radius
+    window.addEventListener('keydown', e => {
+      if (e.keyCode === 38) {
+        // up arrow key
+        this.radius = Math.min(this.radius + 5, 800);
+        this.map.render();
+      } else if (e.keyCode === 40) {
+        // down arrow key
+        this.radius = Math.max(this.radius - 5, 0);
+        this.map.render();
+      }
+    });
     // Make the OL map accessible for Mapable mixin even 'ol-map-mounted' has
     // already been fired. Don not use directly in cmps, use Mapable instead.
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
-    //Add map to the vuex store.
-    me.setMap(me.map);
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -156,7 +178,11 @@ export default {
       me.setOlButtonColor();
       // Get Info
       me.setupMapClick();
+      // Pointer Move
       me.setupMapPointerMove();
+      // Move end event
+      this.setupMapMoveEnd();
+      // Create popup overlay for get info
       me.createPopupOverlay();
     }, 200);
   },
@@ -186,11 +212,10 @@ export default {
         maxResolution: 64000
       })
     });
-
+    //Add map to the vuex store.
+    me.setMap(me.map);
     // Create layers from config and add them to map
-    const layers = me.createLayers();
-    console.log(layers);
-    me.map.getLayers().extend(layers);
+    me.createLayers();
     me.createGetInfoLayer();
 
     // Event bus setup for managing interactions
@@ -211,7 +236,6 @@ export default {
      * @return {ol.layer.Base[]} Array of OL layer instances
      */
     createLayers() {
-      let layers = [];
       const me = this;
       const activeLayerGroup = this.activeLayerGroup;
       const visibleGroup = this.$appConfig.map.groups[
@@ -232,32 +256,24 @@ export default {
         this.map.getView().maxResolution_ = visibleGroup.maxResolution;
       }
 
-      console.log(this.map.getView());
-
-      const layersConfigGrouped = groupBy(this.$appConfig.map.layers, 'group');
-      for (var group in layersConfigGrouped) {
-        // eslint-disable-next-line no-prototype-builtins
-        if (!layersConfigGrouped.hasOwnProperty(group)) {
-          continue;
+      this.$appConfig.map.layers.forEach(lConf => {
+        const layerIndex = visibleLayers.indexOf(lConf.name);
+        if (layerIndex === -1) return;
+        const layer = LayerFactory.getInstance(lConf);
+        layer.setZIndex(layerIndex);
+        // Enable spotlight for ESRI Imagery
+        if (layer.get('name') === 'ESRI-World-Imagery') {
+          layer.on('prerender', e => {
+            this.spotlight(e);
+          });
+          layer.on('postrender', function(e) {
+            e.context.restore();
+          });
         }
-        const mapLayers = [];
-        layersConfigGrouped[group].reverse().forEach(function(lConf) {
-          const layerIndex = visibleLayers.indexOf(lConf.name);
-          if (layerIndex === -1) return;
-          const layer = LayerFactory.getInstance(lConf);
-          layer.setZIndex(layerIndex);
-          mapLayers.push(layer);
-          if (layer.get('name')) {
-            me.setLayer(layer);
-          }
-        });
-        let layerGroup = new LayerGroup({
-          name: group !== undefined ? group.toString() : 'Other Layers',
-          layers: mapLayers
-        });
-        layers.push(layerGroup);
-      }
-      return layers;
+        if (layer.get('name')) {
+          me.setLayer(layer);
+        }
+      });
     },
 
     /**
@@ -349,36 +365,64 @@ export default {
         me.popupOverlay.setPosition(undefined);
         me.popup.isVisible = false;
       }
-      me.getInfoResult = [];
-      me.popup.currentLayerIndex = 0;
+      me.popup.activeFeature = null;
       if (me.getInfoLayerSource) {
         me.getInfoLayerSource.clear();
       }
+      me.popup.showInSidePanel = false;
     },
 
     /**
      * Show getInfo popup.
      */
-    showPopup() {
+    showPopup(clickCoord) {
       // Clear highligh feature
       this.getInfoLayerSource.clear();
-      let position = this.getInfoResult[this.popup.currentLayerIndex]
-        .getGeometry()
-        .getCoordinates();
-      // Add highlight feature
-      this.getInfoLayerSource.addFeature(
-        this.getInfoResult[this.popup.currentLayerIndex]
-      );
-      while (position && Array.isArray(position[0])) {
-        position = position[0];
+      let position = this.popup.activeFeature.getGeometry().getCoordinates();
+      // Correct popup position (used feature coordinates insteaad of mouse)
+      let closestPoint;
+      // Closest point doesn't work with vector tile layers.
+      if (position) {
+        closestPoint = this.popup.activeFeature
+          .getGeometry()
+          .getClosestPoint(clickCoord);
+      } else {
+        closestPoint = clickCoord;
       }
       this.map.getView().animate({
-        center: position,
+        center: closestPoint,
         duration: 400
       });
-      this.popupOverlay.setPosition(position);
+      this.popupOverlay.setPosition(closestPoint);
       this.popup.isVisible = true;
       this.popup.title = `Info`;
+    },
+    /**
+     * Zooms to feature, add a cloned feature to the highlight layer and set the position of popup undefined
+     * move the popup content to sidepanel and replace legend with feature image if exist.
+     *
+     */
+    zoomToFeature() {
+      const geometry = this.popup.activeFeature.getGeometry();
+      if (geometry.getType() === 'Point') {
+        this.map.getView().animate({
+          center: geometry.getCoordinates(),
+          zoom: 13,
+          duration: 800
+        });
+      } else {
+        // Zoom to extent adding a padding to the extent
+        this.map
+          .getView()
+          .fit(geometry.getExtent(), { padding: [10, 10, 10, 10] });
+
+        // Highlight feature
+        this.getInfoLayerSource.clear();
+        this.getInfoLayerSource.addFeature(this.popup.activeFeature.clone());
+      }
+      // Close popup
+      this.popupOverlay.setPosition(undefined);
+      this.popup.showInSidePanel = true;
     },
 
     /**
@@ -389,10 +433,33 @@ export default {
         if (evt.dragging || this.activeInteractions.length > 0) {
           return;
         }
-        const features = this.map.getFeaturesAtPixel(evt.pixel);
+        const features = this.map.getFeaturesAtPixel(evt.pixel, {
+          layerFilter: candidate => {
+            if (candidate.get('isInteractive') === false) {
+              return false;
+            }
+            return true;
+          }
+        });
 
         this.map.getTarget().style.cursor =
           features.length > 0 ? 'pointer' : '';
+
+        this.mousePosition = this.map.getEventPixel(evt.originalEvent);
+        this.map.render();
+      });
+    },
+
+    setupMapMoveEnd() {
+      // After the map moveend event fires, determine if the instructions
+      // for using the spotlights should be shown based on zoom level.
+      this.map.on('moveend', () => {
+        const resolutionLevel = this.map.getView().getResolution();
+        if (resolutionLevel <= 20) {
+          this.spotlightMessage = true;
+        } else {
+          this.spotlightMessage = false;
+        }
       });
     },
 
@@ -407,125 +474,99 @@ export default {
         if (me.activeInteractions.length > 0) {
           return;
         }
-
-        const coordinate = evt.coordinate;
-        const projection = me.map.getView().getProjection();
-        const resolution = me.map.getView().getResolution();
-
-        me.queryableLayers = getAllChildLayers(me.map).filter(
-          layer =>
-            layer.get('queryable') === true && layer.getVisible() === true
-        );
-        // WMS Requests
-        let promiseArray = [];
-        me.queryableLayers.forEach(layer => {
-          const layerType = getLayerType(layer);
-          switch (layerType) {
-            case 'WFS': {
-              let selectedFeatures = me.map.getFeaturesAtPixel(evt.pixel, {
-                hitTolerance: 4,
-                layerFilter: layerCandidate => {
-                  return layerCandidate.get('name') === layer.get('name');
-                }
-              });
-              if (selectedFeatures !== null && selectedFeatures.length > 0) {
-                // TODO: If there are more then 2 features selected get the closest one to coordinate rather than the first element
-                const clonedFeature = selectedFeatures[0];
-                clonedFeature.set('layerName', layer.get('name'));
-                me.getInfoResult.push(clonedFeature);
-              }
-              break;
-            }
-            case 'WMS': {
-              let url = layer
-                .getSource()
-                .getFeatureInfoUrl(coordinate, resolution, projection, {
-                  INFO_FORMAT: 'application/json'
-                });
-              promiseArray.push(
-                http.get(url, {
-                  data: { layerName: layer.get('name') }
-                })
-              );
-              break;
-            }
-            default:
-              break;
+        let feature, layer;
+        this.map.forEachFeatureAtPixel(evt.pixel, (f, l) => {
+          // Order of features is based is based on zIndex.
+          // First feature is on top, last feature is on bottom.
+          if (!feature) {
+            feature = f;
+            layer = l;
           }
         });
-        if (promiseArray.length > 0) {
-          axios.all(promiseArray).then(function(results) {
-            results.forEach(response => {
-              const features = response.data.features;
-              const layerName = JSON.parse(response.config.data).layerName;
-              if (features && features.length === 0) {
-                return;
-              }
-              const olFeatures = geojsonToFeature(response.data, {});
+        // Check if layer is interactive
+        if (
+          (layer && layer.get('isInteractive') === false) ||
+          layer.get('queryable') === false
+        )
+          return;
+        this.popup.activeLayer = layer;
 
-              olFeatures[0].set('layerName', layerName);
-              me.getInfoResult.push(olFeatures[0]);
-            });
+        // Clear lightbox images array
+        if (this.lightBoxImages) {
+          this.lightBoxImages = [];
+        }
 
-            if (me.getInfoResult.length > 0) {
-              me.showPopup();
-            }
-          });
-        } else {
-          // Only for WFS layer
-          if (me.getInfoResult.length > 0) {
-            me.showPopup();
+        if (feature) {
+          const props = feature.getProperties();
+          // Check if feature has video link
+          if (props.vimeoSrc) {
+            const mediabox = new MediaLightBox(props.vimeoSrc);
+            mediabox.open();
+            return;
           }
+          // Check if feature has lightbox array of images
+          if (Array.isArray(props.lightbox)) {
+            props.lightbox.forEach(image => {
+              let imageUrl;
+              let caption = '';
+              if (typeof image === 'object') {
+                // Image is stored as object. Get imageUrl and caption values
+                imageUrl = image.imageUrl;
+                caption = image.caption;
+              } else {
+                // Image is stored as a string
+                imageUrl = image;
+              }
+              const url = UrlUtil.parseUrl(imageUrl);
+              this.lightBoxImages.push({
+                src: url,
+                thumb: url,
+                caption: caption
+              });
+            });
+            // Open lightbox
+            this.$refs.lightbox.open();
+            // Popup will not be opened if there are lightbox images
+            return;
+          }
+          this.popup.activeFeature = feature;
+          this.showPopup(evt.coordinate);
         }
       });
     },
-    previousGetInfoLayer() {
-      this.popup.currentLayerIndex -= 1;
-      this.showPopup();
-    },
-    nextGetInfoLayer() {
-      this.popup.currentLayerIndex += 1;
-      this.showPopup();
+    spotlight: function(e) {
+      let ctx = e.context;
+      const pixelRatio = e.frameState.pixelRatio;
+      ctx.save();
+      ctx.beginPath();
+      if (this.mousePosition) {
+        // Only show a circle around the mouse --
+        ctx.arc(
+          this.mousePosition[0] * pixelRatio,
+          this.mousePosition[1] * pixelRatio,
+          this.radius * pixelRatio,
+          0,
+          2 * Math.PI
+        );
+        ctx.lineWidth = 6 * pixelRatio;
+        ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+        ctx.stroke();
+      }
+      ctx.clip();
     },
     ...mapMutations('map', {
       setMap: 'SET_MAP',
-      setLayer: 'SET_LAYER'
+      setLayer: 'SET_LAYER',
+      removeAllLayers: 'REMOVE_ALL_LAYERS'
     })
   },
   computed: {
-    currentInfo() {
-      const feature = this.getInfoResult[this.popup.currentLayerIndex];
-      if (!feature) return;
-      const props = feature.getProperties();
-      let transformed = [];
-      const excludedProperties = [
-        'id',
-        'geometry',
-        'geom',
-        'orgin_geometry',
-        'osm_id',
-        'gid',
-        'layerName'
-      ];
-      if (props.PopupInfo) {
-        transformed.push({
-          property: 'PopupInfo',
-          value: props.PopupInfo
-        });
-      } else {
-        Object.keys(props).forEach(k => {
-          if (!excludedProperties.includes(k) && !typeof k !== 'object') {
-            transformed.push({
-              property: humanize(k),
-              value: !props[k] ? '---' : props[k]
-            });
-          }
-        });
-      }
-      return transformed;
-    },
     ...mapGetters('map', {
-      activeLayerGroup: 'activeLayerGroup'
+      activeLayerGroup: 'activeLayerGroup',
+      popupInfo: 'popupInfo'
+    }),
+    ...mapFields('map', {
+      popup: 'popup'
     })
   },
   watch: {
@@ -536,6 +577,11 @@ export default {
       } else {
         this.dblClickZoomInteraction.setActive(true);
       }
+    },
+    activeLayerGroup() {
+      this.removeAllLayers();
+      this.closePopup();
+      this.createLayers();
     }
   }
 };
@@ -578,5 +624,16 @@ div.ol-control button {
   line-height: 1.375em;
   color: #000;
   text-shadow: 0 0 2px #fff;
+}
+
+.spotlight-message {
+  background-color: #dc143c;
+  position: absolute;
+  left: 80px;
+  top: 17px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 100;
 }
 </style>

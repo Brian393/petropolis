@@ -3,11 +3,10 @@ import VueRouter from 'vue-router';
 import Petropolis from '../views/Petropolis.vue';
 Vue.use(VueRouter);
 
-const router = new VueRouter({
-  routes: [
+const routes = [
   {
     path: '/',
-    redirect: '/petropolis/oil',
+    redirect: '/petropolis/oil'
   },
   {
     path: '/petropolis/oil',
@@ -30,40 +29,44 @@ const router = new VueRouter({
   {
     path: '/petropolis/coal',
     name: 'petropolisCoal',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'coal', region: 'default' }
   },
   {
     path: '/petropolis/coal/industry',
     name: 'petropolisCoalIndustry',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'coal', region: 'industry' }
   },
   {
     path: '/petropolis/coal/world',
     name: 'petropolisCoalWorld',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'coal', region: 'world' }
   },
   {
     path: '/petropolis/gas',
     name: 'petropolisGas',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'gas', region: 'default' }
   },
   {
     path: '/petropolis/gas/industry',
     name: 'petropolisGasIndustry',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'gas', region: 'industry' }
   },
   {
     path: '/petropolis/gas/world',
     name: 'petropolisGasWorld',
-    components: Petropolis,
+    component: Petropolis,
     props: { fuelGroup: 'gas', region: 'world' }
   }
-]
+];
+
+const router = new VueRouter({
+  routes
 });
+
 
 export default router;

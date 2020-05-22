@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "CancelledOilLines",
+  "name": "CancelledOilLines-refactored",
   "crs": {
     "type": "name",
     "properties": {
@@ -10,11 +10,19 @@
   "features": [{
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Freedom Pipeline",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> https:\/\/rbnenergy.com\/node\/4611",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Freedom Pipeline",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/rbnenergy.com\/node\/4611",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -59,11 +67,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Knight Warrior",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> https:\/\/rbnenergy.com\/sites\/default\/files\/styles\/extra_large\/public\/field\/image\/figure2a_1.png?itok=FK8At2aH",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Knight Warrior",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/rbnenergy.com\/sites\/default\/files\/styles\/extra_large\/public\/field\/image\/figure2a_1.png?itok=FK8At2aH",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -167,11 +183,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Sandpiper",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> http:\/\/okenergytoday.com\/new\/wp-content\/uploads\/2016\/08\/enbridgeSandpiper.png",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Sandpiper",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "http:\/\/okenergytoday.com\/new\/wp-content\/uploads\/2016\/08\/enbridgeSandpiper.png",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -226,11 +250,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Westward Ho",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> https:\/\/farm6.staticflickr.com\/5543\/10835966394_896635b1dd_h.jpg",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Westward Ho",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/farm6.staticflickr.com\/5543\/10835966394_896635b1dd_h.jpg",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -380,11 +412,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Northern Gateway",
-        "image": "<strong><br>STATUS:<\/strong> Defeated",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> New Build",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Northern Gateway",
+        "entity": "",
+        "description": "Defeated",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "New Build",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -537,11 +577,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Inland California Express",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> Reactivation",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "Inland California Express",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "Reactivation",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -576,12 +624,19 @@
     {
       "type": "Feature",
       "properties": {
-        "imageUrl": "images/EnergyEast.jpg",
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> Energy East",
-        "image": "<strong><br>STATUS:<\/strong> Defeated",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> https://www.commondreams.org/news/2017/10/05/huge-people-over-pipeline-victory-transcanada-forced-kill-energy-east",
-        "color": "#b6772d"
+        "imageUrl": "images\/EnergyEast.jpg",
+        "category": "Canceled Pipeline",
+        "title": "Energy East",
+        "entity": "TC Energy (formerly TransCanada)",
+        "description": "Defeated",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/www.commondreams.org\/news\/2017\/10\/05\/huge-people-over-pipeline-victory-transcanada-forced-kill-energy-east",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -3083,11 +3138,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>Canceled Pipeline<\/h2><br><strong>NAME:<\/strong> South Texas Gateway",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil",
-        "text2": "<strong>COMMENTS:<\/strong> https:\/\/rbnenergy.com\/node\/17071",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "Canceled Pipeline",
+        "title": "South Texas Gateway",
+        "entity": "",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/rbnenergy.com\/node\/17071",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
@@ -3174,11 +3237,19 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "<h2>NEW OIL PIPELINE<\/h2><br><strong>NAME:<\/strong> Permian Gulf Coast",
-        "image": "<strong><br>STATUS:<\/strong> Cancelled",
-        "text1": "<strong><br>COMMODITY:<\/strong> Crude oil<br><strong>OWNER:</strong> Energy Transfer",
-        "text2": "<strong>MEDIA:<\/strong> abandonment announced <a href='https://www.reuters.com/article/us-energy-transfer-permian-pipeline/energy-transfer-no-longer-pursuing-permian-gulf-coast-pipeline-cfo-idUSKCN1SF1N2' target='_blank'>here</a>,",
-        "color": "#b6772d"
+        "imageUrl": "",
+        "category": "NEW OIL PIPELINE",
+        "title": "Permian Gulf Coast",
+        "entity": "Energy Transfer",
+        "description": "Canceled",
+        "comment": "",
+        "capacity": "",
+        "link1": "",
+        "link2": "https:\/\/www.reuters.com\/article\/us-energy-transfer-permian-pipeline\/energy-transfer-no-longer-pursuing-permian-gulf-coast-pipeline-cfo-idUSKCN1SF1N2",
+        "link3": "",
+        "source": "",
+        "variable1": "",
+        "variable2": "#b6772d"
       },
       "geometry": {
         "type": "MultiLineString",
