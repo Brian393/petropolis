@@ -44,12 +44,12 @@
                 v-if="
                   popup.activeFeature.getGeometry().getType() === 'Point'
                     ? popup.diveVisibleProps.includes(item.property) &&
-                    !['null', '---'].includes(item.value) 
+                      !['null', '---'].includes(item.value)
                     : !popup.hiddenProps.includes(item.property) &&
                       !['null', '---'].includes
                 "
                 v-html="
-                  `<strong>${item.humanizedProperty}: </strong>` + item.value
+                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
                 "
               ></span>
             </div>
@@ -123,6 +123,9 @@ import AppLightBox from '../../core/AppLightBox';
 // Media lightbox
 import MediaLightBox from '../../core/MediaLightBox';
 
+// Shared methods
+import { SharedMethods } from '../../../mixins/SharedMethods';
+
 export default {
   components: {
     'overlay-popup': OverlayPopup,
@@ -151,6 +154,7 @@ export default {
       lightBoxImages: []
     };
   },
+  mixins: [SharedMethods],
   mounted() {
     var me = this;
     // Add keydown event listener to change spotlight radius
@@ -492,7 +496,7 @@ export default {
         // Check if layer is interactive
         if (
           (layer && layer.get('isInteractive') === false) ||
-          layer.get('queryable') === false
+          (layer && layer.get('queryable') === false)
         )
           return;
         this.popup.activeLayer = layer;

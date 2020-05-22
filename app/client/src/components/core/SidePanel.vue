@@ -62,7 +62,7 @@
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
-                    `<strong>${item.humanizedProperty}: </strong>` + item.value
+                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
                   "
                 ></span>
               </div>
@@ -80,8 +80,10 @@
 import { mapGetters } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import UrlUtil from '../../utils/Url';
+import { SharedMethods } from '../../mixins/SharedMethods';
 
 export default {
+  mixins: [SharedMethods],
   computed: {
     visibleGroup() {
       const visibleGroup = this.$appConfig.map.groups[
