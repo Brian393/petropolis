@@ -12,6 +12,8 @@ const state = {
     }
   },
   popup: {
+    highlightLayer: null,
+    popupOverlay: null,
     title: 'Info',
     isVisible: false,
     activeFeature: null,

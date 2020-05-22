@@ -44,9 +44,9 @@
                 v-if="
                   popup.activeFeature.getGeometry().getType() === 'Point'
                     ? popup.diveVisibleProps.includes(item.property) &&
-                      item.value !== '---'
+                    !['null', '---'].includes(item.value) 
                     : !popup.hiddenProps.includes(item.property) &&
-                      item.value !== '---'
+                      !['null', '---'].includes
                 "
                 v-html="
                   `<strong>${item.humanizedProperty}: </strong>` + item.value
@@ -216,7 +216,6 @@ export default {
     me.setMap(me.map);
     // Create layers from config and add them to map
     me.createLayers();
-    me.createGetInfoLayer();
 
     // Event bus setup for managing interactions
     EventBus.$on('ol-interaction-activated', startedInteraction => {
@@ -237,6 +236,10 @@ export default {
      */
     createLayers() {
       const me = this;
+      // Get Info layer
+      me.createGetInfoLayer();
+
+      // Other Operotionial Layers
       const activeLayerGroup = this.activeLayerGroup;
       const visibleGroup = this.$appConfig.map.groups[
         activeLayerGroup.fuelGroup
@@ -286,11 +289,11 @@ export default {
       const vector = new VectorLayer({
         name: 'Get Info Layer',
         displayInLayerList: false,
-        zIndex: 20,
+        zIndex: 2000,
         source: source,
         style: popupInfoStyle
       });
-      this.getInfoLayerSource = source;
+      this.popup.highlightLayer = vector;
       this.map.addLayer(vector);
     },
 
@@ -345,7 +348,7 @@ export default {
      */
     createPopupOverlay() {
       const me = this;
-      me.popupOverlay = new Overlay({
+      me.popup.popupOverlay = new Overlay({
         element: me.$refs.popup.$el,
         autoPan: false,
         autoPanMargin: 40,
@@ -353,7 +356,7 @@ export default {
           duration: 250
         }
       });
-      me.map.addOverlay(me.popupOverlay);
+      me.map.addOverlay(me.popup.popupOverlay);
     },
 
     /**
@@ -361,13 +364,14 @@ export default {
      */
     closePopup() {
       const me = this;
-      if (me.popupOverlay) {
-        me.popupOverlay.setPosition(undefined);
+      if (me.popup.popupOverlay) {
+        me.popup.popupOverlay.setPosition(undefined);
         me.popup.isVisible = false;
       }
       me.popup.activeFeature = null;
-      if (me.getInfoLayerSource) {
-        me.getInfoLayerSource.clear();
+      me.popup.activeLayer = null;
+      if (me.popup.highlightLayer) {
+        me.popup.highlightLayer.getSource().clear();
       }
       me.popup.showInSidePanel = false;
     },
@@ -377,7 +381,7 @@ export default {
      */
     showPopup(clickCoord) {
       // Clear highligh feature
-      this.getInfoLayerSource.clear();
+      this.popup.highlightLayer.getSource().clear();
       let position = this.popup.activeFeature.getGeometry().getCoordinates();
       // Correct popup position (used feature coordinates insteaad of mouse)
       let closestPoint;
@@ -393,7 +397,7 @@ export default {
         center: closestPoint,
         duration: 400
       });
-      this.popupOverlay.setPosition(closestPoint);
+      this.popup.popupOverlay.setPosition(closestPoint);
       this.popup.isVisible = true;
       this.popup.title = `Info`;
     },
@@ -417,11 +421,13 @@ export default {
           .fit(geometry.getExtent(), { padding: [10, 10, 10, 10] });
 
         // Highlight feature
-        this.getInfoLayerSource.clear();
-        this.getInfoLayerSource.addFeature(this.popup.activeFeature.clone());
+        this.popup.highlightLayer.getSource().clear();
+        this.popup.highlightLayer
+          .getSource()
+          .addFeature(this.popup.activeFeature.clone());
       }
       // Close popup
-      this.popupOverlay.setPosition(undefined);
+      this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
     },
 
@@ -530,7 +536,17 @@ export default {
             return;
           }
           this.popup.activeFeature = feature;
-          this.showPopup(evt.coordinate);
+
+          // Show popup only for point features.
+          if (
+            ['Point', 'MultiPoint'].includes(
+              this.popup.activeFeature.getGeometry().getType()
+            )
+          ) {
+            this.showPopup(evt.coordinate);
+          } else {
+            this.zoomToFeature();
+          }
         }
       });
     },

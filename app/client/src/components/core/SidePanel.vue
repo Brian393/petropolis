@@ -12,7 +12,13 @@
             <v-img
               class="my-3"
               max-width="350"
-              :src="visibleGroup.sidePanel.legendUrl"
+              :src="
+                popup.showInSidePanel === true &&
+                popup.activeFeature &&
+                popup.activeFeature.get('imageUrl')
+                  ? parseUrl(popup.activeFeature.get('imageUrl'))
+                  : visibleGroup.sidePanel.legendUrl
+              "
             >
             </v-img>
             <template v-if="!popup.showInSidePanel">
@@ -35,6 +41,15 @@
 
             <!-- VISIBLE ONLY WHEN USER HAS CLICKED DIVE/SHOW ALL FEATURE -->
             <div class="mt-4 ml-1" v-if="popup.showInSidePanel">
+              <v-divider class="mb-1"></v-divider>
+              <v-layout>
+                <v-spacer></v-spacer>
+                <v-btn @click="closePopupInfo" text small class="mb-2 mt-1">
+                  <v-icon small class="mr-1">close</v-icon>
+                  Close
+                </v-btn>
+              </v-layout>
+
               <v-divider class="mb-4"></v-divider>
               <div
                 class="body-2"
@@ -44,7 +59,7 @@
                 <span
                   v-if="
                     !popup.hiddenProps.includes(item.property) &&
-                      item.value !== '---'
+                      !['null', '---'].includes(item.value)
                   "
                   v-html="
                     `<strong>${item.humanizedProperty}: </strong>` + item.value
@@ -64,6 +79,7 @@
 //Store imports
 import { mapGetters } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
+import UrlUtil from '../../utils/Url';
 
 export default {
   computed: {
@@ -80,6 +96,19 @@ export default {
     ...mapFields('map', {
       popup: 'popup'
     })
+  },
+  methods: {
+    parseUrl(url) {
+      return UrlUtil.parseUrl(url);
+    },
+    closePopupInfo() {
+      if (this.popup.highlightLayer) {
+        this.popup.highlightLayer.getSource().clear();
+      }
+      this.popup.showInSidePanel = false;
+      this.popup.activeFeature = null;
+      this.popup.activeLayer = null;
+    }
   }
 };
 </script>
