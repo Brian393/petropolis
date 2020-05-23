@@ -101,7 +101,7 @@ import { fromLonLat } from 'ol/proj';
 import UrlUtil from '../../../utils/Url';
 
 //Store imports
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters, mapActions } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 
 // Map Controls
@@ -189,6 +189,8 @@ export default {
       this.setupMapMoveEnd();
       // Create popup overlay for get info
       me.createPopupOverlay();
+      // Fetch gas pipes entities for styling
+      me.fetchGasPipesEntities();
     }, 200);
   },
   created() {
@@ -622,6 +624,9 @@ export default {
       }
       ctx.clip();
     },
+    ...mapActions('map', {
+      fetchGasPipesEntities: 'fetchGasPipesEntities'
+    }),
     ...mapMutations('map', {
       setMap: 'SET_MAP',
       setLayer: 'SET_LAYER',

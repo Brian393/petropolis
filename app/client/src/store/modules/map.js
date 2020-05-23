@@ -1,6 +1,7 @@
 import { getField, updateField } from 'vuex-map-fields';
 import { humanize } from '../../utils/Helpers';
 import UrlUtil from '../../utils/Url';
+let colormap = require('colormap');
 
 const state = {
   map: null,
@@ -34,7 +35,7 @@ const state = {
     showInSidePanel: false
   },
   layers: {}, // Only for operational layers
-  activeLayerGroup: null
+  gasFieldEntitiesColors: {} // Fetched from geoserver
 };
 
 const getters = {
@@ -49,7 +50,7 @@ const getters = {
     if (!feature) return;
     const props = feature.getProperties();
     const { link1, link2, link3, source, ...rest } = props;
-    console.log(props)
+    console.log(props);
     if (UrlUtil.validURL(link1)) {
       rest[
         'COORPORATE WEBSITE'
@@ -62,10 +63,10 @@ const getters = {
       }
       rest['More information'] = moreInformation;
     }
-    if (UrlUtil.validURL(source)){
+    if (UrlUtil.validURL(source)) {
       rest['SOURCE'] = `<a href='${source}' target='_blank'>here</a>`;
     }
-    
+
     let transformed = [];
     const excludedProperties = state.popup.exludedProps;
     Object.keys(rest).forEach(k => {
@@ -83,7 +84,47 @@ const getters = {
   getField
 };
 
-const actions = {};
+const actions = {
+  fetchGasPipesEntities({ commit, rootState }) {
+    // eslint-disable-next-line no-undef
+    if (!rootState.map.gasFieldEntitiesColors) {
+      return;
+    }
+    fetch(
+      './geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=petropolis:select_gas_pipes_entities&srsname=EPSG:4326&outputFormat=json'
+    )
+      .then(function(response) {
+        if (response.status !== 200) {
+          console.log(
+            'Looks like there was a problem. Status Code: ' + response.status
+          );
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then(function(data) {
+          // Make app config accessible for all components
+          if (data.features.length < 1) return;
+
+          const entities = {};
+          const colors = colormap({
+            colormap: 'portland',
+            nshades: data.features.length,
+            format: 'hex',
+            alpha: 1
+          });
+          data.features.forEach((feature, index) => {
+            const entity = feature.properties.Operator;
+            entities[entity] = colors[index]
+          });
+          commit('SET_GAS_FIELD_ENTITIES', entities);
+        });
+      })
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+  }
+};
 
 const mutations = {
   TOGGLE_SNACKBAR(state, payload) {
@@ -107,6 +148,9 @@ const mutations = {
     const layers = [...state.map.getLayers().getArray()];
     layers.forEach(layer => state.map.removeLayer(layer));
     state.layers = {};
+  },
+  SET_GAS_FIELD_ENTITIES(state, entities) {
+    state.gasFieldEntitiesColors = entities;
   },
   updateField
 };
