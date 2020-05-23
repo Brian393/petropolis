@@ -406,9 +406,7 @@ export default {
         me.popup.highlightLayer.getSource().clear();
       }
       if (me.popup.highlightVectorTileLayer) {
-        console.log(me.map.getLayers().getArray());
         me.map.removeLayer(me.popup.highlightVectorTileLayer);
-        console.log(me.map.getLayers().getArray());
       }
 
       me.popup.showInSidePanel = false;

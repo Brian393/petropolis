@@ -35,6 +35,7 @@ const state = {
     showInSidePanel: false
   },
   layers: {}, // Only for operational layers
+    activeLayerGroup: null,
   gasFieldEntitiesColors: {} // Fetched from geoserver
 };
 
@@ -50,7 +51,6 @@ const getters = {
     if (!feature) return;
     const props = feature.getProperties();
     const { link1, link2, link3, source, ...rest } = props;
-    console.log(props);
     if (UrlUtil.validURL(link1)) {
       rest[
         'COORPORATE WEBSITE'
