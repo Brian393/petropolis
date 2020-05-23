@@ -5,6 +5,12 @@ module.exports = {
     overlay: {
       warnings: true,
       errors: true
+    },
+    proxy: {
+      '/geoserver': {
+        target: process.env.GEOSERVER_BASEURL,
+        changeOrigin: true
+      }
     }
   }
-}
+};
