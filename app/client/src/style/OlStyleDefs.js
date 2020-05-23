@@ -2,6 +2,7 @@ import OlStyle from 'ol/style/Style';
 import OlStroke from 'ol/style/Stroke';
 import OlFill from 'ol/style/Fill';
 import OlCircle from 'ol/style/Circle';
+import store from '../store/modules/map';
 
 export function defaultStyle(feature) {
   const geomType = feature.getGeometry().getType();
@@ -125,10 +126,36 @@ export function baseStyle(propertyName, config) {
   return styleFunction;
 }
 
+export function gasePipeStyle() {
+  const styleFunction = feature => {
+    const entity = feature.get('Operator');
+    if (store.state.gasFieldEntitiesColors[entity] && entity) {
+      if (!styleCache[entity]) {
+        styleCache[entity] = new OlStyle({
+          stroke: new OlStroke({
+            color: store.state.gasFieldEntitiesColors[entity],
+            width: 1.5
+          })
+        });
+      }
+      return styleCache[entity];
+    } else {
+      return new OlStyle({
+        stroke: new OlStroke({
+          color: '#00c8f0',
+          width: 1.5
+        })
+      });
+    }
+  };
+  return styleFunction;
+}
+
 export const styleRefs = {
   defaultStyle: defaultStyle,
   popupInfoStyle: popupInfoStyle,
-  baseStyle: baseStyle
+  baseStyle: baseStyle,
+  gasePipeStyle: gasePipeStyle
 };
 
 export const layersStylePropFn = {

@@ -626,11 +626,7 @@
         "visible": true,
         "hoverable": true,
         "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "#00c8f0",
-          "strokeWidth": 1.5
-        }
+        "styleRef": "gasePipeStyle"
       },
       {
         "type": "VECTOR",
