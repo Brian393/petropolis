@@ -1,5 +1,6 @@
 import { getField, updateField } from 'vuex-map-fields';
 import { humanize } from '../../utils/Helpers';
+import UrlUtil from '../../utils/Url';
 
 const state = {
   map: null,
@@ -13,12 +14,13 @@ const state = {
   },
   popup: {
     highlightLayer: null,
+    highlightVectorTileLayer: null,
     popupOverlay: null,
     title: 'Info',
     isVisible: false,
     activeFeature: null,
     activeLayer: null,
-    hiddenProps: ['category', 'BPD', 'variable1', 'variable2', 'ImageUrl'],
+    hiddenProps: ['BPD', 'variable1', 'variable2', 'imageUrl'],
     exludedProps: [
       'id',
       'geometry',
@@ -46,14 +48,32 @@ const getters = {
     const feature = state.popup.activeFeature;
     if (!feature) return;
     const props = feature.getProperties();
+    const { link1, link2, link3, source, ...rest } = props;
+    console.log(props)
+    if (UrlUtil.validURL(link1)) {
+      rest[
+        'COORPORATE WEBSITE'
+      ] = `<a href='${link1}' target='_blank'>here</a>`;
+    }
+    if (UrlUtil.validURL(link2)) {
+      let moreInformation = `<a href='${link2}' target='_blank'>here</a>`;
+      if (UrlUtil.validURL(link3)) {
+        moreInformation += ` and <a href='${link3}' target='_blank'>here</a>`;
+      }
+      rest['More information'] = moreInformation;
+    }
+    if (UrlUtil.validURL(source)){
+      rest['SOURCE'] = `<a href='${source}' target='_blank'>here</a>`;
+    }
+    
     let transformed = [];
-    const excludedProperties = state.popup.exludedProps
-    Object.keys(props).forEach(k => {
+    const excludedProperties = state.popup.exludedProps;
+    Object.keys(rest).forEach(k => {
       if (!excludedProperties.includes(k) && !typeof k !== 'object') {
         transformed.push({
           humanizedProperty: humanize(k),
           property: k,
-          value: !props[k] ? '---' : props[k]
+          value: !rest[k] ? '---' : rest[k]
         });
       }
     });

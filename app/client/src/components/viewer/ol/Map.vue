@@ -87,6 +87,7 @@ import View from 'ol/View';
 import Overlay from 'ol/Overlay';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
+import VectorTileLayer from 'ol/layer/VectorTile';
 
 // style imports
 import { popupInfoStyle } from '../../../style/OlStyleDefs';
@@ -287,6 +288,7 @@ export default {
      * Creates a layer to visualize selected GetInfo features.
      */
     createGetInfoLayer() {
+      // For Vector selection
       const source = new VectorSource({
         wrapX: false
       });
@@ -299,6 +301,29 @@ export default {
       });
       this.popup.highlightLayer = vector;
       this.map.addLayer(vector);
+    },
+
+    /**
+     * Create Vector Tile Highligh layer.
+     */
+
+    createVTHighlightLayer(source) {
+      // For Vector tiles selection.
+      var vectorTileLayer = new VectorTileLayer({
+        renderMode: 'vector',
+        source: source,
+        zIndex: 100,
+        style: feature => {
+          if (
+            this.popup.activeFeature &&
+            this.popup.activeFeature.getId() === feature.getId()
+          ) {
+            return popupInfoStyle();
+          }
+        }
+      });
+      this.popup.highlightVectorTileLayer = vectorTileLayer;
+      this.map.addLayer(this.popup.highlightVectorTileLayer);
     },
 
     /**
@@ -374,9 +399,16 @@ export default {
       }
       me.popup.activeFeature = null;
       me.popup.activeLayer = null;
+
       if (me.popup.highlightLayer) {
         me.popup.highlightLayer.getSource().clear();
       }
+      if (me.popup.highlightVectorTileLayer) {
+        console.log(me.map.getLayers().getArray());
+        me.map.removeLayer(me.popup.highlightVectorTileLayer);
+        console.log(me.map.getLayers().getArray());
+      }
+
       me.popup.showInSidePanel = false;
     },
 
@@ -419,16 +451,25 @@ export default {
           duration: 800
         });
       } else {
-        // Zoom to extent adding a padding to the extent
-        this.map
-          .getView()
-          .fit(geometry.getExtent(), { padding: [10, 10, 10, 10] });
+        // // Zoom to extent adding a padding to the extent
+        this.map.getView().fit(geometry.getExtent(), {
+          padding: [10, 10, 10, 10],
+          duration: 800
+        });
 
-        // Highlight feature
-        this.popup.highlightLayer.getSource().clear();
-        this.popup.highlightLayer
-          .getSource()
-          .addFeature(this.popup.activeFeature.clone());
+        // Logic for vector tile layers.
+
+        if (this.popup.activeLayer.get('type') === 'VECTORTILE') {
+          const vtSource = this.popup.activeLayer.getSource();
+          this.createVTHighlightLayer(vtSource);
+          this.popup.highlightVectorTileLayer.changed();
+        } else {
+          // Highlight feature
+          this.popup.highlightLayer.getSource().clear();
+          this.popup.highlightLayer
+            .getSource()
+            .addFeature(this.popup.activeFeature.clone());
+        }
       }
       // Close popup
       this.popup.popupOverlay.setPosition(undefined);
@@ -485,20 +526,27 @@ export default {
           return;
         }
         let feature, layer;
-        this.map.forEachFeatureAtPixel(evt.pixel, (f, l) => {
-          // Order of features is based is based on zIndex.
-          // First feature is on top, last feature is on bottom.
-          if (!feature) {
-            feature = f;
-            layer = l;
+        this.map.forEachFeatureAtPixel(
+          evt.pixel,
+          (f, l) => {
+            // Order of features is based is based on zIndex.
+            // First feature is on top, last feature is on bottom.
+            if (!feature) {
+              feature = f;
+              layer = l;
+            }
+          },
+          {
+            hitTolerance: 3
           }
-        });
+        );
         // Check if layer is interactive
         if (
           (layer && layer.get('isInteractive') === false) ||
           (layer && layer.get('queryable') === false)
         )
           return;
+
         this.popup.activeLayer = layer;
 
         // Clear lightbox images array
@@ -539,8 +587,8 @@ export default {
             // Popup will not be opened if there are lightbox images
             return;
           }
-          this.popup.activeFeature = feature;
 
+          this.popup.activeFeature = feature;
           // Show popup only for point features.
           if (
             ['Point', 'MultiPoint'].includes(

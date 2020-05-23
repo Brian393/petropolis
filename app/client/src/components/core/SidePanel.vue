@@ -40,7 +40,11 @@
             </template>
 
             <!-- VISIBLE ONLY WHEN USER HAS CLICKED DIVE/SHOW ALL FEATURE -->
-            <div class="mt-4 ml-1" v-if="popup.showInSidePanel">
+            <div
+              class="mt-4 ml-1"
+              style="width: 100%;"
+              v-if="popup.showInSidePanel"
+            >
               <v-divider class="mb-1"></v-divider>
               <v-layout>
                 <v-spacer></v-spacer>
@@ -92,6 +96,7 @@ export default {
       return visibleGroup;
     },
     ...mapGetters('map', {
+      map: 'map',
       activeLayerGroup: 'activeLayerGroup',
       popupInfo: 'popupInfo'
     }),
@@ -106,6 +111,9 @@ export default {
     closePopupInfo() {
       if (this.popup.highlightLayer) {
         this.popup.highlightLayer.getSource().clear();
+      }
+      if (this.popup.highlightVectorTileLayer) {
+        this.map.removeLayer(this.popup.highlightVectorTileLayer);
       }
       this.popup.showInSidePanel = false;
       this.popup.activeFeature = null;

@@ -27,6 +27,7 @@ export function defaultStyle(feature) {
   return [style];
 }
 
+
 /**
  * Style used for popup selected feature highlight
  */
