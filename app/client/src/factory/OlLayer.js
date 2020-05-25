@@ -15,6 +15,7 @@ import KmlFormat from 'ol/format/KML';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import ImageWMS from 'ol/source/ImageWMS.js';
+import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { Image as ImageLayer } from 'ol/layer.js';
 import XyzSource from 'ol/source/XYZ';
 import { OlStyleFactory } from './OlStyle';
@@ -304,6 +305,22 @@ export const LayerFactory = {
    * @return {ol.layer.Vector} OL vector layer instance
    */
   createVectorLayer(lConf) {
+    let url;
+    const sourceConfig = {
+      format: new this.formatMapping[lConf.format](lConf.formatConfig),
+      attributions: lConf.attributions
+    };
+    // Check if url is a WFS service
+    if (lConf.url.includes('wfs?service=WFS&')) {
+      url = function(extent) {
+       return `${lConf.url}&bbox=${extent.join(',')},EPSG:3857`;
+      };
+      sourceConfig['strategy'] = bboxStrategy;
+    } else {
+      url = lConf.url;
+    }
+    sourceConfig['url'] = url;
+
     const vectorLayer = new VectorLayer({
       type: lConf.type,
       name: lConf.name,
@@ -319,11 +336,7 @@ export const LayerFactory = {
       isInteractive: lConf.isInteractive,
       opacity: lConf.opacity,
       zIndex: lConf.zIndex,
-      source: new VectorSource({
-        url: lConf.url,
-        format: new this.formatMapping[lConf.format](lConf.formatConfig),
-        attributions: lConf.attributions
-      }),
+      source: new VectorSource(sourceConfig),
       style: this.getStyle(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute,
