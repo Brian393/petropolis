@@ -53,7 +53,7 @@
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
-        "url": "geojson/CancelledOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -75,7 +75,7 @@
       {
         "type": "VECTOR",
         "name": "OilPipes1",
-        "url": "geojson/OilPipes1.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_1&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -94,7 +94,7 @@
       {
         "type": "VECTOR",
         "name": "OilPipes2",
-        "url": "geojson/OilPipes2.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_2&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -113,7 +113,7 @@
       {
         "type": "VECTOR",
         "name": "CanadianPipes",
-        "url": "geojson/CanadianPipes.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:canadian_pipes&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -132,7 +132,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines1",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -151,7 +151,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines2",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -170,7 +170,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines3",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -189,7 +189,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines4",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -208,7 +208,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines5",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -227,7 +227,7 @@
       {
         "type": "VECTOR",
         "name": "Spills_20yrs",
-        "url": "geojson/Spills_20yrs.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:spills_20yrs&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -251,7 +251,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR1",
-        "url": "geojson/NA-RR.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -272,7 +272,7 @@
       {
         "type": "VECTOR",
         "name": "Terminals",
-        "url": "geojson/Terminals.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:terminals&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -291,7 +291,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalPipelines",
-        "url": "geojson/GlobalPipelines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -311,7 +311,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries1",
-        "url": "geojson/US_Refineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -330,7 +330,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries1",
-        "url": "geojson/GlobalRefineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -349,7 +349,7 @@
       {
         "type": "VECTOR",
         "name": "CrudeDerailments",
-        "url": "geojson/CrudeDerailments.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -368,7 +368,7 @@
       {
         "type": "VECTOR",
         "name": "VideoOilIndustry",
-        "url": "geojson/VideoOilIndustry.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_oil_industry&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -387,7 +387,7 @@
       {
         "type": "VECTOR",
         "name": "MacLean",
-        "url": "geojson/MacLean.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:maclean&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -437,7 +437,7 @@
       {
         "type": "VECTOR",
         "name": "GiantOilFields",
-        "url": "geojson/GiantOilFields.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:giant_oil_fields&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -461,7 +461,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines4",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -480,7 +480,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines5",
-        "url": "geojson/ContestedOilLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -499,7 +499,7 @@
       {
         "type": "VECTOR",
         "name": "OilPorts",
-        "url": "geojson/OilPorts.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_ports&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -518,7 +518,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries2",
-        "url": "geojson/US_Refineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -537,7 +537,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries3",
-        "url": "geojson/US_Refineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -556,7 +556,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries2",
-        "url": "geojson/GlobalRefineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -575,7 +575,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries3",
-        "url": "geojson/GlobalRefineries.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -631,7 +631,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas1",
-        "url": "geojson/USnatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -650,7 +650,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas2",
-        "url": "geojson/USnatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -669,7 +669,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas3",
-        "url": "geojson/USnatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -688,7 +688,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas4",
-        "url": "geojson/USnatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -707,7 +707,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas1",
-        "url": "geojson/GlobalNatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -726,7 +726,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas2",
-        "url": "geojson/GlobalNatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -745,7 +745,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas3",
-        "url": "geojson/GlobalNatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -764,7 +764,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas4",
-        "url": "geojson/GlobalNatGas.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -783,7 +783,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedGasLines1",
-        "url": "geojson/ContestedGasLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -802,7 +802,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedGasLines2",
-        "url": "geojson/ContestedGasLines.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -821,7 +821,7 @@
       {
         "type": "VECTOR",
         "name": "LNGterminals",
-        "url": "geojson/LNGterminals.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -882,7 +882,7 @@
       {
         "type": "VECTOR",
         "name": "Global_LNG",
-        "url": "geojson/Global_LNG.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_lng&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -902,7 +902,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR2",
-        "url": "geojson/NA-RR.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -1040,7 +1040,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR3",
-        "url": "geojson/NA-RR.geojson",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
