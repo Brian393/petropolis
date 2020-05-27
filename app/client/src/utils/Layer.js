@@ -116,7 +116,7 @@ export function zoomToLayerExtent(vecLayer, olMap) {
 export function wfsRequestParser(
   srsName,
   workspace,
-  layerName,
+  layerNames,
   filter,
   viewparams = undefined
 ) {
@@ -124,7 +124,7 @@ export function wfsRequestParser(
   const opt = {
     srsName: srsName,
     featurePrefix: workspace,
-    featureTypes: [layerName],
+    featureTypes: layerNames,
     outputFormat: 'application/json',
     filter: filter
   };
@@ -378,4 +378,70 @@ export function getStyleImage(options, theCanvas, row) {
   }
 
   ctx.restore();
+}
+
+/**
+ * The function can extract geoserver layernames grouped by worksapce using url
+ */
+export function extractGeoserverLayerNames(map) {
+  let mapLayers;
+  let type = '';
+  if (map.getLayers) {
+    mapLayers = map.getLayers().getArray();
+    type = 'mapLayers';
+  } else {
+    // Layer config object is passed instead of map
+    mapLayers = map;
+    type = 'configLayers';
+  }
+
+  const geoserverLayerNames = {};
+  mapLayers.forEach(layer => {
+    let url;
+    if (type === 'mapLayers') {
+      const source = layer.getSource();
+      if (
+        source.getUrl &&
+        source.getUrl() &&
+        typeof source.getUrl() === 'function' &&
+        source.getUrl() !== undefined
+      ) {
+        url = source.getUrl()([0, 0, 0, 0]);
+      } else if (source.getUrls) {
+        if (
+          source.getUrls() &&
+          source.getUrls()[0] !== undefined &&
+          source.getUrls()[0].includes('geoserver')
+        ) {
+          url = source.getUrls()[0];
+        }
+      }
+    } else {
+      url = layer.url;
+    }
+
+    if (url && url.includes('geoserver')) {
+      let typeName =
+        new URLSearchParams(url).get('typename') ||
+        url.match('tms/1.0.0/(.*)@EPSG');
+      // Only for vector tiles.
+      if (Array.isArray(typeName) && typeName.length > 1) {
+        typeName = typeName[1];
+      }
+      if (typeName) {
+        const split = typeName.split(':');
+        const workspace = split[0];
+        const geoserverLayerName = split[1];
+        // Workspace is the same for all the layers (this can change in the future. )
+        if (!geoserverLayerNames[workspace]) {
+          geoserverLayerNames[workspace] = [];
+        }
+        // Check if layer exists in array and it has 'entity' field
+        if (geoserverLayerNames[workspace].indexOf(geoserverLayerName) === -1) {
+          geoserverLayerNames[workspace].push(geoserverLayerName);
+        }
+      }
+    }
+  });
+  return geoserverLayerNames;
 }

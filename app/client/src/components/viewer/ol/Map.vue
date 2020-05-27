@@ -70,6 +70,13 @@
                   : 'VIEW WHOLE FEATURE'
               }}</strong>
             </a>
+            <a
+              @click="queryCoorporateNetwork"
+              href="javascript:void(0)"
+              class="ml-2"
+            >
+              <strong>CORPORATE NETWORK</strong>
+            </a>
           </div>
         </div>
         <v-divider></v-divider>
@@ -81,16 +88,19 @@
 
 <script>
 import Vue from 'vue';
+
+// ol imports
 import Map from 'ol/Map';
 import View from 'ol/View';
-// ol imports
 import Overlay from 'ol/Overlay';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import VectorTileLayer from 'ol/layer/VectorTile';
+import { like as likeFilter } from 'ol/format/filter';
 
 // style imports
 import { popupInfoStyle } from '../../../style/OlStyleDefs';
+
 // import the app-wide EventBus
 import { EventBus } from '../../../EventBus';
 
@@ -98,7 +108,12 @@ import { EventBus } from '../../../EventBus';
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
 import { fromLonLat } from 'ol/proj';
+import {
+  extractGeoserverLayerNames,
+  wfsRequestParser
+} from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
+import { geojsonToFeature } from '../../../utils/MapUtils';
 
 //Store imports
 import { mapMutations, mapGetters, mapActions } from 'vuex';
@@ -126,6 +141,9 @@ import MediaLightBox from '../../core/MediaLightBox';
 
 // Shared methods
 import { SharedMethods } from '../../../mixins/SharedMethods';
+
+// Services
+import http from '../../../services/http';
 
 export default {
   components: {
@@ -175,6 +193,8 @@ export default {
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
+    // Capture the event 'findCoorporateNetwork' emitted from sidepanel
+    EventBus.$on('findCoorporateNetwork', me.queryCoorporateNetwork);
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -191,6 +211,10 @@ export default {
       me.createPopupOverlay();
       // Fetch gas pipes entities for styling
       me.fetchGasPipesEntities();
+      // Remove layers with no entity property as it will
+      // not work with Coorporate Networks. (A describe fetaure type )
+      // for every layer is needed.
+      me.fetchDescribeFeatureTypes();
     }, 200);
   },
   created() {
@@ -451,15 +475,17 @@ export default {
           duration: 800
         });
       } else {
-        // // Zoom to extent adding a padding to the extent
+        // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
           padding: [10, 10, 10, 10],
           duration: 800
         });
 
-        // Logic for vector tile layers.
-
+        // Logic for vector tile layers. (Workaround as we can't clone features for highlight here.)
         if (this.popup.activeLayer.get('type') === 'VECTORTILE') {
+          if (this.popup.highlightVectorTileLayer) {
+            this.map.removeLayer(this.popup.highlightVectorTileLayer);
+          }
           const vtSource = this.popup.activeLayer.getSource();
           this.createVTHighlightLayer(vtSource);
           this.popup.highlightVectorTileLayer.changed();
@@ -622,6 +648,96 @@ export default {
       }
       ctx.clip();
     },
+    queryCoorporateNetwork() {
+      const entity = this.popup.activeFeature.get('entity');
+      const workspace = 'petropolis';
+      if (!entity || !this.layersWithEntityField) return;
+      if (!this.geoserverLayerNames) {
+        this.geoserverLayerNames = extractGeoserverLayerNames(
+          this.map,
+          this.layersWithEntityField
+        );
+        // Filter only geoserver layers names with entity field.
+        this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
+          workspace
+        ].filter(name => this.layersWithEntityField.includes(name));
+      }
+
+      const wfsRequest = wfsRequestParser(
+        'EPSG:3857',
+        workspace,
+        this.geoserverLayerNames[workspace],
+        likeFilter('entity', entity)
+      );
+      http
+        .post(`http://209.126.13.2/geoserver/${workspace}/wfs`, wfsRequest, {
+          headers: { 'Content-Type': 'text/xml' }
+        })
+        .then(response => {
+          if (response.data) {
+            const olFeatures = geojsonToFeature(response.data, {});
+            if (this.popup.highlightLayer) {
+              this.popup.highlightLayer.getSource().clear();
+              this.popup.highlightLayer.getSource().addFeatures(olFeatures);
+              // Zoom to extent adding a padding to the extent
+              this.map
+                .getView()
+                .fit(this.popup.highlightLayer.getSource().getExtent(), {
+                  padding: [10, 10, 10, 10],
+                  duration: 800
+                });
+              this.popup.popupOverlay.setPosition(undefined);
+              this.selectedCoorpNetworkEntity = entity;
+            }
+          }
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
+    },
+    fetchDescribeFeatureTypes() {
+      const geoserverLayerNames = extractGeoserverLayerNames(
+        this.$appConfig.map.layers
+      );
+      const workspace = 'petropolis';
+      if (!geoserverLayerNames[workspace]) return;
+      http
+        .get('http://209.126.13.2/geoserver/wfs', {
+          params: {
+            service: 'WFS',
+            version: ' 2.0.0',
+            request: 'DescribeFeatureType',
+            outputFormat: 'application/json',
+            typeNames: `${workspace}:${geoserverLayerNames[
+              workspace
+            ].toString()}`
+          }
+        })
+        .then(response => {
+          if (response.data && response.data.featureTypes) {
+            const filterLayersWithEntity = [];
+            const featureTypes = response.data.featureTypes;
+            featureTypes.forEach(featureType => {
+              featureType.properties.forEach(property => {
+                if (
+                  property.name === 'entity' &&
+                  filterLayersWithEntity.indexOf(featureType.typeName) === -1
+                ) {
+                  filterLayersWithEntity.push(featureType.typeName);
+                }
+              });
+            });
+            if (!this.layersWithEntityField) {
+              this.layersWithEntityField = filterLayersWithEntity;
+            }
+          }
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
+    },
     ...mapActions('map', {
       fetchGasPipesEntities: 'fetchGasPipesEntities'
     }),
@@ -637,7 +753,10 @@ export default {
       popupInfo: 'popupInfo'
     }),
     ...mapFields('map', {
-      popup: 'popup'
+      popup: 'popup',
+      geoserverLayerNames: 'geoserverLayerNames',
+      layersWithEntityField: 'layersWithEntityField',
+      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
     })
   },
   watch: {
@@ -652,6 +771,8 @@ export default {
     activeLayerGroup() {
       this.removeAllLayers();
       this.closePopup();
+      // Reset geoserver layer names array
+      this.geoserverLayerNames = null;
       this.createLayers();
     }
   }

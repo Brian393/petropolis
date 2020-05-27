@@ -53,7 +53,7 @@ export function popupInfoStyle() {
         width: 4
       }),
       image: new OlCircle({
-        radius: 7,
+        radius: 14,
         fill: new OlFill({
           color: '#ff0000'
         })

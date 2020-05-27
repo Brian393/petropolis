@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-space-between column fill-height>
     <vue-scroll>
-      <v-layout>
+      <v-layout v-if="!selectedCoorpNetworkEntity">
         <div class="px-1">
           <v-row align="center" class="my-2 mx-3">
             <div class="sidepanel-header">
@@ -48,6 +48,16 @@
               <v-divider class="mb-1"></v-divider>
               <v-layout>
                 <v-spacer></v-spacer>
+                <v-btn
+                  @click="findCoorporateNetwork"
+                  text
+                  small
+                  class="mb-2 mt-1 mr-2"
+                  v-if="popup.activeFeature.get('entity')"
+                >
+                  <v-icon small class="mr-1">public</v-icon>
+                  Coorporate Network
+                </v-btn>
                 <v-btn @click="closePopupInfo" text small class="mb-2 mt-1">
                   <v-icon small class="mr-1">close</v-icon>
                   Close
@@ -75,6 +85,40 @@
           </v-row>
         </div>
       </v-layout>
+      <v-layout v-if="selectedCoorpNetworkEntity">
+        <v-row
+          align="center"
+          justify="center"
+          class="my-2 mx-3"
+          style="width:100%;"
+        >
+          <v-layout align-center style="width:100%;">
+            <v-flex
+              xs9
+              justify-center
+              align-center
+              style="border-right: 1px solid rgba(0, 0, 0, 0.12);"
+            >
+              <div class="sidepanel-header">
+                <h1>
+                  <span style="font-align:center;color:#c00;">{{
+                    selectedCoorpNetworkEntity
+                  }}</span>
+                </h1>
+              </div>
+            </v-flex>
+            <v-flex xs3 justify-end align-center>
+              <v-btn @click="closeCoopNetworkSelection" text small class="ml-1">
+                <v-icon small>close</v-icon>
+                Close
+              </v-btn>
+            </v-flex>
+          </v-layout>
+          <v-layout align-center style="width:100%;">
+            <v-divider></v-divider>
+          </v-layout>
+        </v-row>
+      </v-layout>
     </vue-scroll>
   </v-layout>
 </template>
@@ -85,6 +129,7 @@ import { mapGetters } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import UrlUtil from '../../utils/Url';
 import { SharedMethods } from '../../mixins/SharedMethods';
+import { EventBus } from '../../EventBus';
 
 export default {
   mixins: [SharedMethods],
@@ -101,7 +146,8 @@ export default {
       popupInfo: 'popupInfo'
     }),
     ...mapFields('map', {
-      popup: 'popup'
+      popup: 'popup',
+      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
     })
   },
   methods: {
@@ -118,6 +164,13 @@ export default {
       this.popup.showInSidePanel = false;
       this.popup.activeFeature = null;
       this.popup.activeLayer = null;
+    },
+    findCoorporateNetwork() {
+      EventBus.$emit('findCoorporateNetwork');
+    },
+    closeCoopNetworkSelection() {
+      this.closePopupInfo();
+      this.selectedCoorpNetworkEntity = null;
     }
   }
 };
