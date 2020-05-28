@@ -41,13 +41,7 @@
           <vue-scroll>
             <div class="body-2" v-for="item in popupInfo" :key="item.property">
               <span
-                v-if="
-                  popup.activeFeature.getGeometry().getType() === 'Point'
-                    ? popup.diveVisibleProps.includes(item.property) &&
-                      !['null', '---'].includes(item.value)
-                    : !popup.hiddenProps.includes(item.property) &&
-                      !['null', '---'].includes
-                "
+                v-if="isPopupRowVisible(item)"
                 v-html="
                   `<strong>${mapPopupPropName(item)}: </strong>` + item.value
                 "
@@ -71,6 +65,15 @@
               }}</strong>
             </a>
             <a
+              v-if="
+                (popup.activeFeature.get('entity') &&
+                  !selectedCoorpNetworkEntity) ||
+                  (selectedCoorpNetworkEntity &&
+                    popup.activeFeature.get('entity') &&
+                    !popup.activeFeature
+                      .get('entity')
+                      .includes(selectedCoorpNetworkEntity))
+              "
               @click="queryCoorporateNetwork"
               href="javascript:void(0)"
               class="ml-2"
@@ -83,6 +86,11 @@
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
+    <progress-loader
+      :value="progressLoading.value"
+      :progressColor="progressLoading.progressColor"
+      :message="progressLoading.message"
+    ></progress-loader>
   </div>
 </template>
 
@@ -145,6 +153,9 @@ import { SharedMethods } from '../../../mixins/SharedMethods';
 // Services
 import http from '../../../services/http';
 
+// Progress loader
+import ProgressLoader from '../../core/ProgressLoader';
+
 export default {
   components: {
     'overlay-popup': OverlayPopup,
@@ -152,6 +163,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
+    'progress-loader': ProgressLoader,
     locate: Locate
   },
   name: 'app-ol-map',
@@ -170,7 +182,12 @@ export default {
       radius: 300,
       mousePosition: undefined,
       spotlightMessage: false,
-      lightBoxImages: []
+      lightBoxImages: [],
+      progressLoading: {
+        message: 'Fetching Coorporate Network',
+        progressColor: '#DC143C',
+        value: false
+      }
     };
   },
   mixins: [SharedMethods],
@@ -195,6 +212,7 @@ export default {
     EventBus.$emit('ol-map-mounted', me.map);
     // Capture the event 'findCoorporateNetwork' emitted from sidepanel
     EventBus.$on('findCoorporateNetwork', me.queryCoorporateNetwork);
+    EventBus.$on('closePopupInfo', me.closePopup);
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -423,16 +441,17 @@ export default {
         me.popup.popupOverlay.setPosition(undefined);
         me.popup.isVisible = false;
       }
-      me.popup.activeFeature = null;
-      me.popup.activeLayer = null;
 
-      if (me.popup.highlightLayer) {
-        me.popup.highlightLayer.getSource().clear();
+      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      if (me.popup.highlightLayer && !this.selectedCoorpNetworkEntity) {
+        this.popup.highlightLayer.getSource().clear();
       }
       if (me.popup.highlightVectorTileLayer) {
         me.map.removeLayer(me.popup.highlightVectorTileLayer);
       }
 
+      me.popup.activeFeature = null;
+      me.popup.activeLayer = null;
       me.popup.showInSidePanel = false;
     },
 
@@ -440,8 +459,10 @@ export default {
      * Show getInfo popup.
      */
     showPopup(clickCoord) {
-      // Clear highligh feature
-      this.popup.highlightLayer.getSource().clear();
+      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      if (!this.selectedCoorpNetworkEntity) {
+        this.popup.highlightLayer.getSource().clear();
+      }
       let position = this.popup.activeFeature.getGeometry().getCoordinates();
       // Correct popup position (used feature coordinates insteaad of mouse)
       let closestPoint;
@@ -468,6 +489,7 @@ export default {
      */
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
+      this.popup.highlightLayer.getSource().clear();
       if (geometry.getType() === 'Point') {
         this.map.getView().animate({
           center: geometry.getCoordinates(),
@@ -491,12 +513,15 @@ export default {
           this.popup.highlightVectorTileLayer.changed();
         } else {
           // Highlight feature
-          this.popup.highlightLayer.getSource().clear();
+
           this.popup.highlightLayer
             .getSource()
             .addFeature(this.popup.activeFeature.clone());
         }
       }
+      setTimeout(() => {
+        this.selectedCoorpNetworkEntity = null;
+      }, 800);
       // Close popup
       this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
@@ -619,7 +644,8 @@ export default {
           if (
             ['Point', 'MultiPoint'].includes(
               this.popup.activeFeature.getGeometry().getType()
-            )
+            ) ||
+            this.selectedCoorpNetworkEntity
           ) {
             this.showPopup(evt.coordinate);
           } else {
@@ -669,12 +695,15 @@ export default {
         this.geoserverLayerNames[workspace],
         likeFilter('entity', entity)
       );
+      this.progressLoading.value = true;
+      this.progressLoading.message = `Fetching data for: "${entity}"`;
       http
         .post(`http://209.126.13.2/geoserver/${workspace}/wfs`, wfsRequest, {
           headers: { 'Content-Type': 'text/xml' }
         })
         .then(response => {
           if (response.data) {
+            this.progressLoading.value = false;
             const olFeatures = geojsonToFeature(response.data, {});
             if (this.popup.highlightLayer) {
               this.popup.highlightLayer.getSource().clear();
@@ -691,9 +720,11 @@ export default {
             }
           }
         })
-        .catch(function(error) {
+        .catch(error => {
           // handle error
           console.log(error);
+          this.progressLoading.value = false;
+          //TODO: Show snackbar for errors.
         });
     },
     fetchDescribeFeatureTypes() {
@@ -738,6 +769,30 @@ export default {
           console.log(error);
         });
     },
+    isPopupRowVisible(item) {
+      if (
+        this.selectedCoorpNetworkEntity &&
+        this.popup.activeFeature &&
+        this.popup.activeFeature.get('entity') &&
+        this.popup.activeFeature
+          .get('entity')
+          .includes(this.selectedCoorpNetworkEntity)
+      ) {
+        return (
+          !this.popup.hiddenProps.includes(item.property) &&
+          !['null', '---'].includes(item.value)
+        );
+      }
+
+      if (!['null', '---'].includes(item.value)) {
+        return (
+          this.popup.diveVisibleProps.includes(item.property) &&
+          !this.popup.hiddenProps.includes(item.property)
+        );
+      } else {
+        return false;
+      }
+    },
     ...mapActions('map', {
       fetchGasPipesEntities: 'fetchGasPipesEntities'
     }),
@@ -773,6 +828,7 @@ export default {
       this.closePopup();
       // Reset geoserver layer names array
       this.geoserverLayerNames = null;
+      this.selectedCoorpNetworkEntity = null;
       this.createLayers();
     }
   }
