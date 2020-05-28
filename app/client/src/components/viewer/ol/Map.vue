@@ -733,7 +733,7 @@ export default {
         'EPSG:3857',
         workspace,
         this.geoserverLayerNames[workspace],
-        likeFilter('entity', entity)
+        likeFilter('entity', `%${entity}%`)
       );
       this.progressLoading.value = true;
       this.progressLoading.message = `Fetching data for: "${entity}"`;
