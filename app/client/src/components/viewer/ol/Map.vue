@@ -41,13 +41,7 @@
           <vue-scroll>
             <div class="body-2" v-for="item in popupInfo" :key="item.property">
               <span
-                v-if="
-                  popup.activeFeature.getGeometry().getType() === 'Point'
-                    ? popup.diveVisibleProps.includes(item.property) &&
-                      !['null', '---'].includes(item.value)
-                    : !popup.hiddenProps.includes(item.property) &&
-                      !['null', '---'].includes
-                "
+                v-if="isPopupRowVisible(item)"
                 v-html="
                   `<strong>${mapPopupPropName(item)}: </strong>` + item.value
                 "
@@ -70,27 +64,51 @@
                   : 'VIEW WHOLE FEATURE'
               }}</strong>
             </a>
+            <a
+              v-if="
+                (popup.activeFeature.get('entity') &&
+                  !selectedCoorpNetworkEntity) ||
+                  (selectedCoorpNetworkEntity &&
+                    popup.activeFeature.get('entity') &&
+                    !popup.activeFeature
+                      .get('entity')
+                      .includes(selectedCoorpNetworkEntity))
+              "
+              @click="queryCoorporateNetwork"
+              href="javascript:void(0)"
+              class="ml-2"
+            >
+              <strong>CORPORATE NETWORK</strong>
+            </a>
           </div>
         </div>
         <v-divider></v-divider>
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
+    <progress-loader
+      :value="progressLoading.value"
+      :progressColor="progressLoading.progressColor"
+      :message="progressLoading.message"
+    ></progress-loader>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+
+// ol imports
 import Map from 'ol/Map';
 import View from 'ol/View';
-// ol imports
 import Overlay from 'ol/Overlay';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import VectorTileLayer from 'ol/layer/VectorTile';
+import { like as likeFilter } from 'ol/format/filter';
 
 // style imports
 import { popupInfoStyle } from '../../../style/OlStyleDefs';
+
 // import the app-wide EventBus
 import { EventBus } from '../../../EventBus';
 
@@ -98,7 +116,12 @@ import { EventBus } from '../../../EventBus';
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
 import { fromLonLat } from 'ol/proj';
+import {
+  extractGeoserverLayerNames,
+  wfsRequestParser
+} from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
+import { geojsonToFeature } from '../../../utils/MapUtils';
 
 //Store imports
 import { mapMutations, mapGetters, mapActions } from 'vuex';
@@ -127,6 +150,12 @@ import MediaLightBox from '../../core/MediaLightBox';
 // Shared methods
 import { SharedMethods } from '../../../mixins/SharedMethods';
 
+// Services
+import http from '../../../services/http';
+
+// Progress loader
+import ProgressLoader from '../../core/ProgressLoader';
+
 export default {
   components: {
     'overlay-popup': OverlayPopup,
@@ -134,6 +163,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
+    'progress-loader': ProgressLoader,
     locate: Locate
   },
   name: 'app-ol-map',
@@ -152,7 +182,12 @@ export default {
       radius: 300,
       mousePosition: undefined,
       spotlightMessage: false,
-      lightBoxImages: []
+      lightBoxImages: [],
+      progressLoading: {
+        message: 'Fetching Coorporate Network',
+        progressColor: '#DC143C',
+        value: false
+      }
     };
   },
   mixins: [SharedMethods],
@@ -175,6 +210,9 @@ export default {
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
+    // Capture the event 'findCoorporateNetwork' emitted from sidepanel
+    EventBus.$on('findCoorporateNetwork', me.queryCoorporateNetwork);
+    EventBus.$on('closePopupInfo', me.closePopup);
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -191,6 +229,10 @@ export default {
       me.createPopupOverlay();
       // Fetch gas pipes entities for styling
       me.fetchGasPipesEntities();
+      // Remove layers with no entity property as it will
+      // not work with Coorporate Networks. (A describe fetaure type )
+      // for every layer is needed.
+      me.fetchDescribeFeatureTypes();
     }, 200);
   },
   created() {
@@ -299,7 +341,7 @@ export default {
         displayInLayerList: false,
         zIndex: 2000,
         source: source,
-        style: popupInfoStyle
+        style: popupInfoStyle()
       });
       this.popup.highlightLayer = vector;
       this.map.addLayer(vector);
@@ -320,7 +362,7 @@ export default {
             this.popup.activeFeature &&
             this.popup.activeFeature.getId() === feature.getId()
           ) {
-            return popupInfoStyle();
+            return popupInfoStyle()(feature);
           }
         }
       });
@@ -399,16 +441,17 @@ export default {
         me.popup.popupOverlay.setPosition(undefined);
         me.popup.isVisible = false;
       }
-      me.popup.activeFeature = null;
-      me.popup.activeLayer = null;
 
-      if (me.popup.highlightLayer) {
-        me.popup.highlightLayer.getSource().clear();
+      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      if (me.popup.highlightLayer && !this.selectedCoorpNetworkEntity) {
+        this.popup.highlightLayer.getSource().clear();
       }
       if (me.popup.highlightVectorTileLayer) {
         me.map.removeLayer(me.popup.highlightVectorTileLayer);
       }
 
+      me.popup.activeFeature = null;
+      me.popup.activeLayer = null;
       me.popup.showInSidePanel = false;
     },
 
@@ -416,8 +459,10 @@ export default {
      * Show getInfo popup.
      */
     showPopup(clickCoord) {
-      // Clear highligh feature
-      this.popup.highlightLayer.getSource().clear();
+      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      if (!this.selectedCoorpNetworkEntity) {
+        this.popup.highlightLayer.getSource().clear();
+      }
       let position = this.popup.activeFeature.getGeometry().getCoordinates();
       // Correct popup position (used feature coordinates insteaad of mouse)
       let closestPoint;
@@ -444,6 +489,7 @@ export default {
      */
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
+      this.popup.highlightLayer.getSource().clear();
       if (geometry.getType() === 'Point') {
         this.map.getView().animate({
           center: geometry.getCoordinates(),
@@ -451,26 +497,31 @@ export default {
           duration: 800
         });
       } else {
-        // // Zoom to extent adding a padding to the extent
+        // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
           padding: [10, 10, 10, 10],
           duration: 800
         });
 
-        // Logic for vector tile layers.
-
+        // Logic for vector tile layers. (Workaround as we can't clone features for highlight here.)
         if (this.popup.activeLayer.get('type') === 'VECTORTILE') {
+          if (this.popup.highlightVectorTileLayer) {
+            this.map.removeLayer(this.popup.highlightVectorTileLayer);
+          }
           const vtSource = this.popup.activeLayer.getSource();
           this.createVTHighlightLayer(vtSource);
           this.popup.highlightVectorTileLayer.changed();
         } else {
           // Highlight feature
-          this.popup.highlightLayer.getSource().clear();
+
           this.popup.highlightLayer
             .getSource()
             .addFeature(this.popup.activeFeature.clone());
         }
       }
+      setTimeout(() => {
+        this.selectedCoorpNetworkEntity = null;
+      }, 800);
       // Close popup
       this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
@@ -589,12 +640,53 @@ export default {
           }
 
           this.popup.activeFeature = feature;
+
+          // Add highlight purple feature for coorporate network active feature to distinguish from others.
+          if (
+            this.popup.tempFeature &&
+            this.popup.highlightLayer
+              .getSource()
+              .hasFeature(this.popup.tempFeature)
+          ) {
+            this.popup.highlightLayer
+              .getSource()
+              .removeFeature(this.popup.tempFeature);
+            this.popup.tempFeature = null;
+          }
+          if (
+            feature &&
+            feature.get('entity') &&
+            feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
+            feature.clone &&
+            this.selectedCoorpNetworkEntity &&
+            !this.$appConfig.map.corporateEntitiesUrls[
+              this.selectedCoorpNetworkEntity
+            ]
+          ) {
+            this.popup.tempFeature = feature.clone();
+            this.popup.highlightLayer
+              .getSource()
+              .addFeature(this.popup.tempFeature);
+            this.popup.tempFeature.setStyle(
+              popupInfoStyle('selectedCoorporateFeature')
+            );
+          }
           // Show popup only for point features.
           if (
-            ['Point', 'MultiPoint'].includes(
-              this.popup.activeFeature.getGeometry().getType()
-            )
+            ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
+            this.selectedCoorpNetworkEntity
           ) {
+            if (
+              feature &&
+              feature.get('entity') &&
+              feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
+              this.selectedCoorpNetworkEntity &&
+              !this.$appConfig.map.corporateEntitiesUrls[
+                this.selectedCoorpNetworkEntity
+              ]
+            ) {
+              return;
+            }
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
@@ -622,6 +714,141 @@ export default {
       }
       ctx.clip();
     },
+    queryCoorporateNetwork() {
+      const entity = this.popup.activeFeature.get('entity');
+      const workspace = 'petropolis';
+      if (!entity || !this.layersWithEntityField) return;
+      if (!this.geoserverLayerNames) {
+        this.geoserverLayerNames = extractGeoserverLayerNames(
+          this.map,
+          this.layersWithEntityField
+        );
+        // Filter only geoserver layers names with entity field.
+        this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
+          workspace
+        ].filter(name => this.layersWithEntityField.includes(name));
+      }
+
+      const wfsRequest = wfsRequestParser(
+        'EPSG:3857',
+        workspace,
+        this.geoserverLayerNames[workspace],
+        likeFilter('entity', `%${entity}%`)
+      );
+      this.progressLoading.value = true;
+      this.progressLoading.message = `Fetching data for: "${entity}"`;
+      http
+        .post(`http://209.126.13.2/geoserver/${workspace}/wfs`, wfsRequest, {
+          headers: { 'Content-Type': 'text/xml' }
+        })
+        .then(response => {
+          if (response.data) {
+            this.progressLoading.value = false;
+            const olFeatures = geojsonToFeature(response.data, {});
+            if (this.popup.highlightLayer) {
+              this.popup.highlightLayer.getSource().clear();
+              this.popup.highlightLayer.getSource().addFeatures(olFeatures);
+              // Zoom to extent adding a padding to the extent
+              this.map
+                .getView()
+                .fit(this.popup.highlightLayer.getSource().getExtent(), {
+                  padding: [10, 10, 10, 10],
+                  duration: 800
+                });
+              this.popup.popupOverlay.setPosition(undefined);
+              this.selectedCoorpNetworkEntity = entity;
+              // Add a purple color for active feature to distinguish from others highlighted in red.
+              if (
+                this.popup.activeFeature &&
+                this.popup.activeFeature.clone &&
+                !this.$appConfig.map.corporateEntitiesUrls[
+                  this.selectedCoorpNetworkEntity
+                ]
+              ) {
+                this.popup.tempFeature = this.popup.activeFeature.clone();
+                this.popup.tempFeature.setStyle(
+                  popupInfoStyle('selectedCoorporateFeature')
+                );
+                this.popup.highlightLayer
+                  .getSource()
+                  .addFeature(this.popup.tempFeature);
+              }
+            }
+          }
+        })
+        .catch(error => {
+          // handle error
+          console.log(error);
+          this.progressLoading.value = false;
+          //TODO: Show snackbar for errors.
+        });
+    },
+    fetchDescribeFeatureTypes() {
+      const geoserverLayerNames = extractGeoserverLayerNames(
+        this.$appConfig.map.layers
+      );
+      const workspace = 'petropolis';
+      if (!geoserverLayerNames[workspace]) return;
+      http
+        .get('http://209.126.13.2/geoserver/wfs', {
+          params: {
+            service: 'WFS',
+            version: ' 2.0.0',
+            request: 'DescribeFeatureType',
+            outputFormat: 'application/json',
+            typeNames: `${workspace}:${geoserverLayerNames[
+              workspace
+            ].toString()}`
+          }
+        })
+        .then(response => {
+          if (response.data && response.data.featureTypes) {
+            const filterLayersWithEntity = [];
+            const featureTypes = response.data.featureTypes;
+            featureTypes.forEach(featureType => {
+              featureType.properties.forEach(property => {
+                if (
+                  property.name === 'entity' &&
+                  filterLayersWithEntity.indexOf(featureType.typeName) === -1
+                ) {
+                  filterLayersWithEntity.push(featureType.typeName);
+                }
+              });
+            });
+            if (!this.layersWithEntityField) {
+              this.layersWithEntityField = filterLayersWithEntity;
+            }
+          }
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
+    },
+    isPopupRowVisible(item) {
+      if (
+        this.selectedCoorpNetworkEntity &&
+        this.popup.activeFeature &&
+        this.popup.activeFeature.get('entity') &&
+        this.popup.activeFeature
+          .get('entity')
+          .includes(this.selectedCoorpNetworkEntity)
+      ) {
+        return (
+          !this.popup.hiddenProps.includes(item.property) &&
+          !['null', '---'].includes(item.value)
+        );
+      }
+
+      if (!['null', '---'].includes(item.value)) {
+        return (
+          this.popup.diveVisibleProps.includes(item.property) &&
+          !this.popup.hiddenProps.includes(item.property)
+        );
+      } else {
+        return false;
+      }
+    },
     ...mapActions('map', {
       fetchGasPipesEntities: 'fetchGasPipesEntities'
     }),
@@ -637,7 +864,10 @@ export default {
       popupInfo: 'popupInfo'
     }),
     ...mapFields('map', {
-      popup: 'popup'
+      popup: 'popup',
+      geoserverLayerNames: 'geoserverLayerNames',
+      layersWithEntityField: 'layersWithEntityField',
+      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
     })
   },
   watch: {
@@ -652,6 +882,9 @@ export default {
     activeLayerGroup() {
       this.removeAllLayers();
       this.closePopup();
+      // Reset geoserver layer names array
+      this.geoserverLayerNames = null;
+      this.selectedCoorpNetworkEntity = null;
       this.createLayers();
     }
   }
