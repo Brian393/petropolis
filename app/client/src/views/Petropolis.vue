@@ -1,16 +1,19 @@
 <template>
   <v-app id="wg-app" data-app :class="{ 'wg-app': true }">
-    <v-navigation-drawer
-      v-model="drawer"
-      width="400"
-      class="elevation-6"
-      stateless
-      app
-      clipped
-      right
-    >
-    <side-panel></side-panel>
-    </v-navigation-drawer>
+    <v-expand-transition>
+      <v-navigation-drawer
+        v-model="drawer"
+        :width="!selectedCoorpNetworkEntity ? 400 : 600"
+        class="elevation-6"
+        stateless
+        app
+        clipped
+        right
+      >
+        <side-panel></side-panel>
+      </v-navigation-drawer>
+    </v-expand-transition>
+
     <v-app-bar app clipped-right height="60" color="#DC143C" dark>
       <v-spacer></v-spacer>
       <v-toolbar-title
@@ -41,10 +44,16 @@ import Viewer from '../components/viewer/viewer';
 import SidePanel from '../components/core/SidePanel';
 //Store imports
 import { mapMutations } from 'vuex';
+import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'wg-app',
   props: ['fuelGroup', 'region'],
+  computed: {
+    ...mapFields('map', {
+      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
+    })
+  },
   components: {
     'app-viewer': Viewer,
     'side-panel': SidePanel
