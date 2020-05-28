@@ -32,36 +32,53 @@ export function defaultStyle(feature) {
  * Style used for popup selected feature highlight
  */
 
-export function popupInfoStyle() {
+export function popupInfoStyle(type) {
   // MAJK: PopupInfo layer style (used for highlight)
-  const styles = [];
-  styles.push(
-    new OlStyle({
-      stroke: new OlStroke({
-        color: 'rgba(236, 236, 236, 0.7)',
-        width: 20
-      })
-    })
-  );
-  styles.push(
-    new OlStyle({
-      fill: new OlFill({
-        color: 'rgba(255,0,0, 0.2)'
-      }),
-      stroke: new OlStroke({
-        color: '#ff0000',
-        width: 4
-      }),
-      image: new OlCircle({
-        radius: 10,
-        fill: new OlFill({
-          color: '#ff0000'
-        })
-      })
-    })
-  );
+  let strokeColor = 'rgba(236, 236, 236, 0.7)';
+  let fillColor = 'rgba(255,0,0, 0.2)';
+  let imageColor = '#ff0000';
+  let zIndex = 100;
 
-  return styles;
+  if (type === 'selectedCoorporateFeature') {
+    strokeColor = 'rgba(128,0,128, 0.7)';
+    fillColor = 'rgba(128,0,128, 0.2)';
+    imageColor = '#800080';
+    zIndex = 200;
+  }
+
+  const styleFunction = () => {
+    const styles = [];
+    styles.push(
+      new OlStyle({
+        stroke: new OlStroke({
+          color: strokeColor,
+          width: 20
+        }),
+        zIndex: zIndex
+      })
+    );
+    styles.push(
+      new OlStyle({
+        fill: new OlFill({
+          color: fillColor
+        }),
+        stroke: new OlStroke({
+          color: imageColor,
+          width: 4
+        }),
+        image: new OlCircle({
+          radius: 10,
+          fill: new OlFill({
+            color: imageColor
+          })
+        }),
+        zIndex: zIndex
+      })
+    );
+
+    return styles;
+  };
+  return styleFunction;
 }
 
 /**

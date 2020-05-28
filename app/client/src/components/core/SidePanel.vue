@@ -120,21 +120,39 @@
           </v-flex>
         </v-layout>
         <v-progress-linear
-          v-show="isIframeLoading === true"
+          v-show="iframeUrl && isIframeLoading === true"
           class="mt-n1"
           indeterminate
           height="5"
           color="#DC143C"
         ></v-progress-linear>
         <vue-scroll>
-          <v-container class="pb-0">
+          <v-container v-if="iframeUrl" class="pb-0">
             <div class="documentation-wrapper">
               <iframe
                 @load="isIframeLoading = false"
                 scrolling="no"
-                src="http://its.timetochange.today/Enbridge/"
+                :src="iframeUrl"
               >
               </iframe>
+            </div>
+          </v-container>
+          <v-container v-if="!iframeUrl">
+            <div class="body-2" v-for="item in popupInfo" :key="item.property">
+              <span
+                v-if="
+                  popup.activeFeature &&
+                    popup.activeFeature.get('entity') &&
+                    popup.activeFeature
+                      .get('entity')
+                      .includes(selectedCoorpNetworkEntity) &&
+                    !popup.hiddenProps.includes(item.property) &&
+                    !['null', '---'].includes(item.value)
+                "
+                v-html="
+                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                "
+              ></span>
             </div>
           </v-container>
         </vue-scroll>
@@ -164,6 +182,11 @@ export default {
         this.activeLayerGroup.fuelGroup
       ][this.activeLayerGroup.region];
       return visibleGroup;
+    },
+    iframeUrl() {
+      return this.$appConfig.map.corporateEntitiesUrls[
+        this.selectedCoorpNetworkEntity
+      ];
     },
     ...mapGetters('map', {
       map: 'map',

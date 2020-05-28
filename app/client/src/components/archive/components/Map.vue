@@ -496,7 +496,7 @@ export default {
         name: 'Popinfo Info Layer',
         zIndex: 100,
         source: source,
-        style: popupInfoStyle
+        style: popupInfoStyle()
       })
       this.popupInfoLayerSource = source
       // Workaround if map view is changed.

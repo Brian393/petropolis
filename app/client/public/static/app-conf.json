@@ -1289,7 +1289,6 @@
         "attributions": "© <a href='https://www.openstreetmap.org/copyright'> OpenStreetMap </a> contributors "
       }
     ],
-
     "groups": {
       "oil": {
         "default": {
@@ -1512,6 +1511,9 @@
        "title": "NAME",
        "entity": "OWNER"
      } 
+    },
+    "corporateEntitiesUrls": {
+      "Enbridge": "http://its.timetochange.today/Enbridge/"
     }
   }
 }

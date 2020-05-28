@@ -341,7 +341,7 @@ export default {
         displayInLayerList: false,
         zIndex: 2000,
         source: source,
-        style: popupInfoStyle
+        style: popupInfoStyle()
       });
       this.popup.highlightLayer = vector;
       this.map.addLayer(vector);
@@ -362,7 +362,7 @@ export default {
             this.popup.activeFeature &&
             this.popup.activeFeature.getId() === feature.getId()
           ) {
-            return popupInfoStyle();
+            return popupInfoStyle()(feature);
           }
         }
       });
@@ -642,11 +642,20 @@ export default {
           this.popup.activeFeature = feature;
           // Show popup only for point features.
           if (
-            ['Point', 'MultiPoint'].includes(
-              this.popup.activeFeature.getGeometry().getType()
-            ) ||
+            ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
             this.selectedCoorpNetworkEntity
           ) {
+            if (
+              feature &&
+              feature.get('entity') &&
+              feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
+              this.selectedCoorpNetworkEntity &&
+              !this.$appConfig.map.corporateEntitiesUrls[
+                this.selectedCoorpNetworkEntity
+              ]
+            ) {
+              return;
+            }
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
@@ -708,6 +717,7 @@ export default {
             if (this.popup.highlightLayer) {
               this.popup.highlightLayer.getSource().clear();
               this.popup.highlightLayer.getSource().addFeatures(olFeatures);
+
               // Zoom to extent adding a padding to the extent
               this.map
                 .getView()
