@@ -640,6 +640,37 @@ export default {
           }
 
           this.popup.activeFeature = feature;
+
+          // Add highlight purple feature for coorporate network active feature to distinguish from others.
+          if (
+            this.popup.tempFeature &&
+            this.popup.highlightLayer
+              .getSource()
+              .hasFeature(this.popup.tempFeature)
+          ) {
+            this.popup.highlightLayer
+              .getSource()
+              .removeFeature(this.popup.tempFeature);
+            this.popup.tempFeature = null;
+          }
+          if (
+            feature &&
+            feature.get('entity') &&
+            feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
+            feature.clone &&
+            this.selectedCoorpNetworkEntity &&
+            !this.$appConfig.map.corporateEntitiesUrls[
+              this.selectedCoorpNetworkEntity
+            ]
+          ) {
+            this.popup.tempFeature = feature.clone();
+            this.popup.highlightLayer
+              .getSource()
+              .addFeature(this.popup.tempFeature);
+            this.popup.tempFeature.setStyle(
+              popupInfoStyle('selectedCoorporateFeature')
+            );
+          }
           // Show popup only for point features.
           if (
             ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
@@ -717,7 +748,6 @@ export default {
             if (this.popup.highlightLayer) {
               this.popup.highlightLayer.getSource().clear();
               this.popup.highlightLayer.getSource().addFeatures(olFeatures);
-
               // Zoom to extent adding a padding to the extent
               this.map
                 .getView()
@@ -727,6 +757,22 @@ export default {
                 });
               this.popup.popupOverlay.setPosition(undefined);
               this.selectedCoorpNetworkEntity = entity;
+              // Add a purple color for active feature to distinguish from others highlighted in red.
+              if (
+                this.popup.activeFeature &&
+                this.popup.activeFeature.clone &&
+                !this.$appConfig.map.corporateEntitiesUrls[
+                  this.selectedCoorpNetworkEntity
+                ]
+              ) {
+                this.popup.tempFeature = this.popup.activeFeature.clone();
+                this.popup.tempFeature.setStyle(
+                  popupInfoStyle('selectedCoorporateFeature')
+                );
+                this.popup.highlightLayer
+                  .getSource()
+                  .addFeature(this.popup.tempFeature);
+              }
             }
           }
         })

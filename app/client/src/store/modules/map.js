@@ -19,6 +19,7 @@ const state = {
     popupOverlay: null,
     title: 'Info',
     isVisible: false,
+    tempFeature: null,
     activeFeature: null,
     activeLayer: null,
     hiddenProps: ['BPD', 'variable1', 'variable2', 'imageUrl'],
