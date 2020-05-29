@@ -788,10 +788,12 @@ export default {
       olFeatures.forEach(function(feature) {
         extend(extent, feature.getGeometry().getExtent());
       });
-      this.map.getView().fit(extent, {
-        padding: [100, 100, 100, 100],
-        duration: 800
-      });
+      setTimeout(() => {
+        this.map.getView().fit(extent, {
+          padding: [100, 100, 100, 100],
+          duration: 800
+        });
+      }, 500);
       this.popup.popupOverlay.setPosition(undefined);
 
       const worldOverlayGeometry = fromExtent([
