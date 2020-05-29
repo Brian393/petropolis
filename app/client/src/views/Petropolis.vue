@@ -17,7 +17,7 @@
     <v-app-bar app clipped-right height="60" color="#DC143C" dark>
       <v-spacer></v-spacer>
       <v-toolbar-title
-        @click="$router.push({ name: 'petropolisOil' })"
+        @click="goToHome()"
         flat
         class="logo headline font-weight-bold black--text"
         >PETROPOLIS</v-toolbar-title
@@ -64,6 +64,12 @@ export default {
     };
   },
   methods: {
+    goToHome() {
+      if (this.$router.currentRoute.name === 'petropolisOil') {
+        EventBus.$emit('resetMap')
+      }
+      this.$router.push({ name: 'petropolisOil' })
+    },
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
     })

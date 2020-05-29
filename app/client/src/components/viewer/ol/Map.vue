@@ -71,9 +71,10 @@
                   !selectedCoorpNetworkEntity) ||
                   (selectedCoorpNetworkEntity &&
                     popup.activeFeature.get('entity') &&
-                    !popup.activeFeature
-                      .get('entity')
-                      .includes(selectedCoorpNetworkEntity))
+                    splittedEntities &&
+                    !splittedEntities.some(substring =>
+                      popup.activeFeature.get('entity').includes(substring)
+                    ))
               "
               @click="queryCoorporateNetwork"
               href="javascript:void(0)"
@@ -114,7 +115,7 @@ import { EventBus } from '../../../EventBus';
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
-import { extractGeoserverLayerNames } from '../../../utils/Layer';
+import { extractGeoserverLayerNames, getIframeUrl } from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
 
 //Store imports
@@ -203,6 +204,7 @@ export default {
     // Capture the event 'findCoorporateNetwork' emitted from sidepanel
     EventBus.$on('findCoorporateNetwork', me.queryCoorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
+    EventBus.$on('resetMap', me.resetMap);
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -277,29 +279,15 @@ export default {
       const me = this;
       // Get Info layer
       me.createGetInfoLayer();
-
-      // World Overlay Layer and selected features layer for corporate network
-      me.createWorldExtentOverlayLayer();
-
-      // Other Operotionial Layers
       const activeLayerGroup = this.activeLayerGroup;
       const visibleGroup = this.$appConfig.map.groups[
         activeLayerGroup.fuelGroup
       ][activeLayerGroup.region];
       const visibleLayers = visibleGroup.layers;
-
-      if (visibleGroup.center) {
-        this.map.getView().setCenter(fromLonLat(visibleGroup.center));
-      }
-
-      if (visibleGroup.resolution) {
-        this.map.getView().setResolution(visibleGroup.resolution);
-      }
-
-      if (visibleGroup.minResolution && visibleGroup.maxResolution) {
-        this.map.getView().minResolution_ = visibleGroup.minResolution;
-        this.map.getView().maxResolution_ = visibleGroup.maxResolution;
-      }
+      me.resetMap();
+      // World Overlay Layer and selected features layer for corporate network
+      me.createWorldExtentOverlayLayer();
+      me.createSelectedCorpNetworkLayer();
 
       this.$appConfig.map.layers.forEach(lConf => {
         const layerIndex = visibleLayers.indexOf(lConf.name);
@@ -358,6 +346,25 @@ export default {
         style: worldOverlayFill()
       });
       this.popup.worldExtentLayer = vector;
+      this.map.addLayer(vector);
+    },
+
+    /**
+     * Create a layer to visualize selected corporate network features.
+     */
+    createSelectedCorpNetworkLayer() {
+      // For Vector selection
+      const source = new VectorSource({
+        wrapX: true
+      });
+      const vector = new VectorLayer({
+        name: 'Corporate Selected Network Layer',
+        displayInLayerList: false,
+        zIndex: 2500,
+        source: source,
+        style: popupInfoStyle()
+      });
+      this.popup.selectedCorpNetworkLayer = vector;
       this.map.addLayer(vector);
     },
 
@@ -457,7 +464,7 @@ export default {
       }
 
       // Clear highligh feature (Don't clear if a coorporate network entity is selected)
-      if (me.popup.highlightLayer && !this.selectedCoorpNetworkEntity) {
+      if (me.popup.highlightLayer) {
         this.popup.highlightLayer.getSource().clear();
       }
       if (me.popup.highlightVectorTileLayer) {
@@ -615,14 +622,21 @@ export default {
         )
           return;
 
-        if (feature && !feature.get('entity') && this.selectedCoorpNetworkEntity)
-        return;
+        if (
+          feature &&
+          !feature.get('entity') &&
+          this.selectedCoorpNetworkEntity
+        )
+          return;
 
         if (
           feature &&
           feature.get('entity') &&
           this.selectedCoorpNetworkEntity &&
-          !feature.get('entity').includes(this.selectedCoorpNetworkEntity)
+          this.splittedEntities &&
+          !this.splittedEntities.some(substring =>
+            feature.get('entity').includes(substring)
+          )
         ) {
           return;
         }
@@ -668,14 +682,18 @@ export default {
             return;
           }
 
-          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
-            this.popup.highlightLayer
-              .getSource()
-              .removeFeature(this.popup.activeFeature);
-          }
           this.popup.activeFeature = feature.clone();
-          // Show popup only for point features.
-          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
+          if (
+            this.selectedCoorpNetworkEntity &&
+            this.popup.activeFeature &&
+            getIframeUrl(
+              this.splittedEntities,
+              this.$appConfig.map.corporateEntitiesUrls,
+              this.selectedCoorpNetworkEntity
+            )
+          ) {
+            this.popup.highlightLayer.getSource().clear();
+            this.popup.activeFeature.setStyle(null);
             this.popup.highlightLayer
               .getSource()
               .addFeature(this.popup.activeFeature);
@@ -688,11 +706,16 @@ export default {
             if (
               feature &&
               feature.get('entity') &&
-              feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
+              this.splittedEntities &&
+              this.splittedEntities.some(substring =>
+                feature.get('entity').includes(substring)
+              ) &&
               this.selectedCoorpNetworkEntity &&
-              !this.$appConfig.map.corporateEntitiesUrls[
+              !getIframeUrl(
+                this.splittedEntities,
+                this.$appConfig.map.corporateEntitiesUrls,
                 this.selectedCoorpNetworkEntity
-              ]
+              )
             ) {
               return;
             }
@@ -725,7 +748,9 @@ export default {
     },
     queryCoorporateNetwork() {
       const entity = this.popup.activeFeature.get('entity');
-      if (!entity || !this.layersWithEntityField) return;
+      if (!entity) return;
+      this.selectedCoorpNetworkEntity = entity;
+      if (!this.layersWithEntityField || !this.splittedEntities) return;
       const olFeatures = [];
       this.popup.highlightLayer.getSource().clear();
       this.map
@@ -740,7 +765,9 @@ export default {
                 if (
                   feature.clone &&
                   feature.get('entity') &&
-                  feature.get('entity').includes(entity)
+                  this.splittedEntities.some(substring =>
+                    feature.get('entity').includes(substring)
+                  )
                 ) {
                   const clonedFeature = feature.clone();
                   clonedFeature.setStyle(layer.getStyle());
@@ -751,7 +778,8 @@ export default {
         });
 
       this.popup.worldExtentLayer.getSource().clear();
-      this.popup.highlightLayer.getSource().addFeatures(olFeatures);
+      this.popup.selectedCorpNetworkLayer.getSource().clear();
+      this.popup.selectedCorpNetworkLayer.getSource().addFeatures(olFeatures);
       // Zoom to extent adding a padding to the extent
       var extent = olFeatures[0]
         .getGeometry()
@@ -760,13 +788,14 @@ export default {
       olFeatures.forEach(function(feature) {
         extend(extent, feature.getGeometry().getExtent());
       });
-      this.map.getView().fit(extent, {
-        padding: [100, 100, 100, 100],
-        duration: 800
-      });
+      setTimeout(() => {
+        this.map.getView().fit(extent, {
+          padding: [100, 100, 100, 100],
+          duration: 800
+        });
+      }, 500);
       this.popup.popupOverlay.setPosition(undefined);
-      this.selectedCoorpNetworkEntity = entity;
-      console.log(this.selectedCoorpNetworkEntity);
+
       const worldOverlayGeometry = fromExtent([
         -20037508.342789244,
         -20037508.342789244,
@@ -821,14 +850,7 @@ export default {
         });
     },
     isPopupRowVisible(item) {
-      if (
-        this.selectedCoorpNetworkEntity &&
-        this.popup.activeFeature &&
-        this.popup.activeFeature.get('entity') &&
-        this.popup.activeFeature
-          .get('entity')
-          .includes(this.selectedCoorpNetworkEntity)
-      ) {
+      if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
         return (
           !this.popup.hiddenProps.includes(item.property) &&
           !['null', '---'].includes(item.value)
@@ -844,6 +866,25 @@ export default {
         return false;
       }
     },
+    resetMap() {
+      // Other Operotionial Layers
+      if (!this.map) return;
+      const activeLayerGroup = this.activeLayerGroup;
+      const visibleGroup = this.$appConfig.map.groups[
+        activeLayerGroup.fuelGroup
+      ][activeLayerGroup.region];
+
+      if (visibleGroup.center) {
+        this.map.getView().setCenter(fromLonLat(visibleGroup.center));
+      }
+      if (visibleGroup.resolution) {
+        this.map.getView().setResolution(visibleGroup.resolution);
+      }
+      if (visibleGroup.minResolution && visibleGroup.maxResolution) {
+        this.map.getView().minResolution_ = visibleGroup.minResolution;
+        this.map.getView().maxResolution_ = visibleGroup.maxResolution;
+      }
+    },
     ...mapActions('map', {
       fetchGasPipesEntities: 'fetchGasPipesEntities'
     }),
@@ -856,7 +897,8 @@ export default {
   computed: {
     ...mapGetters('map', {
       activeLayerGroup: 'activeLayerGroup',
-      popupInfo: 'popupInfo'
+      popupInfo: 'popupInfo',
+      splittedEntities: 'splittedEntities'
     }),
     ...mapFields('map', {
       popup: 'popup',
