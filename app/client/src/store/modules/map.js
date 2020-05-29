@@ -15,11 +15,12 @@ const state = {
   },
   popup: {
     highlightLayer: null,
+    worldExtentLayer: null,
     highlightVectorTileLayer: null,
+
     popupOverlay: null,
     title: 'Info',
     isVisible: false,
-    tempFeature: null,
     activeFeature: null,
     activeLayer: null,
     hiddenProps: ['BPD', 'variable1', 'variable2', 'imageUrl'],
@@ -36,7 +37,7 @@ const state = {
     showInSidePanel: false
   },
   layers: {}, // Only for operational layers
-    activeLayerGroup: null,
+  activeLayerGroup: null,
   gasFieldEntitiesColors: {}, // Fetched from geoserver
   geoserverLayerNames: null, // Created when user clicks coorporate network,
   layersWithEntityField: null, // Fetched from Geoserver on load

@@ -32,19 +32,12 @@ export function defaultStyle(feature) {
  * Style used for popup selected feature highlight
  */
 
-export function popupInfoStyle(type) {
+export function popupInfoStyle() {
   // MAJK: PopupInfo layer style (used for highlight)
   let strokeColor = 'rgba(236, 236, 236, 0.7)';
   let fillColor = 'rgba(255,0,0, 0.2)';
   let imageColor = '#ff0000';
   let zIndex = 100;
-
-  if (type === 'selectedCoorporateFeature') {
-    strokeColor = 'rgba(128,0,128, 0.7)';
-    fillColor = 'rgba(128,0,128, 0.2)';
-    imageColor = '#800080';
-    zIndex = 200;
-  }
 
   const styleFunction = () => {
     const styles = [];
@@ -82,6 +75,26 @@ export function popupInfoStyle(type) {
 }
 
 /**
+ * Style used for coorporate overlay highlight
+ */
+
+export function worldOverlayFill() {
+  const styleFunction = () => {
+    const styles = [];
+    styles.push(
+      new OlStyle({
+        fill: new OlFill({
+          color: 'rgba(236, 236, 236, 0.85)'
+        }),
+        zIndex: 300
+      })
+    );
+    return styles;
+  };
+  return styleFunction;
+}
+
+/**
  * Style function used for vector layers.
  */
 const styleCache = {};
@@ -103,7 +116,7 @@ export function baseStyle(propertyName, config) {
          */
         case 'Point':
         case 'MultiPoint': {
-          styleCache[propertyValue] = new OlStyle({
+          const style = new OlStyle({
             image: new OlCircle({
               stroke: new OlStroke({
                 color: strokeColor || 'rgba(255, 255, 255, 1)',
@@ -115,6 +128,7 @@ export function baseStyle(propertyName, config) {
               radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
             })
           });
+          styleCache[propertyValue] = style;
           break;
         }
         /**
@@ -122,7 +136,7 @@ export function baseStyle(propertyName, config) {
          */
         case 'LineString':
         case 'MultiLineString': {
-          styleCache[propertyValue] = new OlStyle({
+          const style = new OlStyle({
             stroke: new OlStroke({
               color:
                 strokeColor instanceof Function
@@ -132,6 +146,7 @@ export function baseStyle(propertyName, config) {
               lineDash: lineDash || [6]
             })
           });
+          styleCache[propertyValue] = style;
           break;
         }
         default:

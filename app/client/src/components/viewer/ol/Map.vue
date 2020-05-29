@@ -53,7 +53,8 @@
               v-if="
                 popup.activeLayer &&
                   popup.activeLayer.get('showZoomToFeature') !== false &&
-                  popup.activeFeature
+                  popup.activeFeature &&
+                  selectedCoorpNetworkEntity === null
               "
               href="javascript:void(0)"
               @click="zoomToFeature()"
@@ -86,11 +87,6 @@
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
-    <progress-loader
-      :value="progressLoading.value"
-      :progressColor="progressLoading.progressColor"
-      :message="progressLoading.message"
-    ></progress-loader>
   </div>
 </template>
 
@@ -104,10 +100,13 @@ import Overlay from 'ol/Overlay';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import VectorTileLayer from 'ol/layer/VectorTile';
-import { like as likeFilter } from 'ol/format/filter';
+import Feature from 'ol/Feature';
+import { fromExtent } from 'ol/geom/Polygon';
+import { fromLonLat } from 'ol/proj';
+import { extend } from 'ol/extent';
 
 // style imports
-import { popupInfoStyle } from '../../../style/OlStyleDefs';
+import { popupInfoStyle, worldOverlayFill } from '../../../style/OlStyleDefs';
 
 // import the app-wide EventBus
 import { EventBus } from '../../../EventBus';
@@ -115,13 +114,8 @@ import { EventBus } from '../../../EventBus';
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
-import { fromLonLat } from 'ol/proj';
-import {
-  extractGeoserverLayerNames,
-  wfsRequestParser
-} from '../../../utils/Layer';
+import { extractGeoserverLayerNames } from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
-import { geojsonToFeature } from '../../../utils/MapUtils';
 
 //Store imports
 import { mapMutations, mapGetters, mapActions } from 'vuex';
@@ -153,9 +147,6 @@ import { SharedMethods } from '../../../mixins/SharedMethods';
 // Services
 import http from '../../../services/http';
 
-// Progress loader
-import ProgressLoader from '../../core/ProgressLoader';
-
 export default {
   components: {
     'overlay-popup': OverlayPopup,
@@ -163,7 +154,6 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    'progress-loader': ProgressLoader,
     locate: Locate
   },
   name: 'app-ol-map',
@@ -288,6 +278,9 @@ export default {
       // Get Info layer
       me.createGetInfoLayer();
 
+      // World Overlay Layer and selected features layer for corporate network
+      me.createWorldExtentOverlayLayer();
+
       // Other Operotionial Layers
       const activeLayerGroup = this.activeLayerGroup;
       const visibleGroup = this.$appConfig.map.groups[
@@ -339,11 +332,32 @@ export default {
       const vector = new VectorLayer({
         name: 'Get Info Layer',
         displayInLayerList: false,
-        zIndex: 2000,
+        zIndex: 3000,
         source: source,
         style: popupInfoStyle()
       });
       this.popup.highlightLayer = vector;
+      this.map.addLayer(vector);
+    },
+
+    /**
+     * Creates a layer to visualize selected GetInfo features.
+     */
+    createWorldExtentOverlayLayer() {
+      // For Vector selection
+      const source = new VectorSource({
+        wrapX: true
+      });
+      const vector = new VectorLayer({
+        name: 'World Extent Layer',
+        isInteractive: false,
+        queryable: false,
+        displayInLayerList: false,
+        zIndex: 2000,
+        source: source,
+        style: worldOverlayFill()
+      });
+      this.popup.worldExtentLayer = vector;
       this.map.addLayer(vector);
     },
 
@@ -463,6 +477,7 @@ export default {
       if (!this.selectedCoorpNetworkEntity) {
         this.popup.highlightLayer.getSource().clear();
       }
+
       let position = this.popup.activeFeature.getGeometry().getCoordinates();
       // Correct popup position (used feature coordinates insteaad of mouse)
       let closestPoint;
@@ -513,7 +528,6 @@ export default {
           this.popup.highlightVectorTileLayer.changed();
         } else {
           // Highlight feature
-
           this.popup.highlightLayer
             .getSource()
             .addFeature(this.popup.activeFeature.clone());
@@ -572,7 +586,6 @@ export default {
       const me = this;
       const map = me.map;
       me.mapClickListenerKey = map.on('click', evt => {
-        me.closePopup();
         if (me.activeInteractions.length > 0) {
           return;
         }
@@ -582,7 +595,11 @@ export default {
           (f, l) => {
             // Order of features is based is based on zIndex.
             // First feature is on top, last feature is on bottom.
-            if (!feature) {
+            if (
+              !feature &&
+              l.get('isInteractive') !== false &&
+              l.get('queryable') !== false
+            ) {
               feature = f;
               layer = l;
             }
@@ -598,8 +615,20 @@ export default {
         )
           return;
 
-        this.popup.activeLayer = layer;
+        if (feature && !feature.get('entity') && this.selectedCoorpNetworkEntity)
+        return;
 
+        if (
+          feature &&
+          feature.get('entity') &&
+          this.selectedCoorpNetworkEntity &&
+          !feature.get('entity').includes(this.selectedCoorpNetworkEntity)
+        ) {
+          return;
+        }
+
+        me.closePopup();
+        this.popup.activeLayer = layer;
         // Clear lightbox images array
         if (this.lightBoxImages) {
           this.lightBoxImages = [];
@@ -639,39 +668,19 @@ export default {
             return;
           }
 
-          this.popup.activeFeature = feature;
-
-          // Add highlight purple feature for coorporate network active feature to distinguish from others.
-          if (
-            this.popup.tempFeature &&
+          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
             this.popup.highlightLayer
               .getSource()
-              .hasFeature(this.popup.tempFeature)
-          ) {
-            this.popup.highlightLayer
-              .getSource()
-              .removeFeature(this.popup.tempFeature);
-            this.popup.tempFeature = null;
+              .removeFeature(this.popup.activeFeature);
           }
-          if (
-            feature &&
-            feature.get('entity') &&
-            feature.get('entity').includes(this.selectedCoorpNetworkEntity) &&
-            feature.clone &&
-            this.selectedCoorpNetworkEntity &&
-            !this.$appConfig.map.corporateEntitiesUrls[
-              this.selectedCoorpNetworkEntity
-            ]
-          ) {
-            this.popup.tempFeature = feature.clone();
-            this.popup.highlightLayer
-              .getSource()
-              .addFeature(this.popup.tempFeature);
-            this.popup.tempFeature.setStyle(
-              popupInfoStyle('selectedCoorporateFeature')
-            );
-          }
+          this.popup.activeFeature = feature.clone();
           // Show popup only for point features.
+          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
+            this.popup.highlightLayer
+              .getSource()
+              .addFeature(this.popup.activeFeature);
+          }
+
           if (
             ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
             this.selectedCoorpNetworkEntity
@@ -716,72 +725,58 @@ export default {
     },
     queryCoorporateNetwork() {
       const entity = this.popup.activeFeature.get('entity');
-      const workspace = 'petropolis';
       if (!entity || !this.layersWithEntityField) return;
-      if (!this.geoserverLayerNames) {
-        this.geoserverLayerNames = extractGeoserverLayerNames(
-          this.map,
-          this.layersWithEntityField
-        );
-        // Filter only geoserver layers names with entity field.
-        this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
-          workspace
-        ].filter(name => this.layersWithEntityField.includes(name));
-      }
-
-      const wfsRequest = wfsRequestParser(
-        'EPSG:3857',
-        workspace,
-        this.geoserverLayerNames[workspace],
-        likeFilter('entity', `%${entity}%`)
-      );
-      this.progressLoading.value = true;
-      this.progressLoading.message = `Fetching data for: "${entity}"`;
-      http
-        .post(`http://209.126.13.2/geoserver/${workspace}/wfs`, wfsRequest, {
-          headers: { 'Content-Type': 'text/xml' }
-        })
-        .then(response => {
-          if (response.data) {
-            this.progressLoading.value = false;
-            const olFeatures = geojsonToFeature(response.data, {});
-            if (this.popup.highlightLayer) {
-              this.popup.highlightLayer.getSource().clear();
-              this.popup.highlightLayer.getSource().addFeatures(olFeatures);
-              // Zoom to extent adding a padding to the extent
-              this.map
-                .getView()
-                .fit(this.popup.highlightLayer.getSource().getExtent(), {
-                  padding: [10, 10, 10, 10],
-                  duration: 800
-                });
-              this.popup.popupOverlay.setPosition(undefined);
-              this.selectedCoorpNetworkEntity = entity;
-              // Add a purple color for active feature to distinguish from others highlighted in red.
-              if (
-                this.popup.activeFeature &&
-                this.popup.activeFeature.clone &&
-                !this.$appConfig.map.corporateEntitiesUrls[
-                  this.selectedCoorpNetworkEntity
-                ]
-              ) {
-                this.popup.tempFeature = this.popup.activeFeature.clone();
-                this.popup.tempFeature.setStyle(
-                  popupInfoStyle('selectedCoorporateFeature')
-                );
-                this.popup.highlightLayer
-                  .getSource()
-                  .addFeature(this.popup.tempFeature);
-              }
-            }
+      const olFeatures = [];
+      this.popup.highlightLayer.getSource().clear();
+      this.map
+        .getLayers()
+        .getArray()
+        .forEach(layer => {
+          if (layer.getSource().getFeatures) {
+            layer
+              .getSource()
+              .getFeatures()
+              .forEach(feature => {
+                if (
+                  feature.clone &&
+                  feature.get('entity') &&
+                  feature.get('entity').includes(entity)
+                ) {
+                  const clonedFeature = feature.clone();
+                  clonedFeature.setStyle(layer.getStyle());
+                  olFeatures.push(clonedFeature);
+                }
+              });
           }
-        })
-        .catch(error => {
-          // handle error
-          console.log(error);
-          this.progressLoading.value = false;
-          //TODO: Show snackbar for errors.
         });
+
+      this.popup.worldExtentLayer.getSource().clear();
+      this.popup.highlightLayer.getSource().addFeatures(olFeatures);
+      // Zoom to extent adding a padding to the extent
+      var extent = olFeatures[0]
+        .getGeometry()
+        .getExtent()
+        .slice(0);
+      olFeatures.forEach(function(feature) {
+        extend(extent, feature.getGeometry().getExtent());
+      });
+      this.map.getView().fit(extent, {
+        padding: [100, 100, 100, 100],
+        duration: 800
+      });
+      this.popup.popupOverlay.setPosition(undefined);
+      this.selectedCoorpNetworkEntity = entity;
+      console.log(this.selectedCoorpNetworkEntity);
+      const worldOverlayGeometry = fromExtent([
+        -20037508.342789244,
+        -20037508.342789244,
+        20037508.342789244,
+        20037508.342789244
+      ]);
+      const worldExtentFeature = new Feature({
+        geometry: worldOverlayGeometry
+      });
+      this.popup.worldExtentLayer.getSource().addFeature(worldExtentFeature);
     },
     fetchDescribeFeatureTypes() {
       const geoserverLayerNames = extractGeoserverLayerNames(
