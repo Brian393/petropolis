@@ -1,6 +1,5 @@
 import { getField, updateField } from 'vuex-map-fields';
-import { humanize } from '../../utils/Helpers';
-import UrlUtil from '../../utils/Url';
+import { formatPopupRows } from '../../utils/Layer';
 let colormap = require('colormap');
 
 const state = {
@@ -17,7 +16,7 @@ const state = {
     highlightLayer: null,
     worldExtentLayer: null,
     highlightVectorTileLayer: null,
-
+    selectedCorpNetworkLayer: null,
     popupOverlay: null,
     title: 'Info',
     isVisible: false,
@@ -54,37 +53,24 @@ const getters = {
   popupInfo: state => {
     const feature = state.popup.activeFeature;
     if (!feature) return;
-    const props = feature.getProperties();
-    const { link1, link2, link3, source, ...rest } = props;
-    if (UrlUtil.validURL(link1)) {
-      rest[
-        'COORPORATE WEBSITE'
-      ] = `<a href='${link1}' target='_blank'>here</a>`;
+    return formatPopupRows(feature, state.popup.exludedProps);
+  },
+  splittedEntities: state => {
+    if (state.selectedCoorpNetworkEntity) {
+       let splittedString = state.selectedCoorpNetworkEntity.split(',').map(str => {
+         if (str.charAt(0) === ' ') {
+           str = str.slice(1);
+         }
+         str = str
+           .split(' ')
+           .slice(0, 2)
+           .join(' ');
+         return str;
+       });
+       return splittedString
+    } else {
+      return null
     }
-    if (UrlUtil.validURL(link2)) {
-      let moreInformation = `<a href='${link2}' target='_blank'>here</a>`;
-      if (UrlUtil.validURL(link3)) {
-        moreInformation += ` and <a href='${link3}' target='_blank'>here</a>`;
-      }
-      rest['More information'] = moreInformation;
-    }
-    if (UrlUtil.validURL(source)) {
-      rest['SOURCE'] = `<a href='${source}' target='_blank'>here</a>`;
-    }
-
-    let transformed = [];
-    const excludedProperties = state.popup.exludedProps;
-    Object.keys(rest).forEach(k => {
-      if (!excludedProperties.includes(k) && !typeof k !== 'object') {
-        transformed.push({
-          humanizedProperty: humanize(k),
-          property: k,
-          value: !rest[k] ? '---' : rest[k]
-        });
-      }
-    });
-
-    return transformed;
   },
   getField
 };

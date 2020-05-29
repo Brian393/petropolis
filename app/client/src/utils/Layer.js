@@ -12,6 +12,8 @@ import olLayerLayer from 'ol/layer/Layer.js';
 import { Group as LayerGroup } from 'ol/layer.js';
 import { extend as olExtend } from 'ol/extent';
 import { WFS } from 'ol/format';
+import { humanize } from './Helpers';
+import UrlUtil from './Url';
 
 /**
  * Util for OL layers
@@ -444,4 +446,57 @@ export function extractGeoserverLayerNames(map) {
     }
   });
   return geoserverLayerNames;
+}
+
+/**
+ * The function returns formated popup rows
+ */
+export function formatPopupRows(feature, excludedProperties) {
+  const props = feature.getProperties();
+  const { link1, link2, link3, source, ...rest } = props;
+  if (UrlUtil.validURL(link1)) {
+    rest['COORPORATE WEBSITE'] = `<a href='${link1}' target='_blank'>here</a>`;
+  }
+  if (UrlUtil.validURL(link2)) {
+    let moreInformation = `<a href='${link2}' target='_blank'>here</a>`;
+    if (UrlUtil.validURL(link3)) {
+      moreInformation += ` and <a href='${link3}' target='_blank'>here</a>`;
+    }
+    rest['More information'] = moreInformation;
+  }
+  if (UrlUtil.validURL(source)) {
+    rest['SOURCE'] = `<a href='${source}' target='_blank'>here</a>`;
+  }
+
+  let transformed = [];
+  Object.keys(rest).forEach(k => {
+    if (!excludedProperties.includes(k) && !typeof k !== 'object') {
+      transformed.push({
+        humanizedProperty: humanize(k),
+        property: k,
+        value: !rest[k] ? '---' : rest[k]
+      });
+    }
+  });
+
+  return transformed;
+}
+
+/**
+ * The function returns IframeUrl
+ */
+export function getIframeUrl(splittedEntities, corporateEntitiesUrls, selectedCoorpNetworkEntity) {
+ let url;
+ const urls = corporateEntitiesUrls;
+ if (urls[selectedCoorpNetworkEntity]) {
+   url = urls[selectedCoorpNetworkEntity];
+ } else {
+   const keys = Object.keys(urls);
+   keys.forEach(key => {
+     if (splittedEntities.includes(key) && !url) {
+       url = urls[key];
+     }
+   });
+ }
+ return url;
 }

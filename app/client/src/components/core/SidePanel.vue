@@ -137,22 +137,36 @@
               </iframe>
             </div>
           </v-container>
-          <v-container v-if="!iframeUrl">
-            <div class="body-2" v-for="item in popupInfo" :key="item.property">
-              <span
-                v-if="
-                  popup.activeFeature &&
-                    popup.activeFeature.get('entity') &&
-                    popup.activeFeature
-                      .get('entity')
-                      .includes(selectedCoorpNetworkEntity) &&
+          <v-container
+            class="pb-5 mb-3"
+            v-if="!iframeUrl && popup.selectedCorpNetworkLayer"
+          >
+            <div
+              v-for="(feature,
+              index) in popup.selectedCorpNetworkLayer
+                .getSource()
+                .getFeatures()"
+              :key="index"
+              class="my-3"
+              @mouseover="mouseOver(feature)"
+              @mouseout="mouseOut()"
+            >
+              <div
+                class="body-2 my-1"
+                v-for="item in formatPopupRows(feature, popup.exludedProps)"
+                :key="item.property"
+              >
+                <span
+                  v-if="
                     !popup.hiddenProps.includes(item.property) &&
-                    !['null', '---'].includes(item.value)
-                "
-                v-html="
-                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
-                "
-              ></span>
+                      !['null', '---'].includes(item.value)
+                  "
+                  v-html="
+                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                  "
+                ></span>
+              </div>
+              <v-divider></v-divider>
             </div>
           </v-container>
         </vue-scroll>
@@ -168,6 +182,7 @@ import { mapFields } from 'vuex-map-fields';
 import UrlUtil from '../../utils/Url';
 import { SharedMethods } from '../../mixins/SharedMethods';
 import { EventBus } from '../../EventBus';
+import { formatPopupRows, getIframeUrl } from '../../utils/Layer';
 
 export default {
   mixins: [SharedMethods],
@@ -184,14 +199,17 @@ export default {
       return visibleGroup;
     },
     iframeUrl() {
-      return this.$appConfig.map.corporateEntitiesUrls[
+      return getIframeUrl(
+        this.splittedEntities,
+        this.$appConfig.map.corporateEntitiesUrls,
         this.selectedCoorpNetworkEntity
-      ];
+      );
     },
     ...mapGetters('map', {
       map: 'map',
       activeLayerGroup: 'activeLayerGroup',
-      popupInfo: 'popupInfo'
+      popupInfo: 'popupInfo',
+      splittedEntities: 'splittedEntities'
     }),
     ...mapFields('map', {
       popup: 'popup',
@@ -199,12 +217,14 @@ export default {
     })
   },
   methods: {
+    formatPopupRows,
     parseUrl(url) {
       return UrlUtil.parseUrl(url);
     },
     closePopupInfo() {
       EventBus.$emit('closePopupInfo');
       this.popup.highlightLayer.getSource().clear();
+      this.popup.selectedCorpNetworkLayer.getSource().clear();
       this.popup.worldExtentLayer.getSource().clear();
     },
     findCoorporateNetwork() {
@@ -214,6 +234,15 @@ export default {
       this.closePopupInfo();
       this.selectedCoorpNetworkEntity = null;
       this.isIframeLoading = true;
+    },
+    mouseOver(feature) {
+      this.popup.highlightLayer.getSource().clear();
+      const clonedFeature = feature.clone();
+      clonedFeature.setStyle(null);
+      this.popup.highlightLayer.getSource().addFeature(clonedFeature);
+    },
+    mouseOut() {
+      this.popup.highlightLayer.getSource().clear();
     }
   }
 };
