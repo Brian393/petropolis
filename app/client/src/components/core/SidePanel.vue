@@ -205,6 +205,7 @@ export default {
     closePopupInfo() {
       EventBus.$emit('closePopupInfo');
       this.popup.highlightLayer.getSource().clear();
+      this.popup.worldExtentLayer.getSource().clear();
     },
     findCoorporateNetwork() {
       EventBus.$emit('findCoorporateNetwork');
