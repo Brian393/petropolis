@@ -682,7 +682,8 @@ export default {
             return;
           }
 
-          this.popup.activeFeature = feature.clone();
+          this.popup.activeFeature = feature.clone ? feature.clone() : feature
+
           if (
             this.selectedCoorpNetworkEntity &&
             this.popup.activeFeature &&
