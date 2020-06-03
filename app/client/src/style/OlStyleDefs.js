@@ -36,7 +36,7 @@ export function popupInfoStyle() {
   // MAJK: PopupInfo layer style (used for highlight)
   let strokeColor = 'rgba(236, 236, 236, 0.7)';
   let fillColor = 'rgba(255,0,0, 0.2)';
-  let imageColor = '#ff0000';
+  let imageColor = 'blue';
   let zIndex = 100;
 
   const styleFunction = () => {
@@ -75,7 +75,7 @@ export function popupInfoStyle() {
 }
 
 /**
- * Style used for coorporate overlay highlight
+ * Style used for corporate overlay highlight
  */
 
 export function worldOverlayFill() {
@@ -84,7 +84,7 @@ export function worldOverlayFill() {
     styles.push(
       new OlStyle({
         fill: new OlFill({
-          color: 'rgba(236, 236, 236, 0.85)'
+          color: 'rgba(236, 236, 236, 0.75)'
         }),
         zIndex: 300
       })
@@ -196,7 +196,7 @@ export const layersStylePropFn = {
   },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue);
+      return Math.sqrt(propertyValue) * 0.7;
     }
   },
   GiantOilFields: {

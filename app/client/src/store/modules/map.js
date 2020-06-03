@@ -38,7 +38,7 @@ const state = {
   layers: {}, // Only for operational layers
   activeLayerGroup: null,
   gasFieldEntitiesColors: {}, // Fetched from geoserver
-  geoserverLayerNames: null, // Created when user clicks coorporate network,
+  geoserverLayerNames: null, // Created when user clicks corporate network,
   layersWithEntityField: null, // Fetched from Geoserver on load
   selectedCoorpNetworkEntity: null // Selected entity
 };

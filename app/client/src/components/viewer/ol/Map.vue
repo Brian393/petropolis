@@ -76,7 +76,7 @@
                       popup.activeFeature.get('entity').includes(substring)
                     ))
               "
-              @click="queryCoorporateNetwork"
+              @click="queryCorporateNetwork"
               href="javascript:void(0)"
               class="ml-2"
             >
@@ -175,7 +175,7 @@ export default {
       spotlightMessage: false,
       lightBoxImages: [],
       progressLoading: {
-        message: 'Fetching Coorporate Network',
+        message: 'Fetching Corporate Network',
         progressColor: '#DC143C',
         value: false
       }
@@ -201,8 +201,8 @@ export default {
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
-    // Capture the event 'findCoorporateNetwork' emitted from sidepanel
-    EventBus.$on('findCoorporateNetwork', me.queryCoorporateNetwork);
+    // Capture the event 'findCorporateNetwork' emitted from sidepanel
+    EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
     // resize the map, so it fits to parent
@@ -222,7 +222,7 @@ export default {
       // Fetch gas pipes entities for styling
       me.fetchGasPipesEntities();
       // Remove layers with no entity property as it will
-      // not work with Coorporate Networks. (A describe fetaure type )
+      // not work with Corporate Networks. (A describe fetaure type )
       // for every layer is needed.
       me.fetchDescribeFeatureTypes();
     }, 200);
@@ -463,7 +463,7 @@ export default {
         me.popup.isVisible = false;
       }
 
-      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      // Clear highligh feature (Don't clear if a corporate network entity is selected)
       if (me.popup.highlightLayer) {
         this.popup.highlightLayer.getSource().clear();
       }
@@ -480,7 +480,7 @@ export default {
      * Show getInfo popup.
      */
     showPopup(clickCoord) {
-      // Clear highligh feature (Don't clear if a coorporate network entity is selected)
+      // Clear highligh feature (Don't clear if a corporate network entity is selected)
       if (!this.selectedCoorpNetworkEntity) {
         this.popup.highlightLayer.getSource().clear();
       }
@@ -521,7 +521,7 @@ export default {
       } else {
         // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
-          padding: [10, 10, 10, 10],
+          padding: [100, 100, 100, 100],
           duration: 800
         });
 
@@ -747,7 +747,7 @@ export default {
       }
       ctx.clip();
     },
-    queryCoorporateNetwork() {
+    queryCorporateNetwork() {
       const entity = this.popup.activeFeature.get('entity');
       if (!entity) return;
       this.selectedCoorpNetworkEntity = entity;

@@ -49,14 +49,14 @@
               <v-layout>
                 <v-spacer></v-spacer>
                 <v-btn
-                  @click="findCoorporateNetwork"
+                  @click="findCorporateNetwork"
                   text
                   small
                   class="mb-2 mt-1 mr-2"
                   v-if="popup.activeFeature.get('entity')"
                 >
                   <v-icon small class="mr-1">public</v-icon>
-                  Coorporate Network
+                  Corporate Network
                 </v-btn>
                 <v-btn @click="closePopupInfo" text small class="mb-2 mt-1">
                   <v-icon small class="mr-1">close</v-icon>
@@ -227,8 +227,8 @@ export default {
       this.popup.selectedCorpNetworkLayer.getSource().clear();
       this.popup.worldExtentLayer.getSource().clear();
     },
-    findCoorporateNetwork() {
-      EventBus.$emit('findCoorporateNetwork');
+    findCorporateNetwork() {
+      EventBus.$emit('findCorporateNetwork');
     },
     closeCorpNetworkSelection() {
       this.closePopupInfo();

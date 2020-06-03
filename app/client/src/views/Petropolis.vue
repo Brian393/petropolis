@@ -20,10 +20,10 @@
         @click="goToHome()"
         flat
         class="logo headline font-weight-bold black--text"
-        >PETROPOLIS</v-toolbar-title
+        >Time to Change</v-toolbar-title
       >
       <v-spacer></v-spacer>
-      <span class="title pr-5">it's all fossil fuels</span>
+      <span class="title pr-5">before it's too late</span>
 
       <v-btn icon @click.stop="drawer = !drawer"
         ><v-icon medium>{{ drawer ? '$close' : '$menu' }}</v-icon></v-btn

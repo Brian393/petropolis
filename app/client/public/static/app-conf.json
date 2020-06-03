@@ -52,6 +52,26 @@
       },
       {
         "type": "VECTOR",
+        "name": "world_borders",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:world_borders&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": false,
+        "displayInLegend": false,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": -10,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "displayInLayerList": false,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 0.7
+        }
+      },
+      {
+        "type": "VECTOR",
         "name": "CancelledOilLines",
         "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -112,8 +132,8 @@
       },
       {
         "type": "VECTOR",
-        "name": "CanadianPipes",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:canadian_pipes&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "all_pipes",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -126,7 +146,7 @@
         "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
-          "strokeWidth": 3
+          "strokeWidth": 4
         }
       },
       {
@@ -164,7 +184,7 @@
         "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
-          "strokeWidth": 8.5
+          "strokeWidth": 6.5
         }
       },
       {
@@ -183,7 +203,7 @@
         "displayInLayerList": true,
         "style": {
           "strokeColor": "#fb5c04",
-          "strokeWidth": 3.5
+          "strokeWidth": 3
         }
       },
       {
@@ -236,7 +256,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 4,
-        "maxResolution": 2000,
+        "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
         "displayInLayerList": true,
@@ -280,12 +300,13 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/terminal.png"
+          "iconUrl": "icons/terminal.png",
+          "scale": 0.6
         }
       },
       {
@@ -325,6 +346,26 @@
         "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "US_Refineries4",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 2445.98,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/Refinery1.png",
+          "scale": 1.1
         }
       },
       {
@@ -410,6 +451,17 @@
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
         "minResolution": 0.25,
         "maxResolution": 200,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "Toner-Lite2",
+        "group": "petropolisOil",
+        "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
+        "minResolution": 152.87,
+        "maxResolution": 1222.99,
         "queryable": false,
         "visible": true,
         "displayInLayerList": true
@@ -550,7 +602,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/Refinery4.png"
+          "iconUrl": "icons/Refinery3.png"
         }
       },
       {
@@ -624,6 +676,21 @@
         "displayInLegend": true,
         "format": "MVT",
         "visible": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "styleRef": "gasePipeStyle"
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "GasPipes2",
+        "url": "http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "minResolution": 1,
+        "maxResolution": 400,
         "hoverable": true,
         "displayInLayerList": true,
         "styleRef": "gasePipeStyle"
@@ -917,6 +984,28 @@
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(255, 255, 255, 0.6)",
+          "strokeWidth": 1
+        }
+      },
+
+      {
+        "type": "VECTOR",
+        "name": "NA-RR3",
+        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "showZoomToFeature": false,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 16,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(0, 0, 0, 0.4)",
           "strokeWidth": 1
         }
       },
@@ -1222,6 +1311,30 @@
       },
       {
         "type": "XYZ",
+        "name": "ESRI-World-Street-Map1",
+        "group": "backgroundLayers",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png",
+        "minResolution": 0.25,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Street-Map2",
+        "group": "backgroundLayers",
+        "url": "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=09lXrACY6LCLwJtKXOsl",
+        "minResolution": 0.25,
+        "maxResolution": 152.87,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true,
+        "updatewhileanimating": true
+      },
+      {
+        "type": "XYZ",
         "name": "ESRI-World-Reference-1",
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
@@ -1237,7 +1350,7 @@
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 200,
-        "maxResolution": 32000,
+        "maxResolution": 200,
         "queryable": false,
         "visible": true,
         "displayInLayerList": true
@@ -1289,23 +1402,26 @@
         "attributions": "© <a href='https://www.openstreetmap.org/copyright'> OpenStreetMap </a> contributors "
       }
     ],
+
     "groups": {
       "oil": {
         "default": {
           "layers": [
-            "ESRI-World-Imagery",
+            "Toner-Lite2",
+            "ESRI-World-Street-Map2",
+            "world_borders",
             "NorAm",
-            "ESRI-World-Reference-1",
+            "ESRI-World-Imagery",
+            "Spills_20yrs",
             "CancelledOilLines",
-            "OilPipes1",
-            "OilPipes2",
-            "CanadianPipes",
-            "ContestedOilLines1",
+            "all_pipes",
             "ContestedOilLines2",
-            "ContestedOilLines3"
+            "ContestedOilLines3",
+            "Terminals",
+            "US_Refineries4"
           ],
-          "center": [-99, 42.9],
-          "resolution": 9000,
+          "center": [-101, 42.0],
+          "resolution": 8500,
           "minResolution": 0.5,
           "maxResolution": 32000,
           "sidePanel": {
@@ -1322,9 +1438,7 @@
             "NA-RR1",
             "Terminals",
             "CancelledOilLines",
-            "OilPipes1",
-            "OilPipes2",
-            "CanadianPipes",
+            "all_pipes",
             "ContestedOilLines2",
             "ContestedOilLines3",
             "GlobalPipelines",
@@ -1349,12 +1463,11 @@
             "ESRI-World-Terrain",
             "ESRI-World-Reference-2",
             "Toner-Lite",
-            "BING-Layer",
             "ESRI-World-Imagery",
             "OilPipes1",
             "OilPipes2",
             "GiantOilFields",
-            "CanadianPipes",
+            "all_pipes",
             "ContestedOilLines4",
             "ContestedOilLines5",
             "GlobalPipelines",
@@ -1510,7 +1623,7 @@
      "default": {
        "title": "NAME",
        "entity": "OWNER"
-     } 
+     }
     },
     "corporateEntitiesUrls": {
       "Enbridge": "http://its.timetochange.today/Enbridge/"
