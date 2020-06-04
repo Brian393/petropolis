@@ -15,16 +15,16 @@ const routes = [
     props: { fuelGroup: 'oil', region: 'default' }
   },
   {
-    path: '/petropolis/oil/industry',
-    name: 'petropolisOilIndustry',
+    path: '/petropolis/oil/local',
+    name: 'petropolisOilLocal',
     component: Petropolis,
-    props: { fuelGroup: 'oil', region: 'industry' }
+    props: { fuelGroup: 'oil', region: 'local' }
   },
   {
-    path: '/petropolis/oil/world',
-    name: 'petropolisOilWorld',
+    path: '/petropolis/oil/global',
+    name: 'petropolisOilGlobal',
     component: Petropolis,
-    props: { fuelGroup: 'oil', region: 'world' }
+    props: { fuelGroup: 'oil', region: 'global' }
   },
   {
     path: '/petropolis/coal',
@@ -33,16 +33,16 @@ const routes = [
     props: { fuelGroup: 'coal', region: 'default' }
   },
   {
-    path: '/petropolis/coal/industry',
-    name: 'petropolisCoalIndustry',
+    path: '/petropolis/coal/local',
+    name: 'petropolisCoalLocal',
     component: Petropolis,
-    props: { fuelGroup: 'coal', region: 'industry' }
+    props: { fuelGroup: 'coal', region: 'local' }
   },
   {
-    path: '/petropolis/coal/world',
-    name: 'petropolisCoalWorld',
+    path: '/petropolis/coal/global',
+    name: 'petropolisCoalGlobal',
     component: Petropolis,
-    props: { fuelGroup: 'coal', region: 'world' }
+    props: { fuelGroup: 'coal', region: 'global' }
   },
   {
     path: '/petropolis/gas',
@@ -51,16 +51,16 @@ const routes = [
     props: { fuelGroup: 'gas', region: 'default' }
   },
   {
-    path: '/petropolis/gas/industry',
-    name: 'petropolisGasIndustry',
+    path: '/petropolis/gas/local',
+    name: 'petropolisGasLocal',
     component: Petropolis,
-    props: { fuelGroup: 'gas', region: 'industry' }
+    props: { fuelGroup: 'gas', region: 'local' }
   },
   {
-    path: '/petropolis/gas/world',
-    name: 'petropolisGasWorld',
+    path: '/petropolis/gas/global',
+    name: 'petropolisGasGlobal',
     component: Petropolis,
-    props: { fuelGroup: 'gas', region: 'world' }
+    props: { fuelGroup: 'gas', region: 'global' }
   }
 ];
 

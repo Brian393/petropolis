@@ -227,7 +227,7 @@ export default {
       // not work with Corporate Networks. (A describe fetaure type )
       // for every layer is needed.
       me.fetchDescribeFeatureTypes();
-      if (this.activeLayerGroup.region === 'industry') {
+      if (this.activeLayerGroup.region === 'local') {
         EventBus.$emit('zoomToLocation');
       }
     }, 200);

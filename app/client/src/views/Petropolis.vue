@@ -71,7 +71,7 @@ export default {
       this.$router.push({ name: 'petropolisOil' });
     },
     zoomToLocation() {
-      if (this.region === 'industry') {
+      if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
       }
     },

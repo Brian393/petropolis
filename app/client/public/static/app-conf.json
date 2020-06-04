@@ -1430,7 +1430,7 @@
             "bodyText": "This map is full of information. Click on any pipeline for a popup with the details. At the bottom of the popup, 'View Whole Feature' allows you to isolate a single line. If you want to move to your own location, click the little blue button at the upper left corner of the screen, beneath the +/- zoom controls. When you go in closer, names and locations appear. <br /> <br />For a more complete look at the US petroleum complex, hit the 'Industry' button at bottom center. There you will find the larger systems that the pipeliness feed. For the full extent of oil-processing technologies, click 'World'. <br /> <br />Additional maps of coal and natural gas installations are accessed with the buttons at lower left. These maps are also divided into functional diagrams, full-industry coverage and global extent. The idea is to show both the logical structure and the material reality of fossil-fuel technologies. Their deployment spans the world. As it stands today, everywhere is Petropolis."
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-World-Street-Map",
             "ESRI-World-Imagery",
@@ -1458,7 +1458,7 @@
             "bodyText": "For information, click on any line or marker. The locations of most pipelines are approximate, but other features such as refineries are quite accurate. When you click on the icons, a popup appears. If you hit 'Dive,' the map will plunge downward while a spotlight opens up, displaying aerial imagery to let you see exactly what's on the ground. You can control the size of the spotlight, or get rid of it entirely, by using the up/down arrows on your computer keyboard. <br /> <br /> The buried infrastructure of Petropolis was long in the making. Once you know how the energy system works, you can start imagining another one."
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "ESRI-World-Terrain",
             "ESRI-World-Reference-2",
@@ -1516,7 +1516,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-Delorme-World-BaseMap",
             "ESRI-World-Imagery",
@@ -1537,7 +1537,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "MapSurfer-Roads",
             "ESRI-World-Imagery",
@@ -1577,7 +1577,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-World-Street-Map",
             "ESRI-World-Imagery",
@@ -1596,7 +1596,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "Citylights-2012",
             "Base-Midnight",

@@ -68,11 +68,11 @@ export default {
       ],
       regions: [
         {
-          name: 'industry',
+          name: 'local',
           title: 'Local'
         },
         {
-          name: 'world',
+          name: 'global',
           title: 'Global'
         }
       ]
@@ -87,7 +87,7 @@ export default {
       this.$router.push({
         path: `/petropolis/${this.activeLayerGroup.fuelGroup}/${region.name}`
       });
-      if (region.name === 'industry') {
+      if (region.name === 'local') {
         EventBus.$emit('zoomToLocation');
       }
     }
