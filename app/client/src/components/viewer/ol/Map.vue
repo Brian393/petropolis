@@ -201,10 +201,12 @@ export default {
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
+
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
+
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -225,6 +227,9 @@ export default {
       // not work with Corporate Networks. (A describe fetaure type )
       // for every layer is needed.
       me.fetchDescribeFeatureTypes();
+      if (this.activeLayerGroup.region === 'industry') {
+        EventBus.$emit('zoomToLocation');
+      }
     }, 200);
   },
   created() {
@@ -684,7 +689,7 @@ export default {
             return;
           }
 
-          this.popup.activeFeature = feature.clone ? feature.clone() : feature
+          this.popup.activeFeature = feature.clone ? feature.clone() : feature;
 
           if (
             this.selectedCoorpNetworkEntity &&

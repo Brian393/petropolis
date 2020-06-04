@@ -30,6 +30,9 @@ import VectorLayer from 'ol/layer/Vector';
 
 import ConfirmDialog from '../../../core/ConfirmDialog';
 
+// import the app-wide EventBus
+import { EventBus } from '../../../../EventBus';
+
 export default {
   props: {
     map: { type: Object, required: true }
@@ -117,6 +120,7 @@ export default {
           }
         });
     }
+    EventBus.$on('zoomToLocation', this.handleZoomToMe);
   }
 };
 </script>
