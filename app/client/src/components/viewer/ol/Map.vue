@@ -657,8 +657,10 @@ export default {
             return;
           }
           // Check if feature has lightbox array of images
-          if (Array.isArray(props.lightbox)) {
-            props.lightbox.forEach(image => {
+          if (props.lightbox) {
+            const images = JSON.parse(props.lightbox);
+            if (!Array.isArray(images)) return;
+            images.forEach(image => {
               let imageUrl;
               let caption = '';
               if (typeof image === 'object') {
