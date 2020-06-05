@@ -822,7 +822,7 @@ export default {
       const workspace = 'petropolis';
       if (!geoserverLayerNames[workspace]) return;
       http
-        .get('http://209.126.13.2/geoserver/wfs', {
+        .get('https://timetochange.today/geoserver/wfs', {
           params: {
             service: 'WFS',
             version: ' 2.0.0',
