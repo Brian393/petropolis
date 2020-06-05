@@ -115,7 +115,7 @@ import { EventBus } from '../../../EventBus';
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
-import { extractGeoserverLayerNames, getIframeUrl } from '../../../utils/Layer';
+import { extractGeoserverLayerNames } from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
 
 //Store imports
@@ -691,15 +691,7 @@ export default {
 
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
 
-          if (
-            this.selectedCoorpNetworkEntity &&
-            this.popup.activeFeature &&
-            getIframeUrl(
-              this.splittedEntities,
-              this.$appConfig.map.corporateEntitiesUrls,
-              this.selectedCoorpNetworkEntity
-            )
-          ) {
+          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
             this.popup.highlightLayer.getSource().clear();
             this.popup.activeFeature.setStyle(null);
             this.popup.highlightLayer
@@ -711,22 +703,6 @@ export default {
             ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
             this.selectedCoorpNetworkEntity
           ) {
-            if (
-              feature &&
-              feature.get('entity') &&
-              this.splittedEntities &&
-              this.splittedEntities.some(substring =>
-                feature.get('entity').includes(substring)
-              ) &&
-              this.selectedCoorpNetworkEntity &&
-              !getIframeUrl(
-                this.splittedEntities,
-                this.$appConfig.map.corporateEntitiesUrls,
-                this.selectedCoorpNetworkEntity
-              )
-            ) {
-              return;
-            }
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
