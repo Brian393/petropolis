@@ -1,0 +1,16 @@
+<layer>
+  <name>global_nat_gas</name>
+  <id>LayerInfoImpl-422aaebf:17237b74700:-50b4</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--4e6ff810:1721fadf845:-8000</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-422aaebf:17237b74700:-50b5</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2020-05-24 21:11:15.216 UTC</dateCreated>
+</layer>

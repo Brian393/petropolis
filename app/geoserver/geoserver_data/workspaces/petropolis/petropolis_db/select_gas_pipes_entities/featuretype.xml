@@ -1,0 +1,58 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-422aaebf:17237b74700:-7ffc</id>
+  <name>select_gas_pipes_entities</name>
+  <nativeName>select_gas_pipes_entities</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--706c15d5:172223e9b84:-7ffb</id>
+  </namespace>
+  <title>select_gas_pipes_entities</title>
+  <keywords>
+    <string>features</string>
+    <string>select_distinct</string>
+  </keywords>
+  <srs>EPSG:404000</srs>
+  <nativeBoundingBox>
+    <minx>-1.0</minx>
+    <maxx>0.0</maxx>
+    <miny>-1.0</miny>
+    <maxy>0.0</maxy>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>-1.0</minx>
+    <maxx>0.0</maxx>
+    <miny>-1.0</miny>
+    <maxy>0.0</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="JDBC_VIRTUAL_TABLE">
+      <virtualTable>
+        <name>select_gas_pipes_entities</name>
+        <sql>SELECT DISTINCT &quot;Operator&quot; FROM gas_pipes
+</sql>
+        <escapeSql>false</escapeSql>
+        <parameter>
+          <name>field</name>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>table</name>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+      </virtualTable>
+    </entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--706c15d5:172223e9b84:-7ffa</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

@@ -1,0 +1,13 @@
+<layer>
+  <name>select_gas_pipes_entities</name>
+  <id>LayerInfoImpl-422aaebf:17237b74700:-7ffb</id>
+  <type>VECTOR</type>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-422aaebf:17237b74700:-7ffc</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2020-05-23 17:08:19.869 UTC</dateCreated>
+</layer>

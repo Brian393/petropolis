@@ -1,0 +1,50 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-422aaebf:17237b74700:-50c1</id>
+  <name>cancelled_oil_lines</name>
+  <nativeName>cancelled_oil_lines</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--706c15d5:172223e9b84:-7ffb</id>
+  </namespace>
+  <title>cancelled_oil_lines</title>
+  <keywords>
+    <string>features</string>
+    <string>cancelled_oil_lines</string>
+  </keywords>
+  <nativeCRS>GEOGCS[&quot;WGS 84&quot;, 
+  DATUM[&quot;World Geodetic System 1984&quot;, 
+    SPHEROID[&quot;WGS 84&quot;, 6378137.0, 298.257223563, AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</nativeCRS>
+  <srs>EPSG:4326</srs>
+  <nativeBoundingBox>
+    <minx>-128.802001953125</minx>
+    <maxx>-65.7439956665039</maxx>
+    <miny>27.8549995422363</miny>
+    <maxy>54.9120025634766</maxy>
+    <crs>EPSG:4326</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>-128.802001953125</minx>
+    <maxx>-65.7439956665039</maxx>
+    <miny>27.8549995422363</miny>
+    <maxy>54.9120025634766</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--706c15d5:172223e9b84:-7ffa</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

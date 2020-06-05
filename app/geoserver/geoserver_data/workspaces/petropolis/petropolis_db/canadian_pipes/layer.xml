@@ -1,0 +1,16 @@
+<layer>
+  <name>canadian_pipes</name>
+  <id>LayerInfoImpl-422aaebf:17237b74700:-50c2</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--4e6ff810:1721fadf845:-7fff</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-422aaebf:17237b74700:-50c3</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2020-05-24 20:15:17.901 UTC</dateCreated>
+</layer>
