@@ -8,3 +8,6 @@ dist
 /app/geoserver/**/*.pbf
 /.vscode
 /app/backups
+/app/config/ssl/certbot
+/app/wp/wp-app
+/app/wp/wp-data
