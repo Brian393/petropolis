@@ -11,3 +11,5 @@ dist
 /app/config/ssl/certbot
 /app/wp/wp-app
 /app/wp/wp-data
+/app/config/docker-env
+/app/geoserver/*
