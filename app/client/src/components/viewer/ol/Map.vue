@@ -557,21 +557,55 @@ export default {
      * Map pointer move event .
      */
     setupMapPointerMove() {
+      let overlayEl;
+      // create a span to show map tooltip
+      overlayEl = document.createElement('div');
+      overlayEl.className = 'tooltip';
+      this.overlayEl = overlayEl;
+      // wrap the tooltip span in a OL overlay and add it to map
+      this.overlay = new Overlay({
+        element: overlayEl,
+        offset: [22, 12],
+        positioning: 'center-left',
+        stopEvent: true,
+        insertFirst: false
+      });
+      this.map.addOverlay(this.overlay);
+
       this.mapPointerMoveListenerKey = this.map.on('pointermove', evt => {
         if (evt.dragging || this.activeInteractions.length > 0) {
           return;
         }
-        const features = this.map.getFeaturesAtPixel(evt.pixel, {
-          layerFilter: candidate => {
-            if (candidate.get('isInteractive') === false) {
-              return false;
-            }
-            return true;
-          }
-        });
 
-        this.map.getTarget().style.cursor =
-          features.length > 0 ? 'pointer' : '';
+        let feature, layer;
+        this.map.forEachFeatureAtPixel(
+          evt.pixel,
+          (f, l) => {
+            // Order of features is based is based on zIndex.
+            // First feature is on top, last feature is on bottom.
+            if (!feature && l.get('isInteractive') !== false) {
+              feature = f;
+              layer = l;
+            }
+          },
+          {
+            hitTolerance: 3
+          }
+        );
+
+        this.map.getTarget().style.cursor = feature ? 'pointer' : '';
+
+        if (!feature || !layer.get('hoverable')) {
+          overlayEl.innerHTML = null;
+          this.overlay.setPosition(undefined);
+        } else {
+          if (!feature) return;
+          if (this.popup.activeFeature && this.popup.activeFeature.getId() === `clone.${feature.getId()}`) return;
+          const attr = feature.get('hoverAttribute') || feature.get('entity') || feature.get('NAME');
+          if (!attr) return;
+          overlayEl.innerHTML = attr;
+          this.overlay.setPosition(evt.coordinate);
+        }
 
         this.mousePosition = this.map.getEventPixel(evt.originalEvent);
         this.map.render();
@@ -690,6 +724,10 @@ export default {
           }
 
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
+          // Add id reference
+          if (feature.getId()) {
+            this.popup.activeFeature.setId(`clone.${feature.getId()}`)
+          }
 
           if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
             this.popup.highlightLayer.getSource().clear();
@@ -929,17 +967,29 @@ div.ol-control button {
 }
 
 /* Hover tooltip */
-.wg-hover-tooltiptext {
-  width: 120px;
-  background-color: rgba(211, 211, 211, 0.9);
-  color: #222;
-  text-align: center;
-  padding: 5px;
-  border-radius: 6px;
+.tooltip {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  position: relative;
+  background-color: rgba(140, 140, 140, 0.9);
+  border-radius: 4px;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  opacity: 1;
+  font-weight: bold;
+}
 
-  /* Position the hover tooltip */
+.tooltip:before {
+  border-top: 6px solid rgba(140, 140, 140, 1);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: '';
   position: absolute;
-  z-index: 1;
+  bottom: 40%;
+  margin-left: -8px;
+  left: 0%;
+  transform: rotate(90deg);
 }
 
 .ol-attribution ul {
