@@ -366,6 +366,7 @@ export default {
         name: 'Corporate Selected Network Layer',
         displayInLayerList: false,
         zIndex: 2500,
+        hoverable: true,
         source: source,
         style: popupInfoStyle()
       });
@@ -383,6 +384,7 @@ export default {
         renderMode: 'vector',
         source: source,
         zIndex: 100,
+        hoverable: true,
         style: feature => {
           if (
             this.popup.activeFeature &&
