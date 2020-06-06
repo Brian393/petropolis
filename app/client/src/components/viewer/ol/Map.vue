@@ -107,7 +107,11 @@ import { fromLonLat } from 'ol/proj';
 import { extend } from 'ol/extent';
 
 // style imports
-import { popupInfoStyle, worldOverlayFill } from '../../../style/OlStyleDefs';
+import {
+  popupInfoStyle,
+  networkCorpHighlightStyle,
+  worldOverlayFill
+} from '../../../style/OlStyleDefs';
 
 // import the app-wide EventBus
 import { EventBus } from '../../../EventBus';
@@ -368,7 +372,7 @@ export default {
         zIndex: 2500,
         hoverable: true,
         source: source,
-        style: popupInfoStyle()
+        style: networkCorpHighlightStyle()
       });
       this.popup.selectedCorpNetworkLayer = vector;
       this.map.addLayer(vector);
@@ -479,7 +483,9 @@ export default {
       }
 
       me.popup.activeFeature = null;
-      me.popup.activeLayer = null;
+      if (!this.selectedCoorpNetworkEntity) {
+        me.popup.activeLayer = null;
+      }
       me.popup.showInSidePanel = false;
     },
 
@@ -602,9 +608,29 @@ export default {
           this.overlay.setPosition(undefined);
         } else {
           if (!feature) return;
-          if (this.popup.activeFeature && this.popup.activeFeature.getId() === `clone.${feature.getId()}`) return;
-          const attr = feature.get('hoverAttribute') || feature.get('entity') || feature.get('NAME');
+          if (
+            this.popup.activeFeature &&
+            this.popup.activeFeature.getId() === `clone.${feature.getId()}`
+          )
+            return;
+          const attr =
+            feature.get('hoverAttribute') ||
+            feature.get('entity') ||
+            feature.get('NAME');
           if (!attr) return;
+
+          if (
+            (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
+            (feature.get('entity') &&
+              this.selectedCoorpNetworkEntity &&
+              this.splittedEntities &&
+              !this.splittedEntities.some(substring =>
+                feature.get('entity').includes(substring)
+              ))
+          ) {
+            return;
+          }
+
           overlayEl.innerHTML = attr;
           this.overlay.setPosition(evt.coordinate);
         }
@@ -728,7 +754,7 @@ export default {
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
           // Add id reference
           if (feature.getId()) {
-            this.popup.activeFeature.setId(`clone.${feature.getId()}`)
+            this.popup.activeFeature.setId(`clone.${feature.getId()}`);
           }
 
           if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
@@ -794,7 +820,9 @@ export default {
                   )
                 ) {
                   const clonedFeature = feature.clone();
-                  clonedFeature.setStyle(layer.getStyle());
+                  if (clonedFeature.getGeometry().getType() === 'Point') {
+                    clonedFeature.setStyle(layer.getStyle());
+                  }
                   olFeatures.push(clonedFeature);
                 }
               });

@@ -4,6 +4,12 @@ import OlFill from 'ol/style/Fill';
 import OlCircle from 'ol/style/Circle';
 import store from '../store/modules/map';
 
+
+let strokeColor = 'rgba(236, 236, 236, 0.7)';
+let fillColor = 'rgba(255,0,0, 0.2)';
+let imageColor = 'blue';
+let zIndex = 100;
+
 export function defaultStyle(feature) {
   const geomType = feature.getGeometry().getType();
   const style = new OlStyle({
@@ -34,11 +40,6 @@ export function defaultStyle(feature) {
 
 export function popupInfoStyle() {
   // MAJK: PopupInfo layer style (used for highlight)
-  let strokeColor = 'rgba(236, 236, 236, 0.7)';
-  let fillColor = 'rgba(255,0,0, 0.2)';
-  let imageColor = 'blue';
-  let zIndex = 100;
-
   const styleFunction = () => {
     const styles = [];
     styles.push(
@@ -66,6 +67,33 @@ export function popupInfoStyle() {
           })
         }),
         zIndex: zIndex
+      })
+    );
+
+    return styles;
+  };
+  return styleFunction;
+}
+
+
+export function networkCorpHighlightStyle() {
+  const styleFunction = () => {
+    const styles = [];
+    styles.push(
+      new OlStyle({
+        fill: new OlFill({
+          color: fillColor
+        }),
+        stroke: new OlStroke({
+          color: imageColor,
+          width: 4
+        }),
+        image: new OlCircle({
+          radius: 7,
+          fill: new OlFill({
+            color: imageColor
+          })
+        }),
       })
     );
 
