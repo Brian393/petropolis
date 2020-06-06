@@ -115,7 +115,7 @@ import { EventBus } from '../../../EventBus';
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
-import { extractGeoserverLayerNames, getIframeUrl } from '../../../utils/Layer';
+import { extractGeoserverLayerNames } from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
 
 //Store imports
@@ -201,10 +201,12 @@ export default {
     Vue.prototype.$map = me.map;
     // Send the event 'ol-map-mounted' with the OL map as payload
     EventBus.$emit('ol-map-mounted', me.map);
+
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
+
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -225,6 +227,9 @@ export default {
       // not work with Corporate Networks. (A describe fetaure type )
       // for every layer is needed.
       me.fetchDescribeFeatureTypes();
+      if (this.activeLayerGroup.region === 'local') {
+        EventBus.$emit('zoomToLocation');
+      }
     }, 200);
   },
   created() {
@@ -361,6 +366,7 @@ export default {
         name: 'Corporate Selected Network Layer',
         displayInLayerList: false,
         zIndex: 2500,
+        hoverable: true,
         source: source,
         style: popupInfoStyle()
       });
@@ -378,6 +384,7 @@ export default {
         renderMode: 'vector',
         source: source,
         zIndex: 100,
+        hoverable: true,
         style: feature => {
           if (
             this.popup.activeFeature &&
@@ -552,21 +559,55 @@ export default {
      * Map pointer move event .
      */
     setupMapPointerMove() {
+      let overlayEl;
+      // create a span to show map tooltip
+      overlayEl = document.createElement('div');
+      overlayEl.className = 'tooltip';
+      this.overlayEl = overlayEl;
+      // wrap the tooltip span in a OL overlay and add it to map
+      this.overlay = new Overlay({
+        element: overlayEl,
+        offset: [22, 12],
+        positioning: 'center-left',
+        stopEvent: true,
+        insertFirst: false
+      });
+      this.map.addOverlay(this.overlay);
+
       this.mapPointerMoveListenerKey = this.map.on('pointermove', evt => {
         if (evt.dragging || this.activeInteractions.length > 0) {
           return;
         }
-        const features = this.map.getFeaturesAtPixel(evt.pixel, {
-          layerFilter: candidate => {
-            if (candidate.get('isInteractive') === false) {
-              return false;
-            }
-            return true;
-          }
-        });
 
-        this.map.getTarget().style.cursor =
-          features.length > 0 ? 'pointer' : '';
+        let feature, layer;
+        this.map.forEachFeatureAtPixel(
+          evt.pixel,
+          (f, l) => {
+            // Order of features is based is based on zIndex.
+            // First feature is on top, last feature is on bottom.
+            if (!feature && l.get('isInteractive') !== false) {
+              feature = f;
+              layer = l;
+            }
+          },
+          {
+            hitTolerance: 3
+          }
+        );
+
+        this.map.getTarget().style.cursor = feature ? 'pointer' : '';
+
+        if (!feature || !layer.get('hoverable')) {
+          overlayEl.innerHTML = null;
+          this.overlay.setPosition(undefined);
+        } else {
+          if (!feature) return;
+          if (this.popup.activeFeature && this.popup.activeFeature.getId() === `clone.${feature.getId()}`) return;
+          const attr = feature.get('hoverAttribute') || feature.get('entity') || feature.get('NAME');
+          if (!attr) return;
+          overlayEl.innerHTML = attr;
+          this.overlay.setPosition(evt.coordinate);
+        }
 
         this.mousePosition = this.map.getEventPixel(evt.originalEvent);
         this.map.render();
@@ -657,8 +698,10 @@ export default {
             return;
           }
           // Check if feature has lightbox array of images
-          if (Array.isArray(props.lightbox)) {
-            props.lightbox.forEach(image => {
+          if (props.lightbox) {
+            const images = JSON.parse(props.lightbox);
+            if (!Array.isArray(images)) return;
+            images.forEach(image => {
               let imageUrl;
               let caption = '';
               if (typeof image === 'object') {
@@ -682,17 +725,13 @@ export default {
             return;
           }
 
-          this.popup.activeFeature = feature.clone ? feature.clone() : feature
+          this.popup.activeFeature = feature.clone ? feature.clone() : feature;
+          // Add id reference
+          if (feature.getId()) {
+            this.popup.activeFeature.setId(`clone.${feature.getId()}`)
+          }
 
-          if (
-            this.selectedCoorpNetworkEntity &&
-            this.popup.activeFeature &&
-            getIframeUrl(
-              this.splittedEntities,
-              this.$appConfig.map.corporateEntitiesUrls,
-              this.selectedCoorpNetworkEntity
-            )
-          ) {
+          if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
             this.popup.highlightLayer.getSource().clear();
             this.popup.activeFeature.setStyle(null);
             this.popup.highlightLayer
@@ -704,22 +743,6 @@ export default {
             ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
             this.selectedCoorpNetworkEntity
           ) {
-            if (
-              feature &&
-              feature.get('entity') &&
-              this.splittedEntities &&
-              this.splittedEntities.some(substring =>
-                feature.get('entity').includes(substring)
-              ) &&
-              this.selectedCoorpNetworkEntity &&
-              !getIframeUrl(
-                this.splittedEntities,
-                this.$appConfig.map.corporateEntitiesUrls,
-                this.selectedCoorpNetworkEntity
-              )
-            ) {
-              return;
-            }
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
@@ -815,7 +838,7 @@ export default {
       const workspace = 'petropolis';
       if (!geoserverLayerNames[workspace]) return;
       http
-        .get('http://209.126.13.2/geoserver/wfs', {
+        .get('https://timetochange.today/geoserver/wfs', {
           params: {
             service: 'WFS',
             version: ' 2.0.0',
@@ -946,17 +969,29 @@ div.ol-control button {
 }
 
 /* Hover tooltip */
-.wg-hover-tooltiptext {
-  width: 120px;
-  background-color: rgba(211, 211, 211, 0.9);
-  color: #222;
-  text-align: center;
-  padding: 5px;
-  border-radius: 6px;
+.tooltip {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  position: relative;
+  background-color: rgba(140, 140, 140, 0.9);
+  border-radius: 4px;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  opacity: 1;
+  font-weight: bold;
+}
 
-  /* Position the hover tooltip */
+.tooltip:before {
+  border-top: 6px solid rgba(140, 140, 140, 1);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: '';
   position: absolute;
-  z-index: 1;
+  bottom: 40%;
+  margin-left: -8px;
+  left: 0%;
+  transform: rotate(90deg);
 }
 
 .ol-attribution ul {

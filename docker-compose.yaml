@@ -5,46 +5,58 @@ networks:
 
 volumes:
   postgres_data:
+  wpdb_data:
 
 services:
-  traefik:
-    image: "traefik:1.7.2-alpine"
-    container_name: "traefik"
-    ports:
-      - "80:80" # - Default Port
-      - "443:443" # - SSL Port
-      - "31951:31951" # - Mapproxy
-      - "8000:8000" # - Traefik UI
+
+#-----PROXY-----#
+
+  nginx:
+    container_name: petropolis-nginx
+    image: nginx:alpine
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./app/config/traefik.toml:/etc/traefik/traefik.toml
-      - ./app/config/ssl:/ssl
-    labels:
-      - "traefik.backend=traefik"
-      - "traefik.frontend.entryPoints=traefik-ui"
-      - "traefik.frontend.rule=Host:209.126.13.2;"
-      - "traefik.port=8080"
-      - "traefik.enable=true"
+      - ./app/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app/config/nginx/its.timetochange.today.conf:/etc/nginx/sites-enabled/its.timetochange.today.conf
+      - ./app/config/nginx/timetochange.today.conf:/etc/nginx/sites-enabled/timetochange.today.conf  
+      - ./app/config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./app/config/ssl/certbot/conf:/etc/letsencrypt
+      - ./app/config/ssl/certbot/www:/var/www/certbot
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    command: /bin/sh -c "while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g 'daemon off;'"    
     networks:
       proxy:
+  
+  certbot:
+    container_name: petropolis-certbot
+    image: certbot/certbot
+    volumes:
+      - ./app/config/ssl/certbot/conf:/etc/letsencrypt
+      - ./app/config/ssl/certbot/www:/var/www/certbot
+    restart: unless-stopped
+    entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;"
+    depends_on:
+      - nginx
+    networks:
+      proxy: 
 
-  # client:
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: ./app/client
-  #   image: petropolis-client
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./app/client:/app
-  #   container_name: petropolis-client
-  #   labels:
-  #     - "traefik.backend=client"
-  #     - "traefik.frontend.entryPoints=https,http"
-  #     - "traefik.frontend.rule=Host:209.126.13.2;"
-  #     - "traefik.port=80"
-  #     - "traefik.enable=true"
-  #   networks:
-  #     proxy:
+#-----MAP-----#
+
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./app/client
+    image: petropolis-client
+    volumes:
+      - /app/node_modules
+      - ./app/client:/app
+    container_name: petropolis-client
+    ports:
+      - "3000:80"
+    networks:
+      proxy:
 
   geoserver:
     image: oscarfonts/geoserver:2.17.0
@@ -57,12 +69,8 @@ services:
     restart: on-failure
     depends_on:
       - db
-    labels:
-      - "traefik.backend=geoserver"
-      - "traefik.frontend.entryPoints=https,http"
-      - "traefik.frontend.rule=Host:209.126.13.2;PathPrefix:/geoserver"
-      - "traefik.port=8080"
-      - "traefik.enable=true"
+    ports:
+      - "8080:8080"
     networks:
       proxy:
 
@@ -81,5 +89,65 @@ services:
       - ./app/config/docker-env/db.env
     ports:
       - "65432:5432"
+    networks:
+      proxy:
+
+
+#-----WORDPRESS-----#
+
+  wp:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    container_name: petropolis-wp
+    ports:
+      - 5000:80 # change ip if required
+    volumes:
+      - ./app/config/wp/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./app/wp/wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    env_file:
+      - ./app/config/docker-env/wp.env
+    depends_on:
+      - wpdb
+    networks:
+      proxy:
+
+  wpcli:
+    image: wordpress:cli
+    container_name: petropolis-wpcli
+    volumes:
+      - ./app/config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./app/wp/wp-app:/var/www/html
+    depends_on:
+      - wpdb
+      - wp
+    networks:
+      proxy:
+  
+  wppma:
+    image: phpmyadmin/phpmyadmin
+    container_name: petropolis-wppma
+    env_file:
+      - ./app/config/docker-env/wp.env
+    ports:
+      - 8000:80
+    networks:
+      proxy:
+
+  wpdb:
+    image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    container_name: petropolis-wpdb
+    env_file:
+      - ./app/config/docker-env/wp.env
+    ports:
+      - 3307:3306 # change ip if required
+    command: [
+        '--default_authentication_plugin=mysql_native_password',
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci'
+    ]
+    volumes:
+      - ./app/wp/wp-data:/docker-entrypoint-initdb.d
+      - wpdb_data:/var/lib/mysql
     networks:
       proxy:

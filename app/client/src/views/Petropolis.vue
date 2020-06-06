@@ -66,9 +66,14 @@ export default {
   methods: {
     goToHome() {
       if (this.$router.currentRoute.name === 'petropolisOil') {
-        EventBus.$emit('resetMap')
+        EventBus.$emit('resetMap');
       }
-      this.$router.push({ name: 'petropolisOil' })
+      this.$router.push({ name: 'petropolisOil' });
+    },
+    zoomToLocation() {
+      if (this.region === 'local') {
+        EventBus.$emit('zoomToLocation');
+      }
     },
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
@@ -86,6 +91,7 @@ export default {
         fuelGroup: this.fuelGroup,
         region: this.region
       });
+      this.zoomToLocation();
     }
   },
   mounted() {

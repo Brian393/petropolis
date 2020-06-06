@@ -42,7 +42,7 @@
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -53,7 +53,7 @@
       {
         "type": "VECTOR",
         "name": "world_borders",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:world_borders&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:world_borders&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": false,
         "displayInLegend": false,
@@ -73,7 +73,7 @@
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -95,7 +95,7 @@
       {
         "type": "VECTOR",
         "name": "OilPipes1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_1&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_1&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -114,7 +114,7 @@
       {
         "type": "VECTOR",
         "name": "OilPipes2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_2&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_pipes_2&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -133,7 +133,7 @@
       {
         "type": "VECTOR",
         "name": "all_pipes",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -152,7 +152,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -171,7 +171,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -190,7 +190,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -209,7 +209,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines4",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -228,7 +228,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines5",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -247,7 +247,7 @@
       {
         "type": "VECTOR",
         "name": "Spills_20yrs",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:spills_20yrs&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:spills_20yrs&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -271,7 +271,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -281,7 +281,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 4000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -292,7 +292,7 @@
       {
         "type": "VECTOR",
         "name": "Terminals",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:terminals&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:terminals&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -312,7 +312,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalPipelines",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -332,7 +332,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -351,7 +351,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries4",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -371,7 +371,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -390,7 +390,7 @@
       {
         "type": "VECTOR",
         "name": "CrudeDerailments",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -409,7 +409,7 @@
       {
         "type": "VECTOR",
         "name": "VideoOilIndustry",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_oil_industry&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_oil_industry&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -428,7 +428,7 @@
       {
         "type": "VECTOR",
         "name": "MacLean",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:maclean&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:maclean&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -489,7 +489,7 @@
       {
         "type": "VECTOR",
         "name": "GiantOilFields",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:giant_oil_fields&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:giant_oil_fields&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "showZoomToFeature": false,
@@ -513,7 +513,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines4",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -532,7 +532,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines5",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -551,7 +551,7 @@
       {
         "type": "VECTOR",
         "name": "OilPorts",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_ports&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:oil_ports&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -570,7 +570,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -589,7 +589,7 @@
       {
         "type": "VECTOR",
         "name": "US_Refineries3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -608,7 +608,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -627,7 +627,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalRefineries3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -658,7 +658,7 @@
         "minResolution": 40,
         "maxResolution": 64000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -670,7 +670,7 @@
       {
         "type": "VECTORTILE",
         "name": "GasPipes2",
-        "url": "http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -683,7 +683,7 @@
       {
         "type": "VECTORTILE",
         "name": "GasPipes2",
-        "url": "http://209.126.13.2/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -698,7 +698,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -717,7 +717,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -736,7 +736,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -755,7 +755,7 @@
       {
         "type": "VECTOR",
         "name": "USnatGas4",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -774,7 +774,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -793,7 +793,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -812,7 +812,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -831,7 +831,7 @@
       {
         "type": "VECTOR",
         "name": "GlobalNatGas4",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -850,7 +850,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedGasLines1",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -869,7 +869,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedGasLines2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_gas_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -888,7 +888,7 @@
       {
         "type": "VECTOR",
         "name": "LNGterminals",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -937,7 +937,7 @@
         "minResolution": 0.25,
         "maxResolution": 64000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -949,7 +949,7 @@
       {
         "type": "VECTOR",
         "name": "Global_LNG",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_lng&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_lng&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
@@ -969,7 +969,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR2",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -979,7 +979,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 16000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -991,7 +991,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -1001,7 +1001,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 16000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -1129,7 +1129,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR3",
-        "url": "http://209.126.13.2/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -1139,7 +1139,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 8000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -1430,7 +1430,7 @@
             "bodyText": "This map is full of information. Click on any pipeline for a popup with the details. At the bottom of the popup, 'View Whole Feature' allows you to isolate a single line. If you want to move to your own location, click the little blue button at the upper left corner of the screen, beneath the +/- zoom controls. When you go in closer, names and locations appear. <br /> <br />For a more complete look at the US petroleum complex, hit the 'Industry' button at bottom center. There you will find the larger systems that the pipeliness feed. For the full extent of oil-processing technologies, click 'World'. <br /> <br />Additional maps of coal and natural gas installations are accessed with the buttons at lower left. These maps are also divided into functional diagrams, full-industry coverage and global extent. The idea is to show both the logical structure and the material reality of fossil-fuel technologies. Their deployment spans the world. As it stands today, everywhere is Petropolis."
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-World-Street-Map",
             "ESRI-World-Imagery",
@@ -1458,7 +1458,7 @@
             "bodyText": "For information, click on any line or marker. The locations of most pipelines are approximate, but other features such as refineries are quite accurate. When you click on the icons, a popup appears. If you hit 'Dive,' the map will plunge downward while a spotlight opens up, displaying aerial imagery to let you see exactly what's on the ground. You can control the size of the spotlight, or get rid of it entirely, by using the up/down arrows on your computer keyboard. <br /> <br /> The buried infrastructure of Petropolis was long in the making. Once you know how the energy system works, you can start imagining another one."
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "ESRI-World-Terrain",
             "ESRI-World-Reference-2",
@@ -1516,7 +1516,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-Delorme-World-BaseMap",
             "ESRI-World-Imagery",
@@ -1537,7 +1537,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "MapSurfer-Roads",
             "ESRI-World-Imagery",
@@ -1577,7 +1577,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "industry": {
+        "local": {
           "layers": [
             "ESRI-World-Street-Map",
             "ESRI-World-Imagery",
@@ -1596,7 +1596,7 @@
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
-        "world": {
+        "global": {
           "layers": [
             "Citylights-2012",
             "Base-Midnight",

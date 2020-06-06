@@ -46,6 +46,9 @@
 //Store imports
 import { mapGetters } from 'vuex';
 
+// import the app-wide EventBus
+import { EventBus } from '../../../../EventBus';
+
 export default {
   data() {
     return {
@@ -65,12 +68,12 @@ export default {
       ],
       regions: [
         {
-          name: 'industry',
-          title: 'Industry'
+          name: 'local',
+          title: 'Local'
         },
         {
-          name: 'world',
-          title: 'World'
+          name: 'global',
+          title: 'Global'
         }
       ]
     };
@@ -84,6 +87,9 @@ export default {
       this.$router.push({
         path: `/petropolis/${this.activeLayerGroup.fuelGroup}/${region.name}`
       });
+      if (region.name === 'local') {
+        EventBus.$emit('zoomToLocation');
+      }
     }
   },
   computed: {
