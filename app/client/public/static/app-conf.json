@@ -42,7 +42,7 @@
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -281,7 +281,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 4000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -658,7 +658,7 @@
         "minResolution": 40,
         "maxResolution": 64000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -937,7 +937,7 @@
         "minResolution": 0.25,
         "maxResolution": 64000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -979,7 +979,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 16000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -1001,7 +1001,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 16000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
@@ -1139,7 +1139,7 @@
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 8000,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
