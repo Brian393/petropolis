@@ -402,22 +402,7 @@ export function extractGeoserverLayerNames(map) {
     let url;
     if (type === 'mapLayers') {
       const source = layer.getSource();
-      if (
-        source.getUrl &&
-        source.getUrl() &&
-        typeof source.getUrl() === 'function' &&
-        source.getUrl() !== undefined
-      ) {
-        url = source.getUrl()([0, 0, 0, 0]);
-      } else if (source.getUrls) {
-        if (
-          source.getUrls() &&
-          source.getUrls()[0] !== undefined &&
-          source.getUrls()[0].includes('geoserver')
-        ) {
-          url = source.getUrls()[0];
-        }
-      }
+      url = getLayerSourceUrl(source);
     } else {
       url = layer.url;
     }
@@ -446,6 +431,27 @@ export function extractGeoserverLayerNames(map) {
     }
   });
   return geoserverLayerNames;
+}
+
+export function getLayerSourceUrl(source) {
+  let url
+  if (
+    source.getUrl &&
+    source.getUrl() &&
+    typeof source.getUrl() === 'function' &&
+    source.getUrl() !== undefined
+  ) {
+    url = source.getUrl()([0, 0, 0, 0]);
+  } else if (source.getUrls) {
+    if (
+      source.getUrls() &&
+      source.getUrls()[0] !== undefined &&
+      source.getUrls()[0].includes('geoserver')
+    ) {
+      url = source.getUrls()[0];
+    }
+  }
+  return url
 }
 
 /**
@@ -485,18 +491,22 @@ export function formatPopupRows(feature, excludedProperties) {
 /**
  * The function returns IframeUrl
  */
-export function getIframeUrl(splittedEntities, corporateEntitiesUrls, selectedCoorpNetworkEntity) {
- let url;
- const urls = corporateEntitiesUrls;
- if (urls[selectedCoorpNetworkEntity]) {
-   url = urls[selectedCoorpNetworkEntity];
- } else {
-   const keys = Object.keys(urls);
-   keys.forEach(key => {
-     if (splittedEntities.includes(key) && !url) {
-       url = urls[key];
-     }
-   });
- }
- return url;
+export function getIframeUrl(
+  splittedEntities,
+  corporateEntitiesUrls,
+  selectedCoorpNetworkEntity
+) {
+  let url;
+  const urls = corporateEntitiesUrls;
+  if (urls[selectedCoorpNetworkEntity]) {
+    url = urls[selectedCoorpNetworkEntity];
+  } else {
+    const keys = Object.keys(urls);
+    keys.forEach(key => {
+      if (splittedEntities.includes(key) && !url) {
+        url = urls[key];
+      }
+    });
+  }
+  return url;
 }
