@@ -7,6 +7,7 @@ export const SharedMethods = {
   methods: {
     mapPopupPropName(item) {
       const propertyName = item.property;
+      if (!this.popup.activeLayer) return propertyName;
       const layerName = this.popup.activeLayer.get('name');
       const popupMapping = this.$appConfig.map.popupFieldsMapping;
       if (!layerName || !popupMapping) return propertyName;

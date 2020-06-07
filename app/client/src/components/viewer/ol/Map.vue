@@ -88,6 +88,11 @@
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
+    <progress-loader
+      :value="progressLoading.value"
+      :progressColor="progressLoading.progressColor"
+      :message="progressLoading.message"
+    ></progress-loader>
   </div>
 </template>
 
@@ -105,9 +110,14 @@ import Feature from 'ol/Feature';
 import { fromExtent } from 'ol/geom/Polygon';
 import { fromLonLat } from 'ol/proj';
 import { extend } from 'ol/extent';
+import { like as likeFilter, or as orFilter } from 'ol/format/filter';
 
 // style imports
-import { popupInfoStyle, worldOverlayFill } from '../../../style/OlStyleDefs';
+import {
+  popupInfoStyle,
+  networkCorpHighlightStyle,
+  worldOverlayFill
+} from '../../../style/OlStyleDefs';
 
 // import the app-wide EventBus
 import { EventBus } from '../../../EventBus';
@@ -115,8 +125,13 @@ import { EventBus } from '../../../EventBus';
 // utils imports
 import { LayerFactory } from '../../../factory/OlLayer';
 import { isCssColor } from '../../../utils/Helpers';
-import { extractGeoserverLayerNames } from '../../../utils/Layer';
+import {
+  extractGeoserverLayerNames,
+  wfsRequestParser,
+  getLayerSourceUrl
+} from '../../../utils/Layer';
 import UrlUtil from '../../../utils/Url';
+import { geojsonToFeature } from '../../../utils/MapUtils';
 
 //Store imports
 import { mapMutations, mapGetters, mapActions } from 'vuex';
@@ -147,6 +162,10 @@ import { SharedMethods } from '../../../mixins/SharedMethods';
 
 // Services
 import http from '../../../services/http';
+import axios from 'axios';
+
+// Progress loader
+import ProgressLoader from '../../core/ProgressLoader';
 
 export default {
   components: {
@@ -155,7 +174,8 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    locate: Locate
+    locate: Locate,
+    'progress-loader': ProgressLoader
   },
   name: 'app-ol-map',
   data() {
@@ -368,7 +388,7 @@ export default {
         zIndex: 2500,
         hoverable: true,
         source: source,
-        style: popupInfoStyle()
+        style: networkCorpHighlightStyle()
       });
       this.popup.selectedCorpNetworkLayer = vector;
       this.map.addLayer(vector);
@@ -479,7 +499,9 @@ export default {
       }
 
       me.popup.activeFeature = null;
-      me.popup.activeLayer = null;
+      if (!this.selectedCoorpNetworkEntity) {
+        me.popup.activeLayer = null;
+      }
       me.popup.showInSidePanel = false;
     },
 
@@ -602,9 +624,29 @@ export default {
           this.overlay.setPosition(undefined);
         } else {
           if (!feature) return;
-          if (this.popup.activeFeature && this.popup.activeFeature.getId() === `clone.${feature.getId()}`) return;
-          const attr = feature.get('hoverAttribute') || feature.get('entity') || feature.get('NAME');
+          if (
+            this.popup.activeFeature &&
+            this.popup.activeFeature.getId() === `clone.${feature.getId()}`
+          )
+            return;
+          const attr =
+            feature.get('hoverAttribute') ||
+            feature.get('entity') ||
+            feature.get('NAME');
           if (!attr) return;
+
+          if (
+            (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
+            (feature.get('entity') &&
+              this.selectedCoorpNetworkEntity &&
+              this.splittedEntities &&
+              !this.splittedEntities.some(substring =>
+                feature.get('entity').includes(substring)
+              ))
+          ) {
+            return;
+          }
+
           overlayEl.innerHTML = attr;
           this.overlay.setPosition(evt.coordinate);
         }
@@ -728,7 +770,7 @@ export default {
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
           // Add id reference
           if (feature.getId()) {
-            this.popup.activeFeature.setId(`clone.${feature.getId()}`)
+            this.popup.activeFeature.setId(`clone.${feature.getId()}`);
           }
 
           if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
@@ -775,61 +817,123 @@ export default {
       if (!entity) return;
       this.selectedCoorpNetworkEntity = entity;
       if (!this.layersWithEntityField || !this.splittedEntities) return;
-      const olFeatures = [];
-      this.popup.highlightLayer.getSource().clear();
-      this.map
-        .getLayers()
-        .getArray()
-        .forEach(layer => {
-          if (layer.getSource().getFeatures) {
-            layer
-              .getSource()
-              .getFeatures()
-              .forEach(feature => {
-                if (
-                  feature.clone &&
-                  feature.get('entity') &&
-                  this.splittedEntities.some(substring =>
-                    feature.get('entity').includes(substring)
-                  )
-                ) {
-                  const clonedFeature = feature.clone();
-                  clonedFeature.setStyle(layer.getStyle());
-                  olFeatures.push(clonedFeature);
-                }
-              });
-          }
-        });
+      ///////////////////////
+      const workspace = 'petropolis';
+      if (!this.geoserverLayerNames) {
+        this.geoserverLayerNames = extractGeoserverLayerNames(
+          this.map,
+          this.layersWithEntityField
+        );
+        
 
+        // Filter only geoserver layers names with entity field.
+        this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
+          workspace
+        ].filter(name => this.layersWithEntityField.includes(name));
+      }
+
+      const filterArray = [];
+      this.splittedEntities.forEach(entity => {
+        filterArray.push(likeFilter('entity', `%${entity}%`));
+      });
+      if (filterArray.length === 0) return;
+      let filter;
+      filterArray.length === 1
+        ? (filter = filterArray[0])
+        : (filter = orFilter(...filterArray));
+
+      let promiseArray = [];
+      this.geoserverLayerNames[workspace].forEach(geoserverLayerName => {
+        const wfsRequest = wfsRequestParser(
+          'EPSG:3857',
+          workspace,
+          [geoserverLayerName],
+          filter
+        );
+        promiseArray.push(
+          http.post(
+            `https://timetochange.today/geoserver/${workspace}/wfs`,
+            wfsRequest,
+            {
+              headers: { 'Content-Type': 'text/xml' },
+              layerName: geoserverLayerName
+            }
+          )
+        );
+      });
+
+      this.progressLoading.value = true;
+      this.progressLoading.message = `Fetching data...`;
+      this.popup.highlightLayer.getSource().clear();
       this.popup.worldExtentLayer.getSource().clear();
       this.popup.selectedCorpNetworkLayer.getSource().clear();
-      this.popup.selectedCorpNetworkLayer.getSource().addFeatures(olFeatures);
-      // Zoom to extent adding a padding to the extent
-      var extent = olFeatures[0]
-        .getGeometry()
-        .getExtent()
-        .slice(0);
-      olFeatures.forEach(function(feature) {
-        extend(extent, feature.getGeometry().getExtent());
-      });
-      setTimeout(() => {
-        this.map.getView().fit(extent, {
-          padding: [100, 100, 100, 100],
-          duration: 800
-        });
-      }, 500);
-      this.popup.popupOverlay.setPosition(undefined);
+      const mapLayers = this.map.getLayers().getArray();
+      axios
+        .all(promiseArray)
+        .then(results => {
+          const olFeatures = [];
+          results.forEach(response => {
+            if (response.data.features) {
+              const olFeaturesArray = geojsonToFeature(response.data, {});
+              const geoserverLayerName = response.config.layerName;
+              olFeaturesArray.forEach(feature => {
+                if (feature.getGeometry().getType() === 'Point') {
+                  // Find all the layers that have this feature using geoserverLayerName
+                  mapLayers.forEach(layer => {
+                    const url = getLayerSourceUrl(layer.getSource());
+                    if (url && url.includes(geoserverLayerName)) {
+                      const clonedFeature = feature.clone();
+                      clonedFeature.setStyle(layer.getStyle());
+                      olFeatures.push(clonedFeature);
+                    }
+                  });
+                } else {
+                  olFeatures.push(feature.clone())
+                }
+              });
+            }
+          });
+          if (olFeatures) {
+            this.popup.selectedCorpNetworkLayer
+              .getSource()
+              .addFeatures(olFeatures);
+            // Zoom to extent adding a padding to the extent
+            var extent = olFeatures[0]
+              .getGeometry()
+              .getExtent()
+              .slice(0);
+            olFeatures.forEach(function(feature) {
+              extend(extent, feature.getGeometry().getExtent());
+            });
+            setTimeout(() => {
+              this.map.getView().fit(extent, {
+                padding: [100, 100, 100, 100],
+                duration: 800
+              });
+            }, 500);
+            this.popup.popupOverlay.setPosition(undefined);
 
-      const worldOverlayGeometry = fromExtent([
-        -20037508.342789244,
-        -20037508.342789244,
-        20037508.342789244,
-        20037508.342789244
-      ]);
-      const worldExtentFeature = new Feature({
-        geometry: worldOverlayGeometry
-      });
-      this.popup.worldExtentLayer.getSource().addFeature(worldExtentFeature);
+            const worldOverlayGeometry = fromExtent([
+              -20037508.342789244,
+              -20037508.342789244,
+              20037508.342789244,
+              20037508.342789244
+            ]);
+            const worldExtentFeature = new Feature({
+              geometry: worldOverlayGeometry
+            });
+            this.popup.worldExtentLayer
+              .getSource()
+              .addFeature(worldExtentFeature);
+            this.progressLoading.value = false;
+          }
+        })
+        .catch(error => {
+          // handle error
+          console.log(error);
+          this.progressLoading.value = false;
+          //TODO: Show snackbar for errors.
+        });
     },
     fetchDescribeFeatureTypes() {
       const geoserverLayerNames = extractGeoserverLayerNames(

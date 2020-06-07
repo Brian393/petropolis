@@ -1393,7 +1393,7 @@
       {
         "type": "OSM",
         "name": "OSM-Standart",
-        "url": "http://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "url": "https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         "group": "backgroundLayers",
         "maxZoom": 19,
         "queryable": false,
@@ -1626,7 +1626,7 @@
      }
     },
     "corporateEntitiesUrls": {
-      "Enbridge": "http://its.timetochange.today/Enbridge/"
+      "Enbridge": "https://its.timetochange.today/Enbridge/"
     }
   }
 }

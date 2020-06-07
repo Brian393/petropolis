@@ -15,7 +15,7 @@ import KmlFormat from 'ol/format/KML';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import ImageWMS from 'ol/source/ImageWMS.js';
-import { all } from 'ol/loadingstrategy';
+import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { Image as ImageLayer } from 'ol/layer.js';
 import XyzSource from 'ol/source/XYZ';
 import { OlStyleFactory } from './OlStyle';
@@ -312,10 +312,10 @@ export const LayerFactory = {
     };
     // Check if url is a WFS service
     if (lConf.url.includes('wfs?service=WFS&')) {
-      url = function() {
-       return `${lConf.url}`;
+      url = function(extent) {
+        return `${lConf.url}&bbox=${extent.join(',')},EPSG:3857`;
       };
-      sourceConfig['strategy'] = all;
+      sourceConfig['strategy'] = bboxStrategy;
     } else {
       url = lConf.url;
     }

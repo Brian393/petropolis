@@ -127,16 +127,19 @@
           color="#DC143C"
         ></v-progress-linear>
         <vue-scroll>
-          <v-container v-if="iframeUrl" class="pb-0">
-            <div class="documentation-wrapper">
+          <v-container v-if="iframeUrl" style="overflow:hidden;" class="pt-0 mt-0"  fill-height>
+            <v-row style="height: 100%;" class="mr-6" >
               <iframe
                 @load="isIframeLoading = false"
-                scrolling="no"
+                style="overflow:hidden;position:absolute;border:none;margin-left:11px;"
+                height="95%"
+                width="100%"
                 :src="iframeUrl"
               >
               </iframe>
-            </div>
+            </v-row>
           </v-container>
+
           <v-container
             class="pb-5 mb-3"
             v-if="!iframeUrl && popup.selectedCorpNetworkLayer"
@@ -252,19 +255,5 @@ export default {
 .sidepanel-header {
   width: 100%;
   text-align: center;
-}
-
-.documentation-wrapper {
-  margin: 10px;
-  overflow: hidden;
-  margin: 15px auto;
-  max-width: 780px;
-}
-
-iframe {
-  border: 0px none;
-  margin-left: 10px;
-  height: 1200px;
-  width: 550px;
 }
 </style>
