@@ -37,59 +37,53 @@
           "
         ></div>
 
-        
-          <vue-scroll ref="vs" >
-            <div style="max-height:280px;" class="pr-2">
-              <div
-                class="body-2"
-                v-for="item in popupInfo"
-                :key="item.property"
-              >
-                <span
-                  v-if="isPopupRowVisible(item)"
-                  v-html="
-                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
-                  "
-                ></span>
-              </div>
+        <vue-scroll ref="vs">
+          <div style="max-height:280px;" class="pr-2">
+            <div class="body-2" v-for="item in popupInfo" :key="item.property">
+              <span
+                v-if="isPopupRowVisible(item)"
+                v-html="
+                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                "
+              ></span>
             </div>
-          </vue-scroll>
-          <div v-if="popup.activeFeature" class="mt-1">
-            <a
-              v-if="
-                popup.activeLayer &&
-                  popup.activeLayer.get('showZoomToFeature') !== false &&
-                  popup.activeFeature &&
-                  selectedCoorpNetworkEntity === null
-              "
-              href="javascript:void(0)"
-              @click="zoomToFeature()"
-            >
-              <strong>{{
-                popup.activeFeature.getGeometry().getType() === 'Point'
-                  ? 'DIVE'
-                  : 'VIEW WHOLE FEATURE'
-              }}</strong>
-            </a>
-            <a
-              v-if="
-                (popup.activeFeature.get('entity') &&
-                  !selectedCoorpNetworkEntity) ||
-                  (selectedCoorpNetworkEntity &&
-                    popup.activeFeature.get('entity') &&
-                    splittedEntities &&
-                    !splittedEntities.some(substring =>
-                      popup.activeFeature.get('entity').includes(substring)
-                    ))
-              "
-              @click="queryCorporateNetwork"
-              href="javascript:void(0)"
-              class="ml-2"
-            >
-              <strong>CORPORATE NETWORK</strong>
-            </a>
           </div>
-
+        </vue-scroll>
+        <div v-if="popup.activeFeature" class="mt-1">
+          <a
+            v-if="
+              popup.activeLayer &&
+                popup.activeLayer.get('showZoomToFeature') !== false &&
+                popup.activeFeature &&
+                selectedCoorpNetworkEntity === null
+            "
+            href="javascript:void(0)"
+            @click="zoomToFeature()"
+          >
+            <strong>{{
+              popup.activeFeature.getGeometry().getType() === 'Point'
+                ? 'DIVE'
+                : 'VIEW WHOLE FEATURE'
+            }}</strong>
+          </a>
+          <a
+            v-if="
+              (popup.activeFeature.get('entity') &&
+                !selectedCoorpNetworkEntity) ||
+                (selectedCoorpNetworkEntity &&
+                  popup.activeFeature.get('entity') &&
+                  splittedEntities &&
+                  !splittedEntities.some(substring =>
+                    popup.activeFeature.get('entity').includes(substring)
+                  ))
+            "
+            @click="queryCorporateNetwork"
+            href="javascript:void(0)"
+            class="ml-2"
+          >
+            <strong>CORPORATE NETWORK</strong>
+          </a>
+        </div>
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
@@ -508,8 +502,8 @@ export default {
         me.map.removeLayer(me.popup.highlightVectorTileLayer);
       }
 
-      me.popup.activeFeature = null;
       if (!this.selectedCoorpNetworkEntity) {
+        me.popup.activeFeature = null;
         me.popup.activeLayer = null;
       }
       me.popup.showInSidePanel = false;
@@ -689,7 +683,7 @@ export default {
         if (me.activeInteractions.length > 0) {
           return;
         }
-       let feature, layer;
+        let feature, layer;
         this.map.forEachFeatureAtPixel(
           evt.pixel,
           (f, l) => {
@@ -735,6 +729,11 @@ export default {
         }
 
         me.closePopup();
+        if (this.selectedCoorpNetworkEntity && !layer) {
+          return;
+        }
+
+        
         this.popup.activeLayer = layer;
         // Clear lightbox images array
         if (this.lightBoxImages) {
