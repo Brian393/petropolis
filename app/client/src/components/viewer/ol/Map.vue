@@ -37,8 +37,8 @@
           "
         ></div>
 
-        <div style="max-height:490px;">
-          <vue-scroll>
+        <vue-scroll ref="vs">
+          <div style="max-height:280px;" class="pr-2">
             <div class="body-2" v-for="item in popupInfo" :key="item.property">
               <span
                 v-if="isPopupRowVisible(item)"
@@ -47,44 +47,43 @@
                 "
               ></span>
             </div>
-          </vue-scroll>
-          <div v-if="popup.activeFeature" class="mt-1">
-            <a
-              v-if="
-                popup.activeLayer &&
-                  popup.activeLayer.get('showZoomToFeature') !== false &&
-                  popup.activeFeature &&
-                  selectedCoorpNetworkEntity === null
-              "
-              href="javascript:void(0)"
-              @click="zoomToFeature()"
-            >
-              <strong>{{
-                popup.activeFeature.getGeometry().getType() === 'Point'
-                  ? 'DIVE'
-                  : 'VIEW WHOLE FEATURE'
-              }}</strong>
-            </a>
-            <a
-              v-if="
-                (popup.activeFeature.get('entity') &&
-                  !selectedCoorpNetworkEntity) ||
-                  (selectedCoorpNetworkEntity &&
-                    popup.activeFeature.get('entity') &&
-                    splittedEntities &&
-                    !splittedEntities.some(substring =>
-                      popup.activeFeature.get('entity').includes(substring)
-                    ))
-              "
-              @click="queryCorporateNetwork"
-              href="javascript:void(0)"
-              class="ml-2"
-            >
-              <strong>CORPORATE NETWORK</strong>
-            </a>
           </div>
+        </vue-scroll>
+        <div v-if="popup.activeFeature" class="mt-1">
+          <a
+            v-if="
+              popup.activeLayer &&
+                popup.activeLayer.get('showZoomToFeature') !== false &&
+                popup.activeFeature &&
+                selectedCoorpNetworkEntity === null
+            "
+            href="javascript:void(0)"
+            @click="zoomToFeature()"
+          >
+            <strong>{{
+              popup.activeFeature.getGeometry().getType() === 'Point'
+                ? 'DIVE'
+                : 'VIEW WHOLE FEATURE'
+            }}</strong>
+          </a>
+          <a
+            v-if="
+              (popup.activeFeature.get('entity') &&
+                !selectedCoorpNetworkEntity) ||
+                (selectedCoorpNetworkEntity &&
+                  popup.activeFeature.get('entity') &&
+                  splittedEntities &&
+                  !splittedEntities.some(substring =>
+                    popup.activeFeature.get('entity').includes(substring)
+                  ))
+            "
+            @click="queryCorporateNetwork"
+            href="javascript:void(0)"
+            class="ml-2"
+          >
+            <strong>CORPORATE NETWORK</strong>
+          </a>
         </div>
-        <v-divider></v-divider>
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
@@ -198,6 +197,11 @@ export default {
         message: 'Fetching Corporate Network',
         progressColor: '#DC143C',
         value: false
+      },
+      ops: {
+        vuescroll: {
+          sizeStrategy: 'number'
+        }
       }
     };
   },
@@ -498,8 +502,8 @@ export default {
         me.map.removeLayer(me.popup.highlightVectorTileLayer);
       }
 
-      me.popup.activeFeature = null;
       if (!this.selectedCoorpNetworkEntity) {
+        me.popup.activeFeature = null;
         me.popup.activeLayer = null;
       }
       me.popup.showInSidePanel = false;
@@ -725,6 +729,11 @@ export default {
         }
 
         me.closePopup();
+        if (this.selectedCoorpNetworkEntity && !layer) {
+          return;
+        }
+
+        
         this.popup.activeLayer = layer;
         // Clear lightbox images array
         if (this.lightBoxImages) {
@@ -824,7 +833,6 @@ export default {
           this.map,
           this.layersWithEntityField
         );
-        
 
         // Filter only geoserver layers names with entity field.
         this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
@@ -888,7 +896,7 @@ export default {
                     }
                   });
                 } else {
-                  olFeatures.push(feature.clone())
+                  olFeatures.push(feature.clone());
                 }
               });
             }
@@ -907,7 +915,7 @@ export default {
             });
             setTimeout(() => {
               this.map.getView().fit(extent, {
-                padding: [100, 100, 100, 100],
+                padding: [10, 10, 10, 10],
                 duration: 800
               });
             }, 500);
