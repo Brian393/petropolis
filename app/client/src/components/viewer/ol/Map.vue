@@ -37,15 +37,21 @@
           "
         ></div>
 
-        <div style="max-height:490px;">
-          <vue-scroll>
-            <div class="body-2" v-for="item in popupInfo" :key="item.property">
-              <span
-                v-if="isPopupRowVisible(item)"
-                v-html="
-                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
-                "
-              ></span>
+        
+          <vue-scroll ref="vs" >
+            <div style="max-height:280px;" class="pr-2">
+              <div
+                class="body-2"
+                v-for="item in popupInfo"
+                :key="item.property"
+              >
+                <span
+                  v-if="isPopupRowVisible(item)"
+                  v-html="
+                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                  "
+                ></span>
+              </div>
             </div>
           </vue-scroll>
           <div v-if="popup.activeFeature" class="mt-1">
@@ -83,8 +89,7 @@
               <strong>CORPORATE NETWORK</strong>
             </a>
           </div>
-        </div>
-        <v-divider></v-divider>
+
       </template>
     </overlay-popup>
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
@@ -198,6 +203,11 @@ export default {
         message: 'Fetching Corporate Network',
         progressColor: '#DC143C',
         value: false
+      },
+      ops: {
+        vuescroll: {
+          sizeStrategy: 'number'
+        }
       }
     };
   },
@@ -679,7 +689,7 @@ export default {
         if (me.activeInteractions.length > 0) {
           return;
         }
-        let feature, layer;
+       let feature, layer;
         this.map.forEachFeatureAtPixel(
           evt.pixel,
           (f, l) => {
@@ -824,7 +834,6 @@ export default {
           this.map,
           this.layersWithEntityField
         );
-        
 
         // Filter only geoserver layers names with entity field.
         this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
@@ -888,7 +897,7 @@ export default {
                     }
                   });
                 } else {
-                  olFeatures.push(feature.clone())
+                  olFeatures.push(feature.clone());
                 }
               });
             }
@@ -907,7 +916,7 @@ export default {
             });
             setTimeout(() => {
               this.map.getView().fit(extent, {
-                padding: [100, 100, 100, 100],
+                padding: [10, 10, 10, 10],
                 duration: 800
               });
             }, 500);
