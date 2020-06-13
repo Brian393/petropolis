@@ -20,7 +20,7 @@
         @click="goToHome()"
         flat
         class="logo headline font-weight-bold black--text"
-        >Time to Change</v-toolbar-title
+        >Just Transition</v-toolbar-title
       >
       <v-spacer></v-spacer>
       <span class="title pr-5">before it's too late</span>

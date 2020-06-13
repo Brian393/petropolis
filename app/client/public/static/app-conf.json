@@ -264,8 +264,8 @@
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable1",
         "style": {
-          "strokeColor": "rgba(46, 40, 40, 0.5)",
-          "fillColor": "rgba(46, 40, 40, 0.3)"
+          "strokeColor": "rgba(175, 21, 21, 0.7)",
+          "fillColor": "rgba(175, 21, 21, 0.4)"
         }
       },
       {
@@ -951,7 +951,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR2",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wms?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -960,7 +960,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
-        "maxResolution": 16000,
+        "maxResolution": 32000,
         "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
@@ -1304,11 +1304,24 @@
       },
       {
         "type": "XYZ",
-        "name": "ESRI-World-Street-Map2",
+        "name": "maptiler_topo",
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=09lXrACY6LCLwJtKXOsl",
         "minResolution": 0.25,
         "maxResolution": 152.87,
+        "opacity": 1,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true,
+        "updatewhileanimating": true
+      },
+      {
+        "type": "XYZ",
+        "name": "maptiler_topo2",
+        "group": "backgroundLayers",
+        "url": "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=09lXrACY6LCLwJtKXOsl",
+        "minResolution": 0.25,
+        "maxResolution": 305.75,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1390,7 +1403,7 @@
         "default": {
           "layers": [
             "Toner-Lite2",
-            "ESRI-World-Street-Map2",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1416,11 +1429,15 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "ESRI-World-Street-Map2",
+            "maptiler_topo2",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
+            "NA-RR2",
             "Spills_20yrs",
+            "CoalAsh",
+            "Coal1",
+            "Coal_Mines",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
@@ -1545,7 +1562,7 @@
         "default": {
           "layers": [
             "Toner-Lite2",
-            "ESRI-World-Street-Map2",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1567,7 +1584,7 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "ESRI-World-Street-Map2",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",

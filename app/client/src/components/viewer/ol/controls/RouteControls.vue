@@ -58,10 +58,6 @@ export default {
           title: 'Oil'
         },
         {
-          name: 'gas',
-          title: 'Natural Gas'
-        },
-        {
           name: 'coal',
           title: 'Coal'
         }
