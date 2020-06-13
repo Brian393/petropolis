@@ -32,15 +32,15 @@
     "layers": [
       {
         "type": "VECTOR",
-        "name": "NorAm",
-        "url": "geojson/NorAm.geojson",
+        "name": "north_america",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:north_america&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
         "displayInLayerList": true,
@@ -52,22 +52,22 @@
       },
       {
         "type": "VECTOR",
-        "name": "world_borders",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:world_borders&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "rest_of_world",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:rest_of_world&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": false,
         "displayInLegend": false,
         "format": "GeoJSON",
         "visible": true,
         "zIndex": -10,
-        "minResolution": 1,
+        "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
         "displayInLayerList": false,
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.7
+          "strokeWidth": 0.5
         }
       },
       {
@@ -222,7 +222,7 @@
         "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
-          "strokeWidth": 7
+          "strokeWidth": 3
         }
       },
       {
@@ -264,8 +264,8 @@
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable1",
         "style": {
-          "strokeColor": "rgba(134, 40, 26, 0.5)",
-          "fillColor": "rgba(134, 40, 26, 0.3)"
+          "strokeColor": "rgba(46, 40, 40, 0.5)",
+          "fillColor": "rgba(46, 40, 40, 0.3)"
         }
       },
       {
@@ -322,7 +322,7 @@
         "minResolution": 20,
         "maxResolution": 64000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "style": {
           "strokeColor": "#000000",
@@ -381,15 +381,15 @@
         "minResolution": 1,
         "maxResolution": 16000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/Refinery3.png"
+          "iconUrl": "icons/Refinery1.png"
         }
       },
       {
         "type": "VECTOR",
-        "name": "CrudeDerailments",
+        "name": "crude_derailment",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
@@ -398,12 +398,13 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 16000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/Explosion3.png"
+          "iconUrl": "icons/Explosion3.png",
+          "scale": 0.8
         }
       },
       {
@@ -512,25 +513,6 @@
       },
       {
         "type": "VECTOR",
-        "name": "ContestedOilLines4",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 8000,
-        "hoverable": true,
-        "displayInLayerList": true,
-        "style": {
-          "strokeColor": "black",
-          "strokeWidth": 7
-        }
-      },
-      {
-        "type": "VECTOR",
         "name": "ContestedOilLines5",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -602,7 +584,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/Refinery3.png"
+          "iconUrl": "icons/Refinery4.png"
         }
       },
       {
@@ -618,7 +600,7 @@
         "minResolution": 1,
         "maxResolution": 8000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
@@ -637,7 +619,7 @@
         "minResolution": 8000,
         "maxResolution": 32000,
         "label": null,
-        "hoverable": true,
+        "hoverable": false,
         "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery4.png"
@@ -1104,7 +1086,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/CoalAsh3.png"
+          "iconUrl": "icons/CoalAsh4.png"
         }
       },
       {
@@ -1138,7 +1120,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
-        "maxResolution": 8000,
+        "maxResolution": 4891.97,
         "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
@@ -1409,8 +1391,8 @@
           "layers": [
             "Toner-Lite2",
             "ESRI-World-Street-Map2",
-            "world_borders",
-            "NorAm",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
             "Spills_20yrs",
             "CancelledOilLines",
@@ -1418,31 +1400,33 @@
             "ContestedOilLines2",
             "ContestedOilLines3",
             "Terminals",
-            "US_Refineries4"
+            "US_Refineries4",
+            "crude_derailment"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
           "minResolution": 0.5,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOil1.png",
-            "headerText": "What you see are the major pipeline infrastructures of the United States. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.",
-            "bodyText": "This map is full of information. Click on any pipeline for a popup with the details. At the bottom of the popup, 'View Whole Feature' allows you to isolate a single line. If you want to move to your own location, click the little blue button at the upper left corner of the screen, beneath the +/- zoom controls. When you go in closer, names and locations appear. <br /> <br />For a more complete look at the US petroleum complex, hit the 'Industry' button at bottom center. There you will find the larger systems that the pipeliness feed. For the full extent of oil-processing technologies, click 'World'. <br /> <br />Additional maps of coal and natural gas installations are accessed with the buttons at lower left. These maps are also divided into functional diagrams, full-industry coverage and global extent. The idea is to show both the logical structure and the material reality of fossil-fuel technologies. Their deployment spans the world. As it stands today, everywhere is Petropolis."
+            "legendUrl": "icons/LegendOil2.png",
+            "headerText": "What you see are the major pipeline infrastructures of North America. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.",
+            "bodyText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.<br /> <br />The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
           }
         },
         "local": {
           "layers": [
-            "ESRI-World-Street-Map",
+            "Toner-Lite2",
+            "ESRI-World-Street-Map2",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
             "Spills_20yrs",
-            "NA-RR1",
-            "Terminals",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
             "ContestedOilLines3",
-            "GlobalPipelines",
-            "US_Refineries1",
+            "Terminals",
+            "US_Refineries4",
             "GlobalRefineries1",
             "CrudeDerailments",
             "VideoOilIndustry",
@@ -1454,8 +1438,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOil2.png",
-            "headerText": "Here you find the entire petroleum extraction industry, right up to the point where refineries turn crude into gasoline. It's the truth of our daily commutes. There's too much to see at once, so you'll have to go deeper in.",
-            "bodyText": "For information, click on any line or marker. The locations of most pipelines are approximate, but other features such as refineries are quite accurate. When you click on the icons, a popup appears. If you hit 'Dive,' the map will plunge downward while a spotlight opens up, displaying aerial imagery to let you see exactly what's on the ground. You can control the size of the spotlight, or get rid of it entirely, by using the up/down arrows on your computer keyboard. <br /> <br /> The buried infrastructure of Petropolis was long in the making. Once you know how the energy system works, you can start imagining another one."
+            "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
+            "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
           }
         },
         "global": {
@@ -1464,12 +1448,12 @@
             "ESRI-World-Reference-2",
             "Toner-Lite",
             "ESRI-World-Imagery",
+            "BING-Layer",
             "OilPipes1",
             "OilPipes2",
             "GiantOilFields",
             "all_pipes",
             "ContestedOilLines4",
-            "ContestedOilLines5",
             "GlobalPipelines",
             "OilPorts",
             "US_Refineries2",
@@ -1560,10 +1544,13 @@
       "coal": {
         "default": {
           "layers": [
-            "Dark-No-Labels",
-            "ESRI-Elevation-Hillshade",
+            "Toner-Lite2",
+            "ESRI-World-Street-Map2",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
             "NA-RR2",
+            "CoalAsh",
             "Coal1",
             "Coal_Mines"
           ],
@@ -1579,12 +1566,22 @@
         },
         "local": {
           "layers": [
-            "ESRI-World-Street-Map",
+            "Toner-Lite2",
+            "ESRI-World-Street-Map2",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
-            "SurfaceCoal",
-            "UndergroundCoal",
+            "NA-RR2",
+            "Spills_20yrs",
+            "CancelledOilLines",
+            "all_pipes",
+            "ContestedOilLines2",
+            "ContestedOilLines3",
+            "Terminals",
+            "US_Refineries4",
             "CoalAsh",
-            "Coal"
+            "Coal1",
+            "Coal_Mines"
           ],
           "center": [-97.5, 41],
           "resolution": 5700,
