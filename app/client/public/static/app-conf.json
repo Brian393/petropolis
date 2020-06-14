@@ -1005,7 +1005,7 @@
       {
         "type": "VECTOR",
         "name": "Coal1",
-        "url": "geojson/Coal.geojson",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
@@ -1024,7 +1024,7 @@
       {
         "type": "VECTOR",
         "name": "Coal_Mines",
-        "url": "geojson/Coal_Mines.geojson",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_mines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
@@ -1033,11 +1033,12 @@
         "zIndex": 0,
         "minResolution": 4,
         "maxResolution": 64000,
+        "label": null,
         "hoverable": true,
         "displayInLayerList": true,
         "styleRef": "baseStyle",
         "stylePropFnRef": "circleRadiusFn",
-        "styleField": "production",
+        "styleField": "variable2",
         "style": {
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
