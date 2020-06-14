@@ -280,7 +280,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
-        "maxResolution": 4000,
+        "maxResolution": 64000,
         "hoverable": false,
         "displayInLayerList": true,
         "isInteractive": false,
@@ -447,6 +447,17 @@
       },
       {
         "type": "XYZ",
+        "name": "Toner-Labels",
+        "group": "petropolisOil",
+        "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png",
+        "minResolution": 1222.99,
+        "maxResolution": 64000,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
         "name": "Toner-Lite",
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
@@ -461,7 +472,7 @@
         "name": "Toner-Lite2",
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
-        "minResolution": 152.87,
+        "minResolution": 305.75,
         "maxResolution": 1222.99,
         "queryable": false,
         "visible": true,
@@ -951,7 +962,7 @@
       {
         "type": "VECTOR",
         "name": "NA-RR2",
-        "url": "https://timetochange.today/geoserver/wms?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "showZoomToFeature": false,
@@ -1029,7 +1040,7 @@
         "styleField": "production",
         "style": {
           "strokeColor": "rgba(255, 255, 255, 1)",
-          "fillColor": "rgba(129, 56, 17, 0.7)"
+          "fillColor": "rgba(150, 88, 70, 0.8)"
         }
       },
       {
@@ -1086,7 +1097,8 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/CoalAsh4.png"
+          "iconUrl": "icons/CoalAsh4.png",
+          "scale": 0.8
         }
       },
       {
@@ -1308,7 +1320,7 @@
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=09lXrACY6LCLwJtKXOsl",
         "minResolution": 0.25,
-        "maxResolution": 152.87,
+        "maxResolution": 305.75,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1404,6 +1416,7 @@
           "layers": [
             "Toner-Lite2",
             "maptiler_topo",
+            "Toner-Labels",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1563,20 +1576,21 @@
           "layers": [
             "Toner-Lite2",
             "maptiler_topo",
+            "Toner-Labels",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
             "NA-RR2",
+            "Coal_Mines",
             "CoalAsh",
-            "Coal1",
-            "Coal_Mines"
+            "Coal1"
           ],
-          "center": [-97.5, 41],
-          "resolution": 5700,
+          "center": [-101, 42.0],
+          "resolution": 8500,
           "minResolution": 0.5,
-          "maxResolution": 64000,
+          "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/OilHead.jpg",
+            "legendUrl": "icons/LegendCoal.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
@@ -1584,7 +1598,7 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "maptiler_topo",
+            "maptiler_topo2",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1600,12 +1614,12 @@
             "Coal1",
             "Coal_Mines"
           ],
-          "center": [-97.5, 41],
-          "resolution": 5700,
+          "center": [-99, 42.9],
+          "resolution": 9000,
           "minResolution": 0.5,
-          "maxResolution": 64000,
+          "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/OilHead.jpg",
+            "legendUrl": "icons/LegendCoal.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
@@ -1626,7 +1640,7 @@
           "minResolution": 0.5,
           "maxResolution": 64000,
           "sidePanel": {
-            "legendUrl": "images/OilHead.jpg",
+            "legendUrl": "icons/LegendCoal.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
