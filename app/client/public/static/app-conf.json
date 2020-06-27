@@ -428,6 +428,25 @@
       },
       {
         "type": "VECTOR",
+        "name": "video_pipelines",
+        "url": "geojson/VideoPipelines.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4000,
+        "label": null,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "iconUrl": "icons/StopPipeline.png"
+        }
+      },
+      {
+        "type": "VECTOR",
         "name": "MacLean",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:maclean&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -1428,7 +1447,8 @@
             "ContestedOilLines3",
             "Terminals",
             "US_Refineries4",
-            "crude_derailment"
+            "crude_derailment",
+            "video_pipelines"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1461,7 +1481,8 @@
             "GlobalRefineries1",
             "CrudeDerailments",
             "VideoOilIndustry",
-            "MacLean"
+            "MacLean",
+            "video_pipelines"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,

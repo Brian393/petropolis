@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "Name": "Pipeline Protest",
+      "vimeoSrc": "https://www.youtube-nocookie.com/embed/URtzY1_w6ZU",
+      "caption": "Oil train derailment in Mosier, Oregon - June 3, 2016"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-94.852562, 47.442385]
+    }
+  }, {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pipeline Protest",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/BZORnIaQgvM",
+        "caption": "Oil train derailment in Mosier, Oregon - June 3, 2016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-94.853143, 47.442334]
+      }
+    }]
+  }
