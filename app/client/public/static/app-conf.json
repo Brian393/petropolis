@@ -31,13 +31,13 @@
     "center": [0, 0],
     "layers": [
       {
-        "type": "VECTOR",
+        "type": "VECTORTILE",
         "name": "north_america",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:north_america&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
         "displayInLegend": true,
-        "format": "GeoJSON",
+        "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1222.99,
@@ -51,23 +51,23 @@
         }
       },
       {
-        "type": "VECTOR",
+        "type": "VECTORTILE",
         "name": "rest_of_world",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:rest_of_world&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
         "queryable": false,
-        "displayInLegend": false,
-        "format": "GeoJSON",
+        "displayInLegend": true,
+        "format": "MVT",
         "visible": true,
-        "zIndex": -10,
+        "zIndex": 0,
         "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": false,
+        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.5
+          "strokeWidth": 0.7
         }
       },
       {
@@ -999,28 +999,6 @@
           "strokeWidth": 1
         }
       },
-
-      {
-        "type": "VECTOR",
-        "name": "NA-RR3",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "showZoomToFeature": false,
-        "displayInLegend": true,
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 16,
-        "maxResolution": 16000,
-        "hoverable": false,
-        "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "rgba(0, 0, 0, 0.4)",
-          "strokeWidth": 1
-        }
-      },
       {
         "type": "VECTOR",
         "name": "Coal1",
@@ -1157,7 +1135,27 @@
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
-          "strokeColor": "rgba(105, 105, 105, 0.5)",
+          "strokeColor": "rgba(105, 105, 105, 0.8)",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "NA_RR-vector",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_rr@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4891.97,
+        "hoverable": false,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "rgba(0, 0, 0, 0.7)",
           "strokeWidth": 1
         }
       },
@@ -1467,11 +1465,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA-RR2",
             "Spills_20yrs",
-            "CoalAsh",
-            "Coal1",
-            "Coal_Mines",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
@@ -1602,7 +1596,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA-RR2",
+            "NA_RR-vector",
             "Coal_Mines",
             "CoalAsh",
             "Coal1"
