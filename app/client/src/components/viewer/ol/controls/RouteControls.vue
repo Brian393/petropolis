@@ -60,6 +60,10 @@ export default {
         {
           name: 'coal',
           title: 'Coal'
+        },
+        {
+          name: 'renewables',
+          title: 'Wind / Solar'
         }
       ],
       regions: [

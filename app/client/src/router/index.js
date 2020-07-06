@@ -43,6 +43,24 @@ const routes = [
     name: 'petropolisCoalGlobal',
     component: Petropolis,
     props: { fuelGroup: 'coal', region: 'global' }
+  },
+  {
+    path: '/petropolis/renewables',
+    name: 'petropolisRenewables',
+    component: Petropolis,
+    props: { fuelGroup: 'renewables', region: 'default' }
+  },
+  {
+    path: '/petropolis/renewables/local',
+    name: 'petropolisRenewablesLocal',
+    component: Petropolis,
+    props: { fuelGroup: 'renewables', region: 'local' }
+  },
+  {
+    path: '/petropolis/renewables/global',
+    name: 'petropolisRenewablesGlobal',
+    component: Petropolis,
+    props: { fuelGroup: 'renewables', region: 'global' }
   }
 ];
 

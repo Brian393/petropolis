@@ -32,6 +32,45 @@
     "layers": [
       {
         "type": "VECTORTILE",
+        "name": "us_electric_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "#007aff",
+          "strokeWidth": 1
+        }
+      },
+      {  "type": "VECTORTILE",
+        "name": "western_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:western_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "#007aff",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "type": "VECTORTILE",
         "name": "north_america",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisCoal",
@@ -48,8 +87,28 @@
         "style": {
           "strokeColor": "gray",
           "strokeWidth": 0.7
-        }
-      },
+          }
+        },
+        {
+          "type": "VECTORTILE",
+          "name": "north_america2",
+          "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+          "group": "petropolisRenewables",
+          "queryable": false,
+          "displayInLegend": true,
+          "format": "MVT",
+          "visible": true,
+          "zIndex": 0,
+          "minResolution": 20,
+          "maxResolution": 64000,
+          "hoverable": false,
+          "displayInLayerList": true,
+          "isInteractive": false,
+          "style": {
+            "strokeColor": "white",
+            "strokeWidth": 0.6
+          }
+        },
       {
         "type": "VECTORTILE",
         "name": "rest_of_world",
@@ -67,9 +126,29 @@
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.7
+          "strokeWidth": 0.9
         }
       },
+    {
+      "type": "VECTORTILE",
+      "name": "rest_of_world2",
+      "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+      "group": "petropolisCoal",
+      "queryable": false,
+      "displayInLegend": true,
+      "format": "MVT",
+      "visible": true,
+      "zIndex": 0,
+      "minResolution": 20,
+      "maxResolution": 64000,
+      "hoverable": false,
+      "displayInLayerList": true,
+      "isInteractive": false,
+      "style": {
+        "strokeColor": "white",
+        "strokeWidth": 0.9
+      }
+    },
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
@@ -346,6 +425,48 @@
         "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "us_wind",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#ce2f26",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_american_solar",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_american_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#e2b500",
+          "fillColor": "#ffcc00",
+          "radius": 4
         }
       },
       {
@@ -1280,6 +1401,18 @@
       },
       {
         "type": "XYZ",
+        "name": "Dark",
+        "group": "backgroundLayers",
+        "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
+        "minResolution": 0.5,
+        "opacity": 1,
+        "queryable": false,
+        "zIndex": -10,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
         "name": "MapSurfer-Roads",
         "group": "backgroundLayers",
         "url": "https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png",
@@ -1387,6 +1520,17 @@
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 0.5,
         "maxResolution": 20,
+        "queryable": false,
+        "visible": true,
+        "displayInLayerList": true
+      },
+      {
+        "type": "XYZ",
+        "name": "ESRI-World-Imagery2",
+        "group": "backgroundLayers",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 0.5,
+        "maxResolution": 64000,
         "queryable": false,
         "visible": true,
         "displayInLayerList": true
@@ -1518,88 +1662,18 @@
           }
         }
       },
-      "gas": {
-        "default": {
-          "layers": [
-            "ESRI-Nat-Geo-World",
-            "ESRI-World-Imagery",
-            "ShalePlays",
-            "GasPipes2",
-            "USnatGas1",
-            "USnatGas2",
-            "USnatGas3",
-            "GlobalNatGas1",
-            "GlobalNatGas2",
-            "GlobalNatGas3",
-            "ContestedGasLines1",
-            "ContestedGasLines2",
-            "LNGterminals",
-            "Gasland"
-          ],
-          "center": [-94, 37],
-          "resolution": 4000,
-          "minResolution": 0.5,
-          "maxResolution": 16000,
-          "sidePanel": {
-            "legendUrl": "icons/LegendGas1.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-          }
-        },
-        "local": {
-          "layers": [
-            "ESRI-Delorme-World-BaseMap",
-            "ESRI-World-Imagery",
-            "ShalePlays",
-            "GasPipes2",
-            "ContestedGasLines1",
-            "ContestedGasLines2",
-            "LNGterminals",
-            "Gasland"
-          ],
-          "center": [-97, 37],
-          "resolution": 4500,
-          "minResolution": 0.5,
-          "maxResolution": 16000,
-          "sidePanel": {
-            "legendUrl": "icons/LegendGas2.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-          }
-        },
-        "global": {
-          "layers": [
-            "MapSurfer-Roads",
-            "ESRI-World-Imagery",
-            "ShaleBasins",
-            "USnatGas4",
-            "GlobalNatGas4",
-            "Global_LNG"
-          ],
-          "center": [2.44, 31.01],
-          "resolution": 30000,
-          "minResolution": 0.5,
-          "maxResolution": 32000,
-          "sidePanel": {
-            "legendUrl": "icons/LegendGas1.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-          }
-        }
-      },
       "coal": {
         "default": {
           "layers": [
-            "Toner-Lite2",
             "maptiler_topo",
-            "Toner-Labels",
+            "Dark",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
             "NA_RR-vector",
-            "Coal_Mines",
             "CoalAsh",
-            "Coal1"
+            "Coal1",
+            "Coal_Mines"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1650,6 +1724,67 @@
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
+            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          }
+        }
+      },
+      "renewables": {
+        "default": {
+          "layers": [
+            "ESRI-World-Imagery2",
+            "north_america2",
+            "rest_of_world2",
+            "us_electric_grid",
+            "western_grid",
+            "north_american_solar",
+            "us_wind"
+          ],
+          "center": [-96, 41],
+          "resolution": 7000,
+          "minResolution": 0.5,
+          "maxResolution": 16000,
+          "sidePanel": {
+            "legendUrl": "icons/LegendGas1.png",
+            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          }
+        },
+        "local": {
+          "layers": [
+            "ESRI-World-Imagery2",
+            "north_america2",
+            "rest_of_world2",
+            "us_electric_grid",
+            "western_grid",
+            "north_american_solar",
+            "us_wind"
+          ],
+          "center": [-97, 37],
+          "resolution": 4500,
+          "minResolution": 0.5,
+          "maxResolution": 16000,
+          "sidePanel": {
+            "legendUrl": "icons/LegendGas2.png",
+            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          }
+        },
+        "global": {
+          "layers": [
+            "MapSurfer-Roads",
+            "ESRI-World-Imagery",
+            "ShaleBasins",
+            "USnatGas4",
+            "GlobalNatGas4",
+            "Global_LNG"
+          ],
+          "center": [2.44, 31.01],
+          "resolution": 30000,
+          "minResolution": 0.5,
+          "maxResolution": 32000,
+          "sidePanel": {
+            "legendUrl": "icons/LegendGas1.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
