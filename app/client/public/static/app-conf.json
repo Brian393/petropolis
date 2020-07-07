@@ -1404,7 +1404,7 @@
         "name": "Dark",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
-        "minResolution": 0.5,
+        "minResolution": 305.75,
         "opacity": 1,
         "queryable": false,
         "zIndex": -10,
@@ -1598,8 +1598,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOil2.png",
-            "headerText": "What you see are the major pipeline infrastructures of North America. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.",
-            "bodyText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.<br /> <br />The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
+            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
+            "bodyText": "This map attempts to see into the present tense of coal and oil, but also into the future beyond fossil fuel. According to public feeling informed by scientific evidence, we must leave CO<sup>2</sup>-producing industry behind. How to do so is the challenge of a generation.<br><br>The future is about conceiving an infrastructure of care that lets cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
         },
         "local": {
@@ -1657,8 +1657,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOil3.png",
-            "headerText": "This map shows the major petroleum infrastructures of the United States and the world. From wellheads, platforms, ports and railway loaders, crude oil is piped to refineries that produce gas, diesel, kerosene, jet fuel, asphalt, petcoke and vast quantities of CO2.",
-            "bodyText": "For information about any of the elements, click on a line or a marker. The locations of most pipelines are approximate, but other features such as refineries are  accurate. When you zoom in close, a 'spotlight' opens, allowing you to see what's on the ground. <br /> <br /> The buttons at lower left activate similar maps of coal and natural gas installations. The view is initially centered on the US, but you can hit the buttom at the bottom (center) to see the whole world. As it stands today, everywhere is Petropolis."
+            "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
+            "bodyText": "This map attempts to see into the present tense of coal and oil, but also into the future beyond fossil fuel. According to public feeling informed by scientific evidence, we must leave CO<sup>2</sup>-producing industry behind. How to do so is the challenge of a generation.<br><br>The future is about conceiving an infrastructure of care that lets cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
         }
       },
@@ -1681,14 +1681,15 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
+            "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
         },
         "local": {
           "layers": [
             "Toner-Lite2",
             "maptiler_topo2",
+            "Dark",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1703,8 +1704,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
+            "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
         },
         "global": {
@@ -1724,8 +1725,8 @@
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
+            "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
         }
       },
@@ -1745,7 +1746,7 @@
           "minResolution": 0.5,
           "maxResolution": 16000,
           "sidePanel": {
-            "legendUrl": "icons/LegendGas1.png",
+            "legendUrl": "icons/Legend_renewables.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
@@ -1765,26 +1766,27 @@
           "minResolution": 0.5,
           "maxResolution": 16000,
           "sidePanel": {
-            "legendUrl": "icons/LegendGas2.png",
+            "legendUrl": "icons/Legend_renewables.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }
         },
         "global": {
           "layers": [
-            "MapSurfer-Roads",
-            "ESRI-World-Imagery",
-            "ShaleBasins",
-            "USnatGas4",
-            "GlobalNatGas4",
-            "Global_LNG"
+            "ESRI-World-Imagery2",
+            "north_america2",
+            "rest_of_world2",
+            "us_electric_grid",
+            "western_grid",
+            "north_american_solar",
+            "us_wind"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
           "minResolution": 0.5,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendGas1.png",
+            "legendUrl": "icons/Legend_renewables.png",
             "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
             "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
           }

@@ -24,7 +24,7 @@
             <template v-if="!popup.showInSidePanel">
               <!-- CAPTION -->
               <div class="caption font-italic font-weight-medium">
-                * these features appear when you zoom in
+                some features only appear when you zoom in
               </div>
               <!-- HEADER -->
               <p class="mt-4" style="font-size:120%;">
