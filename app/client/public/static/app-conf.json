@@ -1531,9 +1531,9 @@
         "type": "XYZ",
         "name": "maptiler_topo",
         "group": "backgroundLayers",
-        "url": "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=09lXrACY6LCLwJtKXOsl",
+        "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
         "minResolution": 0.25,
-        "maxResolution": 305.75,
+        "maxResolution": 600,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1667,7 +1667,7 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "maptiler_topo2",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1749,7 +1749,7 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "maptiler_topo2",
+            "maptiler_topo",
             "Dark",
             "rest_of_world",
             "north_america",
