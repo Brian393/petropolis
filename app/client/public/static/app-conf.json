@@ -429,8 +429,8 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "us_wind",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "us_wind_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_wind_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -450,8 +450,50 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "north_american_solar",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_american_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "global_wind",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#ce2f26",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "us_solar",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#e2b500",
+          "fillColor": "#ffcc00",
+          "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "global_solar",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -1737,8 +1779,8 @@
             "rest_of_world2",
             "us_electric_grid",
             "western_grid",
-            "north_american_solar",
-            "us_wind"
+            "us_solar",
+            "us_wind_power"
           ],
           "center": [-96, 41],
           "resolution": 7000,
@@ -1757,8 +1799,8 @@
             "rest_of_world2",
             "us_electric_grid",
             "western_grid",
-            "north_american_solar",
-            "us_wind"
+            "us_solar",
+            "us_wind_power"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1777,8 +1819,10 @@
             "rest_of_world2",
             "us_electric_grid",
             "western_grid",
-            "north_american_solar",
-            "us_wind"
+            "global_solar",
+            "global_wind",
+            "us_solar",
+            "us_wind_power"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
