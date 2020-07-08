@@ -32,8 +32,8 @@
     "layers": [
       {
         "type": "VECTORTILE",
-        "name": "us_electric_grid",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "gridkit",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gridkit@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
@@ -46,13 +46,33 @@
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
-          "strokeColor": "#007aff",
-          "strokeWidth": 1
+          "strokeColor": "#0078f5",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "gridkit_europe",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gridkit_europe@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "displayInLayerList": true,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "#0078f5",
+          "strokeWidth": 3
         }
       },
       {  "type": "VECTORTILE",
-        "name": "western_grid",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:western_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "electric_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
@@ -65,8 +85,8 @@
         "displayInLayerList": true,
         "isInteractive": false,
         "style": {
-          "strokeColor": "#007aff",
-          "strokeWidth": 1
+          "strokeColor": "#0078f5",
+          "strokeWidth": 1.5
         }
       },
       {
@@ -106,7 +126,7 @@
           "isInteractive": false,
           "style": {
             "strokeColor": "white",
-            "strokeWidth": 0.6
+            "strokeWidth": 0.8
           }
         },
       {
@@ -146,7 +166,7 @@
       "isInteractive": false,
       "style": {
         "strokeColor": "white",
-        "strokeWidth": 0.9
+        "strokeWidth": 1
       }
     },
       {
@@ -429,8 +449,8 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "us_wind_power",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_wind_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "us_wind",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -443,7 +463,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "strokeColor": "#ce2f26",
+          "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
           "radius": 4
         }
@@ -464,7 +484,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "strokeColor": "#ce2f26",
+          "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
           "radius": 4
         }
@@ -485,7 +505,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "strokeColor": "#e2b500",
+          "strokeColor": "#c37f03",
           "fillColor": "#ffcc00",
           "radius": 4
         }
@@ -506,7 +526,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "strokeColor": "#e2b500",
+          "strokeColor": "#c37f03",
           "fillColor": "#ffcc00",
           "radius": 4
         }
@@ -1639,9 +1659,9 @@
           "minResolution": 0.5,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOil2.png",
+            "legendUrl": "icons/LegendOilNew.png",
             "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
-            "bodyText": "This map attempts to see into the present tense of coal and oil, but also into the future beyond fossil fuel. According to public feeling informed by scientific evidence, we must leave CO<sup>2</sup>-producing industry behind. How to do so is the challenge of a generation.<br><br>The future is about conceiving an infrastructure of care that lets cultures thrive without violence. The present is about dismantling the fossil-fuel system."
+            "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
         },
         "local": {
@@ -1668,7 +1688,7 @@
           "minResolution": 0.5,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOil2.png",
+            "legendUrl": "icons/LegendOilNew.png",
             "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
             "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
           }
@@ -1699,7 +1719,7 @@
           "sidePanel": {
             "legendUrl": "icons/LegendOil3.png",
             "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
-            "bodyText": "This map attempts to see into the present tense of coal and oil, but also into the future beyond fossil fuel. According to public feeling informed by scientific evidence, we must leave CO<sup>2</sup>-producing industry behind. How to do so is the challenge of a generation.<br><br>The future is about conceiving an infrastructure of care that lets cultures thrive without violence. The present is about dismantling the fossil-fuel system."
+            "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
         }
       },
@@ -1777,19 +1797,19 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "us_electric_grid",
-            "western_grid",
+            "electric_grid",
+            "gridkit",
             "us_solar",
-            "us_wind_power"
+            "us_wind"
           ],
-          "center": [-96, 41],
-          "resolution": 7000,
+          "center": [-101, 42.0],
+          "resolution": 8500,
           "minResolution": 0.5,
-          "maxResolution": 16000,
+          "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "What would it be like to build a new society?",
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         },
         "local": {
@@ -1797,10 +1817,10 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "us_electric_grid",
-            "western_grid",
+            "electric_grid",
+            "gridkit",
             "us_solar",
-            "us_wind_power"
+            "us_wind"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1808,8 +1828,8 @@
           "maxResolution": 16000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "What would it be like to build a new society?",
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         },
         "global": {
@@ -1817,12 +1837,12 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "us_electric_grid",
-            "western_grid",
+            "electric_grid",
+            "gridkit",
             "global_solar",
             "global_wind",
             "us_solar",
-            "us_wind_power"
+            "us_wind"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
@@ -1830,8 +1850,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
-            "headerText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "bodyText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            "headerText": "What would it be like to build a new society?",
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         }
       }
