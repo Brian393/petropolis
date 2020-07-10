@@ -30,64 +30,33 @@
     ],
     "center": [0, 0],
     "layers": [
+    {
+      "type": "WMS",
+      "name": "gridkit",
+      "url": "https://timetochange.today/geoserver/wms",
+      "layers": "petropolis:gridkit",
+      "group": "petropolisCoal",
+      "queryable": false,
+      "displayInLegend": true,
+      "visible": true,
+      "zIndex": 0,
+      "minResolution": 1,
+      "maxResolution": 64000,
+      "displayInLayerList": true
+    },
       {
-        "type": "VECTORTILE",
-        "name": "gridkit",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gridkit@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "format": "MVT",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "hoverable": false,
-        "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "#0078f5",
-          "strokeWidth": 3
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "gridkit_europe",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gridkit_europe@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "format": "MVT",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "hoverable": false,
-        "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "#0078f5",
-          "strokeWidth": 3
-        }
-      },
-      {  "type": "VECTORTILE",
+        "type": "WMS",
         "name": "electric_grid",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:electric_grid",
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
-        "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 2445.99,
         "maxResolution": 64000,
-        "hoverable": false,
-        "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "#0078f5",
-          "strokeWidth": 1.5
-        }
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -109,25 +78,19 @@
           "strokeWidth": 0.7
           }
         },
-        {
-          "type": "VECTORTILE",
-          "name": "north_america2",
-          "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-          "group": "petropolisRenewables",
-          "queryable": false,
-          "displayInLegend": true,
-          "format": "MVT",
-          "visible": true,
-          "zIndex": 0,
-          "minResolution": 20,
-          "maxResolution": 64000,
-          "hoverable": false,
-          "displayInLayerList": true,
-          "isInteractive": false,
-          "style": {
-            "strokeColor": "white",
-            "strokeWidth": 0.8
-          }
+      {
+        "type": "WMS",
+        "name": "north_america2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:north_america",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
         },
       {
         "type": "VECTORTILE",
@@ -150,25 +113,19 @@
         }
       },
     {
-      "type": "VECTORTILE",
+      "type": "WMS",
       "name": "rest_of_world2",
-      "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+      "url": "https://timetochange.today/geoserver/wms",
+      "layers": "petropolis:rest-of-world",
       "group": "petropolisCoal",
       "queryable": false,
       "displayInLegend": true,
-      "format": "MVT",
       "visible": true,
       "zIndex": 0,
-      "minResolution": 20,
+      "minResolution": 2445.99,
       "maxResolution": 64000,
-      "hoverable": false,
-      "displayInLayerList": true,
-      "isInteractive": false,
-      "style": {
-        "strokeColor": "white",
-        "strokeWidth": 1
-      }
-    },
+      "displayInLayerList": true
+      },
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
@@ -458,7 +415,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "displayInLayerList": true,
@@ -469,25 +426,18 @@
         }
       },
       {
-        "type": "VECTORTILE",
-        "name": "global_wind",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
+        "type": "WMS",
+        "name": "us_wind2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:us_wind",
+        "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
-        "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 2445.99,
         "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "displayInLayerList": true,
-        "style": {
-          "strokeColor": "#a51e16",
-          "fillColor": "#ff3b30",
-          "radius": 4
-        }
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -500,7 +450,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "displayInLayerList": true,
@@ -509,6 +459,55 @@
           "fillColor": "#ffcc00",
           "radius": 4
         }
+      },
+      {
+        "type": "WMS",
+        "name": "us_solar2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:us_solar",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "global_wind",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 2445.98,
+        "label": true,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#a51e16",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "global_wind2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_wind",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -521,7 +520,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "displayInLayerList": true,
@@ -530,6 +529,20 @@
           "fillColor": "#ffcc00",
           "radius": 4
         }
+      },
+      {
+        "type": "WMS",
+        "name": "global_solar2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_solar",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
       },
       {
         "type": "VECTOR",
@@ -1795,12 +1808,14 @@
         "default": {
           "layers": [
             "ESRI-World-Imagery2",
+            "electric_grid",
             "north_america2",
             "rest_of_world2",
-            "electric_grid",
             "gridkit",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1815,12 +1830,14 @@
         "local": {
           "layers": [
             "ESRI-World-Imagery2",
+            "electric_grid",
             "north_america2",
             "rest_of_world2",
-            "electric_grid",
             "gridkit",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1837,12 +1854,14 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "electric_grid",
-            "gridkit",
             "global_solar",
+            "global_solar2",
             "global_wind",
+            "global_wind2",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
