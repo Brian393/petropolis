@@ -733,7 +733,7 @@ export default {
           return;
         }
 
-        
+
         this.popup.activeLayer = layer;
         // Clear lightbox images array
         if (this.lightBoxImages) {
@@ -1085,11 +1085,11 @@ div.ol-control button {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   position: relative;
-  background-color: rgba(140, 140, 140, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 4px;
   color: white;
   padding: 2px 8px;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 1;
   font-weight: bold;
 }

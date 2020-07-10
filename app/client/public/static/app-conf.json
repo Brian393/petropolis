@@ -54,10 +54,30 @@
         "displayInLegend": true,
         "visible": true,
         "zIndex": 0,
-        "minResolution": 2445.99,
+        "minResolution": 1222.99,
         "maxResolution": 64000,
         "displayInLayerList": true
       },
+      {
+        "type": "VECTORTILE",
+        "name": "electric_grid2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 1222.98,
+        "hoverable": true,
+        "displayInLayerList": true,
+        "isInteractive": true,
+        "style": {
+          "strokeColor": "#0078f5",
+          "strokeWidth": 1.5
+          }
+        },
       {
         "type": "VECTORTILE",
         "name": "north_america",
@@ -75,7 +95,7 @@
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.7
+          "strokeWidth": 0.5
           }
         },
       {
@@ -109,7 +129,7 @@
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.9
+          "strokeWidth": 0.7
         }
       },
     {
@@ -414,7 +434,7 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 0.5,
         "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
@@ -449,7 +469,7 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 0.5,
         "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
@@ -484,7 +504,7 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 0.5,
         "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
@@ -519,7 +539,7 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 0.5,
         "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
@@ -1065,7 +1085,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 16000,
         "hoverable": true,
         "displayInLayerList": true,
@@ -1084,7 +1104,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 16000,
         "hoverable": true,
         "displayInLayerList": true,
@@ -1468,7 +1488,7 @@
         "name": "Dark-No-Labels",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1593,7 +1613,7 @@
         "name": "ESRI-World-Imagery",
         "group": "backgroundLayers",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 20,
         "queryable": false,
         "visible": true,
@@ -1604,7 +1624,7 @@
         "name": "ESRI-World-Imagery2",
         "group": "backgroundLayers",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 64000,
         "queryable": false,
         "visible": true,
@@ -1615,7 +1635,7 @@
         "name": "ESRI-Nat-Geo-World",
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "queryable": false,
         "visible": true,
         "displayInLayerList": true
@@ -1669,7 +1689,7 @@
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOilNew.png",
@@ -1698,7 +1718,7 @@
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOilNew.png",
@@ -1727,7 +1747,7 @@
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOil3.png",
@@ -1751,7 +1771,7 @@
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1774,7 +1794,7 @@
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1784,9 +1804,11 @@
         },
         "global": {
           "layers": [
-            "Citylights-2012",
-            "Base-Midnight",
-            "Open-Railway-Map",
+            "Toner-Lite2",
+            "maptiler_topo",
+            "Dark",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
             "NA-RR3",
             "CoalMines",
@@ -1795,7 +1817,7 @@
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1809,28 +1831,30 @@
           "layers": [
             "ESRI-World-Imagery2",
             "electric_grid",
-            "north_america2",
+            "electric_grid2",
             "rest_of_world2",
             "gridkit",
             "us_solar",
             "us_solar2",
             "us_wind",
-            "us_wind2"
+            "us_wind2",
+            "north_america2"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
             "headerText": "What would it be like to build a new society?",
-            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin and the Bakken&mdash;and hopefully the Tar Sands too. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         },
         "local": {
           "layers": [
             "ESRI-World-Imagery2",
             "electric_grid",
+            "electric_grid2",
             "north_america2",
             "rest_of_world2",
             "gridkit",
@@ -1841,7 +1865,7 @@
           ],
           "center": [-97, 37],
           "resolution": 4500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 16000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
@@ -1865,7 +1889,7 @@
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
