@@ -6,27 +6,201 @@
       "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
     }
   },
-  "features": [{
-    "type": "Feature",
-    "properties": {
-      "Name": "Pipeline Protest",
-      "vimeoSrc": "https://www.youtube-nocookie.com/embed/URtzY1_w6ZU",
-      "caption": "Oil train derailment in Mosier, Oregon - June 3, 2016"
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-94.852562, 47.442385]
-    }
-  }, {
+  "features": [
+    {
       "type": "Feature",
       "properties": {
         "Name": "Pipeline Protest",
-        "vimeoSrc": "https://www.youtube-nocookie.com/embed/BZORnIaQgvM",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/URtzY1_w6ZU",
         "caption": "Oil train derailment in Mosier, Oregon - June 3, 2016"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-94.853143, 47.442334]
+        "coordinates": [
+          -94.852562,
+          47.442385
+        ]
       }
-    }]
-  }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Protesters Disrupt Chase Shareholder Meeting Over Financing of Controversial Pipeline",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/AsFV9WlYVqY",
+        "caption": "People against Chase Bank's financing of Line 3 pipeline, May 21, 2019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.630048,
+          41.881316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "People Over Pipelines: Protecting Our Homes and Water",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/OlnVzF37yKU",
+        "caption": "Compilation of speakers from People Over Pipelines event held in Marshfield, WI, Oct. 27, 2017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.181882,
+          44.643398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Hired DAPL Security Officers Violently Attack Native Americans with Dogs and Pepper Spray",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/rfVCKXnZu58",
+        "caption": "On September 2, 2016, protectors traveled to pray at construction site and found Dakota Access employees unlawfully resuming construction on the 1,120-mile pipe through the treaty territory of the Standing Rock Sioux Tribe."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.611380,
+          46.440574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Dirty Secret at the Bottom of the Great Lakes: Oil & Water",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/ic9NcKtEPGs",
+        "caption": "The world's largest crude oil transporter has a secret buried deep in the Great Lakes—two aging oil pipelines that transport 23 million gallons of crude oil through the largest body of fresh water on earth."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.764,
+          45.813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Nebraska Landowners on Eminent Domain for Private Gain",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/3YM2hKbdjic",
+        "caption": "Clips from interviews with Nebraska landowners who faced eminent domain for private gain from TransCanada and its Keystone XL pipeline. Produced by Marty Steinhausen for the Bold Alliance. Interviews conducted by Amy Schaffer and Jeanne Crumly. June 24, 2016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.194952,
+          41.397974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Trench Being Dug For Bayou Bridge Pipeline in the Atchafalaya Basin",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/9iR3cL_l1so",
+        "caption": "Julie Dermansky, August 3, 2019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.36861111,
+          30.08888889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Kalamazoo River Oil Spill Disaster: Actions Speak Louder than Words",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/IAR7z76KWj8",
+        "caption": " Larry Bell of Bell's Brewery and a local homeowner criticize the actions Enbridge took following the oil spill, and address the threat of Enbridge's Line 5 pipeline in the Straits of Mackinac in light of those actions. NWF Great Lakes. June 19, 2017."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.974615,
+          42.243111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Break Free PNW: Direct Action Gets The Goods",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/PFUJvGdjnjY",
+        "caption": "Actions Against Refineries in Anacortes, WA - May 13-15, 2016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.561656,
+          48.478450
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Keystone XL: Republican ranchers join the fightback in South Dakota",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/Sn4ueJiR1sg",
+        "caption": "After Trump’s revival of the Keystone XL pipeline project, some communities along its route are getting ready to fight back. The Guardian, May 3, 2017."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.801496,
+          43.257156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "#BreakFree2016 Midwest Action Against Climate Change",
+        "vimeoSrc": "https://player.vimeo.com/video/167070242",
+        "caption": "This escalated action took place in coordination with peaceful mobilizations across six continents under the global platform Break Free, in which ordinary people targeted prominent fossil fuels projects in the name of climate justice. May 15, 2016."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.488450,
+          41.682688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "#BreakFree2016 Albany, New York",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/h2GhHMCdyDc",
+        "caption": "Action Against Oil Trains in Albany, New York - May 14, 2016."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.764670,
+          42.632090
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "#BreakFree2016 Albany, New York",
+        "vimeoSrc": "https://www.youtube-nocookie.com/embed/ykioNfVQ1-g",
+        "caption": "Protest Against TransMountain Pipeline in Vancouver, BC - May 14, 2016."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.954925,
+          49.289387
+        ]
+      }
+    }
+  ]
+}

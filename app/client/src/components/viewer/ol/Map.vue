@@ -548,7 +548,7 @@ export default {
       if (geometry.getType() === 'Point') {
         this.map.getView().animate({
           center: geometry.getCoordinates(),
-          zoom: 13,
+          zoom: 14,
           duration: 800
         });
       } else {
@@ -635,6 +635,7 @@ export default {
             return;
           const attr =
             feature.get('hoverAttribute') ||
+            feature.get('title') ||
             feature.get('entity') ||
             feature.get('NAME');
           if (!attr) return;
@@ -915,7 +916,7 @@ export default {
             });
             setTimeout(() => {
               this.map.getView().fit(extent, {
-                padding: [10, 10, 10, 10],
+                padding: [30, 80, 80, 80],
                 duration: 800
               });
             }, 500);

@@ -345,6 +345,20 @@
         }
       },
       {
+        "type": "WMS",
+        "name": "na_rr",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:na_rr",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 2000,
+        "displayInLayerList": true
+      },
+      {
         "type": "VECTOR",
         "name": "NA-RR1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
@@ -634,7 +648,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "displayInLayerList": true,
@@ -653,12 +667,13 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/StopPipeline.png"
+          "iconUrl": "icons/Eycon.png",
+          "scale": 0.6
         }
       },
       {
@@ -707,7 +722,7 @@
         "name": "Toner-Lite2",
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
-        "minResolution": 305.75,
+        "minResolution": 305.76,
         "maxResolution": 1222.99,
         "queryable": false,
         "visible": true,
@@ -1499,7 +1514,7 @@
         "name": "Dark",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
-        "minResolution": 305.75,
+        "minResolution": 305.76,
         "opacity": 1,
         "queryable": false,
         "zIndex": -10,
@@ -1566,7 +1581,7 @@
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
         "minResolution": 0.25,
-        "maxResolution": 600,
+        "maxResolution": 500,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1685,7 +1700,8 @@
             "Terminals",
             "US_Refineries4",
             "crude_derailment",
-            "video_pipelines"
+            "video_pipelines",
+            "MacLean"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1759,12 +1775,12 @@
       "coal": {
         "default": {
           "layers": [
-            "maptiler_topo",
             "Dark",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA_RR-vector",
+            "na_rr",
             "CoalAsh",
             "Coal1",
             "Coal_Mines"
@@ -1782,12 +1798,12 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "maptiler_topo",
             "Dark",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA-RR2",
+            "na_rr",
             "CoalAsh",
             "Coal1",
             "Coal_Mines"
@@ -1810,7 +1826,6 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA-RR3",
             "CoalMines",
             "Coal2",
             "Coal3"
