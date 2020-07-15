@@ -1,13 +1,13 @@
 <template>
   <v-expansion-panels
     class="elevation-3"
-    style="position:absolute;bottom:35px;right:10px;maxWidth: 250px;"
+    style="position:absolute;bottom:35px;right:10px;maxWidth: 220px;"
   >
     <v-expansion-panel :style="`background-color: white;`">
       <v-expansion-panel-header
         class="white--text subtitle-2"
         :style="`background-color: ${color};`"
-        >Legend
+        >Layers
         <template v-slot:actions>
           <v-icon color="white" small>$vuetify.icons.expand</v-icon>
         </template>
@@ -19,7 +19,7 @@
           </span>
           <v-divider class="mr-3"></v-divider>
 
-          <span class="ml-12 grey--text text--darken-2 subtitle-2">
+          <span class="ml-10 grey--text text--darken-2 subtitle-2">
             <a @click="toggleAllLayersVisibility(true)">select all </a> |
             <a @click="toggleAllLayersVisibility(false)"> clear all</a>
           </span>
@@ -120,25 +120,22 @@ export default {
         styleConf = JSON.parse(styleConf);
         if (styleConf.iconUrl) {
           return `<img src="${styleConf.iconUrl}" class="icon-border" style="margin-top: 5px !important;object-fit:contain;" width="22" height="22">`;
-        } else if (styleConf.radius) {
+        } else if (styleConf.radius || styleConf.type === 'circle') {
           return `<span class="circle" style="margin-top: 5px;background-color:${styleConf.fillColor};border: 1px solid ${styleConf.strokeColor};"></span>`;
         } else if (styleConf.fillColor) {
           // Polygon
           return `<span class="square" style="margin-top: 5px;background-color:${styleConf.fillColor};border: 1px solid ${styleConf.strokeColor};"></span>`;
         } else if (styleConf.strokeColor || styleConf.strokeWidth) {
           let lineType = 'solid';
-          let lineWidth = '3px';
+          let lineWidth =  '2px';
 
           if (styleConf.lineDash) {
             lineType = 'dashed';
-            lineWidth = '2px';
           }
-
           if (!styleConf.strokeColor) {
             styleConf.strokeColor = 'black';
           }
-
-          return `<span class="square" style="margin-top: 5px;border: ${lineWidth} ${lineType} ${styleConf.strokeColor};"></span>`;
+          return `<hr style="margin-top: 12px;border: ${lineWidth} ${lineType} ${styleConf.strokeColor};"></hr>`;
         }
       }
     },
@@ -185,6 +182,7 @@ export default {
   watch: {
     activeLayerGroup() {
       this.updateTitle();
+      this.updateLegendRows();
     }
   }
 };

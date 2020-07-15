@@ -358,6 +358,7 @@
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable1",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
         }
@@ -712,6 +713,7 @@
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable2",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(255, 255, 255, 0.7)",
           "fillColor": "rgba(195, 72, 28, 0.4)"
         }
@@ -1212,6 +1214,7 @@
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable2",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
         }
