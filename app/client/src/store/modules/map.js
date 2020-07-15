@@ -40,7 +40,31 @@ const state = {
   gasFieldEntitiesColors: {}, // Fetched from geoserver
   geoserverLayerNames: null, // Created when user clicks corporate network,
   layersWithEntityField: null, // Fetched from Geoserver on load
-  selectedCoorpNetworkEntity: null // Selected entity
+  selectedCoorpNetworkEntity: null, // Selected entity,
+  fuelGroups: [
+    {
+      name: 'oil',
+      title: 'Oil'
+    },
+    {
+      name: 'coal',
+      title: 'Coal'
+    },
+    {
+      name: 'renewables',
+      title: 'Wind / Solar'
+    }
+  ],
+  regions: [
+    {
+      name: 'local',
+      title: 'Local'
+    },
+    {
+      name: 'global',
+      title: 'Global'
+    }
+  ]
 };
 
 const getters = {
@@ -57,21 +81,25 @@ const getters = {
   },
   splittedEntities: state => {
     if (state.selectedCoorpNetworkEntity) {
-       let splittedString = state.selectedCoorpNetworkEntity.split(',').map(str => {
-         if (str.charAt(0) === ' ') {
-           str = str.slice(1);
-         }
-         str = str
-           .split(' ')
-           .slice(0, 2)
-           .join(' ');
-         return str;
-       });
-       return splittedString
+      let splittedString = state.selectedCoorpNetworkEntity
+        .split(',')
+        .map(str => {
+          if (str.charAt(0) === ' ') {
+            str = str.slice(1);
+          }
+          str = str
+            .split(' ')
+            .slice(0, 2)
+            .join(' ');
+          return str;
+        });
+      return splittedString;
     } else {
-      return null
+      return null;
     }
   },
+  fuelGroups: state => state.fuelGroups,
+  regions: state => state.regions,
   getField
 };
 
@@ -106,7 +134,7 @@ const actions = {
           });
           data.features.forEach((feature, index) => {
             const entity = feature.properties.Operator;
-            entities[entity] = colors[index]
+            entities[entity] = colors[index];
           });
           commit('SET_GAS_FIELD_ENTITIES', entities);
         });

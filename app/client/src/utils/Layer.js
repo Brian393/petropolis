@@ -8,12 +8,14 @@ import olGeomLineString from 'ol/geom/LineString';
 import olGeomPolygon from 'ol/geom/Polygon';
 import olLayerImage from 'ol/layer/Image.js';
 import olLayerVector from 'ol/layer/Vector.js';
+import olLayerVectorTile from 'ol/layer/VectorTile.js';
 import olLayerLayer from 'ol/layer/Layer.js';
 import { Group as LayerGroup } from 'ol/layer.js';
 import { extend as olExtend } from 'ol/extent';
 import { WFS } from 'ol/format';
 import { humanize } from './Helpers';
 import UrlUtil from './Url';
+import { appendParams as olUriAppendParams } from 'ol/uri.js';
 
 /**
  * Util for OL layers
@@ -50,9 +52,13 @@ export function getLayersBy(key, value, olMap) {
 export function getLayerType(layer) {
   let layerType;
   if (layer instanceof olLayerImage) {
-    layerType = 'WMS';
+    layerType = 'WMSLayer';
   } else if (layer instanceof olLayerVector) {
-    layerType = 'WFS';
+    layerType = 'VectorLayer';
+  } else if (layer instanceof olLayerVectorTile) {
+    layerType = 'VectorTileLayer';
+  } else {
+    layerType = undefined
   }
   return layerType;
 }
@@ -383,6 +389,89 @@ export function getStyleImage(options, theCanvas, row) {
 }
 
 /**
+ * Get the WMS legend URL for the given node.
+ * @param {string|undefined} url The base url of the wms service.
+ * @param {string} layerName The name of a wms layer.
+ * @param {number=} opt_scale A scale.
+ * @param {string=} opt_legendRule rule parameters to add to the returned URL.
+ * @param {number=} opt_legendWidth the legend width.
+ * @param {number=} opt_legendHeight the legend height.
+ * @param {string=} opt_servertype the OpenLayers server type.
+ * @param {number=} opt_dpi the DPI.
+ * @param {number[]=} opt_bbox the bbox.
+ * @param {string=} opt_srs The projection code.
+ * @param {Object<string, string>=} opt_additionalQueryString Additional query string parameters.
+ * @return {string|undefined} The legend URL or undefined.
+ */
+export function getWMSLegendURL(
+  url,
+  layerName,
+  opt_scale,
+  opt_legendRule,
+  opt_legendWidth,
+  opt_legendHeight,
+  opt_servertype,
+  opt_dpi,
+  opt_bbox,
+  opt_srs,
+  opt_additionalQueryString,
+  opt_language
+) {
+  if (!url) {
+    return undefined;
+  }
+  /** @type {Object<string, string|boolean|number>} */
+  const queryString = {
+    FORMAT: 'image/png',
+    TRANSPARENT: true,
+    SERVICE: 'WMS',
+    VERSION: '1.1.1',
+    REQUEST: 'GetLegendGraphic',
+    LAYER: layerName
+  };
+  if (opt_scale !== undefined) {
+    queryString.SCALE = opt_scale;
+  }
+  if (opt_language) {
+    queryString.LANGUAGE = opt_language;
+  }
+  if (opt_legendRule !== undefined) {
+    queryString.RULE = opt_legendRule;
+    if (opt_legendWidth !== undefined) {
+      queryString.WIDTH = opt_legendWidth;
+    }
+    if (opt_legendHeight !== undefined) {
+      queryString.HEIGHT = opt_legendHeight;
+    }
+  }
+  if (opt_servertype == 'qgis') {
+    if (opt_dpi != undefined) {
+      queryString.DPI = opt_dpi;
+    }
+    if (
+      opt_bbox != undefined &&
+      opt_srs != undefined &&
+      opt_scale != undefined &&
+      opt_dpi != undefined &&
+      opt_legendRule == undefined
+    ) {
+      queryString.BBOX = opt_bbox.join(',');
+      queryString.SRS = opt_srs;
+      queryString.WIDTH = Math.round(
+        ((opt_bbox[2] - opt_bbox[0]) / opt_scale) * 39.37 * opt_dpi
+      );
+      queryString.HEIGHT = Math.round(
+        ((opt_bbox[3] - opt_bbox[1]) / opt_scale) * 39.37 * opt_dpi
+      );
+    }
+  }
+  if (opt_additionalQueryString) {
+    Object.assign(queryString, opt_additionalQueryString);
+  }
+  return olUriAppendParams(url, queryString);
+}
+
+/**
  * The function can extract geoserver layernames grouped by worksapce using url
  */
 export function extractGeoserverLayerNames(map) {
@@ -434,7 +523,7 @@ export function extractGeoserverLayerNames(map) {
 }
 
 export function getLayerSourceUrl(source) {
-  let url
+  let url;
   if (
     source.getUrl &&
     source.getUrl() &&
@@ -451,7 +540,7 @@ export function getLayerSourceUrl(source) {
       url = source.getUrls()[0];
     }
   }
-  return url
+  return url;
 }
 
 /**

@@ -134,14 +134,15 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       visible: lConf.visible,
       opacity: lConf.opacity,
       queryable: lConf.queryable,
       requiresPois: lConf.requiresPois,
       ratio: lConf.ratio ? lConf.ratio : 1.5,
       zIndex: lConf.zIndex,
+      group: lConf.group,
       source: new ImageWMS({
         url: lConf.url,
         params: {
@@ -166,12 +167,14 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       extent: lConf.extent,
       visible: lConf.visible,
       opacity: lConf.opacity,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       preload: lConf.preload ? parseFloat(lConf.preload) : 0, // Parse float is used because it's not possible to add values like Infinity in json config
       zIndex: lConf.zIndex,
+      group: lConf.group,
       source: new TileWmsSource({
         url: lConf.url,
         params: {
@@ -197,11 +200,13 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       opacity: lConf.opacity,
       minResolution: lConf.minResolution,
       maxResolution: lConf.maxResolution,
+      group: lConf.group,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       source: new XyzSource({
         url: lConf.hasOwnProperty('accessToken')
           ? lConf.url + '?access_token=' + lConf.accessToken
@@ -228,9 +233,11 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
+      group: lConf.group,
       source: new OsmSource({
         url: lConf.url,
         maxZoom: lConf.maxZoom
@@ -256,10 +263,12 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       minResolution: lConf.minResolution,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       maxZoom: lConf.maxZoom,
       visible: lConf.visible,
+      group: lConf.group,
       opacity: lConf.opacity,
       source: bingMaps
     });
@@ -278,11 +287,13 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       minResolution: lConf.minResolution,
       maxZoom: lConf.maxZoom,
       visible: lConf.visible,
       opacity: lConf.opacity,
+      group: lConf.group,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       loadTilesWhileAnimating: true,
       loadTilesWhileInteracting: true,
       source: new XyzSource({
@@ -326,7 +337,6 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       lid: lConf.lid,
-      displayInLayerList: lConf.displayInLayerList,
       extent: lConf.extent,
       queryable: lConf.queryable,
       showZoomToFeature: lConf.showZoomToFeature,
@@ -334,13 +344,17 @@ export const LayerFactory = {
       minResolution: lConf.minResolution,
       maxResolution: lConf.maxResolution,
       isInteractive: lConf.isInteractive,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
       zIndex: lConf.zIndex,
+      group: lConf.group,
       source: new VectorSource(sourceConfig),
       style: this.getStyle(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute,
-      label: lConf.label
+      label: lConf.label,
+      styleObj: JSON.stringify(lConf.style)
     });
     return vectorLayer;
   },
@@ -359,12 +373,14 @@ export const LayerFactory = {
       lid: lConf.lid,
       queryable: lConf.queryable,
       showZoomToFeature: lConf.showZoomToFeature,
-      displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       minResolution: lConf.minResolution,
       maxResolution: lConf.maxResolution,
       isInteractive: lConf.isInteractive,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
+      group: lConf.group,
       source: new VectorTileSource({
         url: lConf.url,
         format: new this.formatMapping[lConf.format](),
@@ -372,7 +388,8 @@ export const LayerFactory = {
       }),
       style: this.getStyle(lConf),
       hoverable: lConf.hoverable,
-      hoverAttribute: lConf.hoverAttribute
+      hoverAttribute: lConf.hoverAttribute,
+      styleObj: JSON.stringify(lConf.style)
     });
 
     return vtLayer;
@@ -429,8 +446,9 @@ export const LayerFactory = {
       title: lConf.title,
       lid: lConf.lid,
       zIndex: lConf.zIndex,
-      displayInLayerList: lConf.displayInLayerList,
       queryable: lConf.queryable,
+      displayInLegend: lConf.displayInLegend,
+      legendDisplayName: lConf.legendDisplayName,
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: vectorSource,

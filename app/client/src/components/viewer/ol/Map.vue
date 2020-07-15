@@ -5,6 +5,7 @@
     <full-screen />
     <locate :map="map" />
     <route-controls />
+    <map-legend color="#dc143c" />
     <div
       v-show="spotlightMessage === true"
       class="elevation-4 regular spotlight-message"
@@ -142,6 +143,7 @@ import ZoomControl from './controls/ZoomControl';
 import FullScreen from './controls/FullScreen';
 import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
+import Legend from './controls/Legend';
 
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
@@ -169,6 +171,7 @@ import ProgressLoader from '../../core/ProgressLoader';
 export default {
   components: {
     'overlay-popup': OverlayPopup,
+    'map-legend': Legend,
     'zoom-control': ZoomControl,
     'full-screen': FullScreen,
     'route-controls': RouteControls,
@@ -348,7 +351,6 @@ export default {
       });
       const vector = new VectorLayer({
         name: 'Get Info Layer',
-        displayInLayerList: false,
         zIndex: 3000,
         source: source,
         style: popupInfoStyle()
@@ -369,7 +371,6 @@ export default {
         name: 'World Extent Layer',
         isInteractive: false,
         queryable: false,
-        displayInLayerList: false,
         zIndex: 2000,
         source: source,
         style: worldOverlayFill()
@@ -388,7 +389,6 @@ export default {
       });
       const vector = new VectorLayer({
         name: 'Corporate Selected Network Layer',
-        displayInLayerList: false,
         zIndex: 2500,
         hoverable: true,
         source: source,
@@ -733,7 +733,6 @@ export default {
           return;
         }
 
-        
         this.popup.activeLayer = layer;
         // Clear lightbox images array
         if (this.lightBoxImages) {
