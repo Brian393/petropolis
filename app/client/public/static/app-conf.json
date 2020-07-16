@@ -826,7 +826,7 @@
         "hoverable": true,
         "displayInLayerList": true,
         "style": {
-          "iconUrl": "icons/Refinery3.png"
+          "iconUrl": "icons/Refinery4.png"
         }
       },
       {
@@ -1618,7 +1618,7 @@
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 200,
-        "maxResolution": 200,
+        "maxResolution": 2000,
         "queryable": false,
         "visible": true,
         "displayInLayerList": true
@@ -1660,11 +1660,7 @@
         "name": "BING-Layer",
         "group": "backgroundLayers",
         "url": "https://t0.tiles.virtualearth.net/tiles/t",
-        "maxZoom": 17,
-        "minResolution": 0.25,
-        "loadTilesWhileAnimating": true,
-        "loadTilesWhileInteracting": true,
-        "queryable": false,
+        "maxZoom": 19,
         "visible": true,
         "displayInLayerList": true,
         "attributions": "© Microsoft Coorporation © Digital Globe ©CNES Distribution Airbus DS <a href='https://www.microsoft.com/en-us/maps/product'>Terms of use</a> "
@@ -1745,10 +1741,10 @@
         "global": {
           "layers": [
             "ESRI-World-Terrain",
-            "ESRI-World-Reference-2",
             "Toner-Lite",
-            "ESRI-World-Imagery",
+            "ESRI-World-Reference-2",
             "BING-Layer",
+            "ESRI-World-Imagery",
             "OilPipes1",
             "OilPipes2",
             "GiantOilFields",
