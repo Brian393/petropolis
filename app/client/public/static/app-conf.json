@@ -37,13 +37,13 @@
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
+        "legendDisplayName": "Grid Kit",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "#0078f5",
@@ -57,37 +57,32 @@
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
+        "legendDisplayName": "Grid Kit",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "#0078f5",
           "strokeWidth": 3
         }
       },
-      {  "type": "VECTORTILE",
+      {
+        "type": "WMS",
         "name": "electric_grid",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:electric_grid",
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
-        "format": "MVT",
+        "legendDisplayName": "Electric Grid",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
-        "hoverable": false,
-        "displayInLayerList": true,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "#0078f5",
-          "strokeWidth": 1.5
-        }
+        "maxResolution": 64000
       },
       {
         "type": "VECTORTILE",
@@ -96,39 +91,39 @@
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
+        "legendDisplayName": "North America",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
           "strokeWidth": 0.7
-          }
-        },
-        {
-          "type": "VECTORTILE",
-          "name": "north_america2",
-          "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-          "group": "petropolisRenewables",
-          "queryable": false,
-          "displayInLegend": true,
-          "format": "MVT",
-          "visible": true,
-          "zIndex": 0,
-          "minResolution": 20,
-          "maxResolution": 64000,
-          "hoverable": false,
-          "displayInLayerList": true,
-          "isInteractive": false,
-          "style": {
-            "strokeColor": "white",
-            "strokeWidth": 0.8
-          }
-        },
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_america2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisRenewables",
+        "queryable": false,
+        "displayInLegend": true,
+        "legendDisplayName": "North America",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "white",
+          "strokeWidth": 0.8
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "rest_of_world",
@@ -136,39 +131,39 @@
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
+        "legendDisplayName": "Rest of the World",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
           "strokeWidth": 0.9
         }
       },
-    {
-      "type": "VECTORTILE",
-      "name": "rest_of_world2",
-      "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-      "group": "petropolisCoal",
-      "queryable": false,
-      "displayInLegend": true,
-      "format": "MVT",
-      "visible": true,
-      "zIndex": 0,
-      "minResolution": 20,
-      "maxResolution": 64000,
-      "hoverable": false,
-      "displayInLayerList": true,
-      "isInteractive": false,
-      "style": {
-        "strokeColor": "white",
-        "strokeWidth": 1
-      }
-    },
+      {
+        "type": "VECTORTILE",
+        "name": "rest_of_world2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "legendDisplayName": "Rest of the World",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "hoverable": false,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "white",
+          "strokeWidth": 1
+        }
+      },
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
@@ -176,13 +171,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Cancelled Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 32000,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "baseStyle",
         "stylePropFnRef": "strokeColor",
         "styleField": "variable2",
@@ -198,13 +193,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Oil Pipes",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 3
@@ -217,13 +212,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Oil Pipes",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 3
@@ -236,13 +231,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "All Pipes",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 4
@@ -255,13 +250,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 10,
         "minResolution": 1,
         "maxResolution": 16000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "rgba(105, 105, 105, 0.0)",
           "strokeWidth": 16
@@ -274,13 +269,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 10,
         "minResolution": 1,
         "maxResolution": 16000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 6.5
@@ -293,13 +288,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 10,
         "minResolution": 1,
         "maxResolution": 16000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#fb5c04",
           "strokeWidth": 3
@@ -312,13 +307,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 10,
         "minResolution": 1,
         "maxResolution": 8000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 3
@@ -331,13 +326,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 10,
         "minResolution": 20,
         "maxResolution": 64000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#fd6a02",
           "strokeWidth": 3.5
@@ -351,6 +346,7 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "Spills 20 years",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -358,11 +354,11 @@
         "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "baseStyle",
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable1",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
         }
@@ -375,13 +371,13 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "NA-RR",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 64000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(105, 105, 105, 0.4)",
@@ -395,6 +391,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Terminals",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -402,7 +399,6 @@
         "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/terminal.png",
           "scale": 0.6
@@ -415,6 +411,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Pipelines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -422,7 +419,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#000000",
           "strokeWidth": 2.5
@@ -435,6 +431,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -442,7 +439,6 @@
         "maxResolution": 16000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
         }
@@ -454,6 +450,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Wind",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -461,7 +458,6 @@
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
@@ -475,6 +471,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Wind",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -482,7 +479,6 @@
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
@@ -496,6 +492,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -503,7 +500,6 @@
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#c37f03",
           "fillColor": "#ffcc00",
@@ -517,6 +513,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -524,7 +521,6 @@
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#c37f03",
           "fillColor": "#ffcc00",
@@ -538,6 +534,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -545,7 +542,6 @@
         "maxResolution": 2445.98,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery1.png",
           "scale": 1.1
@@ -558,6 +554,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -565,7 +562,6 @@
         "maxResolution": 16000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery1.png"
         }
@@ -577,6 +573,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Crude Derailment",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -584,7 +581,6 @@
         "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Explosion3.png",
           "scale": 0.8
@@ -597,6 +593,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Video Oil Industry",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -604,7 +601,6 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Warning.png"
         }
@@ -616,6 +612,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Video Pipelines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -623,7 +620,6 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/StopPipeline.png"
         }
@@ -635,6 +631,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "MacLean",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -642,7 +639,6 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/A_MacLean.png"
         }
@@ -655,8 +651,7 @@
         "minResolution": 1222.99,
         "maxResolution": 64000,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -666,8 +661,7 @@
         "minResolution": 0.25,
         "maxResolution": 200,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -677,8 +671,7 @@
         "minResolution": 305.75,
         "maxResolution": 1222.99,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "VECTOR",
@@ -687,6 +680,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Oil Pipes",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -694,7 +688,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 3
@@ -708,6 +701,7 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "Giant Oil Fields",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -715,11 +709,11 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "baseStyle",
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable2",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(255, 255, 255, 0.7)",
           "fillColor": "rgba(195, 72, 28, 0.4)"
         }
@@ -731,13 +725,13 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Oil Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 8000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#fd6a02",
           "strokeWidth": 3.5
@@ -750,6 +744,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Oil Ports",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -757,7 +752,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Tanker2.png"
         }
@@ -769,6 +763,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -776,7 +771,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
         }
@@ -788,6 +782,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -795,7 +790,6 @@
         "maxResolution": 32000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery4.png"
         }
@@ -807,6 +801,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -814,7 +809,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery3.png"
         }
@@ -826,6 +820,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -833,7 +828,6 @@
         "maxResolution": 32000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Refinery4.png"
         }
@@ -847,6 +841,7 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "Shale Plays",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -854,7 +849,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(91, 73, 14, 0.7)",
@@ -869,10 +863,10 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Gas Pipes",
         "format": "MVT",
         "visible": true,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "gasePipeStyle"
       },
       {
@@ -882,12 +876,12 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Gas Pipes",
         "format": "MVT",
         "visible": true,
         "minResolution": 1,
         "maxResolution": 400,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "gasePipeStyle"
       },
       {
@@ -897,6 +891,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -904,7 +899,6 @@
         "maxResolution": 1600,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas3.png"
         }
@@ -916,6 +910,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -923,7 +918,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas2.png"
         }
@@ -935,6 +929,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -942,7 +937,6 @@
         "maxResolution": 32000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas1.png"
         }
@@ -954,6 +948,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "US Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -961,7 +956,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas2.gif"
         }
@@ -973,6 +967,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -980,7 +975,6 @@
         "maxResolution": 1600,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas3.png"
         }
@@ -992,6 +986,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -999,7 +994,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas2.png"
         }
@@ -1011,6 +1005,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1018,7 +1013,6 @@
         "maxResolution": 32000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas1.png"
         }
@@ -1030,6 +1024,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global Natural Gas",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1037,7 +1032,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/NatGas2.png"
         }
@@ -1049,13 +1043,13 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Gas Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 16000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "black",
           "strokeWidth": 6.5
@@ -1068,13 +1062,13 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Contested Gas Lines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 16000,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "strokeColor": "#00c8f0",
           "strokeWidth": 3
@@ -1087,6 +1081,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "LNG Terminal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1094,7 +1089,6 @@
         "maxResolution": 16000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/LNGterminal.png"
         }
@@ -1106,6 +1100,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Gasland",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1113,7 +1108,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/PetropolisGasland2.gif"
         }
@@ -1126,6 +1120,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Shale Basins",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1133,7 +1128,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(56, 132, 189, 0.7)",
@@ -1148,6 +1142,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Global LNG",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1155,7 +1150,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/LNGtanker.png"
         }
@@ -1169,13 +1163,13 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "NA-RR",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 32000,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(255, 255, 255, 0.6)",
@@ -1189,6 +1183,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1196,7 +1191,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Smokestack6.png"
         }
@@ -1208,6 +1202,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal Mines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1215,11 +1210,11 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "styleRef": "baseStyle",
         "stylePropFnRef": "circleRadiusFn",
         "styleField": "variable2",
         "style": {
+          "type": "circle",
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
         }
@@ -1231,6 +1226,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Surface Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1238,7 +1234,6 @@
         "maxResolution": 800,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Truck.png"
         }
@@ -1250,6 +1245,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Underground Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1257,7 +1253,6 @@
         "maxResolution": 800,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/CoalWagon.png"
         }
@@ -1269,6 +1264,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal Ash",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1276,7 +1272,6 @@
         "maxResolution": 16000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/CoalAsh4.png",
           "scale": 0.8
@@ -1289,6 +1284,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1296,7 +1292,6 @@
         "maxResolution": 8000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Smokestack3.png"
         }
@@ -1309,13 +1304,13 @@
         "queryable": true,
         "showZoomToFeature": false,
         "displayInLegend": true,
+        "legendDisplayName": "NA-RR",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 16,
         "maxResolution": 4891.97,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(105, 105, 105, 0.8)",
@@ -1329,13 +1324,13 @@
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
+        "legendDisplayName": "NA-RR Vector",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 4891.97,
         "hoverable": false,
-        "displayInLayerList": true,
         "isInteractive": false,
         "style": {
           "strokeColor": "rgba(0, 0, 0, 0.7)",
@@ -1349,6 +1344,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal Mines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1356,7 +1352,6 @@
         "maxResolution": 2000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/CoalMine.png"
         }
@@ -1368,6 +1363,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1375,7 +1371,6 @@
         "maxResolution": 6000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Smokestack3.png"
         }
@@ -1387,6 +1382,7 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
+        "legendDisplayName": "Coal",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1394,7 +1390,6 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "displayInLayerList": true,
         "style": {
           "iconUrl": "icons/Smokestack4.png"
         }
@@ -1413,8 +1408,7 @@
         "opaque": false,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1425,8 +1419,7 @@
         "maxResolution": 800,
         "opacity": 0.8,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1436,8 +1429,7 @@
         "minResolution": 200,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1447,8 +1439,7 @@
         "minResolution": 2,
         "opacity": 0.2,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1458,8 +1449,7 @@
         "minResolution": 0.5,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1470,8 +1460,7 @@
         "opacity": 1,
         "queryable": false,
         "zIndex": -10,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1481,8 +1470,7 @@
         "minResolution": 0.25,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1492,8 +1480,7 @@
         "minResolution": 0.25,
         "opacity": 0.8,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1502,8 +1489,7 @@
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 200,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1513,8 +1499,7 @@
         "minResolution": 0.25,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1524,8 +1509,7 @@
         "minResolution": 0.25,
         "opacity": 1,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1537,7 +1521,6 @@
         "opacity": 1,
         "queryable": false,
         "visible": true,
-        "displayInLayerList": true,
         "updatewhileanimating": true
       },
       {
@@ -1550,7 +1533,6 @@
         "opacity": 1,
         "queryable": false,
         "visible": true,
-        "displayInLayerList": true,
         "updatewhileanimating": true
       },
       {
@@ -1561,8 +1543,7 @@
         "minResolution": 1,
         "maxResolution": 4000,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1572,8 +1553,7 @@
         "minResolution": 200,
         "maxResolution": 200,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1583,8 +1563,7 @@
         "minResolution": 0.5,
         "maxResolution": 20,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1594,8 +1573,7 @@
         "minResolution": 0.5,
         "maxResolution": 64000,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "XYZ",
@@ -1604,8 +1582,7 @@
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 0.5,
         "queryable": false,
-        "visible": true,
-        "displayInLayerList": true
+        "visible": true
       },
       {
         "type": "BING-QUADKEY",
@@ -1618,7 +1595,6 @@
         "loadTilesWhileInteracting": true,
         "queryable": false,
         "visible": true,
-        "displayInLayerList": true,
         "attributions": "© Microsoft Coorporation © Digital Globe ©CNES Distribution Airbus DS <a href='https://www.microsoft.com/en-us/maps/product'>Terms of use</a> "
       },
       {
@@ -1629,7 +1605,6 @@
         "maxZoom": 19,
         "queryable": false,
         "visible": true,
-        "displayInLayerList": true,
         "attributions": "© <a href='https://www.openstreetmap.org/copyright'> OpenStreetMap </a> contributors "
       }
     ],
@@ -1857,10 +1832,10 @@
       }
     },
     "popupFieldsMapping": {
-     "default": {
-       "title": "NAME",
-       "entity": "OWNER"
-     }
+      "default": {
+        "title": "NAME",
+        "entity": "OWNER"
+      }
     },
     "corporateEntitiesUrls": {
       "Enbridge": "https://its.timetochange.today/Enbridge/"

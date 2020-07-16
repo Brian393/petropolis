@@ -50,34 +50,6 @@ import { mapGetters } from 'vuex';
 import { EventBus } from '../../../../EventBus';
 
 export default {
-  data() {
-    return {
-      fuelGroups: [
-        {
-          name: 'oil',
-          title: 'Oil'
-        },
-        {
-          name: 'coal',
-          title: 'Coal'
-        },
-        {
-          name: 'renewables',
-          title: 'Wind / Solar'
-        }
-      ],
-      regions: [
-        {
-          name: 'local',
-          title: 'Local'
-        },
-        {
-          name: 'global',
-          title: 'Global'
-        }
-      ]
-    };
-  },
   name: 'route-control',
   methods: {
     changeFuelGroup(fuelGroup) {
@@ -94,7 +66,9 @@ export default {
   },
   computed: {
     ...mapGetters('map', {
-      activeLayerGroup: 'activeLayerGroup'
+      activeLayerGroup: 'activeLayerGroup',
+      fuelGroups: 'fuelGroups',
+      regions: 'regions'
     })
   }
 };
