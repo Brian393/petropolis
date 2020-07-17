@@ -948,41 +948,48 @@ export default {
       );
       const workspace = 'petropolis';
       if (!geoserverLayerNames[workspace]) return;
-      http
-        .get('https://timetochange.today/geoserver/wfs', {
-          params: {
-            service: 'WFS',
-            version: ' 2.0.0',
-            request: 'DescribeFeatureType',
-            outputFormat: 'application/json',
-            typeNames: `${workspace}:${geoserverLayerNames[
-              workspace
-            ].toString()}`
-          }
-        })
-        .then(response => {
-          if (response.data && response.data.featureTypes) {
-            const filterLayersWithEntity = [];
-            const featureTypes = response.data.featureTypes;
-            featureTypes.forEach(featureType => {
-              featureType.properties.forEach(property => {
-                if (
-                  property.name === 'entity' &&
-                  filterLayersWithEntity.indexOf(featureType.typeName) === -1
-                ) {
-                  filterLayersWithEntity.push(featureType.typeName);
-                }
-              });
-            });
-            if (!this.layersWithEntityField) {
-              this.layersWithEntityField = filterLayersWithEntity;
+      const promisesArray = [];
+      geoserverLayerNames[workspace].forEach(geoserverLayerName => {
+        promisesArray.push(
+          http.get('https://timetochange.today/geoserver/wfs', {
+            params: {
+              service: 'WFS',
+              version: ' 2.0.0',
+              request: 'DescribeFeatureType',
+              outputFormat: 'application/json',
+              typeNames: `${workspace}:${geoserverLayerName}`
             }
-          }
+          })
+        );
+      });
+
+      const filterLayersWithEntity = [];
+      axios
+        .all(promisesArray)
+        .then(results => {
+          results.forEach(response => {
+            if (response.data && response.data.featureTypes) {
+              const featureTypes = response.data.featureTypes;
+              featureTypes.forEach(featureType => {
+                featureType.properties.forEach(property => {
+                  if (
+                    property.name === 'entity' &&
+                    filterLayersWithEntity.indexOf(featureType.typeName) === -1
+                  ) {
+                    filterLayersWithEntity.push(featureType.typeName);
+                  }
+                });
+              });
+            }
+          });
         })
         .catch(function(error) {
           // handle error
           console.log(error);
         });
+      if (!this.layersWithEntityField) {
+        this.layersWithEntityField = filterLayersWithEntity;
+      }
     },
     isPopupRowVisible(item) {
       if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
