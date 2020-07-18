@@ -2,10 +2,12 @@
   <div id="ol-map-container">
     <!-- Map Controls -->
     <zoom-control :map="map" />
+
     <full-screen />
-    <locate :map="map" />
-    <route-controls />
+    <!-- <locate :map="map" /> -->
     <map-legend color="#dc143c" />
+    <route-controls />
+
     <div
       v-show="spotlightMessage === true"
       class="elevation-4 regular spotlight-message"
@@ -141,7 +143,7 @@ import { mapFields } from 'vuex-map-fields';
 import OverlayPopup from './controls/Overlay';
 import ZoomControl from './controls/ZoomControl';
 import FullScreen from './controls/FullScreen';
-import Locate from './controls/Locate';
+// import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
 
@@ -176,7 +178,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    locate: Locate,
+    // locate: Locate,
     'progress-loader': ProgressLoader
   },
   name: 'app-ol-map',
