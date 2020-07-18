@@ -1,69 +1,85 @@
 <template>
-  <v-expansion-panels
+  <v-card
     class="elevation-3"
-    style="position:absolute;bottom:35px;right:10px;maxWidth: 220px;"
+    :width="isVisible ? '250px' : '0px'"
+    style="z-index:1000;position:absolute;left:25px;top: 150px;max-width: 220px;min-height:150px;height=100%;"
   >
-    <v-expansion-panel :style="`background-color: white;`">
-      <v-expansion-panel-header
-        class="white--text subtitle-2"
-        :style="`background-color: ${color};`"
-        >Layers
-        <template v-slot:actions>
-          <v-icon color="white" small>$vuetify.icons.expand</v-icon>
-        </template>
-      </v-expansion-panel-header>
-      <v-expansion-panel-content v-if="isReady" style="max-height:280px;">
-        <vue-scroll>
-          <span class="grey--text text--darken-2 subtitle-2">
-            {{ title }} Layers: Status
-          </span>
-          <v-divider class="mr-3"></v-divider>
+    <v-btn
+      v-show="isVisible"
+      @click="toggleLegend"
+      class="legend-toggle-button white--text"
+      text
+      small
+      style="background-color:rgb(228, 76, 107);position:absolute;right:-28px;bottom:60%;"
+    >
+      Close<v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
+    >
+    <v-tooltip v-show="!isVisible" right>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          v-on="on"
+          style="position:absolute;right:-32px;top:10%;"
+          v-show="!isVisible"
+          color="#DC143C"
+          @click="toggleLegend"
+          fab
+          small
+          class=" white--text"
+        >
+          <v-icon>fas fa-layer-group</v-icon>
+        </v-btn>
+      </template>
+      <span>Layers</span>
+    </v-tooltip>
 
-          <span class="ml-10 grey--text text--darken-2 subtitle-2">
-            <a @click="toggleAllLayersVisibility(true)">select all </a> |
-            <a @click="toggleAllLayersVisibility(false)"> clear all</a>
-          </span>
-          <v-divider class="mr-3 mb-2"></v-divider>
+    <v-card-text class="pa-2 pb-0 mb-0" v-show="isVisible" v-if="isReady">
+      <span class="grey--text text--darken-2 subtitle-2">
+        {{ title }} Layers: Status
+      </span>
+      <v-divider class="mr-1"></v-divider>
 
-          <template v-for="(item, index) in layers">
-            <v-row
-              :key="'layer-' + index"
-              class="fill-height ma-0"
-              v-if="item.get('displayInLegend')"
-              v-show="
-                item.get('group') !== 'backgroundLayers' &&
-                  item.get('isVisibleInResolution') === true
-              "
+      <span class="ml-10 grey--text text--darken-2 subtitle-2">
+        <a @click="toggleAllLayersVisibility(true)">select all </a> |
+        <a @click="toggleAllLayersVisibility(false)"> clear all</a>
+      </span>
+      <v-divider class="mr-1 mb-2"></v-divider>
+
+      <template v-for="(item, index) in layers">
+        <v-row
+          :key="'layer-' + index"
+          class="fill-height ma-0"
+          v-if="item.get('displayInLegend')"
+          v-show="
+            item.get('group') !== 'backgroundLayers' &&
+              item.get('isVisibleInResolution') === true
+          "
+        >
+          <v-flex xs1>
+            <span v-html="getGraphic(item)"></span>
+          </v-flex>
+          <v-flex xs11>
+            <v-checkbox
+              class="layer-input ml-1 pt-1 py-0 my-0"
+              dense
+              color="purple"
+              :input-value="item.getVisible()"
+              @change="toggleLayerVisibility(item)"
             >
-              <v-flex xs1>
-                <span v-html="getGraphic(item)"></span>
-              </v-flex>
-              <v-flex xs11>
-                <v-checkbox
-                  class="layer-input ml-1 pt-1 py-0 my-0"
-                  dense
-                  color="purple"
-                  :input-value="item.getVisible()"
-                  @change="toggleLayerVisibility(item)"
-                >
-                  <template v-slot:label>
-                    <span class="grey--text text--darken-2 subtitle-2">
-                      {{
-                        item.get('legendDisplayName') ||
-                          humanize(item.get('name'))
-                      }}
-                    </span>
-                  </template>
-                </v-checkbox>
-              </v-flex>
-            </v-row>
-          </template>
+              <template v-slot:label>
+                <span class="grey--text text--darken-2 subtitle-2">
+                  {{
+                    item.get('legendDisplayName') || humanize(item.get('name'))
+                  }}
+                </span>
+              </template>
+            </v-checkbox>
+          </v-flex>
+        </v-row>
+      </template>
 
-          <br />
-        </vue-scroll>
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-expansion-panels>
+      <br />
+    </v-card-text>
+  </v-card>
 </template>
 <script>
 import { Mapable } from '../../../../mixins/Mapable';
@@ -80,7 +96,8 @@ export default {
   data() {
     return {
       isReady: false,
-      title: ''
+      title: '',
+      isVisible: true
     };
   },
   methods: {
@@ -127,7 +144,7 @@ export default {
           return `<span class="square" style="margin-top: 5px;background-color:${styleConf.fillColor};border: 1px solid ${styleConf.strokeColor};"></span>`;
         } else if (styleConf.strokeColor || styleConf.strokeWidth) {
           let lineType = 'solid';
-          let lineWidth =  '2px';
+          let lineWidth = '2px';
 
           if (styleConf.lineDash) {
             lineType = 'dashed';
@@ -166,6 +183,9 @@ export default {
         }
       });
       this.title = title;
+    },
+    toggleLegend() {
+      this.isVisible = !this.isVisible;
     }
   },
   mounted() {
@@ -199,5 +219,13 @@ export default {
 
 .layer-input >>> .v-messages {
   min-height: 0px;
+}
+.legend-toggle-button {
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform-origin: bottom right;
 }
 </style>
