@@ -30,10 +30,25 @@
     ],
     "center": [0, 0],
     "layers": [
+    {
+      "type": "WMS",
+      "name": "gridkit",
+      "url": "https://timetochange.today/geoserver/wms",
+      "layers": "petropolis:gridkit",
+      "group": "petropolisCoal",
+      "queryable": false,
+      "displayInLegend": true,
+      "visible": true,
+      "zIndex": 0,
+      "minResolution": 1,
+      "maxResolution": 64000,
+      "displayInLayerList": true
+    },
       {
-        "type": "VECTORTILE",
-        "name": "gridkit",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gridkit@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "type": "WMS",
+        "name": "electric_grid",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:electric_grid",
         "group": "petropolisCoal",
         "queryable": false,
         "displayInLegend": true,
@@ -41,7 +56,7 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 1222.99,
         "maxResolution": 64000,
         "hoverable": false,
         "isInteractive": false,
@@ -76,7 +91,7 @@
         "url": "https://timetochange.today/geoserver/wms",
         "layers": "petropolis:electric_grid",
         "group": "petropolisCoal",
-        "queryable": false,
+        "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Electric Grid",
         "visible": true,
@@ -141,7 +156,7 @@
         "isInteractive": false,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 0.9
+          "strokeWidth": 0.7
         }
       },
       {
@@ -364,6 +379,20 @@
         }
       },
       {
+        "type": "WMS",
+        "name": "na_rr",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:na_rr",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 2000,
+        "displayInLayerList": true
+      },
+      {
         "type": "VECTOR",
         "name": "NA-RR1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
@@ -454,8 +483,8 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
+        "minResolution": 0.5,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "style": {
@@ -465,25 +494,18 @@
         }
       },
       {
-        "type": "VECTORTILE",
-        "name": "global_wind",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
+        "type": "WMS",
+        "name": "us_wind2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:us_wind",
+        "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Global Wind",
-        "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
+        "minResolution": 2445.99,
         "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "strokeColor": "#a51e16",
-          "fillColor": "#ff3b30",
-          "radius": 4
-        }
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -492,12 +514,12 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Solar",
+        "legendDisplayName": "Global Wind",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
+        "minResolution": 0.5,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "style": {
@@ -505,6 +527,55 @@
           "fillColor": "#ffcc00",
           "radius": 4
         }
+      },
+      {
+        "type": "WMS",
+        "name": "us_solar2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:us_solar",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "global_wind",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "US Solar",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 2445.98,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#a51e16",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "global_wind2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_wind",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -517,8 +588,8 @@
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
+        "minResolution": 0.5,
+        "maxResolution": 2445.98,
         "label": true,
         "hoverable": true,
         "style": {
@@ -526,6 +597,20 @@
           "fillColor": "#ffcc00",
           "radius": 4
         }
+      },
+      {
+        "type": "WMS",
+        "name": "global_solar2",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_solar",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
       },
       {
         "type": "VECTOR",
@@ -578,7 +663,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4891.97,
+        "maxResolution": 2445.98,
         "label": null,
         "hoverable": true,
         "style": {
@@ -598,7 +683,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "style": {
@@ -608,7 +693,7 @@
       {
         "type": "VECTOR",
         "name": "video_pipelines",
-        "url": "geojson/VideoPipelines.geojson",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -617,11 +702,12 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/StopPipeline.png"
+          "iconUrl": "icons/Eycon.png",
+          "scale": 0.6
         }
       },
       {
@@ -668,7 +754,7 @@
         "name": "Toner-Lite2",
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
-        "minResolution": 305.75,
+        "minResolution": 305.76,
         "maxResolution": 1222.99,
         "queryable": false,
         "visible": true
@@ -772,7 +858,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Refinery3.png"
+          "iconUrl": "icons/Refinery4.png"
         }
       },
       {
@@ -1047,7 +1133,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 16000,
         "hoverable": true,
         "style": {
@@ -1066,7 +1152,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 16000,
         "hoverable": true,
         "style": {
@@ -1446,7 +1532,7 @@
         "name": "Dark-No-Labels",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "opacity": 1,
         "queryable": false,
         "visible": true
@@ -1456,7 +1542,7 @@
         "name": "Dark",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
-        "minResolution": 305.75,
+        "minResolution": 305.76,
         "opacity": 1,
         "queryable": false,
         "zIndex": -10,
@@ -1517,7 +1603,7 @@
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
         "minResolution": 0.25,
-        "maxResolution": 600,
+        "maxResolution": 500,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1551,7 +1637,7 @@
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Reference_Overlay/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 200,
-        "maxResolution": 200,
+        "maxResolution": 2000,
         "queryable": false,
         "visible": true
       },
@@ -1560,7 +1646,7 @@
         "name": "ESRI-World-Imagery",
         "group": "backgroundLayers",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 20,
         "queryable": false,
         "visible": true
@@ -1570,7 +1656,7 @@
         "name": "ESRI-World-Imagery2",
         "group": "backgroundLayers",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "maxResolution": 64000,
         "queryable": false,
         "visible": true
@@ -1580,7 +1666,7 @@
         "name": "ESRI-Nat-Geo-World",
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.5,
+        "minResolution": 0.25,
         "queryable": false,
         "visible": true
       },
@@ -1589,11 +1675,7 @@
         "name": "BING-Layer",
         "group": "backgroundLayers",
         "url": "https://t0.tiles.virtualearth.net/tiles/t",
-        "maxZoom": 17,
-        "minResolution": 0.25,
-        "loadTilesWhileAnimating": true,
-        "loadTilesWhileInteracting": true,
-        "queryable": false,
+        "maxZoom": 19,
         "visible": true,
         "attributions": "© Microsoft Coorporation © Digital Globe ©CNES Distribution Airbus DS <a href='https://www.microsoft.com/en-us/maps/product'>Terms of use</a> "
       },
@@ -1627,11 +1709,12 @@
             "Terminals",
             "US_Refineries4",
             "crude_derailment",
-            "video_pipelines"
+            "video_pipelines",
+            "MacLean"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOilNew.png",
@@ -1660,7 +1743,7 @@
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOilNew.png",
@@ -1671,10 +1754,10 @@
         "global": {
           "layers": [
             "ESRI-World-Terrain",
-            "ESRI-World-Reference-2",
             "Toner-Lite",
-            "ESRI-World-Imagery",
+            "ESRI-World-Reference-2",
             "BING-Layer",
+            "ESRI-World-Imagery",
             "OilPipes1",
             "OilPipes2",
             "GiantOilFields",
@@ -1689,7 +1772,7 @@
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendOil3.png",
@@ -1701,19 +1784,19 @@
       "coal": {
         "default": {
           "layers": [
-            "maptiler_topo",
             "Dark",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA_RR-vector",
+            "na_rr",
             "CoalAsh",
             "Coal1",
             "Coal_Mines"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1724,19 +1807,19 @@
         "local": {
           "layers": [
             "Toner-Lite2",
-            "maptiler_topo",
             "Dark",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "NA-RR2",
+            "na_rr",
             "CoalAsh",
             "Coal1",
             "Coal_Mines"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1746,18 +1829,19 @@
         },
         "global": {
           "layers": [
-            "Citylights-2012",
-            "Base-Midnight",
-            "Open-Railway-Map",
+            "Toner-Lite2",
+            "maptiler_topo",
+            "Dark",
+            "rest_of_world",
+            "north_america",
             "ESRI-World-Imagery",
-            "NA-RR3",
             "CoalMines",
             "Coal2",
             "Coal3"
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "icons/LegendCoal.png",
@@ -1770,36 +1854,42 @@
         "default": {
           "layers": [
             "ESRI-World-Imagery2",
-            "north_america2",
-            "rest_of_world2",
             "electric_grid",
+            "electric_grid2",
+            "rest_of_world2",
             "gridkit",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2",
+            "north_america2"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
             "headerText": "What would it be like to build a new society?",
-            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin and the Bakken&mdash;and hopefully the Tar Sands too. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         },
         "local": {
           "layers": [
             "ESRI-World-Imagery2",
+            "electric_grid",
+            "electric_grid2",
             "north_america2",
             "rest_of_world2",
-            "electric_grid",
             "gridkit",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2"
           ],
           "center": [-97, 37],
           "resolution": 4500,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 16000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",
@@ -1812,16 +1902,18 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "electric_grid",
-            "gridkit",
             "global_solar",
+            "global_solar2",
             "global_wind",
+            "global_wind2",
             "us_solar",
-            "us_wind"
+            "us_solar2",
+            "us_wind",
+            "us_wind2"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
-          "minResolution": 0.5,
+          "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "icons/Legend_renewables.png",

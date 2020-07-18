@@ -548,7 +548,7 @@ export default {
       if (geometry.getType() === 'Point') {
         this.map.getView().animate({
           center: geometry.getCoordinates(),
-          zoom: 13,
+          zoom: 14,
           duration: 800
         });
       } else {
@@ -635,6 +635,7 @@ export default {
             return;
           const attr =
             feature.get('hoverAttribute') ||
+            feature.get('title') ||
             feature.get('entity') ||
             feature.get('NAME');
           if (!attr) return;
@@ -914,7 +915,7 @@ export default {
             });
             setTimeout(() => {
               this.map.getView().fit(extent, {
-                padding: [10, 10, 10, 10],
+                padding: [30, 80, 80, 80],
                 duration: 800
               });
             }, 500);
@@ -1091,11 +1092,11 @@ div.ol-control button {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   position: relative;
-  background-color: rgba(140, 140, 140, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 4px;
   color: white;
   padding: 2px 8px;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 1;
   font-weight: bold;
 }
