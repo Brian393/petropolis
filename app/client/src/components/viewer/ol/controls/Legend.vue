@@ -140,6 +140,7 @@ export default {
         let styleConf = layer.get('styleObj');
         if (!styleConf) return;
         styleConf = JSON.parse(styleConf);
+
         if (styleConf.iconUrl) {
           return `<img src="${styleConf.iconUrl}" class="icon-border" style="margin-top: 5px !important;object-fit:contain;" width="22" height="22">`;
         } else if (styleConf.radius || styleConf.type === 'circle') {
@@ -157,6 +158,16 @@ export default {
           if (!styleConf.strokeColor) {
             styleConf.strokeColor = 'black';
           }
+
+          if (styleConf.styleField && styleConf.type === 'line') {
+            const features = layer.getSource().getFeatures();
+            if (styleConf.legendColor) {
+              styleConf.strokeColor = styleConf.legendColor;
+            } else if (Array.isArray(features) && features.length > 0) {
+              styleConf.strokeColor = features[0].get(styleConf.styleField);
+            }
+          }
+
           return `<hr style="margin-top: 12px;border: ${lineWidth} ${lineType} ${styleConf.strokeColor};"></hr>`;
         }
       }

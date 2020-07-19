@@ -62,9 +62,9 @@ export const LayerFactory = {
    */
   getStyle(lConf) {
     const styleProps = lConf.style;
-    const styleRef = lConf.styleRef;
-    const stylePropFnRef = lConf.stylePropFnRef;
-    const styleField = lConf.styleField;
+    const styleRef = lConf.style.styleRef;
+    const stylePropFnRef = lConf.style.stylePropFnRef;
+    const styleField = lConf.style.styleField;
 
     if (
       styleProps &&

@@ -178,10 +178,11 @@
         "minResolution": 1,
         "maxResolution": 32000,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "strokeColor",
-        "styleField": "variable2",
         "style": {
+          "type": "line",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "strokeColor",
+          "styleField": "variable2",
           "strokeWidth": 4,
           "lineDash": [6]
         }
@@ -354,10 +355,10 @@
         "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable1",
         "style": {
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable1",
           "type": "circle",
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
@@ -709,10 +710,10 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable2",
         "style": {
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable2",
           "type": "circle",
           "strokeColor": "rgba(255, 255, 255, 0.7)",
           "fillColor": "rgba(195, 72, 28, 0.4)"
@@ -1210,11 +1211,11 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable2",
         "style": {
           "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable2",
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
         }
