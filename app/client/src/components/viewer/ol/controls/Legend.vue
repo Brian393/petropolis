@@ -9,10 +9,11 @@
       @click="toggleLegend"
       class="legend-toggle-button white--text"
       text
+      min-width="35px"
       x-small
-      style="z-index:100;background-color:rgb(228, 76, 107);position:fixed;left:193px;top:240px;"
+      style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;right:0px;top:-20px;"
     >
-      <v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
+      <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
     >
     <v-tooltip v-show="!isVisible" right>
       <template v-slot:activator="{ on }">
