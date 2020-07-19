@@ -2,7 +2,7 @@
   <v-card
     class="elevation-3"
     :width="isVisible ? '250px' : '0px'"
-    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 220px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;"
+    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;"
   >
     <v-btn
       v-show="isVisible"
@@ -12,7 +12,7 @@
       x-small
       style="z-index:100;background-color:rgb(228, 76, 107);position:fixed;left:193px;top:240px;"
     >
-      Close<v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
+      <v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
     >
     <v-tooltip v-show="!isVisible" right>
       <template v-slot:activator="{ on }">
@@ -38,16 +38,20 @@
       v-if="isReady"
       style="height:100%;overflow-x:hidden;overflow-y:auto;"
     >
-      <span class="grey--text text--darken-2 subtitle-2">
-        {{ title }} Layers: Status
+      <span class="black--text text--darken-2 subtitle-2 pb-6">
+        {{ title }} Layers: On/Off
       </span>
-      <v-divider class="mr-1"></v-divider>
+      <v-divider class="mr-1 py-2 mt-1"></v-divider>
+
+<!-- THIS MODULE WORKS PERFECT, ACTIVATE IF DESIRED
 
       <span class="ml-10 grey--text text--darken-2 subtitle-2">
         <a @click="toggleAllLayersVisibility(true)">select all </a> |
         <a @click="toggleAllLayersVisibility(false)"> clear all</a>
       </span>
       <v-divider class="mr-1 mb-2"></v-divider>
+
+      UNCOMMENT TO ACTIVATE -->
 
       <template v-for="(item, index) in layers">
         <v-row

@@ -3,7 +3,7 @@
     <v-expand-transition>
       <v-navigation-drawer
         v-model="drawer"
-        :width="!selectedCoorpNetworkEntity ? 400 : 600"
+        :width="!selectedCoorpNetworkEntity ? 460 : 600"
         class="elevation-6"
         stateless
         app

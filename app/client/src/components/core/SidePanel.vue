@@ -2,16 +2,17 @@
   <v-layout justify-space-between column fill-height>
     <vue-scroll v-if="!selectedCoorpNetworkEntity">
       <v-layout v-if="!selectedCoorpNetworkEntity">
+
         <div class="px-1">
-          <v-row align="center" class="my-2 mx-3">
+          <v-row align="center" class="my-2 mx-3 pt-4">
             <div class="sidepanel-header">
-              <h1><span style="font-align:center;color:#c00;">Legend</span></h1>
+              <h1><span style="font-align:center;color:#c00;"></span></h1>
             </div>
 
             <!-- LEGEND IMAGE -->
             <v-img
               class="my-3"
-              max-width="350"
+              max-width="425"
               :src="
                 popup.showInSidePanel === true &&
                 popup.activeFeature &&
@@ -22,10 +23,10 @@
             >
             </v-img>
             <template v-if="!popup.showInSidePanel">
-              <!-- CAPTION -->
+              <!-- CAPTION - USE BY UNCOMMENTING
               <div class="caption font-italic font-weight-medium">
                 some features only appear when you zoom in
-              </div>
+              </div>  -->
               <!-- HEADER -->
               <p class="mt-4" style="font-size:120%;">
                 <strong
