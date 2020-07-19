@@ -32,26 +32,6 @@
     "layers": [
     {
       "type": "VECTOR",
-      "name": "all_pipes",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Crude Oil Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 0,
-      "minResolution": 1,
-      "maxResolution": 64000,
-      "opacity": 0.4,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "black",
-        "strokeWidth": 3
-      }
-    },
-    {
-      "type": "VECTOR",
       "name": "ContestedOilLines1",
       "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
       "group": "petropolisOil",
@@ -85,7 +65,7 @@
       "hoverable": true,
       "style": {
         "strokeColor": "black",
-        "strokeWidth": 6.5
+        "strokeWidth": 8
       }
     },
     {
@@ -136,16 +116,57 @@
       "legendDisplayName": "Cancelled Pipelines",
       "format": "GeoJSON",
       "visible": true,
-      "zIndex": 0,
+      "zIndex": -100,
       "minResolution": 1,
       "maxResolution": 32000,
       "hoverable": true,
-      "styleRef": "baseStyle",
-      "stylePropFnRef": "strokeColor",
-      "styleField": "variable2",
-      "style": {
+      "style":
+       {
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "strokeColor",
+        "styleField": "variable2",
         "strokeWidth": 4,
-        "lineDash": [8]
+        "lineDash": [6]
+        }
+    },
+    {
+      "type": "VECTOR",
+      "name": "all_pipes",
+      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
+      "group": "petropolisOil",
+      "queryable": true,
+      "displayInLegend": true,
+      "legendDisplayName": "Crude Oil Pipelines",
+      "format": "GeoJSON",
+      "visible": true,
+      "zIndex": 0,
+      "minResolution": 1,
+      "maxResolution": 64000,
+      "opacity": 1,
+      "hoverable": true,
+      "style": {
+        "strokeColor": "#222222",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "type": "VECTOR",
+      "name": "video_pipelines",
+      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
+      "group": "petropolisOil",
+      "queryable": true,
+      "displayInLegend": true,
+      "legendDisplayName": "Video Testimony",
+      "format": "GeoJSON",
+      "visible": true,
+      "zIndex": 0,
+      "minResolution": 1,
+      "maxResolution": 4891.97,
+      "label": null,
+      "hoverable": true,
+      "style": {
+        "iconUrl": "icons/Eycon.png",
+        "scale": 0.6
       }
     },
     {
@@ -333,31 +354,6 @@
         "style": {
           "strokeColor": "black",
           "strokeWidth": 3
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Spills_20yrs",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:spills_20yrs&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "showZoomToFeature": false,
-        "displayInLegend": true,
-        "legendDisplayName": "Spills 20 years",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 4,
-        "maxResolution": 1222.99,
-        "label": null,
-        "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable1",
-        "style": {
-          "type": "circle",
-          "strokeColor": "rgba(175, 21, 21, 0.7)",
-          "fillColor": "rgba(175, 21, 21, 0.4)"
         }
       },
       {
@@ -655,6 +651,31 @@
       },
       {
         "type": "VECTOR",
+        "name": "Spills_20yrs",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:spills_20yrs&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "showZoomToFeature": false,
+        "displayInLegend": true,
+        "legendDisplayName": "Spills, Last 20 years",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 1222.99,
+        "label": null,
+        "hoverable": true,
+        "styleRef": "baseStyle",
+        "stylePropFnRef": "circleRadiusFn",
+        "styleField": "variable1",
+        "style": {
+          "type": "circle",
+          "strokeColor": "rgba(175, 21, 21, 0.7)",
+          "fillColor": "rgba(175, 21, 21, 0.4)"
+        }
+      },
+      {
+        "type": "VECTOR",
         "name": "VideoOilIndustry",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_oil_industry&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -670,26 +691,6 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Warning.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "video_pipelines",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Video Testimony",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 4891.97,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/Eycon.png",
-          "scale": 0.6
         }
       },
       {
@@ -738,6 +739,16 @@
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
         "minResolution": 305.76,
+        "maxResolution": 1222.99,
+        "queryable": false,
+        "visible": true
+      },
+      {
+        "type": "XYZ",
+        "name": "Toner-Lite3",
+        "group": "petropolisOil",
+        "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png",
+        "minResolution": 0.25,
         "maxResolution": 1222.99,
         "queryable": false,
         "visible": true
@@ -913,7 +924,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Gas Pipelines",
+        "legendDisplayName": "Major Gas Pipelines",
         "format": "MVT",
         "visible": false,
         "hoverable": true,
@@ -1647,8 +1658,7 @@
       "oil": {
         "default": {
           "layers": [
-            "Toner-Lite2",
-            "maptiler_topo",
+            "Toner-Lite3",
             "Toner-Labels",
             "rest_of_world",
             "north_america",
@@ -1669,7 +1679,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOilNew.png",
+            "legendUrl": "images/NoPipeline.png",
             "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
             "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
@@ -1678,7 +1688,6 @@
           "layers": [
             "Toner-Lite2",
             "maptiler_topo",
-            "GasPipes2",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1690,7 +1699,6 @@
             "Terminals",
             "US_Refineries4",
             "CrudeDerailments",
-            "VideoOilIndustry",
             "MacLean",
             "video_pipelines"
           ],
@@ -1699,7 +1707,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOilNew.png",
+            "legendUrl": "images/DAPLcrossing.png",
             "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
             "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
           }
@@ -1728,7 +1736,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendOil3.png",
+            "legendUrl": "images/NigerDelta.png",
             "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
             "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
