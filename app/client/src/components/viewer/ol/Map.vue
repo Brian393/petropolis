@@ -4,7 +4,7 @@
     <zoom-control :map="map" />
 
     <full-screen />
-    <!-- <locate :map="map" /> -->
+    <locate :map="map" />
     <map-legend color="#dc143c" />
     <route-controls />
 
@@ -143,7 +143,7 @@ import { mapFields } from 'vuex-map-fields';
 import OverlayPopup from './controls/Overlay';
 import ZoomControl from './controls/ZoomControl';
 import FullScreen from './controls/FullScreen';
-// import Locate from './controls/Locate';
+import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
 
@@ -178,7 +178,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    // locate: Locate,
+    locate: Locate,
     'progress-loader': ProgressLoader
   },
   name: 'app-ol-map',
