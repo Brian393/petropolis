@@ -2,15 +2,15 @@
   <v-card
     class="elevation-3"
     :width="isVisible ? '250px' : '0px'"
-    style="z-index:1000;position:absolute;left:25px;top: 150px;max-width: 220px;min-height:150px;height=100%;"
+    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 220px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;"
   >
     <v-btn
       v-show="isVisible"
       @click="toggleLegend"
       class="legend-toggle-button white--text"
       text
-      small
-      style="background-color:rgb(228, 76, 107);position:absolute;right:-28px;bottom:60%;"
+      x-small
+      style="z-index:100;background-color:rgb(228, 76, 107);position:fixed;left:193px;top:240px;"
     >
       Close<v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
     >
@@ -18,13 +18,13 @@
       <template v-slot:activator="{ on }">
         <v-btn
           v-on="on"
-          style="position:absolute;right:-32px;top:10%;"
+          style="position:fixed;left:16px;top:260px;"
           v-show="!isVisible"
           color="#DC143C"
           @click="toggleLegend"
           fab
           small
-          class=" white--text"
+          class="white--text"
         >
           <v-icon>fas fa-layer-group</v-icon>
         </v-btn>
@@ -32,7 +32,12 @@
       <span>Layers</span>
     </v-tooltip>
 
-    <v-card-text class="pa-2 pb-0 mb-0" v-show="isVisible" v-if="isReady">
+    <v-card-text
+      class="pa-2 pb-0 mb-0 mr-0 pr-0"
+      v-show="isVisible"
+      v-if="isReady"
+      style="height:100%;overflow-x:hidden;overflow-y:auto;"
+    >
       <span class="grey--text text--darken-2 subtitle-2">
         {{ title }} Layers: Status
       </span>
@@ -227,5 +232,21 @@ export default {
   -webkit-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
   transform-origin: bottom right;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(206, 206, 206) #ffffff;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+  border-radius: 20px;
+  border: 3px solid #ffffff;
 }
 </style>
