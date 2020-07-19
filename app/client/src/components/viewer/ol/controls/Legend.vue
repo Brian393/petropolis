@@ -2,7 +2,7 @@
   <v-card
     class="elevation-3"
     :width="isVisible ? '250px' : '0px'"
-    style="z-index:1000;position:absolute;left:25px;top: 150px;max-width: 220px;min-height:150px;height=100%;"
+    style="z-index:1000;position:absolute;left:25px;top:270px;max-width: 200px;min-height:150px;height=100%;"
   >
     <v-btn
       v-show="isVisible"
@@ -12,7 +12,7 @@
       small
       style="background-color:rgb(228, 76, 107);position:absolute;right:-28px;bottom:60%;"
     >
-      Close<v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
+      <v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
     >
     <v-tooltip v-show="!isVisible" right>
       <template v-slot:activator="{ on }">

@@ -194,7 +194,7 @@ export function gasePipeStyle() {
         styleCache[entity] = new OlStyle({
           stroke: new OlStroke({
             color: store.state.gasFieldEntitiesColors[entity],
-            width: 1.5
+            width: 2.5
           })
         });
       }
