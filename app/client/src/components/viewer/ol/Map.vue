@@ -178,7 +178,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    'locate': Locate,
+    locate: Locate,
     'progress-loader': ProgressLoader
   },
   name: 'app-ol-map',
