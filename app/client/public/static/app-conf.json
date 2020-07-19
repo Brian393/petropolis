@@ -30,159 +30,159 @@
     ],
     "center": [0, 0],
     "layers": [
-    {
-      "type": "VECTOR",
-      "name": "ContestedOilLines1",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Contested Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 10,
-      "minResolution": 1,
-      "maxResolution": 16000,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "rgba(105, 105, 105, 0.0)",
-        "strokeWidth": 16
-      }
-    },
-    {
-      "type": "VECTOR",
-      "name": "ContestedOilLines2",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": false,
-      "legendDisplayName": "Contested Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 10,
-      "minResolution": 1,
-      "maxResolution": 16000,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "black",
-        "strokeWidth": 8
-      }
-    },
-    {
-      "type": "VECTOR",
-      "name": "ContestedOilLines3",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Contested Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 10,
-      "minResolution": 1,
-      "maxResolution": 16000,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "#fb5c04",
-        "strokeWidth": 3
-      }
-    },
-    {
-      "type": "VECTOR",
-      "name": "ContestedOilLines4",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": false,
-      "legendDisplayName": "Contested Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 10,
-      "minResolution": 1,
-      "maxResolution": 8000,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "black",
-        "strokeWidth": 3
-      }
-    },
-    {
-      "type": "VECTOR",
-      "name": "CancelledOilLines",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Cancelled Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": -100,
-      "minResolution": 1,
-      "maxResolution": 32000,
-      "hoverable": true,
-      "style":
-       {
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "strokeColor",
-        "styleField": "variable2",
-        "strokeWidth": 4,
-        "lineDash": [6]
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines1",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Contested Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "rgba(105, 105, 105, 0.0)",
+          "strokeWidth": 16
         }
-    },
-    {
-      "type": "VECTOR",
-      "name": "all_pipes",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Crude Oil Pipelines",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 0,
-      "minResolution": 1,
-      "maxResolution": 64000,
-      "opacity": 1,
-      "hoverable": true,
-      "style": {
-        "strokeColor": "#222222",
-        "strokeWidth": 3
-      }
-    },
-    {
-      "type": "VECTOR",
-      "name": "video_pipelines",
-      "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
-      "group": "petropolisOil",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Video Testimony",
-      "format": "GeoJSON",
-      "visible": true,
-      "zIndex": 0,
-      "minResolution": 1,
-      "maxResolution": 4891.97,
-      "label": null,
-      "hoverable": true,
-      "style": {
-        "iconUrl": "icons/Eycon.png",
-        "scale": 0.6
-      }
-    },
-    {
-      "type": "WMS",
-      "name": "gridkit",
-      "url": "https://timetochange.today/geoserver/wms",
-      "layers": "petropolis:gridkit",
-      "group": "petropolisCoal",
-      "queryable": false,
-      "displayInLegend": true,
-      "visible": true,
-      "zIndex": 0,
-      "minResolution": 1,
-      "maxResolution": 64000,
-      "displayInLayerList": true
-    },
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines2",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": false,
+        "legendDisplayName": "Contested Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 8
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines3",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Contested Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 16000,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#fb5c04",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "ContestedOilLines4",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": false,
+        "legendDisplayName": "Contested Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 10,
+        "minResolution": 1,
+        "maxResolution": 8000,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "black",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "CancelledOilLines",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Cancelled Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": -100,
+        "minResolution": 1,
+        "maxResolution": 32000,
+        "hoverable": true,
+        "style": {
+          "type": "line",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "strokeColor",
+          "styleField": "variable2",
+          "strokeWidth": 4,
+          "lineDash": [6]
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "all_pipes",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Crude Oil Pipelines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "opacity": 1,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#222222",
+          "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "video_pipelines",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Video Testimony",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4891.97,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/Eycon.png",
+          "scale": 0.6
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "gridkit",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:gridkit",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "displayInLayerList": true
+      },
       {
         "type": "WMS",
         "name": "electric_grid",
@@ -665,11 +665,11 @@
         "maxResolution": 1222.99,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable1",
         "style": {
           "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable1",
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
         }
@@ -789,11 +789,11 @@
         "maxResolution": 4000,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable2",
         "style": {
           "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable2",
           "strokeColor": "rgba(255, 255, 255, 0.7)",
           "fillColor": "rgba(195, 72, 28, 0.4)"
         }
@@ -1259,11 +1259,11 @@
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
-        "styleRef": "baseStyle",
-        "stylePropFnRef": "circleRadiusFn",
-        "styleField": "variable2",
         "style": {
           "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable2",
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
         }

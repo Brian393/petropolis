@@ -9,10 +9,11 @@
       @click="toggleLegend"
       class="legend-toggle-button white--text"
       text
+      min-width="35px"
       x-small
-      style="z-index:100;background-color:rgb(228, 76, 107);position:fixed;left:193px;top:240px;"
+      style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;right:0px;top:-20px;"
     >
-      <v-icon class="ml-2" x-small>fas fa-chevron-up</v-icon></v-btn
+      <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
     >
     <v-tooltip v-show="!isVisible" right>
       <template v-slot:activator="{ on }">
@@ -144,6 +145,7 @@ export default {
         let styleConf = layer.get('styleObj');
         if (!styleConf) return;
         styleConf = JSON.parse(styleConf);
+
         if (styleConf.iconUrl) {
           return `<img src="${styleConf.iconUrl}" class="icon-border" style="margin-top: 5px !important;object-fit:contain;" width="22" height="22">`;
         } else if (styleConf.radius || styleConf.type === 'circle') {
@@ -161,6 +163,16 @@ export default {
           if (!styleConf.strokeColor) {
             styleConf.strokeColor = 'black';
           }
+
+          if (styleConf.styleField && styleConf.type === 'line') {
+            const features = layer.getSource().getFeatures();
+            if (styleConf.legendColor) {
+              styleConf.strokeColor = styleConf.legendColor;
+            } else if (Array.isArray(features) && features.length > 0) {
+              styleConf.strokeColor = features[0].get(styleConf.styleField);
+            }
+          }
+
           return `<hr style="margin-top: 12px;border: ${lineWidth} ${lineType} ${styleConf.strokeColor};"></hr>`;
         }
       }

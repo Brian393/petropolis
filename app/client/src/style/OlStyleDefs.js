@@ -168,7 +168,7 @@ export function baseStyle(propertyName, config) {
             stroke: new OlStroke({
               color:
                 strokeColor instanceof Function
-                  ? strokeColor()
+                  ? strokeColor(propertyValue)
                   : strokeColor || 'rgba(255, 255, 255, 1)',
               width: strokeWidth || 4,
               lineDash: lineDash || [6]
