@@ -16,7 +16,21 @@
       press ↑ or ↓ to change spotlight size
     </div>
     <!-- Popup overlay  -->
-    <overlay-popup :title="popup.title" v-show="popup.isVisible" ref="popup">
+    <overlay-popup
+      :title="
+        popup.activeFeature
+          ? popup.activeFeature.get('category') ||
+            popup.activeFeature.get('title')
+            ? popup.activeFeature.get('category') ||
+              popup.activeFeature.get('title')
+            : popup.activeLayer
+            ? popup.activeLayer.get('name')
+            : ''
+          : ''
+      "
+      v-show="popup.isVisible"
+      ref="popup"
+    >
       <v-btn icon>
         <v-icon>close</v-icon>
       </v-btn>
@@ -26,20 +40,6 @@
         </v-btn>
       </template>
       <template v-slot:body>
-        <div
-          v-if="popup.activeFeature"
-          class="mb-3 font-weight-bold title"
-          v-html="
-            popup.activeFeature.get('category') ||
-            popup.activeFeature.get('title')
-              ? popup.activeFeature.get('category') ||
-                popup.activeFeature.get('title')
-              : popup.activeLayer
-              ? popup.activeLayer.get('name')
-              : ''
-          "
-        ></div>
-
         <vue-scroll ref="vs">
           <div style="max-height:280px;" class="pr-2">
             <div class="body-2" v-for="item in popupInfo" :key="item.property">
