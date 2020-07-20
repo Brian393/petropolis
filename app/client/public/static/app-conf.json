@@ -126,7 +126,9 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [6]
+          "lineDash": [6],
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#D28436"
         }
       },
       {

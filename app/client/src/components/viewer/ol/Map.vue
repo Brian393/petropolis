@@ -641,7 +641,19 @@ export default {
             feature.get('entity') ||
             feature.get('NAME');
           if (!attr) return;
+          if (layer.get('styleObj')) {
+            const { hoverTextColor, hoverBackgroundColor } = JSON.parse(
+              layer.get('styleObj')
+            );
 
+            hoverBackgroundColor && overlayEl
+              ? (overlayEl.style.backgroundColor = hoverBackgroundColor)
+              : (overlayEl.style.backgroundColor = '');
+
+            hoverTextColor && overlayEl
+              ? (overlayEl.style.color = hoverTextColor)
+              : (overlayEl.style.color = '');
+          }
           if (
             (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
             (feature.get('entity') &&
@@ -1103,8 +1115,7 @@ div.ol-control button {
   font-weight: bold;
 }
 
-.tooltip:before {
-  border-top: 6px solid rgba(140, 140, 140, 1);
+.tooltip::before {
   border-right: 6px solid transparent;
   border-left: 6px solid transparent;
   content: '';
