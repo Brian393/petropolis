@@ -88,7 +88,9 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [9]
+          "lineDash": [9],
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#D28436"
         }
       },
       {
