@@ -40,7 +40,7 @@
       style="height:100%;overflow-x:hidden;overflow-y:auto;"
     >
       <span class="black--text text--darken-2 subtitle-2 pb-6">
-        {{ title }} Layers: On/Off
+        {{ title }} Legend
       </span>
       <v-divider class="mr-1 py-2 mt-1"></v-divider>
 

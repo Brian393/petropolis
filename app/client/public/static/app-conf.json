@@ -147,27 +147,6 @@
         "displayInLayerList": true
       },
       {
-        "type": "WMS",
-        "name": "electric_grid",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:electric_grid",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "legendDisplayName": "US Grid",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1222.99,
-        "maxResolution": 64000,
-        "hoverable": false,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "black",
-          "strokeWidth": 8
-        }
-      },
-      {
         "type": "VECTORTILE",
         "name": "north_america",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
@@ -248,20 +227,6 @@
         }
       },
       {
-        "type": "WMS",
-        "name": "na_rr",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:na_rr",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "displayInLayerList": true
-      },
-      {
         "type": "VECTOR",
         "name": "Terminals",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:terminals&outputFormat=application/json&srsname=EPSG:3857",
@@ -332,7 +297,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 16000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -353,7 +318,12 @@
         "zIndex": 0,
         "minResolution": 2445.99,
         "maxResolution": 64000,
-        "displayInLayerList": true
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#a51e16",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
       },
       {
         "type": "VECTORTILE",
@@ -362,12 +332,12 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Global Wind",
+        "legendDisplayName": "US Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 16000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -459,6 +429,46 @@
         "minResolution": 2445.99,
         "maxResolution": 64000,
         "displayInLayerList": true
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "na_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "North American Grid",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#0078f5",
+          "width": 1.2
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "electric_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "North American Grid",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#0078f5",
+          "width": 1.6
+        }
       },
       {
         "type": "VECTOR",
@@ -1092,27 +1102,6 @@
       },
       {
         "type": "VECTOR",
-        "name": "NA-RR2",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "showZoomToFeature": false,
-        "displayInLegend": true,
-        "legendDisplayName": "NA-RR",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 16,
-        "maxResolution": 32000,
-        "hoverable": false,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "rgba(255, 255, 255, 0.6)",
-          "strokeWidth": 1
-        }
-      },
-      {
-        "type": "VECTOR",
         "name": "Coal1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
@@ -1303,6 +1292,24 @@
         "opacity": 1,
         "queryable": false,
         "visible": true
+      },
+      {
+        "type": "WMS",
+        "name": "na_rr",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:na_rr",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "legendDisplayName": "Railroads",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 2000,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 1 }
       },
       {
         "type": "XYZ",
@@ -1585,14 +1592,10 @@
         "default": {
           "layers": [
             "ESRI-World-Imagery2",
-            "electric_grid",
-            "electric_grid2",
+            "na_grid",
             "rest_of_world2",
-            "gridkit",
             "us_solar",
-            "us_solar2",
             "us_wind",
-            "us_wind2",
             "north_america2"
           ],
           "center": [-101, 42.0],
@@ -1607,16 +1610,12 @@
         },
         "local": {
           "layers": [
-            "ESRI-World-Imagery2",
+            "maptiler_topo2",
             "electric_grid",
-            "electric_grid2",
-            "north_america2",
             "rest_of_world2",
-            "gridkit",
             "us_solar",
-            "us_solar2",
             "us_wind",
-            "us_wind2"
+            "north_america2"
           ],
           "center": [-97, 37],
           "resolution": 4500,
