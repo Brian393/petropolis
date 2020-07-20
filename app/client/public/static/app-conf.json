@@ -1,7 +1,7 @@
 {
   "title": "Petropolis",
   "baseColor": "red darken-3",
-  "controlsColor": "#DC143C",
+  "controlsColor": "#dc143c",
   "map": {
     "projectionCode": "EPSG:3857",
     "minZoom": 1,
@@ -298,7 +298,7 @@
         "hoverable": false,
         "style": {
           "strokeColor": "#000000",
-          "strokeWidth": 2.5
+          "strokeWidth": 3
         }
       },
       {
@@ -476,8 +476,8 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Refinery1.png",
-          "scale": 1.1
+          "iconUrl": "icons/Refinery0.png",
+          "scale": 0.7
         }
       },
       {
@@ -589,9 +589,21 @@
         "group": "petropolisOil",
         "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png",
         "minResolution": 1222.99,
-        "maxResolution": 64000,
+        "maxResolution": 9783.94,
         "queryable": false,
-        "visible": true
+        "visible": true,
+        "opacity": 0.99
+      },
+      {
+        "type": "XYZ",
+        "name": "Terrain-Labels",
+        "group": "petropolisOil",
+        "url": "https://stamen-tiles-{a-d}.a.ssl.fastly.net/terrain-labels/{z}/{x}/{y}.png",
+        "minResolution": 1,
+        "maxResolution": 7000,
+        "queryable": false,
+        "visible": true,
+        "opacity": 0.99
       },
       {
         "type": "XYZ",
@@ -680,11 +692,12 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 8000,
+        "maxResolution": 2445.98,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Tanker2.png"
+          "iconUrl": "icons/OilPort.png",
+          "scale": 0.8
         }
       },
       {
@@ -717,12 +730,12 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 8000,
-        "maxResolution": 32000,
+        "minResolution": 1,
+        "maxResolution": 8000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Refinery4.png"
+          "iconUrl": "icons/Refinery3.png"
         }
       },
       {
@@ -796,12 +809,16 @@
         "displayInLegend": true,
         "legendDisplayName": "Major Gas Pipelines",
         "format": "MVT",
-        "visible": false,
+        "visible": true,
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 4891.97,
-        "styleRef": "gasePipeStyle"
+        "maxResolution": 8000,
+        "isInteractive": true,
+        "style": {
+          "strokeColor": "#09D8F4",
+          "strokeWidth": 1
+        }
       },
       {
         "type": "VECTOR",
@@ -1438,7 +1455,8 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/NoPipeline.png",
+            "legendUrl": "images/NoPipelineEver.png",
+            "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
             "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
             "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
@@ -1450,6 +1468,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
+            "GasPipes2",
             "Spills_20yrs",
             "CancelledOilLines",
             "all_pipes",
@@ -1466,7 +1485,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/DAPLcrossing.png",
+            "legendUrl": "images/FenceNoPipeline.png",
             "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
             "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
           }
@@ -1474,27 +1493,21 @@
         "global": {
           "layers": [
             "ESRI-World-Terrain",
-            "Toner-Lite",
-            "ESRI-World-Reference",
-            "BING-Layer",
+            "Terrain-Labels",
             "ESRI-World-Imagery",
-            "OilPipes1",
-            "OilPipes2",
             "GiantOilFields",
             "all_pipes",
             "GlobalPipelines",
             "OilPorts",
-            "US_Refineries2",
             "US_Refineries3",
-            "GlobalRefineries2",
-            "GlobalRefineries3"
+            "GlobalRefineries2"
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/NigerDelta.png",
+            "legendUrl": "images/OilHead.png",
             "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
             "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
           }
@@ -1517,7 +1530,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendCoal.png",
+            "legendUrl": "images/Coalman2.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1540,7 +1553,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/LegendCoal.png",
+            "legendUrl": "images/Coalmine.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1562,7 +1575,7 @@
           "minResolution": 0.25,
           "maxResolution": 64000,
           "sidePanel": {
-            "legendUrl": "icons/LegendCoal.png",
+            "legendUrl": "images/Coalcloud.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1587,7 +1600,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/Legend_renewables.png",
+            "legendUrl": "images/SolarSculpture.png",
             "headerText": "What would it be like to build a new society?",
             "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin and the Bakken&mdash;and hopefully the Tar Sands too. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
@@ -1610,7 +1623,7 @@
           "minResolution": 0.25,
           "maxResolution": 16000,
           "sidePanel": {
-            "legendUrl": "icons/Legend_renewables.png",
+            "legendUrl": "images/Panels.png",
             "headerText": "What would it be like to build a new society?",
             "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
@@ -1634,7 +1647,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "icons/Legend_renewables.png",
+            "legendUrl": "images/Windmills.png",
             "headerText": "What would it be like to build a new society?",
             "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin, the Bakken, and hopefully the Tar Sands. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }

@@ -14,7 +14,7 @@
       </v-navigation-drawer>
     </v-expand-transition>
 
-    <v-app-bar app clipped-right height="60" color="#DC143C" dark>
+    <v-app-bar app clipped-right height="60" color="#dc143c" dark>
       <v-spacer></v-spacer>
       <v-toolbar-title
         @click="goToHome()"

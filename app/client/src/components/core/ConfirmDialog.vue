@@ -15,7 +15,7 @@
           <v-btn color="primary darken-1" text @click.native="agree">{{
             confirmText
           }}</v-btn>
-          <v-btn color="#DC143C" text @click.native="cancel">{{
+          <v-btn color="#dc143c" text @click.native="cancel">{{
             cancelText
           }}</v-btn>
         </v-card-actions>
