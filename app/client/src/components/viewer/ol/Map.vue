@@ -16,7 +16,21 @@
       press ↑ or ↓ to change spotlight size
     </div>
     <!-- Popup overlay  -->
-    <overlay-popup :title="popup.title" v-show="popup.isVisible" ref="popup">
+    <overlay-popup
+      :title="
+        popup.activeFeature
+          ? popup.activeFeature.get('category') ||
+            popup.activeFeature.get('title')
+            ? popup.activeFeature.get('category') ||
+              popup.activeFeature.get('title')
+            : popup.activeLayer
+            ? popup.activeLayer.get('name')
+            : ''
+          : ''
+      "
+      v-show="popup.isVisible"
+      ref="popup"
+    >
       <v-btn icon>
         <v-icon>close</v-icon>
       </v-btn>
@@ -26,20 +40,6 @@
         </v-btn>
       </template>
       <template v-slot:body>
-        <div
-          v-if="popup.activeFeature"
-          class="mb-3 font-weight-bold title"
-          v-html="
-            popup.activeFeature.get('category') ||
-            popup.activeFeature.get('title')
-              ? popup.activeFeature.get('category') ||
-                popup.activeFeature.get('title')
-              : popup.activeLayer
-              ? popup.activeLayer.get('name')
-              : ''
-          "
-        ></div>
-
         <vue-scroll ref="vs">
           <div style="max-height:280px;" class="pr-2">
             <div class="body-2" v-for="item in popupInfo" :key="item.property">
@@ -641,7 +641,19 @@ export default {
             feature.get('entity') ||
             feature.get('NAME');
           if (!attr) return;
+          if (layer.get('styleObj')) {
+            const { hoverTextColor, hoverBackgroundColor } = JSON.parse(
+              layer.get('styleObj')
+            );
 
+            hoverBackgroundColor && overlayEl
+              ? (overlayEl.style.backgroundColor = hoverBackgroundColor)
+              : (overlayEl.style.backgroundColor = '');
+
+            hoverTextColor && overlayEl
+              ? (overlayEl.style.color = hoverTextColor)
+              : (overlayEl.style.color = '');
+          }
           if (
             (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
             (feature.get('entity') &&
@@ -1103,8 +1115,7 @@ div.ol-control button {
   font-weight: bold;
 }
 
-.tooltip:before {
-  border-top: 6px solid rgba(140, 140, 140, 1);
+.tooltip::before {
   border-right: 6px solid transparent;
   border-left: 6px solid transparent;
   content: '';
