@@ -9,7 +9,7 @@
           @click="changeFuelGroup(fuelGroup)"
           :color="
             activeLayerGroup.fuelGroup === fuelGroup.name
-              ? '#DC143C'
+              ? '#dc143c'
               : '#E44C6B'
           "
           :class="{
@@ -29,7 +29,7 @@
             dark
             @click="changeRegion(region)"
             :color="
-              activeLayerGroup.region === region.name ? '#DC143C' : '#E44C6B'
+              activeLayerGroup.region === region.name ? '#dc143c' : '#E44C6B'
             "
             :class="{
               'elevation-6': activeLayerGroup.region === region.name

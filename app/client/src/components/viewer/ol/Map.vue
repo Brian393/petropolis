@@ -200,7 +200,7 @@ export default {
       lightBoxImages: [],
       progressLoading: {
         message: 'Fetching Corporate Network',
-        progressColor: '#DC143C',
+        progressColor: '#dc143c',
         value: false
       },
       ops: {
@@ -537,7 +537,7 @@ export default {
       });
       this.popup.popupOverlay.setPosition(closestPoint);
       this.popup.isVisible = true;
-      this.popup.title = `Info`;
+      this.popup.title = 'Info';
     },
     /**
      * Zooms to feature, add a cloned feature to the highlight layer and set the position of popup undefined

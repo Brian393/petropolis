@@ -2,7 +2,7 @@
   <v-card
     class="elevation-3"
     :width="isVisible ? '250px' : '0px'"
-    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;"
+    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;opacity:85%;"
   >
     <v-btn
       v-show="isVisible"
@@ -21,7 +21,7 @@
           v-on="on"
           style="position:fixed;left:16px;top:260px;"
           v-show="!isVisible"
-          color="#DC143C"
+          color="#dc143c"
           @click="toggleLegend"
           fab
           small

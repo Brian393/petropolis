@@ -112,7 +112,7 @@
             <v-btn
               @click="closeCorpNetworkSelection()"
               dark
-              color="#DC143C"
+              color="#dc143c"
               small
               class="ml-1 elevation-0"
             >
@@ -125,7 +125,7 @@
           class="mt-n1"
           indeterminate
           height="5"
-          color="#DC143C"
+          color="#dc143c"
         ></v-progress-linear>
         <vue-scroll>
           <v-container v-if="iframeUrl" style="overflow:hidden;" class="pt-0 mt-0"  fill-height>
