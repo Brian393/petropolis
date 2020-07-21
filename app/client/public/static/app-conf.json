@@ -30,34 +30,13 @@
     ],
     "center": [0, 0],
     "layers": [
-      {
-        "type": "VECTOR",
-        "name": "ContestedOilLines2",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": false,
-        "legendDisplayName": "Contested Pipelines",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 10,
-        "minResolution": 1,
-        "maxResolution": 16000,
-        "hoverable": true,
-        "style": {
-          "strokeColor": "black",
-          "strokeWidth": 6.5,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
-        }
-      },
+
       {
         "type": "VECTOR",
         "name": "ContestedOilLines3",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
-        "displayInLegend": true,
         "legendDisplayName": "Contested Pipelines",
         "format": "GeoJSON",
         "visible": true,
@@ -65,12 +44,18 @@
         "minResolution": 1,
         "maxResolution": 16000,
         "hoverable": true,
-        "style": {
-          "strokeColor": "#d94319",
-          "strokeWidth": 4,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
-        }
+        "displayInLegend": true,
+        "legendIcon": "icons/ContestedLine.png",
+        "style": [
+          {
+            "strokeColor": "black",
+            "strokeWidth": 8
+          },
+          {
+            "strokeColor": "#fb5c04",
+            "strokeWidth": 3
+          }
+        ]
       },
       {
         "type": "VECTOR",
