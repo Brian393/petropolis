@@ -54,33 +54,42 @@ export const LayerFactory = {
     return quadKeyDigits.join('');
   },
 
+  getStyles(lConf) {
+    if (!lConf.style) return;
+    if (Array.isArray(lConf.style)) {
+      const styleArray = [];
+      lConf.style.forEach(style => {
+        styleArray.push(this.renderStyle(style, lConf.name));
+      });
+      return styleArray;
+    } else {
+      return this.renderStyle(lConf.style, lConf.name);
+    }
+  },
+
   /**
    * Returns the corresponding style of the layer based on configuration.
    *
    * @param  {Object} lConf  Layer config object
    * @return {ol.style} Ol Style
    */
-  getStyle(lConf) {
-    const styleProps = lConf.style;
-    const styleRef = lConf.style.styleRef;
-    const stylePropFnRef = lConf.style.stylePropFnRef;
-    const styleField = lConf.style.styleField;
-
+  renderStyle(styleProps, layerName) {
+    const { styleRef, stylePropFnRef, styleField } = styleProps;
     if (
       styleProps &&
       styleRef &&
       stylePropFnRef &&
       styleField &&
       styleRefs[styleRef] &&
-      layersStylePropFn[lConf.name] &&
-      layersStylePropFn[lConf.name][stylePropFnRef]
+      layersStylePropFn[layerName] &&
+      layersStylePropFn[layerName][stylePropFnRef]
     ) {
       const styleFn = styleRefs[styleRef];
-      const stylePropsFn = layersStylePropFn[lConf.name];
+      const stylePropsFn = layersStylePropFn[layerName];
       const props = { ...styleProps, ...stylePropsFn };
       return styleFn(styleField, props);
     } else if (styleRef) {
-      return styleRefs[lConf.styleRef]();
+      return styleRefs[styleRef]();
     } else {
       return OlStyleFactory.getInstance(styleProps);
     }
@@ -350,7 +359,7 @@ export const LayerFactory = {
       zIndex: lConf.zIndex,
       group: lConf.group,
       source: new VectorSource(sourceConfig),
-      style: this.getStyle(lConf),
+      style: this.getStyles(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute,
       label: lConf.label,
@@ -386,7 +395,7 @@ export const LayerFactory = {
         format: new this.formatMapping[lConf.format](),
         attributions: lConf.attributions
       }),
-      style: this.getStyle(lConf),
+      style: this.getStyles(lConf),
       hoverable: lConf.hoverable,
       hoverAttribute: lConf.hoverAttribute,
       styleObj: JSON.stringify(lConf.style)
@@ -452,7 +461,7 @@ export const LayerFactory = {
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: vectorSource,
-      style: this.getStyle(lConf)
+      style: this.getStyles(lConf)
     });
 
     return layer;
