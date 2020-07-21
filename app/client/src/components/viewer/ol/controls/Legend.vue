@@ -44,7 +44,7 @@
       </span>
       <v-divider class="mr-1 py-2 mt-1"></v-divider>
 
-<!-- THIS MODULE WORKS PERFECT, ACTIVATE IF DESIRED
+      <!-- THIS MODULE WORKS PERFECT, ACTIVATE IF DESIRED
 
       <span class="ml-10 grey--text text--darken-2 subtitle-2">
         <a @click="toggleAllLayersVisibility(true)">select all </a> |
@@ -146,8 +146,9 @@ export default {
         if (!styleConf) return;
         styleConf = JSON.parse(styleConf);
 
-        if (styleConf.iconUrl) {
-          return `<img src="${styleConf.iconUrl}" class="icon-border" style="margin-top: 5px !important;object-fit:contain;" width="22" height="22">`;
+        if (styleConf.iconUrl || layer.get('legendIcon')) {
+          const iconUrl = styleConf.iconUrl || layer.get('legendIcon');
+          return `<img src="${iconUrl}" style="margin-top: 5px !important;object-fit:contain;" width="18" height="22">`;
         } else if (styleConf.radius || styleConf.type === 'circle') {
           return `<span class="circle" style="margin-top: 5px;background-color:${styleConf.fillColor};border: 1px solid ${styleConf.strokeColor};"></span>`;
         } else if (styleConf.fillColor) {
