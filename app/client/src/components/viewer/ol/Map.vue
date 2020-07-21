@@ -1106,7 +1106,7 @@ div.ol-control button {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(128, 128, 128, 0.9);
   border-radius: 4px;
   color: white;
   padding: 2px 8px;

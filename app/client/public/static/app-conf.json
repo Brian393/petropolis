@@ -33,7 +33,7 @@
       {
         "type": "VECTOR",
         "name": "ContestedOilLines2",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": false,
@@ -46,13 +46,15 @@
         "hoverable": true,
         "style": {
           "strokeColor": "black",
-          "strokeWidth": 8
+          "strokeWidth": 6.5,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
         "type": "VECTOR",
         "name": "ContestedOilLines3",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -64,14 +66,16 @@
         "maxResolution": 16000,
         "hoverable": true,
         "style": {
-          "strokeColor": "#fb5c04",
-          "strokeWidth": 3
+          "strokeColor": "#d94319",
+          "strokeWidth": 4,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -88,9 +92,9 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [9],
+          "lineDash": [7],
           "hoverTextColor": "white",
-          "hoverBackgroundColor": "#D28436"
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -107,9 +111,9 @@
         "minResolution": 1,
         "maxResolution": 64000,
         "opacity": 1,
-        "hoverable": true,
+        "hoverable": false,
         "style": {
-          "strokeColor": "#222222",
+          "strokeColor": "#272622",
           "strokeWidth": 3
         }
       },
@@ -130,23 +134,10 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Eycon.png",
-          "scale": 0.6
+          "scale": 0.6,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
-      },
-      {
-        "type": "WMS",
-        "name": "gridkit",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:gridkit",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "legendDisplayName": "North American Grid",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -305,7 +296,7 @@
         "style": {
           "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
-          "radius": 4
+          "radius": 3
         }
       },
       {
@@ -343,9 +334,28 @@
         "label": true,
         "hoverable": true,
         "style": {
-          "strokeColor": "#c37f03",
+          "strokeColor": "#a51e16",
           "fillColor": "#ffcc00",
           "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "us_solar3",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "US Solar",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/Soleil.png"
         }
       },
       {
@@ -448,8 +458,8 @@
         "label": true,
         "hoverable": true,
         "style": {
-          "strokeColor": "#0078f5",
-          "width": 1.2
+          "strokeColor": "#00b1ff",
+          "width": 4
         }
       },
       {
@@ -834,6 +844,26 @@
       },
       {
         "type": "VECTOR",
+        "name": "GasPipes",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:gas_pipes&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Natural Gas Pipes",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#0ec1ed",
+          "strokeWidth": 1.5
+        }
+      },
+      {
+        "type": "VECTOR",
         "name": "USnatGas1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisGas",
@@ -1029,16 +1059,17 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "LNG Terminal",
+        "legendDisplayName": "LNG Terminals",
         "format": "GeoJSON",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 16000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/LNGterminal.png"
+          "iconUrl": "icons/LNGterminal.png",
+          "scale": 0.5
         }
       },
       {
@@ -1118,7 +1149,10 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack6.png"
+          "iconUrl": "icons/CoalPower.png",
+          "scale": 0.8,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -1199,7 +1233,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/CoalAsh4.png",
+          "iconUrl": "icons/FlyAsh.png",
           "scale": 0.8
         }
       },
@@ -1477,8 +1511,9 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "GasPipes2",
+            "GasPipes",
             "Spills_20yrs",
+            "LNGterminals",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
@@ -1530,7 +1565,6 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "CoalAsh",
             "Coal1",
             "Coal_Mines"
           ],
@@ -1553,9 +1587,7 @@
             "north_america",
             "ESRI-World-Imagery",
             "na_rr",
-            "CoalAsh",
-            "Coal1",
-            "Coal_Mines"
+            "CoalAsh"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
