@@ -148,7 +148,7 @@ export default {
 
         if (styleConf.iconUrl || layer.get('legendIcon')) {
           const iconUrl = styleConf.iconUrl || layer.get('legendIcon');
-          return `<img src="${iconUrl}" style="margin-top: 5px !important;object-fit:contain;" width="16" height="22">`;
+          return `<img src="${iconUrl}" style="margin-top: 5px !important;object-fit:contain;" width="18" height="22">`;
         } else if (styleConf.radius || styleConf.type === 'circle') {
           return `<span class="circle" style="margin-top: 5px;background-color:${styleConf.fillColor};border: 1px solid ${styleConf.strokeColor};"></span>`;
         } else if (styleConf.fillColor) {
