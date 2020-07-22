@@ -816,7 +816,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Major Gas Pipelines",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 1,
@@ -825,26 +825,6 @@
         "style": {
           "strokeColor": "#09D8F4",
           "strokeWidth": 1
-        }
-      },
-      {
-        "type": "WFS",
-        "name": "GasPipes",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:gas_pipes&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Natural Gas Pipes",
-        "format": "GeoJSON",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 4000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "strokeColor": "#0ec1ed",
-          "strokeWidth": 1.5
         }
       },
       {
@@ -1493,7 +1473,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "GasPipes",
+            "GasPipes2",
             "Spills_20yrs",
             "LNGterminals",
             "CancelledOilLines",
