@@ -33,7 +33,7 @@
 
       {
         "type": "VECTOR",
-        "name": "ContestedOilLines3",
+        "name": "ContestedOilLines",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
@@ -49,11 +49,11 @@
         "style": [
           {
             "strokeColor": "black",
-            "strokeWidth": 8
+            "strokeWidth": 7
           },
           {
             "strokeColor": "#fb5c04",
-            "strokeWidth": 3
+            "strokeWidth": 4
           }
         ]
       },
@@ -96,7 +96,7 @@
         "minResolution": 1,
         "maxResolution": 64000,
         "opacity": 1,
-        "hoverable": false,
+        "hoverable": true,
         "style": {
           "strokeColor": "#272622",
           "strokeWidth": 3
@@ -1470,8 +1470,7 @@
             "Spills_20yrs",
             "CancelledOilLines",
             "all_pipes",
-            "ContestedOilLines2",
-            "ContestedOilLines3",
+            "ContestedOilLines",
             "Terminals",
             "US_Refineries4",
             "crude_derailment",
@@ -1502,7 +1501,7 @@
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
-            "ContestedOilLines3",
+            "ContestedOilLines",
             "Terminals",
             "US_Refineries4",
             "CrudeDerailments",
