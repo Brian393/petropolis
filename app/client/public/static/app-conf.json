@@ -77,7 +77,7 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [7],
+          "lineDash": [8],
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
@@ -828,7 +828,7 @@
         }
       },
       {
-        "type": "VECTOR",
+        "type": "WFS",
         "name": "GasPipes",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:gas_pipes&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -1238,7 +1238,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack3.png"
+          "iconUrl": "icons/CoalPower.png"
         }
       },
       {
@@ -1261,6 +1261,20 @@
         }
       },
       {
+        "type": "WMS",
+        "name": "global_power",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_power",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "displayInLayerList": true
+      },
+      {
         "type": "VECTOR",
         "name": "Coal2",
         "url": "geojson/Coal.geojson",
@@ -1272,30 +1286,14 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 6000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/Smokestack3.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Coal3",
-        "url": "geojson/Coal.geojson",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 6000,
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack4.png"
+          "iconUrl": "icons/CoalPower.png",
+          "scale": 0.8,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
 
@@ -1523,6 +1521,7 @@
             "ESRI-World-Terrain",
             "Terrain-Labels",
             "ESRI-World-Imagery",
+            "global_power",
             "GiantOilFields",
             "all_pipes",
             "GlobalPipelines",
@@ -1592,8 +1591,7 @@
             "north_america",
             "ESRI-World-Imagery",
             "CoalMines",
-            "Coal2",
-            "Coal3"
+            "Coal2"
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
