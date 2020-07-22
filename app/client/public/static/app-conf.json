@@ -816,7 +816,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Major Gas Pipelines",
         "format": "MVT",
-        "visible": false,
+        "visible": true,
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 1,
@@ -1026,7 +1026,7 @@
         "displayInLegend": true,
         "legendDisplayName": "LNG Terminals",
         "format": "GeoJSON",
-        "visible": false,
+        "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 16000,
@@ -1462,8 +1462,8 @@
           "sidePanel": {
             "legendUrl": "images/NoPipelineEver.png",
             "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
-            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
-            "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
+            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil, also known to Indigenous peoples as the Black Snake, that writhes and undulates from the Tars Sands and the Bakken all the way to the Gulf of Mexico.",
+            "bodyText": "This map attempts to see through the present time of coal and oil, to a future beyond fossil fuel. According to clear public perception informed by science, we must leave all CO<sup>2</sup>-producing industries behind. It will take a change of worlds. How to do it is the challenge of a generation. While saving all jobs, while protecting all communities, the time has come to dismantle the fossil-fuel system."
           }
         },
         "local": {
