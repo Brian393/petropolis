@@ -32,8 +32,8 @@
     "layers": [
       {
         "type": "VECTOR",
-        "name": "ContestedOilLines3",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "ContestedOilLines",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:contested_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "legendDisplayName": "Contested Pipelines",
@@ -45,25 +45,21 @@
         "hoverable": true,
         "displayInLegend": true,
         "legendIcon": "icons/ContestedLine.png",
-        "style": {
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#D28436",
-          "featureStyles": [
-            {
-              "strokeColor": "black",
-              "strokeWidth": 8
-            },
-            {
-              "strokeColor": "#fb5c04",
-              "strokeWidth": 3
-            }
-          ]
-        }
+        "style": [
+          {
+            "strokeColor": "black",
+            "strokeWidth": 7
+          },
+          {
+            "strokeColor": "#fb5c04",
+            "strokeWidth": 4
+          }
+        ]
       },
       {
         "type": "VECTOR",
         "name": "CancelledOilLines",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_oil_lines&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:cancelled_pipelines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -80,7 +76,9 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [9]
+          "lineDash": [8],
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -99,7 +97,7 @@
         "opacity": 1,
         "hoverable": true,
         "style": {
-          "strokeColor": "#222222",
+          "strokeColor": "#272622",
           "strokeWidth": 3
         }
       },
@@ -120,43 +118,9 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Eycon.png",
-          "scale": 0.6
-        }
-      },
-      {
-        "type": "WMS",
-        "name": "gridkit",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:gridkit",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "legendDisplayName": "North American Grid",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "displayInLayerList": true
-      },
-      {
-        "type": "WMS",
-        "name": "electric_grid",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:electric_grid",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "legendDisplayName": "US Grid",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1222.99,
-        "maxResolution": 64000,
-        "hoverable": false,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "black",
-          "strokeWidth": 8
+          "scale": 0.6,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -240,20 +204,6 @@
         }
       },
       {
-        "type": "WMS",
-        "name": "na_rr",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:na_rr",
-        "group": "petropolisCoal",
-        "queryable": false,
-        "displayInLegend": true,
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "displayInLayerList": true
-      },
-      {
         "type": "VECTOR",
         "name": "Terminals",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:terminals&outputFormat=application/json&srsname=EPSG:3857",
@@ -324,13 +274,13 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 16000,
         "label": true,
         "hoverable": true,
         "style": {
           "strokeColor": "#a51e16",
           "fillColor": "#ff3b30",
-          "radius": 4
+          "radius": 3
         }
       },
       {
@@ -345,7 +295,12 @@
         "zIndex": 0,
         "minResolution": 2445.99,
         "maxResolution": 64000,
-        "displayInLayerList": true
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "#a51e16",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
       },
       {
         "type": "VECTORTILE",
@@ -354,18 +309,37 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Global Wind",
+        "legendDisplayName": "US Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 16000,
         "label": true,
         "hoverable": true,
         "style": {
-          "strokeColor": "#c37f03",
+          "strokeColor": "#a51e16",
           "fillColor": "#ffcc00",
           "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "us_solar3",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "US Solar",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/Soleil.png"
         }
       },
       {
@@ -451,6 +425,46 @@
         "minResolution": 2445.99,
         "maxResolution": 64000,
         "displayInLayerList": true
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "na_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "North American Grid",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 16000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#00b1ff",
+          "width": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "electric_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "North American Grid",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#0078f5",
+          "width": 1.6
+        }
       },
       {
         "type": "VECTOR",
@@ -1009,7 +1023,7 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "LNG Terminal",
+        "legendDisplayName": "LNG Terminals",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -1018,7 +1032,8 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/LNGterminal.png"
+          "iconUrl": "icons/LNGterminal.png",
+          "scale": 0.5
         }
       },
       {
@@ -1084,27 +1099,6 @@
       },
       {
         "type": "VECTOR",
-        "name": "NA-RR2",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:na_rr&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "showZoomToFeature": false,
-        "displayInLegend": true,
-        "legendDisplayName": "NA-RR",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 16,
-        "maxResolution": 32000,
-        "hoverable": false,
-        "isInteractive": false,
-        "style": {
-          "strokeColor": "rgba(255, 255, 255, 0.6)",
-          "strokeWidth": 1
-        }
-      },
-      {
-        "type": "VECTOR",
         "name": "Coal1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
@@ -1119,7 +1113,10 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack6.png"
+          "iconUrl": "icons/CoalPower.png",
+          "scale": 0.8,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -1200,7 +1197,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/CoalAsh4.png",
+          "iconUrl": "icons/FlyAsh.png",
           "scale": 0.8
         }
       },
@@ -1220,7 +1217,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack3.png"
+          "iconUrl": "icons/CoalPower.png"
         }
       },
       {
@@ -1243,6 +1240,20 @@
         }
       },
       {
+        "type": "WMS",
+        "name": "global_power",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:global_power",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "displayInLayerList": true
+      },
+      {
         "type": "VECTOR",
         "name": "Coal2",
         "url": "geojson/Coal.geojson",
@@ -1254,30 +1265,14 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 6000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/Smokestack3.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Coal3",
-        "url": "geojson/Coal.geojson",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 6000,
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/Smokestack4.png"
+          "iconUrl": "icons/CoalPower.png",
+          "scale": 0.8,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
 
@@ -1295,6 +1290,24 @@
         "opacity": 1,
         "queryable": false,
         "visible": true
+      },
+      {
+        "type": "WMS",
+        "name": "na_rr",
+        "url": "https://timetochange.today/geoserver/wms",
+        "layers": "petropolis:na_rr",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": true,
+        "legendDisplayName": "Railroads",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 2000,
+        "displayInLayerList": true,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 1 }
       },
       {
         "type": "XYZ",
@@ -1434,8 +1447,7 @@
             "Spills_20yrs",
             "CancelledOilLines",
             "all_pipes",
-            "ContestedOilLines2",
-            "ContestedOilLines3",
+            "ContestedOilLines",
             "Terminals",
             "US_Refineries4",
             "crude_derailment",
@@ -1449,8 +1461,8 @@
           "sidePanel": {
             "legendUrl": "images/NoPipelineEver.png",
             "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
-            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil that flows from the Tars Sands and the Bakken to the Gulf of Mexico.",
-            "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
+            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil, also known to Indigenous peoples as the Black Snake, that writhes and undulates from the Tars Sands and the Bakken all the way to the Gulf of Mexico.",
+            "bodyText": "This map attempts to see through the present time of coal and oil, to a future beyond fossil fuel. According to clear public perception informed by science, we must leave all CO<sup>2</sup>-producing industries behind. It will take a change of worlds. How to do it is the challenge of a generation. While saving all jobs, while protecting all communities, the time has come to dismantle the fossil-fuel system."
           }
         },
         "local": {
@@ -1462,10 +1474,11 @@
             "ESRI-World-Imagery",
             "GasPipes2",
             "Spills_20yrs",
+            "LNGterminals",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines2",
-            "ContestedOilLines3",
+            "ContestedOilLines",
             "Terminals",
             "US_Refineries4",
             "CrudeDerailments",
@@ -1487,6 +1500,7 @@
             "ESRI-World-Terrain",
             "Terrain-Labels",
             "ESRI-World-Imagery",
+            "global_power",
             "GiantOilFields",
             "all_pipes",
             "GlobalPipelines",
@@ -1513,7 +1527,6 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "CoalAsh",
             "Coal1",
             "Coal_Mines"
           ],
@@ -1536,9 +1549,7 @@
             "north_america",
             "ESRI-World-Imagery",
             "na_rr",
-            "CoalAsh",
-            "Coal1",
-            "Coal_Mines"
+            "CoalAsh"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
@@ -1559,8 +1570,7 @@
             "north_america",
             "ESRI-World-Imagery",
             "CoalMines",
-            "Coal2",
-            "Coal3"
+            "Coal2"
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
@@ -1577,14 +1587,10 @@
         "default": {
           "layers": [
             "ESRI-World-Imagery2",
-            "electric_grid",
-            "electric_grid2",
+            "na_grid",
             "rest_of_world2",
-            "gridkit",
             "us_solar",
-            "us_solar2",
             "us_wind",
-            "us_wind2",
             "north_america2"
           ],
           "center": [-101, 42.0],
@@ -1599,16 +1605,12 @@
         },
         "local": {
           "layers": [
-            "ESRI-World-Imagery2",
+            "maptiler_topo2",
             "electric_grid",
-            "electric_grid2",
-            "north_america2",
             "rest_of_world2",
-            "gridkit",
             "us_solar",
-            "us_solar2",
             "us_wind",
-            "us_wind2"
+            "north_america2"
           ],
           "center": [-97, 37],
           "resolution": 4500,
