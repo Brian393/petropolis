@@ -805,7 +805,6 @@ export default {
             );
             if (response.data.features) {
               const olFeatures = geojsonToFeature(response.data, {});
-              console.log(olFeatures);
               this.popup.activeFeature = olFeatures[0];
               feature = olFeatures[0];
             } else {
