@@ -30,7 +30,6 @@
     ],
     "center": [0, 0],
     "layers": [
-      
       {
         "type": "VECTOR",
         "name": "ContestedOilLines3",
@@ -46,16 +45,20 @@
         "hoverable": true,
         "displayInLegend": true,
         "legendIcon": "icons/ContestedLine.png",
-        "style": [
-          {
-            "strokeColor": "black",
-            "strokeWidth": 8
-          },
-          {
-            "strokeColor": "#fb5c04",
-            "strokeWidth": 3
-          }
-        ]
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#D28436",
+          "featureStyles": [
+            {
+              "strokeColor": "black",
+              "strokeWidth": 8
+            },
+            {
+              "strokeColor": "#fb5c04",
+              "strokeWidth": 3
+            }
+          ]
+        }
       },
       {
         "type": "VECTOR",
@@ -77,9 +80,7 @@
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
           "strokeWidth": 4,
-          "lineDash": [9],
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#D28436"
+          "lineDash": [9]
         }
       },
       {
