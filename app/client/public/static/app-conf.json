@@ -45,16 +45,20 @@
         "hoverable": true,
         "displayInLegend": true,
         "legendIcon": "icons/ContestedLine.png",
-        "style": [
-          {
-            "strokeColor": "black",
-            "strokeWidth": 7
-          },
-          {
-            "strokeColor": "#fb5c04",
-            "strokeWidth": 4
-          }
-        ]
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#D28436",
+          "featureStyles": [
+            {
+              "strokeColor": "black",
+              "strokeWidth": 7
+            },
+            {
+              "strokeColor": "#fb5c04",
+              "strokeWidth": 4
+            }
+          ]
+        }
       },
       {
         "type": "VECTOR",
@@ -1307,7 +1311,8 @@
         "displayInLayerList": true,
         "style": {
           "strokeColor": "gray",
-          "strokeWidth": 1 }
+          "strokeWidth": 1
+        }
       },
       {
         "type": "XYZ",
