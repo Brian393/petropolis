@@ -109,6 +109,7 @@ import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import Feature from 'ol/Feature';
+import RenderFeature from 'ol/render/Feature';
 import { fromExtent } from 'ol/geom/Polygon';
 import { fromLonLat } from 'ol/proj';
 import { extend } from 'ol/extent';
@@ -560,20 +561,9 @@ export default {
           duration: 800
         });
 
-        // Logic for vector tile layers. (Workaround as we can't clone features for highlight here.)
-        if (this.popup.activeLayer.get('type') === 'VECTORTILE') {
-          if (this.popup.highlightVectorTileLayer) {
-            this.map.removeLayer(this.popup.highlightVectorTileLayer);
-          }
-          const vtSource = this.popup.activeLayer.getSource();
-          this.createVTHighlightLayer(vtSource);
-          this.popup.highlightVectorTileLayer.changed();
-        } else {
-          // Highlight feature
-          this.popup.highlightLayer
-            .getSource()
-            .addFeature(this.popup.activeFeature.clone());
-        }
+        this.popup.highlightLayer
+          .getSource()
+          .addFeature(this.popup.activeFeature.clone());
       }
       setTimeout(() => {
         this.selectedCoorpNetworkEntity = null;
@@ -694,7 +684,7 @@ export default {
     setupMapClick() {
       const me = this;
       const map = me.map;
-      me.mapClickListenerKey = map.on('click', evt => {
+      me.mapClickListenerKey = map.on('click', async evt => {
         if (me.activeInteractions.length > 0) {
           return;
         }
@@ -791,7 +781,37 @@ export default {
           }
 
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
+
           // Add id reference
+          if (feature instanceof RenderFeature) {
+            const urls = layer.getSource().getUrls()[0];
+            const url = urls.match('tms/1.0.0/(.*)@EPSG');
+            if (!urls.includes('geoserver')) return;
+            if (!Array.isArray(url) || url.length < 2) return;
+            const geoserverLayerName = url[1];
+            const response = await http.get(
+              'https://timetochange.today/geoserver/wfs',
+              {
+                params: {
+                  service: 'WFS',
+                  version: ' 2.0.0',
+                  request: 'GetFeature',
+                  outputFormat: 'application/json',
+                  srsName: 'EPSG:3857',
+                  typeNames: geoserverLayerName,
+                  featureId: feature.getId()
+                }
+              }
+            );
+            if (response.data.features) {
+              const olFeatures = geojsonToFeature(response.data, {});
+              console.log(olFeatures);
+              this.popup.activeFeature = olFeatures[0];
+              feature = olFeatures[0];
+            } else {
+              return;
+            }
+          }
           if (feature.getId()) {
             this.popup.activeFeature.setId(`clone.${feature.getId()}`);
           }
