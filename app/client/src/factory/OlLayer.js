@@ -56,9 +56,9 @@ export const LayerFactory = {
 
   getStyles(lConf) {
     if (!lConf.style) return;
-    if (Array.isArray(lConf.style)) {
+    if (lConf.style.featureStyles && Array.isArray(lConf.style.featureStyles)) {
       const styleArray = [];
-      lConf.style.forEach(style => {
+      lConf.style.featureStyles.forEach(style => {
         styleArray.push(this.renderStyle(style, lConf.name));
       });
       return styleArray;
