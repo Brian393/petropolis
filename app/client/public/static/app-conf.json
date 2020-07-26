@@ -1115,7 +1115,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/CoalPower.png",
-          "scale": 0.8,
+          "scale": 0.7,
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
