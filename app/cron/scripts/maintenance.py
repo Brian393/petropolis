@@ -13,11 +13,6 @@ import boto3
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-# Amazon S3 settings.
-# AWS_ACCESS_KEY_ID  in ~/.aws/credentials
-# AWS_SECRET_ACCESS_KEY in ~/.aws/credentials
-
-
 def upload_to_s3(file_full_path, dest_file, manager_config, bucket_path):
     """
     Upload a file to an AWS S3 bucket.
@@ -392,6 +387,8 @@ def main():
             logger.info('Uploading {} to Amazon S3...'.format(comp_file))
             upload_to_s3(comp_file, filename_compressed, manager_config, manager_config.get('AWS_BUCKET_POSTGRES_PATH'))
             logger.info("Uploaded to {}".format(filename_compressed))
+            # Delete db dump file f
+            os.remove(local_file_path)
     # backup geoserver task
     elif args.action == "backup-geoserver":
         filename = 'geoserver-backup-{}'.format(timestr)
