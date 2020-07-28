@@ -152,3 +152,20 @@ services:
       - wpdb_data:/var/lib/mysql
     networks:
       proxy:
+
+#-----CRON (Used for maintenance)-----#
+  cron:
+    build:
+      dockerfile: Dockerfile
+      context: ./app/cron
+    image: petropolis-cron
+    volumes:
+      - ./app/cron/scripts:/opt/scripts
+      - ./app/geoserver:/mnt/geoserver_data
+    container_name: petropolis-cron
+    env_file:
+      - ./app/config/docker-env/db.env
+      - ./app/config/docker-env/cron.env
+    networks:
+      proxy:
+
