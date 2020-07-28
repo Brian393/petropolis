@@ -44,15 +44,15 @@ const state = {
   fuelGroups: [
     {
       name: 'oil',
-      title: 'Oil'
+      title: 'Oil & Gas'
     },
     {
       name: 'coal',
-      title: 'Coal'
+      title: 'Coal & Ash'
     },
     {
       name: 'renewables',
-      title: 'Wind / Solar'
+      title: 'Wind & Solar'
     }
   ],
   regions: [
