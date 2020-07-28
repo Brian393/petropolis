@@ -22,6 +22,12 @@ COPY ./scripts/cron-execution.sh /app/cron-execution.sh
 RUN chmod 0644 /etc/cron.d/crontab
 RUN /usr/bin/crontab /etc/cron.d/crontab
 
+
+RUN chmod a+rx /app/start.sh
+RUN chmod a+rx /app/cron-execution.sh
+
+
+
 # run crond as main process of container
 CMD /app/start.sh
 
