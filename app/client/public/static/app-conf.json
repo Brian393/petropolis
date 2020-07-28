@@ -106,6 +106,74 @@
         }
       },
       {
+        "type": "VECTORTILE",
+        "name": "GlobalPipelines",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Crude Oil Pipelines",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "isInteractive": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#272622",
+          "strokeWidth": 2
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "petro_onshore",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_onshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Onshore Oil&Gas",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "opacity": 0.8,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#c46c6f",
+          "fillColor": "#E1173C"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "petro_offshore",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_offshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Offshore Oil&Gas",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "opacity": 0.8,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#c46dc5",
+          "fillColor": "#da79db"
+        }
+      },
+      {
         "type": "VECTOR",
         "name": "video_pipelines",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:video_pipelines&outputFormat=application/json&srsname=EPSG:3857",
@@ -225,26 +293,6 @@
         "style": {
           "iconUrl": "icons/terminal.png",
           "scale": 0.6
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "GlobalPipelines",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Global Pipelines",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 20,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": false,
-        "style": {
-          "strokeColor": "#000000",
-          "strokeWidth": 3
         }
       },
       {
@@ -1527,7 +1575,7 @@
             "Spills_20yrs",
             "LNGterminals",
             "CancelledOilLines",
-            "all_pipes",
+            "GlobalPipelines",
             "ContestedOilLines2",
             "ContestedOilLines",
             "Terminals",
@@ -1549,19 +1597,19 @@
         "global": {
           "layers": [
             "ESRI-World-Terrain",
+            "petro_onshore",
             "Terrain-Labels",
             "ESRI-World-Imagery",
-            "GiantOilFields",
-            "all_pipes",
+            "petro_offshore",
             "GlobalPipelines",
             "OilPorts",
             "US_Refineries3",
             "GlobalRefineries2"
           ],
-          "center": [2.44, 30.81],
-          "resolution": 25000,
+          "center": [-22, 30.81],
+          "resolution": 39135.76,
           "minResolution": 0.25,
-          "maxResolution": 32000,
+          "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "images/OilHead.png",
             "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
