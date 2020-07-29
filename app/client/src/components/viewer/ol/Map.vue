@@ -252,7 +252,7 @@ export default {
       // Create popup overlay for get info
       me.createPopupOverlay();
       // Fetch gas pipes entities for styling
-      me.fetchGasPipesEntities();
+      me.fetchColorMapEntities();
       // Remove layers with no entity property as it will
       // not work with Corporate Networks. (A describe fetaure type )
       // for every layer is needed.
@@ -1062,7 +1062,7 @@ export default {
       }
     },
     ...mapActions('map', {
-      fetchGasPipesEntities: 'fetchGasPipesEntities'
+      fetchColorMapEntities: 'fetchColorMapEntities'
     }),
     ...mapMutations('map', {
       setMap: 'SET_MAP',
@@ -1099,6 +1099,7 @@ export default {
       this.geoserverLayerNames = null;
       this.selectedCoorpNetworkEntity = null;
       this.createLayers();
+      this.fetchColorMapEntities();
     }
   }
 };

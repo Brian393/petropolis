@@ -101,6 +101,8 @@
         "opacity": 1,
         "hoverable": true,
         "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
           "strokeColor": "#272622",
           "strokeWidth": 3
         }
@@ -129,6 +131,27 @@
       },
       {
         "type": "VECTORTILE",
+        "name": "all_refineries",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_refineries@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Refineries",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#000000",
+          "fillColor": "#ff3b30",
+          "radius": 4
+        }
+      },
+      {
+        "type": "VECTORTILE",
         "name": "petro_onshore",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_onshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
@@ -136,18 +159,19 @@
         "displayInLegend": true,
         "legendDisplayName": "Onshore Oil&Gas",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "opacity": 0.8,
-        "minResolution": 0.5,
+        "minResolution": 20,
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
         "style": {
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
-          "strokeColor": "#c46c6f",
-          "fillColor": "#E1173C"
+          "strokeColor": "#000000",
+          "strokeWidth": 0.5,
+          "fillColor": "#672413"
         }
       },
       {
@@ -159,17 +183,18 @@
         "displayInLegend": true,
         "legendDisplayName": "Offshore Oil&Gas",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "opacity": 0.8,
-        "minResolution": 0.5,
+        "minResolution": 20,
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
         "style": {
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
-          "strokeColor": "#c46dc5",
+          "strokeColor": "#000000",
+          "strokeWidth": 0.5,
           "fillColor": "#da79db"
         }
       },
@@ -540,25 +565,6 @@
       },
       {
         "type": "VECTOR",
-        "name": "GlobalRefineries1",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_refineries&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Global Refineries",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 16000,
-        "label": null,
-        "hoverable": false,
-        "style": {
-          "iconUrl": "icons/Refinery1.png"
-        }
-      },
-      {
-        "type": "VECTOR",
         "name": "crude_derailment",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -863,6 +869,7 @@
         "name": "major_gas_pipes",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:major_gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
+        "corporate_network": false,
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Major US Gas Pipes",
@@ -874,10 +881,7 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-          "strokeColor": "#09D8F4",
-          "strokeWidth": 1,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
+         "styleRef": "colorMapStyle"
         }
       },
       {
@@ -885,6 +889,7 @@
         "name": "gas_pipes",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
+        "corporate_network": false,
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "All US Gas Pipes",
@@ -896,10 +901,7 @@
         "maxResolution": 640000,
         "isInteractive": true,
         "style": {
-          "strokeColor": "#09D8F4",
-          "strokeWidth": 1,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
+         "styleRef": "colorMapStyle"
         }
       },
       {
@@ -1598,16 +1600,14 @@
           "layers": [
             "ESRI-World-Terrain",
             "petro_onshore",
+            "petro_offshore",
             "Terrain-Labels",
             "ESRI-World-Imagery",
-            "petro_offshore",
             "GlobalPipelines",
-            "OilPorts",
-            "US_Refineries3",
-            "GlobalRefineries2"
+            "all_refineries"
           ],
-          "center": [-22, 30.81],
-          "resolution": 39135.76,
+          "center": [-5, 30],
+          "resolution": 64000,
           "minResolution": 0.25,
           "maxResolution": 64000,
           "sidePanel": {
