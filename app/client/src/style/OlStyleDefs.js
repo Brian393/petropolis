@@ -227,6 +227,11 @@ export const layersStylePropFn = {
       return Math.sqrt(propertyValue) * 0.7;
     }
   },
+  all_refineries: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 1.2;
+    }
+  },
   GiantOilFields: {
     circleRadiusFn: propertyValue => {
       return Math.sqrt(propertyValue) * 0.3;
