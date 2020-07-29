@@ -145,9 +145,15 @@
         "label": true,
         "hoverable": true,
         "style": {
-          "strokeColor": "#000000",
-          "fillColor": "#ff3b30",
-          "radius": 4
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable1",
+          "strokeColor": "rgba(255, 255, 255, 1)",
+          "strokeWidth": 1,
+          "fillColor": "rgba(0, 0, 0, 0.8)"
         }
       },
       {
@@ -881,7 +887,7 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-         "styleRef": "colorMapStyle"
+          "styleRef": "colorMapStyle"
         }
       },
       {
@@ -901,7 +907,7 @@
         "maxResolution": 640000,
         "isInteractive": true,
         "style": {
-         "styleRef": "colorMapStyle"
+          "styleRef": "colorMapStyle"
         }
       },
       {

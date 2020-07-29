@@ -127,6 +127,7 @@ const styleCache = {};
 export function baseStyle(propertyName, config) {
   const styleFunction = feature => {
     const propertyValue = feature.get(propertyName);
+    if (propertyValue === 0) return;
     if (propertyValue && !styleCache[propertyValue]) {
       const {
         strokeColor,
