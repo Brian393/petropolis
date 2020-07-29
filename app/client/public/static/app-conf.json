@@ -881,10 +881,7 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-          "strokeColor": "#00CAEC",
-          "strokeWidth": 1,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
+         "styleRef": "colorMapStyle"
         }
       },
       {
@@ -904,10 +901,7 @@
         "maxResolution": 640000,
         "isInteractive": true,
         "style": {
-          "strokeColor": "#00CAEC",
-          "strokeWidth": 2,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
+         "styleRef": "colorMapStyle"
         }
       },
       {

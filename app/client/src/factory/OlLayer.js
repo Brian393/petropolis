@@ -89,7 +89,7 @@ export const LayerFactory = {
       const props = { ...styleProps, ...stylePropsFn };
       return styleFn(styleField, props);
     } else if (styleRef) {
-      return styleRefs[styleRef]();
+      return styleRefs[styleRef](layerName);
     } else {
       return OlStyleFactory.getInstance(styleProps);
     }
