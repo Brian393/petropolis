@@ -4,7 +4,6 @@ import OlFill from 'ol/style/Fill';
 import OlCircle from 'ol/style/Circle';
 import store from '../store/modules/map';
 
-
 let strokeColor = 'rgba(236, 236, 236, 0.7)';
 let fillColor = 'rgba(255,0,0, 0.2)';
 let imageColor = 'blue';
@@ -75,7 +74,6 @@ export function popupInfoStyle() {
   return styleFunction;
 }
 
-
 export function networkCorpHighlightStyle() {
   const styleFunction = () => {
     const styles = [];
@@ -93,7 +91,7 @@ export function networkCorpHighlightStyle() {
           fill: new OlFill({
             color: imageColor
           })
-        }),
+        })
       })
     );
 
@@ -186,14 +184,15 @@ export function baseStyle(propertyName, config) {
   return styleFunction;
 }
 
-export function gasePipeStyle() {
+export function colorMapStyle(layerName) {
   const styleFunction = feature => {
-    const entity = feature.get('Operator');
-    if (store.state.gasFieldEntitiesColors[entity] && entity) {
+    const entity = feature.get('entity');
+    const colors = store.state.colorMapEntities[layerName];
+    if (colors && colors[entity] && entity) {
       if (!styleCache[entity]) {
         styleCache[entity] = new OlStyle({
           stroke: new OlStroke({
-            color: store.state.gasFieldEntitiesColors[entity],
+            color: colors[entity],
             width: 2.5
           })
         });
@@ -215,7 +214,7 @@ export const styleRefs = {
   defaultStyle: defaultStyle,
   popupInfoStyle: popupInfoStyle,
   baseStyle: baseStyle,
-  gasePipeStyle: gasePipeStyle
+  colorMapStyle: colorMapStyle
 };
 
 export const layersStylePropFn = {

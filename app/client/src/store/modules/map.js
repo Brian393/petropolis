@@ -1,5 +1,11 @@
 import { getField, updateField } from 'vuex-map-fields';
-import { formatPopupRows } from '../../utils/Layer';
+import {
+  formatPopupRows,
+  getLayerSourceUrl,
+  extractGeoserverLayerNames
+} from '../../utils/Layer';
+import http from '../../services/http';
+import axios from 'axios';
 let colormap = require('colormap');
 
 const state = {
@@ -37,7 +43,7 @@ const state = {
   },
   layers: {}, // Only for operational layers
   activeLayerGroup: null,
-  gasFieldEntitiesColors: {}, // Fetched from geoserver
+  colorMapEntities: {}, // Fetched from geoserver
   geoserverLayerNames: null, // Created when user clicks corporate network,
   layersWithEntityField: null, // Fetched from Geoserver on load
   selectedCoorpNetworkEntity: null, // Selected entity,
@@ -104,44 +110,65 @@ const getters = {
 };
 
 const actions = {
-  fetchGasPipesEntities({ commit, rootState }) {
+  fetchColorMapEntities({ commit, rootState }) {
     // eslint-disable-next-line no-undef
-    if (!rootState.map.gasFieldEntitiesColors) {
+    if (!rootState.map.colorMapEntities) {
       return;
     }
-    fetch(
-      './geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=petropolis:select_gas_pipes_entities&srsname=EPSG:4326&outputFormat=json'
-    )
-      .then(function(response) {
-        if (response.status !== 200) {
-          console.log(
-            'Looks like there was a problem. Status Code: ' + response.status
-          );
+    const layers = rootState.map.layers;
+    const promiseArray = [];
+    Object.keys(layers).forEach(function(key) {
+      const layer = layers[key];
+      if (layer.get('styleObj')) {
+        const styleObj = JSON.parse(layer.get('styleObj'));
+        if (
+          styleObj.styleRef !== 'colorMapStyle' ||
+          rootState.map.colorMapEntities[layer.get('name')]
+        )
           return;
-        }
 
-        // Examine the text in the response
-        response.json().then(function(data) {
-          // Make app config accessible for all components
-          if (data.features.length < 1) return;
+        const tableName =
+          styleObj.tableName ||
+          extractGeoserverLayerNames([
+            { url: getLayerSourceUrl(layer.getSource()) }
+          ])['petropolis'][0];
+        const url = `./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=petropolis:colormap&srsname=EPSG:4326&viewparams=table:${tableName}&outputFormat=json`;
+        promiseArray.push(
+          http.get(url, {
+            data: { layerName: layer.get('name') }
+          })
+        );
+      }
+    });
+    if (promiseArray.length > 0) {
+      axios
+        .all(promiseArray)
+        .then(function(results) {
+          results.forEach(response => {
+            const features = response.data.features;
+            const layerName = JSON.parse(response.config.data).layerName;
+            if (features && features.length === 0) {
+              return;
+            }
 
-          const entities = {};
-          const colors = colormap({
-            colormap: 'portland',
-            nshades: data.features.length,
-            format: 'hex',
-            alpha: 1
+            const entities = {};
+            const colors = colormap({
+              colormap: 'portland',
+              nshades: features.length,
+              format: 'hex',
+              alpha: 1
+            });
+            features.forEach((feature, index) => {
+              const entity = feature.properties.entity;
+              entities[entity] = colors[index];
+            });
+            commit('SET_COLORMAP_VALUES', { layerName, entities });
           });
-          data.features.forEach((feature, index) => {
-            const entity = feature.properties.Operator;
-            entities[entity] = colors[index];
-          });
-          commit('SET_GAS_FIELD_ENTITIES', entities);
+        })
+        .catch(function(err) {
+          console.log('Fetch Error :-S', err);
         });
-      })
-      .catch(function(err) {
-        console.log('Fetch Error :-S', err);
-      });
+    }
   }
 };
 
@@ -168,8 +195,8 @@ const mutations = {
     layers.forEach(layer => state.map.removeLayer(layer));
     state.layers = {};
   },
-  SET_GAS_FIELD_ENTITIES(state, entities) {
-    state.gasFieldEntitiesColors = entities;
+  SET_COLORMAP_VALUES(state, payload) {
+    state.colorMapEntities[payload.layerName] = payload.entities;
   },
   updateField
 };
