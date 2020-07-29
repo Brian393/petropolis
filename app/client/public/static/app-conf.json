@@ -887,7 +887,8 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-          "styleRef": "colorMapStyle"
+          "styleRef": "colorMapStyle",
+          "colorField": "Operator"
         }
       },
       {
