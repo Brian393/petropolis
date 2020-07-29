@@ -47,15 +47,15 @@
         "legendIcon": "icons/ContestedLine.png",
         "style": {
           "hoverTextColor": "white",
-          "hoverBackgroundColor": "#D28436",
+          "hoverBackgroundColor": "#000000",
           "featureStyles": [
             {
               "strokeColor": "black",
-              "strokeWidth": 7
+              "strokeWidth": 8
             },
             {
               "strokeColor": "#fb5c04",
-              "strokeWidth": 4
+              "strokeWidth": 5
             }
           ]
         }
@@ -103,6 +103,74 @@
         "style": {
           "strokeColor": "#272622",
           "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "GlobalPipelines",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Crude Oil Pipelines",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "isInteractive": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#272622",
+          "strokeWidth": 2
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "petro_onshore",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_onshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Onshore Oil&Gas",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "opacity": 0.8,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#c46c6f",
+          "fillColor": "#E1173C"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "petro_offshore",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_offshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Offshore Oil&Gas",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "opacity": 0.8,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "strokeColor": "#c46dc5",
+          "fillColor": "#da79db"
         }
       },
       {
@@ -229,26 +297,6 @@
       },
       {
         "type": "VECTOR",
-        "name": "GlobalPipelines",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Global Pipelines",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 20,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": false,
-        "style": {
-          "strokeColor": "#000000",
-          "strokeWidth": 3
-        }
-      },
-      {
-        "type": "VECTOR",
         "name": "US_Refineries1",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
@@ -273,7 +321,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Wind",
+        "legendDisplayName": "Wind",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -313,7 +361,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Solar",
+        "legendDisplayName": "Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -334,7 +382,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Solar",
+        "legendDisplayName": "Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -363,16 +411,16 @@
       {
         "type": "VECTORTILE",
         "name": "global_wind",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Solar",
+        "legendDisplayName": "Wind",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 64000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -398,16 +446,16 @@
       {
         "type": "VECTORTILE",
         "name": "global_solar",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Global Solar",
+        "legendDisplayName": "Solar",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2445.98,
+        "maxResolution": 64000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -435,16 +483,16 @@
         "name": "na_grid",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
-        "queryable": true,
+        "queryable": false,
         "displayInLegend": true,
         "legendDisplayName": "North American Grid",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 16000,
+        "maxResolution": 64000,
         "label": true,
-        "hoverable": true,
+        "hoverable": false,
         "style": {
           "strokeColor": "#00b1ff",
           "width": 4
@@ -455,7 +503,7 @@
         "name": "electric_grid",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
-        "queryable": true,
+        "queryable": false,
         "displayInLegend": true,
         "legendDisplayName": "North American Grid",
         "format": "MVT",
@@ -464,7 +512,7 @@
         "minResolution": 0.5,
         "maxResolution": 64000,
         "label": true,
-        "hoverable": true,
+        "hoverable": false,
         "style": {
           "strokeColor": "#0078f5",
           "width": 1.6
@@ -812,22 +860,46 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "GasPipes2",
+        "name": "major_gas_pipes",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:major_gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Major Gas Pipelines",
+        "legendDisplayName": "Major US Gas Pipes",
+        "format": "MVT",
+        "visible": false,
+        "hoverable": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 4891.97,
+        "isInteractive": true,
+        "style": {
+          "strokeColor": "#09D8F4",
+          "strokeWidth": 1,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "gas_pipes",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisGas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "All US Gas Pipes",
         "format": "MVT",
         "visible": true,
         "hoverable": true,
         "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 8000,
+        "minResolution": 0.5,
+        "maxResolution": 640000,
         "isInteractive": true,
         "style": {
           "strokeColor": "#09D8F4",
-          "strokeWidth": 1
+          "strokeWidth": 1,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -1118,7 +1190,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/CoalPower.png",
-          "scale": 0.8,
+          "scale": 0.7,
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
@@ -1245,9 +1317,9 @@
       },
       {
         "type": "WMS",
-        "name": "global_power",
+        "name": "",
         "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:global_power",
+        "layers": "petropolis:",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
@@ -1256,6 +1328,27 @@
         "minResolution": 0.5,
         "maxResolution": 64000,
         "displayInLayerList": true
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "global_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Global Power Plants",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#a51e16",
+          "fillColor": "#ff3b30",
+          "radius": 3
+        }
       },
       {
         "type": "VECTOR",
@@ -1450,6 +1543,7 @@
             "north_america",
             "ESRI-World-Imagery",
             "Spills_20yrs",
+            "major_gas_pipes",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines",
@@ -1477,11 +1571,11 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "GasPipes2",
+            "gas_pipes",
             "Spills_20yrs",
             "LNGterminals",
             "CancelledOilLines",
-            "all_pipes",
+            "GlobalPipelines",
             "ContestedOilLines2",
             "ContestedOilLines",
             "Terminals",
@@ -1503,20 +1597,19 @@
         "global": {
           "layers": [
             "ESRI-World-Terrain",
+            "petro_onshore",
             "Terrain-Labels",
             "ESRI-World-Imagery",
-            "global_power",
-            "GiantOilFields",
-            "all_pipes",
+            "petro_offshore",
             "GlobalPipelines",
             "OilPorts",
             "US_Refineries3",
             "GlobalRefineries2"
           ],
-          "center": [2.44, 30.81],
-          "resolution": 25000,
+          "center": [-22, 30.81],
+          "resolution": 39135.76,
           "minResolution": 0.25,
-          "maxResolution": 32000,
+          "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "images/OilHead.png",
             "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
@@ -1540,7 +1633,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/Coalman2.png",
+            "legendUrl": "images/Coalman.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1610,7 +1703,7 @@
         },
         "local": {
           "layers": [
-            "maptiler_topo2",
+            "ESRI-World-Imagery2",
             "electric_grid",
             "rest_of_world2",
             "us_solar",
@@ -1633,13 +1726,7 @@
             "north_america2",
             "rest_of_world2",
             "global_solar",
-            "global_solar2",
-            "global_wind",
-            "global_wind2",
-            "us_solar",
-            "us_solar2",
-            "us_wind",
-            "us_wind2"
+            "global_wind"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
