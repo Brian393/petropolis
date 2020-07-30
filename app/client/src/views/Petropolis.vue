@@ -17,6 +17,7 @@
     <v-app-bar app clipped-right height="60" color="#dc143c" dark>
       <v-spacer></v-spacer>
       <v-toolbar-title
+        style="margin-left:90px;"
         @click="goToHome()"
         flat
         class="logo headline font-weight-bold black--text"
