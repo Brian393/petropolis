@@ -54,8 +54,8 @@
               "strokeWidth": 8
             },
             {
-              "strokeColor": "#fb5c04",
-              "strokeWidth": 5
+              "strokeColor": "#fb4704",
+              "strokeWidth": 4.5
             }
           ]
         }
@@ -101,8 +101,6 @@
         "opacity": 1,
         "hoverable": true,
         "style": {
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000",
           "strokeColor": "#272622",
           "strokeWidth": 3
         }
@@ -560,6 +558,46 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Refinery0.png",
+          "scale": 0.7
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_am_hydro",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_am_hydro@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/dam.png",
+          "scale": 0.5
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_am_nuclear",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_am_nuclear@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Nuclear Power",
+        "format": "MVT",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/nuclear-warning.png",
           "scale": 0.7
         }
       },
@@ -1689,6 +1727,8 @@
             "rest_of_world2",
             "us_solar",
             "us_wind",
+            "north_am_nuclear",
+            "north_am_hydro",
             "north_america2"
           ],
           "center": [-101, 42.0],
