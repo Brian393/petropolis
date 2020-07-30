@@ -918,18 +918,29 @@ export default {
               const olFeaturesArray = geojsonToFeature(response.data, {});
               const geoserverLayerName = response.config.layerName;
               olFeaturesArray.forEach(feature => {
-                if (feature.getGeometry().getType() === 'Point') {
-                  // Find all the layers that have this feature using geoserverLayerName
-                  mapLayers.forEach(layer => {
-                    const url = getLayerSourceUrl(layer.getSource());
-                    if (url && url.includes(geoserverLayerName)) {
-                      const clonedFeature = feature.clone();
-                      clonedFeature.setStyle(layer.getStyle());
-                      olFeatures.push(clonedFeature);
-                    }
-                  });
-                } else {
-                  olFeatures.push(feature.clone());
+                const firstTwoWords = feature
+                  .get('entity')
+                  .split(' ')
+                  .slice(0, 2)
+                  .join(' ');
+
+                if (
+                  firstTwoWords &&
+                  this.splittedEntities.includes(firstTwoWords)
+                ) {
+                  if (feature.getGeometry().getType() === 'Point') {
+                    // Find all the layers that have this feature using geoserverLayerName
+                    mapLayers.forEach(layer => {
+                      const url = getLayerSourceUrl(layer.getSource());
+                      if (url && url.includes(geoserverLayerName)) {
+                        const clonedFeature = feature.clone();
+                        clonedFeature.setStyle(layer.getStyle());
+                        olFeatures.push(clonedFeature);
+                      }
+                    });
+                  } else {
+                    olFeatures.push(feature.clone());
+                  }
                 }
               });
             }
