@@ -89,6 +89,9 @@ export const LayerFactory = {
       const props = { ...styleProps, ...stylePropsFn };
       return styleFn(styleField, props);
     } else if (styleRef) {
+      if (styleRef === 'colorMapStyle') {
+        return styleRefs[styleRef](layerName, styleProps.colorField);
+      }
       return styleRefs[styleRef](layerName);
     } else {
       return OlStyleFactory.getInstance(styleProps);

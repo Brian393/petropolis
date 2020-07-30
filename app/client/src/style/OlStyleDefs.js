@@ -127,6 +127,7 @@ const styleCache = {};
 export function baseStyle(propertyName, config) {
   const styleFunction = feature => {
     const propertyValue = feature.get(propertyName);
+    if (propertyValue === 0) return;
     if (propertyValue && !styleCache[propertyValue]) {
       const {
         strokeColor,
@@ -184,25 +185,44 @@ export function baseStyle(propertyName, config) {
   return styleFunction;
 }
 
-export function colorMapStyle(layerName) {
+export function colorMapStyle(layerName, colorField) {
   const styleFunction = feature => {
-    const entity = feature.get('entity');
+    const field = colorField || 'entity';
+    const entity = feature.get(field);
     const colors = store.state.colorMapEntities[layerName];
     if (colors && colors[entity] && entity) {
       if (!styleCache[entity]) {
         styleCache[entity] = new OlStyle({
+          fill: new OlFill({
+            color: colors[entity]
+          }),
           stroke: new OlStroke({
             color: colors[entity],
             width: 2.5
+          }),
+          image: new OlCircle({
+            radius: 4,
+            fill: new OlFill({
+              color: colors[entity]
+            })
           })
         });
       }
       return styleCache[entity];
     } else {
       return new OlStyle({
+        fill: new OlFill({
+          color: '#00c8f0'
+        }),
         stroke: new OlStroke({
           color: '#00c8f0',
           width: 1.5
+        }),
+        image: new OlCircle({
+          radius: 4,
+          fill: new OlFill({
+            color: '#00c8f0'
+          })
         })
       });
     }
