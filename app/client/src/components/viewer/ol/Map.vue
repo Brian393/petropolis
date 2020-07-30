@@ -84,7 +84,11 @@
             href="javascript:void(0)"
             class="ml-2"
           >
-            <strong>CORPORATE NETWORK</strong>
+            <strong>{{
+              activeLayerGroupConf.searchText
+                ? activeLayerGroupConf.searchText.toUpperCase()
+                : 'CORPORATE NETWORK'
+            }}</strong>
           </a>
         </div>
       </template>
@@ -1092,7 +1096,13 @@ export default {
       geoserverLayerNames: 'geoserverLayerNames',
       layersWithEntityField: 'layersWithEntityField',
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
-    })
+    }),
+    activeLayerGroupConf() {
+      const group = this.$appConfig.map.groups[this.activeLayerGroup.fuelGroup][
+        this.activeLayerGroup.region
+      ];
+      return group;
+    }
   },
   watch: {
     activeInteractions() {

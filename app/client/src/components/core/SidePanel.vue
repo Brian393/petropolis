@@ -2,7 +2,6 @@
   <v-layout justify-space-between column fill-height>
     <vue-scroll v-if="!selectedCoorpNetworkEntity">
       <v-layout v-if="!selectedCoorpNetworkEntity">
-
         <div class="px-1">
           <v-row align="center" class="my-2 mx-3 pt-4">
             <div class="sidepanel-header">
@@ -57,7 +56,11 @@
                   v-if="popup.activeFeature.get('entity')"
                 >
                   <v-icon small class="mr-1">public</v-icon>
-                  Corporate Network
+                  {{
+                    visibleGroup.searchText
+                      ? visibleGroup.searchText.toUpperCase()
+                      : 'CORPORATE NETWORK'
+                  }}
                 </v-btn>
                 <v-btn @click="closePopupInfo" text small class="mb-2 mt-1">
                   <v-icon small class="mr-1">close</v-icon>
@@ -128,8 +131,13 @@
           color="#dc143c"
         ></v-progress-linear>
         <vue-scroll>
-          <v-container v-if="iframeUrl" style="overflow:hidden;" class="pt-0 mt-0"  fill-height>
-            <v-row style="height: 100%;" class="mr-6" >
+          <v-container
+            v-if="iframeUrl"
+            style="overflow:hidden;"
+            class="pt-0 mt-0"
+            fill-height
+          >
+            <v-row style="height: 100%;" class="mr-6">
               <iframe
                 @load="isIframeLoading = false"
                 style="overflow:hidden;position:absolute;border:none;margin-left:11px;"
