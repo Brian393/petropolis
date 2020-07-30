@@ -54,7 +54,7 @@
               "strokeWidth": 8
             },
             {
-              "strokeColor": "#fb4704",
+              "strokeColor": "#fb5c04",
               "strokeWidth": 4.5
             }
           ]
@@ -165,7 +165,7 @@
         "format": "MVT",
         "visible": false,
         "zIndex": 0,
-        "opacity": 0.8,
+        "opacity": 1,
         "minResolution": 20,
         "maxResolution": 64000,
         "label": true,
@@ -175,7 +175,7 @@
           "hoverBackgroundColor": "#000000",
           "strokeColor": "#000000",
           "strokeWidth": 0.5,
-          "fillColor": "#672413"
+          "fillColor": "rgba(125, 44, 23, 0.7)"
         }
       },
       {
@@ -189,7 +189,7 @@
         "format": "MVT",
         "visible": false,
         "zIndex": 0,
-        "opacity": 0.8,
+        "opacity": 1,
         "minResolution": 20,
         "maxResolution": 64000,
         "label": true,
@@ -199,7 +199,7 @@
           "hoverBackgroundColor": "#000000",
           "strokeColor": "#000000",
           "strokeWidth": 0.5,
-          "fillColor": "#da79db"
+          "fillColor": "rgba(218, 121, 219, 0.7)"
         }
       },
       {
@@ -209,7 +209,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Video Testimony",
+        "legendDisplayName": "Actions & Testimony",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -237,6 +237,26 @@
         "zIndex": 0,
         "minResolution": 1222.99,
         "maxResolution": 64000,
+        "hoverable": false,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 0.7
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_america1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_america@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": false,
+        "legendDisplayName": "North America",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 15000,
         "hoverable": false,
         "isInteractive": false,
         "style": {
@@ -277,6 +297,26 @@
         "zIndex": 0,
         "minResolution": 1222.99,
         "maxResolution": 64000,
+        "hoverable": false,
+        "isInteractive": false,
+        "style": {
+          "strokeColor": "gray",
+          "strokeWidth": 0.7
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "rest_of_world1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:rest-of-world@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": false,
+        "displayInLegend": false,
+        "legendDisplayName": "Rest of the World",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 15000,
         "hoverable": false,
         "isInteractive": false,
         "style": {
@@ -569,26 +609,6 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "north_am_hydro",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_am_hydro@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Hydro Power",
-        "format": "MVT",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/dam.png",
-          "scale": 0.5
-        }
-      },
-      {
-        "type": "VECTORTILE",
         "name": "north_am_nuclear",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_am_nuclear@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
@@ -603,8 +623,72 @@
         "label": true,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/nuclear-warning.png",
-          "scale": 0.7
+          "strokeColor": "#000000",
+          "fillColor": "#ff33bf",
+          "radius": 8
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "north_am_hydro",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:north_am_hydro@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#000000",
+          "fillColor": "#3862ff",
+          "radius": 5
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "nuclear_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Nuclear Power",
+        "format": "MVT",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#000000",
+          "fillColor": "#ff33bf",
+          "radius": 6
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "hydro_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "strokeColor": "#000000",
+          "fillColor": "#3862ff",
+          "radius": 4
         }
       },
       {
@@ -916,7 +1000,7 @@
         "corporate_network": false,
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Major US Gas Pipes",
+        "legendDisplayName": "Major Gas Pipes",
         "format": "MVT",
         "visible": false,
         "hoverable": true,
@@ -925,8 +1009,8 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-          "styleRef": "colorMapStyle",
-          "colorField": "Operator"
+          "strokeColor": "#09D8F4",
+          "strokeWidth": 1.5
         }
       },
       {
@@ -937,16 +1021,20 @@
         "corporate_network": false,
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "All US Gas Pipes",
+        "legendDisplayName": "Natural Gas Pipes",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 640000,
         "isInteractive": true,
+        "legendIcon": "icons/GasColors.png",
         "style": {
-          "styleRef": "colorMapStyle"
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "styleRef": "colorMapStyle",
+          "colorField": "entity"
         }
       },
       {
@@ -956,16 +1044,17 @@
         "group": "petropolisGas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Natural Gas",
+        "legendDisplayName": "Natural Gas Generators",
         "format": "GeoJSON",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 1600,
+        "maxResolution": 20000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/NatGas3.png"
+          "iconUrl": "icons/NatGas3.png",
+          "scale": 0.7
         }
       },
       {
@@ -1148,7 +1237,7 @@
         "displayInLegend": true,
         "legendDisplayName": "LNG Terminals",
         "format": "GeoJSON",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 16000,
@@ -1522,6 +1611,7 @@
         "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
         "minResolution": 0.25,
         "maxResolution": 500,
+        "displayInLegend": true,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1627,7 +1717,9 @@
             "ContestedOilLines",
             "Terminals",
             "US_Refineries4",
+            "LNGterminals",
             "CrudeDerailments",
+            "USnatGas1",
             "MacLean",
             "video_pipelines"
           ],
@@ -1648,6 +1740,8 @@
             "petro_offshore",
             "Terrain-Labels",
             "ESRI-World-Imagery",
+            "rest_of_world1",
+            "north_america1",
             "GlobalPipelines",
             "all_refineries"
           ],
@@ -1734,9 +1828,9 @@
             "rest_of_world2",
             "us_solar",
             "us_wind",
+            "north_america2",
             "north_am_nuclear",
-            "north_am_hydro",
-            "north_america2"
+            "north_am_hydro"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1755,7 +1849,9 @@
             "rest_of_world2",
             "us_solar",
             "us_wind",
-            "north_america2"
+            "north_america2",
+            "nuclear_power",
+            "hydro_power"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1773,7 +1869,9 @@
             "north_america2",
             "rest_of_world2",
             "global_solar",
-            "global_wind"
+            "global_wind",
+            "hydro_power",
+            "nuclear_power"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
