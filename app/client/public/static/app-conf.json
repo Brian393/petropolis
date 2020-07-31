@@ -997,7 +997,7 @@
         "name": "major_gas_pipes",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:major_gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
-        "corporate_network": false,
+        "includeInSearch": false,
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Major Gas Pipes",
@@ -1009,8 +1009,9 @@
         "maxResolution": 4891.97,
         "isInteractive": true,
         "style": {
-          "strokeColor": "#09D8F4",
-          "strokeWidth": 1.5
+          "styleRef": "colorMapStyle",
+          "colorField": "Operator",
+          "colormap": "portland"
         }
       },
       {
@@ -1018,7 +1019,7 @@
         "name": "gas_pipes",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
-        "corporate_network": false,
+        "includeInSearch": false,
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Natural Gas Pipes",
@@ -1731,7 +1732,8 @@
             "legendUrl": "images/FenceNoPipeline.png",
             "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
             "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
-          }
+          },
+          "searchText": "National Oil&Gas Fields"
         },
         "global": {
           "layers": [

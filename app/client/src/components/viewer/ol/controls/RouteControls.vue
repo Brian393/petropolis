@@ -81,8 +81,8 @@ export default {
   z-index: 1;
 }
 .region-control {
-  position: absolute;
-  left: 45%;
+  position: fixed;
+  left: calc(50% - 200px);
   bottom: 20px;
   z-index: 1;
 }

@@ -90,7 +90,7 @@ export const LayerFactory = {
       return styleFn(styleField, props);
     } else if (styleRef) {
       if (styleRef === 'colorMapStyle') {
-        return styleRefs[styleRef](layerName, styleProps.colorField);
+        return styleRefs[styleRef](layerName, styleProps.colorField, styleProps.colormap);
       }
       return styleRefs[styleRef](layerName);
     } else {
@@ -363,6 +363,7 @@ export const LayerFactory = {
       maxResolution: lConf.maxResolution,
       isInteractive: lConf.isInteractive,
       displayInLegend: lConf.displayInLegend,
+      includeInSearch: lConf.includeInSearch,
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
@@ -397,6 +398,7 @@ export const LayerFactory = {
       maxResolution: lConf.maxResolution,
       isInteractive: lConf.isInteractive,
       displayInLegend: lConf.displayInLegend,
+      includeInSearch: lConf.includeInSearch,
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
