@@ -53,7 +53,7 @@
                   text
                   small
                   class="mb-2 mt-1 mr-2"
-                  v-if="popup.activeFeature.get('entity')"
+                  v-if="popup.activeFeature.get('entity') && popup.activeLayer.get('includeInSearch') !== false"
                 >
                   <v-icon small class="mr-1">public</v-icon>
                   {{
