@@ -70,6 +70,7 @@
             }}</strong>
           </a>
           <a
+            v-show="popup.activeLayer.get('includeInSearch') !== false"
             v-if="
               (popup.activeFeature.get('entity') &&
                 !selectedCoorpNetworkEntity) ||
@@ -84,7 +85,11 @@
             href="javascript:void(0)"
             class="ml-2"
           >
-            <strong>CORPORATE NETWORK</strong>
+            <strong>{{
+              activeLayerGroupConf.searchText
+                ? activeLayerGroupConf.searchText.toUpperCase()
+                : 'CORPORATE NETWORK'
+            }}</strong>
           </a>
         </div>
       </template>
@@ -193,6 +198,7 @@ export default {
       color: this.$appConfig.controlsColor,
       allLayers: [],
       queryableLayers: [],
+      queryLayersGeoserverNames: null,
       activeInteractions: [],
       getInfoResult: [],
       radius: 300,
@@ -856,21 +862,26 @@ export default {
     },
     queryCorporateNetwork() {
       const entity = this.popup.activeFeature.get('entity');
+      const workspace = 'petropolis';
       if (!entity) return;
       this.selectedCoorpNetworkEntity = entity;
       if (!this.layersWithEntityField || !this.splittedEntities) return;
       ///////////////////////
-      const workspace = 'petropolis';
-      if (!this.geoserverLayerNames) {
-        this.geoserverLayerNames = extractGeoserverLayerNames(
-          this.map,
-          this.layersWithEntityField
-        );
+      if (!this.queryLayersGeoserverNames) {
+        const queryableLayers = [];
+        this.$appConfig.map.layers.forEach(layer => {
+          if (
+            this.activeLayerGroupConf.layers.includes(layer.name) &&
+            layer.includeInSearch !== false
+          ) {
+            queryableLayers.push(layer);
+          }
+        });
 
-        // Filter only geoserver layers names with entity field.
-        this.geoserverLayerNames[workspace] = this.geoserverLayerNames[
-          workspace
-        ].filter(name => this.layersWithEntityField.includes(name));
+        this.queryLayersGeoserverNames = extractGeoserverLayerNames(
+          queryableLayers,
+          this.layersWithEntityField
+        )[workspace].filter(name => this.layersWithEntityField.includes(name));
       }
 
       const filterArray = [];
@@ -884,7 +895,7 @@ export default {
         : (filter = orFilter(...filterArray));
 
       let promiseArray = [];
-      this.geoserverLayerNames[workspace].forEach(geoserverLayerName => {
+      this.queryLayersGeoserverNames.forEach(geoserverLayerName => {
         const wfsRequest = wfsRequestParser(
           'EPSG:3857',
           workspace,
@@ -1092,7 +1103,13 @@ export default {
       geoserverLayerNames: 'geoserverLayerNames',
       layersWithEntityField: 'layersWithEntityField',
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
-    })
+    }),
+    activeLayerGroupConf() {
+      const group = this.$appConfig.map.groups[this.activeLayerGroup.fuelGroup][
+        this.activeLayerGroup.region
+      ];
+      return group;
+    }
   },
   watch: {
     activeInteractions() {
@@ -1108,9 +1125,11 @@ export default {
       this.closePopup();
       // Reset geoserver layer names array
       this.geoserverLayerNames = null;
+      this.queryLayersGeoserverNames = null;
       this.selectedCoorpNetworkEntity = null;
       this.createLayers();
       this.fetchColorMapEntities();
+
     }
   }
 };

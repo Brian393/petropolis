@@ -139,7 +139,7 @@ const actions = {
         const url = `./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=petropolis:colormap&srsname=EPSG:4326&${viewParams}&outputFormat=json`;
         promiseArray.push(
           http.get(url, {
-            data: { layerName: layer.get('name') }
+            data: { layerName: layer.get('name'), colormap: styleObj.colormap || 'portland' }
           })
         );
       }
@@ -150,14 +150,16 @@ const actions = {
         .then(function(results) {
           results.forEach(response => {
             const features = response.data.features;
-            const layerName = JSON.parse(response.config.data).layerName;
+            const configData = JSON.parse(response.config.data)
+            const layerName = configData.layerName;
             if (features && features.length === 0) {
               return;
             }
             const nshades = features.length < 5 ? 5 : features.length; // 5 is the minimun of the shades
             const entities = {};
+            console.log(configData.colormap)
             const colors = colormap({
-              colormap: 'rainbow-soft',
+              colormap: configData.colormap,
               nshades: nshades,
               format: 'hex',
               alpha: 1
