@@ -157,7 +157,7 @@ const actions = {
             const nshades = features.length < 5 ? 5 : features.length; // 5 is the minimun of the shades
             const entities = {};
             const colors = colormap({
-              colormap: 'jet',
+              colormap: 'rainbow-soft',
               nshades: nshades,
               format: 'hex',
               alpha: 1

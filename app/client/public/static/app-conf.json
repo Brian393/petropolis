@@ -55,7 +55,7 @@
             },
             {
               "strokeColor": "#fb5c04",
-              "strokeWidth": 4.5
+              "strokeWidth": 4
             }
           ]
         }
@@ -79,8 +79,8 @@
           "styleRef": "baseStyle",
           "stylePropFnRef": "strokeColor",
           "styleField": "variable2",
-          "strokeWidth": 4,
-          "lineDash": [8],
+          "strokeWidth": 6,
+          "lineDash": [12],
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
@@ -101,7 +101,7 @@
         "opacity": 1,
         "hoverable": true,
         "style": {
-          "strokeColor": "#272622",
+          "strokeColor": "black",
           "strokeWidth": 3
         }
       },
@@ -406,22 +406,17 @@
       },
       {
         "type": "WMS",
-        "name": "us_wind2",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:us_wind",
-        "group": "petropolisCoal",
+        "name": "sentinelle",
+        "url": "https://tiles.maps.eox.at/wms",
+        "layers": "TRUE_COLOR",
+        "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
         "visible": true,
         "zIndex": 0,
         "minResolution": 2445.99,
         "maxResolution": 64000,
-        "displayInLayerList": true,
-        "style": {
-          "strokeColor": "#a51e16",
-          "fillColor": "#ff3b30",
-          "radius": 4
-        }
+        "displayInLayerList": true
       },
       {
         "type": "VECTORTILE",
@@ -619,13 +614,16 @@
         "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 40000,
         "label": true,
         "hoverable": true,
         "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
           "strokeColor": "#000000",
-          "fillColor": "#ff33bf",
-          "radius": 8
+          "fillColor": "rgba(255, 51, 191, 0.7)"
         }
       },
       {
@@ -640,13 +638,16 @@
         "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 40000,
         "label": true,
         "hoverable": true,
         "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
           "strokeColor": "#000000",
-          "fillColor": "#3862ff",
-          "radius": 5
+          "fillColor": "rgba(56, 98, 255, 0.8)"
         }
       },
       {
@@ -665,9 +666,12 @@
         "label": true,
         "hoverable": true,
         "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
           "strokeColor": "#000000",
-          "fillColor": "#ff33bf",
-          "radius": 6
+          "fillColor": "rgba(255, 51, 191, 0.7)"
         }
       },
       {
@@ -686,9 +690,12 @@
         "label": true,
         "hoverable": true,
         "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
           "strokeColor": "#000000",
-          "fillColor": "#3862ff",
-          "radius": 4
+          "fillColor": "rgba(56, 98, 255, 0.8)"
         }
       },
       {
@@ -1034,7 +1041,8 @@
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
           "styleRef": "colorMapStyle",
-          "colorField": "entity"
+          "colorField": "entity",
+          "strokeWidth": 0.5
         }
       },
       {
@@ -1610,7 +1618,7 @@
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
         "minResolution": 0.25,
-        "maxResolution": 500,
+        "maxResolution": 1223,
         "displayInLegend": true,
         "opacity": 1,
         "queryable": false,
@@ -1697,13 +1705,12 @@
           "sidePanel": {
             "legendUrl": "images/NoPipelineEver.png",
             "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
-            "headerText": "There are forms of civilization that have to disappear. This is one of them. You are looking at the Great River of Oil, also known to Indigenous peoples as the Black Snake, that writhes and undulates from the Tars Sands and the Bakken all the way to the Gulf of Mexico.",
+            "headerText": "There are forms of civilization that have to disappear. This is the big one. You're looking at the Great River of Oil, also known to Indigenous peoples as the Black Snake, that writhes and undulates from the Tars Sands and the Bakken all the way to the Gulf of Mexico.",
             "bodyText": "This map attempts to see through the present time of coal and oil, to a future beyond fossil fuel. According to clear public perception informed by science, we must leave all CO<sup>2</sup>-producing industries behind. It will take a change of worlds. How to do it is the challenge of a generation. While saving all jobs, while protecting all communities, the time has come to dismantle the fossil-fuel system."
           }
         },
         "local": {
           "layers": [
-            "Toner-Lite2",
             "maptiler_topo",
             "rest_of_world",
             "north_america",
@@ -1721,7 +1728,8 @@
             "CrudeDerailments",
             "USnatGas1",
             "MacLean",
-            "video_pipelines"
+            "video_pipelines",
+            "sentinelle"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
@@ -1772,7 +1780,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/Coalman.png",
+            "legendUrl": "images/CoalWork.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1793,7 +1801,7 @@
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
-            "legendUrl": "images/Coalmine.png",
+            "legendUrl": "images/Coalman.png",
             "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
             "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
           }
@@ -1829,8 +1837,8 @@
             "us_solar",
             "us_wind",
             "north_america2",
-            "north_am_nuclear",
-            "north_am_hydro"
+            "north_am_hydro",
+            "north_am_nuclear"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1850,8 +1858,8 @@
             "us_solar",
             "us_wind",
             "north_america2",
-            "nuclear_power",
-            "hydro_power"
+            "hydro_power",
+            "nuclear_power"
           ],
           "center": [-97, 37],
           "resolution": 4500,
