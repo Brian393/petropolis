@@ -85,11 +85,7 @@
             href="javascript:void(0)"
             class="ml-2"
           >
-            <strong>{{
-              activeLayerGroupConf.searchText
-                ? activeLayerGroupConf.searchText.toUpperCase()
-                : 'CORPORATE NETWORK'
-            }}</strong>
+            <strong>{{ searchLabel }}</strong>
           </a>
         </div>
       </template>
@@ -1109,6 +1105,16 @@ export default {
         this.activeLayerGroup.region
       ];
       return group;
+    },
+    searchLabel() {
+      const searchLabel = this.popup.activeLayer.get('searchLabel');
+      if (searchLabel) {
+        return searchLabel;
+      }
+      if (this.activeLayerGroupConf.searchLabel) {
+        return this.activeLayerGroupConf.searchLabel.toUpperCase();
+      }
+      return 'CORPORATE NETWORK';
     }
   },
   watch: {
@@ -1129,7 +1135,6 @@ export default {
       this.selectedCoorpNetworkEntity = null;
       this.createLayers();
       this.fetchColorMapEntities();
-
     }
   }
 };
