@@ -88,9 +88,18 @@ export const LayerFactory = {
       const stylePropsFn = layersStylePropFn[layerName];
       const props = { ...styleProps, ...stylePropsFn };
       return styleFn(styleField, props);
+    } else if (stylePropFnRef && layersStylePropFn.default[stylePropFnRef]) {
+      const styleFn = styleRefs[styleRef];
+      const stylePropsFn = layersStylePropFn.default;
+      const props = { ...styleProps, ...stylePropsFn };
+      return styleFn(styleField, props);
     } else if (styleRef) {
       if (styleRef === 'colorMapStyle') {
-        return styleRefs[styleRef](layerName, styleProps.colorField, styleProps.colormap);
+        return styleRefs[styleRef](
+          layerName,
+          styleProps.colorField,
+          styleProps.colormap
+        );
       }
       return styleRefs[styleRef](layerName);
     } else {
@@ -364,6 +373,7 @@ export const LayerFactory = {
       isInteractive: lConf.isInteractive,
       displayInLegend: lConf.displayInLegend,
       includeInSearch: lConf.includeInSearch,
+      searchLabel: lConf.searchLabel,
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
@@ -399,10 +409,12 @@ export const LayerFactory = {
       isInteractive: lConf.isInteractive,
       displayInLegend: lConf.displayInLegend,
       includeInSearch: lConf.includeInSearch,
+      searchLabel: lConf.searchLabel,
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       opacity: lConf.opacity,
       group: lConf.group,
+      renderMode: lConf.renderMode || 'hybrid',
       source: new VectorTileSource({
         url: lConf.url,
         format: new this.formatMapping[lConf.format](),
