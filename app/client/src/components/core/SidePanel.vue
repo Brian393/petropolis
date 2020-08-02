@@ -53,14 +53,13 @@
                   text
                   small
                   class="mb-2 mt-1 mr-2"
-                  v-if="popup.activeFeature.get('entity') && popup.activeLayer.get('includeInSearch') !== false"
+                  v-if="
+                    popup.activeFeature.get('entity') &&
+                      popup.activeLayer.get('includeInSearch') !== false
+                  "
                 >
                   <v-icon small class="mr-1">public</v-icon>
-                  {{
-                    visibleGroup.searchText
-                      ? visibleGroup.searchText.toUpperCase()
-                      : 'CORPORATE NETWORK'
-                  }}
+                  {{ searchLabel }}
                 </v-btn>
                 <v-btn @click="closePopupInfo" text small class="mb-2 mt-1">
                   <v-icon small class="mr-1">close</v-icon>
@@ -216,6 +215,17 @@ export default {
         this.$appConfig.map.corporateEntitiesUrls,
         this.selectedCoorpNetworkEntity
       );
+    },
+
+    searchLabel() {
+      const searchLabel = this.popup.activeLayer.get('searchLabel');
+      if (searchLabel) {
+        return searchLabel;
+      }
+      if (this.visibleGroup.searchLabel) {
+        return this.visibleGroup.searchLabel.toUpperCase();
+      }
+      return 'CORPORATE NETWORK';
     },
     ...mapGetters('map', {
       map: 'map',
