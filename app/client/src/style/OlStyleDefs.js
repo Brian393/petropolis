@@ -2,6 +2,7 @@ import OlStyle from 'ol/style/Style';
 import OlStroke from 'ol/style/Stroke';
 import OlFill from 'ol/style/Fill';
 import OlCircle from 'ol/style/Circle';
+import OlIconStyle from 'ol/style/Icon';
 import store from '../store/modules/map';
 
 let strokeColor = 'rgba(236, 236, 236, 0.7)';
@@ -134,8 +135,16 @@ export function baseStyle(propertyName, config) {
         strokeWidth,
         lineDash,
         fillColor,
-        circleRadiusFn
+        circleRadiusFn,
+        iconUrl,
+        iconScaleFn,
+        scale,
+        opacity,
+        iconAnchor,
+        iconAnchorXUnits,
+        iconAnchorYUnits
       } = config;
+
       const geometryType = feature.getGeometry().getType();
       switch (geometryType) {
         /**
@@ -143,18 +152,33 @@ export function baseStyle(propertyName, config) {
          */
         case 'Point':
         case 'MultiPoint': {
-          const style = new OlStyle({
-            image: new OlCircle({
-              stroke: new OlStroke({
-                color: strokeColor || 'rgba(255, 255, 255, 1)',
-                width: strokeWidth || 1
-              }),
-              fill: new OlFill({
-                color: fillColor || 'rgba(129, 56, 17, 0.7)'
-              }),
-              radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
-            })
-          });
+          let style;
+          if (iconUrl || iconScaleFn) {
+            style = new OlStyle({
+              image: new OlIconStyle({
+                src: iconUrl,
+                scale: iconScaleFn ? iconScaleFn(propertyValue) : scale || 1,
+                opacity: opacity || 1,
+                anchor: iconAnchor,
+                anchorXUnits: iconAnchorXUnits,
+                anchorYUnits: iconAnchorYUnits
+              })
+            });
+          } else {
+            style = new OlStyle({
+              image: new OlCircle({
+                stroke: new OlStroke({
+                  color: strokeColor || 'rgba(255, 255, 255, 1)',
+                  width: strokeWidth || 1
+                }),
+                fill: new OlFill({
+                  color: fillColor || 'rgba(129, 56, 17, 0.7)'
+                }),
+                radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
+              })
+            });
+          }
+
           styleCache[propertyValue] = style;
           break;
         }
@@ -238,6 +262,12 @@ export const styleRefs = {
 };
 
 export const layersStylePropFn = {
+  default: {
+    iconScaleFn: propertyValue => {
+      const averageCapacity = 300000;
+      return propertyValue / averageCapacity;
+    }
+  },
   CancelledOilLines: {
     strokeColor: propertyValue => propertyValue
   },

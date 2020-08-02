@@ -604,7 +604,9 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Refinery0.png",
-          "scale": 0.7
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "iconScaleFn",
+          "styleField": "variable2"
         }
       },
       {

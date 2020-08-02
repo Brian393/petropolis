@@ -88,9 +88,18 @@ export const LayerFactory = {
       const stylePropsFn = layersStylePropFn[layerName];
       const props = { ...styleProps, ...stylePropsFn };
       return styleFn(styleField, props);
+    } else if (stylePropFnRef && layersStylePropFn.default[stylePropFnRef]) {
+      const styleFn = styleRefs[styleRef];
+      const stylePropsFn = layersStylePropFn.default;
+      const props = { ...styleProps, ...stylePropsFn };
+      return styleFn(styleField, props);
     } else if (styleRef) {
       if (styleRef === 'colorMapStyle') {
-        return styleRefs[styleRef](layerName, styleProps.colorField, styleProps.colormap);
+        return styleRefs[styleRef](
+          layerName,
+          styleProps.colorField,
+          styleProps.colormap
+        );
       }
       return styleRefs[styleRef](layerName);
     } else {
