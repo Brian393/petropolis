@@ -276,9 +276,44 @@ export const layersStylePropFn = {
       return Math.sqrt(propertyValue) * 0.7;
     }
   },
+  global_solar: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  global_wind: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  nuclear_power: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  north_am_nuclear: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.35;
+    }
+  },
+  north_am_hydro: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.35;
+    }
+  },
+  hydro_power: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  global_gas: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.15;
+    }
+  },
   all_refineries: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.9;
+      return Math.sqrt(propertyValue) * 1.4;
     }
   },
   GiantOilFields: {
