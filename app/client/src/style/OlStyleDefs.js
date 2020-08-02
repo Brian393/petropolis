@@ -246,9 +246,19 @@ export const layersStylePropFn = {
       return Math.sqrt(propertyValue) * 0.7;
     }
   },
+  global_solar: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  global_wind: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
   nuclear_power: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.2;
+      return Math.sqrt(propertyValue) * 0.3;
     }
   },
   north_am_nuclear: {
@@ -263,7 +273,12 @@ export const layersStylePropFn = {
   },
   hydro_power: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.2;
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  global_gas: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.15;
     }
   },
   all_refineries: {
