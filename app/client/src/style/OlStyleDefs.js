@@ -264,49 +264,69 @@ export const styleRefs = {
 export const defaultLimits = {
   iconScaleFn: {
     smallestDefaultScale: 0.5,
-    largestDefaultScale: 2
+    largestDefaultScale: 2,
+    defaultMultiplier: 1 / 300000
   },
   circleRadiusFn: {
     smallestDefaultRadius: 5,
-    largestDefaultRadius: 30
+    largestDefaultRadius: 30,
+    defaultMultiplier: 0.3
   }
-}
-const getIconScaleValue = (propertyValue, smallestScale, largestScale) => {
- const { smallestDefaultScale, largestDefaultScale } = defaultLimits.iconScaleFn;
- const averageCapacity = 300000;
- const smallestValue = smallestScale || smallestDefaultScale;
- const largestValue = largestScale || largestDefaultScale;
- let scale = propertyValue / averageCapacity;
- if (scale < smallestValue) {
-   scale = smallestValue;
- }
- if (scale > largestValue) {
-   scale = largestValue;
- }
- return scale
-}
+};
 
-const getRadiusValue = (propertyValue, multiplier, smallestRadius, largestRadius) => {
-   const {
-     smallestDefaultRadius,
-     largestDefaultRadius
-   } = defaultLimits.circleRadiusFn;
-    const smallestValue = smallestRadius || smallestDefaultRadius;
-    const largestValue = largestRadius || largestDefaultRadius;
-   let radius = Math.sqrt(propertyValue) * multiplier;
-   if (radius < smallestValue) {
-     radius = smallestValue;
-   }
-   if (radius > largestValue) {
-     radius = largestValue;
-   }
-   return radius;
-}
+const getIconScaleValue = (
+  propertyValue,
+  multiplier,
+  smallestScale,
+  largestScale
+) => {
+  const {
+    smallestDefaultScale,
+    largestDefaultScale,
+    defaultMultiplier
+  } = defaultLimits.iconScaleFn;
+  const smallestValue = smallestScale || smallestDefaultScale;
+  const largestValue = largestScale || largestDefaultScale;
+  let scale = propertyValue * multiplier || defaultMultiplier;
+  if (scale < smallestValue) {
+    scale = smallestValue;
+  }
+  if (scale > largestValue) {
+    scale = largestValue;
+  }
+  return scale;
+};
+
+const getRadiusValue = (
+  propertyValue,
+  multiplier,
+  smallestRadius,
+  largestRadius,
+  defaultMultiplier
+) => {
+  const {
+    smallestDefaultRadius,
+    largestDefaultRadius
+  } = defaultLimits.circleRadiusFn;
+  const smallestValue = smallestRadius || smallestDefaultRadius;
+  const largestValue = largestRadius || largestDefaultRadius;
+  let radius = Math.sqrt(propertyValue) * multiplier || defaultMultiplier;
+  if (radius < smallestValue) {
+    radius = smallestValue;
+  }
+  if (radius > largestValue) {
+    radius = largestValue;
+  }
+  return radius;
+};
 
 export const layersStylePropFn = {
   default: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue);
+    },
+    circleRadiusFn: propertyValue => {
+      return getRadiusValue(propertyValue)
     }
   },
   CancelledOilLines: {
@@ -314,12 +334,12 @@ export const layersStylePropFn = {
   },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue,0.7);
+      return getRadiusValue(propertyValue, 0.7);
     }
   },
   global_solar: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue,0.3)
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   global_wind: {
