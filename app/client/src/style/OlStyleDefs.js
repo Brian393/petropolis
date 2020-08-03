@@ -174,11 +174,20 @@ export function baseStyle(propertyName, config) {
             style = new OlStyle({
               image: new OlCircle({
                 stroke: new OlStroke({
-                  color: strokeColor || 'rgba(255, 255, 255, 1)',
-                  width: strokeWidth || 1
+                  color:
+                    strokeColor instanceof Function
+                      ? strokeColor(propertyValue)
+                      : strokeColor || 'rgba(255, 255, 255, 1)',
+                  width:
+                    strokeWidth instanceof Function
+                      ? strokeWidth(propertyValue)
+                      : strokeWidth || 1
                 }),
                 fill: new OlFill({
-                  color: fillColor || 'rgba(129, 56, 17, 0.7)'
+                  color:
+                    fillColor instanceof Function
+                      ? fillColor(propertyValue)
+                      : fillColor || 'rgba(129, 56, 17, 0.7)'
                 }),
                 radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
               })
@@ -199,7 +208,10 @@ export function baseStyle(propertyName, config) {
                 strokeColor instanceof Function
                   ? strokeColor(propertyValue)
                   : strokeColor || 'rgba(255, 255, 255, 1)',
-              width: strokeWidth || 4,
+              width:
+                strokeWidth instanceof Function
+                  ? strokeColor(propertyValue)
+                  : strokeWidth || 4,
               lineDash: lineDash || [6]
             })
           });
@@ -269,9 +281,9 @@ export const styleRefs = {
 
 export const defaultLimits = {
   iconScaleFn: {
-    smallestDefaultScale: 0.5,
-    largestDefaultScale: 2,
-    defaultMultiplier: 1 / 300000
+    smallestDefaultScale: 0.2,
+    largestDefaultScale: 1,
+    defaultMultiplier: 300000
   },
   circleRadiusFn: {
     smallestDefaultRadius: 5,
@@ -293,7 +305,7 @@ const getIconScaleValue = (
   } = defaultLimits.iconScaleFn;
   const smallestValue = smallestScale || smallestDefaultScale;
   const largestValue = largestScale || largestDefaultScale;
-  let scale = propertyValue * multiplier || defaultMultiplier;
+  let scale = multiplier || defaultMultiplier / propertyValue;
   if (scale < smallestValue) {
     scale = smallestValue;
   }
