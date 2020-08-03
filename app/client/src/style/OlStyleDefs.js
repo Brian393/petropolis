@@ -358,19 +358,39 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 0.3);
     }
   },
-  north_am_nuclear: {
+  nuclear_power1: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.35);
+      return Math.sqrt(propertyValue) * 0.3;
     }
   },
-  north_am_hydro: {
+  nuclear_power2: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.35);
+      return Math.sqrt(propertyValue) * 0.15;
     }
   },
   hydro_power: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.3);
+    }
+  },
+  hydro_power1: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.3;
+    }
+  },
+  hydro_power2: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.15;
+    }
+  },
+  pending_permits: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.008;
+    }
+  },
+  final_permits: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.008;
     }
   },
   global_gas: {
