@@ -812,7 +812,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Natural Gas Pipes",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
@@ -1315,7 +1315,6 @@
             "north_america",
             "ESRI-World-Imagery",
             "Spills_20yrs",
-            "major_gas_pipes",
             "CancelledOilLines",
             "all_pipes",
             "ContestedOilLines",
@@ -1356,8 +1355,7 @@
             "CrudeDerailments",
             "NatGasGenerators",
             "MacLean",
-            "video_pipelines",
-            "sentinelle"
+            "video_pipelines"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
