@@ -10,6 +10,12 @@ let fillColor = 'rgba(255,0,0, 0.2)';
 let imageColor = 'blue';
 let zIndex = 100;
 
+// Resets cache when map groups is changed.
+import { EventBus } from '../EventBus';
+EventBus.$on('group-changed', () => {
+  styleCache = {};
+});
+
 export function defaultStyle(feature) {
   const geomType = feature.getGeometry().getType();
   const style = new OlStyle({
@@ -124,7 +130,7 @@ export function worldOverlayFill() {
 /**
  * Style function used for vector layers.
  */
-const styleCache = {};
+let styleCache = {};
 export function baseStyle(propertyName, config) {
   const styleFunction = feature => {
     const propertyValue = feature.get(propertyName);
@@ -326,7 +332,7 @@ export const layersStylePropFn = {
       return getIconScaleValue(propertyValue);
     },
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue)
+      return getRadiusValue(propertyValue);
     }
   },
   CancelledOilLines: {
