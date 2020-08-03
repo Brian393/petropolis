@@ -261,11 +261,52 @@ export const styleRefs = {
   colorMapStyle: colorMapStyle
 };
 
+export const defaultLimits = {
+  iconScaleFn: {
+    smallestDefaultScale: 0.5,
+    largestDefaultScale: 2
+  },
+  circleRadiusFn: {
+    smallestDefaultRadius: 5,
+    largestDefaultRadius: 30
+  }
+}
+const getIconScaleValue = (propertyValue, smallestScale, largestScale) => {
+ const { smallestDefaultScale, largestDefaultScale } = defaultLimits.iconScaleFn;
+ const averageCapacity = 300000;
+ const smallestValue = smallestScale || smallestDefaultScale;
+ const largestValue = largestScale || largestDefaultScale;
+ let scale = propertyValue / averageCapacity;
+ if (scale < smallestValue) {
+   scale = smallestValue;
+ }
+ if (scale > largestValue) {
+   scale = largestValue;
+ }
+ return scale
+}
+
+const getRadiusValue = (propertyValue, multiplier, smallestRadius, largestRadius) => {
+   const {
+     smallestDefaultRadius,
+     largestDefaultRadius
+   } = defaultLimits.circleRadiusFn;
+    const smallestValue = smallestRadius || smallestDefaultRadius;
+    const largestValue = largestRadius || largestDefaultRadius;
+   let radius = Math.sqrt(propertyValue) * multiplier;
+   if (radius < smallestValue) {
+     radius = smallestValue;
+   }
+   if (radius > largestValue) {
+     radius = largestValue;
+   }
+   return radius;
+}
+
 export const layersStylePropFn = {
   default: {
     iconScaleFn: propertyValue => {
-      const averageCapacity = 300000;
-      return propertyValue / averageCapacity;
+      return getIconScaleValue(propertyValue);
     }
   },
   CancelledOilLines: {
@@ -273,57 +314,57 @@ export const layersStylePropFn = {
   },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.7;
+      return getRadiusValue(propertyValue,0.7);
     }
   },
   global_solar: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue,0.3)
     }
   },
   global_wind: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   nuclear_power: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   north_am_nuclear: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.35;
+      return getRadiusValue(propertyValue, 0.35);
     }
   },
   north_am_hydro: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.35;
+      return getRadiusValue(propertyValue, 0.35);
     }
   },
   hydro_power: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   global_gas: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.15;
+      return getRadiusValue(propertyValue, 0.15);
     }
   },
   all_refineries: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 1.4;
+      return getRadiusValue(propertyValue, 1.4);
     }
   },
   GiantOilFields: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   Coal_Mines: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) / 150;
+      return getRadiusValue(propertyValue, 0.00666);
     }
   }
 };
