@@ -141,11 +141,14 @@ export default {
     },
     getGraphic(layer) {
       const layerType = getLayerType(layer);
-      if (layerType === 'VectorLayer' || layerType === 'VectorTileLayer') {
+      if (
+        layer.get('legendIcon') ||
+        layerType === 'VectorLayer' ||
+        layerType === 'VectorTileLayer'
+      ) {
         let styleConf = layer.get('styleObj');
-        if (!styleConf) return;
-        styleConf = JSON.parse(styleConf);
-
+        if (!styleConf && !layer.get('legendIcon')) return;
+        styleConf ? (styleConf = JSON.parse(styleConf)) : (styleConf = {});
         if (styleConf.iconUrl || layer.get('legendIcon')) {
           const iconUrl = styleConf.iconUrl || layer.get('legendIcon');
           return `<img src="${iconUrl}" style="margin-top: 5px !important;object-fit:contain;" width="18" height="22">`;
