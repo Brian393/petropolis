@@ -373,6 +373,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Wind Blows",
         "format": "MVT",
+        "renderMode": "image",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
@@ -394,6 +395,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Sun Shines",
         "format": "MVT",
+        "renderMode": "image",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
@@ -416,14 +418,15 @@
         "displayInLegend": true,
         "legendDisplayName": "North American Grid",
         "format": "MVT",
+        "renderMode": "image",
         "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
-        "label": true,
+        "label": false,
         "hoverable": false,
         "style": {
-          "strokeColor": "#0078f5",
+          "strokeColor": "#009df5",
           "width": 1.6
         }
       },
@@ -451,6 +454,84 @@
       },
       {
         "type": "VECTORTILE",
+        "name": "hydro_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
+          "strokeColor": "#ffffff",
+          "strokeWidth": 0.8,
+          "fillColor": "rgba(56, 98, 255, 0.9)"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "hydro_power1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
+          "strokeColor": "#ffffff",
+          "strokeWidth": 0.8,
+          "fillColor": "rgba(56, 98, 255, 0.9)"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "hydro_power2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
+          "strokeColor": "rgb(0, 52, 191)",
+          "strokeWidth": 0.8,
+          "fillColor": "rgba(56, 98, 255, 0.9)"
+        }
+      },
+      {
+        "type": "VECTORTILE",
         "name": "nuclear_power",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
@@ -458,7 +539,33 @@
         "displayInLegend": true,
         "legendDisplayName": "Nuclear Power",
         "format": "MVT",
+        "renderMode": "image",
         "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "capacity",
+          "strokeColor": "#000000",
+          "fillColor": "rgba(324, 46, 188, 0.8)"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "nuclear_power1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Nuclear Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
@@ -482,7 +589,8 @@
         "displayInLegend": true,
         "legendDisplayName": "Nuclear Power",
         "format": "MVT",
-        "visible": true,
+        "renderMode": "image",
+        "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
@@ -495,30 +603,6 @@
           "styleField": "capacity",
           "strokeColor": "#000000",
           "fillColor": "#F8347F"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "hydro_power",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Hydro Power",
-        "format": "MVT",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
-          "strokeColor": "#ffffff",
-          "fillColor": "rgba(56, 98, 255, 0.9)"
         }
       },
       {
@@ -564,6 +648,54 @@
           "styleField": "variable1",
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "final_permits",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:final_permits&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Permitted Projects",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable1",
+          "strokeColor": "black",
+          "fillColor": "rgba(251, 92, 4, 0.8)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "pending_permits",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:pending_permits&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Awaiting Final Permit",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "styleRef": "baseStyle",
+          "stylePropFnRef": "circleRadiusFn",
+          "styleField": "variable1",
+          "strokeColor": "white",
+          "fillColor": "rgba(236, 183, 54, 0.8)"
         }
       },
       {
@@ -812,7 +944,10 @@
           "iconUrl": "icons/CoalPower2.png",
           "scale": 0.7,
           "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
+          "hoverBackgroundColor": "#000000",
+          "iconAnchor": [0.5, 50],
+          "iconAnchorXUnits": "fraction",
+          "iconAnchorYUnits": "pixels"
         }
       },
       {
@@ -880,17 +1015,16 @@
       {
         "type": "VECTOR",
         "name": "CoalAsh",
-        "url": "geojson/CoalAsh.geojson",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_ash&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Coal Ash",
+        "legendDisplayName": "Coal",
         "format": "GeoJSON",
         "visible": true,
-        "opacity": 0.95,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 16000,
+        "maxResolution": 64000,
         "label": null,
         "hoverable": true,
         "style": {
@@ -975,22 +1109,25 @@
         "visible": true
       },
       {
-        "type": "WMS",
+        "type": "VECTORTILE",
         "name": "na_rr",
-        "url": "https://timetochange.today/geoserver/wms",
-        "layers": "petropolis:na_rr",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_rr@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisCoal",
-        "queryable": false,
+        "renderMode": "image",
+        "includeInSearch": false,
+        "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Railroads",
+        "format": "MVT",
         "visible": true,
+        "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2000,
-        "displayInLayerList": true,
+        "maxResolution": 4000,
+        "isInteractive": false,
         "style": {
-          "strokeColor": "white",
-          "strokeWidth": 1
+          "strokeColor": "silver",
+          "strokeWidth": 0.5
         }
       },
       {
@@ -1038,6 +1175,17 @@
       },
       {
         "type": "XYZ",
+        "name": "Dark1",
+        "group": "backgroundLayers",
+        "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
+        "minResolution": 0.25,
+        "opacity": 1,
+        "queryable": false,
+        "zIndex": -10,
+        "visible": true
+      },
+      {
+        "type": "XYZ",
         "name": "Dark2",
         "group": "backgroundLayers",
         "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
@@ -1050,13 +1198,16 @@
       {
         "type": "XYZ",
         "name": "railway_map",
-        "group": "backgroundLayers",
+        "group": "petropolisCoalLocal",
         "url": "http://c.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",
-        "minResolution": 0.25,
+        "minResolution": 1,
         "maxResolution": 64000,
         "opacity": 0.99,
         "queryable": false,
-        "visible": true
+        "visible": true,
+        "legendDisplayName": "Open Railway Map",
+        "legendIcon": "icons/OpenRailwayLegend.png",
+        "displayInLegend": true
       },
       {
         "type": "XYZ",
@@ -1172,7 +1323,9 @@
             "US_Refineries4",
             "crude_derailment",
             "video_pipelines",
-            "MacLean"
+            "MacLean",
+            "final_permits",
+            "pending_permits"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
@@ -1242,8 +1395,7 @@
       "coal": {
         "default": {
           "layers": [
-            "Dark",
-            "maptiler_topo",
+            "Dark1",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
@@ -1263,13 +1415,12 @@
         },
         "local": {
           "layers": [
-            "Toner-Lite2",
-            "Dark",
-            "maptiler_topo",
+            "maptiler_topo2",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
             "railway_map",
+            "Coal1",
             "CoalAsh"
           ],
           "center": [-99, 42.9],
@@ -1318,7 +1469,7 @@
             "hydro_power",
             "nuclear_power"
           ],
-          "center": [-101, 41.0],
+          "center": [-98, 41.0],
           "resolution": 7500,
           "minResolution": 0.25,
           "maxResolution": 32000,
@@ -1336,8 +1487,8 @@
             "north_america2",
             "all_solar",
             "all_wind",
-            "hydro_power",
-            "nuclear_power"
+            "hydro_power1",
+            "nuclear_power1"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1356,8 +1507,8 @@
             "rest_of_world2",
             "all_solar",
             "all_wind",
-            "hydro_power",
-            "nuclear_power"
+            "hydro_power2",
+            "nuclear_power2"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
