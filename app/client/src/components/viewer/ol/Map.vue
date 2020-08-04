@@ -1135,6 +1135,8 @@ export default {
       this.selectedCoorpNetworkEntity = null;
       this.createLayers();
       this.fetchColorMapEntities();
+      // Emit group change event.
+      EventBus.$emit('group-changed');
     }
   }
 };
