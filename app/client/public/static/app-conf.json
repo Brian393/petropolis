@@ -825,7 +825,7 @@
           "styleRef": "colorMapStyle",
           "colorField": "entity",
           "colormap": "electric",
-          "strokeWidth": 0.5
+          "strokeWidth": 0.3
         }
       },
       {
@@ -845,7 +845,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/NatGas3.png",
-          "scale": 0.5
+          "scale": 0.4
         }
       },
       {
@@ -1257,7 +1257,7 @@
         "name": "maptiler_topo2",
         "group": "backgroundLayers",
         "url": "https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
-        "minResolution": 0.25,
+        "minResolution": 0,
         "maxResolution": 64000,
         "opacity": 1,
         "queryable": false,
@@ -1278,7 +1278,7 @@
         "type": "XYZ",
         "name": "ESRI-World-Imagery",
         "group": "backgroundLayers",
-        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "url": "https://api.mapbox.com/styles/v1/bkholmes/ckdfho0a10h9x1imomo5wtyq7/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmtob2xtZXMiLCJhIjoiNjlkYjI4MDUyYTRlZWEyYzkwYTdmOTgxNmMzOGYwMTUifQ.VSUo52PYOUzS60NR6jqXTw",
         "minResolution": 0.25,
         "maxResolution": 20,
         "queryable": false,
@@ -1326,7 +1326,7 @@
             "final_permits",
             "pending_permits"
           ],
-          "center": [-101, 42.0],
+          "center": [-103, 42.0],
           "resolution": 8500,
           "minResolution": 0.25,
           "maxResolution": 32000,
@@ -1401,9 +1401,9 @@
             "Coal1",
             "Coal_Mines"
           ],
-          "center": [-101, 42.0],
+          "center": [-103, 42.0],
           "resolution": 8500,
-          "minResolution": 0.25,
+          "minResolution": 0,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/CoalWork.png",
@@ -1423,7 +1423,7 @@
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
-          "minResolution": 0.25,
+          "minResolution": 0,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/Coalman.png",
@@ -1467,14 +1467,14 @@
             "hydro_power",
             "nuclear_power"
           ],
-          "center": [-98, 41.0],
-          "resolution": 7500,
+          "center": [-103, 42.0],
+          "resolution": 8500,
           "minResolution": 0.25,
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/SolarSculpture.png",
             "headerText": "What would it be like to build a new society?",
-            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipeliness have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin and the Bakken&mdash;and hopefully the Tar Sands too. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
+            "bodyText": "When you least expect it we have an historic opportunity. The most expanionist pipelines have suddenly been stopped in the courts. Oil companies are falling into bankruptcy due to plunges in consumption. Investors are betting on solar and wind for the future. Insiders claim that fracking for crude is dust. If they're right, it's the end of an era in the Permian Basin and the Bakken&mdash;and hopefully the Tar Sands too. But halting the Sixth Mass Extinction needs more. It needs system change. With government investment, entire branches of the energy sector could be replaced outright. New kinds of hi-tech jobs would be created alongside community solar projects and pervasive retrofitting in the neighborhoods. Without that kind of meaningful employment, society would become a nightmare. But the point is to turn things in a different direction.<br><br>Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things entirely differently."
           }
         },
         "local": {
