@@ -131,98 +131,138 @@ export function worldOverlayFill() {
  * Style function used for vector layers.
  */
 let styleCache = {};
-export function baseStyle(propertyName, config) {
+export function baseStyle(config) {
   const styleFunction = feature => {
-    const propertyValue = feature.get(propertyName);
-    if (propertyValue === 0) return;
-    if (propertyValue && !styleCache[propertyValue]) {
-      const {
-        strokeColor,
-        strokeWidth,
-        lineDash,
-        fillColor,
-        circleRadiusFn,
-        iconUrl,
-        iconScaleFn,
-        scale,
-        opacity,
-        iconAnchor,
-        iconAnchorXUnits,
-        iconAnchorYUnits
-      } = config;
-
-      const geometryType = feature.getGeometry().getType();
-      switch (geometryType) {
-        /**
-         * Style used for geometry point type. It will render a circle based on the given formula
-         */
-        case 'Point':
-        case 'MultiPoint': {
-          let style;
-          if (iconUrl || iconScaleFn) {
-            style = new OlStyle({
-              image: new OlIconStyle({
-                src: iconUrl,
-                scale: iconScaleFn ? iconScaleFn(propertyValue) : scale || 1,
-                opacity: opacity || 1,
-                anchor: iconAnchor,
-                anchorXUnits: iconAnchorXUnits,
-                anchorYUnits: iconAnchorYUnits
-              })
-            });
-          } else {
-            style = new OlStyle({
-              image: new OlCircle({
-                stroke: new OlStroke({
-                  color:
-                    strokeColor instanceof Function
-                      ? strokeColor(propertyValue)
-                      : strokeColor || 'rgba(255, 255, 255, 1)',
-                  width:
-                    strokeWidth instanceof Function
-                      ? strokeWidth(propertyValue)
-                      : strokeWidth || 1
-                }),
-                fill: new OlFill({
-                  color:
-                    fillColor instanceof Function
-                      ? fillColor(propertyValue)
-                      : fillColor || 'rgba(129, 56, 17, 0.7)'
-                }),
-                radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
-              })
-            });
-          }
-
-          styleCache[propertyValue] = style;
-          break;
+    // Get cache uid.
+    let cacheId 
+    if (config.stylePropFnRef) {
+      cacheId = `${config.layerName}-`;
+      Object.keys(config.stylePropFnRef).forEach(key => {
+        const value = feature.get(config.stylePropFnRef[key]);
+        if (value) {
+          cacheId += value;
         }
-        /**
-         * Style used for line geometry type.
-         */
-        case 'LineString':
-        case 'MultiLineString': {
-          const style = new OlStyle({
-            stroke: new OlStroke({
-              color:
-                strokeColor instanceof Function
-                  ? strokeColor(propertyValue)
-                  : strokeColor || 'rgba(255, 255, 255, 1)',
-              width:
-                strokeWidth instanceof Function
-                  ? strokeColor(propertyValue)
-                  : strokeWidth || 4,
-              lineDash: lineDash || [6]
-            })
-          });
-          styleCache[propertyValue] = style;
-          break;
-        }
-        default:
-          break;
-      }
+      });
     }
-    return styleCache[propertyValue] || defaultStyle;
+
+      let _style;
+      if (!styleCache[cacheId]) {
+        const {
+          strokeColor,
+          strokeWidth,
+          lineDash,
+          fillColor,
+          circleRadiusFn,
+          iconUrl,
+          iconScaleFn,
+          scale,
+          opacity,
+          iconAnchor,
+          iconAnchorXUnits,
+          iconAnchorYUnits,
+          stylePropFnRef
+        } = config;
+        const geometryType = feature.getGeometry().getType();
+        switch (geometryType) {
+          /**
+           * Style used for geometry point type. It will render a circle based on the given formula
+           */
+          case 'Point':
+          case 'MultiPoint': {
+            let style;
+            if (iconUrl || iconScaleFn) {
+              style = new OlStyle({
+                image: new OlIconStyle({
+                  src: iconUrl,
+                  scale:
+                    stylePropFnRef && stylePropFnRef.iconScaleFn && iconScaleFn
+                      ? iconScaleFn(feature.get(stylePropFnRef.iconScaleFn))
+                      : scale || 1,
+                  opacity: opacity || 1,
+                  anchor: iconAnchor,
+                  anchorXUnits: iconAnchorXUnits,
+                  anchorYUnits: iconAnchorYUnits
+                })
+              });
+            } else {
+              style = new OlStyle({
+                image: new OlCircle({
+                  stroke: new OlStroke({
+                    color:
+                      stylePropFnRef &&
+                      stylePropFnRef.strokeColor &&
+                      strokeColor instanceof Function
+                        ? strokeColor(feature.get(stylePropFnRef.strokeColor))
+                        : strokeColor || 'rgba(255, 255, 255, 1)',
+                    width:
+                      stylePropFnRef &&
+                      stylePropFnRef.strokeWidth &&
+                      strokeWidth instanceof Function
+                        ? strokeWidth(feature.get(stylePropFnRef.strokeWidth))
+                        : strokeWidth || 1
+                  }),
+                  fill: new OlFill({
+                    color:
+                      stylePropFnRef &&
+                      stylePropFnRef.fillColor &&
+                      fillColor instanceof Function
+                        ? fillColor(feature.get(stylePropFnRef.fillColor))
+                        : fillColor || 'rgba(129, 56, 17, 0.7)'
+                  }),
+                  radius:
+                    stylePropFnRef &&
+                    stylePropFnRef.circleRadiusFn &&
+                    circleRadiusFn instanceof Function
+                      ? circleRadiusFn(
+                          feature.get(stylePropFnRef.circleRadiusFn)
+                        )
+                      : 5
+                })
+              });
+            }
+            
+            if (cacheId) {
+              styleCache[cacheId] = style;
+            } else {
+              _style = style;
+            }
+            break;
+          }
+          /**
+           * Style used for line geometry type.
+           */
+          case 'LineString':
+          case 'MultiLineString': {
+            const style = new OlStyle({
+              stroke: new OlStroke({
+                color:
+                  stylePropFnRef &&
+                  stylePropFnRef.strokeColor &&
+                  strokeColor instanceof Function
+                    ? strokeColor(feature.get(stylePropFnRef.strokeColor))
+                    : strokeColor || 'rgba(255, 255, 255, 1)',
+                width:
+                  stylePropFnRef &&
+                  stylePropFnRef.strokeWidth &&
+                  strokeWidth instanceof Function
+                    ? strokeWidth(feature.get(stylePropFnRef.strokeWidth))
+                    : strokeWidth || 4,
+                lineDash: lineDash || [6]
+              })
+            });
+            
+            if (cacheId) {
+              styleCache[cacheId] = style;
+            } else {
+              _style = style;
+            }
+            break;
+          }
+          default:
+            break;
+        }
+      }
+    return styleCache[cacheId] || _style ||defaultStyle;
   };
   return styleFunction;
 }
@@ -403,6 +443,14 @@ export const layersStylePropFn = {
   final_permits: {
     circleRadiusFn: propertyValue => {
       return Math.sqrt(propertyValue) * 0.008;
+    }
+  },
+  all_permits: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.008;
+    },
+    fillColor: propertyValue => {
+      return propertyValue;
     }
   },
   global_gas: {

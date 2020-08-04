@@ -59,9 +59,20 @@ export const LayerFactory = {
     if (lConf.style.featureStyles && Array.isArray(lConf.style.featureStyles)) {
       const styleArray = [];
       lConf.style.featureStyles.forEach(style => {
-        styleArray.push(this.renderStyle(style, lConf.name));
+        const renderedStyle = this.renderStyle(style, lConf.name);
+        styleArray.push(renderedStyle);
       });
-      return styleArray;
+      return (feature, resolution) => {
+        const styles = [];
+        styleArray.forEach(style => {
+          if (style instanceof Function) {
+            styles.push(style(feature, resolution));
+          } else {
+            styles.push(style);
+          }
+        });
+        return styles;
+      };
     } else {
       return this.renderStyle(lConf.style, lConf.name);
     }
@@ -74,26 +85,35 @@ export const LayerFactory = {
    * @return {ol.style} Ol Style
    */
   renderStyle(styleProps, layerName) {
-    const { styleRef, stylePropFnRef, styleField } = styleProps;
-    if (
-      styleProps &&
-      styleRef &&
-      stylePropFnRef &&
-      styleField &&
-      styleRefs[styleRef] &&
-      layersStylePropFn[layerName] &&
-      layersStylePropFn[layerName][stylePropFnRef]
-    ) {
+    let { styleRef, stylePropFnRef } = styleProps;
+    if (stylePropFnRef && !styleRef) {
+      styleRef = 'baseStyle';
+    }
+    if (styleProps && styleRef && stylePropFnRef && styleRefs[styleRef]) {
+      // Get style function reference (default is baseStyle)
       const styleFn = styleRefs[styleRef];
-      const stylePropsFn = layersStylePropFn[layerName];
-      const props = { ...styleProps, ...stylePropsFn };
-      return styleFn(styleField, props);
-    } else if (stylePropFnRef && layersStylePropFn.default[stylePropFnRef]) {
-      const styleFn = styleRefs[styleRef];
-      const stylePropsFn = layersStylePropFn.default;
-      const props = { ...styleProps, ...stylePropsFn };
-      return styleFn(styleField, props);
+      // Get the functions of the layer
+      const stylePropFn = {};
+      // Get property function from layer config object or default object
+      Object.keys(stylePropFnRef).forEach(fnName => {
+        let fn;
+        if (layersStylePropFn[layerName]) {
+           fn =
+            layersStylePropFn[layerName][fnName] ||
+            layersStylePropFn.default[fnName];
+        } else {
+          if (layersStylePropFn.default[fnName]) {
+            fn = layersStylePropFn.default[fnName]
+          }
+        }
+        if (fn) {
+          stylePropFn[fnName] = fn;
+        }
+      });
+      const props = { ...styleProps, ...stylePropFn, layerName };
+      return styleFn(props,layerName);
     } else if (styleRef) {
+      // Edge case for colormap palete
       if (styleRef === 'colorMapStyle') {
         return styleRefs[styleRef](
           layerName,
@@ -103,6 +123,7 @@ export const LayerFactory = {
       }
       return styleRefs[styleRef](layerName);
     } else {
+      // Just a generic style 
       return OlStyleFactory.getInstance(styleProps);
     }
   },
