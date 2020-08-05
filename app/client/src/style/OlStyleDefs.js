@@ -10,6 +10,12 @@ let fillColor = 'rgba(255,0,0, 0.2)';
 let imageColor = 'blue';
 let zIndex = 100;
 
+// Resets cache when map groups is changed.
+import { EventBus } from '../EventBus';
+EventBus.$on('group-changed', () => {
+  styleCache = {};
+});
+
 export function defaultStyle(feature) {
   const geomType = feature.getGeometry().getType();
   const style = new OlStyle({
@@ -124,12 +130,23 @@ export function worldOverlayFill() {
 /**
  * Style function used for vector layers.
  */
-const styleCache = {};
-export function baseStyle(propertyName, config) {
+let styleCache = {};
+export function baseStyle(config) {
   const styleFunction = feature => {
-    const propertyValue = feature.get(propertyName);
-    if (propertyValue === 0) return;
-    if (propertyValue && !styleCache[propertyValue]) {
+    // Get cache uid.
+    let cacheId;
+    if (config.stylePropFnRef) {
+      cacheId = `${config.layerName}-`;
+      Object.keys(config.stylePropFnRef).forEach(key => {
+        const value = feature.get(config.stylePropFnRef[key]);
+        if (value) {
+          cacheId += value;
+        }
+      });
+    }
+
+    let _style;
+    if (!styleCache[cacheId]) {
       const {
         strokeColor,
         strokeWidth,
@@ -142,9 +159,9 @@ export function baseStyle(propertyName, config) {
         opacity,
         iconAnchor,
         iconAnchorXUnits,
-        iconAnchorYUnits
+        iconAnchorYUnits,
+        stylePropFnRef
       } = config;
-
       const geometryType = feature.getGeometry().getType();
       switch (geometryType) {
         /**
@@ -157,7 +174,10 @@ export function baseStyle(propertyName, config) {
             style = new OlStyle({
               image: new OlIconStyle({
                 src: iconUrl,
-                scale: iconScaleFn ? iconScaleFn(propertyValue) : scale || 1,
+                scale:
+                  stylePropFnRef && stylePropFnRef.iconScaleFn && iconScaleFn
+                    ? iconScaleFn(feature.get(stylePropFnRef.iconScaleFn))
+                    : scale || 1,
                 opacity: opacity || 1,
                 anchor: iconAnchor,
                 anchorXUnits: iconAnchorXUnits,
@@ -168,18 +188,42 @@ export function baseStyle(propertyName, config) {
             style = new OlStyle({
               image: new OlCircle({
                 stroke: new OlStroke({
-                  color: strokeColor || 'rgba(255, 255, 255, 1)',
-                  width: strokeWidth || 1
+                  color:
+                    stylePropFnRef &&
+                    stylePropFnRef.strokeColor &&
+                    strokeColor instanceof Function
+                      ? strokeColor(feature.get(stylePropFnRef.strokeColor))
+                      : strokeColor || 'rgba(255, 255, 255, 1)',
+                  width:
+                    stylePropFnRef &&
+                    stylePropFnRef.strokeWidth &&
+                    strokeWidth instanceof Function
+                      ? strokeWidth(feature.get(stylePropFnRef.strokeWidth))
+                      : strokeWidth || 1
                 }),
                 fill: new OlFill({
-                  color: fillColor || 'rgba(129, 56, 17, 0.7)'
+                  color:
+                    stylePropFnRef &&
+                    stylePropFnRef.fillColor &&
+                    fillColor instanceof Function
+                      ? fillColor(feature.get(stylePropFnRef.fillColor))
+                      : fillColor || 'rgba(129, 56, 17, 0.7)'
                 }),
-                radius: circleRadiusFn ? circleRadiusFn(propertyValue) : 5
+                radius:
+                  stylePropFnRef &&
+                  stylePropFnRef.circleRadiusFn &&
+                  circleRadiusFn instanceof Function
+                    ? circleRadiusFn(feature.get(stylePropFnRef.circleRadiusFn))
+                    : 5
               })
             });
           }
 
-          styleCache[propertyValue] = style;
+          if (cacheId) {
+            styleCache[cacheId] = style;
+          } else {
+            _style = style;
+          }
           break;
         }
         /**
@@ -190,21 +234,33 @@ export function baseStyle(propertyName, config) {
           const style = new OlStyle({
             stroke: new OlStroke({
               color:
+                stylePropFnRef &&
+                stylePropFnRef.strokeColor &&
                 strokeColor instanceof Function
-                  ? strokeColor(propertyValue)
+                  ? strokeColor(feature.get(stylePropFnRef.strokeColor))
                   : strokeColor || 'rgba(255, 255, 255, 1)',
-              width: strokeWidth || 4,
+              width:
+                stylePropFnRef &&
+                stylePropFnRef.strokeWidth &&
+                strokeWidth instanceof Function
+                  ? strokeWidth(feature.get(stylePropFnRef.strokeWidth))
+                  : strokeWidth || 4,
               lineDash: lineDash || [6]
             })
           });
-          styleCache[propertyValue] = style;
+
+          if (cacheId) {
+            styleCache[cacheId] = style;
+          } else {
+            _style = style;
+          }
           break;
         }
         default:
           break;
       }
     }
-    return styleCache[propertyValue] || defaultStyle;
+    return styleCache[cacheId] || _style || defaultStyle;
   };
   return styleFunction;
 }
@@ -263,9 +319,9 @@ export const styleRefs = {
 
 export const defaultLimits = {
   iconScaleFn: {
-    smallestDefaultScale: 0.5,
-    largestDefaultScale: 2,
-    defaultMultiplier: 1 / 300000
+    smallestDefaultScale: 0.2,
+    largestDefaultScale: 1,
+    defaultMultiplier: 603000
   },
   circleRadiusFn: {
     smallestDefaultRadius: 5,
@@ -287,7 +343,7 @@ const getIconScaleValue = (
   } = defaultLimits.iconScaleFn;
   const smallestValue = smallestScale || smallestDefaultScale;
   const largestValue = largestScale || largestDefaultScale;
-  let scale = propertyValue * multiplier || defaultMultiplier;
+  let scale = propertyValue / (multiplier || defaultMultiplier);
   if (scale < smallestValue) {
     scale = smallestValue;
   }
@@ -326,7 +382,7 @@ export const layersStylePropFn = {
       return getIconScaleValue(propertyValue);
     },
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue)
+      return getRadiusValue(propertyValue);
     }
   },
   CancelledOilLines: {
@@ -385,6 +441,14 @@ export const layersStylePropFn = {
   final_permits: {
     circleRadiusFn: propertyValue => {
       return Math.sqrt(propertyValue) * 0.008;
+    }
+  },
+  all_permits: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.008;
+    },
+    fillColor: propertyValue => {
+      return propertyValue;
     }
   },
   global_gas: {

@@ -76,9 +76,9 @@
         "hoverable": true,
         "style": {
           "type": "line",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "strokeColor",
-          "styleField": "variable2",
+          "stylePropFnRef": {
+            "strokeColor": "variable2"
+          },
           "strokeWidth": 6,
           "lineDash": [12],
           "hoverTextColor": "white",
@@ -143,12 +143,12 @@
         "label": true,
         "hoverable": true,
         "style": {
+          "type": "circle",
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
-          "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "variable1",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable1"
+          },
           "strokeColor": "rgba(255, 255, 255, 1)",
           "strokeWidth": 1,
           "fillColor": "rgba(0, 0, 0, 0.8)"
@@ -447,8 +447,9 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/Refinery0.png",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "iconScaleFn",
+          "stylePropFnRef": {
+            "iconScaleFn": "variable2"
+          },
           "styleField": "variable2"
         }
       },
@@ -470,9 +471,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "strokeColor": "#ffffff",
           "strokeWidth": 0.8,
           "fillColor": "rgba(56, 98, 255, 0.9)"
@@ -496,9 +497,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "strokeColor": "#ffffff",
           "strokeWidth": 0.8,
           "fillColor": "rgba(56, 98, 255, 0.9)"
@@ -522,9 +523,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "strokeColor": "rgb(0, 52, 191)",
           "strokeWidth": 0.8,
           "fillColor": "rgba(56, 98, 255, 0.9)"
@@ -548,8 +549,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "styleField": "capacity",
           "strokeColor": "#000000",
           "fillColor": "rgba(324, 46, 188, 0.8)"
@@ -573,9 +575,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "strokeColor": "#000000",
           "fillColor": "#F8347F"
         }
@@ -598,9 +600,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "capacity",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
           "strokeColor": "#000000",
           "fillColor": "#F8347F"
         }
@@ -643,21 +645,21 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "variable1",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable1"
+          },
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
         }
       },
       {
         "type": "VECTOR",
-        "name": "final_permits",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:final_permits&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "all_permits",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_permits&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Permitted Projects",
+        "legendDisplayName": "All Permits",
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -667,35 +669,13 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "variable1",
-          "strokeColor": "black",
-          "fillColor": "rgba(251, 92, 4, 0.8)"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "pending_permits",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:pending_permits&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Awaiting Final Permit",
-        "format": "GeoJSON",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "variable1",
-          "strokeColor": "white",
-          "fillColor": "rgba(236, 183, 54, 0.8)"
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable1",
+            "fillColor": "variable2"
+          },
+          "strokeColor": "black"
         }
       },
       {
@@ -967,9 +947,9 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-          "styleRef": "baseStyle",
-          "stylePropFnRef": "circleRadiusFn",
-          "styleField": "variable2",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable2"
+          },
           "strokeColor": "rgba(255, 255, 255, 1)",
           "fillColor": "rgba(150, 88, 70, 0.8)"
         }
@@ -1323,8 +1303,7 @@
             "crude_derailment",
             "video_pipelines",
             "MacLean",
-            "final_permits",
-            "pending_permits"
+            "all_permits"
           ],
           "center": [-101, 42.0],
           "resolution": 8500,
