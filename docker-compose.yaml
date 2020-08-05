@@ -16,8 +16,9 @@ services:
     image: nginx:alpine
     volumes:
       - ./app/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app/config/nginx/wiki.timetochange.today.conf:/etc/nginx/sites-enabled/wiki.timetochange.today.conf      
       - ./app/config/nginx/its.timetochange.today.conf:/etc/nginx/sites-enabled/its.timetochange.today.conf
-      - ./app/config/nginx/timetochange.today.conf:/etc/nginx/sites-enabled/timetochange.today.conf  
+      - ./app/config/nginx/timetochange.today.conf:/etc/nginx/sites-enabled/timetochange.today.conf
       - ./app/config/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./app/config/ssl/certbot/conf:/etc/letsencrypt
       - ./app/config/ssl/certbot/www:/var/www/certbot
@@ -168,4 +169,22 @@ services:
       - ./app/config/docker-env/cron.env
     networks:
       proxy:
+
+#-----WIKI-----#
+
+  wiki:
+    image: requarks/wiki:2.4
+    depends_on:
+      - db
+    env_file:
+      - ./app/config/docker-env/wiki.env
+    container_name: petropolis-wiki
+    restart: unless-stopped
+    ports:
+      - 10000:3000
+    networks:
+      proxy:
+
+
+
 
