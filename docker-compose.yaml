@@ -181,7 +181,7 @@ services:
     container_name: petropolis-wiki
     restart: unless-stopped
     ports:
-      - 10000:3000
+      - 10500:3000
     networks:
       proxy:
 
