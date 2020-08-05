@@ -385,7 +385,7 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue);
     }
   },
-  CancelledOilLines: {
+  cancelled_pipelines: {
     strokeColor: propertyValue => propertyValue
   },
   Spills_20yrs: {
@@ -459,6 +459,11 @@ export const layersStylePropFn = {
   all_refineries: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 1.4);
+    }
+  },
+  us_refineries: {
+    iconScaleFn: propertyValue => {
+      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
     }
   },
   GiantOilFields: {
