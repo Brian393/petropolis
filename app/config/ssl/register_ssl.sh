@@ -26,7 +26,7 @@ do
             # Check option value
             if ! [[ -z "$2" ]]; then
 				domains=("$2")
-				regex="([^www.].+)"
+				regex="([^.].+)"
             else
                 # Error
 				echo; echo "[x] Error: Value for option $1 is required!"; echo;
