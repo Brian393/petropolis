@@ -173,7 +173,7 @@ services:
 #-----WIKI-----#
 
   wiki:
-    image: requarks/wiki:2.4
+    image: requarks/wiki:2.4.105
     depends_on:
       - db
     env_file:
