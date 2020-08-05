@@ -332,7 +332,7 @@ export default {
         const layer = LayerFactory.getInstance(lConf);
         layer.setZIndex(layerIndex);
         // Enable spotlight for ESRI Imagery
-        if (layer.get('name') === 'ESRI-World-Imagery') {
+        if (layer.get('name') === 'ESRI-World-Imagery' || layer.get('name') === 'us_imagery') {
           layer.on('prerender', e => {
             this.spotlight(e);
           });
