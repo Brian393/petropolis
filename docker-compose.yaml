@@ -64,6 +64,7 @@ services:
     volumes:
       - ./app/geoserver/geoserver_data:/var/local/geoserver
       - ./app/geoserver/geoserver_exts:/var/local/geoserver-exts/
+      - ./app/geoserver/gwc:/var/local/gwc/
       - ./app/geoserver/web.xml:/usr/local/geoserver/WEB-INF/web.xml
     env_file:
       - ./app/config/docker-env/geoserver.env
