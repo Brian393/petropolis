@@ -365,6 +365,29 @@
         }
       },
       {
+        "type": "VECTOR",
+        "name": "oil_majors",
+        "url": "geojson/OilMajors.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Big Oil",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "iconUrl": "variable2"
+          }
+        }
+      },
+      {
         "type": "VECTORTILE",
         "name": "all_solar",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
@@ -1433,7 +1456,8 @@
             "video_pipelines",
             "tar_sands",
             "MacLean",
-            "all_permits"
+            "all_permits",
+            "oil_majors"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,
