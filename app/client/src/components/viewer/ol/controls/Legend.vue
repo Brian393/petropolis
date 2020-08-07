@@ -44,15 +44,12 @@
       </span>
       <v-divider class="mr-1 py-2 mt-1"></v-divider>
 
-      <!-- THIS MODULE WORKS PERFECT, ACTIVATE IF DESIRED
-
       <span class="ml-10 grey--text text--darken-2 subtitle-2">
         <a @click="toggleAllLayersVisibility(true)">select all </a> |
         <a @click="toggleAllLayersVisibility(false)"> clear all</a>
       </span>
       <v-divider class="mr-1 mb-2"></v-divider>
 
-      UNCOMMENT TO ACTIVATE -->
 
       <template v-for="(item, index) in layers">
         <v-row
