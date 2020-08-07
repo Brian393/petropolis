@@ -1176,6 +1176,29 @@
           "hoverBackgroundColor": "#000000"
         }
       },
+      {
+        "type": "VECTOR",
+        "name": "oil_majors",
+        "url": "geojson/OilMajors.geojson",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Big Oil",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "stylePropFnRef": {
+            "iconUrl": "variable2"
+            },
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
 
       {
         "type": "XYZ",
@@ -1486,7 +1509,8 @@
             "rest_of_world1",
             "north_america1",
             "global_pipes",
-            "all_refineries"
+            "all_refineries",
+            "oil_majors"
           ],
           "center": [-5, 30],
           "resolution": 64000,
