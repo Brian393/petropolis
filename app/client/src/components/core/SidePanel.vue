@@ -27,7 +27,7 @@
                 some features only appear when you zoom in
               </div>  -->
               <!-- HEADER -->
-              <p class="mt-4" style="font-size:120%;">
+              <p class="mt-4" style="font-size:115%;">
                 <strong
                   ><em
                     ><span

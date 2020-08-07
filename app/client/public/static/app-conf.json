@@ -397,7 +397,28 @@
         "legendDisplayName": "North American Grid",
         "format": "MVT",
         "renderMode": "image",
-        "visible": false,
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": false,
+        "hoverable": false,
+        "style": {
+          "strokeColor": "#009df5",
+          "width": 1.6
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "us_electric_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": false,
+        "displayInLegend": true,
+        "legendDisplayName": "North American Grid",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
@@ -472,9 +493,9 @@
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
           },
-          "strokeColor": "#ffffff",
+          "strokeColor": "#142c76",
           "strokeWidth": 0.8,
-          "fillColor": "rgba(56, 98, 255, 0.9)"
+          "fillColor": "rgba(56, 98, 255, 0.7)"
         }
       },
       {
@@ -699,6 +720,25 @@
         }
       },
       {
+        "type": "VECTOR",
+        "name": "tar_sands",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:tar_sands&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisOil",
+        "queryable": false,
+        "displayInLegend": false,
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 2000,
+        "maxResolution": 16000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/TarSands.png",
+          "scale": 0.7
+        }
+      },
+      {
         "type": "XYZ",
         "name": "Toner-Labels",
         "group": "petropolisOil",
@@ -788,6 +828,7 @@
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisGas",
         "includeInSearch": false,
+        "renderMode": "vector",
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Natural Gas Pipes",
@@ -805,7 +846,7 @@
           "styleRef": "colorMapStyle",
           "colorField": "entity",
           "colormap": "electric",
-          "strokeWidth": 0.3
+          "strokeWidth": 0.1
         }
       },
       {
@@ -932,6 +973,31 @@
       },
       {
         "type": "VECTOR",
+        "name": "Coal3",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Coal",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/CoalPower2.png",
+          "scale": 0.7,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "iconAnchor": [0.5, 50],
+          "iconAnchorXUnits": "fraction",
+          "iconAnchorYUnits": "pixels"
+        }
+      },
+      {
+        "type": "VECTOR",
         "name": "Coal_Mines",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_mines&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
@@ -1002,14 +1068,16 @@
         "legendDisplayName": "Coal Ash",
         "format": "GeoJSON",
         "visible": true,
-        "zIndex": 0,
+        "zIndex": 100,
         "minResolution": 1,
         "maxResolution": 64000,
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/CoalAsh9.png",
-          "scale": 0.8
+          "iconUrl": "icons/CoalAsh11.png",
+          "scale": 0.5,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
         }
       },
       {
@@ -1027,12 +1095,26 @@
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 700,
+        "maxResolution": 4000,
         "isInteractive": true,
         "style": {
-          "iconUrl": "icons/CoalMine.png",
-          "iconScale": 0.7
+          "iconUrl": "icons/CoalMine1.png",
+          "scale": 0.4
         }
+      },
+      {
+        "type": "WMSTILE",
+        "name": "wind_speed",
+        "url": "https://timetochange.today/geoserver/petropolis/wms?service=WMS&version=1.1.0&request=GetMap&layers=petropolis%3Agwa3_250_wind-speed_100m-sm&bbox=-180.330927318%2C-58.321731252000006%2C180.32657268200003%2C81.510768748&width=768&height=330&srs=EPSG%3A4326&format=application/openlayers",
+        "group": "petropolisRenewables",
+        "queryable": true,
+        "displayInLegend": true,
+        "visible": false,
+        "zIndex": 0,
+        "updateWhileAnimating": true,
+        "minResolution": 2445.99,
+        "maxResolution": 64000,
+        "displayInLayerList": true
       },
       {
         "type": "VECTOR",
@@ -1216,7 +1298,7 @@
         "name": "ESRI-World-Terrain",
         "group": "backgroundLayers",
         "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 200,
+        "minResolution": 80,
         "queryable": false,
         "visible": true
       },
@@ -1349,6 +1431,7 @@
             "us_refineries",
             "crude_derailment",
             "video_pipelines",
+            "tar_sands",
             "MacLean",
             "all_permits"
           ],
@@ -1359,8 +1442,8 @@
           "sidePanel": {
             "legendUrl": "images/NoPipelineEver.png",
             "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
-            "headerText": "There are forms of civilization that have to disappear. You're looking at one of them. It's the Great River of Oil, known to Indigenous peoples as the Black Snake, writhing from the Tars Sands all the way to the Gulf of Mexico.",
-            "bodyText": "Examine the massive industry represented here and ask yourself, what does the word \"decarbonization\" really mean? Does it literally mean ceasing to burn any fossil fuels within the next thirty years, and therefore dismantling this entire industry? How could that be done? Can it come out better for everyone? Is there a future? Is there a Just Transition?"
+            "headerText": "There are forms of civilization that have to disappear. You're looking at one. It's the Great River of Oil, known to Indigenous peoples as the Black Snake, rampant from the Tars Sands all the way to the Gulf of Mexico.",
+            "bodyText": "Examine the vast energy systems of this world and ask yourself one question: What does \"decarbonization\" really mean? Does it mean ceasing to burn any fossil fuels whatsoever within thirty years&mdash;and therefore, dismantling entire industries starting right now? How to do that while maintaining livelihoods and avoiding civil war? Could restorative employment at the neighborhood level change some of the most basic rules of capitalist democracy? Could the results turn out better for everyone involved?"
           }
         },
         "local": {
@@ -1378,7 +1461,7 @@
             "Terminals",
             "us_refineries",
             "LNGterminals",
-            "CrudeDerailments",
+            "crude_derailment",
             "NatGasGenerators",
             "MacLean",
             "video_pipelines"
@@ -1389,8 +1472,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/FenceNoPipeline.png",
-            "headerText": "Click on any pipeline to see it highlighted in blue, with further information in this sidebar. Hit 'Corporate Network' to see everything with the same owner. Zoom in for other features displaying popup texts or videos. A link entitled 'Dive' will take you to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views of the system.",
-            "bodyText": "The US EPA finds that CO2 from \"fossil fuel and industrial processes\" makes up the largest contribution to toal greenhouse gas emission (<a href='https://www.epa.gov/ghgemissions/global-greenhouse-gas-emissions-data#Gas' target='_blank'>source</a>) The Intergovernmental Panel on Climate Change has stated that to avoid the worst impacts, CO2 emissions must drop by 45% before 2030 and reach net zero by 2050 (<a href='https://www.ipcc.ch/2018/10/08/summary-for-policymakers-of-ipcc-special-report-on-global-warming-of-1-5c-approved-by-governments/' target='_blank'>source</a>). This map shows the primary components of the fossil-fuel industry and asks questions about how to achieve those CO2 reduction goals."
+            "headerText": "A map is an instrument of perception. It can expand your awareness of things around you.",
+            "bodyText": "In the 2010's North America was overtaken by pipeline frenzy&mdash;and whenever it stalled in the courts, by explosive growth in oil-by-rail. In fact there had been an investment boom in everything petro: new drilling technologies, expanding refineries, pipelines reversing toward Gulf Coast ports, and proliferating natural gas infrastructure (including plastics and synthetic nitrogen galore). With fracking as well as regulatory rollback, the US became a net exporter of fossil fuels in the 2010s, while opening up mainline corridors for Canadian heavy oil production. The consequences of that decade&mdash;and maybe soon, its ruins&mdash;can be seen in every region. As energy prices strike pandemic lows and the entire shale-oil industry rolls over into bankruptcy, many people are wondering: Isn't there another way to prepare for onrushing climate change? What's society's next move?"
           }
         },
         "global": {
@@ -1411,8 +1494,8 @@
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "images/OilHead.png",
-            "headerText": "Click on any pipeline to see it highlighted in blue. Hit 'Dive' to go to the actual installation on the ground. The LOCAL and GLOBAL buttons provide close up and expanded views.",
-            "bodyText": "This map attempts to see through the present tense of coal and oil, to the future beyond fossil fuel. The health crisis is pointing us in the right direction. According to immense public sentiment informed by ovrwhelming science, we must leave all CO<sup>2</sup>-producing industry behind. That means a change of worlds. How to do it is the challenge of a generation.<br><br>The future is being built on infrastructures of care that let cultures thrive without violence. The present is about dismantling the fossil-fuel system."
+            "headerText": "The oil industry has held the world in political lockdown since the Seventies. Permanent war and climate change are the costs of cheap fuel.",
+            "bodyText": "Is it any wonder that a progressive left agenda seeks transformative investment in renewables? The aim is to find a pathway through the economic crash, toward a viable future. And it's not only a dream, it's a policy. The International Energy Agency aka World Bank calls for a <a href='https://www.iea.org/reports/sustainable-recovery' traget='_blank'>Sustainable Recovery</a>, which means they want to print billions of tokens to retool a way out of the crisis. The EU has embarked on its <a href='https://ec.europa.eu/info/strategy/priorities-2019-2024/european-green-deal_en' target='_blank'>European Green Deal</a>, which puts theory into practice. In the US, racial justice activists and climate campaigners are coming together around the <a href='https://en.wikipedia.org/wiki/Green_New_Deal' target='_blank'>Green New Deal</a> launched by Alexandria Ocasio-Cortez and the Sunrise Movement.<br><br>Only grassroots pressure can keep these plans focused on the social and ecological outcomes. We have to push back against the dead weight of fossil bureaucracies&mdash;while collectively learning how to enter a restorative economy, and create a new energy system."
           }
         }
       },
@@ -1434,8 +1517,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/CoalWork.png",
-            "headerText": "Coal power used to be progress. But coal has made by far the largest contribution to CO<sup>2</sup> in the atmosphere. Today, coal burning is suicidal across the world",
-            "bodyText": "In the United States, the generation of electricity from coal has fallen dramatically over the last decade. Now it's time to phase it out entirely while protecting the communities to which it has done so much damage in the recent past. The map shows the remaining coal plants along with all the known coal-ash ponds left alongside waterways throughout the United States. In a flood, the compacted ash can liquefy and spread a heavy charge of toxins through the land and the water."
+            "headerText": "Coal power used to be progress. But it has made by far the largest contribution to CO2 levels in the atmosphere. Today, burning it is just suicidal&mdash;anywhere across the planet.",
+            "bodyText": "Coal still provides 24/7 baseline power to a grid that hasn't learned to deal with  fluctating wind and solar. But in the United States and many other countries, the generation of electricity from coal has fallen dramatically over the last decade. Now is the time to phase it out entirely, while protecting the communities who depended on the industry.<br><br>The map shows the remaining coal plants with their characteristic geography, involving large cooling ponds, ash pools, and close access to river and/or rail transport. Coal is still extracted from a plethora of underground and surface mines in the Midwest and Northeast, and from a smaller number of far more productive ones in Wyoming. Why maintain an increasingly automated industry that promises to kill you and all other life on earth? Why not just take care of the workers by employing them on any of dozens of urgent projects?"
           }
         },
         "local": {
@@ -1447,6 +1530,7 @@
             "us_imagery",
             "railway_map",
             "abandoned_mines",
+            "Coal3",
             "CoalAsh"
           ],
           "center": [-99, 42.9],
@@ -1510,7 +1594,7 @@
           "layers": [
             "ESRI-World-Imagery2",
             "us_imagery2",
-            "electric_grid",
+            "us_electric_grid",
             "rest_of_world2",
             "north_america2",
             "all_solar",
@@ -1533,6 +1617,7 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
+            "wind_speed",
             "all_solar",
             "all_wind",
             "hydro_power2",
