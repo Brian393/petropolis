@@ -14,3 +14,4 @@ dist
 /app/config/docker-env
 /app/geoserver/*
 /app/api/.env
+/app/config/api/*

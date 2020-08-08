@@ -1,23 +1,21 @@
 const Sequelize = require('sequelize')
+const fs = require("fs");
+const path = require("path");
 
 // Fallback if api isn't running inside docker. 
-if (!process.env.POSTGRES_USER) {
+if (!process.env.NODE_ENV) {
   // Read from .env file
   require("dotenv").config();
 }
 
-// db configuration
-const user = process.env.POSTGRES_USER;
-const host = process.env.POSTGRES_HOST;
-const database = process.env.POSTGRES_DBNAME;
-const password = process.env.POSTGRES_PASS;
-const port = process.env.POSTGRES_PORT;
-console.log("DB USER: ", user)
+// Load configuration based on environment
+const env = process.env.NODE_ENV || "development";
+const config = require(path.join(__dirname, '/config/config.json'))[env]
 
-const sequelize = new Sequelize(database, user, password, {
-  host: host || 'localhost',
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: 'localhost',
   dialect: 'postgres',
-  port: port || 5432,
+  port: config.port,
   pool: {
     max: 5,
     min: 0,
@@ -28,3 +26,4 @@ const sequelize = new Sequelize(database, user, password, {
 });
 
 module.exports = sequelize
+
