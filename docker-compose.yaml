@@ -101,7 +101,7 @@ services:
     volumes:
       - /app/node_modules
       - ./app/api:/app
-      - ./app/config/api:/app/config
+      - ./app/api/config:/app/config
     container_name: petropolis-api
     env_file:
       - ./app/config/docker-env/api.env
