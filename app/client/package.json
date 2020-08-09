@@ -19,6 +19,7 @@
     "core-js": "^3.6.4",
     "jQuery": "^1.7.4",
     "jsdom": "^13.1.0",
+    "jwt-decode": "^2.2.0",
     "location": "0.0.1",
     "material-design-icons": "^3.0.1",
     "mediabox": "^1.1.2",

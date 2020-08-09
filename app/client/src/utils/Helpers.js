@@ -1,3 +1,5 @@
+const jwtDecode = require('jwt-decode');
+
 export function humanize(str) {
   return str
     .replace(/^[\s_]+|[\s_]+$/g, '')
@@ -101,4 +103,17 @@ export function rgbArrayToHex(rgb) {
 // https://github.com/vuetifyjs/vuetify/blob/master/packages/vuetify/src/mixins/colorable.ts
 export function isCssColor(color) {
   return !!color && !!color.match(/^(#|(rgb|hsl)a?\()/);
+}
+
+export function validateToken(jwtToken) {
+  const decodedToken = jwtDecode(jwtToken);
+  if (
+    decodedToken &&
+    decodedToken.exp &&
+    Date.now() >= decodedToken.exp * 1000
+  ) {
+    return null;
+  } else {
+    return decodedToken;
+  }
 }

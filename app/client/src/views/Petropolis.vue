@@ -15,6 +15,72 @@
     </v-expand-transition>
 
     <v-app-bar app clipped-right height="60" color="#dc143c" dark>
+      <!-- USER LOGIN BUTTON -->
+      <template v-if="!loggedUser">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              v-on="on"
+              @click="openLoginPopup"
+              style="margin-left:-4px;"
+              icon
+            >
+              <v-icon large>account_circle</v-icon>
+            </v-btn>
+          </template>
+          <span>Log In</span>
+        </v-tooltip>
+      </template>
+
+      <!-- USER INFO AND LOGOUT -->
+      <template v-if="loggedUser" style="margin-left:-4px;">
+        <v-chip color="rgb(228, 76, 107)" text-color="white">
+          <v-avatar left>
+            <v-icon>mdi-account-circle</v-icon>
+          </v-avatar>
+          {{ `${loggedUser.user.firstName} ${loggedUser.user.lastName}     ` }}
+        </v-chip>
+        <template
+          v-if="
+            Array.isArray(loggedUser.roles) &&
+              loggedUser.roles.includes('admin_user')
+          "
+        >
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-on="on"
+                @click="logOut"
+                class="mx-2 elevation-0"
+                color="rgb(228, 76, 107)"
+                fab
+                x-small
+                dark
+              >
+                <v-icon>dashboard</v-icon>
+              </v-btn>
+            </template>
+            <span>Dashboard</span>
+          </v-tooltip>
+        </template>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              v-on="on"
+              @click="logOut"
+              class="mx-2 elevation-0"
+              color="rgb(228, 76, 107)"
+              fab
+              x-small
+              dark
+            >
+              <v-icon>exit_to_app</v-icon>
+            </v-btn>
+          </template>
+          <span>Log Out</span>
+        </v-tooltip>
+      </template>
+
       <v-spacer></v-spacer>
       <v-toolbar-title
         style="margin-left:90px;"
@@ -36,15 +102,17 @@
         <app-viewer />
       </v-container>
     </v-content>
+    <login :visible="showLoginDialog" @close="showLoginDialog = false"> </login>
   </v-app>
 </template>
 
 <script>
 import { EventBus } from '../EventBus.js';
 import Viewer from '../components/viewer/viewer';
+import Login from '../components/core/Login';
 import SidePanel from '../components/core/SidePanel';
 //Store imports
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 
 export default {
@@ -53,15 +121,20 @@ export default {
   computed: {
     ...mapFields('map', {
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
+    }),
+    ...mapGetters('auth', {
+      loggedUser: 'loggedUser'
     })
   },
   components: {
+    login: Login,
     'app-viewer': Viewer,
     'side-panel': SidePanel
   },
   data() {
     return {
-      drawer: true
+      drawer: true,
+      showLoginDialog: false
     };
   },
   methods: {
@@ -75,6 +148,12 @@ export default {
       if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
       }
+    },
+    openLoginPopup() {
+      this.showLoginDialog = true;
+    },
+    logOut() {
+      this.$store.dispatch('auth/logout');
     },
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
