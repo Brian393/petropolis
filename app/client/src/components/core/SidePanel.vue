@@ -36,7 +36,9 @@
                 ></strong>
               </p>
               <!-- BODY -->
-              <p v-html="visibleGroup.sidePanel.bodyText"></p>
+              <p v-html="visibleGroup.sidePanel.bodyText1"></p>
+              <p v-html="visibleGroup.sidePanel.bodyText2"></p>
+              <p v-html="visibleGroup.sidePanel.bodyText3"></p>
             </template>
 
             <!-- VISIBLE ONLY WHEN USER HAS CLICKED DIVE/SHOW ALL FEATURE -->

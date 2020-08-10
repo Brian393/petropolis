@@ -173,7 +173,12 @@ export function baseStyle(config) {
           if (iconUrl || iconScaleFn) {
             style = new OlStyle({
               image: new OlIconStyle({
-                src: iconUrl,
+                src:
+                  stylePropFnRef &&
+                  stylePropFnRef.iconUrl &&
+                  iconUrl instanceof Function
+                    ? iconUrl(feature.get(stylePropFnRef.iconUrl))
+                    : iconUrl,
                 scale:
                   stylePropFnRef && stylePropFnRef.iconScaleFn && iconScaleFn
                     ? iconScaleFn(feature.get(stylePropFnRef.iconScaleFn))
@@ -383,6 +388,9 @@ export const layersStylePropFn = {
     },
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue);
+    },
+    iconUrl: propertyValue => {
+      return propertyValue
     }
   },
   cancelled_pipelines: {
