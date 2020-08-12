@@ -679,7 +679,7 @@
         "legendDisplayName": "US Electric Utilities",
         "format": "MVT",
         "renderMode": "image",
-        "visible": false,
+        "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
