@@ -491,8 +491,7 @@
           "iconUrl": "icons/Refinery0.png",
           "stylePropFnRef": {
             "iconScaleFn": "variable2"
-          },
-          "styleField": "variable2"
+          }
         }
       },
       {
@@ -672,7 +671,7 @@
       {
         "type": "VECTORTILE",
         "name": "electric_retail",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_retail@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:utilities_sm@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
