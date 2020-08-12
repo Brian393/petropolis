@@ -564,7 +564,7 @@
           },
           "strokeColor": "#ffffff",
           "strokeWidth": 0.8,
-          "fillColor": "rgba(56, 98, 255, 0.9)"
+          "fillColor": "#1384a9"
         }
       },
       {
@@ -590,7 +590,7 @@
           },
           "strokeColor": "rgb(0, 52, 191)",
           "strokeWidth": 0.8,
-          "fillColor": "rgba(56, 98, 255, 0.9)"
+          "fillColor": "#1384a9"
         }
       },
       {
@@ -640,8 +640,8 @@
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
           },
-          "strokeColor": "#000000",
-          "fillColor": "#F8347F"
+          "strokeColor": "#a17fb4",
+          "fillColor": "#A9139D"
         }
       },
       {
@@ -670,27 +670,28 @@
         }
       },
       {
-        "type": "VECTOR",
-        "name": "electric_utilities",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:electric_utilities&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisRenewables",
+        "type": "VECTORTILE",
+        "name": "electric_retail",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_retail@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "visible": false,
-        "legendDisplayName": "US Electric Utilies",
-        "format": "GeoJSON",
+        "legendDisplayName": "US Electric Utilities",
+        "format": "MVT",
+        "renderMode": "image",
         "visible": false,
         "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 4000,
-        "label": null,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
         "hoverable": true,
-        "isInteractive": true,
-        "opacity": 0.6,
+        "opacity": 0.4,
         "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
           "styleRef": "colorMapStyle",
           "colorField": "title",
-          "colormap": "portland"
+          "colormap": "jet"
         }
       },
       {
@@ -1246,20 +1247,6 @@
         }
       },
       {
-        "type": "WMSTILE",
-        "name": "wind_speed",
-        "url": "https://timetochange.today/geoserver/petropolis/wms?service=WMS&version=1.1.0&request=GetMap&layers=petropolis%3Agwa3_250_wind-speed_100m-sm&bbox=-180.330927318%2C-58.321731252000006%2C180.32657268200003%2C81.510768748&width=768&height=330&srs=EPSG%3A4326&format=application/openlayers",
-        "group": "petropolisRenewables",
-        "queryable": true,
-        "displayInLegend": true,
-        "visible": false,
-        "zIndex": 0,
-        "updateWhileAnimating": true,
-        "minResolution": 2445.99,
-        "maxResolution": 64000,
-        "displayInLayerList": true
-      },
-      {
         "type": "VECTOR",
         "name": "Coal",
         "url": "geojson/Coal.geojson",
@@ -1566,6 +1553,34 @@
         "visible": true
       },
       {
+        "type": "XYZ",
+        "name": "SunPotential",
+        "group": "petropolisRenewables",
+        "url": "https://s3.us-east-2.amazonaws.com/ecotopia.today/Data/SunPotential/{z}/{x}/{y}.png",
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "queryable": false,
+        "visible": false,
+        "opacity": 0.7,
+        "legendDisplayName": "Potential Solar Energy",
+        "legendIcon": "icons/legendSunPotential.png",
+        "displayInLegend": true
+      },
+      {
+        "type": "XYZ",
+        "name": "wind_potential",
+        "group": "petropolisRenewables",
+        "url": "https://s3.us-east-2.amazonaws.com/ecotopia.today/Data/WindPotential/{z}/{x}/{y}.png",
+        "minResolution": 20,
+        "maxResolution": 64000,
+        "queryable": false,
+        "visible": false,
+        "opacity": 0.9,
+        "legendDisplayName": "Potential Wind Energy",
+        "legendIcon": "icons/legendWindPotential.png",
+        "displayInLegend": true
+      },
+      {
         "type": "BING-QUADKEY",
         "name": "BING-Layer",
         "group": "backgroundLayers",
@@ -1767,6 +1782,7 @@
             "electric_grid",
             "rest_of_world2",
             "north_america2",
+            "electric_retail",
             "all_solar",
             "all_wind",
             "hydro_power1",
@@ -1788,11 +1804,10 @@
             "ESRI-World-Imagery2",
             "north_america2",
             "rest_of_world2",
-            "wind_speed",
+            "SunPotential",
+            "wind_potential",
             "all_solar",
-            "all_wind",
-            "hydro_power2",
-            "nuclear_power2"
+            "all_wind"
           ],
           "center": [2.44, 31.01],
           "resolution": 30000,
