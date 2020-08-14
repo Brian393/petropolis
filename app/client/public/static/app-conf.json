@@ -159,7 +159,7 @@
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Electricity Production",
+        "legendDisplayName": "Power Plants",
         "format": "MVT",
         "renderMode": "vector",
         "visible": true,
@@ -1402,6 +1402,7 @@
         "minResolution": 0.5,
         "maxResolution": 4000,
         "isInteractive": false,
+        "legendIcon": "icons/legendRailroad.png",
         "style": {
           "strokeColor": "silver",
           "strokeWidth": 0.5
@@ -1425,6 +1426,7 @@
         "minResolution": 440,
         "maxResolution": 32000,
         "isInteractive": false,
+        "legendIcon": "icons/legendRailroad.png",
         "style": {
           "strokeColor": "silver",
           "strokeWidth": 0.5
@@ -1625,7 +1627,7 @@
         "queryable": false,
         "visible": false,
         "opacity": 0.7,
-        "legendDisplayName": "Potential Solar Energy",
+        "legendDisplayName": "Potential Solar",
         "legendIcon": "icons/legendSunPotential.png",
         "displayInLegend": true
       },
@@ -1639,7 +1641,7 @@
         "queryable": false,
         "visible": false,
         "opacity": 0.9,
-        "legendDisplayName": "Potential Wind Energy",
+        "legendDisplayName": "Potential Wind",
         "legendIcon": "icons/legendWindPotential.png",
         "displayInLegend": true
       },
@@ -1684,7 +1686,7 @@
             "legendUrl": "images/NoPipelineEver.png",
             "bodyText": "<em>No Pipelines</em> by Landon Sheely, <a href='https://landonsheely.com/post/149729117542/no-pipeline-anywhere-ever-landon-sheely-2016' target='_blank'>source</a><br><br>",
             "headerText": "There are forms of civilization that have to disappear. You're looking at one of them. It's the Great River of Oil, known to Indigenous peoples as the Black Snake, writhing from the Tar Sands all the way to the Gulf of Mexico.",
-            "bodyText1": "Examine the vast energy systems of this world and ask yourself one question: What does \"decarbonization\" really mean? Does it mean ceasing to burn any fossil fuels whatsoever within thirty years&mdash;and therefore, dismantling entire industries, starting right now? How to do that while maintaining livelihoods and avoiding civil war? Could restorative employment at the neighborhood level change some of the most basic rules of capitalist democracy? Could the results turn out better for everyone involved?"
+            "bodyText1": "Examine the energy systems of this world and ask yourself one question: What does \"decarbonization\" really mean? Does it mean ceasing to burn any fossil fuels whatsoever&mdash;and therefore, dismantling entire industries? How to do that while maintaining livelihoods and avoiding civil war? Could restorative employment at the neighborhood level change some basic rules of capitalist democracy? Could the results turn out better for everyone involved?"
           }
         },
         "local": {
@@ -1714,7 +1716,8 @@
           "sidePanel": {
             "legendUrl": "images/FenceNoPipeline.png",
             "headerText": "A map is an instrument of perception. It can expand your awareness of things around you.",
-            "bodyText1": "In the 2010's North America was overtaken by pipeline frenzy&mdash;and whenever it stalled in the courts, by explosive growth in oil-by-rail. In fact there had been an investment boom in everything petro: new drilling technologies, expanding refineries, pipelines reversing toward Gulf Coast ports, and proliferating natural gas infrastructure (including plastics and synthetic nitrogen galore). With fracking as well as regulatory rollback, the US became a net exporter of fossil fuels in the 2010s, while opening up mainline corridors for Canadian heavy oil production. The consequences of that decade&mdash;and maybe soon, its ruins&mdash;can be seen in every region. As energy prices strike pandemic lows and the entire shale-oil industry rolls over into bankruptcy, many people are wondering: Isn't there another way to prepare for onrushing climate change? What's society's next move?"
+            "bodyText1": "In the 2010's North America was overtaken by pipeline frenzy&mdash;and by explosive growth in oil-by-rail transport. These were only the most visible signs of a decade-long investment boom in the oil patch: new drilling technologies, expanding refineries, existing pipelines reversed toward Gulf Coast ports, and proliferating natural gas infrastructure (including new facilities for plastics and synthetic nitrogen). With fracking as well as regulatory rollback, North America became a major exporter of fossil fuels in the 2010s, with continual pressure to build more pipelines for ubiquitous natural gas, Bakken crude and Canadian Tar Sands production. The consequences of that decade&mdash;and increasingly, its ruins&mdash;can be seen in every region.",
+            "bodyText2": "As energy prices strike pandemic lows and the entire shale-oil industry rolls over into bankruptcy, many people are wondering: Isn't there a better way to prepare for onrushing climate change? What's society's next move?"
           }
         },
         "global": {
@@ -1737,8 +1740,8 @@
           "sidePanel": {
             "legendUrl": "images/OilHead.png",
             "headerText": "The oil industry has held the world in political lockdown since the Seventies. Permanent war and climate change are the heavy costs of cheap fuel.",
-            "bodyText1": "This is why the progressive left seeks transformative investment in renewables. The aim is to find a pathway through the current depression, toward a viable future. But it's not just a dream, it's a policy. The International Energy Agency aka World Bank calls for a <a href='https://www.iea.org/reports/sustainable-recovery' traget='_blank'>Sustainable Recovery</a>, which means printing billions of dollars for social retooling. The EU has already embarked on its <a href='https://ec.europa.eu/info/strategy/priorities-2019-2024/european-green-deal_en' target='_blank'>European Green Deal</a>, putting that theory into practice. In the US, racial justice activists and climate campaigners are coming together around the <a href='https://en.wikipedia.org/wiki/Green_New_Deal' target='_blank'>Green New Deal</a> launched by Alexandria Ocasio-Cortez and the Sunrise Movement.",
-            "bodyText2": "Only grassroots pressure can keep these plans focused on the social and ecological outcomes. We have to push back against the dead weight of fossil bureaucracies&mdash;while collectively learning how to participate in a restorative economy, and how to build a new energy system."
+            "bodyText1": "This is why the progressive left seeks transformative investment in renewables. The aim is to find a pathway through the current depression, toward a viable future. But it's not just a dream, it's a policy. The International Energy Agency aka World Bank calls for a <a href='https://www.iea.org/reports/sustainable-recovery' traget='_blank'>Sustainable Recovery</a>, which means printing billions of dollars for new energy technologies and broader social retooling. The EU has already embarked on its <a href='https://ec.europa.eu/info/strategy/priorities-2019-2024/european-green-deal_en' target='_blank'>European Green Deal</a>, putting that theory into practice. In the US, civil rights activists and climate campaigners have come together around the <a href='https://en.wikipedia.org/wiki/Green_New_Deal' target='_blank'>Green New Deal</a> launched by Alexandria Ocasio-Cortez and the Sunrise Movement.",
+            "bodyText2": "Only grassroots pressure can keep these plans focused on social and environmental justice. It's not just about rebuilding the energy system, it's about remaking society. We have to push back against the dead weight of fossil bureaucracies&mdash;while learning how everyone can contribute to a restorative economy."
           }
         }
       },
@@ -1760,8 +1763,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/Longwall.png",
-            "headerText": "Coal was a synonym of progress. But half the coal-fired generators in the US have shut down over the past decade. Regulation has made them too expensive&mdash;an extremely positive outcome, since CO2 from coal is still the single largest factor in global climate change. Now's the time to phase out coal entirely, while protecting the communities who once depended on it.",
-            "bodyText1": "Red-and-white smokestacks mark the remaining coal-fired plants. Dive in to see them on the ground, hooked directly into the river, with large cooling ponds and waste dumps exposed to the floods. Brown circles represent many thousands of active underground and surface mines in the Midwest and Northeast, and a smaller number of vastly more productive strip mines in the West. Why maintain employment in an increasingly automated industry that promises to kill ourselves and every other animal species? Why not take care of the workers by hiring them for ecological restoration projects&mdash;like cleaning up the toxic legacies of mines and generating stations?"
+            "headerText": "In the 20th century, every new coal plant spelled progress. But in the US, half of them have shut down over the past decade. Cheap natural gas and heavy environmental regulation made them too expensive&mdash;a positive outcome, since CO2 from coal is the largest factor in climate change. Now's the time to phase out coal entirely, while protecting the communities that still depend on it.",
+            "bodyText1": "Red-and-white smokestacks mark the remaining generators. Dive in to see them on the ground, hooked directly into the river, with large cooling ponds and waste dumps exposed to the floods. Brown circles represent many thousands of active underground and surface mines in the Midwest and Northeast, and a smaller number of vastly more productive strip mines in the West. Why maintain employment in an increasingly automated industry that promises to kill ourselves and every other species? Why not take care of the workers by hiring them for restoration projects&mdash;like cleaning up the toxic legacies of coal?"
           }
         },
         "local": {
@@ -1787,8 +1790,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/Coalman.png",
-            "headerText": "To make electricity, pulverized coal is blown into furnaces to boil water for steam turbines. Coal is also used for very high heat in steel and cement plants. Rail and barge are fundamental for transporting the heavy materials. What you see on the map is the diagram of early 20th-century modernism&mdash;grandfathered in by law, but obsolete and dangerous.",
-            "bodyText1": "Coal power yields a byproduct: ash heaps, technically known as \"Coal Cumbustion Residuals.\" CCRs contain toxic metals, such as arsenic, beryllium, boron, cadmium, chromium, hexavalent chromium, cobalt, lead, manganese, mercury, molybdenum, selenium, strontium, thallium or vanadium. The ash is slurried to de-watering pools near the plants, almost always on river floodplains. Over time, the toxic metals can leak into the groundwater, especially if the containment ponds were not protectively lined. In a flood, thousands of tons of ash can reliquefy and pollute large areas. As for the abandoned mines&mdash;the descriptions in the data are sobering. When cleanup is factored in, the economic history of coal may be endless."
+            "headerText": "To make electricity, pulverized coal is blown into furnaces to boil water for turbines. Coal is also used for very high heat in steel and cement plants. Rail and barge are fundamental for transport. Together these make up the diagram of early 20th-century modernism&mdash;grandfathered in by law, but obsolete and dangerous.",
+            "bodyText1": "Coal power yields an easily forgotten byproduct: toxic ash heaps known as \"Coal Cumbustion Residuals.\" CCRs contain trace metals such as arsenic, beryllium, boron, cadmium, chromium, hexavalent chromium, cobalt, lead, manganese, mercury, molybdenum, selenium, strontium, thallium or vanadium. The ash is slurried to de-watering pools near the plants, almost always on river floodplains. Over time, the toxic metals can leak into the groundwater, especially if the containment ponds are not protectively lined. In a flood, thousands of tons of ash can reliquefy and pollute large areas. As for the abandoned mineshafts&mdash;the descriptions in the data are sobering. Once cleanup is factored in, there will be no shortage of employment in the twenty-first century."
           }
         },
         "global": {
@@ -1809,7 +1812,7 @@
           "sidePanel": {
             "legendUrl": "images/Coalcloud.png",
             "headerText": "China, India and other Asian countries have grown consumer economies at unbelievable speed, attaining Western standards in a generation. Can they live through the environmental consequences of prosperity? ",
-            "bodyText1": "The largest historical producers of CO2 have a responsibility to invest in response to the climate crisis. Yet the US has sought to flee that responsibility. It's an attitude that can't last. After the American-led globalization of the Nineties, with its speed-up of production, there is no realistic way to escape major climate impacts in the short term. The question is whether societies can find the strength for a fundamental change of course over the upcoming few decades. Can the tremendous human energy that built all these coal-fired plants find a constructive pathway beyond the old industrial system?"
+            "bodyText1": "The largest historical producers of CO2 have a responsibility to invest in solutions to the climate crisis. Yet the US has continually sought to flee that responsibility. It's an attitude that can't last. After the American-led globalization of the Nineties, with its speed-up of production, there is no realistic way to escape major climate impacts in the very short term. The question is whether societies can find the strength for a fundamental change of course over the upcoming few decades. Can the tremendous human energy that built all these coal-fired plants find a constructive pathway beyond the old industrial system?"
           }
         }
       },
@@ -1833,7 +1836,7 @@
           "sidePanel": {
             "legendUrl": "images/SolarSculpture.png",
             "headerText": "What would it be like to build a new society?",
-            "bodyText1": "The pandemic is a nightmare but it's also a historic opportunity. Pipelines are suddenly being stopped in the courts. Oil companies are falling into bankruptcy. Investors are betting on renewables. The potential is real&mdash;just look at this map of already existing low-carbon electricity.",
+            "bodyText1": "The pandemic is a nightmare&mdash;but it's also a historic opportunity. Oil companies are falling into bankruptcy. New pipelines are being stopped in the courts. Investors are betting on renewables. The potential is real&mdash;just look at this map of already existing low-carbon electricity.",
             "bodyText2": "With government support, entire branches of the energy sector could be replaced outright. New kinds of eco-tech jobs would be created alongside community solar projects and pervasive climate retrofitting in the neighborhoods. Without that kind of meaningful employment, society has become a nightmare. But the point is to turn it in a different direction.",
             "bodyText3": "Now's the time. Before it's too late. In the midst of a breakdown we finally have a chance to do things differently."
           }
@@ -1855,10 +1858,9 @@
           "maxResolution": 16000,
           "sidePanel": {
             "legendUrl": "images/ShilohTemple.png",
-            "headerText": "Environmental justice means grassroots action on the ground&mdash;or the rooftop.",
+            "headerText": "Environmental justice means grassroots action on the ground&mdash;or on the rooftop.",
             "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're dwarfed by the relics of the old paradigm. The map shows hydroelectric dams and nuclear stations&mdash;low carbon, but ecologically damaging&mdash;and coal, natural gas or oil-fired generators, which are death on the installment plan. How to keep new technologies from repeating old patterns of concentration, exploitation and autocratic control?",
-            "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up panels and turbines, but to rebuild the grid itself, and to hire people for weatherization at the household level. It could reduce structural unemployment, rebuild neighborhoods, overcome environmental racism and prepare for the challenges ahead.",
-            "bodyText3": "Entrenched monopolies, wrongly called \"public utilities,\" will stand in the way. So will the new generation of bigger, more competittive, investor-owned utilities. But current chances for political and ecological change are the greatest in living memory. All the pieces of the power puzzle are on this map. Check them out, one by one."
+            "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up turbines and rebuild the grid, but also to hire people for solarization and weatherization at the neighborhood level. It could reduce structural unemployment, overcome environmental racism and prepare for the future. Of course the entrenched monopolies&mdash;so-called \"public utilities,\"&mdash;will stand in the way, along with the larger, more competitive investor-owned utilities. The challenge is overcoming them. All the pieces of the power puzzle are on this map. Check them out, one by one."
           }
         },
         "global": {
@@ -1877,8 +1879,8 @@
           "maxResolution": 32000,
           "sidePanel": {
             "legendUrl": "images/Windmills.png",
-            "headerText": "\"P\" is for popular power&mdash;and it's for potential.",
-            "bodyText1": "Renewable energies have a global footprint. But they are small by design, and their cumulative output is still dwarfed by traditional sources, including low-carbon hydro and nuclear. If we want to exit from fossil fuels and survive the twenty-first century, much more will have to be done to tap the abundant powers of the sun, the wind, the waves and the earth's heat. You can see maps of potential solar and wind power here.",
+            "headerText": "\"P\" is for power&mdash;and for potential.",
+            "bodyText1": "Renewable energies have attained global scale. But they are small by design, and their cumulative output is still dwarfed by traditional sources, including low-carbon hydro and nuclear. If we want to exit from fossil fuels and survive the twenty-first century, much more will have to be done to tap the abundant powers of the sun, the wind, the waves and the earth's heat. You can see maps of potential solar and wind power here.",
             "bodyText2": "But there's a lot more to system change than solar panels. Alternative energy is useless without an alternative society that learns how to live more lightly on the earth. One of the best things you can do for the future is turn off the power you don't need&mdash;and seek the potentials of a better society in the open air."
           }
         }
