@@ -14,7 +14,12 @@ const assignToken = (login, res) => {
       userID: login.relatedUserID,
     },
   });
-  console.log(login.relatedRoleID);
+  const getPermissions = Permissions.findAll({
+    attributes: ["permissionName"],
+    where: {
+      relatedRoleID: login.relatedRoleID,
+    },
+  });
   const getRoles = Roles.findAll({
     attributes: ["roleName"],
     where: {
@@ -22,10 +27,11 @@ const assignToken = (login, res) => {
     },
   });
 
-  Promise.all([getUser, getRoles])
+  Promise.all([getUser, getRoles, getPermissions])
     .then((values) => {
       let user = values[0];
       let roles = values[1];
+      let permissions = values[2]
       const payload = {
         sub: login.relatedUserID,
         iss: "auth-service",
@@ -34,6 +40,10 @@ const assignToken = (login, res) => {
       if (roles) {
         const rolesArray = roles.map((obj) => obj.roleName);
         payload.roles = rolesArray;
+      }
+      if (permissions) {
+        const permissionsArray = permissions.map((obj) => obj.permissionName);
+        payload.permissions = permissionsArray;
       }
       const secret = tokenController.getSecret();
       const token = tokenController.getToken(payload, secret);

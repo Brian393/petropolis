@@ -32,53 +32,48 @@
         </v-tooltip>
       </template>
 
-      <!-- USER INFO AND LOGOUT -->
-      <template v-if="loggedUser" style="margin-left:-4px;">
-        <v-chip color="rgb(228, 76, 107)" text-color="white">
-          <v-avatar left>
-            <v-icon>mdi-account-circle</v-icon>
-          </v-avatar>
-          {{ `${loggedUser.user.firstName} ${loggedUser.user.lastName}     ` }}
-        </v-chip>
-        <template
-          v-if="
-            Array.isArray(loggedUser.roles) &&
-              loggedUser.roles.includes('admin_user')
-          "
+      <!-- USER INFO AND LOGOUT (AUTHENTICATED)-->
+      <template v-if="loggedUser">
+        <v-menu
+          origin="center center"
+          offset-y
+          :nudge-bottom="10"
+          transition="scale-transition"
         >
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                v-on="on"
-                @click="logOut"
-                class="mx-2 elevation-0"
-                color="rgb(228, 76, 107)"
-                fab
-                x-small
-                dark
-              >
-                <v-icon>dashboard</v-icon>
-              </v-btn>
-            </template>
-            <span>Dashboard</span>
-          </v-tooltip>
-        </template>
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn
-              v-on="on"
-              @click="logOut"
-              class="mx-2 elevation-0"
-              color="rgb(228, 76, 107)"
-              fab
-              x-small
-              dark
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn rounded v-bind="attrs" color="rgb(228, 76, 107)" class="elevation-0" v-on="on" 
+              ><v-icon left>person</v-icon>
+              {{
+                `${loggedUser.user.firstName} ${loggedUser.user.lastName}     `
+              }}</v-btn
             >
-              <v-icon>exit_to_app</v-icon>
-            </v-btn>
           </template>
-          <span>Log Out</span>
-        </v-tooltip>
+
+          <v-list dense>
+            <v-list-item
+              v-if="
+                Array.isArray(loggedUser.roles) &&
+                  loggedUser.roles.includes('admin_user')
+              "
+              @click="goToAdminDashboard"
+            >
+              <v-list-item-icon>
+                <v-icon>dashboard</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>Dashboard</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item @click="logOut">
+              <v-list-item-icon>
+                <v-icon>exit_to_app</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>Logout</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </template>
 
       <v-spacer></v-spacer>
@@ -144,9 +139,13 @@ export default {
       }
       this.$router.push({ name: 'petropolisOil' });
     },
+    goToAdminDashboard() {
+      this.$router.push({ name: 'admin.dashboard'})
+    },
     zoomToLocation() {
       if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
+        
       }
     },
     openLoginPopup() {
@@ -155,6 +154,7 @@ export default {
     logOut() {
       this.$store.dispatch('auth/logout');
     },
+
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
     })

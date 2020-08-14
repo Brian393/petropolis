@@ -28,6 +28,14 @@ exports.validate = [
     .withMessage("Password must contain 1 number"),
 ];
 
+exports.validatePassword = [
+   check("password")
+    .isLength({ min: 8 })
+    .withMessage("Password must be 8 characters minimum")
+    .matches(/\d/)
+    .withMessage("Password must contain 1 number"),
+]
+
 const createUserAndLogin = (validated, res) => {
   const user = {
     userName: validated.username,
@@ -53,6 +61,29 @@ const createUserAndLogin = (validated, res) => {
     });
 };
 
+const updateUserPasswordAndLogin = (validated, res) => {
+  const hashed = bcryptController.getHashedPassword(validated.password);
+  Logins.update(
+    {
+      passwordSalt: hashed.salt,
+      passwordHash: hashed.passwordHash,
+    },
+    {
+      where: {
+        relatedUserID: validated.userID,
+      },
+    }
+  )
+    .then((login) => {
+      res.status(200);
+      res.json({});
+    })
+    .catch((err) => {
+      res.status(500);
+      res.send(err);
+    });
+};
+
 exports.register_post = (req, res) => {
   permissionController.hasPermission(req, res, "post_user", () => {
     const errors = validationResult(req);
@@ -62,6 +93,19 @@ exports.register_post = (req, res) => {
     } else {
       const validatedData = matchedData(req);
       createUserAndLogin(validatedData, res);
+    }
+  });
+};
+
+exports.update_password_post = (req, res) => {
+  permissionController.hasPermission(req, res, "post_user", () => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400);
+      res.json(errors.array());
+    } else {
+      const validatedData = matchedData(req);
+      updateUserPasswordAndLogin(validatedData, res);
     }
   });
 };

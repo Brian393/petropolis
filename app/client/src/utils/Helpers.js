@@ -106,6 +106,9 @@ export function isCssColor(color) {
 }
 
 export function validateToken(jwtToken) {
+  if (!jwtToken) {
+    return null;
+  }
   const decodedToken = jwtDecode(jwtToken);
   if (
     decodedToken &&

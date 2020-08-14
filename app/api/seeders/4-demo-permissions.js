@@ -27,6 +27,13 @@ module.exports = {
           updatedAt: Sequelize.fn("NOW"),
         },
         {
+          permissionName: "patch_user",
+          relatedRoleID: 1,
+          resourceName: "_users",
+          createdAt: Sequelize.fn("NOW"),
+          updatedAt: Sequelize.fn("NOW"),
+        },
+        {
           permissionName: "get_memberships",
           relatedRoleID: 1,
           resourceName: "_memberships",

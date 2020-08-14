@@ -4,13 +4,14 @@ const token = JSON.parse(localStorage.getItem('token'));
 import { validateToken } from '../../utils/Helpers';
 
 const state = {
-    user: validateToken(token),
-    token: token,
-    users: []
-}
+  user: validateToken(token),
+  token: token,
+  users: []
+};
 
 const getters = {
-  loggedUser: state => state.user
+  loggedUser: state => state.user,
+  users: state => state.users
 };
 
 const actions = {
@@ -30,8 +31,8 @@ const actions = {
     AuthService.logout();
     commit('logout');
   },
-  register({ commit }, user) {
-    return AuthService.register(user).then(
+  registerUser({ commit }, user) {
+    return AuthService.registerUser(user).then(
       response => {
         commit('registerSuccess');
         return Promise.resolve(response.data);
@@ -41,9 +42,53 @@ const actions = {
         return Promise.reject(error);
       }
     );
+  },
+  // eslint-disable-next-line no-unused-vars
+  updateUser({ commit }, user) {
+    return AuthService.updateUser(user).then(
+      response => {
+        return Promise.resolve(response.data);
+      },
+      error => {
+        return Promise.reject(error);
+      }
+    );
+  },
+  // eslint-disable-next-line no-unused-vars
+  updatePassword({ commit }, user) {
+    return AuthService.updatePassword(user).then(
+      response => {
+        return Promise.resolve(response.data);
+      },
+      error => {
+        return Promise.reject(error);
+      }
+    );
+  },
+  getUsers({ commit }) {
+    return AuthService.getUsers().then(
+      response => {
+        commit('getUsersSuccess', response.data);
+        return Promise.resolve(response.data);
+      },
+      error => {
+        commit('getUsersFailure');
+        return Promise.reject(error);
+      }
+    );
+  },
+  // eslint-disable-next-line no-unused-vars
+  deleteUser({ commit }, user) {
+    return AuthService.deleteUser(user).then(
+      response => {
+        return Promise.resolve(response.data);
+      },
+      error => {
+        return Promise.reject(error);
+      }
+    );
   }
 };
-
 
 const mutations = {
   loginSuccess(state, response) {
@@ -59,14 +104,18 @@ const mutations = {
     state.token = null;
   },
   registerSuccess() {
-    console.log("handle register user succes");
+    console.log('handle register user succes');
   },
   registerFailure() {
     console.log('handle register failure');
+  },
+  getUsersSuccess(state, users) {
+    state.users = users;
+  },
+  getUseresFailure(state) {
+    state.users = [];
   }
 };
-
-
 
 export default {
   namespaced: true,

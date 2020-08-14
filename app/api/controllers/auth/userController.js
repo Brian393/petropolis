@@ -24,6 +24,39 @@ exports.users_get = (req, res) => {
 };
 
 
+exports.user_patch = (req, res) => {
+  permissionController.hasPermission(req, res, "patch_user", () => {
+    if (req.params.id) {
+      Users.update(
+        {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          userName: req.body.userName,
+          relatedRoleID: req.body.relatedRoleID,
+          email: req.body.email,
+        },
+        {
+          where: {
+            userID: req.params.id,
+          },
+        }
+      )
+        .then((updatedUser) => {
+          res.status(204);
+          return res.json({});
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(500);
+          res.json();
+        });
+    } else {
+      res.status(400);
+      res.json();
+    }
+  });
+};
+
 exports.user_delete = (req, res) => {
   permissionController.hasPermission(req, res, "delete_user", () => {
     if (req.params.id) {

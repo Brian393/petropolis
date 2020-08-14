@@ -2,10 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Petropolis from '../views/Petropolis.vue';
 Vue.use(VueRouter);
+import { validateToken } from '../utils/Helpers';
 
 const routes = [
   {
     path: '/',
+    name: "map",
     redirect: '/petropolis/oil'
   },
   {
@@ -61,6 +63,41 @@ const routes = [
     name: 'petropolisRenewablesGlobal',
     component: Petropolis,
     props: { fuelGroup: 'renewables', region: 'global' }
+  },
+  // Admin dashboard view...
+  {
+    path: '/petropolis/admin',
+    // lazy-loaded
+    component: () => import('../views/Admin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'admin.dashboard',
+        component: () => import('../components/dashboard/Dashboard.vue'),
+        meta: {
+          requiresAuth: true,
+          scope: 'admin_user'
+        }
+      },
+      {
+        path: 'user',
+        name: 'admin.users',
+        component: () => import('../components/dashboard/User.vue'),
+        meta: {
+          requiresAuth: true,
+          scope: 'admin_user'
+        }
+      },
+      {
+        path: 'settings',
+        name: 'admin.settings',
+        component: () => import('../components/dashboard/Settings.vue'),
+        meta: {
+          requiresAuth: true,
+          scope: 'admin_user'
+        }
+      }
+    ]
   }
 ];
 
@@ -68,5 +105,27 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  if (!requiresAuth) {
+    next();
+  }
+  // Get roles and check if user is allowed
+  const token = localStorage.getItem('token');
+  const decodedToken = validateToken(token);
+  if (!decodedToken || !decodedToken.roles) {
+    return next({ path: '/' });
+  }
+
+  const roleScope = to.meta.scope;
+  if (
+    Array.isArray(decodedToken.roles) &&
+    decodedToken.roles.includes(roleScope)
+  ) {
+    next();
+  } else {
+    return next({ path: '/' });
+  }
+});
 
 export default router;
