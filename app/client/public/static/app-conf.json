@@ -154,6 +154,34 @@
       },
       {
         "type": "VECTORTILE",
+        "name": "global_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:global_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Electricity Production",
+        "format": "MVT",
+        "renderMode": "vector",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "legendIcon": "icons/legendGlobalPower.png",
+        "style": {
+          "type": "circle",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity",
+            "fillColor": "colorkey"
+          },
+          "strokeColor": "black"
+        }
+      },
+      {
+        "type": "VECTORTILE",
         "name": "petro_onshore",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:petro_onshore@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
@@ -432,8 +460,8 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "electric_grid",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:electric_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "name": "us_grid",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:us_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
         "queryable": true,
         "displayInLegend": true,
@@ -445,10 +473,14 @@
         "minResolution": 0.5,
         "maxResolution": 64000,
         "label": false,
+        "opacity": 0.8,
         "hoverable": true,
         "style": {
           "strokeColor": "#009df5",
-          "width": 1.9
+          "stylePropFnRef": {
+            "strokeWidth": "variable1"
+          },
+          "lineDash": [0]
         }
       },
       {
@@ -537,7 +569,7 @@
           },
           "strokeColor": "#142c76",
           "strokeWidth": 0.8,
-          "fillColor": "rgba(52, 127, 248, 0.7)"
+          "fillColor": "#3f8ef5"
         }
       },
       {
@@ -563,7 +595,7 @@
           },
           "strokeColor": "#ffffff",
           "strokeWidth": 0.8,
-          "fillColor": "#1384a9"
+          "fillColor": "#3f8ef5"
         }
       },
       {
@@ -589,7 +621,7 @@
           },
           "strokeColor": "rgb(0, 52, 191)",
           "strokeWidth": 0.8,
-          "fillColor": "#1384a9"
+          "fillColor": "#3f8ef5"
         }
       },
       {
@@ -613,7 +645,6 @@
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
           },
-          "styleField": "capacity",
           "strokeColor": "#000000",
           "fillColor": "rgba(324, 46, 188, 0.8)"
         }
@@ -670,27 +701,60 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "electric_retail",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:utilities_sm@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
+        "name": "publically_owned_utilities",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:publically_owned_utilities@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisRenewables",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Electric Utilities",
+        "legendDisplayName": "Public Utilities",
         "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
+        "renderMode": "hybrid",
+        "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
-        "opacity": 0.4,
+        "isInteractive": true,
+        "opacity": 0.6,
+        "legendIcon": "icons/legendPublicUtilities.png",
         "style": {
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
           "styleRef": "colorMapStyle",
           "colorField": "title",
-          "colormap": "jet"
+          "colormap": "portland",
+          "strokeWidth": 1,
+          "strokeColor": "black"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "investor_owned",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:investor_owned@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisRenewables",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Investor Owned",
+        "format": "MVT",
+        "renderMode": "hybrid",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "isInteractive": true,
+        "opacity": 0.7,
+        "legendIcon": "icons/legendInvestorOwned.png",
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "styleRef": "colorMapStyle",
+          "colorField": "title",
+          "colormap": "blackbody",
+          "strokeWidth": 2,
+          "strokeColor": "black"
         }
       },
       {
@@ -1778,14 +1842,12 @@
           "layers": [
             "ESRI-World-Imagery2",
             "us_imagery2",
-            "electric_grid",
+            "us_grid",
+            "publically_owned_utilities",
+            "investor_owned",
             "rest_of_world2",
             "north_america2",
-            "electric_retail",
-            "all_solar",
-            "all_wind",
-            "hydro_power1",
-            "nuclear_power1"
+            "global_power"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1794,8 +1856,9 @@
           "sidePanel": {
             "legendUrl": "images/ShilohTemple.png",
             "headerText": "Environmental justice means grassroots action on the ground&mdash;or the rooftop.",
-            "bodyText1": "Whatever your locality, you're likely to see solar or wind power installations nearby, including smaller ones that aren't on the map. But you'll also see relics of the old industrial paradigm: hydroelectric dams or nukes, which are low carbon, but still ecologically damaging. How to keep the new technologies from repeating the familiar patterns of concentration, exploitation and autocratic control?",
-            "bodyText2": "In the US, the Democrats are promoting a $2 trillion climate plan that combines alternative energy with jobs, not only to put up panels and turbines, but also for repair and weatherization at the household level. The idea is to end structural unemployment, rebuild neighborhoods, overcome environmental racism and prepare for the challenges ahead. But entrenched monopolies, wrongly called \"public utilities,\" are likely to stand in the way. To fight and win, it's time to get literate about power in the electrical sense. What's your local utility? How big is it? Who owns the wires? How to make a change where you live?"
+            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're dwarfed by the relics of the old paradigm. The map shows hydroelectric dams and nuclear stations&mdash;low carbon, but ecologically damaging&mdash;and coal, natural gas or oil-fired generators, which are death on the installment plan. How to keep new technologies from repeating old patterns of concentration, exploitation and autocratic control?",
+            "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up panels and turbines, but to rebuild the grid itself, and to hire people for weatherization at the household level. It could reduce structural unemployment, rebuild neighborhoods, overcome environmental racism and prepare for the challenges ahead.",
+            "bodyText3": "Entrenched monopolies, wrongly called \"public utilities,\" will stand in the way. So will the new generation of bigger, more competittive, investor-owned utilities. But current chances for political and ecological change are the greatest in living memory. All the pieces of the power puzzle are on this map. Check them out, one by one."
           }
         },
         "global": {

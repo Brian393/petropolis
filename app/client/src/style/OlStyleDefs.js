@@ -396,6 +396,9 @@ export const layersStylePropFn = {
   cancelled_pipelines: {
     strokeColor: propertyValue => propertyValue
   },
+  us_grid: {
+    strokeWidth: propertyValue => propertyValue
+  },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.7);
@@ -409,6 +412,14 @@ export const layersStylePropFn = {
   global_wind: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.3);
+    }
+  },
+  global_power: {
+    circleRadiusFn: propertyValue => {
+      return getRadiusValue(propertyValue, 0.3, 4, 30);
+    },
+    fillColor: propertyValue => {
+      return propertyValue;
     }
   },
   nuclear_power: {
