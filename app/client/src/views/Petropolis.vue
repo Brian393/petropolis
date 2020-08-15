@@ -41,7 +41,12 @@
           transition="scale-transition"
         >
           <template v-slot:activator="{ on, attrs }">
-            <v-btn rounded v-bind="attrs" color="rgb(228, 76, 107)" class="elevation-0" v-on="on" 
+            <v-btn
+              rounded
+              v-bind="attrs"
+              color="rgb(228, 76, 107)"
+              class="elevation-0"
+              v-on="on"
               ><v-icon left>person</v-icon>
               {{
                 `${loggedUser.user.firstName} ${loggedUser.user.lastName}     `
@@ -77,14 +82,36 @@
       </template>
 
       <v-spacer></v-spacer>
+
+      <div v-for="(fuelGroup, index) in fuelGroups" :key="index">
+        <v-btn
+          min-width="140"
+          class="mx-10"
+    
+          :dark="activeLayerGroup.fuelGroup === fuelGroup.name ? false : true"
+          @click="changeFuelGroup(fuelGroup)"
+          :color="
+            activeLayerGroup.fuelGroup === fuelGroup.name ? 'white' : '#E44C6B'
+          "
+          :class="{
+            'elevation-0': activeLayerGroup.fuelGroup !== fuelGroup.name,
+            'font-weight-bold black--text':
+              activeLayerGroup.fuelGroup === fuelGroup.name,
+            'elevation-6': activeLayerGroup.fuelGroup === fuelGroup.name
+          }"
+        >
+          {{ fuelGroup.title }}
+        </v-btn>
+      </div>
+
+      <v-spacer></v-spacer>
       <v-toolbar-title
-        style="margin-left:90px;"
         @click="goToHome()"
         flat
-        class="logo headline font-weight-bold black--text"
+        class="logo headline font-weight-bold black--text mr-3"
         >Just Transition</v-toolbar-title
       >
-      <v-spacer></v-spacer>
+
       <span class="title pr-5">before it's too late</span>
 
       <v-btn icon @click.stop="drawer = !drawer"
@@ -115,10 +142,15 @@ export default {
   props: ['fuelGroup', 'region'],
   computed: {
     ...mapFields('map', {
-      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
+      selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity',
+      fuelGroups: 'fuelGroups'
     }),
     ...mapGetters('auth', {
       loggedUser: 'loggedUser'
+    }),
+    ...mapGetters('map', {
+      activeLayerGroup: 'activeLayerGroup',
+      fuelGroups: 'fuelGroups'
     })
   },
   components: {
@@ -134,18 +166,17 @@ export default {
   },
   methods: {
     goToHome() {
-      if (this.$router.currentRoute.name === 'petropolisOil') {
+      if (this.$router.currentRoute.name === 'oil') {
         EventBus.$emit('resetMap');
       }
-      this.$router.push({ name: 'petropolisOil' });
+      this.$router.push({ name: 'oil' });
     },
     goToAdminDashboard() {
-      this.$router.push({ name: 'admin.dashboard'})
+      this.$router.push({ name: 'admin.dashboard' });
     },
     zoomToLocation() {
       if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
-        
       }
     },
     openLoginPopup() {
@@ -154,7 +185,9 @@ export default {
     logOut() {
       this.$store.dispatch('auth/logout');
     },
-
+    changeFuelGroup(fuelGroup) {
+      this.$router.push({ path: `/${fuelGroup.name}` });
+    },
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
     })

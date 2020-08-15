@@ -1,25 +1,5 @@
 <template>
   <div>
-    <div class="fuelgroup-control">
-      <div v-for="(fuelGroup, index) in fuelGroups" :key="index">
-        <v-btn
-          min-width="140"
-          class="mx-2 mb-2 locate-button"
-          dark
-          @click="changeFuelGroup(fuelGroup)"
-          :color="
-            activeLayerGroup.fuelGroup === fuelGroup.name
-              ? '#dc143c'
-              : '#E44C6B'
-          "
-          :class="{
-            'elevation-6': activeLayerGroup.fuelGroup === fuelGroup.name
-          }"
-        >
-          {{ fuelGroup.title }}
-        </v-btn>
-      </div>
-    </div>
     <div class="region-control">
       <v-layout row>
         <div v-for="(region, index) in regions" :key="index">
@@ -52,12 +32,9 @@ import { EventBus } from '../../../../EventBus';
 export default {
   name: 'route-control',
   methods: {
-    changeFuelGroup(fuelGroup) {
-      this.$router.push({ path: `/petropolis/${fuelGroup.name}` });
-    },
     changeRegion(region) {
       this.$router.push({
-        path: `/petropolis/${this.activeLayerGroup.fuelGroup}/${region.name}`
+        path: `/${this.activeLayerGroup.fuelGroup}/${region.name}`
       });
       if (region.name === 'local') {
         EventBus.$emit('zoomToLocation');
@@ -82,7 +59,7 @@ export default {
 }
 .region-control {
   position: fixed;
-  left: calc(50% - 200px);
+  right: calc(50% + 25px);
   bottom: 20px;
   z-index: 1;
 }

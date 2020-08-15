@@ -7,66 +7,66 @@ import { validateToken } from '../utils/Helpers';
 const routes = [
   {
     path: '/',
-    name: "map",
-    redirect: '/petropolis/oil'
+    name: 'map',
+    redirect: '/oil'
   },
   {
-    path: '/petropolis/oil',
-    name: 'petropolisOil',
+    path: '/oil',
+    name: 'oil',
     component: Petropolis,
     props: { fuelGroup: 'oil', region: 'default' }
   },
   {
-    path: '/petropolis/oil/local',
-    name: 'petropolisOilLocal',
+    path: '/oil/local',
+    name: 'oilLocal',
     component: Petropolis,
     props: { fuelGroup: 'oil', region: 'local' }
   },
   {
-    path: '/petropolis/oil/global',
-    name: 'petropolisOilGlobal',
+    path: '/oil/global',
+    name: 'oilGlobal',
     component: Petropolis,
     props: { fuelGroup: 'oil', region: 'global' }
   },
   {
-    path: '/petropolis/coal',
-    name: 'petropolisCoal',
+    path: '/coal',
+    name: 'coal',
     component: Petropolis,
     props: { fuelGroup: 'coal', region: 'default' }
   },
   {
-    path: '/petropolis/coal/local',
-    name: 'petropolisCoalLocal',
+    path: '/coal/local',
+    name: 'coalLocal',
     component: Petropolis,
     props: { fuelGroup: 'coal', region: 'local' }
   },
   {
-    path: '/petropolis/coal/global',
-    name: 'petropolisCoalGlobal',
+    path: '/coal/global',
+    name: 'coalGlobal',
     component: Petropolis,
     props: { fuelGroup: 'coal', region: 'global' }
   },
   {
-    path: '/petropolis/renewables',
-    name: 'petropolisRenewables',
+    path: '/renewables',
+    name: 'renewables',
     component: Petropolis,
     props: { fuelGroup: 'renewables', region: 'default' }
   },
   {
-    path: '/petropolis/renewables/local',
-    name: 'petropolisRenewablesLocal',
+    path: '/renewables/local',
+    name: 'renewablesLocal',
     component: Petropolis,
     props: { fuelGroup: 'renewables', region: 'local' }
   },
   {
-    path: '/petropolis/renewables/global',
-    name: 'petropolisRenewablesGlobal',
+    path: '/renewables/global',
+    name: 'renewablesGlobal',
     component: Petropolis,
     props: { fuelGroup: 'renewables', region: 'global' }
   },
   // Admin dashboard view...
   {
-    path: '/petropolis/admin',
+    path: '/admin',
     // lazy-loaded
     component: () => import('../views/Admin.vue'),
     children: [
@@ -108,7 +108,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
   if (!requiresAuth) {
-    next();
+    return next();
   }
   // Get roles and check if user is allowed
   const token = localStorage.getItem('token');
@@ -122,7 +122,7 @@ router.beforeEach((to, from, next) => {
     Array.isArray(decodedToken.roles) &&
     decodedToken.roles.includes(roleScope)
   ) {
-    next();
+    return next();
   } else {
     return next({ path: '/' });
   }

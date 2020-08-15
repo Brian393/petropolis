@@ -77,13 +77,16 @@
                 </v-col>
               </v-row>
             </v-form>
-            <v-form v-if="mode === 'updatePassword'" ref="updatePassword">
+            <v-form
+              v-model="valid"
+              v-if="mode === 'updatePassword'"
+              ref="updatePassword"
+            >
               <v-row>
                 <v-col cols="12">
                   <v-text-field
-                    v-if="mode === 'new'"
                     v-model="user.password"
-                    label="Password*"
+                    label="New Password"
                     prepend-icon="lock"
                     type="password"
                     :rules="[
@@ -95,9 +98,8 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
-                    v-if="mode === 'new'"
                     v-model="confirmPassword"
-                    label="Confirm Password*"
+                    label="Confirm New Password"
                     prepend-icon="lock"
                     type="password"
                     :rules="[rules.required, passwordConfirmationRule]"
@@ -106,7 +108,6 @@
               </v-row>
             </v-form>
           </v-container>
-          <small>*indicates required field</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -133,7 +134,7 @@ export default {
   data: () => ({
     user: new User(),
     confirmPassword: '',
-    valid: true,
+    valid: false,
     dialog: false,
     resolve: null,
     reject: null,
