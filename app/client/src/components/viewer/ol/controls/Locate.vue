@@ -76,6 +76,7 @@ export default {
             });
             navigator.geolocation.clearWatch(watchId);
           }
+          source.clear(true);
         },
         function(error) {
           alert(`ERROR: ${error.message}`);
