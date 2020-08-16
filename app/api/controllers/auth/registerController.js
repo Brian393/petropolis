@@ -29,6 +29,7 @@ exports.validate = [
 ];
 
 exports.validatePassword = [
+   check("userID"),
    check("password")
     .isLength({ min: 8 })
     .withMessage("Password must be 8 characters minimum")
@@ -63,6 +64,7 @@ const createUserAndLogin = (validated, res) => {
 
 const updateUserPasswordAndLogin = (validated, res) => {
   const hashed = bcryptController.getHashedPassword(validated.password);
+
   Logins.update(
     {
       passwordSalt: hashed.salt,

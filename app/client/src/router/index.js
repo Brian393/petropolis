@@ -77,7 +77,8 @@ const routes = [
         meta: {
           requiresAuth: true,
           scope: 'admin_user'
-        }
+        },
+        redirect: 'user'
       },
       {
         path: 'user',
@@ -114,7 +115,7 @@ router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token');
   const decodedToken = validateToken(token);
   if (!decodedToken || !decodedToken.roles) {
-    return next({ path: '/' });
+    return next({ path: '/', params: { showLogin: true } });
   }
 
   const roleScope = to.meta.scope;
@@ -124,7 +125,7 @@ router.beforeEach((to, from, next) => {
   ) {
     return next();
   } else {
-    return next({ path: '/' });
+    return next({ path: '/', params: { showLogin: true } });
   }
 });
 

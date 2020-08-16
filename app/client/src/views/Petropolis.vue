@@ -193,6 +193,7 @@ export default {
     })
   },
   created() {
+     console.log(this.$router.currentRoute)
     this.setActiveLayerGroup({
       fuelGroup: this.fuelGroup,
       region: this.region
@@ -200,6 +201,7 @@ export default {
   },
   watch: {
     $route() {
+      console.log(this.$router.currentRoute)
       this.setActiveLayerGroup({
         fuelGroup: this.fuelGroup,
         region: this.region

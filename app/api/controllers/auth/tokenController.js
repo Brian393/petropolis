@@ -1,10 +1,10 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET;
 
 // Returns secret only known to server at runtime
 exports.getSecret = () => {
-  const secret = require('../../config/secret.json').secret;
-  console.log('secret', secret);
+  const secret = require("../../config/secret.json").secret;
+  console.log("secret", secret);
   return secret;
 };
 
@@ -12,7 +12,7 @@ exports.getSecret = () => {
 exports.getToken = (payload, secretOrPrivateKey, options) => {
   // If no options object supplied, make token expire in 24h
   if (!options) {
-    options = {expiresIn: '48h'};
+    options = { expiresIn: "48h" };
   }
   return jwt.sign(payload, secretOrPrivateKey, options);
 };
@@ -33,14 +33,25 @@ exports.token_post = (req, res) => {
 
 exports.hasPermission = (token, resource) => {
   const result = this.validateToken(token, this.getSecret());
-  console.log(result);
-  if (result.name === 'JsonWebTokenError') {
+  if (result.name === "JsonWebTokenError") {
     return false;
   } else if (result.permissions) {
     let permissionSet = new Set(result.permissions);
-    console.log('permissions in token', JSON.stringify(permissionSet));
+    console.log("permissions in token", JSON.stringify(permissionSet));
     return permissionSet.has(resource);
   } else {
     return false;
+  }
+};
+
+exports.validate_token = (req, res) => {
+  const token = req.get("Authorization");
+  const result = this.validateToken(token, this.getSecret());
+  if (result.name === "JsonWebTokenError") {
+    res.status(200);
+    res.json({ valid: false });
+  } else {
+    res.status(200);
+    res.json({ valid: true });
   }
 };

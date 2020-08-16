@@ -32,6 +32,8 @@ app.route("/api/login").post(loginController.login_post);
 
 app.route("/api/token").post(tokenController.token_post);
 
+app.route("/api/validateToken").get(tokenController.validate_token);
+
 app.route("/api/logins").get(loginController.logins_get);
 
 app.route("/api/users").get(userController.users_get);
