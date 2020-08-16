@@ -2,7 +2,7 @@
   <v-card
     class="elevation-3"
     :width="isVisible ? '250px' : '0px'"
-    style="z-index:100;position:absolute;left:25px;top:200px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;opacity:85%;"
+    style="z-index:100;position:absolute;left:25px;bottom:20px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;opacity:85%;"
   >
     <v-btn
       v-show="isVisible"
@@ -19,7 +19,7 @@
       <template v-slot:activator="{ on }">
         <v-btn
           v-on="on"
-          style="position:fixed;left:16px;top:260px;"
+          style="position:fixed;left:16px;bottom:40px;"
           v-show="!isVisible"
           color="#dc143c"
           @click="toggleLegend"
@@ -42,7 +42,7 @@
       <span class="black--text text--darken-2 subtitle-2 pb-6">
         {{ title }} Legend
       </span>
-      <v-divider class="mr-1 py-2 mt-1"></v-divider>
+      <v-divider class="mr-1 py-1 mt-1"></v-divider>
 
       <span class="ml-10 grey--text text--darken-2 subtitle-2">
         <a @click="toggleAllLayersVisibility(true)">select all </a> |

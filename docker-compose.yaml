@@ -43,7 +43,7 @@ services:
     networks:
       proxy: 
 
-#-----MAP-----#
+#-----APP-----#
 
   client:
     build:
@@ -95,6 +95,20 @@ services:
     networks:
       proxy:
 
+  api:
+    build:
+      context: ./app/api
+    volumes:
+      - /app/node_modules
+      - ./app/api:/app
+      - ./app/api/config:/app/config
+    container_name: petropolis-api
+    env_file:
+      - ./app/config/docker-env/api.env
+    ports:
+      - "4000:3000"
+    networks:
+      proxy:
 
 #-----WORDPRESS-----#
 
@@ -185,7 +199,3 @@ services:
       - 10500:3000
     networks:
       proxy:
-
-
-
-

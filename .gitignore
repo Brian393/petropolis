@@ -13,3 +13,5 @@ dist
 /app/wp/wp-data
 /app/config/docker-env
 /app/geoserver/*
+/app/api/.env
+/app/config/api/*
