@@ -56,6 +56,7 @@ const createUserAndLogin = (validated, res) => {
         relatedUserID: createdUser.userID,
         passwordSalt: hashed.salt,
         passwordHash: hashed.passwordHash,
+        relatedRoleID: validated.relatedRoleID,
       });
     })
     .then((login) => {
