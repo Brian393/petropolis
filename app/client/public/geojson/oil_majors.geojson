@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "Oil Majors",
+  "name": "oil_majors",
   "crs": {
     "type": "name",
     "properties": {
@@ -89,7 +89,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [ 116.432123, 39.942808 ]
+        "coordinates": [ -0.134265, 51.507860 ]
       }
     },
     {
@@ -152,7 +152,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [ 2.243286, 48.892799 ]
+        "coordinates": [ -121.959201, 37.758805 ]
       }
     },
     {
