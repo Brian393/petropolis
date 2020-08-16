@@ -476,6 +476,8 @@
         "opacity": 0.8,
         "hoverable": true,
         "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#009df5",
           "strokeColor": "#009df5",
           "stylePropFnRef": {
             "strokeWidth": "variable1"
@@ -1811,7 +1813,7 @@
           "maxResolution": 64000,
           "sidePanel": {
             "legendUrl": "images/Coalcloud.png",
-            "headerText": "China, India and other Asian countries have grown consumer economies at unbelievable speed, attaining Western standards in a generation. Can they live through the environmental consequences of prosperity? ",
+            "headerText": "China, India and other Asian countries have grown consumer economies at unbelievable speed, attaining Western standards in one generation. Can they live through the environmental consequences of prosperity? ",
             "bodyText1": "The largest historical producers of CO2 have a responsibility to invest in solutions to the climate crisis. Yet the US has continually sought to flee that responsibility. It's an attitude that can't last. After the American-led globalization of the Nineties, with its speed-up of production, there is no realistic way to escape major climate impacts in the very short term. The question is whether societies can find the strength for a fundamental change of course over the upcoming few decades. Can the tremendous human energy that built all these coal-fired plants find a constructive pathway beyond the old industrial system?"
           }
         }
@@ -1858,9 +1860,10 @@
           "maxResolution": 16000,
           "sidePanel": {
             "legendUrl": "images/ShilohTemple.png",
-            "headerText": "Environmental justice means grassroots action on the ground&mdash;or on the rooftop.",
-            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're dwarfed by the relics of the old paradigm. The map shows hydroelectric dams and nuclear stations&mdash;low carbon, but ecologically damaging&mdash;and coal, natural gas or oil-fired generators, which are death on the installment plan. How to keep new technologies from repeating old patterns of concentration, exploitation and autocratic control?",
-            "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up turbines and rebuild the grid, but also to hire people for solarization and weatherization at the neighborhood level. It could reduce structural unemployment, overcome environmental racism and prepare for the future. Of course the entrenched monopolies&mdash;so-called \"public utilities,\"&mdash;will stand in the way, along with the larger, more competitive investor-owned utilities. The challenge is overcoming them. All the pieces of the power puzzle are on this map. Check them out, one by one."
+            "headerText": "Environmental justice means grassroots action on the ground&mdash;or on the roof.",
+            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're dwarfed by the old paradigm. The map shows hydroelectric dams and nuclear stations&mdash;low carbon, but still ecologically damaging&mdash;and coal, natural gas, biomass and oil-fired generators, which are death on the installment plan. How to keep new technologies from repeating old patterns of concentration, exploitation and control?",
+            "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up turbines and rebuild the grid, but also to hire people for solarization and weatherization at the neighborhood level. It could reduce structural unemployment, overcome environmental racism and prepare for the future. Of course the entrenched monopolies&mdash;so-called \"public utilities\"&mdash;will stand squarely in the way, along with the larger, more competitive investor-owned utilities. The challenge of a socialist generation is to overcome them.",
+            "bodyText3": "All the pieces of the global power puzzle are on this local map. Check them out, one by one."
           }
         },
         "global": {
