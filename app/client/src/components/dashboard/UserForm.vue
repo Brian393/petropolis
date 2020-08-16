@@ -183,15 +183,15 @@ export default {
       let messageSuccess = '';
       let messageError = '';
       this.user.username = this.user.email;
-      if (this.mode === 'new') {
+      if (this.mode == 'new') {
         api = 'registerUser';
         messageSuccess = 'User create succesfully';
         messageError = "Can't register user";
-      } else if (this.mode === 'udpate') {
+      } else if (this.mode == 'update') {
         api = 'updateUser';
         messageSuccess = 'User updated succesfully';
         messageError = "Can't update user";
-      } else if (this.mode === 'updatePassword') {
+      } else if (this.mode == 'updatePassword') {
         api = 'updatePassword';
         messageSuccess = 'Password changed succesfully';
         messageError = "Can't change password";

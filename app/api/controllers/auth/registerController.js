@@ -8,6 +8,9 @@ const Users = sequelize.import("../../models/users.js");
 
 // Export express-validator array
 exports.validate = [
+  check("firstName"),
+  check("lastName"),
+  check("relatedRoleID"),
   check("username")
     .isEmail()
     .withMessage("Username must be a valid email address")
@@ -39,6 +42,9 @@ exports.validatePassword = [
 
 const createUserAndLogin = (validated, res) => {
   const user = {
+    firstName: validated.firstName,
+    lastName: validated.lastName,
+    relatedRoleID: validated.relatedRoleID,
     userName: validated.username,
     email: validated.username,
   };
