@@ -549,217 +549,6 @@
         }
       },
       {
-        "type": "VECTORTILE",
-        "name": "hydro_power",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Hydro Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "#142c76",
-          "strokeWidth": 0.8,
-          "fillColor": "#3f8ef5"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "hydro_power1",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Hydro Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "#ffffff",
-          "strokeWidth": 0.8,
-          "fillColor": "#3f8ef5"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "hydro_power2",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Hydro Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "rgb(0, 52, 191)",
-          "strokeWidth": 0.8,
-          "fillColor": "#3f8ef5"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "nuclear_power",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Nuclear Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "#000000",
-          "fillColor": "rgba(324, 46, 188, 0.8)"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "nuclear_power1",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Nuclear Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "#a17fb4",
-          "fillColor": "#A9139D"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "nuclear_power2",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Nuclear Power",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-          },
-          "strokeColor": "#000000",
-          "fillColor": "#F8347F"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "publically_owned_utilities",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:publically_owned_utilities@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisRenewables",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Public Utilities",
-        "format": "MVT",
-        "renderMode": "hybrid",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "isInteractive": true,
-        "opacity": 0.6,
-        "legendIcon": "icons/legendPublicUtilities.png",
-        "style": {
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000",
-          "styleRef": "colorMapStyle",
-          "colorField": "title",
-          "colormap": "portland",
-          "strokeWidth": 1,
-          "strokeColor": "black"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "investor_owned",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:investor_owned@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisRenewables",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Investor Owned",
-        "format": "MVT",
-        "renderMode": "hybrid",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 64000,
-        "label": true,
-        "hoverable": true,
-        "isInteractive": true,
-        "opacity": 0.7,
-        "legendIcon": "icons/legendInvestorOwned.png",
-        "style": {
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000",
-          "styleRef": "colorMapStyle",
-          "colorField": "title",
-          "colormap": "blackbody",
-          "strokeWidth": 2,
-          "strokeColor": "black"
-        }
-      },
-      {
         "type": "VECTOR",
         "name": "crude_derailment",
         "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:crude_derailments&outputFormat=application/json&srsname=EPSG:3857",
@@ -993,14 +782,14 @@
         }
       },
       {
-        "type": "VECTOR",
-        "name": "NatGasGenerators",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisGas",
+        "type": "VECTORTILE",
+        "name": "gas1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Natural Gas Generators",
-        "format": "GeoJSON",
+        "format": "MVT",
         "visible": false,
         "zIndex": 0,
         "minResolution": 1,
@@ -1010,25 +799,6 @@
         "style": {
           "iconUrl": "icons/NatGas3.png",
           "scale": 0.4
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "GlobalNatGas",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_nat_gas&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisGas",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Global Natural Gas",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 1600,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/NatGas3.png"
         }
       },
       {
@@ -1087,42 +857,17 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/LNGtanker.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Coal1",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
+          }
+        },
+        {
+        "type": "VECTORTILE",
+        "name": "coal_global1",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:coal_global@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Coal",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/CoalPower2.png",
-          "scale": 0.7,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000",
-          "iconAnchor": [0.5, 50],
-          "iconAnchorXUnits": "fraction",
-          "iconAnchorYUnits": "pixels"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Coal3",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "GeoJSON",
+        "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
@@ -1311,66 +1056,6 @@
           "fillColor": "#F88017"
         }
       },
-      {
-        "type": "VECTOR",
-        "name": "Coal",
-        "url": "geojson/Coal.geojson",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 8000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/CoalPower.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "CoalMines",
-        "url": "geojson/CoalMines.geojson",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal Mines",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 2000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/CoalMine.png"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Coal2",
-        "url": "geojson/Coal.geojson",
-        "group": "petropolisCoal",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/CoalPower.png",
-          "scale": 0.8,
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000"
-        }
-      },
 
       {
         "type": "XYZ",
@@ -1434,6 +1119,374 @@
           "strokeWidth": 0.5
         }
       },
+    {
+      "type": "VECTORTILE",
+      "name": "publically_owned_utilities",
+      "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:publically_owned_utilities@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+      "group": "petropolisRenewables",
+      "queryable": true,
+      "displayInLegend": true,
+      "legendDisplayName": "Public Utilities",
+      "format": "MVT",
+      "renderMode": "hybrid",
+      "visible": false,
+      "zIndex": 0,
+      "minResolution": 0.5,
+      "maxResolution": 64000,
+      "label": true,
+      "hoverable": true,
+      "isInteractive": true,
+      "opacity": 0.6,
+      "legendIcon": "icons/legendPublicUtilities.png",
+      "style": {
+        "hoverTextColor": "white",
+        "hoverBackgroundColor": "#000000",
+        "styleRef": "colorMapStyle",
+        "colorField": "title",
+        "colormap": "portland",
+        "strokeWidth": 1,
+        "strokeColor": "black"
+        }
+      },
+    {
+      "type": "VECTORTILE",
+      "name": "investor_owned",
+      "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:investor_owned@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+      "group": "petropolisRenewables",
+      "queryable": true,
+      "displayInLegend": true,
+      "legendDisplayName": "Investor Owned",
+      "format": "MVT",
+      "renderMode": "hybrid",
+      "visible": false,
+      "zIndex": 0,
+      "minResolution": 0.5,
+      "maxResolution": 64000,
+      "label": true,
+      "hoverable": true,
+      "isInteractive": true,
+      "opacity": 0.7,
+      "legendIcon": "icons/legendInvestorOwned.png",
+      "style": {
+        "hoverTextColor": "white",
+        "hoverBackgroundColor": "#000000",
+        "styleRef": "colorMapStyle",
+        "colorField": "title",
+        "colormap": "blackbody",
+        "strokeWidth": 2,
+        "strokeColor": "black"
+        }
+      },
+      {
+        "type": "VECTORTILE",
+        "name": "all_solar2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Solar Electricity",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#FFD241",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable2"
+          },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#FFD241"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "all_wind2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:all_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Wind Electricity",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#ff3b30",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable2"
+            },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#ff3b30"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "geothermal",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:geothermal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Geothermal",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#D05B6E",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#D05B6E"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "wave_tidal",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:wave_tidal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Wave & Tide",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#20B1AA",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#20B1AA"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "hydro_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hydro Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+            "hoverTextColor": "white",
+            "hoverBackgroundColor": "#3f8ef5",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#142c76",
+          "strokeWidth": 0.8,
+          "fillColor": "#3f8ef5"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "nuclear_power",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:nuclear_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Nuclear Power",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#AC129A",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#000000",
+          "fillColor": "#AC129A"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "gas2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Natural Gas",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#ec6e23",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#ec6e23"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "coal_global2",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:coal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Coal",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#5E0078",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
+          "strokeColor": "black",
+          "strokeWidth": 1,
+          "fillColor": "#5E0078"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "oil",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:oil@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Oil Electricity",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 20000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#965846",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#965846"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "biomass",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:biomass@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Biomass Electricity",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 20000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#294A34",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#294A34"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "waste",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:waste@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Waste Electricity",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 20000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "gray",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+          },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "gray"
+          }
+        },
+
+
+
+
+
+
+
+
       {
         "type": "XYZ",
         "name": "Base_Midnight",
@@ -1707,7 +1760,7 @@
             "us_refineries",
             "LNGterminals",
             "crude_derailment",
-            "NatGasGenerators",
+            "gas1",
             "MacLean",
             "video_pipelines"
           ],
@@ -1756,7 +1809,7 @@
             "ESRI-World-Imagery",
             "us_imagery",
             "na_rr",
-            "Coal1",
+            "coal_global1",
             "Coal_Mines"
           ],
           "center": [-103, 42.0],
@@ -1783,7 +1836,7 @@
             "abandoned_mines",
             "cement",
             "steel",
-            "Coal1",
+            "coal_global1",
             "CoalAsh"
           ],
           "center": [-99, 42.9],
@@ -1804,8 +1857,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "CoalMines",
-            "Coal1"
+            "coal_global1"
           ],
           "center": [2.44, 30.81],
           "resolution": 25000,
@@ -1852,7 +1904,17 @@
             "investor_owned",
             "rest_of_world2",
             "north_america2",
-            "global_power"
+            "all_solar2",
+            "all_wind2",
+            "geothermal",
+            "wave_tidal",
+            "hydro_power",
+            "nuclear_power",
+            "gas2",
+            "coal_global2",
+            "oil",
+            "biomass",
+            "waste"
           ],
           "center": [-97, 37],
           "resolution": 4500,
@@ -1861,7 +1923,7 @@
           "sidePanel": {
             "legendUrl": "images/ShilohTemple.png",
             "headerText": "Environmental justice means grassroots action on the ground&mdash;or on the roof.",
-            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're dwarfed by the old paradigm. The map shows hydroelectric dams and nuclear stations&mdash;low carbon, but still ecologically damaging&mdash;and coal, natural gas, biomass and oil-fired generators, which are death on the installment plan. How to keep new technologies from repeating old patterns of concentration, exploitation and control?",
+            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're outnumbered by the climate-changers. The map shows dams and nuclear stations (low carbon electricity, but still ecologically damaging) and coal, natural gas, biomass and oil-fired generators (death on the installment plan). How to keep new technologies from repeating old patterns of concentration, exploitation and control?",
             "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up turbines and rebuild the grid, but also to hire people for solarization and weatherization at the neighborhood level. It could reduce structural unemployment, overcome environmental racism and prepare for the future. Of course the entrenched monopolies&mdash;so-called \"public utilities\"&mdash;will stand squarely in the way, along with the larger, more competitive investor-owned utilities. The challenge of a socialist generation is to overcome them.",
             "bodyText3": "All the pieces of the global power puzzle are on this local map. Check them out, one by one."
           }
