@@ -133,7 +133,7 @@
                   </template>
                   <span>Edit User Profile</span></v-tooltip
                 >
-                 <v-tooltip top>
+                <v-tooltip top>
                   <template v-slot:activator="{ on }">
                     <v-btn
                       v-on="on"
@@ -165,7 +165,6 @@
                   </template>
                   <span>Delete User</span></v-tooltip
                 >
-                
               </div>
             </td>
           </tr>
@@ -282,13 +281,14 @@ export default {
         'Update',
         'Cancel',
         {
-          color: '#dc143c'
+          color: '#dc143c',
+          icon: 'edit'
         },
         user
       );
     },
     changePassword(user) {
-        this.$refs.userForm.open(
+      this.$refs.userForm.open(
         'updatePassword',
         'Change password',
         'Save',
