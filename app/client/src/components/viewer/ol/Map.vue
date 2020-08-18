@@ -558,22 +558,15 @@ export default {
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
       this.popup.highlightLayer.getSource().clear();
-      if (geometry.getType() === 'Point') {
-        this.map.getView().animate({
-          center: geometry.getCoordinates(),
-          zoom: 14,
-          duration: 800
-        });
-      } else {
+      this.popup.highlightLayer
+        .getSource()
+        .addFeature(this.popup.activeFeature.clone());
+      if (!['Point', 'MultiPoint'].includes(geometry.getType())) {
         // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
           padding: [100, 100, 100, 100],
           duration: 800
         });
-
-        this.popup.highlightLayer
-          .getSource()
-          .addFeature(this.popup.activeFeature.clone());
       }
       setTimeout(() => {
         this.selectedCoorpNetworkEntity = null;
@@ -833,10 +826,7 @@ export default {
               .addFeature(this.popup.activeFeature);
           }
 
-          if (
-            ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
-            this.selectedCoorpNetworkEntity
-          ) {
+          if (this.selectedCoorpNetworkEntity) {
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
@@ -1011,7 +1001,6 @@ export default {
 
       const filterLayersWithEntity = [];
       geoserverLayerNames[workspace].forEach(geoserverLayerName => {
-      
         http
           .get('https://timetochange.today/geoserver/wfs', {
             params: {
