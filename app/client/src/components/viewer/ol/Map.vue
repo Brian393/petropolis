@@ -1,16 +1,15 @@
 <template>
   <div id="ol-map-container">
     <!-- Map Controls -->
-   
+    <map-legend color="#dc143c" />
     <div style="position:absolute;left:20px;top:10px;">
       <login-button></login-button>
       <zoom-control :map="map" />
-    <full-screen />
-    <locate :map="map" />
-  
-    <route-controls />
+      <full-screen />
+      <locate :map="map" />
+
+      <route-controls />
     </div>
-  <map-legend color="#dc143c" />
 
     <div
       v-show="spotlightMessage === true"
@@ -338,7 +337,10 @@ export default {
         const layer = LayerFactory.getInstance(lConf);
         layer.setZIndex(layerIndex);
         // Enable spotlight for ESRI Imagery
-        if (layer.get('name') === 'ESRI-World-Imagery' || layer.get('name') === 'us_imagery') {
+        if (
+          layer.get('name') === 'ESRI-World-Imagery' ||
+          layer.get('name') === 'us_imagery'
+        ) {
           layer.on('prerender', e => {
             this.spotlight(e);
           });
@@ -1006,10 +1008,12 @@ export default {
       );
       const workspace = 'petropolis';
       if (!geoserverLayerNames[workspace]) return;
-      const promisesArray = [];
+
+      const filterLayersWithEntity = [];
       geoserverLayerNames[workspace].forEach(geoserverLayerName => {
-        promisesArray.push(
-          http.get('https://timetochange.today/geoserver/wfs', {
+      
+        http
+          .get('https://timetochange.today/geoserver/wfs', {
             params: {
               service: 'WFS',
               version: ' 2.0.0',
@@ -1018,14 +1022,7 @@ export default {
               typeNames: `${workspace}:${geoserverLayerName}`
             }
           })
-        );
-      });
-
-      const filterLayersWithEntity = [];
-      axios
-        .all(promisesArray)
-        .then(results => {
-          results.forEach(response => {
+          .then(response => {
             if (response.data && response.data.featureTypes) {
               const featureTypes = response.data.featureTypes;
               featureTypes.forEach(featureType => {
@@ -1038,16 +1035,10 @@ export default {
                   }
                 });
               });
+              this.layersWithEntityField = filterLayersWithEntity;
             }
           });
-        })
-        .catch(function(error) {
-          // handle error
-          console.log(error);
-        });
-      if (!this.layersWithEntityField) {
-        this.layersWithEntityField = filterLayersWithEntity;
-      }
+      });
     },
     isPopupRowVisible(item) {
       if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
