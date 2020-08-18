@@ -1,12 +1,16 @@
 <template>
   <div id="ol-map-container">
     <!-- Map Controls -->
-    <zoom-control :map="map" />
-
+   
+    <div style="position:absolute;left:20px;top:10px;">
+      <login-button></login-button>
+      <zoom-control :map="map" />
     <full-screen />
     <locate :map="map" />
-    <map-legend color="#dc143c" />
+  
     <route-controls />
+    </div>
+  <map-legend color="#dc143c" />
 
     <div
       v-show="spotlightMessage === true"
@@ -148,6 +152,7 @@ import FullScreen from './controls/FullScreen';
 import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
+import Login from './controls/Login';
 
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
@@ -176,6 +181,7 @@ export default {
   components: {
     'overlay-popup': OverlayPopup,
     'map-legend': Legend,
+    'login-button': Login,
     'zoom-control': ZoomControl,
     'full-screen': FullScreen,
     'route-controls': RouteControls,
