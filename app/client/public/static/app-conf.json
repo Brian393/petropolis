@@ -74,6 +74,7 @@
         "minResolution": 1,
         "maxResolution": 32000,
         "hoverable": true,
+        "legendIcon": "icons/legendCancelledPipelines.png",
         "style": {
           "type": "line",
           "stylePropFnRef": {
@@ -467,17 +468,17 @@
         "displayInLegend": true,
         "legendDisplayName": "US Grid",
         "format": "MVT",
-        "renderMode": "image",
+        "renderMode": "hybrid",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": false,
         "opacity": 0.8,
         "hoverable": true,
         "style": {
           "hoverTextColor": "white",
-          "hoverBackgroundColor": "#009df5",
+          "hoverBackgroundColor": "gray",
           "strokeColor": "#009df5",
           "stylePropFnRef": {
             "strokeWidth": "variable1"
@@ -1189,7 +1190,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1217,7 +1218,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1245,7 +1246,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1273,7 +1274,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1301,7 +1302,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1329,7 +1330,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1355,7 +1356,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1377,24 +1378,24 @@
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Coal",
+        "legendDisplayName": "Coal-Fired",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 64000,
+        "maxResolution": 2000,
         "label": null,
         "hoverable": true,
         "style": {
           "hoverTextColor": "white",
-          "hoverBackgroundColor": "#5E0078",
+          "hoverBackgroundColor": "darkgray",
           "type": "circle",
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
           },
           "strokeColor": "black",
           "strokeWidth": 1,
-          "fillColor": "#5E0078"
+          "fillColor": "darkgray"
           }
         },
       {
@@ -1404,12 +1405,12 @@
         "group": "petropolisOil&Gas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Oil Electricity",
+        "legendDisplayName": "Oil-Fired",
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 20000,
+        "maxResolution": 2000,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1436,7 +1437,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 20000,
+        "maxResolution": 2000,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1463,7 +1464,7 @@
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 20000,
+        "maxResolution": 2000,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1897,10 +1898,7 @@
         "local": {
           "layers": [
             "ESRI-World-Imagery2",
-            "us_imagery2",
             "us_grid",
-            "publically_owned_utilities",
-            "investor_owned",
             "rest_of_world2",
             "north_america2",
             "all_solar2",
@@ -1922,7 +1920,7 @@
           "sidePanel": {
             "legendUrl": "images/ShilohTemple.png",
             "headerText": "Environmental justice means grassroots action on the ground&mdash;or on the roof.",
-            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're outnumbered by the climate-changers. The map shows dams and nuclear stations (low carbon electricity, but still ecologically damaging) and coal, natural gas, biomass and oil-fired generators (death on the installment plan). How to keep new technologies from repeating old patterns of concentration, exploitation and control?",
+            "bodyText1": "Wherever you live, there will be solar or wind power nearby. But they're outnumbered by the climate-changers. The map shows dams and nuclear stations (low carbon, but still ecologically damaging) and coal, natural gas, biomass and oil-fired generators (death on the installment plan). How to keep the new energy technologies from repeating old patterns of concentration, exploitation and control?",
             "bodyText2": "Under pessure from the left, the US Democrats are seeking a $2 trillion climate plan that combines jobs with alternative energy. The idea is not only to put up turbines and rebuild the grid, but also to hire people for solarization and weatherization at the neighborhood level. It could reduce structural unemployment, overcome environmental racism and prepare for the future. Of course the entrenched monopolies&mdash;so-called \"public utilities\"&mdash;will stand squarely in the way, along with the larger, more competitive investor-owned utilities. The challenge of a socialist generation is to overcome them.",
             "bodyText3": "All the pieces of the global power puzzle are on this local map. Check them out, one by one."
           }
