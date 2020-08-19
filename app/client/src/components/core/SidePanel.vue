@@ -49,6 +49,20 @@
             >
               <v-divider class="mb-1"></v-divider>
               <v-layout>
+                <v-btn
+                  @click="dive"
+                  text
+                  small
+                  class="mb-2 mt-1 mr-2"
+                  v-if="
+                    ['Point', 'MultiPoint'].includes(
+                      popup.activeFeature.getGeometry().getType()
+                    )
+                  "
+                >
+                  <v-icon small class="mr-1">fas fa-search-plus</v-icon>
+                  DIVE
+                </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn
                   @click="findCorporateNetwork"
@@ -267,6 +281,15 @@ export default {
     },
     mouseOut() {
       this.popup.highlightLayer.getSource().clear();
+    },
+    dive() {
+      if (this.popup.activeFeature.getGeometry().getType() === 'Point') {
+        this.map.getView().animate({
+          center: this.popup.activeFeature.getGeometry().getCoordinates(),
+          zoom: 14,
+          duration: 800
+        });
+      }
     }
   }
 };

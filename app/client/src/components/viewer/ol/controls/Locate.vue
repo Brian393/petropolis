@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="mt-4">
     <v-tooltip right>
       <template v-slot:activator="{ on }">
         <v-btn
-          class="mx-2 locate-button"
-          style="top:150px;"
+          class="locate-button"
           v-on="on"
           fab
           dark
@@ -127,8 +126,6 @@ export default {
 </script>
 <style lang="css" scoped>
 .locate-button {
-  position: absolute;
-  left: 12px;
   z-index: 1;
 }
 </style>
