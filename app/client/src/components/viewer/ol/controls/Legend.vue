@@ -1,25 +1,10 @@
 <template>
-  <v-card
-    class="elevation-3"
-    :width="isVisible ? '250px' : '0px'"
-    style="z-index:100;position:absolute;left:25px;bottom:20px;max-width: 200px;min-height:150px;max-height:calc(100% - 360px);overflow-x:hidden;overflow-y:auto;opacity:85%;"
-  >
-    <v-btn
-      v-show="isVisible"
-      @click="toggleLegend"
-      class="legend-toggle-button white--text"
-      text
-      min-width="35px"
-      x-small
-      style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;right:0px;top:-20px;"
-    >
-      <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
-    >
+  <div>
     <v-tooltip v-show="!isVisible" right>
       <template v-slot:activator="{ on }">
         <v-btn
           v-on="on"
-          style="position:fixed;left:16px;bottom:40px;"
+          style="position:fixed;left:16px;bottom:40px;z-index:1000;"
           v-show="!isVisible"
           color="#dc143c"
           @click="toggleLegend"
@@ -32,61 +17,83 @@
       </template>
       <span>Layers</span>
     </v-tooltip>
-
-    <v-card-text
-      class="pa-2 pb-0 mb-0 mr-0 pr-0"
+    <v-expansion-panels
+      v-model="panel" 
       v-show="isVisible"
-      v-if="isReady"
-      style="height:100%;overflow-x:hidden;overflow-y:auto;"
+      class="elevation-3"
+      :width="isVisible ? '250px' : '0px'"
+      style="position:absolute;left:25px;bottom:20px;max-width:200px;opacity:85%;"
     >
-      <span class="black--text text--darken-2 subtitle-2 pb-6">
-        {{ title }} Legend
-      </span>
-      <v-divider class="mr-1 py-1 mt-1"></v-divider>
-
-      <span class="ml-10 grey--text text--darken-2 subtitle-2">
-        <a @click="toggleAllLayersVisibility(true)">select all </a> |
-        <a @click="toggleAllLayersVisibility(false)"> clear all</a>
-      </span>
-      <v-divider class="mr-1 mb-2"></v-divider>
-
-
-      <template v-for="(item, index) in layers">
-        <v-row
-          :key="'layer-' + index"
-          class="fill-height ma-0"
-          v-if="item.get('displayInLegend')"
-          v-show="
-            item.get('group') !== 'backgroundLayers' &&
-              item.get('isVisibleInResolution') === true
-          "
+      <v-btn
+        v-show="isVisible"
+        @click="toggleLegend"
+        class="legend-toggle-button white--text"
+        text
+        min-width="35px"
+        x-small
+        style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;bottom:35px;right:-20px;"
+      >
+        <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
+      >
+      <v-expansion-panel class="my-0" :style="`background-color: white;`">
+    
+      <v-row class="my-1" justify="center">
+         <span class="grey--text text--darken-2 subtitle-2">
+          <a @click="toggleAllLayersVisibility(true)">select all </a> |
+          <a @click="toggleAllLayersVisibility(false)"> clear all</a>
+        </span>
+      </v-row>
+        <v-divider class="mb-1"></v-divider>
+        <v-expansion-panel-content
+          style="max-height:300px;"
+          v-show="isVisible"
+          v-if="isReady"
         >
-          <v-flex xs1>
-            <span v-html="getGraphic(item)"></span>
-          </v-flex>
-          <v-flex xs11>
-            <v-checkbox
-              class="layer-input ml-1 pt-1 py-0 my-0"
-              dense
-              color="purple"
-              :input-value="item.getVisible()"
-              @change="toggleLayerVisibility(item)"
-            >
-              <template v-slot:label>
-                <span class="grey--text text--darken-2 subtitle-2">
-                  {{
-                    item.get('legendDisplayName') || humanize(item.get('name'))
-                  }}
-                </span>
-              </template>
-            </v-checkbox>
-          </v-flex>
+          <vue-scroll style="height:calc(100% + 5px);">
+            <template v-for="(item, index) in layers">
+              <v-row
+                :key="'layer-' + index"
+                class="fill-height ma-0"
+                v-if="item.get('displayInLegend')"
+                v-show="
+                  item.get('group') !== 'backgroundLayers' &&
+                    item.get('isVisibleInResolution') === true
+                "
+              >
+                <v-flex xs1>
+                  <span v-html="getGraphic(item)"></span>
+                </v-flex>
+                <v-flex xs11>
+                  <v-checkbox
+                    class="layer-input ml-1 pt-1 py-0 my-0"
+                    dense
+                    color="purple"
+                    :input-value="item.getVisible()"
+                    @change="toggleLayerVisibility(item)"
+                  >
+                    <template v-slot:label>
+                      <span class="grey--text text--darken-2 subtitle-2">
+                        {{
+                          item.get('legendDisplayName') ||
+                            humanize(item.get('name'))
+                        }}
+                      </span>
+                    </template>
+                  </v-checkbox>
+                </v-flex>
+              </v-row>
+            </template>
+          </vue-scroll>
+        </v-expansion-panel-content>
+        <v-divider></v-divider>
+        <v-row class="my-1" justify="center">
+          <span class="black--text text--darken-2 subtitle-2">
+            {{ title }} Legend
+          </span>
         </v-row>
-      </template>
-
-      <br />
-    </v-card-text>
-  </v-card>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </div>
 </template>
 <script>
 import { Mapable } from '../../../../mixins/Mapable';
@@ -102,6 +109,7 @@ export default {
   },
   data() {
     return {
+      panel: 0,
       isReady: false,
       title: '',
       isVisible: true
@@ -251,7 +259,7 @@ export default {
   transform-origin: bottom right;
 }
 
-* {
+/* * {
   scrollbar-width: thin;
   scrollbar-color: rgb(206, 206, 206) #ffffff;
 }
@@ -265,5 +273,5 @@ export default {
   background-color: rgb(206, 206, 206);
   border-radius: 20px;
   border: 3px solid #ffffff;
-}
+} */
 </style>

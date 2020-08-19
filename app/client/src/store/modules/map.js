@@ -49,12 +49,12 @@ const state = {
   selectedCoorpNetworkEntity: null, // Selected entity,
   fuelGroups: [
     {
-      name: 'oil',
-      title: 'Oil & Gas'
-    },
-    {
       name: 'coal',
       title: 'Coal & Ash'
+    },
+    {
+      name: 'oil',
+      title: 'Oil & Gas'
     },
     {
       name: 'renewables',

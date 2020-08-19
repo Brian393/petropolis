@@ -2,9 +2,8 @@
   <v-card>
     <v-jsoneditor
       v-model="json"
-      :options="options"
       :plus="false"
-      :height="'400px'"
+      :height="'100%'"
       @error="onError"
     ></v-jsoneditor>
   </v-card>
@@ -20,7 +19,7 @@ export default {
   data() {
     return {
       json: {
-        hello: 'vue'
+        
       }
     };
   },
@@ -28,6 +27,9 @@ export default {
     onError() {
       console.log('error');
     }
+  },
+  created() {
+    this.json = this.$appConfig;
   }
 };
 </script>

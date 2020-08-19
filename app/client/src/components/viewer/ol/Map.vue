@@ -1,12 +1,15 @@
 <template>
   <div id="ol-map-container">
     <!-- Map Controls -->
-    <zoom-control :map="map" />
-
-    <full-screen />
-    <locate :map="map" />
     <map-legend color="#dc143c" />
-    <route-controls />
+    <div style="position:absolute;left:20px;top:10px;">
+      <login-button></login-button>
+      <zoom-control :map="map" />
+      <full-screen />
+      <locate :map="map" />
+
+      <route-controls />
+    </div>
 
     <div
       v-show="spotlightMessage === true"
@@ -148,6 +151,7 @@ import FullScreen from './controls/FullScreen';
 import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
+import Login from './controls/Login';
 
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
@@ -176,6 +180,7 @@ export default {
   components: {
     'overlay-popup': OverlayPopup,
     'map-legend': Legend,
+    'login-button': Login,
     'zoom-control': ZoomControl,
     'full-screen': FullScreen,
     'route-controls': RouteControls,
@@ -332,7 +337,10 @@ export default {
         const layer = LayerFactory.getInstance(lConf);
         layer.setZIndex(layerIndex);
         // Enable spotlight for ESRI Imagery
-        if (layer.get('name') === 'ESRI-World-Imagery' || layer.get('name') === 'us_imagery') {
+        if (
+          layer.get('name') === 'ESRI-World-Imagery' ||
+          layer.get('name') === 'us_imagery'
+        ) {
           layer.on('prerender', e => {
             this.spotlight(e);
           });
@@ -550,22 +558,15 @@ export default {
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
       this.popup.highlightLayer.getSource().clear();
-      if (geometry.getType() === 'Point') {
-        this.map.getView().animate({
-          center: geometry.getCoordinates(),
-          zoom: 14,
-          duration: 800
-        });
-      } else {
+      this.popup.highlightLayer
+        .getSource()
+        .addFeature(this.popup.activeFeature.clone());
+      if (!['Point', 'MultiPoint'].includes(geometry.getType())) {
         // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
           padding: [100, 100, 100, 100],
           duration: 800
         });
-
-        this.popup.highlightLayer
-          .getSource()
-          .addFeature(this.popup.activeFeature.clone());
       }
       setTimeout(() => {
         this.selectedCoorpNetworkEntity = null;
@@ -825,10 +826,7 @@ export default {
               .addFeature(this.popup.activeFeature);
           }
 
-          if (
-            ['Point', 'MultiPoint'].includes(feature.getGeometry().getType()) ||
-            this.selectedCoorpNetworkEntity
-          ) {
+          if (this.selectedCoorpNetworkEntity) {
             this.showPopup(evt.coordinate);
           } else {
             this.zoomToFeature();
@@ -1000,10 +998,11 @@ export default {
       );
       const workspace = 'petropolis';
       if (!geoserverLayerNames[workspace]) return;
-      const promisesArray = [];
+
+      const filterLayersWithEntity = [];
       geoserverLayerNames[workspace].forEach(geoserverLayerName => {
-        promisesArray.push(
-          http.get('https://timetochange.today/geoserver/wfs', {
+        http
+          .get('https://timetochange.today/geoserver/wfs', {
             params: {
               service: 'WFS',
               version: ' 2.0.0',
@@ -1012,14 +1011,7 @@ export default {
               typeNames: `${workspace}:${geoserverLayerName}`
             }
           })
-        );
-      });
-
-      const filterLayersWithEntity = [];
-      axios
-        .all(promisesArray)
-        .then(results => {
-          results.forEach(response => {
+          .then(response => {
             if (response.data && response.data.featureTypes) {
               const featureTypes = response.data.featureTypes;
               featureTypes.forEach(featureType => {
@@ -1032,16 +1024,10 @@ export default {
                   }
                 });
               });
+              this.layersWithEntityField = filterLayersWithEntity;
             }
           });
-        })
-        .catch(function(error) {
-          // handle error
-          console.log(error);
-        });
-      if (!this.layersWithEntityField) {
-        this.layersWithEntityField = filterLayersWithEntity;
-      }
+      });
     },
     isPopupRowVisible(item) {
       if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {

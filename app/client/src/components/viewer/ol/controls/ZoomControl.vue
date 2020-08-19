@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="mt-4 mb-2">
     <v-tooltip right>
       <template v-slot:activator="{ on }">
         <v-btn
-          class="mx-2 zoom-buttons"
-          style="top:20px;"
+          class="zoom-buttons"
           v-on="on"
           fab
           dark
@@ -17,11 +16,11 @@
       </template>
       <span>Zoom In</span>
     </v-tooltip>
+    <br>
     <v-tooltip right>
       <template v-slot:activator="{ on }">
         <v-btn
-          class="mx-2 zoom-buttons"
-          style="top:60px;"
+          class="mt-2 zoom-buttons"
           v-on="on"
           fab
           dark
@@ -68,8 +67,7 @@ export default {
 </script>
 <style lang="css" scoped>
 .zoom-buttons {
-  position: absolute;
-  left: 12px;
+
   z-index: 1;
 }
 </style>
