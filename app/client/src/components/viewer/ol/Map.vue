@@ -567,9 +567,42 @@ export default {
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
       this.popup.highlightLayer.getSource().clear();
-      this.popup.highlightLayer
-        .getSource()
-        .addFeature(this.popup.activeFeature.clone());
+      const clonedFeature = this.popup.activeFeature.clone();
+      clonedFeature.set('isClone', true);
+      if (['Point', 'MultiPoint'].includes(geometry.getType())) {
+        const layerStyle = this.popup.activeLayer.getStyle();
+        clonedFeature.setStyle(feature => {
+          const styles = [];
+          const popupInfoStyleObj = popupInfoStyle()(feature);
+          if (Array.isArray(popupInfoStyleObj)) {
+            styles.push(...popupInfoStyleObj);
+          } else {
+            styles.push(popupInfoStyleObj);
+          }
+          if (layerStyle instanceof Function) {
+            const layerStyleObj = layerStyle(feature);
+            if (Array.isArray(layerStyleObj)) {
+              layerStyleObj.forEach(style => {
+                if (style.setZIndex) {
+                  style.setZIndex(2000);
+                }
+              });
+              styles.push(...layerStyleObj);
+            } else {
+              if (layerStyleObj.setZIndex) {
+                layerStyleObj.setZIndex(2000);
+              }
+              styles.push(layerStyleObj);
+            }
+          } else if (Array.isArray(layerStyle)) {
+            styles.push(...layerStyle);
+          } else {
+            styles.push(layerStyle);
+          }
+          return styles;
+        });
+      }
+      this.popup.highlightLayer.getSource().addFeature(clonedFeature);
       if (!['Point', 'MultiPoint'].includes(geometry.getType())) {
         // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
@@ -706,6 +739,9 @@ export default {
           (f, l) => {
             // Order of features is based is based on zIndex.
             // First feature is on top, last feature is on bottom.
+            if (f && f.get('isClone')) {
+              return false;
+            }
             if (
               !feature &&
               l.get('isInteractive') !== false &&
@@ -725,6 +761,7 @@ export default {
           (layer && layer.get('queryable') === false)
         )
           return;
+
 
         if (
           feature &&

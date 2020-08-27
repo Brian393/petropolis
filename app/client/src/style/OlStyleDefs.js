@@ -8,6 +8,7 @@ import store from '../store/modules/map';
 let strokeColor = 'rgba(236, 236, 236, 0.7)';
 let fillColor = 'rgba(255,0,0, 0.2)';
 let imageColor = 'blue';
+let radiusHighlightColor = 'rgba(0,0,255,0.3)'
 let zIndex = 100;
 
 // Resets cache when map groups is changed.
@@ -67,9 +68,9 @@ export function popupInfoStyle() {
           width: 4
         }),
         image: new OlCircle({
-          radius: 10,
+          radius: 50,
           fill: new OlFill({
-            color: imageColor
+            color: radiusHighlightColor
           })
         }),
         zIndex: zIndex
