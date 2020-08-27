@@ -307,7 +307,9 @@ export default {
     },
     backCorpNetwork() {
       this.backCorpSearch();
-      this.closeCorpNetworkSelection();
+      setTimeout(() => {
+        this.closeCorpNetworkSelection();
+      }, 800);
     },
     mouseOver(feature) {
       this.popup.highlightLayer.getSource().clear();
