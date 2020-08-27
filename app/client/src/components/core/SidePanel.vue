@@ -57,11 +57,25 @@
                   v-if="
                     ['Point', 'MultiPoint'].includes(
                       popup.activeFeature.getGeometry().getType()
-                    )
+                    ) && !previousMapPosition
                   "
                 >
                   <v-icon small class="mr-1">fas fa-search-plus</v-icon>
                   DIVE
+                </v-btn>
+                <v-btn
+                  @click="back"
+                  text
+                  small
+                  class="mb-2 mt-1 mr-2"
+                  v-if="
+                    previousMapPosition &&
+                      previousMapPosition.zoom &&
+                      previousMapPosition.center
+                  "
+                >
+                  <v-icon small class="mr-1">fas fa-arrow-left</v-icon>
+                  BACK
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn
@@ -112,11 +126,18 @@
     >
       <v-row align="center" justify="center" class="mx-0" style="width:100%;">
         <v-layout align-center class="elevation-3 mb-1" style="width:100%;">
+          <v-flex xs2 class="d-flex justify-center">
+            <v-btn @click="backCorpNetwork()" text small class="ml-1">
+              <v-icon small class="mr-1">fas fa-arrow-left</v-icon>
+              BACK
+            </v-btn>
+          </v-flex>
+
           <v-flex
-            xs10
+            xs8
             justify-center
             align-center
-            style="border-right: 1px solid rgba(0, 0, 0, 0.12);"
+            style="border-left: 1px solid rgba(0, 0, 0, 0.12);border-right: 1px solid rgba(0, 0, 0, 0.12);"
           >
             <div class="sidepanel-header">
               <h1>
@@ -126,6 +147,7 @@
               </h1>
             </div>
           </v-flex>
+
           <v-flex xs2 class="d-flex justify-center">
             <v-btn
               @click="closeCorpNetworkSelection()"
@@ -215,7 +237,9 @@ export default {
   mixins: [SharedMethods],
   data() {
     return {
-      isIframeLoading: true
+      isIframeLoading: true,
+      previousMapPosition: null,
+      previousMapPositionSearch: null
     };
   },
   computed: {
@@ -266,12 +290,24 @@ export default {
       this.popup.worldExtentLayer.getSource().clear();
     },
     findCorporateNetwork() {
+      const center = this.map.getView().getCenter();
+      const zoom = this.map.getView().getZoom();
+      this.previousMapPositionSearch = {
+        center,
+        zoom
+      };
       EventBus.$emit('findCorporateNetwork');
     },
     closeCorpNetworkSelection() {
       this.closePopupInfo();
       this.selectedCoorpNetworkEntity = null;
       this.isIframeLoading = true;
+      this.previousMapPosition = null;
+      this.previousMapPositionSearch = null;
+    },
+    backCorpNetwork() {
+      this.backCorpSearch();
+      this.closeCorpNetworkSelection();
     },
     mouseOver(feature) {
       this.popup.highlightLayer.getSource().clear();
@@ -282,7 +318,14 @@ export default {
     mouseOut() {
       this.popup.highlightLayer.getSource().clear();
     },
+    storeMapPosition() {},
     dive() {
+      const center = this.map.getView().getCenter();
+      const zoom = this.map.getView().getZoom();
+      this.previousMapPosition = {
+        center,
+        zoom
+      };
       if (this.popup.activeFeature.getGeometry().getType() === 'Point') {
         this.map.getView().animate({
           center: this.popup.activeFeature.getGeometry().getCoordinates(),
@@ -290,6 +333,29 @@ export default {
           duration: 800
         });
       }
+    },
+
+    back() {
+      const { zoom, center } = this.previousMapPosition;
+      if (zoom && center) {
+        this.map.getView().animate({
+          center,
+          zoom,
+          duration: 800
+        });
+      }
+      this.previousMapPosition = null;
+    },
+    backCorpSearch() {
+      const { zoom, center } = this.previousMapPositionSearch;
+      if (zoom && center) {
+        this.map.getView().animate({
+          center,
+          zoom,
+          duration: 800
+        });
+      }
+      this.previousMapPositionSearch = null;
     }
   }
 };
