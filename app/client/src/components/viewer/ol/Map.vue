@@ -216,7 +216,8 @@ export default {
           sizeStrategy: 'number'
         }
       },
-      noMapReset: false
+      noMapReset: false,
+      layerVisibilityState: {}
     };
   },
   mixins: [SharedMethods],
@@ -340,6 +341,10 @@ export default {
         if (layerIndex === -1) return;
         const layer = LayerFactory.getInstance(lConf);
         layer.setZIndex(layerIndex);
+        // Restore the previous layer visibility state if exists.
+        if (layer.get('name') in this.layerVisibilityState) {
+          layer.setVisible(this.layerVisibilityState[layer.get('name')]);
+        }
         // Enable spotlight for ESRI Imagery
         if (
           layer.get('name') === 'ESRI-World-Imagery' ||
@@ -1121,6 +1126,13 @@ export default {
       }
     },
     activeLayerGroup() {
+      // store layer visibility state before changing fuel group
+      const mapLayers = this.map.getLayers().getArray();
+      mapLayers.forEach(layer => {
+        const name = layer.get('name');
+        const visibility = layer.getVisible();
+        this.layerVisibilityState[name] = visibility;
+      });
       this.removeAllLayers();
       this.closePopup();
       // Reset geoserver layer names array
