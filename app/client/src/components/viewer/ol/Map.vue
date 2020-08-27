@@ -215,7 +215,8 @@ export default {
         vuescroll: {
           sizeStrategy: 'number'
         }
-      }
+      },
+      noMapReset: false
     };
   },
   mixins: [SharedMethods],
@@ -243,6 +244,9 @@ export default {
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
+    EventBus.$on('noMapReset', () => {
+      this.noMapReset = true;
+    });
 
     // resize the map, so it fits to parent
     window.setTimeout(() => {
@@ -1054,12 +1058,16 @@ export default {
         activeLayerGroup.fuelGroup
       ][activeLayerGroup.region];
 
-      if (visibleGroup.center) {
-        this.map.getView().setCenter(fromLonLat(visibleGroup.center));
+      if (!this.noMapReset) {
+        if (visibleGroup.center) {
+          this.map.getView().setCenter(fromLonLat(visibleGroup.center));
+        }
+        if (visibleGroup.resolution) {
+          this.map.getView().setResolution(visibleGroup.resolution);
+        }
       }
-      if (visibleGroup.resolution) {
-        this.map.getView().setResolution(visibleGroup.resolution);
-      }
+      this.noMapReset = false;
+
       if (visibleGroup.minResolution && visibleGroup.maxResolution) {
         this.map.getView().minResolution_ = visibleGroup.minResolution;
         this.map.getView().maxResolution_ = visibleGroup.maxResolution;
