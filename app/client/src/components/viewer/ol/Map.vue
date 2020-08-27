@@ -243,6 +243,7 @@ export default {
 
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
+    EventBus.$on('closeCorporateNetwork', me.closeCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
     EventBus.$on('noMapReset', () => {
@@ -617,6 +618,16 @@ export default {
       this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
     },
+    closeCorporateNetwork() {
+      if (this.popup.activeFeature) {
+        this.popup.highlightLayer.getSource().clear();
+        this.popup.activeFeature.setStyle(null);
+        this.popup.highlightLayer
+          .getSource()
+          .addFeature(this.popup.activeFeature);
+        this.zoomToFeature();
+      }
+    },
 
     /**
      * Map pointer move event .
@@ -761,7 +772,6 @@ export default {
           (layer && layer.get('queryable') === false)
         )
           return;
-
 
         if (
           feature &&
