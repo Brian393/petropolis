@@ -54,7 +54,27 @@ export default {
      *
      */
     handleZoomToMe: function() {
-      this.handleGetUserLocation(this.userLocSource, this.map);
+      if (!this.userLocSource) {
+        this.createUserLocationLayer();
+      }
+      // Trigger the modal requesting zoom-to-location.
+      if (!this.$cookies.get('locationRequested')) {
+        this.$refs.confirm
+          .open('Zoom to my location?', '', 'Share my location', 'Cancel', {
+            color: '#dc143c'
+          })
+          .then(confirm => {
+            if (confirm) {
+              this.handleGetUserLocation(this.userLocSource, this.map);
+              this.$cookies.set('locationRequested', true, '7d');
+              return;
+            }
+          });
+      }
+      if (this.$cookies.get('locationRequested')) {
+        this.handleGetUserLocation(this.userLocSource, this.map);
+      }
+      
     },
     handleGetUserLocation: function(source, map) {
       const watchId = navigator.geolocation.watchPosition(
@@ -102,24 +122,6 @@ export default {
     }
   },
   mounted() {
-    if (!this.userLocSource) {
-      this.createUserLocationLayer();
-    }
-    // Trigger the modal requesting zoom-to-location.
-    if (!this.$cookies.get('locationRequested')) {
-      this.$refs.confirm
-        .open('Zoom to my location?', '', 'Share my location', 'Cancel', {
-          color: '#dc143c'
-        })
-        .then(confirm => {
-          if (confirm) {
-            this.handleGetUserLocation(this.userLocSource, this.map);
-            this.$cookies.set('locationRequested', true, '7d');
-          } else {
-            this.$cookies.set('locationRequested', true, '7d');
-          }
-        });
-    }
     EventBus.$on('zoomToLocation', this.handleZoomToMe);
   }
 };
