@@ -215,7 +215,9 @@ export default {
         vuescroll: {
           sizeStrategy: 'number'
         }
-      }
+      },
+      noMapReset: false,
+      layerVisibilityState: {}
     };
   },
   mixins: [SharedMethods],
@@ -241,8 +243,12 @@ export default {
 
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
+    EventBus.$on('closeCorporateNetwork', me.closeCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
+    EventBus.$on('noMapReset', () => {
+      this.noMapReset = true;
+    });
 
     // resize the map, so it fits to parent
     window.setTimeout(() => {
@@ -336,6 +342,10 @@ export default {
         if (layerIndex === -1) return;
         const layer = LayerFactory.getInstance(lConf);
         layer.setZIndex(layerIndex);
+        // Restore the previous layer visibility state if exists.
+        if (layer.get('name') in this.layerVisibilityState) {
+          layer.setVisible(this.layerVisibilityState[layer.get('name')]);
+        }
         // Enable spotlight for ESRI Imagery
         if (
           layer.get('name') === 'ESRI-World-Imagery' ||
@@ -558,9 +568,42 @@ export default {
     zoomToFeature() {
       const geometry = this.popup.activeFeature.getGeometry();
       this.popup.highlightLayer.getSource().clear();
-      this.popup.highlightLayer
-        .getSource()
-        .addFeature(this.popup.activeFeature.clone());
+      const clonedFeature = this.popup.activeFeature.clone();
+      clonedFeature.set('isClone', true);
+      if (['Point', 'MultiPoint'].includes(geometry.getType())) {
+        const layerStyle = this.popup.activeLayer.getStyle();
+        clonedFeature.setStyle(feature => {
+          const styles = [];
+          const popupInfoStyleObj = popupInfoStyle()(feature);
+          if (Array.isArray(popupInfoStyleObj)) {
+            styles.push(...popupInfoStyleObj);
+          } else {
+            styles.push(popupInfoStyleObj);
+          }
+          if (layerStyle instanceof Function) {
+            const layerStyleObj = layerStyle(feature);
+            if (Array.isArray(layerStyleObj)) {
+              layerStyleObj.forEach(style => {
+                if (style.setZIndex) {
+                  style.setZIndex(2000);
+                }
+              });
+              styles.push(...layerStyleObj);
+            } else {
+              if (layerStyleObj.setZIndex) {
+                layerStyleObj.setZIndex(2000);
+              }
+              styles.push(layerStyleObj);
+            }
+          } else if (Array.isArray(layerStyle)) {
+            styles.push(...layerStyle);
+          } else {
+            styles.push(layerStyle);
+          }
+          return styles;
+        });
+      }
+      this.popup.highlightLayer.getSource().addFeature(clonedFeature);
       if (!['Point', 'MultiPoint'].includes(geometry.getType())) {
         // Zoom to extent adding a padding to the extent
         this.map.getView().fit(geometry.getExtent(), {
@@ -574,6 +617,16 @@ export default {
       // Close popup
       this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
+    },
+    closeCorporateNetwork() {
+      if (this.popup.activeFeature) {
+        this.popup.highlightLayer.getSource().clear();
+        this.popup.activeFeature.setStyle(null);
+        this.popup.highlightLayer
+          .getSource()
+          .addFeature(this.popup.activeFeature);
+        this.zoomToFeature();
+      }
     },
 
     /**
@@ -697,6 +750,9 @@ export default {
           (f, l) => {
             // Order of features is based is based on zIndex.
             // First feature is on top, last feature is on bottom.
+            if (f && f.get('isClone')) {
+              return false;
+            }
             if (
               !feature &&
               l.get('isInteractive') !== false &&
@@ -1054,12 +1110,16 @@ export default {
         activeLayerGroup.fuelGroup
       ][activeLayerGroup.region];
 
-      if (visibleGroup.center) {
-        this.map.getView().setCenter(fromLonLat(visibleGroup.center));
+      if (!this.noMapReset) {
+        if (visibleGroup.center) {
+          this.map.getView().setCenter(fromLonLat(visibleGroup.center));
+        }
+        if (visibleGroup.resolution) {
+          this.map.getView().setResolution(visibleGroup.resolution);
+        }
       }
-      if (visibleGroup.resolution) {
-        this.map.getView().setResolution(visibleGroup.resolution);
-      }
+      this.noMapReset = false;
+
       if (visibleGroup.minResolution && visibleGroup.maxResolution) {
         this.map.getView().minResolution_ = visibleGroup.minResolution;
         this.map.getView().maxResolution_ = visibleGroup.maxResolution;
@@ -1113,6 +1173,13 @@ export default {
       }
     },
     activeLayerGroup() {
+      // store layer visibility state before changing fuel group
+      const mapLayers = this.map.getLayers().getArray();
+      mapLayers.forEach(layer => {
+        const name = layer.get('name');
+        const visibility = layer.getVisible();
+        this.layerVisibilityState[name] = visibility;
+      });
       this.removeAllLayers();
       this.closePopup();
       // Reset geoserver layer names array

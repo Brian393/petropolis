@@ -102,7 +102,8 @@ export default {
     },
 
     changeFuelGroup(fuelGroup) {
-      this.$router.push({ path: `/${fuelGroup.name}` });
+      this.$router.push({ path: `/${fuelGroup.name}` });  
+      EventBus.$emit('noMapReset');
     },
     ...mapMutations('map', {
       setActiveLayerGroup: 'SET_ACTIVE_LAYERGROUP'
