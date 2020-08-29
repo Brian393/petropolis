@@ -338,7 +338,7 @@ export default {
       }
       setTimeout(() => {
         EventBus.$emit('diveToFeatureEnd');
-      }, 800);
+      }, 900);
     },
 
     back() {
