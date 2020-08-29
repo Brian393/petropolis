@@ -175,6 +175,7 @@ import axios from 'axios';
 
 // Progress loader
 import ProgressLoader from '../../core/ProgressLoader';
+import { debounce } from '../../../utils/Helpers';
 
 export default {
   components: {
@@ -249,7 +250,9 @@ export default {
     EventBus.$on('noMapReset', () => {
       this.noMapReset = true;
     });
-
+    EventBus.$on('diveToFeatureEnd', () => {
+      this.updateMousePosition();
+    });
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -260,6 +263,8 @@ export default {
       me.setupMapClick();
       // Pointer Move
       me.setupMapPointerMove();
+      // Map Hover out event
+      me.setupMapHoverOut();
       // Move end event
       this.setupMapMoveEnd();
       // Create popup overlay for get info
@@ -722,8 +727,42 @@ export default {
         }
 
         this.mousePosition = this.map.getEventPixel(evt.originalEvent);
-        this.map.render();
+        // Render is only triggered for spotlight which is visible in zoom levels below 20
+        const resolutionLevel = this.map.getView().getResolution();
+        if (resolutionLevel <= 20) {
+          this.map.render();
+        }
       });
+    },
+    setupMapHoverOut() {
+      const element = this.map.getTargetElement();
+      if (element) {
+        const me = this;
+        element.onmouseleave = debounce(function() {
+          me.updateMousePosition();
+        }, 50);
+      }
+    },
+    updateMousePosition() {
+      const me = this;
+      if (
+        me.popup.activeFeature &&
+        ['Point', 'MultiPoint'].includes(
+          me.popup.activeFeature.getGeometry().getType()
+        )
+      ) {
+        const coordinate = me.popup.activeFeature
+          .getGeometry()
+          .getCoordinates();
+        const pixel = me.map.getPixelFromCoordinate(coordinate);
+        if (pixel) {
+          me.mousePosition = pixel;
+          const resolutionLevel = this.map.getView().getResolution();
+          if (resolutionLevel <= 20) {
+            this.map.render();
+          }
+        }
+      }
     },
 
     setupMapMoveEnd() {
