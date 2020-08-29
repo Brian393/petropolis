@@ -70,7 +70,9 @@ const state = {
       name: 'global',
       title: 'Global'
     }
-  ]
+  ],
+  previousMapPosition: null,
+  previousMapPositionSearch: null
 };
 
 const getters = {

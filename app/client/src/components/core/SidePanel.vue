@@ -237,9 +237,7 @@ export default {
   mixins: [SharedMethods],
   data() {
     return {
-      isIframeLoading: true,
-      previousMapPosition: null,
-      previousMapPositionSearch: null
+      isIframeLoading: true
     };
   },
   computed: {
@@ -274,6 +272,8 @@ export default {
       splittedEntities: 'splittedEntities'
     }),
     ...mapFields('map', {
+      previousMapPosition: 'previousMapPosition',
+      previousMapPositionSearch: 'previousMapPositionSearch',
       popup: 'popup',
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
     })
@@ -311,7 +311,6 @@ export default {
         this.closeCorpNetworkSelection();
         EventBus.$emit('closeCorporateNetwork');
       }, 800);
-      
     },
     mouseOver(feature) {
       this.popup.highlightLayer.getSource().clear();
@@ -359,6 +358,12 @@ export default {
           duration: 800
         });
       }
+      this.previousMapPositionSearch = null;
+    }
+  },
+  watch: {
+    $route() {
+      this.previousMapPosition = null;
       this.previousMapPositionSearch = null;
     }
   }
