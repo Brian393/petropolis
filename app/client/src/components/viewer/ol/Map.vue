@@ -606,6 +606,11 @@ export default {
       this.popup.highlightLayer.getSource().addFeature(clonedFeature);
       if (!['Point', 'MultiPoint'].includes(geometry.getType())) {
         // Zoom to extent adding a padding to the extent
+        this.previousMapPosition = {
+          center: this.map.getView().getCenter(),
+          zoom: this.map.getView().getZoom()
+        };
+
         this.map.getView().fit(geometry.getExtent(), {
           padding: [100, 100, 100, 100],
           duration: 800
@@ -740,6 +745,7 @@ export default {
     setupMapClick() {
       const me = this;
       const map = me.map;
+
       me.mapClickListenerKey = map.on('click', async evt => {
         if (me.activeInteractions.length > 0) {
           return;
@@ -838,7 +844,7 @@ export default {
             // Popup will not be opened if there are lightbox images
             return;
           }
-
+          this.previousMapPosition = null;
           this.popup.activeFeature = feature.clone ? feature.clone() : feature;
 
           // Add id reference
@@ -1141,6 +1147,7 @@ export default {
       splittedEntities: 'splittedEntities'
     }),
     ...mapFields('map', {
+      previousMapPosition: 'previousMapPosition',
       popup: 'popup',
       geoserverLayerNames: 'geoserverLayerNames',
       layersWithEntityField: 'layersWithEntityField',
@@ -1172,7 +1179,10 @@ export default {
         this.dblClickZoomInteraction.setActive(true);
       }
     },
-    activeLayerGroup() {
+    activeLayerGroup(newValue, oldValue) {
+      if (oldValue.region === 'global') {
+        this.noMapReset = false;
+      }
       // store layer visibility state before changing fuel group
       const mapLayers = this.map.getLayers().getArray();
       mapLayers.forEach(layer => {
