@@ -745,7 +745,7 @@ export default {
     setupMapClick() {
       const me = this;
       const map = me.map;
-    
+
       me.mapClickListenerKey = map.on('click', async evt => {
         if (me.activeInteractions.length > 0) {
           return;
@@ -1179,7 +1179,10 @@ export default {
         this.dblClickZoomInteraction.setActive(true);
       }
     },
-    activeLayerGroup() {
+    activeLayerGroup(newValue, oldValue) {
+      if (oldValue.region === 'global') {
+        this.noMapReset = false;
+      }
       // store layer visibility state before changing fuel group
       const mapLayers = this.map.getLayers().getArray();
       mapLayers.forEach(layer => {
