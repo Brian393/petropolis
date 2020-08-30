@@ -156,7 +156,7 @@
               small
               class="ml-1 elevation-0"
             >
-              EXIT
+              CLOSE
             </v-btn>
           </v-flex>
         </v-layout>

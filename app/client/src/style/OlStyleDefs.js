@@ -68,7 +68,7 @@ export function popupInfoStyle() {
           width: 4
         }),
         image: new OlCircle({
-          radius: 50,
+          radius: 25,
           fill: new OlFill({
             color: radiusHighlightColor
           })
@@ -284,7 +284,7 @@ export function colorMapStyle(layerName, colorField) {
           }),
           stroke: new OlStroke({
             color: colors[entity],
-            width: 2.5
+            width: 2
           }),
           image: new OlCircle({
             radius: 4,

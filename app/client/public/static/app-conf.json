@@ -536,7 +536,7 @@
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Terminals",
+        "legendDisplayName": "Oil Terminals",
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -556,7 +556,7 @@
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Crude Derailment",
+        "legendDisplayName": "Crude Derailments",
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -592,33 +592,6 @@
           },
           "strokeColor": "rgba(175, 21, 21, 0.7)",
           "fillColor": "rgba(175, 21, 21, 0.4)"
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "all_permits",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_permits&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "oil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "All Permits",
-        "format": "GeoJSON",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 4891.97,
-        "label": null,
-        "hoverable": true,
-        "legendIcon": "icons/PermitsLegendIcon.png",
-        "style": {
-          "type": "circle",
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "#000000",
-          "stylePropFnRef": {
-            "circleRadiusFn": "variable1",
-            "fillColor": "variable2"
-          },
-          "strokeColor": "black"
         }
       },
       {
@@ -751,7 +724,7 @@
         "style": {
           "styleRef": "colorMapStyle",
           "colorField": "Operator",
-          "colormap": "portland"
+          "colormap": "bluered"
         }
       },
       {
@@ -769,7 +742,7 @@
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 640000,
+        "maxResolution": 4891.97,
         "isInteractive": true,
         "legendIcon": "icons/GasColors.png",
         "style": {
@@ -777,8 +750,7 @@
           "hoverBackgroundColor": "#000000",
           "styleRef": "colorMapStyle",
           "colorField": "entity",
-          "colormap": "electric",
-          "strokeWidth": 0.1
+          "colormap": "blackbody"
         }
       },
       {
@@ -793,12 +765,59 @@
         "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 20000,
+        "maxResolution": 4891.97,
         "label": null,
         "hoverable": true,
         "style": {
           "iconUrl": "icons/NatGas3.png",
           "scale": 0.4
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "LNGterminals",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "gas",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "LNG Terminals",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4891.97,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/LNGterminal.png",
+          "scale": 0.6
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "all_permits",
+        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_permits&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "oil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "New Permits",
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 4891.97,
+        "label": null,
+        "hoverable": true,
+        "legendIcon": "icons/PermitsLegendIcon.png",
+        "style": {
+          "type": "circle",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable1",
+            "fillColor": "variable2"
+          },
+          "strokeColor": "black"
         }
       },
       {
@@ -818,26 +837,6 @@
         "style": {
           "strokeColor": "black",
           "strokeWidth": 6.5
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "LNGterminals",
-        "url": "https://timetochange.today/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "gas",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "LNG Terminals",
-        "format": "GeoJSON",
-        "visible": false,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 16000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/LNGterminal.png",
-          "scale": 0.5
         }
       },
       {
@@ -1674,6 +1673,16 @@
       },
       {
         "type": "XYZ",
+        "name": "ESRI-World-Imagery3",
+        "group": "backgroundLayers",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "minResolution": 0.25,
+        "maxResolution": 700,
+        "queryable": false,
+        "visible": true
+      },
+      {
+        "type": "XYZ",
         "name": "SunPotential",
         "group": "petropolisRenewables",
         "url": "https://s3.us-east-2.amazonaws.com/ecotopia.today/Data/SunPotential/{z}/{x}/{y}.png",
@@ -1717,21 +1726,24 @@
           "layers": [
             "Toner-Lite",
             "Toner-Labels",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "us_imagery",
+            "gas_pipes",
             "Spills_20yrs",
             "cancelled_pipelines",
-            "all_pipes",
+            "global_pipes",
             "contested_pipelines",
             "Terminals",
             "us_refineries",
+            "LNGterminals",
+            "all_permits",
             "crude_derailment",
-            "video_pipelines",
-            "tar_sands",
+            "gas1",
             "MacLean",
-            "all_permits"
+            "tar_sands",
+            "video_pipelines"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,
@@ -1746,11 +1758,12 @@
         },
         "local": {
           "layers": [
-            "maptiler_topo1",
+            "Toner-Lite",
+            "Toner-Labels",
+            "maptiler_topo",
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "us_imagery",
             "gas_pipes",
             "Spills_20yrs",
             "cancelled_pipelines",
@@ -1759,6 +1772,7 @@
             "Terminals",
             "us_refineries",
             "LNGterminals",
+            "all_permits",
             "crude_derailment",
             "gas1",
             "MacLean",
@@ -1807,7 +1821,6 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
-            "us_imagery",
             "na_rr",
             "coal_global1",
             "Coal_Mines"
@@ -1830,7 +1843,6 @@
             "rest_of_world",
             "north_america3",
             "ESRI-World-Imagery",
-            "us_imagery",
             "na_rr2",
             "railway_map",
             "abandoned_mines",
@@ -1873,15 +1885,22 @@
       "renewables": {
         "default": {
           "layers": [
+            "ESRI-World-Imagery3",
             "Citylights-2012",
-            "Dark2",
-            "ESRI-World-Imagery",
-            "us_imagery",
             "na_grid",
             "rest_of_world2",
             "north_america2",
             "all_solar",
-            "all_wind"
+            "all_wind",
+            "geothermal",
+            "wave_tidal",
+            "hydro_power",
+            "nuclear_power",
+            "gas2",
+            "coal_global2",
+            "oil",
+            "biomass",
+            "waste"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,
