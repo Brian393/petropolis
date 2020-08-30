@@ -957,7 +957,7 @@
         "visible": true,
         "zIndex": 100,
         "minResolution": 1,
-        "maxResolution": 4000,
+        "maxResolution": 1223,
         "label": null,
         "hoverable": true,
         "style": {
@@ -973,7 +973,7 @@
         "group": "petropolisCoalLocal",
         "url": "http://c.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",
         "minResolution": 1,
-        "maxResolution": 450,
+        "maxResolution": 1223,
         "opacity": 0.99,
         "queryable": false,
         "visible": true,
@@ -996,13 +996,14 @@
         "hoverable": true,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 4000,
+        "maxResolution": 800,
         "isInteractive": true,
         "style": {
           "type": "circle",
           "radius": 4,
-          "strokeColor": "black",
-          "fillColor": "gray"
+          "strokeColor": "gray",
+          "strokeWidth": 0.5,
+          "fillColor": "#dc143c"
         }
       },
       {
@@ -1234,62 +1235,6 @@
         },
       {
         "type": "VECTORTILE",
-        "name": "geothermal",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:geothermal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Geothermal",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "hoverTextColor": "black",
-          "hoverBackgroundColor": "#D05B6E",
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-            },
-          "strokeColor": "#000000",
-          "strokeWidth": 1,
-          "fillColor": "#D05B6E"
-          }
-        },
-      {
-        "type": "VECTORTILE",
-        "name": "wave_tidal",
-        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:wave_tidal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Wave & Tide",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "hoverTextColor": "black",
-          "hoverBackgroundColor": "#20B1AA",
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "capacity"
-            },
-          "strokeColor": "#000000",
-          "strokeWidth": 1,
-          "fillColor": "#20B1AA"
-          }
-        },
-      {
-        "type": "VECTORTILE",
         "name": "hydro_power",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:hydro_power@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil",
@@ -1298,10 +1243,10 @@
         "legendDisplayName": "Hydro Power",
         "format": "MVT",
         "renderMode": "image",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1326,10 +1271,10 @@
         "legendDisplayName": "Nuclear Power",
         "format": "MVT",
         "renderMode": "image",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 0.5,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": true,
         "hoverable": true,
         "style": {
@@ -1345,6 +1290,62 @@
         },
       {
         "type": "VECTORTILE",
+        "name": "geothermal",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:geothermal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Geothermal",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 900,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#D05B6E",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#D05B6E"
+          }
+        },
+      {
+        "type": "VECTORTILE",
+        "name": "wave_tidal",
+        "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:wave_tidal@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Wave & Tide",
+        "format": "MVT",
+        "renderMode": "image",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 900,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "hoverTextColor": "black",
+          "hoverBackgroundColor": "#20B1AA",
+          "type": "circle",
+          "stylePropFnRef": {
+            "circleRadiusFn": "capacity"
+            },
+          "strokeColor": "#000000",
+          "strokeWidth": 1,
+          "fillColor": "#20B1AA"
+          }
+        },
+      {
+        "type": "VECTORTILE",
         "name": "gas2",
         "url": "https://timetochange.today/geoserver/gwc/service/tms/1.0.0/petropolis:gas@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil&Gas",
@@ -1352,10 +1353,10 @@
         "displayInLegend": true,
         "legendDisplayName": "Natural Gas",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1379,10 +1380,10 @@
         "displayInLegend": true,
         "legendDisplayName": "Coal-Fired",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1406,10 +1407,10 @@
         "displayInLegend": true,
         "legendDisplayName": "Oil-Fired",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1433,10 +1434,10 @@
         "displayInLegend": true,
         "legendDisplayName": "Biomass Electricity",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1460,10 +1461,10 @@
         "displayInLegend": true,
         "legendDisplayName": "Waste Electricity",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
-        "maxResolution": 2000,
+        "maxResolution": 900,
         "label": null,
         "hoverable": true,
         "style": {
@@ -1513,7 +1514,7 @@
         "name": "Citylights-2012",
         "group": "backgroundLayers",
         "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg",
-        "minResolution": 200,
+        "minResolution": 901,
         "opacity": 1,
         "queryable": false,
         "visible": true
@@ -1522,10 +1523,10 @@
         "type": "XYZ",
         "name": "Dark2",
         "group": "backgroundLayers",
-        "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
+        "url": "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png",
         "minResolution": 0.25,
-        "maxResolution": 700,
-        "opacity": 0.8,
+        "maxResolution": 900,
+        "opacity": 0.9,
         "queryable": false,
         "visible": true
       },
@@ -1837,18 +1838,17 @@
         },
         "local": {
           "layers": [
-            "railway",
             "Dark",
-            "maptiler_topo2",
+            "maptiler_topo",
             "rest_of_world",
             "north_america3",
-            "ESRI-World-Imagery",
-            "na_rr2",
             "railway_map",
+            "ESRI-World-Imagery",
             "abandoned_mines",
             "cement",
             "steel",
             "coal_global1",
+            "Coal_Mines",
             "CoalAsh"
           ],
           "center": [-99, 42.9],
@@ -1885,11 +1885,12 @@
       "renewables": {
         "default": {
           "layers": [
-            "ESRI-World-Imagery3",
+            "Dark2",
             "Citylights-2012",
             "na_grid",
             "rest_of_world2",
             "north_america2",
+            "ESRI-World-Imagery",
             "all_solar",
             "all_wind",
             "geothermal",
@@ -1916,12 +1917,14 @@
         },
         "local": {
           "layers": [
-            "ESRI-World-Imagery2",
-            "us_grid",
+            "Dark2",
+            "Citylights-2012",
+            "na_grid",
             "rest_of_world2",
             "north_america2",
-            "all_solar2",
-            "all_wind2",
+            "ESRI-World-Imagery",
+            "all_solar",
+            "all_wind",
             "geothermal",
             "wave_tidal",
             "hydro_power",

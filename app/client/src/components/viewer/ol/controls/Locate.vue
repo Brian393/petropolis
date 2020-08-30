@@ -74,7 +74,7 @@ export default {
       if (this.$cookies.get('locationRequested')) {
         this.handleGetUserLocation(this.userLocSource, this.map);
       }
-      
+
     },
     handleGetUserLocation: function(source, map) {
       const watchId = navigator.geolocation.watchPosition(
@@ -128,6 +128,6 @@ export default {
 </script>
 <style lang="css" scoped>
 .locate-button {
-  z-index: 1;
+  z-index: -1000;
 }
 </style>

@@ -18,7 +18,7 @@
       <span>Layers</span>
     </v-tooltip>
     <v-expansion-panels
-      v-model="panel" 
+      v-model="panel"
       v-show="isVisible"
       class="elevation-3"
       :width="isVisible ? '250px' : '0px'"
@@ -29,14 +29,14 @@
         @click="toggleLegend"
         class="legend-toggle-button white--text"
         text
-        min-width="35px"
+        min-width="30px"
         x-small
-        style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;bottom:35px;right:-20px;"
+        style="z-index:100;background-color:rgb(228, 76, 107);position:absolute;bottom:30px;right:-19px;"
       >
         <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
       >
       <v-expansion-panel class="my-0" :style="`background-color: white;`">
-    
+
       <v-row class="my-1" justify="center">
          <span class="grey--text text--darken-2 subtitle-2">
           <a @click="toggleAllLayersVisibility(true)">select all </a> |
@@ -45,7 +45,7 @@
       </v-row>
         <v-divider class="mb-1"></v-divider>
         <v-expansion-panel-content
-          style="max-height:300px;"
+          style="max-height:400px;"
           v-show="isVisible"
           v-if="isReady"
         >
