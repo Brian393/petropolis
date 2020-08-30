@@ -6,7 +6,7 @@
       <login-button></login-button>
       <zoom-control :map="map" />
       <full-screen />
-      <locate :map="map" />
+      <!-- <locate :map="map" /> -->
 
       <route-controls />
     </div>
@@ -148,7 +148,7 @@ import { mapFields } from 'vuex-map-fields';
 import OverlayPopup from './controls/Overlay';
 import ZoomControl from './controls/ZoomControl';
 import FullScreen from './controls/FullScreen';
-import Locate from './controls/Locate';
+// import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
 import Login from './controls/Login';
@@ -186,7 +186,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
-    locate: Locate,
+    // locate: Locate,
     'progress-loader': ProgressLoader
   },
   name: 'app-ol-map',
@@ -244,7 +244,6 @@ export default {
 
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
-    EventBus.$on('closeCorporateNetwork', me.closeCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
     EventBus.$on('resetMap', me.resetMap);
     EventBus.$on('noMapReset', () => {
@@ -628,16 +627,7 @@ export default {
       this.popup.popupOverlay.setPosition(undefined);
       this.popup.showInSidePanel = true;
     },
-    closeCorporateNetwork() {
-      if (this.popup.activeFeature) {
-        this.popup.highlightLayer.getSource().clear();
-        this.popup.activeFeature.setStyle(null);
-        this.popup.highlightLayer
-          .getSource()
-          .addFeature(this.popup.activeFeature);
-        this.zoomToFeature();
-      }
-    },
+
 
     /**
      * Map pointer move event .

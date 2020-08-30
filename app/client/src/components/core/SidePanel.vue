@@ -156,7 +156,7 @@
               small
               class="ml-1 elevation-0"
             >
-              EXIT
+              CLOSE
             </v-btn>
           </v-flex>
         </v-layout>
@@ -309,7 +309,6 @@ export default {
       this.backCorpSearch();
       setTimeout(() => {
         this.closeCorpNetworkSelection();
-        EventBus.$emit('closeCorporateNetwork');
       }, 800);
     },
     mouseOver(feature) {
