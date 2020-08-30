@@ -1523,7 +1523,7 @@
         "type": "XYZ",
         "name": "Dark2",
         "group": "backgroundLayers",
-        "url": "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png",
+        "url": "https://{a-d}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
         "minResolution": 0.25,
         "maxResolution": 900,
         "opacity": 0.9,
