@@ -309,7 +309,6 @@ export default {
       this.backCorpSearch();
       setTimeout(() => {
         this.closeCorpNetworkSelection();
-        EventBus.$emit('closeCorporateNetwork');
       }, 800);
     },
     mouseOver(feature) {
