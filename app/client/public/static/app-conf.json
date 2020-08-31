@@ -1001,7 +1001,7 @@
         "style": {
           "type": "circle",
           "radius": 4,
-          "strokeColor": "gray",
+          "strokeColor": "black",
           "strokeWidth": 0.5,
           "fillColor": "#dc143c"
         }
@@ -1028,7 +1028,7 @@
           "radius": 6,
           "strokeColor": "white",
           "strokeWidth": 0.5,
-          "fillColor": "steelblue"
+          "fillColor": "#3f51b2"
         }
       },
       {
@@ -1818,13 +1818,18 @@
       "coal": {
         "default": {
           "layers": [
-            "Dark1",
+            "Dark",
+            "maptiler_topo",
             "rest_of_world",
-            "north_america",
+            "north_america3",
+            "railway_map",
             "ESRI-World-Imagery",
-            "na_rr",
+            "abandoned_mines",
+            "cement",
+            "steel",
             "coal_global1",
-            "Coal_Mines"
+            "Coal_Mines",
+            "CoalAsh"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,
