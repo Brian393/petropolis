@@ -41,6 +41,26 @@ export function defaultStyle(feature) {
   return [style];
 }
 
+export function getFeatureHighlightStyle() {
+  return [
+    new OlStyle({
+      fill: new OlFill({
+        color: [0, 0, 0, 0]
+      }),
+      stroke: new OlStroke({
+        color: '#FF0000',
+        width: 10
+      }),
+      image: new OlCircle({
+        radius: 10,
+        fill: new OlFill({
+          color: '#FF0000'
+        })
+      })
+    })
+  ];
+}
+
 /**
  * Style used for popup selected feature highlight
  */

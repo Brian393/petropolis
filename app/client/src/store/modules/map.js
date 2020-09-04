@@ -45,6 +45,7 @@ const state = {
   activeLayerGroup: null,
   colorMapEntities: {}, // Fetched from geoserver
   geoserverLayerNames: null, // Created when user clicks corporate network,
+  layersMetadata: {}, // Describe feature type.
   layersWithEntityField: null, // Fetched from Geoserver on load
   selectedCoorpNetworkEntity: null, // Selected entity,
   fuelGroups: [
@@ -72,7 +73,8 @@ const state = {
     }
   ],
   previousMapPosition: null,
-  previousMapPositionSearch: null
+  previousMapPositionSearch: null,
+  isEditing: false
 };
 
 const getters = {
@@ -108,6 +110,7 @@ const getters = {
   },
   fuelGroups: state => state.fuelGroups,
   regions: state => state.regions,
+  layersMetadata: state => state.layersMetadata,
   getField
 };
 
@@ -133,15 +136,18 @@ const actions = {
           styleObj.tableName ||
           extractGeoserverLayerNames([
             { url: getLayerSourceUrl(layer.getSource()) }
-          ])['petropolis'][0];
+          ])['petropolis']['names'][0];
         let viewParams = `viewparams=table:${tableName}`;
         if (styleObj.colorField) {
-          viewParams += `;field:${styleObj.colorField}`
+          viewParams += `;field:${styleObj.colorField}`;
         }
         const url = `./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=petropolis:colormap&srsname=EPSG:4326&${viewParams}&outputFormat=json`;
         promiseArray.push(
           http.get(url, {
-            data: { layerName: layer.get('name'), colormap: styleObj.colormap || 'portland' }
+            data: {
+              layerName: layer.get('name'),
+              colormap: styleObj.colormap || 'portland'
+            }
           })
         );
       }
@@ -152,14 +158,14 @@ const actions = {
         .then(function(results) {
           results.forEach(response => {
             const features = response.data.features;
-            const configData = JSON.parse(response.config.data)
+            const configData = JSON.parse(response.config.data);
             const layerName = configData.layerName;
             if (features && features.length === 0) {
               return;
             }
             const nshades = features.length < 5 ? 5 : features.length; // 5 is the minimun of the shades
             const entities = {};
-            console.log(configData.colormap)
+            console.log(configData.colormap);
             const colors = colormap({
               colormap: configData.colormap,
               nshades: nshades,
@@ -200,7 +206,16 @@ const mutations = {
   },
   REMOVE_ALL_LAYERS(state) {
     const layers = [...state.map.getLayers().getArray()];
-    layers.forEach(layer => state.map.removeLayer(layer));
+    layers.forEach(layer => {
+      // Doesn't remove edit layer but clears it instead. .
+      if (!['edit_layer', 'highlight_layer'].includes(layer.get('name'))) {
+        state.map.removeLayer(layer);
+      } else {
+        if (layer.getSource().clear) {
+          layer.getSource().clear();
+        }
+      }
+    });
     state.layers = {};
   },
   SET_COLORMAP_VALUES(state, payload) {

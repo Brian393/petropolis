@@ -58,7 +58,7 @@ export function getLayerType(layer) {
   } else if (layer instanceof olLayerVectorTile) {
     layerType = 'VectorTileLayer';
   } else {
-    layerType = undefined
+    layerType = undefined;
   }
   return layerType;
 }
@@ -510,15 +510,26 @@ export function extractGeoserverLayerNames(map) {
         const geoserverLayerName = split[1];
         // Workspace is the same for all the layers (this can change in the future. )
         if (!geoserverLayerNames[workspace]) {
-          geoserverLayerNames[workspace] = [];
+          geoserverLayerNames[workspace] = {
+            names: [],
+            mapped: {}
+          };
+        }
+
+        // Check if layer exists in array and it has 'entity' field
+        if (
+          geoserverLayerNames[workspace].names.indexOf(geoserverLayerName) ===
+          -1
+        ) {
+          geoserverLayerNames[workspace].names.push(geoserverLayerName);
         }
         // Check if layer exists in array and it has 'entity' field
-        if (geoserverLayerNames[workspace].indexOf(geoserverLayerName) === -1) {
-          geoserverLayerNames[workspace].push(geoserverLayerName);
-        }
+        const layerName = layer.name || layer.get('name');
+        geoserverLayerNames[workspace].mapped[layerName] = geoserverLayerName;
       }
     }
   });
+  console.log(geoserverLayerNames);
   return geoserverLayerNames;
 }
 
