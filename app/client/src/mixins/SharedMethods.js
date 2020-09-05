@@ -5,10 +5,10 @@ import { getNestedProperty } from '../utils/Helpers';
 
 export const SharedMethods = {
   methods: {
-    mapPopupPropName(item) {
+    mapPopupPropName(item, activeLayer) {
       const propertyName = item.property;
-      if (!this.popup.activeLayer) return propertyName;
-      const layerName = this.popup.activeLayer.get('name');
+      if (activeLayer) return propertyName;
+      const layerName = activeLayer.get('name');
       const popupMapping = this.$appConfig.map.popupFieldsMapping;
       if (!layerName || !popupMapping) return propertyName;
       const mappedProperty =

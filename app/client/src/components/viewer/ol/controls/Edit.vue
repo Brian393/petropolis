@@ -166,7 +166,17 @@
           <b>Are you sure you want to delete the selected feature ?</b>
         </div>
         <div v-else-if="['addFeature', 'modifyAttributes'].includes(editType)">
-          <v-form ref="edit-form" v-model="formValid"> </v-form>
+          <vue-scroll ref="vs">
+            <div style="max-height:280px;" class="pr-2">
+              <v-form ref="edit-form" v-model="formValid">
+                <v-jsf
+                  v-model="formData"
+                  :schema="formSchema"
+                  :options="formOptions"
+                />
+              </v-form>
+            </div>
+          </vue-scroll>
         </div>
       </template>
       <template v-slot:actions>
@@ -203,9 +213,16 @@ import { mapGetters } from 'vuex';
 import { getFeatureHighlightStyle } from '../../../../style/OlStyleDefs';
 import OverlayPopup from './Overlay';
 
+import VJsf from '@koumoul/vjsf/lib/VJsf.js';
+import '@koumoul/vjsf/lib/VJsf.css';
+// load third-party dependencies (markdown-it, vuedraggable)
+// you can also load them separately based on your needs
+import '@koumoul/vjsf/lib/deps/third-party.js';
+
 export default {
   components: {
-    'overlay-popup': OverlayPopup
+    'overlay-popup': OverlayPopup,
+    VJsf
   },
   mixins: [Mapable],
   props: {
@@ -253,13 +270,25 @@ export default {
       isVisible: false,
       el: null
     },
-    formValid: false,
-    formOptions: {
-      debug: false,
-      disableAll: false,
-      autoFoldObjects: true
+    // Dynamic form
+    formValid: true,
+    formOptions: {},
+    formData: {},
+    formTypesMapping: {
+      string: 'string',
+      int: 'integer',
+      number: 'number'
     },
-    formData: {}
+    formSchema: {
+      type: 'object',
+      required: [],
+      properties: {
+     
+      }
+    },
+    formSchemaCache: {
+
+    }
   }),
   name: 'edit-control',
   computed: {
@@ -343,23 +372,21 @@ export default {
         this.overlayersGarbageCollector = [];
       }
     },
-
+    /**
+     * Main Edit function
+     */
     edit(editType) {
-      if (editType === this.editType) {
-        this.removeInteraction();
-        return;
-      }
+      this.removeInteraction();
       this.editType = editType;
       if (!this.selectedLayer) return;
       const layerName = this.selectedLayer.get('name');
       const layerMetadata = this.layersMetadata[layerName];
+      this.createSchemaFromLayerMetadata() // Used for dynamic form rendering
       let geometryType;
       if (layerMetadata) {
         geometryType = layerMetadata[0].localType;
       }
       if (!geometryType) return;
-      console.log(geometryType);
-      this.removeInteraction();
       this.createHelpTooltip();
       this.pointerMoveKey = this.map.on('pointermove', this.onPointerMove);
       this.createPopupOverlay();
@@ -408,12 +435,57 @@ export default {
         this.map.addInteraction(this.currentInteraction);
       }
     },
+    /**
+     * Transforms layer metadata into a json structure which can be used to render dynamic vuetify components
+     */
+    createSchemaFromLayerMetadata() {
+      const layerName = this.selectedLayer.get('name')
+      if (!this.formSchemaCache[layerName]) {
+        const layerMetadata = this.layersMetadata[layerName];
+        console.log(layerMetadata)
+        if (layerMetadata) {
+          layerMetadata.forEach(property => {
+            const type = this.formTypesMapping[property.localType];
+            if (type) {
+              this.formSchema.properties[property.name] = {
+                type,
+                title: property.name
+              }
+              if (property.nillable === false) {
+                this.formSchema.required.push(property.name);
+              }
+              if (property.name === 'geom') {
+                this.formSchema[property.name]["x-display"] = "hidden";
+              }
+            }
+          });
+        }
+      }
+    },
 
     /**
      * Draw event
      */
     onDrawStart() {},
-    onDrawEnd() {},
+    onDrawEnd(evt) {
+      const feature = evt.feature;
+      this.closePopup();
+      if (this.currentInteraction) {
+        this.currentInteraction.setActive(false);
+      }
+      this.highlightLayer.getSource().addFeature(feature);
+      let popupCoordinate = feature.getGeometry().getCoordinates();
+      while (popupCoordinate && Array.isArray(popupCoordinate[0])) {
+        popupCoordinate = popupCoordinate[0];
+      }
+      this.map.getView().animate({
+        center: popupCoordinate,
+        duration: 400
+      });
+      this.popupOverlay.setPosition(popupCoordinate);
+      this.popup.title = 'Attributes';
+      this.popup.isVisible = true;
+    },
 
     /**
      * Modify event
@@ -532,6 +604,17 @@ export default {
       if (this.pointerMoveKey) {
         unByKey(this.pointerMoveKey);
       }
+    },
+    closePopup() {
+      if (this.popupOverlay) {
+        this.popupOverlay.setPosition(undefined);
+        this.popup.isVisible = false;
+      }
+      if (this.currentInteraction) {
+        this.currentInteraction.setActive(true);
+      }
+      this.highlightLayer.getSource().clear();
+      this.editLayer.getSource().clear();
     }
   },
   mounted() {

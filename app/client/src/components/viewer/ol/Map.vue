@@ -54,7 +54,7 @@
               <span
                 v-if="isPopupRowVisible(item)"
                 v-html="
-                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                  `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
                 "
               ></span>
             </div>
@@ -1253,6 +1253,10 @@ export default {
       this.fetchColorMapEntities();
       // Emit group change event.
       EventBus.$emit('group-changed');
+    },
+    isEditing() {
+      // Disables double click zoom when user is editing.
+      this.dblClickZoomInteraction.setActive(!this.isEditing);
     }
   }
 };
