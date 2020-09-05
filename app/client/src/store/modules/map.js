@@ -59,7 +59,7 @@ const state = {
     },
     {
       name: 'renewables',
-      title: 'Wind & Solar'
+      title: 'Wind & Sun'
     }
   ],
   regions: [

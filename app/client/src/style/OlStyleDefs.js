@@ -88,7 +88,7 @@ export function popupInfoStyle() {
           width: 4
         }),
         image: new OlCircle({
-          radius: 50,
+          radius: 25,
           fill: new OlFill({
             color: radiusHighlightColor
           })
@@ -304,7 +304,7 @@ export function colorMapStyle(layerName, colorField) {
           }),
           stroke: new OlStroke({
             color: colors[entity],
-            width: 2.5
+            width: 2
           }),
           image: new OlCircle({
             radius: 4,
@@ -417,59 +417,62 @@ export const layersStylePropFn = {
   cancelled_pipelines: {
     strokeColor: propertyValue => propertyValue
   },
+  us_grid: {
+    strokeWidth: propertyValue => propertyValue
+  },
   Spills_20yrs: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.7);
     }
   },
-  global_solar: {
+  wave_tidal: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.3);
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
-  global_wind: {
+  all_solar2: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.3);
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
+    }
+  },
+  all_wind2: {
+    circleRadiusFn: propertyValue => {
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
+    }
+  },
+  geothermal: {
+    circleRadiusFn: propertyValue => {
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
   nuclear_power: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.3);
-    }
-  },
-  nuclear_power1: {
-    circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
-    }
-  },
-  nuclear_power2: {
-    circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.15;
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
   hydro_power: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 0.3);
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
-  hydro_power1: {
+  coal_global2: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.3;
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
-  hydro_power2: {
+  oil: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.15;
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
-  pending_permits: {
+  biomass: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.008;
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
-  final_permits: {
+  waste: {
     circleRadiusFn: propertyValue => {
-      return Math.sqrt(propertyValue) * 0.008;
+      return getRadiusValue(propertyValue, 0.3, 4, 50);
     }
   },
   all_permits: {
@@ -483,6 +486,11 @@ export const layersStylePropFn = {
   global_gas: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.15);
+    }
+  },
+  gas2: {
+    circleRadiusFn: propertyValue => {
+      return getRadiusValue(propertyValue, 0.3);
     }
   },
   all_refineries: {
