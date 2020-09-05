@@ -529,7 +529,6 @@ export function extractGeoserverLayerNames(map) {
       }
     }
   });
-  console.log(geoserverLayerNames);
   return geoserverLayerNames;
 }
 

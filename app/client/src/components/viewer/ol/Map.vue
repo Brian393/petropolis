@@ -7,7 +7,6 @@
       <zoom-control :map="map" />
       <full-screen />
       <locate :map="map" />
-      <edit :map="map" />
       <route-controls />
     </div>
 

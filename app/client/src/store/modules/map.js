@@ -135,7 +135,10 @@ const actions = {
         const tableName =
           styleObj.tableName ||
           extractGeoserverLayerNames([
-            { url: getLayerSourceUrl(layer.getSource()) }
+            {
+              url: getLayerSourceUrl(layer.getSource()),
+              name: layer.get('name')
+            }
           ])['petropolis']['names'][0];
         let viewParams = `viewparams=table:${tableName}`;
         if (styleObj.colorField) {
