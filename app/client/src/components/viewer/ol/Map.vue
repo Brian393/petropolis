@@ -7,7 +7,7 @@
       <zoom-control :map="map" />
       <full-screen />
       <locate :map="map" />
-
+      <edit :map="map" />
       <route-controls />
     </div>
 
@@ -193,7 +193,8 @@ export default {
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
     locate: Locate,
-    'progress-loader': ProgressLoader
+    'progress-loader': ProgressLoader,
+    'edit': Edit
   },
   name: 'app-ol-map',
   data() {
