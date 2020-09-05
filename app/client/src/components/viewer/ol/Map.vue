@@ -7,8 +7,12 @@
       <zoom-control :map="map" />
       <full-screen />
       <locate :map="map" />
-
       <route-controls />
+    </div>
+
+    <!-- Edit Controls (Only available for logged users ) -->
+    <div style="position:absolute;right:20px;top:10px;">
+      <edit :map="map" />
     </div>
 
     <div
@@ -49,7 +53,7 @@
               <span
                 v-if="isPopupRowVisible(item)"
                 v-html="
-                  `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                  `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
                 "
               ></span>
             </div>
@@ -152,6 +156,7 @@ import Locate from './controls/Locate';
 import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
 import Login from './controls/Login';
+import Edit from './controls/Edit';
 
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
@@ -187,7 +192,8 @@ export default {
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
     locate: Locate,
-    'progress-loader': ProgressLoader
+    'progress-loader': ProgressLoader,
+    'edit': Edit
   },
   name: 'app-ol-map',
   data() {
@@ -628,7 +634,6 @@ export default {
       this.popup.showInSidePanel = true;
     },
 
-
     /**
      * Map pointer move event .
      */
@@ -654,68 +659,68 @@ export default {
         }
 
         let feature, layer;
-        this.map.forEachFeatureAtPixel(
-          evt.pixel,
-          (f, l) => {
-            // Order of features is based is based on zIndex.
-            // First feature is on top, last feature is on bottom.
-            if (!feature && l.get('isInteractive') !== false) {
-              feature = f;
-              layer = l;
+        if (this.isEditing === false) {
+          this.map.forEachFeatureAtPixel(
+            evt.pixel,
+            (f, l) => {
+              // Order of features is based is based on zIndex.
+              // First feature is on top, last feature is on bottom.
+              if (!feature && l.get('isInteractive') !== false) {
+                feature = f;
+                layer = l;
+              }
+            },
+            {
+              hitTolerance: 3
             }
-          },
-          {
-            hitTolerance: 3
+          );
+          this.map.getTarget().style.cursor = feature ? 'pointer' : '';
+
+          if (!feature || !layer.get('hoverable')) {
+            overlayEl.innerHTML = null;
+            this.overlay.setPosition(undefined);
+          } else {
+            if (!feature) return;
+            if (
+              this.popup.activeFeature &&
+              this.popup.activeFeature.getId() === `clone.${feature.getId()}`
+            )
+              return;
+            const attr =
+              feature.get('hoverAttribute') ||
+              feature.get('title') ||
+              feature.get('entity') ||
+              feature.get('NAME');
+            if (!attr) return;
+            if (layer.get('styleObj')) {
+              const { hoverTextColor, hoverBackgroundColor } = JSON.parse(
+                layer.get('styleObj')
+              );
+
+              hoverBackgroundColor && overlayEl
+                ? (overlayEl.style.backgroundColor = hoverBackgroundColor)
+                : (overlayEl.style.backgroundColor = '');
+
+              hoverTextColor && overlayEl
+                ? (overlayEl.style.color = hoverTextColor)
+                : (overlayEl.style.color = '');
+            }
+            if (
+              (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
+              (feature.get('entity') &&
+                this.selectedCoorpNetworkEntity &&
+                this.splittedEntities &&
+                !this.splittedEntities.some(substring =>
+                  feature.get('entity').includes(substring)
+                ))
+            ) {
+              return;
+            }
+
+            overlayEl.innerHTML = attr;
+            this.overlay.setPosition(evt.coordinate);
           }
-        );
-
-        this.map.getTarget().style.cursor = feature ? 'pointer' : '';
-
-        if (!feature || !layer.get('hoverable')) {
-          overlayEl.innerHTML = null;
-          this.overlay.setPosition(undefined);
-        } else {
-          if (!feature) return;
-          if (
-            this.popup.activeFeature &&
-            this.popup.activeFeature.getId() === `clone.${feature.getId()}`
-          )
-            return;
-          const attr =
-            feature.get('hoverAttribute') ||
-            feature.get('title') ||
-            feature.get('entity') ||
-            feature.get('NAME');
-          if (!attr) return;
-          if (layer.get('styleObj')) {
-            const { hoverTextColor, hoverBackgroundColor } = JSON.parse(
-              layer.get('styleObj')
-            );
-
-            hoverBackgroundColor && overlayEl
-              ? (overlayEl.style.backgroundColor = hoverBackgroundColor)
-              : (overlayEl.style.backgroundColor = '');
-
-            hoverTextColor && overlayEl
-              ? (overlayEl.style.color = hoverTextColor)
-              : (overlayEl.style.color = '');
-          }
-          if (
-            (!feature.get('entity') && this.selectedCoorpNetworkEntity) ||
-            (feature.get('entity') &&
-              this.selectedCoorpNetworkEntity &&
-              this.splittedEntities &&
-              !this.splittedEntities.some(substring =>
-                feature.get('entity').includes(substring)
-              ))
-          ) {
-            return;
-          }
-
-          overlayEl.innerHTML = attr;
-          this.overlay.setPosition(evt.coordinate);
         }
-
         this.mousePosition = this.map.getEventPixel(evt.originalEvent);
         // Render is only triggered for spotlight which is visible in zoom levels below 20
         const resolutionLevel = this.map.getView().getResolution();
@@ -777,6 +782,9 @@ export default {
 
       me.mapClickListenerKey = map.on('click', async evt => {
         if (me.activeInteractions.length > 0) {
+          return;
+        }
+        if (me.isEditing) {
           return;
         }
         let feature, layer;
@@ -966,7 +974,9 @@ export default {
         this.queryLayersGeoserverNames = extractGeoserverLayerNames(
           queryableLayers,
           this.layersWithEntityField
-        )[workspace].filter(name => this.layersWithEntityField.includes(name));
+        )[workspace]['names'].filter(name =>
+          this.layersWithEntityField.includes(name)
+        );
       }
 
       const filterArray = [];
@@ -1091,7 +1101,7 @@ export default {
       if (!geoserverLayerNames[workspace]) return;
 
       const filterLayersWithEntity = [];
-      geoserverLayerNames[workspace].forEach(geoserverLayerName => {
+      geoserverLayerNames[workspace].names.forEach(geoserverLayerName => {
         http
           .get('https://timetochange.today/geoserver/wfs', {
             params: {
@@ -1116,6 +1126,17 @@ export default {
                 });
               });
               this.layersWithEntityField = filterLayersWithEntity;
+
+              Object.keys(geoserverLayerNames[workspace].mapped).forEach(
+                layerName => {
+                  if (
+                    geoserverLayerNames[workspace].mapped[layerName] ===
+                    geoserverLayerName
+                  ) {
+                    this.layersMetadata[layerName] = featureTypes[0].properties;
+                  }
+                }
+              );
             }
           });
       });
@@ -1178,7 +1199,9 @@ export default {
     ...mapFields('map', {
       previousMapPosition: 'previousMapPosition',
       popup: 'popup',
+      isEditing: 'isEditing',
       geoserverLayerNames: 'geoserverLayerNames',
+      layersMetadata: 'layersMetadata',
       layersWithEntityField: 'layersWithEntityField',
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity'
     }),
@@ -1229,6 +1252,10 @@ export default {
       this.fetchColorMapEntities();
       // Emit group change event.
       EventBus.$emit('group-changed');
+    },
+    isEditing() {
+      // Disables double click zoom when user is editing.
+      this.dblClickZoomInteraction.setActive(!this.isEditing);
     }
   }
 };

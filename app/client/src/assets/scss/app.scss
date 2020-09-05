@@ -116,3 +116,14 @@ html {
   width: 20px;
   display: inline-block;
 }
+
+.edit-tooltip {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  position: relative;
+  background-color: rgba(140, 140, 140, 0.9);
+  border-radius: 4px;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+}

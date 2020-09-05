@@ -109,7 +109,7 @@
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
-                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                    `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
                   "
                 ></span>
               </div>
@@ -211,7 +211,7 @@
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
-                    `<strong>${mapPopupPropName(item)}: </strong>` + item.value
+                    `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
                   "
                 ></span>
               </div>
