@@ -892,7 +892,7 @@ export default {
             if (!Array.isArray(url) || url.length < 2) return;
             const geoserverLayerName = url[1];
             const response = await http.get(
-              'https://timetochange.today/geoserver/wfs',
+              './geoserver/wfs',
               {
                 params: {
                   service: 'WFS',
@@ -999,7 +999,7 @@ export default {
         );
         promiseArray.push(
           http.post(
-            `https://timetochange.today/geoserver/${workspace}/wfs`,
+            `./geoserver/${workspace}/wfs`,
             wfsRequest,
             {
               headers: { 'Content-Type': 'text/xml' },
