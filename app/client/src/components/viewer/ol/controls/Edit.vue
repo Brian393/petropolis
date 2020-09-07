@@ -211,7 +211,7 @@ import { Mapable } from '../../../../mixins/Mapable';
 
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
-import Feature from "ol/Feature";
+import Feature from 'ol/Feature';
 import RenderFeature from 'ol/render/Feature';
 import { LineString, MultiLineString, Polygon, MultiPolygon } from 'ol/geom';
 import { Modify, Draw } from 'ol/interaction';
@@ -279,6 +279,7 @@ export default {
     helpTooltip: null,
     helpTooltipMessages: {
       delete: 'Click on the feature to delete. \nPress ESC to exit.',
+      select: 'Click to select feature. \nPress ESC to exit.',
       edit: 'Click on the feature and drag to move it. \nPress ESC to exit.',
       modifyAttributes:
         'Click on the feature to modify attributes. \nPress ESC to exit.',
@@ -432,23 +433,21 @@ export default {
         }
         case 'modifyFeature': {
           this.currentInteraction = new Modify({
-            source:
-              this.selectedLayer.get('type') === 'VECTORTILE'
-                ? this.editLayer.getSource()
-                : this.selectedLayer.getSource()
+            source: this.editLayer.getSource()
           });
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           this.currentInteraction.on('modifystart', this.onModifyStart);
           this.currentInteraction.on('modifyend', this.onModifyEnd);
-          this.helpMessage = this.helpTooltipMessages.edit;
+          this.helpMessage = this.helpTooltipMessages.select;
           break;
         }
         case 'deleteFeature': {
-          this.mapClickListener = this.map.on('click', this.openPopup);
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           this.helpMessage = this.helpTooltipMessages.delete;
           break;
         }
         case 'modifyAttributes': {
-          this.mapClickListener = this.map.on('click', this.openPopup);
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           this.helpMessage = this.helpTooltipMessages.modifyAttributes;
           break;
         }
@@ -519,16 +518,16 @@ export default {
      */
     onModifyStart() {
       this.selectedFeature = null;
-
     },
     onModifyEnd(evt) {
-      console.log(evt);
+      this.selectedFeature = evt.features.getArray()[0]
+      this.transact();
     },
 
     /**
-     * Modify attributes
+     * Select feature
      */
-    async openPopup(evt) {
+    async selectFeature(evt) {
       // Get feature attributes popup
       this.highlightLayer.getSource().clear();
       const selectedLayer = this.selectedLayer;
@@ -566,27 +565,34 @@ export default {
           }
           if (feature) {
             this.selectedFeature = feature;
-            this.highlightLayer.getSource().addFeature(feature.clone());
-            let popupCoordinate = feature.getGeometry().getCoordinates();
-            let closestPoint;
-            if (popupCoordinate) {
-              closestPoint = feature
-                .getGeometry()
-                .getClosestPoint(evt.coordinate);
-            } else {
-              closestPoint = evt.coordinate;
-            }
-            this.map.getView().animate({
-              center: closestPoint,
-              duration: 400
-            });
-            this.popupOverlay.setPosition(closestPoint);
-            this.popup.isVisible = true;
-            if (this.editType === 'deleteFeature') {
-              this.popup.title = 'Confirm';
-            } else if (this.editType === 'modifyAttributes') {
-              this.popup.title = 'Modify Attributes';
-              this.formData = feature.getProperties();
+
+            if (['deleteFeature', 'modifyAttributes'].includes(this.editType)) {
+              this.highlightLayer.getSource().addFeature(feature.clone());
+              let popupCoordinate = feature.getGeometry().getCoordinates();
+              let closestPoint;
+              if (popupCoordinate) {
+                closestPoint = feature
+                  .getGeometry()
+                  .getClosestPoint(evt.coordinate);
+              } else {
+                closestPoint = evt.coordinate;
+              }
+              this.map.getView().animate({
+                center: closestPoint,
+                duration: 400
+              });
+              this.popupOverlay.setPosition(closestPoint);
+              this.popup.isVisible = true;
+              if (this.editType === 'deleteFeature') {
+                this.popup.title = 'Confirm';
+              } else if (this.editType === 'modifyAttributes') {
+                this.popup.title = 'Modify Attributes';
+                this.formData = feature.getProperties();
+              }
+            } else if (this.editType === 'modifyFeature') {
+              this.editLayer.getSource().clear();
+              this.editLayer.getSource().addFeature(this.selectedFeature);
+              this.helpMessage = this.helpTooltipMessages.edit;
             }
           }
         }
@@ -762,7 +768,9 @@ export default {
         })
         .then(response => {
           console.log(response);
-          this.editLayer.getSource().clear();
+          if (!this.editType === 'modifyFeature') {
+            this.editLayer.getSource().clear();
+          }
           if (this.selectedLayer && this.selectedLayer.getSource().refresh) {
             if (this.selectedLayer.get('type') === 'VECTOR') {
               this.selectedLayer.getSource().refresh();
