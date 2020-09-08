@@ -223,8 +223,8 @@ import { getFeatureHighlightStyle } from '../../../../style/OlStyleDefs';
 import OverlayPopup from './Overlay';
 import axios from 'axios';
 import { geojsonToFeature } from '../../../../utils/MapUtils';
+import { getNestedProperty } from '../../../../utils/Helpers';
 import GeoJSON from 'ol/format/GeoJSON';
-
 import VJsf from '@koumoul/vjsf/lib/VJsf.js';
 import '@koumoul/vjsf/lib/VJsf.css';
 // load third-party dependencies (markdown-it, vuedraggable)
@@ -470,9 +470,21 @@ export default {
           layerMetadata.properties.forEach(property => {
             const type = this.formTypesMapping[property.localType];
             if (type) {
+              let title;
+              const fieldMapping = this.$appConfig.map.popupFieldsMapping;
+              if (fieldMapping) {
+                title =
+                  getNestedProperty(
+                    fieldMapping,
+                    `${layerName}.${property.name}`
+                  ) ||
+                  fieldMapping.default[property.name] ||
+                  property.name;
+              }
+              title = title.toUpperCase()
               this.formSchema.properties[property.name] = {
                 type,
-                title: property.name
+                title
               };
               if (property.nillable === false) {
                 this.formSchema.required.push(property.name);
@@ -484,6 +496,9 @@ export default {
           });
           this.formSchemaCache[layerName] = this.formSchema;
         }
+      } else {
+        this.formSchema = this.formSchemaCache[layerName];
+        console.log(this.formSchema);
       }
     },
 
@@ -633,6 +648,7 @@ export default {
         this.currentInteraction.setActive(true);
       }
       this.highlightLayer.getSource().clear();
+      this.editLayer.getSource().clear();
     },
 
     /**

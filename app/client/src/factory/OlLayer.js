@@ -418,7 +418,6 @@ export const LayerFactory = {
    */
   createVectorTileLayer(lConf) {
     const vtLayer = new VectorTileLayer({
-      preload: 0,
       type: lConf.type,
       name: lConf.name,
       title: lConf.title,
@@ -438,7 +437,6 @@ export const LayerFactory = {
       group: lConf.group,
       renderMode: lConf.renderMode || 'hybrid',
       source: new VectorTileSource({
-        cacheSize: 0,
         url: lConf.url,
         format: new this.formatMapping[lConf.format](),
         attributions: lConf.attributions
