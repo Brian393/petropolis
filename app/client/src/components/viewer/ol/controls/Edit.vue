@@ -835,6 +835,9 @@ export default {
       }
     };
   },
+  beforeDestroy(){
+    this.closeEdit();
+  },
   watch: {
     $route() {
       this.closeEdit();

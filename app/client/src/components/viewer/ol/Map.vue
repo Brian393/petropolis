@@ -11,7 +11,7 @@
     </div>
 
     <!-- Edit Controls (Only available for logged users ) -->
-    <div style="position:absolute;right:20px;top:10px;">
+    <div v-if="loggedUser" style="position:absolute;right:20px;top:10px;">
       <edit :map="map" />
     </div>
 
@@ -1194,6 +1194,9 @@ export default {
       activeLayerGroup: 'activeLayerGroup',
       popupInfo: 'popupInfo',
       splittedEntities: 'splittedEntities'
+    }),
+    ...mapGetters('auth', {
+      loggedUser: 'loggedUser'
     }),
     ...mapFields('map', {
       previousMapPosition: 'previousMapPosition',
