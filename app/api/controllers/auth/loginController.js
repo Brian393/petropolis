@@ -14,12 +14,16 @@ const assignToken = (login, res) => {
       userID: login.relatedUserID,
     },
   });
-  const getPermissions = Permissions.findAll({
+  const permissionOpt = {
     attributes: ["permissionName"],
-    where: {
+  };
+  // Assign all permission if user is admin. 
+  if (login.relatedRoleID !== 1) {
+    permissionOpt.where = {
       relatedRoleID: login.relatedRoleID,
-    },
-  });
+    };
+  }
+  const getPermissions = Permissions.findAll(permissionOpt);
   const getRoles = Roles.findAll({
     attributes: ["roleName"],
     where: {
@@ -31,7 +35,7 @@ const assignToken = (login, res) => {
     .then((values) => {
       let user = values[0];
       let roles = values[1];
-      let permissions = values[2]
+      let permissions = values[2];
       const payload = {
         sub: login.relatedUserID,
         iss: "auth-service",

@@ -223,13 +223,14 @@ import { getFeatureHighlightStyle } from '../../../../style/OlStyleDefs';
 import OverlayPopup from './Overlay';
 import axios from 'axios';
 import { geojsonToFeature } from '../../../../utils/MapUtils';
-import { wfsTransactionParser } from '../../../../utils/Layer';
+import GeoJSON from 'ol/format/GeoJSON';
 
 import VJsf from '@koumoul/vjsf/lib/VJsf.js';
 import '@koumoul/vjsf/lib/VJsf.css';
 // load third-party dependencies (markdown-it, vuedraggable)
 // you can also load them separately based on your needs
 import '@koumoul/vjsf/lib/deps/third-party.js';
+import authHeader from '../../../../services/auth-header';
 
 export default {
   components: {
@@ -253,7 +254,7 @@ export default {
       {
         icon: 'edit',
         action: 'modifyFeature',
-        tooltip: 'Modify Feature'
+        tooltip: 'Modify Geometry'
       },
       {
         icon: 'delete',
@@ -410,7 +411,7 @@ export default {
       this.createSchemaFromLayerMetadata(); // Used for dynamic form rendering
       let geometryType;
       if (layerMetadata) {
-        geometryType = layerMetadata[0].localType;
+        geometryType = layerMetadata.properties[0].localType;
       }
       if (!geometryType) return;
       this.createHelpTooltip();
@@ -426,9 +427,6 @@ export default {
           });
           this.currentInteraction.on('drawstart', this.onDrawStart);
           this.currentInteraction.on('drawend', this.onDrawEnd);
-          this.helpMessage = ['Point'].some(r => geometryType.includes(r))
-            ? this.helpTooltipMessages.point.start
-            : this.helpTooltipMessages.polygonAndLine.start;
           break;
         }
         case 'modifyFeature': {
@@ -438,22 +436,20 @@ export default {
           this.mapClickListener = this.map.on('click', this.selectFeature);
           this.currentInteraction.on('modifystart', this.onModifyStart);
           this.currentInteraction.on('modifyend', this.onModifyEnd);
-          this.helpMessage = this.helpTooltipMessages.select;
           break;
         }
         case 'deleteFeature': {
           this.mapClickListener = this.map.on('click', this.selectFeature);
-          this.helpMessage = this.helpTooltipMessages.delete;
           break;
         }
         case 'modifyAttributes': {
           this.mapClickListener = this.map.on('click', this.selectFeature);
-          this.helpMessage = this.helpTooltipMessages.modifyAttributes;
           break;
         }
         default:
           break;
       }
+      this.startResetHelpTooltip();
       if (this.currentInteraction) {
         this.map.addInteraction(this.currentInteraction);
       }
@@ -462,11 +458,16 @@ export default {
      * Transforms layer metadata into a json structure which can be used to render dynamic vuetify components
      */
     createSchemaFromLayerMetadata() {
+      this.formSchema = {
+        type: 'object',
+        required: [],
+        properties: {}
+      };
       const layerName = this.selectedLayer.get('name');
       if (!this.formSchemaCache[layerName]) {
         const layerMetadata = this.layersMetadata[layerName];
         if (layerMetadata) {
-          layerMetadata.forEach(property => {
+          layerMetadata.properties.forEach(property => {
             const type = this.formTypesMapping[property.localType];
             if (type) {
               this.formSchema.properties[property.name] = {
@@ -481,6 +482,7 @@ export default {
               }
             }
           });
+          this.formSchemaCache[layerName] = this.formSchema;
         }
       }
     },
@@ -511,6 +513,7 @@ export default {
       this.popup.title = 'Attributes';
       this.popup.isVisible = true;
       this.sketch = null;
+      this.startResetHelpTooltip();
     },
 
     /**
@@ -520,7 +523,7 @@ export default {
       this.selectedFeature = null;
     },
     onModifyEnd(evt) {
-      this.selectedFeature = evt.features.getArray()[0]
+      this.selectedFeature = evt.features.getArray()[0];
       this.transact();
     },
 
@@ -681,6 +684,29 @@ export default {
       this.layersDialog = false;
       this.removeInteraction();
     },
+    startResetHelpTooltip() {
+      let geometryType;
+      const layerMetadata = this.layersMetadata[this.selectedLayer.get('name')];
+      if (layerMetadata) {
+        geometryType = layerMetadata.properties[0].localType;
+      } else {
+        return;
+      }
+      if (this.editType === 'addFeature') {
+        this.helpMessage = ['Point'].some(r => geometryType.includes(r))
+          ? this.helpTooltipMessages.point.start
+          : this.helpTooltipMessages.polygonAndLine.start;
+      }
+      if (this.editType === 'modifyFeature') {
+        this.helpMessage = this.helpTooltipMessages.select;
+      }
+      if (this.editType === 'modifyAttributes') {
+        this.helpMessage = this.helpTooltipMessages.modifyAttributes;
+      }
+      if (this.editType === 'deleteFeature') {
+        this.helpMessage = this.helpTooltipMessages.delete;
+      }
+    },
 
     removeInteraction() {
       this.editLayer.getSource().clear();
@@ -716,16 +742,12 @@ export default {
     /**
      * TRANSACT METHOD (GEOSERVER WFS-T)
      */
+    replacer() {},
     transact() {
       if (!this.selectedFeature) {
         return;
       }
-      const formatGML = {
-        featureNS: 'petropolis',
-        featureType: this.selectedLayer.get('name'),
-        srsName: 'urn:x-ogc:def:crs:EPSG:4326'
-      };
-      const interactionType = this.editType;
+
       const {
         // eslint-disable-next-line no-unused-vars
         geometry,
@@ -741,36 +763,30 @@ export default {
       feature.setGeometryName('geom');
       feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
       feature.setId(this.selectedFeature.getId());
+      const type = {
+        addFeature: 'insert',
+        modifyAttributes: 'update',
+        modifyFeature: 'update',
+        deleteFeature: 'delete'
+      };
+      const payload = {
+        type: type[this.editType],
+        srid: '4326',
+        table: this.layersMetadata[this.selectedLayer.get('name')].typeName,
+        geometry: new GeoJSON().writeGeometryObject(feature.getGeometry()),
+        properties: propsWithNoGeometry,
+        featureId: feature.getId()
+      };
 
-      let payload;
-      console.log(interactionType, feature);
-      switch (this.editType) {
-        case 'addFeature': {
-          payload = wfsTransactionParser([feature], null, null, formatGML);
-          break;
-        }
-        case 'modifyAttributes':
-        case 'modifyFeature': {
-          payload = wfsTransactionParser(null, [feature], null, formatGML);
-          break;
-        }
-        case 'deleteFeature': {
-          payload = wfsTransactionParser(null, null, [feature], formatGML);
-          break;
-        }
-        default:
-          break;
-      }
-      payload = new XMLSerializer().serializeToString(payload);
       axios
-        .post('geoserver/petropolis/wfs', payload, {
-          headers: { 'Content-Type': 'text/xml' }
+        .post('api/layer', payload, {
+          headers: authHeader()
         })
-        .then(response => {
-          console.log(response);
-          if (!this.editType === 'modifyFeature') {
+        .then(() => {
+          if (this.editType !== 'modifyFeature') {
             this.editLayer.getSource().clear();
           }
+          this.formData = {};
           if (this.selectedLayer && this.selectedLayer.getSource().refresh) {
             if (this.selectedLayer.get('type') === 'VECTOR') {
               this.selectedLayer.getSource().refresh();

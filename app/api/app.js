@@ -11,6 +11,7 @@ const tokenController = require("./controllers/auth/tokenController.js");
 const userController = require("./controllers/auth/userController.js");
 const roleController = require("./controllers/auth/roleController.js");
 const permissionController = require("./controllers/auth/permissionController.js");
+const layerController = require("./controllers/gis/layerController.js");
 
 // Use middleware
 app.use(logger("dev"));
@@ -61,6 +62,9 @@ app
   .route("/api/permissions/:id")
   .patch(permissionController.permission_patch)
   .delete(permissionController.permission_delete);
+
+app.route("/api/layer")
+  .post(layerController.layer_post);
 
 // Run server on port
 app.listen(3000, () => console.log("Example app listening on port 3000!"));

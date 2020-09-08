@@ -53,7 +53,10 @@
               <span
                 v-if="isPopupRowVisible(item)"
                 v-html="
-                  `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
+                  `<strong>${mapPopupPropName(
+                    item,
+                    popup.activeLayer
+                  )}: </strong>` + item.value
                 "
               ></span>
             </div>
@@ -193,7 +196,7 @@ export default {
     'app-lightbox': AppLightBox,
     locate: Locate,
     'progress-loader': ProgressLoader,
-    'edit': Edit
+    edit: Edit
   },
   name: 'app-ol-map',
   data() {
@@ -891,20 +894,17 @@ export default {
             if (!urls.includes('geoserver')) return;
             if (!Array.isArray(url) || url.length < 2) return;
             const geoserverLayerName = url[1];
-            const response = await http.get(
-              './geoserver/wfs',
-              {
-                params: {
-                  service: 'WFS',
-                  version: ' 2.0.0',
-                  request: 'GetFeature',
-                  outputFormat: 'application/json',
-                  srsName: 'EPSG:3857',
-                  typeNames: geoserverLayerName,
-                  featureId: feature.getId()
-                }
+            const response = await http.get('./geoserver/wfs', {
+              params: {
+                service: 'WFS',
+                version: ' 2.0.0',
+                request: 'GetFeature',
+                outputFormat: 'application/json',
+                srsName: 'EPSG:3857',
+                typeNames: geoserverLayerName,
+                featureId: feature.getId()
               }
-            );
+            });
             if (response.data.features) {
               const olFeatures = geojsonToFeature(response.data, {});
               this.popup.activeFeature = olFeatures[0];
@@ -998,14 +998,10 @@ export default {
           filter
         );
         promiseArray.push(
-          http.post(
-            `./geoserver/${workspace}/wfs`,
-            wfsRequest,
-            {
-              headers: { 'Content-Type': 'text/xml' },
-              layerName: geoserverLayerName
-            }
-          )
+          http.post(`./geoserver/${workspace}/wfs`, wfsRequest, {
+            headers: { 'Content-Type': 'text/xml' },
+            layerName: geoserverLayerName
+          })
         );
       });
 
@@ -1133,7 +1129,10 @@ export default {
                     geoserverLayerNames[workspace].mapped[layerName] ===
                     geoserverLayerName
                   ) {
-                    this.layersMetadata[layerName] = featureTypes[0].properties;
+                    this.layersMetadata[layerName] = {
+                      properties: featureTypes[0].properties,
+                      typeName: featureTypes[0].typeName
+                    };
                   }
                 }
               );

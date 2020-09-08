@@ -89,6 +89,13 @@ module.exports = {
           createdAt: Sequelize.fn("NOW"),
           updatedAt: Sequelize.fn("NOW"),
         },
+        {
+          permissionName: "edit_layers",
+          relatedRoleID: 2,
+          resourceName: "_layers",
+          createdAt: Sequelize.fn("NOW"),
+          updatedAt: Sequelize.fn("NOW"),
+        },
       ],
       {}
     );
