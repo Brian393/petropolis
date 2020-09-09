@@ -112,7 +112,12 @@
             map
               .getLayers()
               .getArray()
-              .filter(l => ['VECTORTILE', 'VECTOR'].includes(l.get('type')))
+              .filter(
+                l =>
+                  ['VECTORTILE', 'VECTOR'].includes(l.get('type')) &&
+                  l.get('name') &&
+                  l.get('legendDisplayName')
+              )
           "
           v-model="dialogSelectedLayer"
           return-object
@@ -203,8 +208,12 @@
 </template>
 <script>
 import { Mapable } from '../../../../mixins/Mapable';
+
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
+import Feature from 'ol/Feature';
+import RenderFeature from 'ol/render/Feature';
+import { LineString, MultiLineString, Polygon, MultiPolygon } from 'ol/geom';
 import { Modify, Draw } from 'ol/interaction';
 import { unByKey } from 'ol/Observable';
 import Overlay from 'ol/Overlay.js';
@@ -212,12 +221,16 @@ import { mapFields } from 'vuex-map-fields';
 import { mapGetters } from 'vuex';
 import { getFeatureHighlightStyle } from '../../../../style/OlStyleDefs';
 import OverlayPopup from './Overlay';
-
+import axios from 'axios';
+import { geojsonToFeature } from '../../../../utils/MapUtils';
+import { getNestedProperty } from '../../../../utils/Helpers';
+import GeoJSON from 'ol/format/GeoJSON';
 import VJsf from '@koumoul/vjsf/lib/VJsf.js';
 import '@koumoul/vjsf/lib/VJsf.css';
 // load third-party dependencies (markdown-it, vuedraggable)
 // you can also load them separately based on your needs
 import '@koumoul/vjsf/lib/deps/third-party.js';
+import authHeader from '../../../../services/auth-header';
 
 export default {
   components: {
@@ -241,7 +254,7 @@ export default {
       {
         icon: 'edit',
         action: 'modifyFeature',
-        tooltip: 'Modify Feature'
+        tooltip: 'Modify Geometry'
       },
       {
         icon: 'delete',
@@ -259,10 +272,28 @@ export default {
     currentInteraction: null,
     mapClickListener: null,
     pointerMoveKey: null,
+    overlayersGarbageCollector: [],
+    sketch: null,
+    // Help tooltip data
     helpMessage: '',
     helpTooltipElement: null,
     helpTooltip: null,
-    overlayersGarbageCollector: [],
+    helpTooltipMessages: {
+      delete: 'Click on the feature to delete. \nPress ESC to exit.',
+      select: 'Click to select feature. \nPress ESC to exit.',
+      edit: 'Click on the feature and drag to move it. \nPress ESC to exit.',
+      modifyAttributes:
+        'Click on the feature to modify attributes. \nPress ESC to exit.',
+      polygonAndLine: {
+        start: 'Click to start drawing. \nPress ESC to exit.',
+        continue: 'Click to continue drawing. \nPress ESC to exit.',
+        close:
+          'Click to add another point (double-click to finish) \nPress ESC to exit.'
+      },
+      point: {
+        start: 'Click to place the point. \nPres ESC to exit.'
+      }
+    },
     // Popup
     popupOverlay: null,
     popup: {
@@ -282,13 +313,9 @@ export default {
     formSchema: {
       type: 'object',
       required: [],
-      properties: {
-     
-      }
+      properties: {}
     },
-    formSchemaCache: {
-
-    }
+    formSchemaCache: {}
   }),
   name: 'edit-control',
   computed: {
@@ -381,10 +408,10 @@ export default {
       if (!this.selectedLayer) return;
       const layerName = this.selectedLayer.get('name');
       const layerMetadata = this.layersMetadata[layerName];
-      this.createSchemaFromLayerMetadata() // Used for dynamic form rendering
+      this.createSchemaFromLayerMetadata(); // Used for dynamic form rendering
       let geometryType;
       if (layerMetadata) {
-        geometryType = layerMetadata[0].localType;
+        geometryType = layerMetadata.properties[0].localType;
       }
       if (!geometryType) return;
       this.createHelpTooltip();
@@ -395,42 +422,34 @@ export default {
         case 'addFeature': {
           this.currentInteraction = new Draw({
             source: this.editLayer.getSource(),
-            type: geometryType
+            type: geometryType,
+            geometryName: 'geom'
           });
           this.currentInteraction.on('drawstart', this.onDrawStart);
           this.currentInteraction.on('drawend', this.onDrawEnd);
-          this.helpMessage = ['Point'].some(r => geometryType.includes(r))
-            ? 'Click to place point'
-            : 'Click to start drawing';
           break;
         }
         case 'modifyFeature': {
           this.currentInteraction = new Modify({
-            source:
-              this.selectedLayer.get('type') === 'VECTORTILE'
-                ? this.editLayer.getSource()
-                : this.selectedLayer.getSource()
+            source: this.editLayer.getSource()
           });
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           this.currentInteraction.on('modifystart', this.onModifyStart);
           this.currentInteraction.on('modifyend', this.onModifyEnd);
-          this.helpMessage = 'Click and drag to modify';
           break;
         }
         case 'deleteFeature': {
-          this.mapClickListener = this.map.on('click', this.openDeletePopup);
-          this.helpMessage = 'Click on feature to delete';
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           break;
         }
         case 'modifyAttributes': {
-          this.mapClickListener = this.map.on(
-            'click',
-            this.openModifyAttributesPopup
-          );
+          this.mapClickListener = this.map.on('click', this.selectFeature);
           break;
         }
         default:
           break;
       }
+      this.startResetHelpTooltip();
       if (this.currentInteraction) {
         this.map.addInteraction(this.currentInteraction);
       }
@@ -439,41 +458,64 @@ export default {
      * Transforms layer metadata into a json structure which can be used to render dynamic vuetify components
      */
     createSchemaFromLayerMetadata() {
-      const layerName = this.selectedLayer.get('name')
+      this.formSchema = {
+        type: 'object',
+        required: [],
+        properties: {}
+      };
+      const layerName = this.selectedLayer.get('name');
       if (!this.formSchemaCache[layerName]) {
         const layerMetadata = this.layersMetadata[layerName];
-        console.log(layerMetadata)
         if (layerMetadata) {
-          layerMetadata.forEach(property => {
+          layerMetadata.properties.forEach(property => {
             const type = this.formTypesMapping[property.localType];
             if (type) {
+              let title;
+              const fieldMapping = this.$appConfig.map.popupFieldsMapping;
+              if (fieldMapping) {
+                title =
+                  getNestedProperty(
+                    fieldMapping,
+                    `${layerName}.${property.name}`
+                  ) ||
+                  fieldMapping.default[property.name] ||
+                  property.name;
+              }
+              title = title.toUpperCase()
               this.formSchema.properties[property.name] = {
                 type,
-                title: property.name
-              }
+                title
+              };
               if (property.nillable === false) {
                 this.formSchema.required.push(property.name);
               }
               if (property.name === 'geom') {
-                this.formSchema[property.name]["x-display"] = "hidden";
+                this.formSchema[property.name]['x-display'] = 'hidden';
               }
             }
           });
+          this.formSchemaCache[layerName] = this.formSchema;
         }
+      } else {
+        this.formSchema = this.formSchemaCache[layerName];
+        console.log(this.formSchema);
       }
     },
 
     /**
      * Draw event
      */
-    onDrawStart() {},
+    onDrawStart(evt) {
+      this.sketch = evt.feature;
+    },
     onDrawEnd(evt) {
       const feature = evt.feature;
+      this.selectedFeature = feature;
       this.closePopup();
       if (this.currentInteraction) {
         this.currentInteraction.setActive(false);
       }
-      this.highlightLayer.getSource().addFeature(feature);
+      this.highlightLayer.getSource().addFeature(feature.clone());
       let popupCoordinate = feature.getGeometry().getCoordinates();
       while (popupCoordinate && Array.isArray(popupCoordinate[0])) {
         popupCoordinate = popupCoordinate[0];
@@ -485,46 +527,93 @@ export default {
       this.popupOverlay.setPosition(popupCoordinate);
       this.popup.title = 'Attributes';
       this.popup.isVisible = true;
+      this.sketch = null;
+      this.startResetHelpTooltip();
     },
 
     /**
      * Modify event
      */
-    onModifyStart() {},
-    onModifyEnd() {},
+    onModifyStart() {
+      this.selectedFeature = null;
+    },
+    onModifyEnd(evt) {
+      this.selectedFeature = evt.features.getArray()[0];
+      this.transact();
+    },
 
     /**
-     * Delete
+     * Select feature
      */
-    openDeletePopup(evt) {
-      let feature;
+    async selectFeature(evt) {
+      // Get feature attributes popup
       this.highlightLayer.getSource().clear();
-      if (evt.coordinate) {
-        const coordinate = evt.coordinate;
-        feature = this.selectedLayer
-          .getSource()
-          .getClosestFeatureToCoordinate(coordinate);
-      } else {
-        this.createPopupOverlay();
-        feature = evt;
-      }
-      this.highlightLayer.getSource().addFeature(feature);
-      if (feature) {
-        let popupCoordinate = feature.getGeometry().getCoordinates();
-        let closestPoint;
-        // Closest point doesn't work with vector tile layers.
-        if (popupCoordinate) {
-          closestPoint = feature.getGeometry().getClosestPoint(evt.coordinate);
-        } else {
-          closestPoint = evt.coordinate;
-        }
-        this.map.getView().animate({
-          center: closestPoint,
-          duration: 400
+      const selectedLayer = this.selectedLayer;
+      if (['VECTOR', 'VECTORTILE'].includes(this.selectedLayer.get('type'))) {
+        const features = this.map.getFeaturesAtPixel(evt.pixel, {
+          layerFilter: layerCandidate => {
+            return layerCandidate.get('name') === selectedLayer.get('name');
+          },
+          hitTolerance: 3
         });
-        this.popupOverlay.setPosition(closestPoint);
-        this.popup.title = 'Confirm';
-        this.popup.isVisible = true;
+        if (features.length > 0) {
+          let feature = features[0];
+          // Workaround for vector tile layers.
+          if (feature instanceof RenderFeature) {
+            const urls = selectedLayer.getSource().getUrls()[0];
+            const url = urls.match('tms/1.0.0/(.*)@EPSG');
+            if (!urls.includes('geoserver')) return;
+            if (!Array.isArray(url) || url.length < 2) return;
+            const geoserverLayerName = url[1];
+            const response = await axios.get('./geoserver/wfs', {
+              params: {
+                service: 'WFS',
+                version: ' 2.0.0',
+                request: 'GetFeature',
+                outputFormat: 'application/json',
+                srsName: 'EPSG:3857',
+                typeNames: geoserverLayerName,
+                featureId: feature.getId()
+              }
+            });
+            if (response.data.features) {
+              const olFeatures = geojsonToFeature(response.data, {});
+              feature = olFeatures[0];
+            }
+          }
+          if (feature) {
+            this.selectedFeature = feature;
+
+            if (['deleteFeature', 'modifyAttributes'].includes(this.editType)) {
+              this.highlightLayer.getSource().addFeature(feature.clone());
+              let popupCoordinate = feature.getGeometry().getCoordinates();
+              let closestPoint;
+              if (popupCoordinate) {
+                closestPoint = feature
+                  .getGeometry()
+                  .getClosestPoint(evt.coordinate);
+              } else {
+                closestPoint = evt.coordinate;
+              }
+              this.map.getView().animate({
+                center: closestPoint,
+                duration: 400
+              });
+              this.popupOverlay.setPosition(closestPoint);
+              this.popup.isVisible = true;
+              if (this.editType === 'deleteFeature') {
+                this.popup.title = 'Confirm';
+              } else if (this.editType === 'modifyAttributes') {
+                this.popup.title = 'Modify Attributes';
+                this.formData = feature.getProperties();
+              }
+            } else if (this.editType === 'modifyFeature') {
+              this.editLayer.getSource().clear();
+              this.editLayer.getSource().addFeature(this.selectedFeature);
+              this.helpMessage = this.helpTooltipMessages.edit;
+            }
+          }
+        }
       }
     },
 
@@ -533,8 +622,21 @@ export default {
      */
     popupOk() {
       if (this.editType === 'deleteFeature') {
-        console.log('commit feature delete...');
+        //TODO: Commit delete in the server
+        //Remove feature from the source
+        if (this.selectedFeature) {
+          this.selectedLayer.getSource().removeFeature(this.selectedFeature);
+        }
+      } else if (
+        ['addFeature', 'modifyAttributes'].includes(this.editType) &&
+        this.selectedFeature
+      ) {
+        // Get properties and assign it to feature
+        this.selectedFeature.setProperties(this.formData);
       }
+      // Commit change in db
+      this.transact();
+      // Close popup and clear previous interactions.
       this.popupCancel();
     },
     popupCancel() {
@@ -546,12 +648,8 @@ export default {
         this.currentInteraction.setActive(true);
       }
       this.highlightLayer.getSource().clear();
+      this.editLayer.getSource().clear();
     },
-
-    /**
-     * Modify attributes
-     */
-    openModifyAttributesPopup() {},
 
     /**
      * Pointermove for tooltip
@@ -562,7 +660,22 @@ export default {
         this.helpTooltip.setPosition(undefined);
         return;
       }
+
       const coordinate = evt.coordinate;
+      if (this.sketch) {
+        const geom = this.sketch.getGeometry();
+        if (
+          geom instanceof Polygon ||
+          geom instanceof MultiPolygon ||
+          geom instanceof LineString ||
+          geom instanceof MultiLineString
+        ) {
+          this.helpMessage = this.helpTooltipMessages.polygonAndLine.continue;
+          if (geom.getCoordinates && geom.getCoordinates().length > 2) {
+            this.helpMessage = this.helpTooltipMessages.polygonAndLine.close;
+          }
+        }
+      }
       this.helpTooltipElement.innerHTML = this.helpMessage;
       this.helpTooltip.setPosition(coordinate);
       this.map.getTarget().style.cursor = 'pointer';
@@ -587,12 +700,37 @@ export default {
       this.layersDialog = false;
       this.removeInteraction();
     },
+    startResetHelpTooltip() {
+      let geometryType;
+      const layerMetadata = this.layersMetadata[this.selectedLayer.get('name')];
+      if (layerMetadata) {
+        geometryType = layerMetadata.properties[0].localType;
+      } else {
+        return;
+      }
+      if (this.editType === 'addFeature') {
+        this.helpMessage = ['Point'].some(r => geometryType.includes(r))
+          ? this.helpTooltipMessages.point.start
+          : this.helpTooltipMessages.polygonAndLine.start;
+      }
+      if (this.editType === 'modifyFeature') {
+        this.helpMessage = this.helpTooltipMessages.select;
+      }
+      if (this.editType === 'modifyAttributes') {
+        this.helpMessage = this.helpTooltipMessages.modifyAttributes;
+      }
+      if (this.editType === 'deleteFeature') {
+        this.helpMessage = this.helpTooltipMessages.delete;
+      }
+    },
 
     removeInteraction() {
       this.editLayer.getSource().clear();
       this.highlightLayer.getSource().clear();
+      this.selectedFeature = null;
       this.isEditing = false;
       this.editType = null;
+      this.formData = {};
       this.clearOverlays();
       if (this.currentInteraction) {
         this.map.removeInteraction(this.currentInteraction);
@@ -615,6 +753,67 @@ export default {
       }
       this.highlightLayer.getSource().clear();
       this.editLayer.getSource().clear();
+    },
+
+    /**
+     * TRANSACT METHOD (GEOSERVER WFS-T)
+     */
+    replacer() {},
+    transact() {
+      if (!this.selectedFeature) {
+        return;
+      }
+
+      const {
+        // eslint-disable-next-line no-unused-vars
+        geometry,
+        // eslint-disable-next-line no-unused-vars
+        geom,
+        ...propsWithNoGeometry
+      } = this.selectedFeature.getProperties();
+
+      const feature = new Feature({
+        geom: this.selectedFeature.getGeometry().clone(),
+        ...propsWithNoGeometry
+      });
+      feature.setGeometryName('geom');
+      feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
+      feature.setId(this.selectedFeature.getId());
+      const type = {
+        addFeature: 'insert',
+        modifyAttributes: 'update',
+        modifyFeature: 'update',
+        deleteFeature: 'delete'
+      };
+      const payload = {
+        type: type[this.editType],
+        srid: '4326',
+        table: this.layersMetadata[this.selectedLayer.get('name')].typeName,
+        geometry: new GeoJSON().writeGeometryObject(feature.getGeometry()),
+        properties: propsWithNoGeometry,
+        featureId: feature.getId()
+      };
+
+      axios
+        .post('api/layer', payload, {
+          headers: authHeader()
+        })
+        .then(() => {
+          if (this.editType !== 'modifyFeature') {
+            this.editLayer.getSource().clear();
+          }
+          this.formData = {};
+          if (this.selectedLayer && this.selectedLayer.getSource().refresh) {
+            if (this.selectedLayer.get('type') === 'VECTOR') {
+              this.selectedLayer.getSource().refresh();
+            } else if (this.selectedLayer.get('type') === 'VECTORTILE') {
+              this.selectedLayer.getSource().tileCache.expireCache({});
+              this.selectedLayer.getSource().clear();
+              this.selectedLayer.getSource().tileCache.clear();
+              this.selectedLayer.getSource().refresh();
+            }
+          }
+        });
     }
   },
   mounted() {
@@ -622,6 +821,22 @@ export default {
      * Reference popup element
      */
     this.popup.el = this.$refs.popup;
+    /**
+     * Create event listener for escape key
+     */
+    document.onkeyup = null;
+    document.onkeyup = evt => {
+      const key = evt.key;
+      const code = evt.keyCode;
+      if (key === 'Escape' || code === '27') {
+        if (this.removeInteraction) {
+          this.removeInteraction();
+        }
+      }
+    };
+  },
+  beforeDestroy(){
+    this.closeEdit();
   },
   watch: {
     $route() {
