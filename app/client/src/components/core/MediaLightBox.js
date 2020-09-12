@@ -2,19 +2,27 @@
 
 import '../../assets/mediabox.css';
 export default class MediaLightBox {
-  constructor(url) {
+  constructor(url, caption) {
     this.url = url;
+    this.caption = caption || ""
     this.root = document.querySelector('body');
   }
   open() {
-    this.render(this.url);
+    this.render(this.url, this.caption);
     this.events();
   }
-  render(embedLink) {
+  render(embedLink, caption) {
     var lightbox = this.template(
-      '<div class="mediabox-wrap" role="dialog" aria-hidden="false"><div class="mediabox-content" role="document" tabindex="0"><span id="mediabox-esc" class="mediabox-close" aria-label="close" tabindex="1"></span><iframe src="{embed}?autoplay=1" frameborder="0" allowfullscreen></iframe></div></div>',
+      `<div class="mediabox-wrap" role="dialog" aria-hidden="false">
+          <div class="mediabox-content" role="document" tabindex="0">
+          <span id="mediabox-esc" class="mediabox-close" aria-label="close" tabindex="1"></span>
+          <iframe src="{embed}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+          <span class="mediabox-caption" tabindex="0">{caption}</span>
+          </div>
+      </div>`,
       {
-        embed: embedLink
+        embed: embedLink,
+        caption: caption
       }
     );
 

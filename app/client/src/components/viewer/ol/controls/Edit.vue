@@ -481,7 +481,7 @@ export default {
                   fieldMapping.default[property.name] ||
                   property.name;
               }
-              title = title.toUpperCase()
+              title = title.toUpperCase();
               this.formSchema.properties[property.name] = {
                 type,
                 title
@@ -756,9 +756,8 @@ export default {
     },
 
     /**
-     * TRANSACT METHOD (GEOSERVER WFS-T)
+     * TRANSACT METHOD
      */
-    replacer() {},
     transact() {
       if (!this.selectedFeature) {
         return;
@@ -771,6 +770,18 @@ export default {
         geom,
         ...propsWithNoGeometry
       } = this.selectedFeature.getProperties();
+
+      //Transform Video Url if exists
+      if (propsWithNoGeometry.vimeoSrc) {
+        propsWithNoGeometry.vimeoSrc = this.parseVideoUrl(
+          propsWithNoGeometry.vimeoSrc
+        );
+      }
+      if (propsWithNoGeometry.videoSrc) {
+        propsWithNoGeometry.videoSrc = this.parseVideoUrl(
+          propsWithNoGeometry.videoSrc
+        );
+      }
 
       const feature = new Feature({
         geom: this.selectedFeature.getGeometry().clone(),
@@ -814,6 +825,31 @@ export default {
             }
           }
         });
+    },
+    parseVideoUrl(url) {
+      let formattedUrl;
+
+      // FORMAT VIMEO VIDEO URL
+      if (
+        url.includes('https://player.vimeo.com') ||
+        url.includes('https://www.youtube-nocookie.com')
+      ) {
+        formattedUrl = url;
+      }
+      if (url.includes('https://vimeo.com/')) {
+        const videoId = url.split('https://vimeo.com/')[1];
+        formattedUrl = 'https://player.vimeo.com/video/' + videoId;
+      }
+      // FORMAT YOUTUBE VIDEO URL
+      if (url.includes('https://www.youtube.com/watch?v=')) {
+        let videoId = url.split('https://www.youtube.com/watch?v=')[1];
+        let ampersandPosition = videoId.indexOf('&');
+        if (ampersandPosition != -1) {
+          videoId = videoId.substring(0, ampersandPosition);
+        }
+        formattedUrl = 'https://www.youtube-nocookie.com/embed/' + videoId;
+      }
+      return formattedUrl;
     }
   },
   mounted() {
@@ -835,7 +871,7 @@ export default {
       }
     };
   },
-  beforeDestroy(){
+  beforeDestroy() {
     this.closeEdit();
   },
   watch: {
