@@ -9,7 +9,27 @@
             </div>
 
             <!-- LEGEND IMAGE -->
+            <iframe
+              v-if="
+                (popup.showInSidePanel === true &&
+                  popup.activeFeature &&
+                  popup.activeFeature.get('vimeoUrl')) ||
+                  (popup.showInSidePanel === true &&
+                    popup.activeFeature &&
+                    popup.activeFeature.get('videoUrl'))
+              "
+              height="300"
+              width="100%"
+              class="my-3"
+              :src="
+                popup.activeFeature.get('videoUrl') ||
+                  popup.activeFeature.get('vimeoUrl')
+              "
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
             <v-img
+              v-else
               class="my-3"
               max-width="425"
               :src="
@@ -109,7 +129,10 @@
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
-                    `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
+                    `<strong>${mapPopupPropName(
+                      item,
+                      popup.activeLayer
+                    )}: </strong>` + item.value
                   "
                 ></span>
               </div>
@@ -211,7 +234,10 @@
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
-                    `<strong>${mapPopupPropName(item, popup.activeLayer)}: </strong>` + item.value
+                    `<strong>${mapPopupPropName(
+                      item,
+                      popup.activeLayer
+                    )}: </strong>` + item.value
                   "
                 ></span>
               </div>
