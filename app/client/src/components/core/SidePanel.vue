@@ -13,17 +13,17 @@
               v-if="
                 (popup.showInSidePanel === true &&
                   popup.activeFeature &&
-                  popup.activeFeature.get('vimeoUrl')) ||
+                  popup.activeFeature.get('videoSrc')) ||
                   (popup.showInSidePanel === true &&
                     popup.activeFeature &&
-                    popup.activeFeature.get('videoUrl'))
+                    popup.activeFeature.get('vimeoSrc'))
               "
               height="300"
               width="100%"
               class="my-3"
               :src="
-                popup.activeFeature.get('videoUrl') ||
-                  popup.activeFeature.get('vimeoUrl')
+                popup.activeFeature.get('videoSrc') ||
+                  popup.activeFeature.get('vimeoSrc')
               "
               frameborder="0"
               allowfullscreen
