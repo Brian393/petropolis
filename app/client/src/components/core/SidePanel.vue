@@ -9,7 +9,7 @@
             </div>
 
             <!-- LEGEND IMAGE -->
-            <iframe
+            <template
               v-if="
                 (popup.showInSidePanel === true &&
                   popup.activeFeature &&
@@ -18,16 +18,19 @@
                     popup.activeFeature &&
                     popup.activeFeature.get('vimeoSrc'))
               "
-              height="300"
-              width="100%"
-              class="my-3"
-              :src="
-                popup.activeFeature.get('videoSrc') ||
-                  popup.activeFeature.get('vimeoSrc')
-              "
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
+            >
+              <iframe
+                height="300"
+                width="100%"
+                :src="
+                  popup.activeFeature.get('videoSrc') ||
+                    popup.activeFeature.get('vimeoSrc')
+                "
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </template>
+
             <v-img
               v-else
               class="my-3"
@@ -41,6 +44,19 @@
               "
             >
             </v-img>
+            <div
+              align="center"
+              style="display:flex;justify-content:center;align-items: center;width:100%;"
+              class="caption font-italic font-weight-medium"
+              v-if="
+                popup.showInSidePanel === true &&
+                  popup.activeFeature &&
+                  popup.activeFeature.get('caption')
+              "
+              tabindex="0"
+            >
+              {{ popup.activeFeature.get('caption') }}
+            </div>
             <template v-if="!popup.showInSidePanel">
               <!-- CAPTION - USE BY UNCOMMENTING
               <div class="caption font-italic font-weight-medium">
