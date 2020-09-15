@@ -852,10 +852,10 @@ export default {
         if (feature) {
           const props = feature.getProperties();
           // Check if feature has video link
-          if (props.vimeoSrc) {
+          if (props.videoSrc || props.vimeoSrc) {
             const mediabox = new MediaLightBox(
-              props.vimeoSrc,
-              props.vimeoTitle || props.caption
+               props.videoSrc || props.vimeoSrc,
+             props.caption || props.vimeoTitle
             );
             mediabox.open();
             return;
