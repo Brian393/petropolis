@@ -11,21 +11,15 @@
             <!-- LEGEND IMAGE -->
             <template
               v-if="
-                (popup.showInSidePanel === true &&
+                popup.showInSidePanel === true &&
                   popup.activeFeature &&
-                  popup.activeFeature.get('videoSrc')) ||
-                  (popup.showInSidePanel === true &&
-                    popup.activeFeature &&
-                    popup.activeFeature.get('vimeoSrc'))
+                  popup.activeFeature.get('sidebarVideoSrc')
               "
             >
               <iframe
                 height="300"
                 width="100%"
-                :src="
-                  popup.activeFeature.get('videoSrc') ||
-                    popup.activeFeature.get('vimeoSrc')
-                "
+                :src="popup.activeFeature.get('sidebarVideoSrc')"
                 frameborder="0"
                 allowfullscreen
               ></iframe>
