@@ -34,9 +34,9 @@ exports.layer_post = (req, res) => {
               keys.push(`"${key}"`);
               let value = req.body.properties[key];
               if (typeof value === "string") {
-                value = `'${value}'`;
+                value = `$$${value}$$`;
               } else if (typeof value === "object") {
-                value = `'${JSON.stringify(value)}'`;
+                value = `$$${JSON.stringify(value)}$$`;
               }
               values.push(value);
             });
@@ -52,9 +52,9 @@ exports.layer_post = (req, res) => {
             Object.keys(req.body.properties).forEach((key, index, array) => {
               let value = req.body.properties[key];
               if (typeof value === "string") {
-                value = `'${value}'`;
+                value = `$$${value}$$`;
               } else if (typeof value === "object") {
-                value = `'${JSON.stringify(value)}'`;
+                value = `$$${JSON.stringify(value)}$$`;
               }
               keyValue += `"${key}" = ${value}`;
               if (index !== array.length - 1) {

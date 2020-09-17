@@ -782,6 +782,11 @@ export default {
           propsWithNoGeometry.videoSrc
         );
       }
+      if (propsWithNoGeometry.sidebarVideoSrc) {
+        propsWithNoGeometry.sidebarVideoSrc = this.parseVideoUrl(
+          propsWithNoGeometry.sidebarVideoSrc
+        );
+      }
 
       const feature = new Feature({
         geom: this.selectedFeature.getGeometry().clone(),

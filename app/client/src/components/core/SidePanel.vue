@@ -49,7 +49,7 @@
               "
               tabindex="0"
             >
-              {{ popup.activeFeature.get('caption') }}
+              <span v-html="popup.activeFeature.get('caption')"></span>
             </div>
             <template v-if="!popup.showInSidePanel">
               <!-- CAPTION - USE BY UNCOMMENTING
