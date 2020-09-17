@@ -856,9 +856,9 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/LNGtanker.png"
-          }
-        },
-        {
+        }
+      },
+      {
         "type": "VECTORTILE",
         "name": "coal_global1",
         "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:coal_global@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
@@ -1061,7 +1061,7 @@
         "type": "WMS",
         "name": "na_rr2",
         "url": "./geoserver/wms",
-       "layers": "petropolis:na_rr",
+        "layers": "petropolis:na_rr",
         "group": "petropolisCoal",
         "renderMode": "image",
         "includeInSearch": false,
@@ -1081,62 +1081,62 @@
           "strokeWidth": 0.5
         }
       },
-    {
-      "type": "VECTORTILE",
-      "name": "publically_owned_utilities",
-      "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:publically_owned_utilities@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-      "group": "petropolisRenewables",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Public Utilities",
-      "format": "MVT",
-      "renderMode": "hybrid",
-      "visible": false,
-      "zIndex": 0,
-      "minResolution": 0.5,
-      "maxResolution": 64000,
-      "label": true,
-      "hoverable": true,
-      "isInteractive": true,
-      "opacity": 0.6,
-      "legendIcon": "icons/legendPublicUtilities.png",
-      "style": {
-        "hoverTextColor": "white",
-        "hoverBackgroundColor": "#000000",
-        "styleRef": "colorMapStyle",
-        "colorField": "title",
-        "colormap": "portland",
-        "strokeWidth": 1,
-        "strokeColor": "black"
+      {
+        "type": "VECTORTILE",
+        "name": "publically_owned_utilities",
+        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:publically_owned_utilities@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisRenewables",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Public Utilities",
+        "format": "MVT",
+        "renderMode": "hybrid",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "isInteractive": true,
+        "opacity": 0.6,
+        "legendIcon": "icons/legendPublicUtilities.png",
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "styleRef": "colorMapStyle",
+          "colorField": "title",
+          "colormap": "portland",
+          "strokeWidth": 1,
+          "strokeColor": "black"
         }
       },
-    {
-      "type": "VECTORTILE",
-      "name": "investor_owned",
-      "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:investor_owned@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-      "group": "petropolisRenewables",
-      "queryable": true,
-      "displayInLegend": true,
-      "legendDisplayName": "Investor Owned",
-      "format": "MVT",
-      "renderMode": "hybrid",
-      "visible": false,
-      "zIndex": 0,
-      "minResolution": 0.5,
-      "maxResolution": 64000,
-      "label": true,
-      "hoverable": true,
-      "isInteractive": true,
-      "opacity": 0.7,
-      "legendIcon": "icons/legendInvestorOwned.png",
-      "style": {
-        "hoverTextColor": "white",
-        "hoverBackgroundColor": "#000000",
-        "styleRef": "colorMapStyle",
-        "colorField": "title",
-        "colormap": "blackbody",
-        "strokeWidth": 2,
-        "strokeColor": "black"
+      {
+        "type": "VECTORTILE",
+        "name": "investor_owned",
+        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:investor_owned@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisRenewables",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Investor Owned",
+        "format": "MVT",
+        "renderMode": "hybrid",
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "label": true,
+        "hoverable": true,
+        "isInteractive": true,
+        "opacity": 0.7,
+        "legendIcon": "icons/legendInvestorOwned.png",
+        "style": {
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "styleRef": "colorMapStyle",
+          "colorField": "title",
+          "colormap": "blackbody",
+          "strokeWidth": 2,
+          "strokeColor": "black"
         }
       },
       {
@@ -1165,8 +1165,8 @@
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#FFD241"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "all_wind2",
@@ -1189,12 +1189,12 @@
           "type": "circle",
           "stylePropFnRef": {
             "circleRadiusFn": "variable2"
-            },
+          },
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#ff3b30"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "hydro_power",
@@ -1213,16 +1213,16 @@
         "hoverable": true,
         "style": {
           "type": "circle",
-            "hoverTextColor": "white",
-            "hoverBackgroundColor": "#3f8ef5",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#3f8ef5",
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
-            },
+          },
           "strokeColor": "#142c76",
           "strokeWidth": 0.8,
           "fillColor": "#3f8ef5"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "nuclear_power",
@@ -1245,11 +1245,11 @@
           "type": "circle",
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
-            },
+          },
           "strokeColor": "#000000",
           "fillColor": "#AC129A"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "geothermal",
@@ -1272,12 +1272,12 @@
           "type": "circle",
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
-            },
+          },
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#D05B6E"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "wave_tidal",
@@ -1300,12 +1300,12 @@
           "type": "circle",
           "stylePropFnRef": {
             "circleRadiusFn": "capacity"
-            },
+          },
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#20B1AA"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "gas2",
@@ -1331,8 +1331,8 @@
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#ec6e23"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "coal_global2",
@@ -1358,8 +1358,8 @@
           "strokeColor": "black",
           "strokeWidth": 1,
           "fillColor": "darkgray"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "oil",
@@ -1385,8 +1385,8 @@
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#965846"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "biomass",
@@ -1412,8 +1412,8 @@
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "#294A34"
-          }
-        },
+        }
+      },
       {
         "type": "VECTORTILE",
         "name": "waste",
@@ -1439,15 +1439,8 @@
           "strokeColor": "#000000",
           "strokeWidth": 1,
           "fillColor": "gray"
-          }
-        },
-
-
-
-
-
-
-
+        }
+      },
 
       {
         "type": "XYZ",
@@ -1946,6 +1939,15 @@
       "title": "PROJECT NAME"
       }
     },
+    "featureInfoHiddenProps": [
+      "BPD",
+      "variable1",
+      "variable2",
+      "imageUrl",
+      "videoUrl",
+      "videoSrc",
+      "sidebarVideoSrc"
+    ],
     "corporateEntitiesUrls": {
       "Enbridge": "https://its.timetochange.today/Enbridge/"
     }

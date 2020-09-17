@@ -1146,7 +1146,7 @@ export default {
     isPopupRowVisible(item) {
       if (this.selectedCoorpNetworkEntity && this.popup.activeFeature) {
         return (
-          !this.popup.hiddenProps.includes(item.property) &&
+          !this.hiddenProps.includes(item.property) &&
           !['null', '---'].includes(item.value)
         );
       }
@@ -1154,7 +1154,7 @@ export default {
       if (!['null', '---'].includes(item.value)) {
         return (
           this.popup.diveVisibleProps.includes(item.property) &&
-          !this.popup.hiddenProps.includes(item.property)
+          !this.hiddenProps.includes(item.property)
         );
       } else {
         return false;
@@ -1215,6 +1215,10 @@ export default {
         this.activeLayerGroup.region
       ];
       return group;
+    },
+    hiddenProps() {
+      const hiddenProps = this.$appConfig.map.featureInfoHiddenProps;
+      return hiddenProps || []
     },
     searchLabel() {
       const searchLabel = this.popup.activeLayer.get('searchLabel');
