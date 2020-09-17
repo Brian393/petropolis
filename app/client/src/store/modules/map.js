@@ -28,7 +28,6 @@ const state = {
     isVisible: false,
     activeFeature: null,
     activeLayer: null,
-    hiddenProps: ['BPD', 'variable1', 'variable2', 'imageUrl', 'videoUrl', 'videoSrc'],
     exludedProps: [
       'id',
       'geometry',
