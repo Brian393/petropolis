@@ -135,7 +135,7 @@
               >
                 <span
                   v-if="
-                    !popup.hiddenProps.includes(item.property) &&
+                    !hiddenProps.includes(item.property) &&
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
@@ -240,7 +240,7 @@
               >
                 <span
                   v-if="
-                    !popup.hiddenProps.includes(item.property) &&
+                    !hiddenProps.includes(item.property) &&
                       !['null', '---'].includes(item.value)
                   "
                   v-html="
@@ -290,7 +290,10 @@ export default {
         this.selectedCoorpNetworkEntity
       );
     },
-
+    hiddenProps() {
+      const hiddenProps = this.$appConfig.map.featureInfoHiddenProps;
+      return hiddenProps || []
+    },
     searchLabel() {
       const searchLabel = this.popup.activeLayer.get('searchLabel');
       if (searchLabel) {
