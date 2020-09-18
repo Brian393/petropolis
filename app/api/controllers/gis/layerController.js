@@ -78,7 +78,6 @@ exports.layer_post = (req, res) => {
         default:
           break;
       }
-      console.log(sql);
       sequelize
         .query(sql)
         .then((results) => {

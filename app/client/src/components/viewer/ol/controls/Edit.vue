@@ -303,7 +303,11 @@ export default {
     },
     // Dynamic form
     formValid: true,
-    formOptions: {},
+    formOptions: {
+      debug: false,
+      disableAll: false,
+      autoFoldObjects: true
+    },
     formData: {},
     formTypesMapping: {
       string: 'string',
@@ -498,8 +502,8 @@ export default {
         }
       } else {
         this.formSchema = this.formSchemaCache[layerName];
-        console.log(this.formSchema);
       }
+      console.log(this.formSchema);
     },
 
     /**
@@ -632,6 +636,16 @@ export default {
         this.selectedFeature
       ) {
         // Get properties and assign it to feature
+        const properties = Object.keys(this.formSchema.properties);
+        properties.forEach(property => {
+          if (!this.formData[property]) {
+            this.formData[property] =
+              this.formSchema.properties[property].type === 'string'
+                ? ''
+                : null;
+          }
+        });
+        console.log(this.formData);
         this.selectedFeature.setProperties(this.formData);
       }
       // Commit change in db

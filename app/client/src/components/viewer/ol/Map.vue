@@ -1102,7 +1102,7 @@ export default {
       const filterLayersWithEntity = [];
       geoserverLayerNames[workspace].names.forEach(geoserverLayerName => {
         http
-          .get('https://timetochange.today/geoserver/wfs', {
+          .get('./geoserver/wfs', {
             params: {
               service: 'WFS',
               version: ' 2.0.0',
