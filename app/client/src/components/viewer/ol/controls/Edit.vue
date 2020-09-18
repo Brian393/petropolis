@@ -503,7 +503,6 @@ export default {
       } else {
         this.formSchema = this.formSchemaCache[layerName];
       }
-      console.log(this.formSchema);
     },
 
     /**
@@ -645,7 +644,6 @@ export default {
                 : null;
           }
         });
-        console.log(this.formData);
         this.selectedFeature.setProperties(this.formData);
       }
       // Commit change in db
