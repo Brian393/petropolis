@@ -15,8 +15,8 @@ const layerController = require("./controllers/gis/layerController.js");
 
 // Use middleware
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: "10mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 
 app
   .route("/api/register")
