@@ -21,6 +21,20 @@
         class="logo headline font-weight-bold black--text mr-3"
         >Just Transition</v-toolbar-title
       >
+      <v-tooltip right>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            v-on="on"
+            small
+            depressed
+            fab
+            color="rgb(228, 76, 107)"
+            class="ml-0"
+            @click="openWebsite()"
+            ><v-icon medium>fas fa-question</v-icon></v-btn
+          > </template
+        ><span>Open Website</span>
+      </v-tooltip>
 
       <v-spacer></v-spacer>
 
@@ -95,6 +109,9 @@ export default {
       }
       this.$router.push({ name: 'oil' });
     },
+    openWebsite() {
+      window.open('https://its.timetochange.today', '_blank');
+    },
     zoomToLocation() {
       if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
@@ -102,7 +119,7 @@ export default {
     },
 
     changeFuelGroup(fuelGroup) {
-      this.$router.push({ path: `/${fuelGroup.name}` });  
+      this.$router.push({ path: `/${fuelGroup.name}` });
       EventBus.$emit('noMapReset');
     },
     ...mapMutations('map', {
