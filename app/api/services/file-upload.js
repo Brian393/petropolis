@@ -11,6 +11,7 @@ aws.config.update({
 
 const s3 = new aws.S3();
 const imagesFolder = process.env.BUCKET_IMAGES_FOLDER;
+const jwtDecode = require("jwt-decode");
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
@@ -27,12 +28,15 @@ const upload = multer({
     bucket: process.env.BUCKET_NAME,
     acl: "public-read",
     metadata: function (req, file, cb) {
-      cb(null, { fieldName: "TESTING_META_DATA!" });
+      const decodedToken = jwtDecode(req.headers.authorization);
+      const uploaderFullName = `${decodedToken.user.firstName} ${decodedToken.user.lastName}`;
+      const uploaderId = decodedToken.user.userID.toString();
+      cb(null, { uploaderFullName, uploaderId });
     },
     key: function (req, file, cb) {
       cb(
         null,
-        "assets" + imagesFolder + Date.now() + path.extname(file.originalname)
+        "assets" + imagesFolder + Date.now() + "_" + file.originalname
       ); //Appending extension
     },
   }),
