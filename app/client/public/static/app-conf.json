@@ -630,7 +630,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/TarSands.png",
-          "scale": 0.7
+          "scale": 0.6
         }
       },
       {
@@ -1936,7 +1936,9 @@
         "entity": "OWNER"
       },
       "cancelled_pipelines": {
-      "title": "PROJECT NAME"
+      "title": "PROJECT NAME",
+      "entity": "PROPOSED BY",
+      "description": "WHY IT FAILED"
       }
     },
     "featureInfoHiddenProps": [
