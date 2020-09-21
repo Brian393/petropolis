@@ -8,8 +8,9 @@
     <v-card-text style="max-height:350px;" class="pb-0 pr-0">
       <slot name="body"></slot>
     </v-card-text>
-    <v-card-actions class="pt-0">
-      <v-spacer></v-spacer>
+
+    <v-divider class="mt-2"></v-divider>
+    <v-card-actions class="pt-0 mt-1">
       <slot name="actions"></slot>
     </v-card-actions>
   </v-card>

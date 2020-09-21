@@ -100,7 +100,15 @@
         </div>
       </template>
     </overlay-popup>
+    <!-- Share Map -->
+    <share-map
+      :map="map"
+      :visible="showShareMapLink"
+      @close="showShareMapLink = false"
+    ></share-map>
+    <!-- Lightbox overlay -->
     <app-lightbox ref="lightbox" :images="lightBoxImages"></app-lightbox>
+    <!-- Progress loader -->
     <progress-loader
       :value="progressLoading.value"
       :progressColor="progressLoading.progressColor"
@@ -160,6 +168,7 @@ import RouteControls from './controls/RouteControls';
 import Legend from './controls/Legend';
 import Login from './controls/Login';
 import Edit from './controls/Edit';
+import ShareMap from './controls/ShareMap';
 
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
@@ -194,6 +203,7 @@ export default {
     'full-screen': FullScreen,
     'route-controls': RouteControls,
     'app-lightbox': AppLightBox,
+    'share-map': ShareMap,
     locate: Locate,
     'progress-loader': ProgressLoader,
     edit: Edit
@@ -227,7 +237,8 @@ export default {
         }
       },
       noMapReset: false,
-      layerVisibilityState: {}
+      layerVisibilityState: {},
+      showShareMapLink: false
     };
   },
   mixins: [SharedMethods],
@@ -261,6 +272,10 @@ export default {
     EventBus.$on('diveToFeatureEnd', () => {
       this.updateMousePosition();
     });
+    EventBus.$on('openMapShareLink', () => {
+      this.showShareMapLink = true;
+    });
+
     // resize the map, so it fits to parent
     window.setTimeout(() => {
       me.map.setTarget(document.getElementById('ol-map-container'));
@@ -318,7 +333,9 @@ export default {
     me.setMap(me.map);
     // Create layers from config and add them to map
     me.createLayers();
-
+    // Update zoom display text
+    this.mapPositionDisplay.zoom = this.map.getView().getZoom();
+    this.mapPositionDisplay.coordinate = this.map.getView().getCenter();
     // Event bus setup for managing interactions
     EventBus.$on('ol-interaction-activated', startedInteraction => {
       me.activeInteractions.push(startedInteraction);
@@ -329,6 +346,16 @@ export default {
         return interaction !== stopedInteraction;
       });
     });
+    if (
+      this.$route.query &&
+      this.$route.query.zoom &&
+      this.$route.query.coordinate
+    ) {
+      const coordinate = this.$route.query.coordinate.split(',').map(Number);
+      const zoom = parseFloat(this.$route.query.zoom);
+      this.map.getView().setCenter(coordinate);
+      this.map.getView().setZoom(zoom);
+    }
   },
 
   methods: {
@@ -350,6 +377,10 @@ export default {
       me.createWorldExtentOverlayLayer();
       me.createSelectedCorpNetworkLayer();
 
+      let queryVisibleLayers ;
+      if (this.$route.query && this.$route.query.layers) {
+        queryVisibleLayers = this.$route.query.layers.split(',');
+      }
       this.$appConfig.map.layers.forEach(lConf => {
         const layerIndex = visibleLayers.indexOf(lConf.name);
         if (layerIndex === -1) return;
@@ -358,6 +389,14 @@ export default {
         // Restore the previous layer visibility state if exists.
         if (layer.get('name') in this.layerVisibilityState) {
           layer.setVisible(this.layerVisibilityState[layer.get('name')]);
+        }
+        // Turn on/off layers based on the query data if user pastes a shareable map link. 
+        if (Array.isArray(queryVisibleLayers) && layer.get('displayInLegend')) {
+          if (queryVisibleLayers.includes(layer.get('name'))) {
+            layer.setVisible(true)
+          } else {
+            layer.setVisible(false);
+          }
         }
         // Enable spotlight for ESRI Imagery
         if (
@@ -660,7 +699,7 @@ export default {
         if (evt.dragging || this.activeInteractions.length > 0) {
           return;
         }
-
+        this.mapPositionDisplay.coordinate = evt.coordinate;
         let feature, layer;
         if (this.isEditing === false) {
           this.map.forEachFeatureAtPixel(
@@ -734,9 +773,11 @@ export default {
     },
     setupMapHoverOut() {
       const element = this.map.getTargetElement();
+
       if (element) {
         const me = this;
         element.onmouseleave = debounce(function() {
+          me.mapPositionDisplay.coordinate = me.map.getView().getCenter();
           me.updateMousePosition();
         }, 50);
       }
@@ -768,6 +809,7 @@ export default {
       // for using the spotlights should be shown based on zoom level.
       this.map.on('moveend', () => {
         const resolutionLevel = this.map.getView().getResolution();
+        this.mapPositionDisplay.zoom = this.map.getView().getZoom();
         if (resolutionLevel <= 20) {
           this.spotlightMessage = true;
         } else {
@@ -854,8 +896,8 @@ export default {
           // Check if feature has video link
           if (props.videoSrc || props.vimeoSrc) {
             const mediabox = new MediaLightBox(
-               props.videoSrc || props.vimeoSrc,
-             props.caption || props.vimeoTitle
+              props.videoSrc || props.vimeoSrc,
+              props.caption || props.vimeoTitle
             );
             mediabox.open();
             return;
@@ -1202,6 +1244,7 @@ export default {
       loggedUser: 'loggedUser'
     }),
     ...mapFields('map', {
+      mapPositionDisplay: 'mapPositionDisplay',
       previousMapPosition: 'previousMapPosition',
       popup: 'popup',
       isEditing: 'isEditing',
@@ -1218,7 +1261,7 @@ export default {
     },
     hiddenProps() {
       const hiddenProps = this.$appConfig.map.featureInfoHiddenProps;
-      return hiddenProps || []
+      return hiddenProps || [];
     },
     searchLabel() {
       const searchLabel = this.popup.activeLayer.get('searchLabel');
@@ -1322,9 +1365,9 @@ div.ol-control button {
 
 .spotlight-message {
   background-color: #dc143c;
-  position: absolute;
-  left: 80px;
-  top: 17px;
+  position: fixed;
+  left: 38%;
+  top: 70px;
   color: white;
   padding: 5px;
   border-radius: 5px;

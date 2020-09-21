@@ -104,6 +104,7 @@ services:
       - ./app/api/config:/app/config
     container_name: petropolis-api
     env_file:
+      - ./app/config/docker-env/cron.env
       - ./app/config/docker-env/api.env
     ports:
       - "4000:3000"

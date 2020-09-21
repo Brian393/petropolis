@@ -185,6 +185,46 @@
         </div>
       </template>
       <template v-slot:actions>
+        <div>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-on="on"
+                rounded
+                small
+                depressed
+                :loading="imageUpload.isSelecting"
+                @click="openImageUpload"
+              >
+                <v-icon left>
+                  insert_photo
+                </v-icon>
+                <span class="image-upload-btn">
+                  {{ imageUploadButtonText }}
+                </span>
+              </v-btn>
+            </template>
+            <span>Upload jpg or png image</span>
+          </v-tooltip>
+          <input
+            ref="imageUploader"
+            class="d-none"
+            type="file"
+            accept="image/*"
+            @change="onFileUploadChanged"
+          />
+          <v-btn
+            v-if="imageUpload.selectedFile"
+            class="ml-1"
+            @click="clearUploadImage()"
+            small
+            icon
+          >
+            <v-icon small>close</v-icon>
+          </v-btn>
+        </div>
+
+        <v-spacer></v-spacer>
         <template v-if="editType === 'deleteFeature'">
           <v-btn color="primary darken-1" @click="popupOk" text>Yes</v-btn>
           <v-btn color="grey" text @click="popupCancel">Cancel</v-btn>
@@ -319,7 +359,12 @@ export default {
       required: [],
       properties: {}
     },
-    formSchemaCache: {}
+    formSchemaCache: {},
+    imageUpload: {
+      defaultButtonText: 'Upload',
+      selectedFile: null,
+      isSelecting: false
+    }
   }),
   name: 'edit-control',
   computed: {
@@ -328,7 +373,12 @@ export default {
     }),
     ...mapGetters('map', {
       layersMetadata: 'layersMetadata'
-    })
+    }),
+    imageUploadButtonText() {
+      return this.imageUpload.selectedFile
+        ? this.imageUpload.selectedFile.name
+        : this.imageUpload.defaultButtonText;
+    }
   },
   methods: {
     onMapBound() {
@@ -514,7 +564,7 @@ export default {
     onDrawEnd(evt) {
       const feature = evt.feature;
       this.selectedFeature = feature;
-      this.closePopup();
+      this.popupCancel();
       if (this.currentInteraction) {
         this.currentInteraction.setActive(false);
       }
@@ -621,6 +671,28 @@ export default {
     },
 
     /**
+     * Upload Image
+     */
+    openImageUpload() {
+      this.imageUpload.isSelecting = true;
+      window.addEventListener(
+        'focus',
+        () => {
+          this.imageUpload.isSelecting = false;
+        },
+        { once: false }
+      );
+      this.$refs.imageUploader.click();
+    },
+    onFileUploadChanged(e) {
+      this.imageUpload.selectedFile = e.target.files[0];
+      // do something
+    },
+    clearUploadImage() {
+      this.imageUpload.selectedFile = null;
+      this.$refs.imageUploader.value = null;
+    },
+    /**
      * Popup action buttons
      */
     popupOk() {
@@ -661,6 +733,7 @@ export default {
       }
       this.highlightLayer.getSource().clear();
       this.editLayer.getSource().clear();
+      this.clearUploadImage();
     },
 
     /**
@@ -755,17 +828,6 @@ export default {
         unByKey(this.pointerMoveKey);
       }
     },
-    closePopup() {
-      if (this.popupOverlay) {
-        this.popupOverlay.setPosition(undefined);
-        this.popup.isVisible = false;
-      }
-      if (this.currentInteraction) {
-        this.currentInteraction.setActive(true);
-      }
-      this.highlightLayer.getSource().clear();
-      this.editLayer.getSource().clear();
-    },
 
     /**
      * TRANSACT METHOD
@@ -822,8 +884,13 @@ export default {
         featureId: feature.getId()
       };
 
+      const formData = new FormData();
+      if (this.imageUpload.selectedFile) {
+        formData.append('image', this.imageUpload.selectedFile);
+      }
+      formData.append('payload', JSON.stringify(payload));
       axios
-        .post('api/layer', payload, {
+        .post('api/layer', formData, {
           headers: authHeader()
         })
         .then(() => {
@@ -901,5 +968,13 @@ export default {
 <style lang="css" scoped>
 .edit-buttons {
   z-index: 1;
+}
+.image-upload-btn {
+  display: block;
+  max-width: 90px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
