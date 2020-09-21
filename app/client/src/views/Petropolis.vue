@@ -21,6 +21,20 @@
         class="logo headline font-weight-bold black--text mr-3"
         >Just Transition</v-toolbar-title
       >
+      <v-tooltip right>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            v-on="on"
+            small
+            depressed
+            fab
+            color="rgb(228, 76, 107)"
+            class="ml-0"
+            @click="openWebsite()"
+            ><v-icon medium>fas fa-question</v-icon></v-btn
+          > </template
+        ><span>Open Website</span>
+      </v-tooltip>
 
       <v-spacer></v-spacer>
 
@@ -44,6 +58,32 @@
         </v-btn>
       </div>
       <v-spacer></v-spacer>
+      <v-tooltip left>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            color="rgb(228, 76, 107)"
+            @click="openShareLinkDialog"
+            class="mr-1"
+            v-on="on"
+            fab
+            small
+            depressed
+            ><v-icon medium>fas fa-share</v-icon></v-btn
+          >
+        </template>
+        <span>Share Map</span>
+      </v-tooltip>
+      <div
+        class="mr-4 pa-0 pl-2"
+        style="background-color:rgb(228, 76, 107);border-radius:5px;min-width:200px;text-align:left;line-height:0px;"
+      >
+        <span class="subtitle-2" v-if="cursorCoordinate"
+          >{{ cursorCoordinate }}
+        </span>
+        <br />
+        <span class="subtitle-2" v-if="mapZoomLevel">{{ mapZoomLevel }}</span>
+      </div>
+
       <span class="title pr-5">before it's too late</span>
       <v-btn icon @click.stop="drawer = !drawer"
         ><v-icon medium>{{ drawer ? '$close' : '$menu' }}</v-icon></v-btn
@@ -75,9 +115,26 @@ export default {
       fuelGroups: 'fuelGroups'
     }),
     ...mapGetters('map', {
+      mapPositionDisplay: 'mapPositionDisplay',
       activeLayerGroup: 'activeLayerGroup',
       fuelGroups: 'fuelGroups'
-    })
+    }),
+    cursorCoordinate() {
+      let coordinate;
+      if (this.mapPositionDisplay.coordinate) {
+        coordinate = `X: ${this.mapPositionDisplay.coordinate[0].toFixed(
+          0
+        )}  , Y: ${this.mapPositionDisplay.coordinate[1].toFixed(0)}`;
+      }
+      return coordinate;
+    },
+    mapZoomLevel() {
+      let zoomLevel;
+      if (this.mapPositionDisplay.zoom) {
+        zoomLevel = `Z: ${this.mapPositionDisplay.zoom.toFixed(1)}`;
+      }
+      return zoomLevel;
+    }
   },
   components: {
     'app-viewer': Viewer,
@@ -95,14 +152,19 @@ export default {
       }
       this.$router.push({ name: 'oil' });
     },
+    openWebsite() {
+      window.open('https://its.timetochange.today', '_blank');
+    },
     zoomToLocation() {
       if (this.region === 'local') {
         EventBus.$emit('zoomToLocation');
       }
     },
-
+    openShareLinkDialog() {
+      EventBus.$emit('openMapShareLink');
+    },
     changeFuelGroup(fuelGroup) {
-      this.$router.push({ path: `/${fuelGroup.name}` });  
+      this.$router.push({ path: `/${fuelGroup.name}` });
       EventBus.$emit('noMapReset');
     },
     ...mapMutations('map', {

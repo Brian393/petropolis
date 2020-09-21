@@ -59,7 +59,7 @@ export default {
 }
 .region-control {
   position: fixed;
-  right: calc(50% - 120px);
+  right: calc(50% - 50px);
   bottom: 20px;
   z-index: 1;
 }
