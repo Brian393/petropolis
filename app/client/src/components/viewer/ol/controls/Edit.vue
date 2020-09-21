@@ -186,42 +186,50 @@
       </template>
       <template v-slot:actions>
         <div>
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                v-on="on"
-                rounded
-                small
-                depressed
-                :loading="imageUpload.isSelecting"
-                @click="openImageUpload"
-              >
-                <v-icon left>
-                  insert_photo
-                </v-icon>
-                <span class="image-upload-btn">
-                  {{ imageUploadButtonText }}
-                </span>
-              </v-btn>
-            </template>
-            <span>Upload jpg or png image</span>
-          </v-tooltip>
-          <input
-            ref="imageUploader"
-            class="d-none"
-            type="file"
-            accept="image/*"
-            @change="onFileUploadChanged"
-          />
-          <v-btn
-            v-if="imageUpload.selectedFile"
-            class="ml-1"
-            @click="clearUploadImage()"
-            small
-            icon
+          <div v-show="!imageUpload.errorMessage">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  v-on="on"
+                  rounded
+                  small
+                  depressed
+                  :loading="imageUpload.isSelecting"
+                  @click="openImageUpload"
+                >
+                  <v-icon left>
+                    insert_photo
+                  </v-icon>
+                  <span class="image-upload-btn">
+                    {{ imageUploadButtonText }}
+                  </span>
+                </v-btn>
+              </template>
+              <span>Upload jpg or png image</span>
+            </v-tooltip>
+            <input
+              ref="imageUploader"
+              class="d-none"
+              type="file"
+              accept="image/*"
+              @change="onFileUploadChanged"
+            />
+            <v-btn
+              v-if="imageUpload.selectedFile"
+              class="ml-1"
+              @click="clearUploadImage()"
+              small
+              icon
+            >
+              <v-icon small>close</v-icon>
+            </v-btn>
+          </div>
+          <div
+            v-if="imageUpload.errorMessage"
+            class="red--text text--lighten-1 subtitle-2"
           >
-            <v-icon small>close</v-icon>
-          </v-btn>
+            {{ imageUpload.errorMessage }}
+          </div>
         </div>
 
         <v-spacer></v-spacer>
@@ -363,7 +371,8 @@ export default {
     imageUpload: {
       defaultButtonText: 'Upload',
       selectedFile: null,
-      isSelecting: false
+      isSelecting: false,
+      errorMessage: ''
     }
   }),
   name: 'edit-control',
@@ -687,10 +696,18 @@ export default {
     onFileUploadChanged(e) {
       this.imageUpload.selectedFile = e.target.files[0];
       // do something
+      const fileSize = this.imageUpload.selectedFile.size / 1024 / 1024;
+      if (fileSize > 5) {
+        this.imageUpload.errorMessage = 'File size exceeds 5 MB';
+        setTimeout(() => {
+          this.clearUploadImage();
+        }, 2000);
+      }
     },
     clearUploadImage() {
       this.imageUpload.selectedFile = null;
       this.$refs.imageUploader.value = null;
+      this.imageUpload.errorMessage = '';
     },
     /**
      * Popup action buttons
