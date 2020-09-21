@@ -12,6 +12,8 @@ const userController = require("./controllers/auth/userController.js");
 const roleController = require("./controllers/auth/roleController.js");
 const permissionController = require("./controllers/auth/permissionController.js");
 const layerController = require("./controllers/gis/layerController.js");
+const uploadController = require("./controllers/upload/uploadController.js");
+const upload = require("./services/file-upload.js");
 
 // Use middleware
 app.use(logger("dev"));
@@ -39,6 +41,7 @@ app.route("/api/logins").get(loginController.logins_get);
 
 app.route("/api/users").get(userController.users_get);
 
+
 app
   .route("/api/users/:id")
   .get(userController.users_get)
@@ -65,6 +68,9 @@ app
 
 app.route("/api/layer")
   .post(layerController.layer_post);
+
+app.route("/api/upload")
+  .post(uploadController.file_upload)
 
 // Run server on port
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
