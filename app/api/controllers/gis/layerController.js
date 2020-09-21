@@ -9,8 +9,15 @@ exports.layer_post = (req, res) => {
     // Prevent sql injection
     singleUpload(req, res, function (err) {
       const payload = JSON.parse(req.body.payload);
-      if (req.file && req.file.location && payload.properties.hasOwnProperty("imageUrl")) {
-        payload.properties.imageUrl = req.file.location;
+      if (
+        req.file &&
+        req.file.location &&
+        payload.properties.hasOwnProperty("imageUrl")
+      ) {
+        payload.properties.imageUrl = process.env.CLOUDFRONT_BASE_URL
+          ? process.env.CLOUDFRONT_BASE_URL +
+            req.file.key.replace(process.env.UPLOAD_BASE_FOLDER, "")
+          : process.file.location;
       }
       if (payload.table.charAt(0) === "_") {
         res.status(500);
