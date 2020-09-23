@@ -919,10 +919,12 @@ export default {
             if (this.selectedLayer.get('type') === 'VECTOR') {
               this.selectedLayer.getSource().refresh();
             } else if (this.selectedLayer.get('type') === 'VECTORTILE') {
-              this.selectedLayer.getSource().tileCache.expireCache({});
+              // this.selectedLayer.getSource().tileCache.expireCache({});
+              // this.selectedLayer.getSource().clear();
+              // this.selectedLayer.getSource().tileCache.clear();
               this.selectedLayer.getSource().clear();
-              this.selectedLayer.getSource().tileCache.clear();
-              this.selectedLayer.getSource().refresh();
+              this.selectedLayer.getSource().refresh({ force: true });
+              this.selectedLayer.redraw();
             }
           }
         });
@@ -976,7 +978,10 @@ export default {
     this.closeEdit();
   },
   watch: {
-    $route() {
+    $route(newValue, oldValue) {
+      if (oldValue.path === newValue.path) {
+        return;
+      }
       this.closeEdit();
     }
   }
