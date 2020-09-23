@@ -292,7 +292,7 @@ export default {
     },
     hiddenProps() {
       const hiddenProps = this.$appConfig.map.featureInfoHiddenProps;
-      return hiddenProps || []
+      return hiddenProps || [];
     },
     searchLabel() {
       const searchLabel = this.popup.activeLayer.get('searchLabel');
@@ -403,7 +403,10 @@ export default {
     }
   },
   watch: {
-    $route() {
+    $route(newValue, oldValue) {
+      if (oldValue.path === newValue.path) {
+        return;
+      }
       this.previousMapPosition = null;
       this.previousMapPositionSearch = null;
     }

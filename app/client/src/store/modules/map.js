@@ -73,11 +73,7 @@ const state = {
   ],
   previousMapPosition: null,
   previousMapPositionSearch: null,
-  isEditing: false,
-  mapPositionDisplay: {
-    coordinate: null,
-    zoom: null
-  }
+  isEditing: false
 };
 
 const getters = {
@@ -114,7 +110,6 @@ const getters = {
   fuelGroups: state => state.fuelGroups,
   regions: state => state.regions,
   layersMetadata: state => state.layersMetadata,
-  mapPositionDisplay: state => state.mapPositionDisplay,
   getField
 };
 
