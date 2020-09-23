@@ -47,7 +47,7 @@
           </v-form>
         </v-card-text>
         <v-alert class="mx-2 mb-1" dense outlined type="info" elevation="0">
-          Copy and paste the link to share the map.
+          Copy and paste the link to share an exact location on the map.
         </v-alert>
       </v-card>
     </v-dialog>
