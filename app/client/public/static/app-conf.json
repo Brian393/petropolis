@@ -859,14 +859,14 @@
         }
       },
       {
-        "type": "VECTORTILE",
+        "type": "VECTOR",
         "name": "coal_global1",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:coal_global@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_global&outputFormat=application/json&srsname=EPSG:3857",
         "group": "petropolisCoal",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Coal",
-        "format": "MVT",
+        "legendDisplayName": "Coal Power",
+        "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
         "minResolution": 1,
