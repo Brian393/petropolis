@@ -66,10 +66,12 @@ exports.layer_post = (req, res) => {
             if (payload.properties) {
               Object.keys(payload.properties).forEach((key, index, array) => {
                 let value = payload.properties[key];
-                if (typeof value === "string") {
-                  value = `$$${value}$$`;
-                } else if (typeof value === "object") {
-                  value = `$$${JSON.stringify(value)}$$`;
+                if (value !== null) {
+                  if (typeof value === "string") {
+                    value = `$$${value}$$`;
+                  } else if (typeof value === "object") {
+                    value = `$$${JSON.stringify(value)}$$`;
+                  }
                 }
                 keyValue += `"${key}" = ${value}`;
                 if (index !== array.length - 1) {
