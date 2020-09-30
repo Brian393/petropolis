@@ -86,33 +86,13 @@
       },
       {
         "type": "VECTOR",
-        "name": "all_pipes",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_pipes&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "global_pipes",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_pipes&outputFormat=application/json&srsname=EPSG:3857",
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Crude Oil Pipelines",
         "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "opacity": 1,
-        "hoverable": true,
-        "style": {
-          "strokeColor": "black",
-          "strokeWidth": 3
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "global_pipes",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:global_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "oil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Crude Oil Pipelines",
-        "format": "MVT",
         "visible": true,
         "zIndex": 0,
         "minResolution": 0.5,
@@ -461,33 +441,6 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "us_grid",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:us_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "US Grid",
-        "format": "MVT",
-        "renderMode": "hybrid",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "label": false,
-        "opacity": 0.8,
-        "hoverable": true,
-        "style": {
-          "hoverTextColor": "white",
-          "hoverBackgroundColor": "gray",
-          "strokeColor": "#009df5",
-          "stylePropFnRef": {
-            "strokeWidth": "variable1"
-          },
-          "lineDash": [0]
-        }
-      },
-      {
-        "type": "VECTORTILE",
         "name": "na_grid",
         "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:na_grid@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "oil",
@@ -538,7 +491,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Oil Terminals",
         "format": "GeoJSON",
-        "visible": false,
+        "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 1222.99,
@@ -546,7 +499,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/terminal.png",
-          "scale": 0.6
+          "scale": 0.4
         }
       },
       {
@@ -558,7 +511,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Crude Derailments",
         "format": "GeoJSON",
-        "visible": false,
+        "visible": true,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 2445.98,
@@ -579,7 +532,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Spills, Last 20 years",
         "format": "GeoJSON",
-        "visible": false,
+        "visible": true,
         "zIndex": 0,
         "minResolution": 4,
         "maxResolution": 1222.99,
@@ -707,28 +660,6 @@
       },
       {
         "type": "VECTORTILE",
-        "name": "major_gas_pipes",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:major_gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "gas",
-        "includeInSearch": false,
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Major Gas Pipes",
-        "format": "MVT",
-        "visible": false,
-        "hoverable": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 4891.97,
-        "isInteractive": true,
-        "style": {
-          "styleRef": "colorMapStyle",
-          "colorField": "Operator",
-          "colormap": "bluered"
-        }
-      },
-      {
-        "type": "VECTORTILE",
         "name": "gas_pipes",
         "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:gas_pipes@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "gas",
@@ -760,7 +691,7 @@
         "group": "petropolisOil&Gas",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Natural Gas Generators",
+        "legendDisplayName": "Nat Gas Generators",
         "format": "MVT",
         "visible": false,
         "zIndex": 0,
@@ -800,7 +731,7 @@
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "New Permits",
+        "legendDisplayName": "Construction Permits",
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -837,25 +768,6 @@
         "style": {
           "strokeColor": "black",
           "strokeWidth": 6.5
-        }
-      },
-      {
-        "type": "VECTOR",
-        "name": "Global_LNG",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:global_lng&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "gas",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Global LNG",
-        "format": "GeoJSON",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 1,
-        "maxResolution": 64000,
-        "label": null,
-        "hoverable": true,
-        "style": {
-          "iconUrl": "icons/LNGtanker.png"
         }
       },
       {
@@ -1137,62 +1049,6 @@
           "colormap": "blackbody",
           "strokeWidth": 2,
           "strokeColor": "black"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "all_solar2",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:all_solar@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Solar Electricity",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "hoverTextColor": "black",
-          "hoverBackgroundColor": "#FFD241",
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "variable2"
-          },
-          "strokeColor": "#000000",
-          "strokeWidth": 1,
-          "fillColor": "#FFD241"
-        }
-      },
-      {
-        "type": "VECTORTILE",
-        "name": "all_wind2",
-        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:all_wind@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
-        "group": "petropolisOil",
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Wind Electricity",
-        "format": "MVT",
-        "renderMode": "image",
-        "visible": true,
-        "zIndex": 0,
-        "minResolution": 0.5,
-        "maxResolution": 2000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "hoverTextColor": "black",
-          "hoverBackgroundColor": "#ff3b30",
-          "type": "circle",
-          "stylePropFnRef": {
-            "circleRadiusFn": "variable2"
-          },
-          "strokeColor": "#000000",
-          "strokeWidth": 1,
-          "fillColor": "#ff3b30"
         }
       },
       {
