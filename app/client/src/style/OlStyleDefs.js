@@ -493,12 +493,17 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 0.3);
     }
   },
-  all_refineries: {
+  refineries: {
     circleRadiusFn: propertyValue => {
-      return getRadiusValue(propertyValue, 1.4);
+      return getRadiusValue(propertyValue, 0.026);
     }
   },
   us_refineries: {
+    iconScaleFn: propertyValue => {
+      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
+    }
+  },
+  us_refineries2: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
     }

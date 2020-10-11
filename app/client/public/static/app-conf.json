@@ -108,8 +108,8 @@
       },
       {
         "type": "VECTOR",
-        "name": "all_refineries",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:all_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "refineries",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
@@ -126,7 +126,33 @@
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000",
           "stylePropFnRef": {
-            "circleRadiusFn": "variable1"
+            "circleRadiusFn": "variable2"
+          },
+          "strokeColor": "rgba(255, 255, 255, 1)",
+          "strokeWidth": 1,
+          "fillColor": "rgba(0, 0, 0, 0.8)"
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "us_refineries2",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "oil",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "US Refineries",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 64000,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable2"
           },
           "strokeColor": "rgba(255, 255, 255, 1)",
           "strokeWidth": 1,
@@ -842,13 +868,35 @@
         }
       },
       {
+        "type": "VECTOR",
+        "name": "LegacyCoalAsh",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:legacy_coal_ash&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "coal",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Legacy Coal Ash",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 100,
+        "minResolution": 1,
+        "maxResolution": 1223,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/AshHeap2.png",
+          "scale": 0.4,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
+      {
         "type": "XYZ",
         "name": "railway_map",
         "group": "petropolisCoalLocal",
         "url": "http://c.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",
         "minResolution": 1,
         "maxResolution": 1223,
-        "opacity": 0.99,
+        "opacity": 0.6,
         "queryable": false,
         "visible": true,
         "legendDisplayName": "Open Railway Map",
@@ -875,9 +923,9 @@
         "style": {
           "type": "circle",
           "radius": 4,
-          "strokeColor": "black",
+          "strokeColor": "rgba(0, 0, 0, 0.7)",
           "strokeWidth": 0.5,
-          "fillColor": "#dc143c"
+          "fillColor": "rgba(220, 20, 60, 0.7)"
         }
       },
       {
@@ -1611,7 +1659,8 @@
             "rest_of_world1",
             "north_america1",
             "global_pipes",
-            "all_refineries",
+            "refineries",
+            "us_refineries2",
             "oil_majors"
           ],
           "center": [-5, 30],
@@ -1640,6 +1689,7 @@
             "steel",
             "coal_global1",
             "Coal_Mines",
+            "LegacyCoalAsh",
             "CoalAsh"
           ],
           "center": [-103, 42.0],
@@ -1665,6 +1715,7 @@
             "steel",
             "coal_global1",
             "Coal_Mines",
+            "LegacyCoalAsh",
             "CoalAsh"
           ],
           "center": [-99, 42.9],
@@ -1792,9 +1843,12 @@
         "entity": "OWNER"
       },
       "cancelled_pipelines": {
-      "title": "PROJECT NAME",
-      "entity": "PROPOSED BY",
-      "description": "WHY IT FAILED"
+        "title": "PROJECT NAME",
+        "entity": "PROPOSED BY",
+        "description": "WHY IT FAILED"
+      },
+      "coal_ash": {
+        "title": "NAME OF THIS CCR UNIT"
       }
     },
     "featureInfoHiddenProps": [
