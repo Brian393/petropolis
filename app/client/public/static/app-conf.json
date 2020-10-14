@@ -95,7 +95,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
         "isInteractive": true,
@@ -117,7 +117,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 1,
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
@@ -144,7 +144,7 @@
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 1,
         "maxResolution": 64000,
         "hoverable": true,
         "style": {
@@ -171,7 +171,7 @@
         "renderMode": "vector",
         "visible": true,
         "zIndex": 0,
-        "minResolution": 0.5,
+        "minResolution": 1,
         "maxResolution": 64000,
         "label": true,
         "hoverable": true,
@@ -862,7 +862,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/AshHeap.png",
-          "scale": 0.4,
+          "scale": 0.3,
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
@@ -884,7 +884,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/AshHeap2.png",
-          "scale": 0.4,
+          "scale": 0.3,
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
