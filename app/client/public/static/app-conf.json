@@ -828,7 +828,7 @@
         "group": "coal",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "Coal Mines",
+        "legendDisplayName": "Active Coal Mines",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -890,6 +890,28 @@
         }
       },
       {
+        "type": "VECTOR",
+        "name": "hot_issues",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:hot_issues&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "coal",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Hot Issues",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 100,
+        "minResolution": 0.5,
+        "maxResolution": 8000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "iconUrl": "icons/EcologyProtest.png",
+          "scale": 0.6,
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000"
+        }
+      },
+      {
         "type": "XYZ",
         "name": "railway_map",
         "group": "petropolisCoalLocal",
@@ -902,6 +924,29 @@
         "legendDisplayName": "Open Railway Map",
         "legendIcon": "icons/OpenRailwayLegend.png",
         "displayInLegend": true
+      },
+      {
+        "type": "VECTOR",
+        "name": "Coal_Mines2",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:coal_mines&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "coal",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "Active Coal Mines",
+        "format": "GeoJSON",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 4,
+        "maxResolution": 64000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "radius": 6,
+          "strokeColor": "white",
+          "strokeWidth": 0.5,
+          "fillColor": "rgba(150, 88, 70, 0.8)"
+        }
       },
       {
         "type": "VECTORTILE",
@@ -1690,7 +1735,8 @@
             "coal_global1",
             "Coal_Mines",
             "LegacyCoalAsh",
-            "CoalAsh"
+            "CoalAsh",
+            "hot_issues"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,
@@ -1714,9 +1760,10 @@
             "cement",
             "steel",
             "coal_global1",
-            "Coal_Mines",
+            "Coal_Mines2",
             "LegacyCoalAsh",
-            "CoalAsh"
+            "CoalAsh",
+            "hot_issues"
           ],
           "center": [-99, 42.9],
           "resolution": 9000,
