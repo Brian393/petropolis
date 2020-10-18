@@ -712,6 +712,30 @@
       },
       {
         "type": "VECTORTILE",
+        "name": "fracked_wells",
+        "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:fracked_wells@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
+        "group": "petropolisOil&Gas",
+        "queryable": true,
+        "renderMode": "vector",
+        "displayInLegend": true,
+        "legendDisplayName": "Fracking Wells",
+        "format": "MVT",
+        "visible": true,
+        "zIndex": 0,
+        "minResolution": 1,
+        "maxResolution": 1222.99,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "radius": 4,
+          "strokeColor": "white",
+          "strokeWidth": 0.5,
+          "fillColor": "#FF7900"
+        }
+      },
+      {
+        "type": "VECTORTILE",
         "name": "gas1",
         "url": "./geoserver/gwc/service/tms/1.0.0/petropolis:gas@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf",
         "group": "petropolisOil&Gas",
@@ -727,7 +751,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "icons/NatGas3.png",
-          "scale": 0.4
+          "scale": 0.5
         }
       },
       {
@@ -1637,6 +1661,7 @@
             "ESRI-World-Imagery",
             "gas_pipes",
             "Spills_20yrs",
+            "fracked_wells",
             "cancelled_pipelines",
             "global_pipes",
             "contested_pipelines",
@@ -1671,14 +1696,15 @@
             "ESRI-World-Imagery",
             "gas_pipes",
             "Spills_20yrs",
+            "fracked_wells",
             "cancelled_pipelines",
             "global_pipes",
             "contested_pipelines",
             "Terminals",
             "us_refineries",
+            "crude_derailment",
             "LNGterminals",
             "all_permits",
-            "crude_derailment",
             "gas1",
             "MacLean",
             "video_pipelines"
