@@ -524,7 +524,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/terminal.png",
+          "iconUrl": "icons/oil_terminal.png",
           "scale": 0.4
         }
       },
@@ -756,7 +756,7 @@
       },
       {
         "type": "VECTOR",
-        "name": "LNGterminals",
+        "name": "LNG",
         "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:lng_terminals&outputFormat=application/json&srsname=EPSG:3857",
         "group": "gas",
         "queryable": true,
@@ -770,7 +770,7 @@
         "label": null,
         "hoverable": true,
         "style": {
-          "iconUrl": "icons/LNGterminal.png",
+          "iconUrl": "icons/LNG.png",
           "scale": 0.6
         }
       },
@@ -1659,6 +1659,7 @@
             "rest_of_world",
             "north_america",
             "ESRI-World-Imagery",
+            "us_imagery",
             "gas_pipes",
             "Spills_20yrs",
             "fracked_wells",
@@ -1667,7 +1668,6 @@
             "contested_pipelines",
             "Terminals",
             "us_refineries",
-            "LNGterminals",
             "all_permits",
             "crude_derailment",
             "gas1",
@@ -1703,7 +1703,6 @@
             "Terminals",
             "us_refineries",
             "crude_derailment",
-            "LNGterminals",
             "all_permits",
             "gas1",
             "MacLean",
@@ -1934,7 +1933,6 @@
       "sidebarVideoSrc"
     ],
     "corporateEntitiesUrls": {
-      "Enbridge": "https://its.timetochange.today/Enbridge/"
     }
   }
 }
