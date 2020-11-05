@@ -13,6 +13,7 @@ const roleController = require("./controllers/auth/roleController.js");
 const permissionController = require("./controllers/auth/permissionController.js");
 const layerController = require("./controllers/gis/layerController.js");
 const uploadController = require("./controllers/upload/uploadController.js");
+const htmlSidebarController = require("./controllers/gis/htmlSidebarController.js");
 const upload = require("./services/file-upload.js");
 
 // Use middleware
@@ -41,7 +42,6 @@ app.route("/api/logins").get(loginController.logins_get);
 
 app.route("/api/users").get(userController.users_get);
 
-
 app
   .route("/api/users/:id")
   .get(userController.users_get)
@@ -66,11 +66,21 @@ app
   .patch(permissionController.permission_patch)
   .delete(permissionController.permission_delete);
 
-app.route("/api/layer")
-  .post(layerController.layer_post);
+app.route("/api/layer").post(layerController.layer_post);
 
-app.route("/api/upload")
-  .post(uploadController.file_upload)
+app.route("/api/upload").post(uploadController.file_upload);
 
+app
+  .route("/api/html")
+  .get(htmlSidebarController.html_sidebar_get)
+  .delete(htmlSidebarController.html_sidebar_delete)
+  .patch(htmlSidebarController.html_sidebar_patch)
+  .post(htmlSidebarController.html_sidebar_post);
+
+app.route("/api/icons")
+    .get(htmlSidebarController.icons_get)
+    .post(htmlSidebarController.icons_post)
+    .delete(htmlSidebarController.icons_delete)
+    
 // Run server on port
 app.listen(3000, () => console.log("Example app listening on port 3000!"));

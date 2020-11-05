@@ -110,6 +110,8 @@
       :progressColor="progressLoading.progressColor"
       :message="progressLoading.message"
     ></progress-loader>
+    <!-- Show snackbar -->
+    <snackbar style="margin-top:60px;"></snackbar>
   </div>
 </template>
 
@@ -166,8 +168,6 @@ import Login from './controls/Login';
 import Edit from './controls/Edit';
 import ShareMap from './controls/ShareMap';
 
-
-
 // Interactions
 import DoubleClickZoom from 'ol/interaction/DoubleClickZoom';
 import { defaults as defaultInteractions } from 'ol/interaction';
@@ -190,6 +190,7 @@ import axios from 'axios';
 
 // Progress loader
 import ProgressLoader from '../../core/ProgressLoader';
+import Snackbar from '../../core/Snackbar';
 import { debounce } from '../../../utils/Helpers';
 
 export default {
@@ -204,7 +205,8 @@ export default {
     'share-map': ShareMap,
     locate: Locate,
     'progress-loader': ProgressLoader,
-    edit: Edit
+    edit: Edit,
+    Snackbar
   },
   name: 'app-ol-map',
   data() {
@@ -327,6 +329,7 @@ export default {
     me.setMap(me.map);
     // Create layers from config and add them to map
     me.createLayers();
+    me.createHtmlPostLayer();
 
     // Event bus setup for managing interactions
     EventBus.$on('ol-interaction-activated', startedInteraction => {
@@ -338,7 +341,6 @@ export default {
         return interaction !== stopedInteraction;
       });
     });
-    
   },
 
   methods: {
@@ -359,7 +361,6 @@ export default {
       // World Overlay Layer and selected features layer for corporate network
       me.createWorldExtentOverlayLayer();
       me.createSelectedCorpNetworkLayer();
-
 
       this.$appConfig.map.layers.forEach(lConf => {
         const layerIndex = visibleLayers.indexOf(lConf.name);
@@ -387,7 +388,10 @@ export default {
         }
       });
     },
-
+    createHtmlPostLayer() {
+      const layer = LayerFactory.getInstance(this.htmlPostLayerConf);
+      this.setPersistentLayer(layer);
+    },
     /**
      * Creates a layer to visualize selected GetInfo features.
      */
@@ -672,7 +676,7 @@ export default {
           return;
         }
         let feature, layer;
-        if (this.isEditing === false) {
+        if (this.isEditingLayer === false && this.isEditingPost === false) {
           this.map.forEachFeatureAtPixel(
             evt.pixel,
             (f, l) => {
@@ -798,7 +802,7 @@ export default {
         if (me.activeInteractions.length > 0) {
           return;
         }
-        if (me.isEditing) {
+        if (me.isEditingLayer || me.isEditingPost) {
           return;
         }
         let feature, layer;
@@ -850,6 +854,8 @@ export default {
         }
 
         me.closePopup();
+        EventBus.$emit('clearEditHtml');
+
         if (this.selectedCoorpNetworkEntity && !layer) {
           return;
         }
@@ -1200,6 +1206,7 @@ export default {
     ...mapMutations('map', {
       setMap: 'SET_MAP',
       setLayer: 'SET_LAYER',
+      setPersistentLayer: 'SET_PERSISTENT_LAYER',
       removeAllLayers: 'REMOVE_ALL_LAYERS'
     })
   },
@@ -1207,7 +1214,8 @@ export default {
     ...mapGetters('map', {
       activeLayerGroup: 'activeLayerGroup',
       popupInfo: 'popupInfo',
-      splittedEntities: 'splittedEntities'
+      splittedEntities: 'splittedEntities',
+      htmlPostLayerConf: 'htmlPostLayerConf'
     }),
     ...mapGetters('auth', {
       loggedUser: 'loggedUser'
@@ -1215,7 +1223,8 @@ export default {
     ...mapFields('map', {
       previousMapPosition: 'previousMapPosition',
       popup: 'popup',
-      isEditing: 'isEditing',
+      isEditingLayer: 'isEditingLayer',
+      isEditingPost: 'isEditingPost',
       geoserverLayerNames: 'geoserverLayerNames',
       layersMetadata: 'layersMetadata',
       layersWithEntityField: 'layersWithEntityField',
@@ -1272,10 +1281,11 @@ export default {
       this.fetchColorMapEntities();
       // Emit group change event.
       EventBus.$emit('group-changed');
+      EventBus.$emit('clearEditHtml');
     },
-    isEditing() {
+    isEditingLayer() {
       // Disables double click zoom when user is editing.
-      this.dblClickZoomInteraction.setActive(!this.isEditing);
+      this.dblClickZoomInteraction.setActive(!this.isEditingLayer);
     }
   }
 };
@@ -1334,7 +1344,7 @@ div.ol-control button {
 .spotlight-message {
   background-color: #dc143c;
   position: fixed;
-  left: 38%;
+  left: 40%;
   top: 70px;
   color: white;
   padding: 5px;

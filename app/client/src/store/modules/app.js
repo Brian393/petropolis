@@ -1,7 +1,9 @@
-// root state object.
-// each Vuex instance is just a single state tree.
+import { getField, updateField } from 'vuex-map-fields';
+
 const state = {
-  asideHidden: false
+  asideHidden: false,
+  sidebarHtml: {},
+  postIcons: []
 };
 
 // mutations are operations that actually mutates the state.
@@ -13,7 +15,9 @@ const mutations = {
   toggle(state) {
     // console.log('store toggle!!')
     state.asideHidden = !state.asideHidden;
-  }
+  },
+
+  updateField
 };
 
 const actions = {
@@ -24,7 +28,10 @@ const actions = {
 
 // getters are functions
 const getters = {
-  asideHidden: state => state.asideHidden
+  asideHidden: state => state.asideHidden,
+  sidebarHtml: state => state.sidebarHtml,
+  postIcons: state => state.postIcons,
+  getField
 };
 
 export default {

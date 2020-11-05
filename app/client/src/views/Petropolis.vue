@@ -87,6 +87,8 @@ export default {
   computed: {
     ...mapFields('map', {
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity',
+      isEditingPost: 'isEditingPost',
+      isEditingHtml: 'isEditingHtml',
       fuelGroups: 'fuelGroups'
     }),
     ...mapGetters('map', {

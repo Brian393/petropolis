@@ -36,13 +36,12 @@
         <v-icon class="ml-0" x-small>fas fa-chevron-up</v-icon></v-btn
       >
       <v-expansion-panel class="my-0" :style="`background-color: white;`">
-
-      <v-row class="my-1" justify="center">
-         <span class="grey--text text--darken-2 subtitle-2">
-          <a @click="toggleAllLayersVisibility(true)">select all </a> |
-          <a @click="toggleAllLayersVisibility(false)"> clear all</a>
-        </span>
-      </v-row>
+        <v-row class="my-1" justify="center">
+          <span class="grey--text text--darken-2 subtitle-2">
+            <a @click="toggleAllLayersVisibility(true)">select all </a> |
+            <a @click="toggleAllLayersVisibility(false)"> clear all</a>
+          </span>
+        </v-row>
         <v-divider class="mb-1"></v-divider>
         <v-expansion-panel-content
           style="max-height:400px;"
@@ -60,9 +59,26 @@
                     item.get('isVisibleInResolution') === true
                 "
               >
-                <v-flex xs1>
-                  <span v-html="getGraphic(item)"></span>
-                </v-flex>
+                <template v-if="item.get('displaySidebarInfo')">
+                  <v-tooltip right>
+                    <template v-slot:activator="{ on }">
+                      <v-flex
+                        v-on="on"
+                        @click="lastSelectedLayer = item.get('name')"
+                        style="cursor:pointer;"
+                        xs1
+                      >
+                        <span v-html="getGraphic(item)"></span>
+                      </v-flex> </template
+                    >More Information</v-tooltip
+                  >
+                </template>
+                <template v-else>
+                  <v-flex xs1>
+                    <span v-html="getGraphic(item)"></span>
+                  </v-flex>
+                </template>
+
                 <v-flex xs11>
                   <v-checkbox
                     class="layer-input ml-1 pt-1 py-0 my-0"
@@ -72,7 +88,14 @@
                     @change="toggleLayerVisibility(item)"
                   >
                     <template v-slot:label>
-                      <span class="grey--text text--darken-2 subtitle-2">
+                      <span
+                        :class="{
+                          'text--darken-2 subtitle-2': true,
+                          'blue--text': item.get('displaySidebarInfo')
+                            ? true
+                            : false
+                        }"
+                      >
                         {{
                           item.get('legendDisplayName') ||
                             humanize(item.get('name'))
@@ -100,6 +123,7 @@ import { Mapable } from '../../../../mixins/Mapable';
 import { mapGetters } from 'vuex';
 import { humanize, debounce } from '../../../../utils/Helpers';
 import { getLayerType } from '../../../../utils/Layer';
+import { mapFields } from 'vuex-map-fields';
 
 export default {
   mixins: [Mapable],
@@ -187,7 +211,12 @@ export default {
       }
     },
     toggleLayerVisibility(item) {
+      this.lastSelectedLayer = null;
       item.setVisible(!item.getVisible());
+      // Show html in the sidebar.
+      if (item.getVisible() && item.get('displaySidebarInfo')) {
+        this.lastSelectedLayer = item.get('name');
+      }
     },
     toggleAllLayersVisibility(state) {
       Object.keys(this.layers).forEach(key => {
@@ -219,6 +248,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.sidebarHtml);
     this.updateTitle();
   },
   computed: {
@@ -227,6 +257,12 @@ export default {
       activeLayerGroup: 'activeLayerGroup',
       fuelGroups: 'fuelGroups',
       regions: 'regions'
+    }),
+    ...mapGetters('app', {
+      sidebarHtml: 'sidebarHtml'
+    }),
+    ...mapFields('map', {
+      lastSelectedLayer: 'lastSelectedLayer'
     })
   },
   watch: {

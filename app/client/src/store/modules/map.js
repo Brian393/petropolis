@@ -73,7 +73,37 @@ const state = {
   ],
   previousMapPosition: null,
   previousMapPositionSearch: null,
-  isEditing: false
+  isEditingLayer: false,
+  isEditingPost: false,
+  isEditingHtml: false,
+  htmlContent: '',
+  htmlPostLayerConf: {
+    type: 'VECTOR',
+    name: 'html_posts',
+    url:
+      './geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:html_posts&outputFormat=application/json&srsname=EPSG:3857',
+    queryable: true,
+    displayInLegend: true,
+    legendDisplayName: 'Posts',
+    format: 'GeoJSON',
+    visible: true,
+    zIndex: 50,
+    minResolution: 1,
+    maxResolution: 64000,
+    label: null,
+    hoverable: true,
+    canEdit: false,
+    style: {
+      hoverTextColor: 'white',
+      hoverBackgroundColor: 'rgba(176, 31, 20, 1)',
+      stylePropFnRef: {
+        iconUrl: 'icon'
+      }
+    }
+  },
+  postEditLayer: null, // user for
+  lastSelectedLayer: null, // triggered from layer or group change
+  persistentLayers: {}
 };
 
 const getters = {
@@ -83,6 +113,9 @@ const getters = {
   snackbar: state => state.messages.snackbar,
   activeLayerGroup: state => state.activeLayerGroup,
   popup: state => state.popup,
+  isEditingLayer: state => state.isEditingLayer,
+  isEditingHtml: state => state.isEditingHtml,
+  isEditingPost: state => state.isEditingPost,
   popupInfo: state => {
     const feature = state.popup.activeFeature;
     if (!feature) return;
@@ -110,6 +143,28 @@ const getters = {
   fuelGroups: state => state.fuelGroups,
   regions: state => state.regions,
   layersMetadata: state => state.layersMetadata,
+  htmlContent: state => state.htmlContent,
+  htmlPostLayerConf: state => state.htmlPostLayerConf,
+  persistentLayers: state => state.persistentLayers,
+  postEditLayer: state => state.postEditLayer,
+  lastSelectedLayer: state => state.lastSelectedLayer,
+  postIconTitle: (state, getters, rootState, rootGetters) => {
+    if (state.popup.activeFeature && state.popup.activeFeature.get('icon')) {
+      const icon = rootGetters['app/postIcons'].filter(
+        i => (i.iconUrl = state.popup.activeFeature.get('icon'))
+      );
+
+      return icon.length > 0 ? icon[0].title : '';
+    }
+    return '';
+  },
+  groupName: (state) => {
+    if (!state.activeLayerGroup) {
+      return ``;
+    } else {
+      return `${state.activeLayerGroup.fuelGroup}_${state.activeLayerGroup.region}`;
+    }
+  },
   getField
 };
 
@@ -200,6 +255,12 @@ const mutations = {
       state.layers[layer.get('name')] = layer;
     }
   },
+  SET_PERSISTENT_LAYER(state, layer) {
+    if (layer.get('name')) {
+      state.persistentLayers[layer.get('name')] = layer;
+      state.map.addLayer(layer);
+    }
+  },
   SET_MAP(state, map) {
     state.map = map;
   },
@@ -210,7 +271,14 @@ const mutations = {
     const layers = [...state.map.getLayers().getArray()];
     layers.forEach(layer => {
       // Doesn't remove edit layer but clears it instead. .
-      if (!['edit_layer', 'highlight_layer'].includes(layer.get('name'))) {
+      if (
+        ![
+          'edit_layer',
+          'highlight_layer',
+          'post_edit_layer',
+          'html_posts'
+        ].includes(layer.get('name'))
+      ) {
         state.map.removeLayer(layer);
       } else {
         if (layer.getSource().clear) {

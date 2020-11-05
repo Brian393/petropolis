@@ -3,6 +3,7 @@ const sequelize = require("../../db.js");
 
 const upload = require("../../services/file-upload");
 const singleUpload = upload.single("image");
+const jwtDecode = require("jwt-decode");
 
 exports.layer_post = (req, res) => {
   permissionController.hasPermission(req, res, "edit_layers", () => {
@@ -34,6 +35,13 @@ exports.layer_post = (req, res) => {
           featureId = parseInt(payload.featureId.split(".")[1]);
         }
       }
+      if (payload.properties.hasOwnProperty("createdBy")) {
+        const decodedToken = jwtDecode(req.headers.authorization);
+        console.log(decodedToken);
+        payload.properties.createdBy = parseInt(decodedToken.user.userID);
+        console.log(payload.createdBy);
+      }
+
       if (payload.type) {
         let sql = ``;
         switch (payload.type) {

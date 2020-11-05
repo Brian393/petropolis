@@ -37,7 +37,6 @@
               class="edit-buttons"
               dark
               rounded
-              small
               color="#dc143c"
               ><v-icon small left>far fa-edit</v-icon>
               {{
@@ -66,6 +65,26 @@
           </v-list>
         </v-menu>
       </v-layout>
+    </div>
+    <div v-if="!selectedLayer">
+      <v-tooltip left>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            class="edit-buttons mt-2"
+            v-on="on"
+            @click="togglePostEdit"
+            :color="isEditingPost ? 'rgb(228, 76, 107)' : '#dc143c'"
+            fab
+            dark
+            small
+          >
+            <v-icon small>{{
+              isEditingPost ? 'close' : 'fas fa-map-pin'
+            }}</v-icon>
+          </v-btn>
+        </template>
+        <span>{{ isEditingPost ? 'Close' : 'Add Post' }}</span>
+      </v-tooltip>
     </div>
     <div v-if="selectedLayer">
       <div v-for="(item, index) in editButtons" :key="index">
@@ -116,7 +135,8 @@
                 l =>
                   ['VECTORTILE', 'VECTOR'].includes(l.get('type')) &&
                   l.get('name') &&
-                  l.get('legendDisplayName')
+                  l.get('legendDisplayName') &&
+                  l.get('canEdit') !== false
               )
           "
           v-model="dialogSelectedLayer"
@@ -185,7 +205,7 @@
         </div>
       </template>
       <template v-slot:actions>
-        <div>
+        <div v-show="editType !== 'deleteFeature'">
           <div v-show="!imageUpload.errorMessage">
             <v-tooltip top>
               <template v-slot:activator="{ on }">
@@ -378,7 +398,8 @@ export default {
   name: 'edit-control',
   computed: {
     ...mapFields('map', {
-      isEditing: 'isEditing'
+      isEditingLayer: 'isEditingLayer',
+      isEditingPost: 'isEditingPost'
     }),
     ...mapGetters('map', {
       layersMetadata: 'layersMetadata'
@@ -480,7 +501,7 @@ export default {
       this.createHelpTooltip();
       this.pointerMoveKey = this.map.on('pointermove', this.onPointerMove);
       this.createPopupOverlay();
-      this.isEditing = true;
+      this.isEditingLayer = true;
       switch (editType) {
         case 'addFeature': {
           this.currentInteraction = new Draw({
@@ -788,6 +809,15 @@ export default {
      */
     activateEdit() {
       this.layersDialog = true;
+      if (this.isEditingPost) {
+        this.isEditingPost = false;
+      }
+    },
+    togglePostEdit() {
+      this.isEditingPost = !this.isEditingPost;
+      if (this.isEditingLayer) {
+        this.closeEdit();
+      }
     },
     changeLayer() {
       this.layersDialog = true;
@@ -830,7 +860,7 @@ export default {
       this.editLayer.getSource().clear();
       this.highlightLayer.getSource().clear();
       this.selectedFeature = null;
-      this.isEditing = false;
+      this.isEditingLayer = false;
       this.editType = null;
       this.formData = {};
       this.clearOverlays();

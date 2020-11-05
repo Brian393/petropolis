@@ -44,6 +44,7 @@
         "maxResolution": 16000,
         "hoverable": true,
         "displayInLegend": true,
+        "displaySidebarInfo": true,
         "legendIcon": "icons/contestedLegendIcon.png",
         "style": {
           "hoverTextColor": "white",
@@ -68,6 +69,7 @@
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Cancelled Pipelines",
+        "displaySidebarInfo": true,
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -91,6 +93,7 @@
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
+        "displaySidebarInfo": true,
         "legendDisplayName": "Crude Oil Pipelines",
         "format": "GeoJSON",
         "visible": true,
@@ -111,6 +114,7 @@
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
+        "displaySidebarInfo": true,
         "legendDisplayName": "Crude Oil Pipelines",
         "format": "MVT",
         "visible": true,
@@ -1936,9 +1940,9 @@
         "entity": "OWNER"
       },
       "cancelled_pipelines": {
-      "title": "PROJECT NAME",
-      "entity": "PROPOSED BY",
-      "description": "WHY IT FAILED"
+        "title": "PROJECT NAME",
+        "entity": "PROPOSED BY",
+        "description": "WHY IT FAILED"
       }
     },
     "featureInfoHiddenProps": [
