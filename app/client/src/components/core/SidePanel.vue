@@ -4,7 +4,7 @@
       v-if="!selectedCoorpNetworkEntity && !isEditingPost && !isEditingHtml"
     >
       <vue-scroll>
-        <v-row>
+        <v-row class="mx-0 px-0">
           <v-col class="mt-0 pt-0">
             <div v-if="isFeatureGetInfo">
               <v-row align="center" class="my-1 mx-1">
@@ -59,10 +59,14 @@
                   <!-- HTML DISPLAY FOR GROUPS AND LAYERS -->
                   <template v-if="!popup.showInSidePanel">
                     <v-row>
-                      <span class="ml-2 mt-1 subtitle" v-if="lastSelectedLayer">{{
-                        layers[lastSelectedLayer].get('legendDisplayName') ||
-                          lastSelectedLayer
-                      }}</span>
+                      <span
+                        class="ml-2 mt-1 subtitle"
+                        v-if="lastSelectedLayer"
+                        >{{
+                          layers[lastSelectedLayer].get('legendDisplayName') ||
+                            lastSelectedLayer
+                        }}</span
+                      >
                       <v-spacer></v-spacer>
                       <div v-if="loggedUser">
                         <v-tooltip left>
@@ -579,7 +583,7 @@ export default {
   width: 100%;
   text-align: center;
 }
-.cover img {
+.col >>> img {
   width: 100%;
   height: 100%;
   object-fit: cover;
