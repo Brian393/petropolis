@@ -10,14 +10,19 @@ aws.config.update({
 });
 
 const s3 = new aws.S3();
-const imagesFolder = process.env.BUCKET_IMAGES_FOLDER;
+const uploadFolder = process.env.BUCKET_ENV_UPLOAD_FOLDER;
 const jwtDecode = require("jwt-decode");
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+  console.log(file.mimetype);
+  if (
+    ["audio/wav", "audio/mpeg", "image/jpeg", "image/png"].includes(
+      file.mimetype
+    )
+  ) {
     cb(null, true);
   } else {
-    cb(new Error("Invalid Mime Type, only JPEG and PNG"), false);
+    cb(new Error("Invalid Mime Type, only JPEG, PNG, MP3 and WAV"), false);
   }
 };
 
@@ -34,10 +39,17 @@ const upload = multer({
       cb(null, { uploaderFullName, uploaderId });
     },
     key: function (req, file, cb) {
-      cb(
-        null,
-        "assets" + imagesFolder + Date.now() + "_" + file.originalname
-      ); //Appending extension
+      let assetSubfolder = "";
+      if (["image/jpeg", "image/png"].includes(file.mimetype)) {
+        assetSubfolder = "images/";
+      } else if (["audio/wav", "audio/mpeg"].includes(file.mimetype)) {
+        assetSubfolder = "audios/";
+      } else {
+        cb(new Error("Invalid Mime Type, only JPEG, PNG, MP3 and WAV"), false);
+      }
+      const path =
+        uploadFolder + assetSubfolder + Date.now() + "_" + file.originalname;
+      cb(null, "assets" + path); //Appending extension
     },
   }),
 });

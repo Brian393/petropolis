@@ -291,7 +291,7 @@ import { getFeatureHighlightStyle } from '../../../../style/OlStyleDefs';
 import OverlayPopup from './Overlay';
 import axios from 'axios';
 import { geojsonToFeature } from '../../../../utils/MapUtils';
-import { getNestedProperty } from '../../../../utils/Helpers';
+import { getNestedProperty, parseVideoUrl } from '../../../../utils/Helpers';
 import GeoJSON from 'ol/format/GeoJSON';
 import VJsf from '@koumoul/vjsf/lib/VJsf.js';
 import '@koumoul/vjsf/lib/VJsf.css';
@@ -894,17 +894,17 @@ export default {
 
       //Transform Video Url if exists
       if (propsWithNoGeometry.vimeoSrc) {
-        propsWithNoGeometry.vimeoSrc = this.parseVideoUrl(
+        propsWithNoGeometry.vimeoSrc = parseVideoUrl(
           propsWithNoGeometry.vimeoSrc
         );
       }
       if (propsWithNoGeometry.videoSrc) {
-        propsWithNoGeometry.videoSrc = this.parseVideoUrl(
+        propsWithNoGeometry.videoSrc = parseVideoUrl(
           propsWithNoGeometry.videoSrc
         );
       }
       if (propsWithNoGeometry.sidebarVideoSrc) {
-        propsWithNoGeometry.sidebarVideoSrc = this.parseVideoUrl(
+        propsWithNoGeometry.sidebarVideoSrc = parseVideoUrl(
           propsWithNoGeometry.sidebarVideoSrc
         );
       }
@@ -958,31 +958,6 @@ export default {
             }
           }
         });
-    },
-    parseVideoUrl(url) {
-      let formattedUrl;
-
-      // FORMAT VIMEO VIDEO URL
-      if (
-        url.includes('https://player.vimeo.com') ||
-        url.includes('https://www.youtube-nocookie.com')
-      ) {
-        formattedUrl = url;
-      }
-      if (url.includes('https://vimeo.com/')) {
-        const videoId = url.split('https://vimeo.com/')[1];
-        formattedUrl = 'https://player.vimeo.com/video/' + videoId;
-      }
-      // FORMAT YOUTUBE VIDEO URL
-      if (url.includes('https://www.youtube.com/watch?v=')) {
-        let videoId = url.split('https://www.youtube.com/watch?v=')[1];
-        let ampersandPosition = videoId.indexOf('&');
-        if (ampersandPosition != -1) {
-          videoId = videoId.substring(0, ampersandPosition);
-        }
-        formattedUrl = 'https://www.youtube-nocookie.com/embed/' + videoId;
-      }
-      return formattedUrl;
     }
   },
   mounted() {
