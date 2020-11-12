@@ -19,6 +19,32 @@ export function groupBy(items, key) {
   );
 }
 
+export function parseVideoUrl(url) {
+  let formattedUrl;
+
+  // FORMAT VIMEO VIDEO URL
+  if (
+    url.includes('https://player.vimeo.com') ||
+    url.includes('https://www.youtube-nocookie.com')
+  ) {
+    formattedUrl = url;
+  }
+  if (url.includes('https://vimeo.com/')) {
+    const videoId = url.split('https://vimeo.com/')[1];
+    formattedUrl = 'https://player.vimeo.com/video/' + videoId;
+  }
+  // FORMAT YOUTUBE VIDEO URL
+  if (url.includes('https://www.youtube.com/watch?v=')) {
+    let videoId = url.split('https://www.youtube.com/watch?v=')[1];
+    let ampersandPosition = videoId.indexOf('&');
+    if (ampersandPosition != -1) {
+      videoId = videoId.substring(0, ampersandPosition);
+    }
+    formattedUrl = 'https://www.youtube-nocookie.com/embed/' + videoId;
+  }
+  return formattedUrl;
+}
+
 export function getNestedProperty(obj, key) {
   return key.split('.').reduce(function(o, x) {
     return typeof o === 'undefined' || o === null ? o : o[x];

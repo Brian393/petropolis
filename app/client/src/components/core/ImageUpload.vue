@@ -74,16 +74,16 @@ export default {
           // UPLOAD IN S3 Bucket.
           const formData = new FormData();
           if (file) {
-            formData.append('image', file);
+            formData.append('file', file);
           }
           axios
             .post('api/upload', formData, {
               headers: authHeader()
             })
             .then(res => {
-              if (res.data.imageUrl) {
+              if (res.data.fileUrl) {
                 this.$emit('select-file', {
-                  src: res.data.imageUrl,
+                  src: res.data.fileUrl,
                   alt: file.name
                 });
               }
