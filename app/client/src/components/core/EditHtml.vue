@@ -66,7 +66,7 @@ import TipTapEditor from './TipTapEditor';
 import { Mapable } from '../../mixins/Mapable';
 import { unByKey } from 'ol/Observable';
 import Overlay from 'ol/Overlay.js';
-import { Icon, Style } from 'ol/style';
+import { postEditLayerStyle } from '../../style/OlStyleDefs';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import axios from 'axios';
@@ -171,15 +171,7 @@ export default {
           queryable: false,
           zIndex: 2001,
           source: postEditLayerSource,
-          style: new Style({
-            image: new Icon({
-              anchor: [0.5, 40],
-              scale: 1,
-              anchorXUnits: 'fraction',
-              anchorYUnits: 'pixels',
-              src: 'icons/map/marker.png'
-            })
-          })
+          style: postEditLayerStyle
         }
       );
       const postEditLayer = new VectorLayer(options);

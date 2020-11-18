@@ -43,6 +43,15 @@
                   >
                   </v-img>
                   <div
+                    v-else-if="
+                      popup.showInSidePanel === true &&
+                        popup.activeFeature &&
+                        popup.activeFeature.get('graphUrl')
+                    "
+                  >
+                    <span v-html="popup.activeFeature.get('graphUrl')"></span>
+                  </div>
+                  <div
                     align="center"
                     style="display:flex;justify-content:center;align-items: center;width:100%;"
                     class="caption font-italic font-weight-medium"

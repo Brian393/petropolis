@@ -1947,6 +1947,8 @@
     },
     "featureInfoHiddenProps": [
       "BPD",
+      "caption",
+      "graphUrl",
       "variable1",
       "variable2",
       "imageUrl",
