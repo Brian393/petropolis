@@ -8,7 +8,7 @@ import store from '../store/modules/map';
 let strokeColor = 'rgba(236, 236, 236, 0.7)';
 let fillColor = 'rgba(255,0,0, 0.2)';
 let imageColor = 'blue';
-let radiusHighlightColor = 'rgba(0,0,255,0.3)'
+let radiusHighlightColor = 'rgba(0,0,255,0.3)';
 let zIndex = 100;
 
 // Resets cache when map groups is changed.
@@ -100,6 +100,47 @@ export function popupInfoStyle() {
     return styles;
   };
   return styleFunction;
+}
+
+export function postEditLayerStyle() {
+  const styles = [];
+  styles.push(
+    new OlStyle({
+      image: new OlCircle({
+        radius: 27,
+        fill: new OlFill({
+          color: 'red'
+        })
+      }),
+      zIndex: 1000
+    })
+  );
+  styles.push(
+    new OlStyle({
+      image: new OlCircle({
+        radius: 25,
+        fill: new OlFill({
+          color: 'rgba(236, 236, 236, 0.75)'
+        })
+      }),
+      zIndex: 1000
+    })
+  );
+
+  styles.push(
+    new OlStyle({
+      image: new OlIconStyle({
+        anchor: [0.5, 40],
+        scale: 1,
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'icons/map/marker.png'
+      }),
+      zIndex: 1001
+    })
+  );
+
+  return styles;
 }
 
 export function networkCorpHighlightStyle() {
@@ -411,7 +452,7 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue);
     },
     iconUrl: propertyValue => {
-      return propertyValue
+      return propertyValue;
     }
   },
   cancelled_pipelines: {

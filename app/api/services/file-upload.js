@@ -11,6 +11,7 @@ aws.config.update({
 
 const s3 = new aws.S3();
 const uploadFolder = process.env.BUCKET_ENV_UPLOAD_FOLDER;
+const baseFolder = process.env.UPLOAD_BASE_FOLDER;
 const jwtDecode = require("jwt-decode");
 
 const fileFilter = (req, file, cb) => {
@@ -48,8 +49,14 @@ const upload = multer({
         cb(new Error("Invalid Mime Type, only JPEG, PNG, MP3 and WAV"), false);
       }
       const path =
-        uploadFolder + assetSubfolder + Date.now() + "_" + file.originalname;
-      cb(null, "assets" + path); //Appending extension
+        baseFolder +
+        uploadFolder +
+        assetSubfolder +
+        Date.now() +
+        "_" +
+        file.originalname;
+      console.log(path);
+      cb(null, path); //Appending extension
     },
   }),
 });
