@@ -514,7 +514,7 @@
       {
         "type": "VECTOR",
         "name": "us_refineries",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:epa_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
@@ -529,7 +529,7 @@
         "style": {
           "iconUrl": "icons/Refinery0.png",
           "stylePropFnRef": {
-            "iconScaleFn": "variable2"
+            "iconScaleFn": "total_emissions_2019"
           }
         }
       },

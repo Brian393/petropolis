@@ -541,7 +541,7 @@ export const layersStylePropFn = {
   },
   us_refineries: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
+      return getIconScaleValue(propertyValue, 5000000, 0.5, 2);
     }
   },
   GiantOilFields: {
