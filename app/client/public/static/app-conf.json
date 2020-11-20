@@ -116,6 +116,7 @@
         "displayInLegend": true,
         "displaySidebarInfo": true,
         "legendDisplayName": "Crude Oil Pipelines",
+        "sidebarDefaultMedia": {"top": "images/WaterIsLife.png"},
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -541,6 +542,7 @@
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Oil Terminals",
+        "sidebarDefaultMedia": {"top": "images/Iridescent.png", "bottom": "images/Iridescent2.png"},
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -1956,7 +1958,10 @@
       "sidebarMediaBottom",
       "videoUrl",
       "videoSrc",
-      "sidebarVideoSrc"
+      "sidebarVideoSrc",
+      "facility_id",
+      "frs_id",
+      "primary_naics_code"
     ],
     "corporateEntitiesUrls": {
       "Enbridge": "https://its.timetochange.today/Enbridge/"
