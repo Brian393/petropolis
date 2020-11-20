@@ -13,9 +13,10 @@ exports.layer_post = (req, res) => {
       if (
         req.file &&
         req.file.location &&
-        payload.properties.hasOwnProperty("imageUrl")
+        payload.hasOwnProperty("sidebarPosition")
       ) {
-        payload.properties.imageUrl = process.env.CLOUDFRONT_BASE_URL
+        payload.properties[payload.sidebarPosition] = process.env
+          .CLOUDFRONT_BASE_URL
           ? process.env.CLOUDFRONT_BASE_URL +
             req.file.key.replace(process.env.UPLOAD_BASE_FOLDER, "")
           : process.file.location;

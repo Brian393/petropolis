@@ -250,6 +250,58 @@
           >
             {{ imageUpload.errorMessage }}
           </div>
+
+          <div v-if="imageUpload.selectedFile">
+            <v-menu
+              class="mt-2"
+              origin="center center"
+              transition="scale-transition"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  class="mt-2"
+                  rounded
+                  small
+                  depressed
+                  v-on="on"
+                  v-bind="attrs"
+                >
+                  <v-icon left
+                    >{{
+                      imageUpload.position === 'sidebarMediaTop'
+                        ? 'picture_in_picture'
+                        : 'picture_in_picture_alt'
+                    }}
+                  </v-icon>
+                  <span
+                    >Sidebar:
+                    {{
+                      imageUpload.position === 'sidebarMediaTop'
+                        ? 'Top'
+                        : 'Bottom'
+                    }}</span
+                  >
+                </v-btn>
+              </template>
+              <v-list dense>
+                <v-list-item
+                  @click="
+                    imageUpload.position === 'sidebarMediaTop'
+                      ? (imageUpload.position = 'sidebarMediaBottom')
+                      : (imageUpload.position = 'sidebarMediaTop')
+                  "
+                >
+                  <v-list-item-content>
+                    <v-list-item-title>{{
+                      imageUpload.position === 'sidebarMediaTop'
+                        ? 'Bottom'
+                        : 'Top'
+                    }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
         </div>
 
         <v-spacer></v-spacer>
@@ -392,7 +444,8 @@ export default {
       defaultButtonText: 'Upload',
       selectedFile: null,
       isSelecting: false,
-      errorMessage: ''
+      errorMessage: '',
+      position: 'sidebarMediaTop'
     }
   }),
   name: 'edit-control',
@@ -729,6 +782,7 @@ export default {
       this.imageUpload.selectedFile = null;
       this.$refs.imageUploader.value = null;
       this.imageUpload.errorMessage = '';
+      this.imageUpload.position = 'top';
     },
     /**
      * Popup action buttons
@@ -893,6 +947,13 @@ export default {
       } = this.selectedFeature.getProperties();
 
       //Transform Video Url if exists
+      const videoPossibilities = [
+        'youtube-nocookie.com',
+        'youtube.com',
+        'vimeo.com'
+      ];
+
+      // For overlay video player
       if (propsWithNoGeometry.vimeoSrc) {
         propsWithNoGeometry.vimeoSrc = parseVideoUrl(
           propsWithNoGeometry.vimeoSrc
@@ -903,9 +964,27 @@ export default {
           propsWithNoGeometry.videoSrc
         );
       }
-      if (propsWithNoGeometry.sidebarVideoSrc) {
-        propsWithNoGeometry.sidebarVideoSrc = parseVideoUrl(
-          propsWithNoGeometry.sidebarVideoSrc
+
+      // For sidebar video player
+      if (
+        propsWithNoGeometry.sidebarMediaTop &&
+        videoPossibilities.some(v =>
+          propsWithNoGeometry.sidebarMediaTop.includes(v)
+        )
+      ) {
+        propsWithNoGeometry.sidebarMediaTop = parseVideoUrl(
+          propsWithNoGeometry.sidebarMediaTop
+        );
+      }
+
+      if (
+        propsWithNoGeometry.sidebarMediaBottom &&
+        videoPossibilities.some(v =>
+          propsWithNoGeometry.sidebarMediaBottom.includes(v)
+        )
+      ) {
+        propsWithNoGeometry.sidebarMediaBottom = parseVideoUrl(
+          propsWithNoGeometry.sidebarMediaBottom
         );
       }
 
@@ -934,6 +1013,10 @@ export default {
       const formData = new FormData();
       if (this.imageUpload.selectedFile) {
         formData.append('image', this.imageUpload.selectedFile);
+        // eslint-disable-next-line
+        if (payload.properties.hasOwnProperty(this.imageUpload.position)) {
+          payload.sidebarPosition = this.imageUpload.position;
+        }
       }
       formData.append('payload', JSON.stringify(payload));
       axios

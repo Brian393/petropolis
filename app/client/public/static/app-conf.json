@@ -77,6 +77,10 @@
         "maxResolution": 32000,
         "hoverable": true,
         "legendIcon": "icons/legendCancelledPipelines.png",
+        "sidebarDefaultMedia": {
+          "top": "images/NoPipelineEver.png", 
+          "bottom": "images/FenceNoPipeline.png"
+        },
         "style": {
           "type": "line",
           "stylePropFnRef": {
@@ -1952,6 +1956,8 @@
       "variable1",
       "variable2",
       "imageUrl",
+      "sidebarMediaTop",
+      "sidebarMediaBottom",
       "videoUrl",
       "videoSrc",
       "sidebarVideoSrc"
