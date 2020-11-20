@@ -13,44 +13,39 @@
                     <h1><span style="font-align:center;color:#c00;"></span></h1>
                   </div>
 
-                  <!-- VIDEO PLAYER -->
-
+                  <!-- SIDEBAR TOP MEDIA PLAYER -->
                   <template
                     v-if="
                       popup.showInSidePanel === true &&
                         popup.activeFeature &&
-                        popup.activeFeature.get('sidebarVideoSrc')
+                        popup.activeFeature.get('sidebarMediaTop')
                     "
                   >
-                    <iframe
-                      height="300"
-                      width="100%"
-                      :src="popup.activeFeature.get('sidebarVideoSrc')"
-                      frameborder="0"
-                      allowfullscreen
-                    ></iframe>
+                    <span
+                      v-html="
+                        renderMediaHtml(
+                          popup.activeFeature.get('sidebarMediaTop')
+                        )
+                      "
+                    ></span>
                   </template>
-
-                  <v-img
+                  <!-- (default top media url) -->
+                  <template
                     v-else-if="
                       popup.showInSidePanel === true &&
                         popup.activeFeature &&
-                        popup.activeFeature.get('imageUrl')
-                    "
-                    class="my-3"
-                    max-width="425"
-                    :src="parseUrl(popup.activeFeature.get('imageUrl'))"
-                  >
-                  </v-img>
-                  <div
-                    v-else-if="
-                      popup.showInSidePanel === true &&
-                        popup.activeFeature &&
-                        popup.activeFeature.get('graphUrl')
+                        popup.activeLayer.get('sidebarDefaultMedia') &&
+                        popup.activeLayer.get('sidebarDefaultMedia').top
                     "
                   >
-                    <span v-html="popup.activeFeature.get('graphUrl')"></span>
-                  </div>
+                    <span
+                      v-html="
+                        renderMediaHtml(
+                          popup.activeLayer.get('sidebarDefaultMedia').top
+                        )
+                      "
+                    ></span>
+                  </template>
                   <div
                     align="center"
                     style="display:flex;justify-content:center;align-items: center;width:100%;"
@@ -64,7 +59,6 @@
                   >
                     <span v-html="popup.activeFeature.get('caption')"></span>
                   </div>
-
                   <!-- HTML DISPLAY FOR GROUPS AND LAYERS -->
                   <template v-if="!popup.showInSidePanel">
                     <v-row>
@@ -212,6 +206,40 @@
                     </div>
                     <v-divider class="mt-4"></v-divider>
                   </div>
+                  <!-- SIDEBAR BOTTOM MEDIA PLAYER -->
+                  <!-- (feature media url) -->
+                  <template
+                    v-if="
+                      popup.showInSidePanel === true &&
+                        popup.activeFeature &&
+                        popup.activeFeature.get('sidebarMediaBottom')
+                    "
+                  >
+                    <span
+                      v-html="
+                        renderMediaHtml(
+                          popup.activeFeature.get('sidebarMediaBottom')
+                        )
+                      "
+                    ></span>
+                  </template>
+                  <!-- (default bottom media url) -->
+                  <template
+                    v-else-if="
+                      popup.showInSidePanel === true &&
+                        popup.activeFeature &&
+                        popup.activeLayer.get('sidebarDefaultMedia') &&
+                        popup.activeLayer.get('sidebarDefaultMedia').bottom
+                    "
+                  >
+                    <span
+                      v-html="
+                        renderMediaHtml(
+                          popup.activeLayer.get('sidebarDefaultMedia').bottom
+                        )
+                      "
+                    ></span>
+                  </template>
                 </v-col>
               </v-row>
             </div>
@@ -355,6 +383,7 @@
         </vue-scroll>
       </v-row>
     </v-layout>
+
     <!-- // ADD OR EDIT POST-->
     <v-layout
       v-show="
@@ -494,6 +523,40 @@ export default {
           : '';
       }
       EventBus.$emit('editHtml', html);
+    },
+    renderMediaHtml(url) {
+      const videoPossibilities = [
+        'youtube-nocookie.com',
+        'youtube.com',
+        'vimeo.com'
+      ];
+      let html = ``;
+      if (
+        videoPossibilities.some(v => url.includes(v)) &&
+        !url.includes('iframe')
+      ) {
+        // Render as video
+        html = `<iframe
+                      height="300"
+                      width="100%"
+                      src="${url}"
+                      frameborder="0"
+                      allowfullscreen
+                    ></iframe>`;
+      } else if (url.includes('iframe')) {
+        // Render as iframe
+        html = url;
+      } else {
+        // Render as image.
+        html = `<img
+                    class="my-3"
+                    style="max-width:425px;"
+                    src="${url}"
+                  >
+                  </img>`;
+      }
+
+      return html;
     },
     closePopupInfo() {
       EventBus.$emit('closePopupInfo');

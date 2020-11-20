@@ -1952,6 +1952,8 @@
       "variable1",
       "variable2",
       "imageUrl",
+      "sidebarMediaTop",
+      "sidebarMediaBottom",
       "videoUrl",
       "videoSrc",
       "sidebarVideoSrc"
