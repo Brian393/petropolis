@@ -539,7 +539,7 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 1.4);
     }
   },
-  us_refineries: {
+  epa_refineries: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 5000000, 0.5, 2);
     }

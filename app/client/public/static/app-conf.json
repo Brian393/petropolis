@@ -514,8 +514,8 @@
       },
       {
         "type": "VECTOR",
-        "name": "epa_refineries5",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:epa_refineries5&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "epa_refineries",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:epa_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
@@ -530,7 +530,7 @@
         "style": {
           "iconUrl": "icons/Refinery0.png",
           "stylePropFnRef": {
-            "iconScaleFn": "total_emissions_2019"
+            "iconScaleFn": "variable2"
           }
         }
       },
@@ -1732,7 +1732,7 @@
             "global_pipes",
             "contested_pipelines",
             "Terminals",
-            "epa_refineries5",
+            "epa_refineries",
             "LNGterminals",
             "all_permits",
             "crude_derailment",
