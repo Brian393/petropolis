@@ -524,6 +524,14 @@ export const layersStylePropFn = {
       return propertyValue;
     }
   },
+  epa_electric_power: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.004;
+    },
+    fillColor: propertyValue => {
+      return propertyValue;
+    }
+  },
   global_gas: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.15);
