@@ -1,0 +1,179 @@
+{
+  "version": 8,
+  "name": "RACIAL DOT",
+  "metadata": {
+    "mapbox:autocomposite": false,
+    "mapbox:type": "template",
+    "openmaptiles:mapbox:owner": "openmaptiles",
+    "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t",
+    "openmaptiles:version": "3.x",
+    "maputnik:renderer": "mbgljs"
+  },
+  "center": [0, 0],
+  "zoom": 1,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "racial_dot": {
+      "type": "vector",
+      "url": "mbtiles://{racial_dot}"
+    }
+  },
+  "layers": [
+    {
+      "id": "racial_dot",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["any", ["==", "race_cat", "WHITE"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [15, 2.6],
+            [16, 0]
+          ]
+        },
+        "circle-color": "rgba(114, 160, 196, 1)"
+      }
+    },
+    {
+      "id": "racial_dot2",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "BLACK"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [15, 2.6],
+            [16, 0]
+          ]
+        },
+        "circle-color": "#984EA3"
+      }
+    },
+    {
+      "id": "racial_dot3",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "HISPANIC"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [15, 2.6],
+            [16, 0]
+          ]
+        },
+        "circle-color": "#FF7F00"
+      }
+    },
+    {
+      "id": "racial_dot4",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "ASIAN"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [15, 2.6],
+            [16, 0]
+          ]
+        },
+        "circle-color": "#FFFF33"
+      }
+    },
+    {
+      "id": "racial_dot5",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "NATIVE_AMERICANS"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [14, 2.5],
+            [15, 0]
+          ]
+        },
+        "circle-color": "#E41A1C"
+      }
+    },
+    {
+      "id": "racial_dot6",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "PI"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [14, 2.5],
+            [15, 0]
+          ]
+        },
+        "circle-color": "#A65628"
+      }
+    },
+    {
+      "id": "racial_dot7",
+      "type": "circle",
+      "source": "racial_dot",
+      "source-layer": "il",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "race_cat", "OTHER_RACE"]],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-radius": {
+          "stops": [
+            [3, 1.2],
+            [12, 1.6],
+            [14, 2.5],
+            [15, 0]
+          ]
+        },
+        "circle-color": "#4DAF4A"
+      }
+    }
+  ],
+  "id": "bright"
+}
