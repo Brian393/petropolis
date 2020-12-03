@@ -77,6 +77,17 @@ services:
     networks:
       proxy:
 
+  tileserver:
+    image: maptiler/tileserver-gl
+    volumes:
+      - ./app/tileserver-gl:/data
+    container_name: petropolis-tileserver
+    restart: on-failure
+    ports:
+      - "8081:80"
+    networks:
+      proxy:
+
   db:
     image: kartoza/postgis:12.1
     container_name: petropolis-database

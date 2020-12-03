@@ -1092,30 +1092,21 @@
           "strokeWidth": 0.5
         }
       },
+
+     
+
       {
-        "type": "WMS",
-        "name": "na_rr2",
-        "url": "./geoserver/wms",
-        "layers": "petropolis:na_rr",
-        "group": "petropolisCoal",
-        "renderMode": "image",
-        "includeInSearch": false,
-        "queryable": true,
-        "displayInLegend": true,
-        "legendDisplayName": "Railroads",
-        "format": "GeoJSON",
-        "visible": true,
-        "hoverable": true,
-        "zIndex": 0,
-        "minResolution": 440,
-        "maxResolution": 32000,
-        "isInteractive": false,
+        "type": "XYZ",
+        "name": "il_layer",
+        "group": "backgroundLayers",
+        "url": "./styles/racial_dot/{z}/{x}/{y}.png",
+        "legendDisplayName": "Racial Dot",
         "legendIcon": "icons/legendRailroad.png",
-        "style": {
-          "strokeColor": "silver",
-          "strokeWidth": 0.5
-        }
+        "queryable": false,
+        "displayInLegend": true,
+        "visible": true
       },
+
       {
         "type": "VECTORTILE",
         "name": "publically_owned_utilities",
@@ -1726,7 +1717,8 @@
             "gas1",
             "MacLean",
             "tar_sands",
-            "video_pipelines"
+            "video_pipelines",
+            "il_layer"
           ],
           "center": [-103, 42.0],
           "resolution": 8500,

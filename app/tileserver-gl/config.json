@@ -1,0 +1,35 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "fonts": "fonts",
+      "sprites": "sprites",
+      "styles": "styles",
+      "mbtiles": "mbtiles"
+    },
+
+    "formatQuality": {
+      "jpeg": 90,
+      "webp": 90
+    },
+    "maxSize": 2048,
+    "pbfAlias": "pbf",
+    "serveAllFonts": false,
+    "serveAllStyles": false,
+    "serveStaticMaps": true,
+    "tileMargin": 0
+  },
+  "styles": {
+    "racial_dot": {
+      "style": "osm-bright-gl-style/style.json",
+      "tilejson": {
+        "bounds": [-91.504633, 36.996443, -87.497689, 42.508347]
+      }
+    }
+  },
+  "data": {
+    "racial_dot": {
+      "mbtiles": "il.mbtiles"
+    }
+  }
+}
