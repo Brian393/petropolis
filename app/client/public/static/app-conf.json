@@ -1579,7 +1579,7 @@
         "type": "XYZ",
         "name": "maptiler_topo1",
         "group": "backgroundLayers",
-        "url": "https://api.maptiler.com/maps/912d0ac5-7667-4ef2-8f90-145d725a23d4/{z}/{x}/{y}.jpg?key=JsAgs5z1cl0FbVKCSe5V",
+        "url": "https://devtiles.timetochange.today/styles/racial_dot/{z}/{x}/{y}@2x.jpg",
         "minResolution": 0.25,
         "maxResolution": 16000,
         "opacity": 1,
@@ -1648,11 +1648,9 @@
         "group": "coal",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 0.25,
-        "maxResolution": 8,
+        "maxResolution": 3,
         "queryable": false,
         "visible": true,
-        "legendDisplayName": "Spotlight",
-        "legendIcon": "icons/imageryLegendIcon.png",
         "displayInLegend": true
       },
       {
@@ -1795,7 +1793,7 @@
             "Dark",
             "maptiler_topo1",
             "rest_of_world",
-            "north_america",
+            "ESRI-World-Imagery3",
             "epa_electric_power"
           ],
           "center": [-103, 42.0],
