@@ -116,6 +116,7 @@
         "displayInLegend": true,
         "displaySidebarInfo": true,
         "legendDisplayName": "Crude Oil Pipelines",
+        "sidebarDefaultMedia": {"top": "images/WaterIsLife.png"},
         "format": "MVT",
         "visible": true,
         "zIndex": 0,
@@ -128,6 +129,35 @@
           "hoverBackgroundColor": "#000000",
           "strokeColor": "#272622",
           "strokeWidth": 3
+        }
+      },
+      {
+        "type": "VECTOR",
+        "name": "epa_electric_power",
+        "url": "geojson/epa_electric_power.geojson",
+        "group": "petropolisCoal",
+        "queryable": true,
+        "showZoomToFeature": false,
+        "displayInLegend": true,
+        "legendDisplayName": "Electric Power",
+        "format": "GeoJSON",
+        "opacity": 0.8,
+        "visible": false,
+        "zIndex": 0,
+        "minResolution": 0.5,
+        "maxResolution": 3500,
+        "label": null,
+        "hoverable": true,
+        "isInteractive": true,
+        "style": {
+          "type": "circle",
+          "hoverTextColor": "white",
+          "hoverBackgroundColor": "#000000",
+          "stylePropFnRef": {
+            "circleRadiusFn": "variable2",
+            "fillColor": "variable1"
+          },
+          "strokeColor": "black"
         }
       },
       {
@@ -513,12 +543,12 @@
       },
       {
         "type": "VECTOR",
-        "name": "us_refineries",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:us_refineries&outputFormat=application/json&srsname=EPSG:3857",
+        "name": "epa_refineries",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=petropolis:epa_refineries&outputFormat=application/json&srsname=EPSG:3857",
         "group": "oil",
         "queryable": true,
         "displayInLegend": true,
-        "legendDisplayName": "US Refineries",
+        "legendDisplayName": "EPA Refineries",
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 0,
@@ -541,6 +571,7 @@
         "queryable": true,
         "displayInLegend": true,
         "legendDisplayName": "Oil Terminals",
+        "sidebarDefaultMedia": {"top": "images/Iridescent.png", "bottom": "images/Iridescent2.png"},
         "format": "GeoJSON",
         "visible": false,
         "zIndex": 0,
@@ -1548,9 +1579,9 @@
         "type": "XYZ",
         "name": "maptiler_topo1",
         "group": "backgroundLayers",
-        "url": "https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}.png?key=JsAgs5z1cl0FbVKCSe5V",
+        "url": "https://devtiles.timetochange.today/styles/racial_dot/{z}/{x}/{y}@2x.jpg",
         "minResolution": 0.25,
-        "maxResolution": 6000,
+        "maxResolution": 16000,
         "opacity": 1,
         "queryable": false,
         "visible": true,
@@ -1591,26 +1622,15 @@
       {
         "type": "XYZ",
         "name": "us_imagery",
-        "group": "oil",
-        "url": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
+        "group": "coal",
+        "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 0.25,
         "maxResolution": 20,
         "queryable": false,
         "visible": true,
         "legendDisplayName": "USGS Spotlight",
         "legendIcon": "icons/imageryLegendIcon.png",
-        "displayInLegend": true
-      },
-      {
-        "type": "XYZ",
-        "name": "us_imagery2",
-        "group": "backgroundLayers",
-        "url": "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}",
-        "minResolution": 0.25,
-        "maxResolution": 8,
-        "opacity": 0.99,
-        "queryable": false,
-        "visible": true
+        "displayInLegend": false
       },
       {
         "type": "XYZ",
@@ -1625,12 +1645,13 @@
       {
         "type": "XYZ",
         "name": "ESRI-World-Imagery3",
-        "group": "backgroundLayers",
+        "group": "coal",
         "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         "minResolution": 0.25,
-        "maxResolution": 700,
+        "maxResolution": 3,
         "queryable": false,
-        "visible": true
+        "visible": true,
+        "displayInLegend": true
       },
       {
         "type": "XYZ",
@@ -1687,7 +1708,7 @@
             "global_pipes",
             "contested_pipelines",
             "Terminals",
-            "us_refineries",
+            "epa_refineries",
             "LNGterminals",
             "all_permits",
             "crude_derailment",
@@ -1722,7 +1743,7 @@
             "global_pipes",
             "contested_pipelines",
             "Terminals",
-            "us_refineries",
+            "epa_refineries",
             "LNGterminals",
             "all_permits",
             "crude_derailment",
@@ -1770,20 +1791,13 @@
         "default": {
           "layers": [
             "Dark",
-            "maptiler_topo",
+            "maptiler_topo1",
             "rest_of_world",
-            "north_america3",
-            "railway_map",
-            "ESRI-World-Imagery",
-            "abandoned_mines",
-            "cement",
-            "steel",
-            "coal_global1",
-            "Coal_Mines",
-            "CoalAsh"
+            "ESRI-World-Imagery3",
+            "epa_electric_power"
           ],
           "center": [-103, 42.0],
-          "resolution": 8500,
+          "resolution": 6500,
           "minResolution": 0,
           "maxResolution": 32000,
           "sidePanel": {
@@ -1948,7 +1962,10 @@
       "sidebarMediaBottom",
       "videoUrl",
       "videoSrc",
-      "sidebarVideoSrc"
+      "sidebarVideoSrc",
+      "facility_id",
+      "frs_id",
+      "primary_naics_code"
     ],
     "corporateEntitiesUrls": {
       "Enbridge": "https://its.timetochange.today/Enbridge/"

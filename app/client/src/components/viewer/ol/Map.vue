@@ -374,7 +374,7 @@ export default {
         // Enable spotlight for ESRI Imagery
         if (
           layer.get('name') === 'ESRI-World-Imagery' ||
-          layer.get('name') === 'us_imagery'
+          layer.get('name') === 'ESRI-World-Imagery3'
         ) {
           layer.on('prerender', e => {
             this.spotlight(e);

@@ -524,6 +524,14 @@ export const layersStylePropFn = {
       return propertyValue;
     }
   },
+  epa_electric_power: {
+    circleRadiusFn: propertyValue => {
+      return Math.sqrt(propertyValue) * 0.004;
+    },
+    fillColor: propertyValue => {
+      return propertyValue;
+    }
+  },
   global_gas: {
     circleRadiusFn: propertyValue => {
       return getRadiusValue(propertyValue, 0.15);
@@ -539,9 +547,9 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 1.4);
     }
   },
-  us_refineries: {
+  epa_refineries: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
+      return getIconScaleValue(propertyValue, 5000000, 0.5, 2);
     }
   },
   GiantOilFields: {
