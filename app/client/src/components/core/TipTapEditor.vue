@@ -2,6 +2,11 @@
   <div>
     <media-dialog ref="mediadialog" @onConfirm="addCommand" />
 
+    <tip-tap-expansion-dialog
+      ref="tiptap-expansion-dialog"
+      @onConfirm="addCommand"
+    ></tip-tap-expansion-dialog>
+
     <tiptap-vuetify
       ref="tiptap"
       style="line-height:1.2;"
@@ -66,6 +71,22 @@
             </template>
             Add audio
           </v-tooltip>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn
+                v-on="on"
+                :class="{
+                  'tiptap-vuetify-editor__action-render-btn': true
+                }"
+                small
+                icon
+                @click="openModal('expansion')"
+              >
+                <v-icon>playlist_add</v-icon>
+              </v-btn>
+            </template>
+            Add Expansion panel
+          </v-tooltip>
         </div>
       </template>
     </tiptap-vuetify>
@@ -79,8 +100,10 @@ import { mapFields } from 'vuex-map-fields';
 import Iframe from './TipTapIframe';
 import Audio from './TipTapAudio';
 import Image from './TipTapImage';
+import Expansion from './TipTapExpansion';
 
 import MediaDialog from './TipTapMediaDialog';
+import TipTapExpansionDialog from './TipTapExpansionDialog';
 // import the component and the necessary extensions
 import {
   TiptapVuetify,
@@ -102,7 +125,7 @@ import {
 
 export default {
   // specify TiptapVuetify component in "components"
-  components: { TiptapVuetify, MediaDialog },
+  components: { TiptapVuetify, MediaDialog, TipTapExpansionDialog },
   data: () => ({
     editor: null,
     // declare extensions you want to use
@@ -127,20 +150,8 @@ export default {
       Bold,
       HorizontalRule,
       HardBreak
-      // [
-      //   Image,
-      //   {
-      //     options: {
-      //       imageSources: [
-      //         { component: ImageUpload, name: 'Upload' },
-      //         { component: ImageForm, name: 'URL' }
-      //       ],
-      //       imageSourcesOverride: true
-      //     }
-      //   }
-      // ]
     ],
-    nativeExtensions: [new Iframe(), new Audio(), new Image()]
+    nativeExtensions: [new Iframe(), new Audio(), new Image(), new Expansion()]
   }),
   computed: {
     ...mapFields('map', {
@@ -150,7 +161,17 @@ export default {
   methods: {
     openModal(command) {
       if (this.editor) {
-        this.$refs['mediadialog'].showModal(this.editor.commands[command], command);
+        if (command === 'expansion') {
+          this.$refs['tiptap-expansion-dialog'].showModal(
+            this.editor.commands[command],
+            command
+          );
+        } else {
+          this.$refs['mediadialog'].showModal(
+            this.editor.commands[command],
+            command
+          );
+        }
       }
     },
     addCommand(data) {

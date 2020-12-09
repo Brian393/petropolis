@@ -13,7 +13,9 @@ export default class Iframe extends Node {
         }
       },
       group: 'block',
-      selectable: false,
+      selectable: true,
+      draggable: true,
+      atom: true,
       parseDOM: [
         {
           tag: 'iframe',

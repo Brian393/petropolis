@@ -1,8 +1,8 @@
 import { Node } from 'tiptap';
 
-export default class Audio extends Node {
+export default class Expansion extends Node {
   get name() {
-    return 'audio';
+    return 'expansion';
   }
 
   get schema() {
@@ -18,26 +18,13 @@ export default class Audio extends Node {
       atom: true,
       parseDOM: [
         {
-          tag: 'audio',
+          tag: 'div',
           getAttrs: dom => ({
             src: dom.getAttribute('src')
           })
         }
       ],
-      toDOM: node => [
-        'audio',
-        {
-          controls: '',
-          style: 'width:100%;'
-        },
-        [
-          'source',
-          {
-            src: node.attrs.src,
-            type: 'audio/mpeg'
-          }
-        ]
-      ]
+      toDOM: () => ['div', {}]
     };
   }
 

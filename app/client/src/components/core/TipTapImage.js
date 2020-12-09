@@ -13,7 +13,9 @@ export default class Image extends Node {
         }
       },
       group: 'block',
-      selectable: false,
+      selectable: true,
+      draggable: true,
+      atom: true,
       parseDOM: [
         {
           tag: 'img',
@@ -25,7 +27,7 @@ export default class Image extends Node {
       toDOM: node => [
         'img',
         {
-          src: node.attrs.src,
+          src: node.attrs.src
         }
       ]
     };
