@@ -45,6 +45,8 @@ services:
       - ./app/config:/opt/config
     env_file:
       - ./app/config/docker-env/db.env
+    ports:
+      - "65432:5432"
 
   api:
     build:
