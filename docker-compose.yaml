@@ -1,62 +1,15 @@
 version: "3.7"
 
-networks:
-  proxy:
-
-volumes:
-  postgres_data:
-  # wpdb_data:
-
 services:
-
-#-----PROXY-----#
-
-  nginx:
-    container_name: petropolis-nginx
-    image: nginx:alpine
-    volumes:
-      - ./app/config/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./app/config/nginx/dev.timetochange.today.conf:/etc/nginx/sites-enabled/dev.timetochange.today.conf
-      - ./app/config/nginx/devtiles.timetochange.today.conf:/etc/nginx/sites-enabled/devtiles.timetochange.today.conf
-      - ./app/config/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./app/config/ssl/certbot/conf:/etc/letsencrypt
-      - ./app/config/ssl/certbot/www:/var/www/certbot
-    ports:
-      - 80:80
-      - 443:443
-    restart: always
-    command: /bin/sh -c "while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g 'daemon off;'"    
-    networks:
-      proxy:
-  
-  certbot:
-    container_name: petropolis-certbot
-    image: certbot/certbot
-    volumes:
-      - ./app/config/ssl/certbot/conf:/etc/letsencrypt
-      - ./app/config/ssl/certbot/www:/var/www/certbot
-    restart: unless-stopped
-    entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;"
-    depends_on:
-      - nginx
-    networks:
-      proxy: 
-
-#-----APP-----#
-
   client:
     build:
       dockerfile: Dockerfile
       context: ./app/client
-    image: petropolis-client
+    image: dev-client
     volumes:
       - /app/node_modules
       - ./app/client:/app
-    container_name: petropolis-client
-    ports:
-      - "3000:80"
-    networks:
-      proxy:
+    container_name: dev-client
 
   geoserver:
     image: oscarfonts/geoserver:2.17.0
@@ -67,29 +20,21 @@ services:
       - ./app/geoserver/web.xml:/usr/local/geoserver/WEB-INF/web.xml
     env_file:
       - ./app/config/docker-env/geoserver.env
-    container_name: petropolis-geoserver
+    container_name: dev-geoserver
     restart: on-failure
     depends_on:
       - db
-    ports:
-      - "8080:8080"
-    networks:
-      proxy:
 
   tileserver:
     image: maptiler/tileserver-gl
     volumes:
       - ./app/tileserver-gl:/data
-    container_name: petropolis-tileserver
+    container_name: dev-tileserver
     restart: on-failure
-    ports:
-      - "8081:80"
-    networks:
-      proxy:
 
   db:
     image: kartoza/postgis:12.1
-    container_name: petropolis-database
+    container_name: dev-database
     restart: on-failure
     volumes:
       # we are mounting a named volume here instead of a data directory path because of
@@ -100,10 +45,6 @@ services:
       - ./app/config:/opt/config
     env_file:
       - ./app/config/docker-env/db.env
-    ports:
-      - "65432:5432"
-    networks:
-      proxy:
 
   api:
     build:
@@ -112,20 +53,16 @@ services:
       - /app/node_modules
       - ./app/api:/app
       - ./app/api/config:/app/config
-    container_name: petropolis-api
+    container_name: dev-api
     env_file:
       - ./app/config/docker-env/cron.env
       - ./app/config/docker-env/api.env
-    ports:
-      - "4000:3000"
-    networks:
-      proxy:
 
 #-----WORDPRESS-----#
 
   # wp:
   #   image: wordpress:latest # https://hub.docker.com/_/wordpress/
-  #   container_name: petropolis-wp
+  #   container_name: dev-wp
   #   ports:
   #     - 5000:80 # change ip if required
   #   volumes:
@@ -142,7 +79,7 @@ services:
 
   # wpcli:
   #   image: wordpress:cli
-  #   container_name: petropolis-wpcli
+  #   container_name: dev-wpcli
   #   volumes:
   #     - ./app/config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
   #     - ./app/wp/wp-app:/var/www/html
@@ -154,7 +91,7 @@ services:
   
   # wppma:
   #   image: phpmyadmin/phpmyadmin
-  #   container_name: petropolis-wppma
+  #   container_name: dev-wppma
   #   env_file:
   #     - ./app/config/docker-env/wp.env
   #   ports:
@@ -164,7 +101,7 @@ services:
 
   # wpdb:
   #   image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
-  #   container_name: petropolis-wpdb
+  #   container_name: dev-wpdb
   #   env_file:
   #     - ./app/config/docker-env/wp.env
   #   ports:
@@ -185,16 +122,14 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./app/cron
-    image: petropolis-cron
+    image: dev-cron
     volumes:
       - ./app/cron/scripts:/opt/scripts
       - ./app/geoserver:/mnt/geoserver_data
-    container_name: petropolis-cron
+    container_name: dev-cron
     env_file:
       - ./app/config/docker-env/db.env
       - ./app/config/docker-env/cron.env
-    networks:
-      proxy:
 
 #-----WIKI-----#
 
@@ -204,9 +139,18 @@ services:
   #     - db
   #   env_file:
   #     - ./app/config/docker-env/wiki.env
-  #   container_name: petropolis-wiki
+  #   container_name: dev-wiki
   #   restart: unless-stopped
   #   ports:
   #     - 10500:3000
   #   networks:
   #     proxy:
+
+networks:
+   default:
+      external:
+         name: app-net
+
+volumes:
+  postgres_data:
+  # wpdb_data:
