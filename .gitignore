@@ -13,5 +13,8 @@ dist
 /app/wp/wp-data
 /app/config/docker-env
 /app/geoserver/*
+/app/tileserver-gl/mbtiles/*
+/app/tileserver-gl/styles/*
+/app/tileserver-gl/config.json
 /app/api/.env
 /app/config/api/*
