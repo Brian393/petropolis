@@ -720,7 +720,7 @@
         "displayInLegend": true,
         "legendDisplayName": "Fracking Wells",
         "format": "MVT",
-        "visible": true,
+        "visible": false,
         "zIndex": 0,
         "minResolution": 1,
         "maxResolution": 1222.99,
