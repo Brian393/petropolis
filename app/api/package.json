@@ -10,7 +10,7 @@
     "reset": "node_modules/.bin/sequelize db:migrate:undo:all"
   },
   "dependencies": {
-    "aws-sdk": "^2.756.0",
+    "aws-sdk": "^2.814.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
