@@ -15,7 +15,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@koumoul/vjsf": "^1.12.2",
-    "axios": "^0.19.2",
+    "axios": "^1.6.0",
     "colormap": "^2.3.0",
     "core-js": "^3.6.4",
     "jQuery": "^1.7.4",
